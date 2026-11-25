@@ -12,11 +12,12 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
-from typing import ClassVar
+from typing import ClassVar, Literal
 
 from offrecord.model import Field, Span
 from offrecord.normalize.fields import Window
 from offrecord.redact.config import Config
+from offrecord.redact.detectors.business import SENTENCE_RE
 from offrecord.redact.wordlists import FUNCTION_WORDS, is_common, proper_names
 
 GLINER_LABELS = {
@@ -30,7 +31,6 @@ GLINER_LABELS = {
     "project codename": "CODENAME",
 }
 TOKEN_LABELS = {"PER": "PERSON", "ORG": "ORG", "LOC": "LOCATION", "MISC": "NAME"}
-SENTENCE_RE = re.compile(r"(?:[^.!?\n]|\.(?=\d))+(?:[.!?]+|$)")
 WORD_RE = re.compile(r"[^\W\d_]+(?:'[^\W\d_]+)?")
 CUE_RE = re.compile(
     r"(?i)\b(?:named|called|mr|mrs|ms|dr|client|customer|vendor|partner|company|team|project|"
@@ -72,6 +72,7 @@ TOPIC_SEEDS = (
     "We plan to raise prices across the board in January.",
     "Our real floor on the discount is much lower than what we quoted.",
 )
+TOPIC_WINDOW = 30  # words
 TOPIC_SIMILARITY = 0.40  # tuning-hw TOPIC 60 -> 71%, precision -3.6 points
 
 
@@ -139,7 +140,9 @@ def load_embedder(threads: int = 1):
             )
         from offrecord.models.embed import Embedder
 
-        _MODEL_CACHE[key] = Embedder(model_path(EMBED_MODEL), threads)
+        emb = Embedder(model_path(EMBED_MODEL), threads)
+        emb.seeds = emb.embed(list(TOPIC_SEEDS))  # type: ignore[attr-defined]
+        _MODEL_CACHE[key] = emb
     return _MODEL_CACHE[key]
 
 
@@ -154,8 +157,13 @@ class NerDetector:
         self.threshold = config.ner_threshold
         self.gated = 0
         self.skipped = 0
-        self.embedder = load_embedder(config.model_threads)
-        self.seeds = self.embedder.embed(list(TOPIC_SEEDS)) if self.embedder else None
+        # Topic matching by meaning follows the topic settings: off with topics.mode off or
+        # detect.business false, review flags only with topics.mode flag.
+        self.topic_action: Literal["redact", "flag"] = (
+            "flag" if config.topic_mode == "flag" else "redact"
+        )
+        on = config.detect_business and config.topic_mode != "off"
+        self.embedder = load_embedder(config.model_threads) if on else None
 
     def detect(self, window: Window) -> Iterator[Span]:
         for f in window.fields:
@@ -189,13 +197,27 @@ class NerDetector:
                                f"ner:{name}")  # fmt: skip
 
     def _topics(self, f: Field, text: str) -> Iterator[Span]:
-        if self.embedder is None or self.seeds is None:
+        if self.embedder is None:
             return
-        sents = [m for m in SENTENCE_RE.finditer(text) if len(WORD_RE.findall(m.group())) >= 4]
+        # Long run-on sentences (common in ASR) are embedded in overlapping word windows, so
+        # one sensitive clause is not averaged away; any window that matches flags the sentence.
+        sents, pieces, owner = [], [], []
+        for m in SENTENCE_RE.finditer(text):
+            words = WORD_RE.findall(m.group())
+            if len(words) < 4:
+                continue
+            sents.append(m)
+            for start in range(0, max(1, len(words) - TOPIC_WINDOW // 3), TOPIC_WINDOW * 2 // 3):
+                pieces.append(" ".join(words[start : start + TOPIC_WINDOW]))
+                owner.append(len(sents) - 1)
         if not sents:
             return
-        sims = (self.embedder.embed([m.group() for m in sents]) @ self.seeds.T).max(axis=1)
-        for m, sim in zip(sents, sims, strict=True):
+        sims = (self.embedder.embed(pieces) @ self.embedder.seeds.T).max(axis=1)
+        best = [0.0] * len(sents)
+        for k, sim in zip(owner, sims, strict=True):
+            best[k] = max(best[k], float(sim))
+        for m, sim in zip(sents, best, strict=True):
             if sim >= TOPIC_SIMILARITY:
                 s = m.start() + len(m.group()) - len(m.group().lstrip())
-                yield Span(f.id, s, m.end(), "TOPIC", "ner.topic", 0.5, None, "topic:similar")
+                yield Span(f.id, s, m.end(), "TOPIC", "ner.topic", 0.5, None, "topic:similar",
+                           action=self.topic_action)  # fmt: skip
