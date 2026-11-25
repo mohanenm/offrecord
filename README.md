@@ -121,11 +121,11 @@ but none of it is real speech. `docs/eval-format.md` describes each set. In shor
 - tuning and tuning-hw: the detectors were tuned on these;
 - held-out (now called validation): written blind and frozen, but looked at often enough
   during development that it is no longer a blind test;
-- user: eight hand-written transcripts in `eval/user_set/`, never tuned on, standing in until
+- user: eight agent-written transcripts in `eval/user_set/`, never tuned on, standing in until
   you add transcripts in your own phrasing.
 
 Baselines on the same data: plain regexes 6.4% held-out recall; Microsoft Presidio with its
-defaults 37.2% (its email/URL recognisers reject our reserved test domains, so those two
+defaults 37.2% (its email/URL recognisers reject the reserved test domains used here, so those two
 categories understate it).
 
 Recall is strict: a label counts only if every letter and digit in it is redacted. Each speaker
@@ -171,7 +171,8 @@ and use the review flags.
 ## Privacy
 
 - Nothing leaves the machine at run time: no telemetry, no update checks, no downloads.
-  Every command except `setup` blocks network access and child processes, and fails if anything
+  Every command except `setup` blocks network access and child processes (except the clipboard
+  helper for `paste`/`unpaste`), and fails if anything
   tries.
 - Transcript text is never logged or echoed; errors give positions and categories only.
 - Your deny-list config is sensitive (it names clients and codenames): it is never echoed.

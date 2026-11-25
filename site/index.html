@@ -110,7 +110,6 @@ pre { background: var(--code-bg); border: 1px solid var(--border); border-radius
 .steps h3 { margin: 0 0 .35rem; font: 600 1rem var(--mono); }
 .steps p { margin: 0; color: var(--muted); font-size: .93rem; }
 
-
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 table { width: 100%; border-collapse: collapse; font-size: .94rem; }
 th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -182,7 +181,7 @@ footer p { margin: 0; }
     <h1>offrecord</h1>
     <p class="pitch">Redact meeting transcripts before they reach an LLM. Fully offline.</p>
     <ul class="points">
-      <li><strong>Offline, always</strong><span>No telemetry, no update checks, no downloads at run time. Every command except <code>setup</code> blocks network access.</span></li>
+      <li><strong>Offline</strong><span>No telemetry, no update checks, no downloads at run time. Every command except <code>setup</code> blocks network access.</span></li>
       <li><strong>Reversible</strong><span>Placeholders like <code>&lt;P1&gt;</code> map back to the originals through an encrypted mapping, so you can restore an LLM&rsquo;s answer on your machine.</span></li>
       <li><strong>Modest hardware</strong><span>The rules-only tier needs Python 3.10+ and 2&nbsp;GB of RAM: Raspberry Pi 4 class. No GPU, no models required.</span></li>
     </ul>
@@ -239,7 +238,7 @@ B: Yes, <span class="ph">&lt;N4&gt;</span> runs finance now.</pre>
   <section id="how" aria-labelledby="how-h">
     <div class="wrap">
       <h2 id="how-h">How it works</h2>
-      <p class="lead">One pipeline, four stages. Every normalised character maps back to the original, so redactions land in the right place.</p>
+      <p class="lead">Every normalised character maps back to the original, so redactions land in the right place.</p>
       <ol class="steps">
         <li><h3>normalize</h3><p>Plain text, WebVTT, SRT and Whisper-style JSON become one turn model. Spoken forms become canonical: &ldquo;john at example dot com&rdquo; &rarr; an email, &ldquo;five five five&hellip;&rdquo; &rarr; digits.</p></li>
         <li><h3>redact</h3><p>Regex + validators (email, phone, card with Luhn, IP, URL, dates&hellip;), your deny-list with fuzzy and phonetic matching, business context (amounts, percentages, codenames, sensitive topics) and name heuristics. Optional NER and LLM tiers only ever add redactions.</p></li>
@@ -338,9 +337,9 @@ offrecord restore answer.txt --assume-mapping \
       <h2 id="privacy-h">Privacy</h2>
       <div class="grid2">
         <div>
-          <h3>Promises</h3>
+          <h3>What stays on your machine</h3>
           <ul class="ticks">
-            <li><strong>Nothing leaves the machine at run time</strong>: no telemetry, no update checks, no downloads. Every command except <code>setup</code> blocks network access and child processes, and fails if anything tries.</li>
+            <li><strong>Nothing leaves the machine at run time</strong>: no telemetry, no update checks, no downloads. Every command except <code>setup</code> blocks network access and child processes (the clipboard commands may start the clipboard helper), and fails if anything tries.</li>
             <li>Transcript text is never logged or echoed; errors give positions and categories only.</li>
             <li>Your deny-list config is treated as sensitive (it names clients and codenames) and is never echoed.</li>
             <li>Every file offrecord writes is owner-only; outputs are atomic and never overwritten without <code>--force</code>.</li>
