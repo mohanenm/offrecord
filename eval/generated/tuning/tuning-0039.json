@@ -1,0 +1,80 @@
+[
+  {
+    "speaker": "oskar abernathy",
+    "start": 0.0,
+    "end": 3.2,
+    "text": "morning. quick um, standup. orla?"
+  },
+  {
+    "speaker": "orla uchenna",
+    "start": 3.4,
+    "end": 10.2,
+    "text": "yeah so, i, um, um, i finished the pallasite migration. the staging box is 192.0.2.198."
+  },
+  {
+    "speaker": "oskar abernathy",
+    "start": 10.4,
+    "end": 11.733,
+    "text": "nice."
+  },
+  {
+    "speaker": "orla galloway",
+    "start": 11.933,
+    "end": 19.2,
+    "text": "i'm still chasing the alert from 203.0.113.5. it's the hollowmere bank tenant you know, again."
+  },
+  {
+    "speaker": "oskar abernathy",
+    "start": 19.4,
+    "end": 23.0,
+    "text": "is that the one lorcan oduya escalated?"
+  },
+  {
+    "speaker": "orla galloway",
+    "start": 23.2,
+    "end": 26.867,
+    "text": "yeah, lorcan pinged me at like midnight."
+  },
+  {
+    "speaker": "orla uchenna",
+    "start": 27.067,
+    "end": 32.0,
+    "text": "their admin is greer@tessaline.example, i can loop them in."
+  },
+  {
+    "speaker": "oskar abernathy",
+    "start": 32.2,
+    "end": 36.333,
+    "text": "okay. also the bluefin demo moved to august 21."
+  },
+  {
+    "speaker": "orla galloway",
+    "start": 36.533,
+    "end": 37.933,
+    "text": "right."
+  },
+  {
+    "speaker": "orla uchenna",
+    "start": 38.133,
+    "end": 41.933,
+    "text": "docs are at https://corvanta.test/pricing."
+  },
+  {
+    "speaker": "oskar abernathy",
+    "start": 42.133,
+    "end": 44.867,
+    "text": "thanks. anything blocking?"
+  },
+  {
+    "speaker": "orla galloway",
+    "start": 45.067,
+    "end": 46.4,
+    "text": "nope."
+  },
+  {
+    "speaker": "orla uchenna",
+    "start": 46.6,
+    "end": 47.933,
+    "text": "nope."
+  }
+]

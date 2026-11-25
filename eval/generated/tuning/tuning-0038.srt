@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,133
+Tobias Jablonski: Can everyone hear me? Great, let's get started.
+
+2
+00:00:04,333 --> 00:00:05,600
+Lorcan Underhill: Yep.
+
+3
+00:00:05,800 --> 00:00:07,267
+Emeka Trevelyan: Mm-hmm.
+
+4
+00:00:07,467 --> 00:00:12,133
+Tobias Jablonski: So Q3. Revenue came in at $5.4M, margin was 24 percent.
+
+5
+00:00:12,333 --> 00:00:17,800
+Emeka Trevelyan: Right, and gross margin on Skyquill was 2.5 percent, which is down.
+
+6
+00:00:18,000 --> 00:00:23,400
+Lorcan Underhill: The Vellichor Media deal slipped, that's $2.3 million of bookings.
+
+7
+00:00:23,600 --> 00:00:25,600
+Tobias Jablonski: Okay. Pipeline?
+
+8
+00:00:25,800 --> 00:00:31,133
+Lorcan Underhill: Pipeline is around 88 million dollars with 49 open opportunities.
+
+9
+00:00:31,333 --> 00:00:35,667
+Emeka Trevelyan: Churn is 38 percent, mostly in the Lowmoor region.
+
+10
+00:00:35,867 --> 00:00:41,933
+Tobias Jablonski: We need to plan for a hiring freeze and possibly a reduction in force in Q1.
+
+11
+00:00:42,133 --> 00:00:43,867
+Lorcan Underhill: Understood.
+
+12
+00:00:44,067 --> 00:00:50,200
+Tobias Jablonski: Also Project Nightjar is still confidential, do not mention it to Thornquist.
+
+13
+00:00:50,400 --> 00:00:56,133
+Emeka Trevelyan: Got it. I'll update the model with 1,516 stores for the Harbor rollout.
+
+14
+00:00:56,333 --> 00:01:02,267
+Lorcan Underhill: Are we still counting the harbor display in the lobby as a marketing cost?
+
+15
+00:01:02,467 --> 00:01:05,800
+Tobias Jablonski: Ha, yes. Okay, next week same time.

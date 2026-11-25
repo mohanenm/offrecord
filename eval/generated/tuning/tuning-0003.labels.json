@@ -1,0 +1,248 @@
+{
+ "id": "tuning-0003",
+ "template": "t04-standup",
+ "domain": "internal",
+ "casing": "mixed",
+ "seed": 1234,
+ "set": "tuning",
+ "generic_speakers": false,
+ "format": "json",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "speaker",
+   "start": 0,
+   "end": 14,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 24,
+   "end": 31,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 40,
+   "end": 45,
+   "category": "PRODUCT",
+   "entity": "product#1",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 86,
+   "end": 99,
+   "category": "IP",
+   "entity": "ip#auto4",
+   "form": "written"
+  },
+  {
+   "turn": 2,
+   "field": "speaker",
+   "start": 0,
+   "end": 14,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 33,
+   "end": 47,
+   "category": "IP",
+   "entity": "ip#2",
+   "form": "written"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 58,
+   "end": 76,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "lower",
+   "known": false
+  },
+  {
+   "turn": 4,
+   "field": "speaker",
+   "start": 0,
+   "end": 14,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 16,
+   "end": 28,
+   "category": "PERSON",
+   "entity": "person#4",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 5,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 6,
+   "end": 12,
+   "category": "PERSON",
+   "entity": "person#4",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 6,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 15,
+   "end": 44,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "speaker",
+   "start": 0,
+   "end": 14,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 15,
+   "end": 23,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 38,
+   "end": 52,
+   "category": "DATE",
+   "entity": "date#auto10",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 9,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 12,
+   "end": 55,
+   "category": "URL",
+   "entity": "url#1",
+   "form": "written"
+  },
+  {
+   "turn": 10,
+   "field": "speaker",
+   "start": 0,
+   "end": 14,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 11,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 12,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  }
+ ],
+ "negatives": []
+}

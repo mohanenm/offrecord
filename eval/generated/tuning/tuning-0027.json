@@ -1,0 +1,80 @@
+[
+  {
+    "speaker": "Tavita Castellano",
+    "start": 0.0,
+    "end": 3.067,
+    "text": "Morning. Quick standup. Elodie?"
+  },
+  {
+    "speaker": "Elodie Ashcombe",
+    "start": 3.267,
+    "end": 9.933,
+    "text": "Yeah so, I, um, I finished the Pallasite migration. The staging box is 198.51.100.58."
+  },
+  {
+    "speaker": "Tavita Castellano",
+    "start": 10.133,
+    "end": 11.467,
+    "text": "Nice."
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 11.667,
+    "end": 18.467,
+    "text": "I'm still chasing the alert from 198.51.100.237. It's the hollowmere bank tenant again."
+  },
+  {
+    "speaker": "Tavita Castellano",
+    "start": 18.667,
+    "end": 22.267,
+    "text": "Is that the one Orla Quigley escalated?"
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 22.467,
+    "end": 26.4,
+    "text": "Yeah, Orla pinged me like, at like midnight."
+  },
+  {
+    "speaker": "Elodie Ashcombe",
+    "start": 26.6,
+    "end": 32.4,
+    "text": "Their admin is casimir_okafor@corvanta.test, I I mean, can loop them in."
+  },
+  {
+    "speaker": "Tavita Castellano",
+    "start": 32.6,
+    "end": 37.8,
+    "text": "Okay. you know, Also the Larkspur demo moved to March 16, 2026."
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 38.0,
+    "end": 39.4,
+    "text": "Right."
+  },
+  {
+    "speaker": "Elodie Ashcombe",
+    "start": 39.6,
+    "end": 44.467,
+    "text": "Docs are at https://quillfeather.example/account/settings."
+  },
+  {
+    "speaker": "Tavita Castellano",
+    "start": 44.667,
+    "end": 47.4,
+    "text": "Thanks. Anything blocking?"
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 47.6,
+    "end": 48.933,
+    "text": "Nope."
+  },
+  {
+    "speaker": "Elodie Ashcombe",
+    "start": 49.133,
+    "end": 50.467,
+    "text": "Nope."
+  }
+]

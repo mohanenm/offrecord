@@ -1,0 +1,171 @@
+{
+ "id": "heldout-0053",
+ "template": "ho-support-identity-02",
+ "domain": "support",
+ "casing": "mixed",
+ "seed": 987654,
+ "set": "heldout",
+ "generic_speakers": true,
+ "format": "vtt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 64,
+   "end": 69,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 14,
+   "end": 32,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 23,
+   "end": 33,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 11,
+   "end": 28,
+   "category": "SSN",
+   "entity": "ssn#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 0,
+   "end": 25,
+   "category": "SSN",
+   "entity": "ssn#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 39,
+   "end": 47,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "written"
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 0,
+   "end": 59,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "corrected"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 68,
+   "end": 79,
+   "category": "IP",
+   "entity": "ip#1",
+   "form": "written"
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 12,
+   "end": 26,
+   "category": "PERSON",
+   "entity": "person#3",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 32,
+   "end": 43,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "last",
+   "known": false
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 72,
+   "end": 89,
+   "category": "PERSON",
+   "entity": "person#4",
+   "form": "asr",
+   "known": true
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 93,
+   "end": 110,
+   "category": "DATE",
+   "entity": "date#1",
+   "form": "written"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 16,
+   "end": 22,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 84,
+   "end": 169,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 61,
+   "end": 79,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 33,
+   "end": 68,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 44,
+   "end": 90,
+   "category": "URL",
+   "entity": "url#1",
+   "form": "written"
+  }
+ ],
+ "negatives": []
+}

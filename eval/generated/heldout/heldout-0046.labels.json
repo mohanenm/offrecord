@@ -1,0 +1,220 @@
+{
+ "id": "heldout-0046",
+ "template": "ho-internal-planning-01",
+ "domain": "internal",
+ "casing": "lower",
+ "seed": 987654,
+ "set": "heldout",
+ "generic_speakers": true,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 30,
+   "end": 35,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 53,
+   "end": 58,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 33,
+   "end": 50,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 87,
+   "end": 97,
+   "category": "DATE",
+   "entity": "date#1",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 8,
+   "end": 13,
+   "category": "QUANTITY",
+   "entity": "quantity#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 58,
+   "end": 66,
+   "category": "CODENAME",
+   "entity": "codename#2",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 30,
+   "end": 48,
+   "category": "CODENAME",
+   "entity": "codename#2",
+   "form": "lower",
+   "known": true
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 22,
+   "end": 31,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 33,
+   "end": 128,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 44,
+   "end": 61,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 14,
+   "field": "text",
+   "start": 14,
+   "end": 109,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 14,
+   "end": 32,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 94,
+   "end": 98,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 44,
+   "end": 61,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "lower",
+   "known": true
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 13,
+   "end": 33,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "spoken"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 36,
+   "end": 46,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 51,
+   "end": 61,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 27,
+   "field": "text",
+   "start": 6,
+   "end": 16,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 27,
+   "field": "text",
+   "start": 38,
+   "end": 46,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 29,
+   "field": "text",
+   "start": 43,
+   "end": 52,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "asr",
+   "known": true
+  },
+  {
+   "turn": 30,
+   "field": "text",
+   "start": 31,
+   "end": 45,
+   "category": "PERSON",
+   "entity": "person#3",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 30,
+   "field": "text",
+   "start": 118,
+   "end": 126,
+   "category": "DATE",
+   "entity": "date#2",
+   "form": "written"
+  }
+ ],
+ "negatives": []
+}

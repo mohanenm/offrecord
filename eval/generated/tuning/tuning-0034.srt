@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,067
+Lucia Trevelyan: Meadow support, how can I help?
+
+2
+00:00:03,267 --> 00:00:07,867
+Wendell Venkatesh: Hi, this is Wendell from the Port Ellery Meadow store.
+
+3
+00:00:08,067 --> 00:00:10,400
+Lucia Trevelyan: Hi! What's going on?
+
+4
+00:00:10,600 --> 00:00:15,133
+Wendell Venkatesh: The POS keeps rejecting cards, like 5105105105105100.
+
+5
+00:00:15,333 --> 00:00:18,400
+Lucia Trevelyan: Okay, what's your store number?
+
+6
+00:00:18,600 --> 00:00:20,467
+Wendell Venkatesh: Store 045006.
+
+7
+00:00:20,667 --> 00:00:24,000
+Lucia Trevelyan: Thanks. And is it all 23 registers?
+
+8
+00:00:24,200 --> 00:00:30,133
+Wendell Venkatesh: Yeah, all of them. We lost maybe 46 million dollars in sales this morning.
+
+9
+00:00:30,333 --> 00:00:33,600
+Lucia Trevelyan: Oof. I'll open order PO-084261344.
+
+10
+00:00:33,800 --> 00:00:41,533
+Wendell Venkatesh: Thanks. Oh, and um, the meadow out front is blocking the delivery bay again, not your problem though.
+
+11
+00:00:41,733 --> 00:00:47,400
+Lucia Trevelyan: Ha, no. Call back on five five five oh one three eight if it persists.

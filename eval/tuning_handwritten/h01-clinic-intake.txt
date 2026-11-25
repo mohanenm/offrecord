@@ -1,0 +1,60 @@
+[00:00:02] Front Desk: Good morning, [[ORG:Larchmere Family Health]], this is [[PERSON#p1:Tamsin]] speaking, how can I help?
+[00:00:06] Caller: Hi, yeah, I need to register as a new patient and book something with [[PERSON#p2:Dr. Okonkwo-Reyes]] if she's taking people.
+[00:00:12] Front Desk: She is, yes. Can I get your full name to start?
+[00:00:15] Caller: It's [[PERSON#p3:Wendell]], W-E-N-D-E-L-L, last name [[PERSON#p3:Faircloth]].
+[00:00:21] Front Desk: [[PERSON#p3:Faircloth]], is that [[PERSON#p3:F as in foxtrot, A, I, R]]?
+[00:00:25] Caller: Yep, [[PERSON#p3:F-A-I-R-C-L-O-T-H]].
+[00:00:29] Front Desk: Lovely. And your date of birth, Mr. [[PERSON#p3:Faircloth]]?
+[00:00:32] Caller: [[DATE:Eleventh of February, nineteen seventy-nine]].
+[00:00:36] Front Desk: So [[DATE:02/11/1979]]?
+[00:00:38] Caller: Yeah, [[DATE:February, the eleventh]]. Not November. People always flip it.
+[00:00:42] Front Desk: Got it, I'll [[NEG:mark]] it month first. Do you have insurance with you?
+[00:00:46] Caller: I do, it's [[ORG#o1:Ridgeback Mutual]]. Member ID is, hang on, [[ACCOUNT#a1:R B M]]
+[00:00:51] Caller: sorry, it's [[ACCOUNT#a1:RBM four four oh nine two seven one]].
+[00:00:55] Front Desk: [[ACCOUNT#a1:R B M four four zero nine two seven one]]?
+[00:00:58] Caller: That's right. And the group number is [[ACCOUNT:G-7713]].
+[00:01:02] Front Desk: Thank you. Is there a phone number that's best for you?
+[00:01:05] Caller: My cell, [[PHONE:five five five, oh one four two]], no wait, that's my work one. Cell is [[PHONE:555-0187]].
+[00:01:13] Front Desk: Okay, I'll put [[PHONE:555-0187]] as primary. With an area code?
+[00:01:16] Caller: [[PHONE:Six one seven]]. Actually just put the work one too, it's [[PHONE:(617) 555-0142 extension 31]].
+[00:01:23] Front Desk: Noted. And an email for the portal?
+[00:01:26] Caller: It's [[EMAIL#e1:wendell dot f underscore seventy-nine at mailbox dot example]].
+[00:01:32] Front Desk: Let me read it back. [[EMAIL#e1:wendell.f_79@mailbox.example]]?
+[00:01:37] Caller: Perfect.
+[00:01:38] Front Desk: Home address?
+[00:01:40] Caller: [[LOCATION:2218 Cobbler Lane, Apartment 4B, Easthaven]].
+[00:01:45] Front Desk: And the zip?
+[00:01:47] Caller: [[LOCATION:oh two one nine nine]].
+[00:01:50] Front Desk: Okay. And what is the reason for the visit today, roughly? You don't have to go into detail.
+[00:01:55] Caller: [[TOPIC:So I was diagnosed with type two diabetes last spring and my old doctor retired, and my sugars have been all over the place since I started the new medication.]]
+[00:02:05] Front Desk: Understood, I'm sorry to hear that. Was that through another practice?
+[00:02:09] Caller: Yeah, [[PERSON#p4:Dr. Haldane]] at [[ORG:Pinecrest Medical Group]]. He referred me before he left.
+[00:02:14] Front Desk: Do you happen to have the referral number?
+[00:02:17] Caller: The letter says [[ACCOUNT:REF-2026-08814]].
+[00:02:21] Front Desk: Great. Do you know your old MRN from there? It helps us request records.
+[00:02:25] Caller: Medical record number is [[ACCOUNT:double zero three, four five six, eight eight]].
+[00:02:31] Front Desk: [[ACCOUNT:Zero zero three four five six eight eight]]. Thank you.
+[00:02:35] Caller: [[TOPIC:Also I should say I'm on a waitlist for a sleep study because they think I have apnea, in case that matters for the first appointment.]]
+[00:02:43] Front Desk: Good to know, I'll add it to the notes. Any allergies we should flag?
+[00:02:47] Caller: [[TOPIC:Penicillin, I break out in hives.]]
+[00:02:50] Front Desk: Okay. For the appointment, [[PERSON#p2:Dr. Okonkwo-Reyes]] has [[DATE:Thursday the 3rd of December]] at nine forty or [[DATE:December 8th]] in the afternoon.
+[00:02:58] Caller: [[DATE:The third]] works. No, sorry, I've got a thing that morning. [[DATE:The eighth]].
+[00:03:02] Front Desk: [[DATE:Tuesday, December 8]] at two fifteen then. It's a sixty minute new patient slot.
+[00:03:07] Caller: Sounds good. Is there a copay?
+[00:03:09] Front Desk: With [[ORG#o1:Ridgeback]] it's usually [[AMOUNT:forty dollars]] for specialist, [[AMOUNT:$25]] for primary care. Your plan shows a [[AMOUNT:$1,500]] deductible with [[AMOUNT:about nine hundred]] met so far.
+[00:03:19] Caller: Okay, and if they do bloodwork?
+[00:03:22] Front Desk: Lab is covered at [[PERCENT:eighty percent]] after deductible, so you'd owe [[PERCENT:twenty per cent]].
+[00:03:28] Caller: Fine. Can I [[NEG:bill]] it to my HSA card?
+[00:03:31] Front Desk: Sure, we'll take that at check-in. Is there anyone you want listed as an emergency contact?
+[00:03:36] Caller: My sister, [[PERSON#p5:Rosalind Faircloth-Mbeki]]. Her number is [[PHONE:555-0119]].
+[00:03:42] Front Desk: And her relationship to you is sister. Okay. Do you want her to have access to your records?
+[00:03:47] Caller: No, just emergencies. [[TOPIC:She doesn't know about the diabetes yet and I'd like to keep it that way.]]
+[00:03:52] Front Desk: Of course, that stays private. I'll [[NEG:mark]] her contact as emergency only.
+[00:03:56] Caller: Thanks. Do I need to bring anything?
+[00:03:59] Front Desk: Your card, a photo ID and a list of medications. Fill in the forms on [[URL:larchmerehealth.example/newpatient]] if you can, it saves about [[NEG:fifteen minutes]] in the waiting room.
+[00:04:08] Caller: Will do. And the forms ask for my old pharmacy, is that the one on [[LOCATION:Gilroy Street]]?
+[00:04:13] Front Desk: Whatever you use is fine. Last thing, your intake number for today is [[ACCOUNT:LFH-55102]], if you call back just give that.
+[00:04:20] Caller: [[ACCOUNT:L F H five five one oh two]].
+[00:04:23] Front Desk: That's it. We'll text a reminder [[NEG:two days]] before.
+[00:04:27] Caller: Brilliant, thanks [[PERSON#p1:Tamsin]].
+[00:04:29] Front Desk: You're welcome, have a good [[NEG:day]].

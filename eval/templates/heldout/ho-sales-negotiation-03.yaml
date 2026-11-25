@@ -1,0 +1,45 @@
+id: ho-sales-negotiation-03
+domain: sales
+speakers:
+  A: regional sales director at the vendor
+  B: deal desk analyst at the vendor
+  C: head of IT at the client
+  D: finance manager at the client
+turns:
+  - C: "Are we waiting on anyone?"
+  - A: "Just {person#1.first}. Oh, there she is."
+  - D: "Sorry, sorry. Back to back today."
+  - A: "No worries. Okay. Let's get into it."
+  - C: "Sure."
+  - A: "Where we landed last week: {quantity#1} licences of {product#1}, three-year term."
+  - D: "Two-year. We said two."
+  - A: "Two, sorry. Two-year."
+  - B: "At two years the list is {amount#1} annually."
+  - D: "Too high."
+  - B: "Okay."
+  - split:
+      speaker: D
+      slot: "amount#2.spoken"
+      before: "Our number is"
+      interrupt: { speaker: C, text: "and that's firm" }
+      after: "per year, support included."
+  - A: "That's a big gap."
+  - D: "It's what {client#1.alias} paid for the old system. Board won't approve more."
+  - B: "If we drop premium support we can get to maybe {percent#1} under list."
+  - C: "We need premium support. We had a four-day outage last year."
+  - A: "Right. Um. What if we phase it? Start with {quantity#2} seats in {location#1}, expand in Q3."
+  - D: "Possible."
+  - C: "Does the {product#1.lower} connector work with {brand#1.alias}? That's our HR system."
+  - B: "Yes. Native integration."
+  - C: "Okay."
+  - A: "Also, uh, {client#1.asr} would qualify for {codename#1.alias} -- that's our early adopter program -- which takes another chunk off."
+  - D: "How big a chunk?"
+  - B: "Roughly {percent#2.spoken}."
+  - D: "Send it over."
+  - A: "Will do. The pilot deposit, invoice or card?"
+  - D: "Card. I'll read it out: {card#1}. Expiry is on the form."
+  - B: "Got it. Thanks."
+  - A: "Contract by {date#1}?"
+  - D: "If the number's right."
+  - C: "Thanks all."
+  - A: "Thanks. Talk soon."

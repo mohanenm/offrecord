@@ -1,0 +1,77 @@
+# Hand-written tuning set
+
+Synthetic, hand-labelled call and meeting transcripts for tuning offrecord's detectors.
+Every name, company, product, number, address, email and URL is invented (emails and URLs use
+`.example`, `.test` or `.invalid`; phones use 555-01xx or fictional ranges; card numbers are
+made-up Luhn-valid numbers; SSNs use the invalid 9xx range).
+
+The set was written independently: the author had access only to the inline-markup section of
+`docs/eval-format.md` and to the plain-text adapter's speaker-line rules. No detector code, no
+other eval set, template or pool was read while writing it.
+
+Markup follows `docs/eval-format.md` section 2. `denylist.yaml` is a deliberately partial
+deny-list for this folder.
+
+## Files
+
+| File | Setting | Style |
+| --- | --- | --- |
+| `h01-clinic-intake.txt` | Clinic new-patient intake call | `[hh:mm:ss] Role:` labels |
+| `h02-dispatch-radio.txt` | Freight dispatch radio | First names, rapid short turns |
+| `h03-law-case-review.txt` | Law-firm case review, 4 people | Full names, long turns, blank lines |
+| `h04-school-parent-asr.txt` | School annual review with a parent | All lowercase, no punctuation, `speaker N` |
+| `h05-site-coordination-caps.txt` | Construction site coordination | ALL CAPS, initials as speakers |
+| `h06-nonprofit-grant-otter.txt` | Nonprofit grant and campaign prep | Otter-style header lines (`Name  0:04`) |
+| `h07-insurance-claim.txt` | Home insurance claim call | `Rep` / `Customer`, phonetic spelling |
+| `h08-bank-fraud.txt` | Credit-union fraud call | `mm:ss Role:` leading timestamps |
+| `h09-recruiting-interview.txt` | Job interview, 2 interviewers | `Interviewer N` / `Interviewee` |
+| `h10-real-estate-negotiation.txt` | Agents and buyer negotiating | `Name (hh:mm:ss):` labels |
+| `h11-supplier-call.txt` | Manufacturing supplier call (EUR/GBP) | `Name [mm:ss]:` labels, day-first dates |
+| `h12-permit-office.txt` | Municipal permit counter | `Clerk` plus named applicant |
+| `h13-podcast-interview.txt` | Podcast interview with a founder | `Host` / `Guest`, long rambling turns |
+| `h14-investor-update.txt` | Quarterly investor update, 6 people | First name plus initial |
+| `h15-franchise-ops.txt` | Franchise regional ops review | `hh:mm Name:` wall-clock timestamps |
+| `h16-hotel-events-booking.txt` | UK hotel wedding booking | `SPEAKER_00` diarization labels |
+| `h17-helpdesk-reset.txt` | IT helpdesk password reset | `spk_N`, lowercase ASR |
+| `h18-trial-ops-sync.txt` | Clinical-trial ops sync | `[hh:mm:ss] Name:` |
+| `h19-store-huddle.txt` | Retail store managers' huddle, 6 people | lowercase first names, rapid turns |
+| `h20-founder-one-on-one.txt` | Two co-founders' 1:1 | `Speaker A` / `Speaker B`, long turns |
+| `denylist.yaml` | Partial deny-list | name / category / aliases |
+
+## Labelling judgment calls
+
+- **Every repeat is labelled.** Values read back for confirmation, spelled letter by letter
+  ("F as in foxtrot, A, I, R"), split across turns or self-corrected are each labelled, with a
+  shared `#id` when the surface form differs. In a self-correction both the wrong and the
+  corrected value are labelled.
+- **Relative dates.** Words that pin a specific calendar day of an event ("yesterday" for when a
+  demand letter arrived, "Friday" meaning the 27th, "the eighth", "the twenty-first") are DATE.
+  Durations and generic or recurring references ("two weeks", "next week", "every Tuesday",
+  "tastings run on Thursdays", "same time next week") are NEG or left unlabelled.
+- **Fiscal quarters, months, years.** "Q3", "Q1", bare years ("2019") and months or
+  part-months tied to an event ("June", "early December", "mid-January", "end of May") are DATE.
+- **Partial numbers.** Last four of a card is CARD, last four of a social is SSN, an area code
+  or extension alone is PHONE, the tail of an account or ID is ACCOUNT (linked by `#id` to the
+  full form when both appear).
+- **Secrets without their own category.** Temporary passwords, one-time codes, gate codes,
+  authorisation codes and bank routing numbers are labelled ACCOUNT.
+- **Identifiers.** Order, BOL, PRO, tracking, invoice, claim, case, policy, member, MRN,
+  employee, ticket, lot, kit, SKU, licence, parcel, protocol, trial site and subject numbers
+  are ACCOUNT. Small sequential change-order numbers were left unlabelled.
+- **Bare money.** Numbers that are clearly money in context but have no currency word ("six
+  eighty-five", "seven ten", "one ninety-five") are AMOUNT.
+- **Percent-like values.** Grade scores, basis points, "points", fractions such as "a third" or
+  "half" (when a share of something) and ranges are PERCENT.
+- **QUANTITY vs NEG.** Business measurements (headcount, stores, units, yards of concrete, axle
+  weight, defect ppm, radon reading, attendance days) are QUANTITY. Specs, thresholds and
+  generic counts ("spec is under five hundred", "action level is four", "limit two per
+  customer", "dock door eleven") are NEG.
+- **TOPIC spans** cover the whole sentence and do not nest, so names, amounts or dates inside
+  a TOPIC sentence are covered only by the TOPIC label.
+- **ORG vs CLIENT.** Customers of the speaker's own company are CLIENT; insurers, banks,
+  vendors, CROs, funds, courts and the speaker's employer are ORG. A donor family is PERSON.
+  Store or site names used as places are LOCATION.
+- **Speaker labels** are labelled PERSON when they are names or initials; role labels
+  ("Agent", "Clerk", "SPEAKER_00") are not labelled.
+- **Public things** such as a public shopping holiday, weekdays used generically, common words
+  that double as names or brands ("mark", "hope", "grant", "summit", "bill", "press") are NEG.

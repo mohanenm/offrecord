@@ -1,0 +1,35 @@
+[[PERSON#ing:Ingrid Saelens]]: Okay, let's, let's go. Board is on [[DATE#bd:the eleventh]] and the deck is, frankly, not there.
+[[PERSON#ana:Ana Ruiz]]: It's, it's mostly there. The financials are placeholders.
+[[PERSON#ed:Ed Pryce]]: I'll have actuals by [[DATE:Friday]].
+[[PERSON#ing:Ingrid Saelens]]: Okay. Slide one. ARR. What are we saying?
+[[PERSON#ed:Ed Pryce]]: [[AMOUNT:Thirty eight point six million]] ARR, up [[PERCENT:twenty two percent]] year on year. Net retention [[PERCENT:a hundred and eight]].
+[[PERSON#ing:Ingrid Saelens]]: And churn?
+[[PERSON#ed:Ed Pryce]]: Logo churn's at [[PERCENT:nine]]. Mostly small accounts. Except, um, [[CLIENT#pv:Pellridge Veterinary]].
+[[PERSON#marcus:Marcus Bell]]: [[CLIENT#pv:Pell ridge]] was the, the big one, right?
+[[PERSON#ed:Ed Pryce]]: [[AMOUNT:Nine hundred K]] a year. Gone.
+[[PERSON#ing:Ingrid Saelens]]: Ugh. Okay. Slide four. [[CODENAME#gw:Glasswing]].
+[[PERSON#marcus:Marcus Bell]]: So, um, for the board, [[TOPIC:we're recommending they approve a non-binding offer for Ostler Diagnostics at a hundred and ten million, mostly stock.]]
+[[PERSON#ana:Ana Ruiz]]: Do we call it [[CODENAME#gw:Project Glasswing]] in the deck or say [[ORG#ost:Ostler]]?
+[[PERSON#marcus:Marcus Bell]]: [[CODENAME#gw:Glasswing]]. Always [[CODENAME#gw:Glasswing]]. Decks get forwarded.
+[[PERSON#ing:Ingrid Saelens]]: And [[PERSON#ver:Verity]] is going to ask about the, the lab.
+[[PERSON#marcus:Marcus Bell]]: The lab up in [[LOCATION:Cobbler's Reach]], yeah. [[ORG:Their only lab outside the state]] has an open inspection finding.
+[[PERSON#ed:Ed Pryce]]: Mm-hmm.
+[[PERSON#ing:Ingrid Saelens]]: Who's on the call? [[PERSON#ver:Verity Lang]], [[PERSON:Osei Brandt]], [[PERSON:Will Fairbanks]]...
+[[PERSON#ana:Ana Ruiz]]: And the new observer from [[ORG:Greyheron Capital]], [[PERSON:Saoirse]] something.
+[[PERSON#ing:Ingrid Saelens]]: [[PERSON#ver:Verity]] will [[NEG:mark]] up every slide, she always does.
+[[PERSON#ana:Ana Ruiz]]: [[NEG:Will]] the data room be ready? I need to send the link out.
+[[PERSON#marcus:Marcus Bell]]: Yeah, it's [[URL:https://dataroom.glasswing.invalid/board-q4]]. Password goes separately, by text.
+[[PERSON#ed:Ed Pryce]]: And slide seven, the plan. [[TOPIC:We're proposing a hiring freeze and closing the Dunhallow office, about forty roles.]]
+[[PERSON#ing:Ingrid Saelens]]: [[QUANTITY#roles:Forty-two]].
+[[PERSON#ed:Ed Pryce]]: [[QUANTITY#roles:Forty-two]] roles, sorry.
+[[PERSON#marcus:Marcus Bell]]: Do we name the office in the deck, or --
+[[PERSON#ing:Ingrid Saelens]]: No. "A regional office."
+[[PERSON#ana:Ana Ruiz]]: Okay. And the, um, the [[BRAND#th:Thistle]] dashboard, do we embed it or screenshot it?
+[[PERSON#ed:Ed Pryce]]: Screenshot. [[BRAND#th:Thistle]] breaks every time someone opens it on a tablet.
+[[PERSON#ing:Ingrid Saelens]]: Ha, like a [[NEG:thistle]] in your sock. Okay.
+[[PERSON#ed:Ed Pryce]]: Also the bridge loan. [[AMOUNT:Fifteen million]] at [[PERCENT:nine and a quarter]], from [[ORG:Corbel Trust]].
+[[PERSON#ing:Ingrid Saelens]]: Fine. Board dinner is at, um, where is it?
+[[PERSON#ana:Ana Ruiz]]: [[LOCATION:The Gannet Room, 9 Wharf Street]]. Seven thirty.
+[[PERSON#ing:Ingrid Saelens]]: Okay. [[PERSON#ana:Ana]], send the pre-read [[DATE#pre:the fourth]], not later.
+[[PERSON#ana:Ana Ruiz]]: [[DATE#pre:December fourth]], yep.
+[[PERSON#ing:Ingrid Saelens]]: Great. Done.

@@ -1,0 +1,17 @@
+id: t10-internal-hr
+domain: internal
+speakers: {A: HR business partner, B: department head}
+turns:
+  - A: "Hi, thanks for making time. Can you hear me?"
+  - B: "Yes, all good."
+  - A: "So, about {person#9}."
+  - B: "Right. {person#9.first} has been struggling since the move to {location}."
+  - A: "[[TOPIC: We're considering a performance improvement plan and possibly termination.]]"
+  - B: "Okay. Their salary is {amount}, right?"
+  - A: "Yes, plus a {percent} bonus target."
+  - B: "And {person#10} would backfill?"
+  - A: "Possibly. [[TOPIC: Don't mention the restructuring of the {codename#1.alias} team yet.]]"
+  - B: "Understood."
+  - A: "Send notes to {email#1}, not the shared inbox."
+  - B: "Will do. Have a good weekend."
+  - A: "You too."

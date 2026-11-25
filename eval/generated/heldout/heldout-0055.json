@@ -1,0 +1,188 @@
+[
+  {
+    "speaker": "SPEAKER 1",
+    "start": 0.0,
+    "end": 5.067,
+    "text": "HI, THANKS FOR CALLING, YOU'RE THROUGH TO RETURNS. I'M ANOUK."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 5.267,
+    "end": 11.6,
+    "text": "HI, HELLO? IS THIS -- SORRY, CAN YOU HEAR ME? THIS LINE'S BEEN TERRIBLE ALL DAY."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 11.8,
+    "end": 14.067,
+    "text": "I CAN HEAR YOU NOW."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 14.267,
+    "end": 22.267,
+    "text": "OKAY, GOOD. I'M CALLING ABOUT A RETURN. I ORDERED A JACKET FROM THE QUORVIX RANGE AND IT'S WAY TOO SMALL."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 22.467,
+    "end": 27.4,
+    "text": "OH NO. LET'S GET THAT SORTED. DO YOU HAVE THE ORDER NUMBER?"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 27.6,
+    "end": 30.267,
+    "text": "YES, IT'S, UM TWO ONE TWO"
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 30.467,
+    "end": 32.4,
+    "text": "TAKE YOUR TIME"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 32.6,
+    "end": 37.2,
+    "text": "TWO FIVE FIVE I THINK THAT'S RIGHT, IT'S ON THE EMAIL."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 37.4,
+    "end": 42.333,
+    "text": "PERFECT, FOUND IT. DELIVERED ON 12/27/2024 TO ORMSBY CROSS?"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 42.533,
+    "end": 44.533,
+    "text": "THAT'S THE ONE."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 44.733,
+    "end": 52.733,
+    "text": "I ALSO SEE AN OLDER ORDER ON THE ACCOUNT, ORD-11990380, BUT THAT'S OUTSIDE THE WINDOW, SO WE'LL LEAVE IT."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 52.933,
+    "end": 55.133,
+    "text": "YEAH, THAT'S FINE."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 55.333,
+    "end": 60.2,
+    "text": "SO FOR QUORVIX GO ITEMS WE CAN DO AN EXCHANGE OR A REFUND."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 60.4,
+    "end": 64.933,
+    "text": "REFUND, PLEASE. I'LL JUST ORDER A SIZE UP SEPARATELY."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 65.133,
+    "end": 71.667,
+    "text": "SURE. IT'LL GO BACK TO THE CARD YOU PAID WITH, WHICH I HAVE AS 3530 1113 3330 0000."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 71.867,
+    "end": 78.6,
+    "text": "UM, I ACTUALLY CANCELLED THAT CARD. CAN YOU USE THIS ONE INSTEAD? 4012 8888 8888 1881."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 78.8,
+    "end": 86.267,
+    "text": "REFUNDS HAVE TO GO TO THE ORIGINAL CARD, BUT YOUR BANK WILL FORWARD IT. OR I CAN DO STORE CREDIT."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 86.467,
+    "end": 89.6,
+    "text": "UGH. OKAY. STORE CREDIT IS FINE."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 89.8,
+    "end": 94.4,
+    "text": "OKAY, $2 MILLION IN STORE CREDIT. YOU'LL GET AN EMAIL."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 94.6,
+    "end": 103.133,
+    "text": "OH -- AND THE QUOR VICKS JACKET WAS MARKED DOWN ON YOUR SITE THE DAY AFTER I BOUGHT IT. CAN I GET THE DIFFERENCE?"
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 103.333,
+    "end": 111.133,
+    "text": "LET ME CHECK... YES, WE PRICE-MATCH WITHIN FOURTEEN DAYS. THAT'S AN EXTRA EIGHTY FIVE MILLION DOLLARS."
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 111.333,
+    "end": 113.667,
+    "text": "OH, NICE, THANK YOU."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 113.867,
+    "end": 119.867,
+    "text": "CAN I GET A PHONE NUMBER IN CASE THE COURIER NEEDS TO REACH YOU FOR PICKUP?"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 120.067,
+    "end": 123.667,
+    "text": "SURE, FIVE FIVE FIVE OH ONE FIVE THREE."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 123.867,
+    "end": 126.267,
+    "text": "AND IS THAT A MOBILE?"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 126.467,
+    "end": 130.867,
+    "text": "YES. OR MY PARTNER'S, 555-0135, IF I DON'T PICK UP."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 131.067,
+    "end": 136.467,
+    "text": "GOT IT. PICKUP CAN HAPPEN ANY DAY THIS WEEK. WILL SOMEONE BE HOME?"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 136.667,
+    "end": 144.333,
+    "text": "YEAH, I WORK FROM HOME. MY DAUGHTER PAINTED A BIG KETTLE ON THE PARCEL, SO THE DRIVER CAN'T MISS IT."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 144.533,
+    "end": 147.867,
+    "text": "HA, LOVE THAT. ANYTHING ELSE TODAY?"
+  },
+  {
+    "speaker": "SPEAKER 2",
+    "start": 148.067,
+    "end": 152.333,
+    "text": "NO, THAT'S EVERYTHING. THANKS FOR BEING SO QUICK."
+  },
+  {
+    "speaker": "SPEAKER 1",
+    "start": 152.533,
+    "end": 155.867,
+    "text": "MY PLEASURE. HAVE A LOVELY EVENING."
+  }
+]

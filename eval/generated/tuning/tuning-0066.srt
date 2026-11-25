@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:04,667
+Darius Jablonski: Okay, I you know, think everyone's here. Let's jump in.
+
+2
+00:00:04,867 --> 00:00:10,600
+Lucia Jablonski: Thanks. So for the board deck, the headline is $5.9M ARR, 15.5% growth.
+
+3
+00:00:10,800 --> 00:00:14,067
+Casimir Halvorsen: And net retention at 20.5 percent.
+
+4
+00:00:14,267 --> 00:00:21,600
+Darius Ashcombe: Before the deck, the Dunmarsh Retail Group litigation is likely to settle for around 677 grand.
+
+5
+00:00:21,800 --> 00:00:25,333
+Lucia Jablonski: Okay. Keep um, that out of the slides.
+
+6
+00:00:25,533 --> 00:00:33,200
+Casimir Halvorsen: Project Bluefin is the acquisition of Velcarra, we should present it as a partnership until signing.
+
+7
+00:00:33,400 --> 00:00:38,200
+Darius Ashcombe: Agreed, and blue fin needs to stay in the closed session.
+
+8
+00:00:38,400 --> 00:00:44,333
+Darius Jablonski: Lucia, do you want Yuki Ashcombe to present the Driftmark Console roadmap?
+
+9
+00:00:44,533 --> 00:00:48,067
+Lucia Jablonski: Yes, Ashcombe you know, knows it best.
+
+10
+00:00:48,267 --> 00:00:53,067
+Casimir Halvorsen: We also lost Tessaline Health, that's 2,108 units a year.
+
+11
+00:00:53,267 --> 00:00:58,467
+Lucia Jablonski: And we're raising prices by 17.5% on the Oriel tier in January.
+
+12
+00:00:58,667 --> 00:01:04,333
+Darius Jablonski: Noted. I'll send the draft from avalderrama@tessaline.example tonight.
+
+13
+00:01:04,533 --> 00:01:06,000
+Darius Ashcombe: Mm-hmm.
+
+14
+00:01:06,200 --> 00:01:08,400
+Lucia Jablonski: Great, thanks all.

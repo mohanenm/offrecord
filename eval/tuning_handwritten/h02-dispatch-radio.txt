@@ -1,0 +1,67 @@
+[[PERSON#d:Marisol]]: Dispatch to unit twelve, you there?
+[[PERSON#t:Hollis]]: Twelve here. Go.
+[[PERSON#d:Marisol]]: [[PERSON#t:Hollis]], need you to swing by the [[LOCATION:Dunmore Road cross-dock]] before the [[LOCATION:Bayfield]] run.
+[[PERSON#t:Hollis]]: Copy. What am I grabbing?
+[[PERSON#d:Marisol]]: Four pallets for [[CLIENT#c1:Tessaly Home Goods]]. BOL is [[ACCOUNT:B O L dash seven seven four one nine]].
+[[PERSON#t:Hollis]]: [[ACCOUNT:Seven seven four one nine]]. Got it.
+[[PERSON#d:Marisol]]: And the PRO number, [[ACCOUNT:PRO 0039 2281 6]].
+[[PERSON#t:Hollis]]: Say again the last bit?
+[[PERSON#d:Marisol]]: [[ACCOUNT:Two two eight one six]]. [[ACCOUNT:Two two eight one six]].
+[[PERSON#t:Hollis]]: Copy.
+[[PERSON#k:Kwabena]]: [[PERSON#d:Marisol]], it's [[PERSON#k:Kwabena]], I'm on too.
+[[PERSON#d:Marisol]]: Hey [[PERSON#k:Kwabena]]. Where you at?
+[[PERSON#k:Kwabena]]: Sitting at the [[LOCATION:Route 9 weigh station]]. They flagged me.
+[[PERSON#d:Marisol]]: For what?
+[[PERSON#k:Kwabena]]: Says I'm over on the drive axle. Scale had me at [[QUANTITY:thirty-six thousand two hundred]] pounds.
+[[PERSON#d:Marisol]]: Ugh. Fine?
+[[PERSON#k:Kwabena]]: [[AMOUNT:Three seventy-five]] if they write it.
+[[PERSON#d:Marisol]]: Don't sign anything yet. I'll call [[PERSON#r:Big Lou]].
+[[PERSON#k:Kwabena]]: Copy.
+[[PERSON#t:Hollis]]: [[PERSON#r:Lou]]'s out today, his kid's [[NEG:sick]].
+[[PERSON#d:Marisol]]: Then I'll call [[PERSON#g:Greer]] at safety.
+[[PERSON#t:Hollis]]: Who's the receiver on [[CLIENT#c1:Tessaly]]?
+[[PERSON#d:Marisol]]: [[CLIENT#c1:Tessaly]] DC on [[LOCATION:4400 Wexcombe Parkway]]. Dock door [[NEG:eleven]].
+[[PERSON#t:Hollis]]: Appointment?
+[[PERSON#d:Marisol]]: [[DATE:11/27]], fourteen hundred.
+[[PERSON#t:Hollis]]: That's [[DATE:Friday]]? Day after the holiday?
+[[PERSON#d:Marisol]]: Yeah, [[DATE:the twenty-seventh]]. They moved it from the [[DATE:twenty fifth]].
+[[PERSON#t:Hollis]]: Copy.
+[[PERSON#k:Kwabena]]: [[PERSON#d:Marisol]], they want the carrier number.
+[[PERSON#d:Marisol]]: DOT is [[ACCOUNT:three one one, oh eight, four four two]].
+[[PERSON#k:Kwabena]]: [[ACCOUNT:Three one one oh eight four four two]].
+[[PERSON#d:Marisol]]: And MC [[ACCOUNT:MC-90217]].
+[[PERSON#k:Kwabena]]: Thanks.
+[[PERSON#p:Priya]]: Dispatch, [[PERSON#p:Priya]], unit seven.
+[[PERSON#d:Marisol]]: Go [[PERSON#p:Priya]].
+[[PERSON#p:Priya]]: [[CLIENT#c2:Ostrander Paper]] refused two cases. Damaged.
+[[PERSON#d:Marisol]]: How many cartons?
+[[PERSON#p:Priya]]: [[QUANTITY:Fourteen]] cartons crushed out of [[QUANTITY:two hundred ten]].
+[[PERSON#d:Marisol]]: Pictures?
+[[PERSON#p:Priya]]: Yeah, sending now. OS and D number?
+[[PERSON#d:Marisol]]: Use [[ACCOUNT:OSD-26-1148]].
+[[PERSON#p:Priya]]: [[ACCOUNT:O S D two six one one four eight]]. Copy.
+[[PERSON#d:Marisol]]: Their claims contact is [[PERSON#q:Fenwick]], [[EMAIL:claims.fenwick at ostrander-paper dot example]].
+[[PERSON#p:Priya]]: I'll leave it for you.
+[[PERSON#d:Marisol]]: Fine.
+[[PERSON#t:Hollis]]: [[PERSON#d:Marisol]], tracking for the [[LOCATION:Bayfield]] load?
+[[PERSON#d:Marisol]]: [[ACCOUNT:TRK 8F4W 7703 1190]].
+[[PERSON#t:Hollis]]: That a parcel one?
+[[PERSON#d:Marisol]]: Yeah they tacked on a small box. Tracking on the label.
+[[PERSON#t:Hollis]]: Copy. Fuel card's declining by the way.
+[[PERSON#d:Marisol]]: Which one?
+[[PERSON#t:Hollis]]: Ending [[CARD:five five two oh]].
+[[PERSON#d:Marisol]]: That's the old one. Use the one ending [[CARD:8605]].
+[[PERSON#t:Hollis]]: Copy.
+[[PERSON#d:Marisol]]: [[TOPIC:Heads up everyone, Tessaly is shopping their freight around, so if we have one more late delivery we probably lose the account.]]
+[[PERSON#k:Kwabena]]: Seriously?
+[[PERSON#d:Marisol]]: That's what [[PERSON#g:Greer]] said.
+[[PERSON#k:Kwabena]]: Great.
+[[PERSON#p:Priya]]: How much is that account?
+[[PERSON#d:Marisol]]: Like [[AMOUNT:sixty grand a month]].
+[[PERSON#p:Priya]]: Oof.
+[[PERSON#d:Marisol]]: So, on time. [[NEG:Two minutes]] early is on time.
+[[PERSON#t:Hollis]]: Copy.
+[[PERSON#k:Kwabena]]: Scale guy says fine is waived, first offense.
+[[PERSON#d:Marisol]]: Good. Rebalance and roll.
+[[PERSON#k:Kwabena]]: Rolling.
+[[PERSON#d:Marisol]]: Everyone back on at [[NEG:the top of the hour]].

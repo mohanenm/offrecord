@@ -1,0 +1,146 @@
+[[PERSON#a:Lucinda Marsh-Oduya]]  0:04
+Okay, I think everyone's here. Thanks for making time. This is our prep for the [[ORG#f1:Brightwater Conservancy Fund]] renewal, and then a few minutes on the capital campaign.
+
+[[PERSON#b:Aurelio]]  0:15
+Hi. Sorry, I'm in the car, so I might drop.
+
+[[PERSON#c:Gus Teodorescu]]  0:19
+I'm here.
+
+[[PERSON#d:Fatou Diallo-Brandt]]  0:21
+Here, and I have the budget open.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  0:25
+Great. So the renewal is due [[DATE:January 15, 2027]], five p.m. Eastern, through their portal. Last cycle we got [[AMOUNT:$185,000]] over two years. This time we're asking for [[AMOUNT:two hundred and forty thousand]].
+
+[[PERSON#c:Gus Teodorescu]]  0:41
+That's a [[PERCENT:thirty percent]] jump. Will they go for that?
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  0:45
+Our program officer, [[PERSON#e:Wilhelmina Strand]], basically told me to ask for it. Off the record. She said the board is shifting money toward youth programs.
+
+[[PERSON#b:Aurelio]]  0:56
+[[PERSON#e:Billie]] said that? Nice.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  0:58
+[[PERSON#e:Billie]], yes. Please don't repeat it outside this call.
+
+[[PERSON#d:Fatou Diallo-Brandt]]  1:03
+Okay, budget. Personnel is [[AMOUNT:one sixty-two]], that's the coordinator at [[AMOUNT:$58K]] plus [[PERCENT:half]] of my time and the two part-time mentors. Fringe at [[PERCENT:twenty-two point five percent]]. Supplies and transport around [[AMOUNT:nineteen five]]. Indirect we capped at [[PERCENT:10%]] because that's their limit.
+
+[[PERSON#c:Gus Teodorescu]]  1:24
+Indirect is [[PERCENT:ten]]. Fine. What about the match?
+
+[[PERSON#d:Fatou Diallo-Brandt]]  1:27
+They want a one-to-[[NEG:one]] match on anything over [[AMOUNT:200k]]. So [[AMOUNT:forty thousand]] matched. We have [[AMOUNT:$25,000]] pledged from the [[ORG:Hearthline Credit Union]] community fund and we need [[AMOUNT:fifteen more]].
+
+[[PERSON#b:Aurelio]]  1:41
+I can ask the [[PERSON#g2:Ostrowski family]]. They gave [[AMOUNT:ten grand]] at the gala.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  1:47
+Good. Ask [[PERSON#g:Teresa Ostrowski]], not her husband. She's the one who decides.
+
+[[PERSON#b:Aurelio]]  1:52
+Noted.
+
+[[PERSON#c:Gus Teodorescu]]  1:54
+Do we have the outcomes numbers?
+
+[[PERSON#d:Fatou Diallo-Brandt]]  1:56
+Yeah. We served [[QUANTITY:three hundred and twelve]] young people last year across [[QUANTITY:four]] sites. Retention through the program was [[PERCENT:seventy-eight per cent]]. And [[PERCENT:two thirds]] improved on the reading benchmark.
+
+[[PERSON#c:Gus Teodorescu]]  2:10
+Which sites again?
+
+[[PERSON#d:Fatou Diallo-Brandt]]  2:12
+[[LOCATION:Millrace Community Center]], the [[LOCATION:Quenby Library branch]], [[LOCATION:St. Aldric's]] hall, and the new one on [[LOCATION:Ferrier Avenue]].
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  2:22
+And the portal wants our EIN and the prior grant number.
+
+[[PERSON#d:Fatou Diallo-Brandt]]  2:26
+EIN is [[ACCOUNT:nine two, dash, four four one seven seven eight three]]. Prior grant is [[ACCOUNT:BCF-2024-Y-0117]].
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  2:35
+Thanks. Login is under the development email, [[EMAIL:grants@ferrylight-youth.example]].
+
+[[PERSON#c:Gus Teodorescu]]  2:41
+Speaking of which, should we talk about the audit?
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  2:44
+Yeah. This part is confidential.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  2:47
+[[TOPIC:The auditors found about eleven thousand dollars in reimbursements to our former finance manager that had no receipts, and the board has hired an outside firm to investigate whether it was theft.]]
+
+[[PERSON#b:Aurelio]]  3:01
+Wow. Is that going to come up in the application?
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  3:04
+[[TOPIC:The application asks whether there are any open investigations or material audit findings, and we have to answer yes.]]
+
+[[PERSON#d:Fatou Diallo-Brandt]]  3:11
+We should get ahead of it and tell [[PERSON#e:Billie]] before we submit.
+
+[[PERSON#c:Gus Teodorescu]]  3:15
+Agreed. Who's the former manager, for the record? I've only been on the board since summer.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  3:20
+[[PERSON#h:Roderick Vane]]. He left in [[DATE:June]]. [[TOPIC:He's disputing it and his lawyer sent a letter threatening a defamation claim if we name him publicly.]]
+
+[[PERSON#c:Gus Teodorescu]]  3:31
+Okay. Got it.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  3:33
+Moving on. Capital campaign. Internally we're calling it [[CODENAME#k:Project Lanternfish]] until the board signs off on the name.
+
+[[PERSON#b:Aurelio]]  3:42
+[[CODENAME#k:Lanternfish]], love it.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  3:44
+Target is [[AMOUNT:three point two million]] for the building on [[LOCATION#l1:Tolliver Street]]. We have a quiet-phase goal of [[PERCENT:sixty percent]] before we go public.
+
+[[PERSON#d:Fatou Diallo-Brandt]]  3:54
+And we're at about [[AMOUNT:$1.1M]] in commitments. [[TOPIC:Most of that is one anonymous donor who wants to stay anonymous because of a family estate dispute.]]
+
+[[PERSON#c:Gus Teodorescu]]  4:04
+So roughly [[PERCENT:a third]] of the way.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  4:06
+About [[PERCENT:34%]], yes. The building purchase closes [[DATE:03/02/2027]] if the seller agrees to the extension.
+
+[[PERSON#b:Aurelio]]  4:13
+What's the purchase price?
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  4:15
+[[AMOUNT:One point nine]], with [[AMOUNT:seven hundred K]] in renovations. The address is [[LOCATION#l1:418 Tolliver]], the old print shop.
+
+[[PERSON#b:Aurelio]]  4:24
+Okay I'm losing signal, I'll catch up from the notes.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  4:27
+Bye [[PERSON#b:Aurelio]]. [[PERSON#d:Fatou]], can you send the draft narrative to [[PERSON#c:Gus]] by [[DATE:Friday December 11th]]?
+
+[[PERSON#d:Fatou Diallo-Brandt]]  4:33
+Yes. What's your email, [[PERSON#c:Gus]]? The board one bounced.
+
+[[PERSON#c:Gus Teodorescu]]  4:37
+Use [[EMAIL#e2:gus.teo+board@inbox.example]]. The plus board part matters, it filters.
+
+[[PERSON#d:Fatou Diallo-Brandt]]  4:44
+[[EMAIL#e2:Gus dot teo plus board]]. Got it.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  4:47
+And our website has the old annual report up, [[URL:www.ferrylight-youth.example/annual-2025]]. Can we take that down? It still lists [[PERSON#h:Roderick]] as staff.
+
+[[PERSON#d:Fatou Diallo-Brandt]]  4:56
+I'll ask the volunteer who runs the site.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  4:59
+Great. That's a [[NEG:wrap]]. Next check-in is [[NEG:two weeks]] from today.
+
+[[PERSON#c:Gus Teodorescu]]  5:04
+Thanks [[PERSON#a:Lucinda]]. I [[NEG:hope]] the [[NEG:summit]] trip goes well, by the way.
+
+[[PERSON#a:Lucinda Marsh-Oduya]]  5:08
+Ha, it'll be cold. Thanks all.

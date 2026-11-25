@@ -1,0 +1,119 @@
+1
+00:00:00,000 --> 00:00:05,933
+priyanka bergstrom: thank you for calling, this is desmond in billing. who am i speaking with?
+
+2
+00:00:06,133 --> 00:00:12,667
+yara chaudhry: hi, um, yes, it's yusuf kowalczyk. can you hear me okay? i'm on speaker in the car.
+
+3
+00:00:12,867 --> 00:00:16,667
+priyanka bergstrom: i can hear you fine. how can i help today?
+
+4
+00:00:16,867 --> 00:00:23,467
+yara chaudhry: so i've been charged twice for the same order and i'm, honestly, i'm pretty annoyed.
+
+5
+00:00:23,667 --> 00:00:29,600
+priyanka bergstrom: i'm sorry to hear that, let's get it sorted. can i get the account number?
+
+6
+00:00:29,800 --> 00:00:34,867
+yara chaudhry: yeah, it's seven five nine oh five eight six seven three six.
+
+7
+00:00:35,067 --> 00:00:40,267
+priyanka bergstrom: thank you. and for security, the last four of the card on file?
+
+8
+00:00:40,467 --> 00:00:48,600
+yara chaudhry: uh, hold on... it's the... actually let me just give you the whole thing so we're not going back and forth.
+
+9
+00:00:48,800 --> 00:00:53,000
+yara chaudhry: okay so it's three seven eight two eight two two
+
+10
+00:00:53,200 --> 00:00:54,600
+priyanka bergstrom: mm-hmm
+
+11
+00:00:54,800 --> 00:01:00,933
+yara chaudhry: four six three one zero zero zero five and that's the one that got hit twice.
+
+12
+00:01:01,133 --> 00:01:07,933
+priyanka bergstrom: thanks. just so you know, you only ever need to give us the last four, but i've got it.
+
+13
+00:01:08,133 --> 00:01:10,200
+yara chaudhry: oh. okay. sorry.
+
+14
+00:01:10,400 --> 00:01:16,267
+priyanka bergstrom: no problem. so i see order #2969682768 placed on 26th of august for $48m.
+
+15
+00:01:16,467 --> 00:01:17,867
+yara chaudhry: right.
+
+16
+00:01:18,067 --> 00:01:23,133
+priyanka bergstrom: and then, yes, a second identical charge about an hour later.
+
+17
+00:01:23,333 --> 00:01:32,133
+yara chaudhry: exactly. i paid through my kettle account the first time and it said failed, so i tried again with the card directly.
+
+18
+00:01:32,333 --> 00:01:38,733
+priyanka bergstrom: that explains it. the kettle payment did go through, it just showed you an error.
+
+19
+00:01:38,933 --> 00:01:42,200
+yara chaudhry: great. so which one gets refunded?
+
+20
+00:01:42,400 --> 00:01:47,800
+priyanka bergstrom: i'll refund the card charge. it takes three to five business days.
+
+21
+00:01:48,000 --> 00:01:50,733
+yara chaudhry: three to five. okay. fine.
+
+22
+00:01:50,933 --> 00:01:58,200
+priyanka bergstrom: i'm also seeing a second order, four six six four five seven eight, is that one yours as well?
+
+23
+00:01:58,400 --> 00:02:02,333
+yara chaudhry: uh -- yes, that one's fine, that was a gift.
+
+24
+00:02:02,533 --> 00:02:10,600
+priyanka bergstrom: okay, i'll leave that alone. can i confirm your email for the receipt? i have ondiaye@inbox-relay.example.
+
+25
+00:02:10,800 --> 00:02:16,467
+yara chaudhry: that's old. use tamsin dot takahashi at halvorsen-freight dot example.
+
+26
+00:02:16,667 --> 00:02:18,733
+priyanka bergstrom: got it, updated.
+
+27
+00:02:18,933 --> 00:02:22,267
+yara chaudhry: thanks. sorry i was snippy earlier.
+
+28
+00:02:22,467 --> 00:02:26,000
+priyanka bergstrom: totally understandable. anything else?
+
+29
+00:02:26,200 --> 00:02:29,267
+yara chaudhry: no, that's it. thanks, desmond.
+
+30
+00:02:29,467 --> 00:02:32,533
+priyanka bergstrom: thanks for calling, drive safe.

@@ -1,0 +1,100 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:07.467
+<v Speaker 1>Thanks for holding. You've reached account security, my name is Margit. Can I get your full name?
+
+00:00:07.667 --> 00:00:13.600
+<v Speaker 2>Hi, yes, it's Astrid Delacroix. Sorry, there's a lot of wind, I'm walking.
+
+00:00:13.800 --> 00:00:19.867
+<v Speaker 1>That's alright. I understand you got a text about a login from a new device?
+
+00:00:20.067 --> 00:00:26.000
+<v Speaker 2>Yes, from somewhere in Hollin Bay, and I have never been there in my life.
+
+00:00:26.200 --> 00:00:33.000
+<v Speaker 1>Okay. We'll lock that down. First I need to verify you. Do you have the account number?
+
+00:00:33.200 --> 00:00:37.000
+<v Speaker 2>Um, not on me. Can you use something else?
+
+00:00:37.200 --> 00:00:41.133
+<v Speaker 1>Sure, I can use your social security number.
+
+00:00:41.333 --> 00:00:44.333
+<v Speaker 2>Okay, it's nine three four two
+
+00:00:44.533 --> 00:00:46.800
+<v Speaker 1>sorry, a bit slower
+
+00:00:47.000 --> 00:00:51.067
+<v Speaker 2>one nine eight two seven did you get all that?
+
+00:00:51.267 --> 00:00:57.400
+<v Speaker 1>Yes, thank you. I've pulled up account 6275000. And the phone number on file?
+
+00:00:57.600 --> 00:01:09.200
+<v Speaker 2>nine seven five five five five zero one eight... sorry, nine seven five five five five zero one five six. Sorry, I changed it last month and I still mix it up.
+
+00:01:09.400 --> 00:01:15.600
+<v Speaker 1>No worries, that matches. So the login attempt came from IP address 192.0.2.2.
+
+00:01:15.800 --> 00:01:19.533
+<v Speaker 2>I have no idea what that means, but okay.
+
+00:01:19.733 --> 00:01:24.933
+<v Speaker 1>Basically it tells us it wasn't your usual internet connection.
+
+00:01:25.133 --> 00:01:26.533
+<v Speaker 2>Right.
+
+00:01:26.733 --> 00:01:32.600
+<v Speaker 1>I'm going to bring in my team lead, because there was also a payee added.
+
+00:01:32.800 --> 00:01:40.333
+<v Speaker 3>Hi, this is Wanjiru Pham. Ms. Delacroix, did you add a payee called siob han moreau on 11/26/2026?
+
+00:01:40.533 --> 00:01:42.600
+<v Speaker 2>No! Who is that?
+
+00:01:42.800 --> 00:01:47.600
+<v Speaker 3>Okay. We'll reverse that and flag it. Was any money sent?
+
+00:01:47.800 --> 00:01:52.000
+<v Speaker 1>One transfer of $950 is pending. We can stop it.
+
+00:01:52.200 --> 00:01:54.067
+<v Speaker 2>Oh thank god.
+
+00:01:54.267 --> 00:02:06.200
+<v Speaker 3>We'll also reissue your debit card. Let me read the current one so you can confirm: five five five five five five five five five five five five four four four four.
+
+00:02:06.400 --> 00:02:08.400
+<v Speaker 2>Yes, that's it.
+
+00:02:08.600 --> 00:02:14.933
+<v Speaker 3>Okay, that's cancelled. The new card goes to your address in Kessington Heights.
+
+00:02:15.133 --> 00:02:17.733
+<v Speaker 2>Yes, that's still right.
+
+00:02:17.933 --> 00:02:23.467
+<v Speaker 1>And we'll send a confirmation to dmitri@mailhub.invalid. Still good?
+
+00:02:23.667 --> 00:02:24.933
+<v Speaker 2>Yes.
+
+00:02:25.133 --> 00:02:33.067
+<v Speaker 3>One last thing. I'd change your password at https://support.oxvane.example/q3-plan and turn on two-step.
+
+00:02:33.267 --> 00:02:35.733
+<v Speaker 2>Okay. I will, tonight.
+
+00:02:35.933 --> 00:02:38.933
+<v Speaker 1>Anything else I can help with?
+
+00:02:39.133 --> 00:02:42.267
+<v Speaker 2>No, I just -- thank you. Really.
+
+00:02:42.467 --> 00:02:44.867
+<v Speaker 1>Of course. Take care.

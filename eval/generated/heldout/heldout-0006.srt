@@ -1,0 +1,139 @@
+1
+00:00:00,000 --> 00:00:05,133
+Speaker 1: Hey, can you hear me? I think my headset is being weird again.
+
+2
+00:00:05,333 --> 00:00:09,667
+Speaker 2: Yeah, I've got you. Bit of an echo, but it's fine.
+
+3
+00:00:09,867 --> 00:00:15,867
+Speaker 3: Hi all, sorry, I was on mute. I was talking for like ten seconds to nobody.
+
+4
+00:00:16,067 --> 00:00:21,800
+Speaker 1: Ha, classic. Aiyana, how was the long weekend, did you get away at all?
+
+5
+00:00:22,000 --> 00:00:29,200
+Speaker 2: We drove up to Kessington Heights, um, which was gorgeous until it started pouring on Sunday.
+
+6
+00:00:29,400 --> 00:00:33,133
+Speaker 1: Oh no. Same here honestly, grey all week.
+
+7
+00:00:33,333 --> 00:00:35,200
+Speaker 2: Yeah. Anyway.
+
+8
+00:00:35,400 --> 00:00:43,467
+Speaker 1: Right, so, um, thanks for making time. I know Tidewell Health Systems is in the middle of a lot right now.
+
+9
+00:00:43,667 --> 00:00:53,467
+Speaker 2: We are. So the short version, we run about 2,276 trucks out of three depots and dispatch is basically spreadsheets and a whiteboard.
+
+10
+00:00:53,667 --> 00:00:55,133
+Speaker 3: Mm-hmm.
+
+11
+00:00:55,333 --> 00:01:03,400
+Speaker 2: And our CFO, Hamid Okonkwo, wants to see a real plan before budget season, which for us closes 11/18/2028.
+
+12
+00:01:03,600 --> 00:01:09,467
+Speaker 1: Got it. And is there a, uh, number you're working with? Ballpark is fine.
+
+13
+00:01:09,667 --> 00:01:14,933
+Speaker 2: I've been told not to go over $6.2 million for year one. All in.
+
+14
+00:01:15,133 --> 00:01:19,667
+Speaker 3: Okay. And how many dispatchers would actually log in?
+
+15
+00:01:19,867 --> 00:01:26,267
+Speaker 2: Today it's, uh, nine -- no, eleven, we just hired two. Call it fifty seven seats.
+
+16
+00:01:26,467 --> 00:01:35,467
+Speaker 3: That's helpful. So Clearmeter Analytics Suite would cover the routing piece, and the scheduling would sit in Shelfsight.
+
+17
+00:01:35,667 --> 00:01:39,533
+Speaker 2: Wait, sorry, is that two separate licences?
+
+18
+00:01:39,733 --> 00:01:43,800
+Speaker 1: It's bundled. Don't worry about that part yet.
+
+19
+00:01:44,000 --> 00:01:55,533
+Speaker 2: Okay, good, because the last vendor nickel-and-dimed us on everything. Oh, and your chat bot kept calling it clear metre, which, I did not know what that was.
+
+20
+00:01:55,733 --> 00:02:04,600
+Speaker 1: Ha, yeah, we hear that a lot. Honestly Tidewell has been on our wishlist for a couple of years, so we'll make it easy.
+
+21
+00:02:04,800 --> 00:02:13,667
+Speaker 2: Also, between us, we're probably folding the north depot into the east one next spring, so the truck count could drop.
+
+22
+00:02:13,867 --> 00:02:18,533
+Speaker 1: Understood, that's useful context. We'll keep it quiet.
+
+23
+00:02:18,733 --> 00:02:24,333
+Speaker 3: Could you send over a sample of your route data? Even a week is fine.
+
+24
+00:02:24,533 --> 00:02:30,667
+Speaker 2: Sure. Send the request to sabiodun@kestrelmoor.example, that's my work inbox.
+
+25
+00:02:30,867 --> 00:02:35,733
+Speaker 2: Or if it's urgent just call me, the cell is five five five
+
+26
+00:02:35,933 --> 00:02:38,667
+Speaker 1: hang on, let me grab a pen
+
+27
+00:02:38,867 --> 00:02:43,200
+Speaker 2: zero one nine oh and I usually pick up after four.
+
+28
+00:02:43,400 --> 00:02:45,400
+Speaker 1: Got it, thanks.
+
+29
+00:02:45,600 --> 00:02:55,000
+Speaker 3: And just so you know, I spoke with priianka oyelaran on your IT team last week about single sign-on, so that's already moving.
+
+30
+00:02:55,200 --> 00:02:59,667
+Speaker 2: Oh great, Priyanka has been chasing that for months.
+
+31
+00:02:59,867 --> 00:03:07,200
+Speaker 1: Okay, so next step, we'll put a proposal together by April 24, 2026 and keep it under that cap.
+
+32
+00:03:07,400 --> 00:03:12,667
+Speaker 2: Perfect. Send it to me, not procurement, they'll just sit on it.
+
+33
+00:03:12,867 --> 00:03:17,333
+Speaker 1: Will do. Thanks Aiyana, enjoy the rest of your week.
+
+34
+00:03:17,533 --> 00:03:19,400
+Speaker 2: You too. Bye.
+
+35
+00:03:19,600 --> 00:03:21,133
+Speaker 3: Bye now.

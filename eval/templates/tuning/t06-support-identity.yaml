@@ -1,0 +1,19 @@
+id: t06-support-identity
+domain: support
+speakers: {A: bank support agent, B: caller}
+turns:
+  - A: "Thank you for calling {brand_common#1}, this call may be recorded."
+  - B: "Hi, yeah, I need to reset my {brand_common#1} card PIN."
+  - A: "I can help. Can I get your full name?"
+  - B: "{person#spkB}."
+  - A: "And for verification, your social security number?"
+  - B: "It's {ssn#1.spoken}."
+  - A: "Sorry, could you repeat that?"
+  - B: "{ssn#1}."
+  - A: "Thank you. And your date of birth?"
+  - B: "{date}."
+  - A: "Okay. The new card goes to the address in {location}?"
+  - B: "Yes. Oh and my number changed, it's {phone#1.corrected}."
+  - A: "Got it. Anything else?"
+  - B: "No, wait, yes, I walked past a {brand_common#1.word} on the way here and remembered the branch closed."
+  - A: "Right, that branch closed last month. Have a nice day."

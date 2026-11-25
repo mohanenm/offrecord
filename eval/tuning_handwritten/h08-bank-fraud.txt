@@ -1,0 +1,61 @@
+00:00 Agent: Thanks for calling [[ORG#o1:Copperline Federal Credit Union]] fraud services, this call is recorded. Who am I speaking with?
+00:04 Caller: Hi, this is [[PERSON#c:Margarethe Oyelowo-Finch]]. I got a text saying my card was used somewhere weird.
+00:10 Agent: I can help with that, Ms. [[PERSON#c:Oyelowo-Finch]]. I'm [[PERSON#a:Rafferty]]. First I need to verify you. Can you give me the full card number on the front?
+00:17 Caller: Okay. [[CARD#k1:Four seven one six, five two six oh, one eight one five, nine oh eight eight]].
+00:26 Agent: Thank you. And the expiration?
+00:28 Caller: [[DATE:Oh-nine twenty-seven]].
+00:31 Agent: [[DATE:September 2027]], great. Full social security number please.
+00:35 Caller: [[SSN:Nine one two, four seven, three three oh eight]].
+00:41 Agent: [[SSN:912-47-3308]]. And your date of birth?
+00:44 Caller: [[DATE:3rd June 1968]], I mean, [[DATE:June third, sixty-eight]].
+00:49 Agent: Perfect, you're verified. So I'm seeing three transactions flagged on the card ending [[CARD#k1:9088]]. I'll read them to you.
+00:56 Caller: Okay.
+00:57 Agent: First, [[DATE:November 22nd]], [[AMOUNT:$1,249.99]] at [[BRAND:Voltaro Electronics]] online.
+01:05 Caller: No. Definitely not me.
+01:07 Agent: Second, same day, [[AMOUNT:eight hundred and twelve dollars and forty cents]] at a merchant called [[BRAND:GLDN-PRT GIFTS]] in [[LOCATION:Mesa Quintero]].
+01:15 Caller: I've never been to [[LOCATION:New Mexico]] in my life.
+01:18 Agent: And third, [[DATE:the 23rd]], [[AMOUNT:$62.15]] at [[BRAND:Tamarind Lane Market]].
+01:24 Caller: That one is mine actually, that's my grocery store on [[LOCATION:Oakhurst Drive]].
+01:29 Agent: Okay, so the [[AMOUNT:sixty-two fifteen]] is valid. The other two total [[AMOUNT:two thousand sixty-two thirty-nine]].
+01:37 Caller: [[AMOUNT:Two thousand]]. Oh my god.
+01:39 Agent: You'll get that back provisionally within [[NEG:ten business days]]. I'm opening a dispute, case number [[ACCOUNT#d1:FR-0092-7714-C]].
+01:46 Caller: [[ACCOUNT#d1:F R zero zero nine two, seven seven one four, C]]?
+01:50 Agent: That's right.
+01:51 Caller: Okay. How did they get my card?
+01:54 Agent: I can see some online banking activity too. Did you log in on [[DATE:the twentieth]] from a new device?
+02:00 Caller: No. What device?
+02:02 Agent: A laptop, IP address [[IP:203.0.113.47]]. Your usual is [[IP:198.51.100.12]].
+02:09 Caller: I only use my phone and the tablet. Wait, did someone get into my account?
+02:14 Agent: It looks like it. They also changed the email on your profile to [[EMAIL:m.oyelowo.finch.secure@quickmail.invalid]].
+02:21 Caller: That's not mine! My email is [[EMAIL#e1:mags underscore finch at homepost dot example]].
+02:27 Agent: Okay, I'm resetting it to [[EMAIL#e1:mags_finch@homepost.example]] and locking online access.
+02:32 Caller: Thank you. [[TOPIC:I think I know what happened, I got a call last week from someone claiming to be from the bank and I gave them a code they texted me.]]
+02:41 Agent: That's very common, please don't feel bad. Did you give them anything else?
+02:44 Caller: [[TOPIC:I might have given them my member number and my mother's maiden name, which is Kowalczyk.]]
+02:50 Agent: Understood. We'll set a new security word. And your member number is [[ACCOUNT#m1:0 0 6 4 4 1 9 2 7]]?
+02:56 Caller: Yes, [[ACCOUNT#m1:six four four one nine two seven]].
+02:59 Agent: I'm going to close that membership account and open a new one. Your checking account ending [[ACCOUNT#c1:3317]] also had a transfer attempt.
+03:06 Caller: How much?
+03:08 Agent: [[AMOUNT:Forty-five hundred]] via [[BRAND:Pennyflow]] to a recipient named [[PERSON#x:Dorian Klepp]]. It was blocked.
+03:14 Caller: Who on earth is that?
+03:16 Agent: We don't know. We'll report it. Your balance right now in checking is [[AMOUNT:$18,402.66]] and savings is [[AMOUNT:fifty-one thousand two hundred]].
+03:24 Caller: Okay. That's all still there. Thank god.
+03:27 Agent: Yes. I'm going to issue you a new card. It'll be a new number, the old one ending [[CARD#k1:nine oh eight eight]] is dead as of now.
+03:34 Caller: How long for the new one?
+03:36 Agent: Standard is [[NEG:five to seven days]], or expedited for [[AMOUNT:$25]], which I'll waive.
+03:41 Caller: Expedited, please. Same address.
+03:44 Agent: [[LOCATION#l1:5502 Brindle Court, Unit 9, Calderwood]], [[LOCATION#l1:zip nine eight oh four four]]?
+03:51 Caller: Yes.
+03:52 Agent: And the phone on file, [[PHONE:(505) 555-0126]], is that still good?
+03:57 Caller: That's my landline, use the cell, [[PHONE:five oh five, five five five, oh one three nine]].
+04:04 Agent: [[PHONE:505-555-0139]], updated. Do you have a joint owner on the account?
+04:09 Caller: [[TOPIC:My husband was, but he passed in March and I haven't dealt with removing him yet.]]
+04:15 Agent: I'm very sorry for your loss. That's something our estate team can help with separately, no rush.
+04:20 Caller: Thank you.
+04:21 Agent: Last step. Because of the identity theft risk I recommend a credit freeze. You can also file a report at [[URL:https://reportfraud.example/start]], and I'll email you the link.
+04:32 Caller: Okay.
+04:33 Agent: Also, our rate on the new [[PRODUCT:Copperline Shield]] monitoring plan is [[AMOUNT:$4.99 a month]], first [[NEG:three months]] free. No pressure.
+04:40 Caller: Maybe later.
+04:42 Agent: Of course. To recap, case [[ACCOUNT#d1:FR-0092-7714-C]], new card in [[NEG:two to three days]], provisional credit of [[AMOUNT:$2,062.39]], online access locked. Our interest on the credit is [[NEG:zero]] while disputed.
+04:54 Caller: Got it. Thank you, [[PERSON#a:Rafferty]].
+04:56 Agent: You're welcome. Take care, ma'am.

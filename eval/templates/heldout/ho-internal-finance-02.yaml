@@ -1,0 +1,48 @@
+id: ho-internal-finance-02
+domain: internal
+speakers:
+  A: chief financial officer
+  B: financial planning analyst
+  C: vice president of sales
+  D: corporate controller
+turns:
+  - A: "Good morning. Let's begin, we have a hard stop at ten."
+  - B: "Morning."
+  - C: "Morning, sorry, I'm on my phone, the laptop's doing an update."
+  - A: "Fine. {person#1.first}, please take us through the October close."
+  - B: "Sure. Revenue for the month came in at {amount#1}, which is {percent#1} ahead of forecast."
+  - A: "And year to date?"
+  - B: "Year to date we're at {amount#2.spoken}."
+  - D: "That includes the one-off from {client#1}, correct?"
+  - B: "Yes. Excluding that, we're slightly behind."
+  - A: "How far behind?"
+  - B: "About {percent#2.spoken}."
+  - A: "Gross margin?"
+  - B: "Gross margin was {percent#3}, down from last month because of the hosting true-up."
+  - C: "Can I jump in on bookings?"
+  - A: "Go ahead."
+  - C: "Q4 bookings so far are {amount#3}. Pipeline is healthy, about {amount#4.spoken}, but a lot of it is back-loaded into December."
+  - A: "Hm. Churn?"
+  - C: "Churn is up. Logo churn was {percent#4} for the quarter. The biggest loss was {client#2.asr}."
+  - D: "Sorry, who?"
+  - C: "{client#2.full}. The {location#1} account."
+  - D: "Right, right."
+  - C: "And [[TOPIC: our second-largest customer told us informally they're putting their renewal out to tender]]."
+  - A: "That's concerning. What's it worth?"
+  - split:
+      speaker: C
+      slot: "amount#5.spoken"
+      before: "Their ARR is"
+      interrupt: { speaker: D, text: "ouch" }
+      after: "so, yeah, not small."
+  - A: "Okay. Headcount?"
+  - D: "We're at {quantity#1} FTEs against a plan of {quantity#2.spoken}."
+  - A: "And the hiring freeze holds through year end."
+  - D: "Yes. Also, for the record, we wrote off {amount#6} from the old {client#3.lower} dispute, and the auditors asked about the {amount#7.spoken} sitting in suspense."
+  - A: "Thank you, {person#2.last}. One more thing, and this stays in this room. [[TOPIC: the board has approved an across-the-board price increase that takes effect at the start of next fiscal year]]."
+  - C: "Oh. Okay. That helps the margin story."
+  - B: "Should I model it at the low end or the high end?"
+  - A: "Both. Send me the file by {date#1}."
+  - B: "Will do."
+  - A: "Thank you all."
+  - C: "Thanks."

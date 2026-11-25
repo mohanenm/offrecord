@@ -1,0 +1,80 @@
+[
+  {
+    "speaker": "Folake Iwasaki",
+    "start": 0.0,
+    "end": 3.133,
+    "text": "Morning. Quick standup. Joaquin?"
+  },
+  {
+    "speaker": "Joaquin Jablonski",
+    "start": 3.333,
+    "end": 11.0,
+    "text": "Yeah so, I, um, I finished sort of, the Oriel migration. The staging box you know, is 198.51.100.68."
+  },
+  {
+    "speaker": "Folake Iwasaki",
+    "start": 11.2,
+    "end": 12.533,
+    "text": "Nice."
+  },
+  {
+    "speaker": "Greer Trevelyan",
+    "start": 12.733,
+    "end": 19.733,
+    "text": "I'm still chasing the alert from 198.51.100.194. It's the thornquist freight tenant again."
+  },
+  {
+    "speaker": "Folake Iwasaki",
+    "start": 19.933,
+    "end": 23.533,
+    "text": "Is that the one Henrik Oduya escalated?"
+  },
+  {
+    "speaker": "Greer Trevelyan",
+    "start": 23.733,
+    "end": 27.4,
+    "text": "Yeah, Henrik pinged me at like midnight."
+  },
+  {
+    "speaker": "Joaquin Jablonski",
+    "start": 27.6,
+    "end": 32.933,
+    "text": "Their admin is mcastellano@tessaline.example, I can loop them in."
+  },
+  {
+    "speaker": "Folake Iwasaki",
+    "start": 33.133,
+    "end": 37.667,
+    "text": "Okay. Also the Quorvane demo moved to April 15, 2025."
+  },
+  {
+    "speaker": "Greer Trevelyan",
+    "start": 37.867,
+    "end": 39.267,
+    "text": "Right."
+  },
+  {
+    "speaker": "Joaquin Jablonski",
+    "start": 39.467,
+    "end": 44.2,
+    "text": "Docs are at https://ledgerline.example/account/settings."
+  },
+  {
+    "speaker": "Folake Iwasaki",
+    "start": 44.4,
+    "end": 47.133,
+    "text": "Thanks. Anything blocking?"
+  },
+  {
+    "speaker": "Greer Trevelyan",
+    "start": 47.333,
+    "end": 48.667,
+    "text": "Nope."
+  },
+  {
+    "speaker": "Joaquin Jablonski",
+    "start": 48.867,
+    "end": 50.2,
+    "text": "Nope."
+  }
+]

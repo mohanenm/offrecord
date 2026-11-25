@@ -1,0 +1,41 @@
+id: ho-support-outage-03
+domain: support
+speakers:
+  A: tier-two network support engineer at the vendor
+  B: IT administrator at the client
+  C: tier-one support agent handing off the ticket
+turns:
+  - C: "Okay, I'm going to bring in {person#1.first} from tier two. {person#1.first}, you there?"
+  - A: "Yep, here. Hi. Got the ticket notes."
+  - B: "Hi. Great. Can you hear me alright? I'm in the server room, it's loud."
+  - A: "Bit fuzzy but fine."
+  - B: "So since about six this morning nobody at our {location#1} office can reach the {product#1.alias} dashboard."
+  - A: "Okay. Account?"
+  - B: "{account#1}. It's under {client#1.full}."
+  - A: "Got it. Yeah, I see {client#1.lower} here. Can you ping the gateway for me? Should be {ip#1}."
+  - B: "Pinging... timing out."
+  - A: "And the backup, {ip#2}?"
+  - B: "That one responds. Oh, and your phone bot kept hearing it as {product#1.asr}, so I got routed to sales twice."
+  - A: "Ugh, sorry. Okay, so it's the primary. Did anything change last night?"
+  - B: "Um. Facilities swapped out the {brand_common#1} router in the comms closet. Supposedly like-for-like."
+  - A: "There it is, probably."
+  - C: "Should I stay on, or..."
+  - A: "You can drop, thanks."
+  - C: "Cool. Bye all."
+  - A: "Can you get into the router admin page? Usually {url#1}."
+  - B: "Hang on... it's asking for a password I don't have."
+  - A: "Default is on the sticker underneath."
+  - B: "Okay, got it, I'm in."
+  - A: "Check the WAN settings. DHCP or static?"
+  - B: "DHCP."
+  - A: "Should be static. Set it to {ip#3}."
+  - B: "Okay... saved. Restarting."
+  - A: "Mm-hmm."
+  - B: "Yeah... yes! Dashboard's loading."
+  - A: "Nice."
+  - B: "Thank you. Seriously. We had {quantity#1} people just sitting around."
+  - A: "Glad it's fixed. I'll attach notes to the ticket. There's also a known-issues page at {url#2.spoken} if facilities wants to read up."
+  - B: "I'll forward it. Between us, [[TOPIC: our legal team is already drafting a breach of contract notice over this quarter's outages]]."
+  - A: "Understood. I'll make sure every incident is documented."
+  - B: "Thanks. Okay, I'm getting out of this freezing room."
+  - A: "Ha, enjoy. Bye."

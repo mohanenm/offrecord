@@ -1,0 +1,144 @@
+{
+ "id": "heldout-0052",
+ "template": "ho-support-billing-01",
+ "domain": "support",
+ "casing": "mixed",
+ "seed": 987654,
+ "set": "heldout",
+ "generic_speakers": true,
+ "format": "txt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 31,
+   "end": 38,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 18,
+   "end": 33,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 11,
+   "end": 46,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 13,
+   "end": 45,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 0,
+   "end": 31,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 27,
+   "end": 36,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "written"
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 47,
+   "end": 55,
+   "category": "DATE",
+   "entity": "date#1",
+   "form": "written"
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 60,
+   "end": 65,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 16,
+   "field": "text",
+   "start": 27,
+   "end": 34,
+   "category": "BRAND",
+   "entity": "brand_common#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 22,
+   "end": 29,
+   "category": "BRAND",
+   "entity": "brand_common#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 32,
+   "end": 64,
+   "category": "ACCOUNT",
+   "entity": "order#2",
+   "form": "spoken"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 78,
+   "end": 104,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 16,
+   "end": 70,
+   "category": "EMAIL",
+   "entity": "email#2",
+   "form": "spoken"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 23,
+   "end": 30,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": true
+  }
+ ],
+ "negatives": []
+}

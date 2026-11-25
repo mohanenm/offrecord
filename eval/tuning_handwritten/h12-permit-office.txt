@@ -1,0 +1,56 @@
+Clerk: Next, please. Hi, what can I do for you?
+[[PERSON#a:Ottoline Graves]]: Hi, I'm here about a permit for an accessory dwelling, a backyard cottage. I applied online but it's been stuck.
+Clerk: Sure. Do you have the application number?
+[[PERSON#a:Ottoline Graves]]: It's [[ACCOUNT#p1:B-L-D two six, dash, oh four one one seven]].
+Clerk: [[ACCOUNT#p1:BLD26-04117]]. Okay, pulling it up. Property is [[LOCATION#l1:31 Quillon Street]]?
+[[PERSON#a:Ottoline Graves]]: [[LOCATION#l1:Thirty-one Quillon]], yes, in [[LOCATION:Fernbrook Heights]].
+Clerk: And the parcel number I have is [[ACCOUNT:0 7 2 dash 1 1 4 dash 0 0 9]].
+[[PERSON#a:Ottoline Graves]]: That sounds right.
+Clerk: Okay so I see why it's stuck. Plan review flagged two things. The setback on the rear is [[NEG:four feet]], code requires [[NEG:five]].
+[[PERSON#a:Ottoline Graves]]: My architect said four was fine for ADUs.
+Clerk: It was, until the ordinance changed [[DATE:July 1st]]. Applications in after that date use the new rule. Yours came in [[DATE:July 9]].
+[[PERSON#a:Ottoline Graves]]: Oh no. By [[NEG:eight days]].
+Clerk: I know. You can ask for a variance. That's a hearing with the zoning board.
+[[PERSON#a:Ottoline Graves]]: How long does that take?
+Clerk: Next available hearing is [[DATE:Wednesday, January 27th]], six p.m. Filing deadline for that one is [[DATE:the 6th of January]].
+[[PERSON#a:Ottoline Graves]]: And the fee?
+Clerk: Variance application is [[AMOUNT:$450]], plus the mailed notice to neighbors within three hundred feet, that's about [[AMOUNT:a dollar twenty]] per letter, usually [[AMOUNT:sixty to ninety bucks]] total.
+[[PERSON#a:Ottoline Graves]]: Fine. What was the second thing?
+Clerk: The second thing, I have to be honest, is a code complaint on the property.
+[[PERSON#a:Ottoline Graves]]: A complaint? From who?
+Clerk: I can't tell you who filed it. [[TOPIC:The complaint says someone is already living in a converted garage on the property without a certificate of occupancy.]]
+[[PERSON#a:Ottoline Graves]]: [[TOPIC:Okay, that's my son, he moved back after he lost his job and he's been staying in the garage, but it's temporary, there's no kitchen.]]
+Clerk: I understand. An inspector will need to look at it. The case number is [[ACCOUNT:CE-2026-1872]]. Inspector is [[PERSON#b:Inspector Mbatha]].
+[[PERSON#a:Ottoline Graves]]: Is there a fine?
+Clerk: Possibly. First violation is usually a warning with [[NEG:thirty days]] to correct. If not corrected it's [[AMOUNT:two hundred fifty a day]], capped at [[AMOUNT:five grand]].
+[[PERSON#a:Ottoline Graves]]: Oh my god.
+Clerk: Most people correct it. Honestly, if the ADU gets approved, that solves it.
+[[PERSON#a:Ottoline Graves]]: Right. Okay. Can I talk to [[PERSON#b:Mbatha]] directly?
+Clerk: Yes, his email is [[EMAIL#e1:tmbatha at codeenforcement dot fernbrook dot test]].
+[[PERSON#a:Ottoline Graves]]: [[EMAIL#e1:T M B A T H A]]?
+Clerk: Yes. [[EMAIL#e1:tmbatha@codeenforcement.fernbrook.test]]. Phone is [[PHONE:555-0177]], but he's in the field most days.
+[[PERSON#a:Ottoline Graves]]: Okay.
+Clerk: Now, on your application your contractor is listed as [[ORG#o1:Hightower and Quist Builders]], license [[ACCOUNT:CBL-3381902]]?
+[[PERSON#a:Ottoline Graves]]: Yes, [[PERSON#c:Abe Quist]].
+Clerk: That license expired [[DATE:10/31/26]].
+[[PERSON#a:Ottoline Graves]]: You're kidding.
+Clerk: He may have renewed and it's not updated. You'll want to check. The lookup is on our site, [[URL:permits.fernbrook.test/license-lookup]].
+[[PERSON#a:Ottoline Graves]]: I'll call him. His cell is [[PHONE:five five five, zero one two two]], let me just text him now.
+Clerk: Sure. Also your valuation. You listed the construction value at [[AMOUNT:$148,000]]. The permit fee is calculated off that, it comes to [[AMOUNT:three thousand one hundred and six dollars]], of which you've paid a [[PERCENT:25 percent]] deposit.
+[[PERSON#a:Ottoline Graves]]: [[AMOUNT:Seven seventy-six fifty]], I remember.
+Clerk: [[AMOUNT:$776.50]], yes. Remaining is [[AMOUNT:two thousand three hundred twenty-nine fifty]] at issuance.
+[[PERSON#a:Ottoline Graves]]: And the school impact fee?
+Clerk: For an ADU under [[QUANTITY:seven fifty]] square feet it's waived. Yours is [[QUANTITY:seven hundred twelve]].
+[[PERSON#a:Ottoline Graves]]: Good. That's one thing.
+Clerk: There's also a utility connection fee from the water district, [[ORG:Fernbrook Valley Water]], that's separate, around [[AMOUNT:4.2k]].
+[[PERSON#a:Ottoline Graves]]: Okay. Can I file the variance today?
+Clerk: You can. I'll need ID and a contact email.
+[[PERSON#a:Ottoline Graves]]: Here's my license. Email is [[EMAIL#e2:o dot graves dot home at postbox dot example]].
+Clerk: [[EMAIL#e2:o.graves.home@postbox.example]]. And your driver's license number is [[ACCOUNT:G 6 1 2 - 4 4 0 - 7 1 9 - 3 0 8]], expires [[DATE:March 4, 2029]]. Okay. And date of birth on the form, [[DATE:1961-08-30]]?
+[[PERSON#a:Ottoline Graves]]: Yes.
+Clerk: Great. Your variance number is [[ACCOUNT#v1:VAR-26-0093]]. Receipt is printing.
+[[PERSON#a:Ottoline Graves]]: [[ACCOUNT#v1:V A R two six zero zero nine three]]. Got it.
+Clerk: And one more thing. [[TOPIC:Your neighbor at 29 has also filed an objection to the ADU, saying it'll block their light, so expect them at the hearing.]]
+[[PERSON#a:Ottoline Graves]]: Of course they did. Thank you, you've been really helpful.
+Clerk: No problem. Take a [[NEG:number]] on the way out if you need cashier.
+[[PERSON#a:Ottoline Graves]]: Thanks.

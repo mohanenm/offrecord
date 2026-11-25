@@ -1,0 +1,43 @@
+id: ho-support-identity-02
+domain: support
+speakers:
+  A: account security agent at a bank
+  B: customer reporting a suspicious login
+  C: fraud team lead
+turns:
+  - A: "Thanks for holding. You've reached account security, my name is {person#1.first}. Can I get your full name?"
+  - B: "Hi, yes, it's {person#2.full}. Sorry, there's a lot of wind, I'm walking."
+  - A: "That's alright. I understand you got a text about a login from a new device?"
+  - B: "Yes, from somewhere in {location#1}, and I have never been there in my life."
+  - A: "Okay. We'll lock that down. First I need to verify you. Do you have the account number?"
+  - B: "Um, not on me. Can you use something else?"
+  - A: "Sure, I can use your social security number."
+  - split:
+      speaker: B
+      slot: "ssn#1.spoken"
+      before: "Okay, it's"
+      interrupt: { speaker: A, text: "sorry, a bit slower" }
+      after: "did you get all that?"
+  - A: "Yes, thank you. I've pulled up account {account#1}. And the phone number on file?"
+  - B: "{phone#1.corrected}. Sorry, I changed it last month and I still mix it up."
+  - A: "No worries, that matches. So the login attempt came from IP address {ip#1}."
+  - B: "I have no idea what that means, but okay."
+  - A: "Basically it tells us it wasn't your usual internet connection."
+  - B: "Right."
+  - A: "I'm going to bring in my team lead, because there was also a payee added."
+  - C: "Hi, this is {person#3.full}. Ms. {person#2.last}, did you add a payee called {person#4.asr} on {date#1}?"
+  - B: "No! Who is that?"
+  - C: "Okay. We'll reverse that and flag it. Was any money sent?"
+  - A: "One transfer of {amount#1} is pending. We can stop it."
+  - B: "Oh thank god."
+  - C: "We'll also reissue your debit card. Let me read the current one so you can confirm: {card#1.spoken}."
+  - B: "Yes, that's it."
+  - C: "Okay, that's cancelled. The new card goes to your address in {location#2}."
+  - B: "Yes, that's still right."
+  - A: "And we'll send a confirmation to {email#1}. Still good?"
+  - B: "Yes."
+  - C: "One last thing. I'd change your password at {url#1} and turn on two-step."
+  - B: "Okay. I will, tonight."
+  - A: "Anything else I can help with?"
+  - B: "No, I just -- thank you. Really."
+  - A: "Of course. Take care."

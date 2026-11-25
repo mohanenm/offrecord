@@ -1,0 +1,37 @@
+id: ho-internal-hr-03
+domain: internal
+speakers:
+  A: HR business partner
+  B: department head
+  C: payroll specialist
+turns:
+  - B: "Hey. Is it just us?"
+  - A: "{person#1.first} from payroll is joining in a minute. How are you holding up?"
+  - B: "Honestly? Not great. I haven't slept much."
+  - A: "Yeah. That's understandable."
+  - C: "Hi, sorry, I'm here. Had to restart my laptop."
+  - A: "No problem. So, um, let's go through the list."
+  - A: "[[TOPIC: We're eliminating the entire customer insights team and two roles in operations, effective the fifteenth]]."
+  - B: "Right."
+  - A: "That takes headcount from {quantity#1} to {quantity#2.spoken}."
+  - C: "And severance is budgeted at {amount#1} in total?"
+  - A: "Correct. Plus {percent#1} of base for anyone over five years."
+  - B: "Mm-hmm. Can I ask about {person#2.full}? She's on medical leave."
+  - A: "We have to be careful there. Legal advised we hold her notice until she's back."
+  - B: "Okay. Good."
+  - C: "Separate but related -- {person#3.asr}'s last paycheck went out with the wrong number on the tax form."
+  - B: "Sorry, who?"
+  - C: "{person#3.full}, in logistics. It went out as {ssn#1} and it should be -- let me read it off the form -- {ssn#2.spoken}."
+  - A: "Oh no. Can you get that corrected before year end?"
+  - C: "Yes, the corrected one, {ssn#2}, goes on the amended form, and I'll file it by {date#1}."
+  - C: "Also, um, {person#4.first} was paid twice in October, about {amount#2.spoken} over."
+  - A: "We'll recover that gently. Don't make it a thing right now."
+  - B: "And the {location#1} office -- [[TOPIC: are we still closing that site completely or keeping a skeleton crew]]?"
+  - A: "Closing it. Lease ends in March."
+  - B: "Okay. Then I need to tell {person#5.first} soon, she relocated for this job."
+  - A: "Let's do those conversations together. I'll send times."
+  - A: "And one more thing: [[TOPIC: a former employee has filed a wrongful termination claim, so nothing about selection criteria goes in email]]."
+  - B: "Understood."
+  - C: "Got it."
+  - A: "Thanks both. I know this is hard."
+  - B: "Yeah. Thanks."

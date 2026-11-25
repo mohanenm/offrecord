@@ -1,0 +1,34 @@
+[[PERSON#nadia:Nadia Holt]]: Okay I think we've got everyone. [[PERSON#will:Will]], thanks for, uh, coming in person. Well, sort of in person.
+[[PERSON#will:Will Ashdown]]: Ha, yeah, half of us. [[PERSON#mei:Mei]]'s dialed in from [[LOCATION:Dunhallow]].
+[[PERSON#mei:Mei Lindqvist]]: Hi all. Sorry, the, the wifi here is
+[[PERSON#terr:Terrence Obi]]: You're breaking up a bit.
+[[PERSON#mei:Mei Lindqvist]]: Is that better?
+[[PERSON#terr:Terrence Obi]]: Yeah, yeah. Better.
+[[PERSON#nadia:Nadia Holt]]: Okay. So. The renewal. We're doing roughly [[QUANTITY:twelve thousand]] cases a month through [[ORG#salt:Saltmarsh]], and the quote you sent has the unit price going from [[AMOUNT:a dollar eighty]] to [[AMOUNT:two oh five]].
+[[PERSON#will:Will Ashdown]]: Right. And, look, I, I know that's a jump. Resin's up, freight's up, everything's up.
+[[PERSON#terr:Terrence Obi]]: It's [[PERCENT:fourteen percent]], [[PERSON#will:Will]].
+[[PERSON#mei:Mei Lindqvist]]: [[PERCENT#p139:Thirteen point nine]], technically.
+[[PERSON#terr:Terrence Obi]]: Okay, [[PERCENT#p139:thirteen point nine]]. Still.
+[[PERSON#nadia:Nadia Holt]]: And to be transparent, we're also talking to [[BRAND#wick:Wicker]] --
+[[PERSON#will:Will Ashdown]]: Mm.
+[[PERSON#nadia:Nadia Holt]]: -- their quote is lower, and they'd run it out of [[LOCATION:the old ferry terminal warehouse in Kestrel Bay]], which is like ten minutes from our plant.
+[[PERSON#will:Will Ashdown]]: [[BRAND#wick:Wicker]] is, I mean, they're fine. I've got a [[NEG:wicker]] chair in my office that's held up better than their pallets, but they're fine.
+[[PERSON#terr:Terrence Obi]]: Ha.
+[[PERSON#mei:Mei Lindqvist]]: Can I suggest something? If you commit to [[QUANTITY:a hundred and fifty thousand]] cases over the term, we can hold at [[AMOUNT#a195:one ninety five]].
+[[PERSON#nadia:Nadia Holt]]: [[AMOUNT#a195:One ninety five]]. Hmm.
+[[PERSON#terr:Terrence Obi]]: And the exclusivity clause? I'm, I'm not signing exclusivity again.
+[[PERSON#will:Will Ashdown]]: [[TOPIC:Honestly, between us, we'd drop exclusivity if you let us announce Halloran-Brisk as a reference customer.]]
+[[PERSON#nadia:Nadia Holt]]: Hmm. Marketing would have to sign off. [[PERSON:Jasper]] would, uh, he'd hate that.
+[[PERSON#will:Will Ashdown]]: Ha, okay. For [[CLIENT#hb:Halloran Brisk]] we've always been flexible, you know that.
+[[PERSON#nadia:Nadia Holt]]: [[TOPIC:Also, and this stays in this room, we're closing the Marrow Falls plant next summer, so volumes drop about a third after that.]]
+[[PERSON#will:Will Ashdown]]: Oh. Okay. That, that changes the math.
+[[PERSON#mei:Mei Lindqvist]]: I'll rerun it. Can you send me the forecast by plant? My email's [[EMAIL#mei:mei dot l at saltmarsh pkg dot example]], P K G.
+[[PERSON#terr:Terrence Obi]]: [[EMAIL#mei:Mei dot L, at saltmarsh]] --
+[[PERSON#mei:Mei Lindqvist]]: [[EMAIL#mei:saltmarshpkg.example]]. Yeah.
+[[PERSON#nadia:Nadia Holt]]: And the PO for the bridge order is [[ACCOUNT#po:PO 5512-0098]]. Can the [[DATE:Q1]] invoices go against that?
+[[PERSON#will:Will Ashdown]]: [[ACCOUNT#po:Fifty five twelve, double oh nine eight]]. Yep.
+[[PERSON#terr:Terrence Obi]]: And deliveries still go to [[LOCATION:dock four, 1200 Tannery Road]].
+[[PERSON#will:Will Ashdown]]: Yep, same as always.
+[[PERSON#nadia:Nadia Holt]]: Okay. So next steps: [[PERSON#mei:Mei]] reruns at the lower volume, and we, um, we talk again [[DATE:December twelfth]].
+[[PERSON#will:Will Ashdown]]: Sounds good. And [[PERSON#nadia:Nadia]], if [[BRAND#wick:Wiker]] comes in way under, just call me first, yeah?
+[[PERSON#nadia:Nadia Holt]]: Ha. Maybe.

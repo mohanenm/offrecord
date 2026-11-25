@@ -1,0 +1,21 @@
+id: t05-sales-discovery
+domain: sales
+speakers: {A: sales rep, B: operations director}
+turns:
+  - A: "Hi there, you're on mute I think."
+  - B: "Sorry! Can you hear me now?"
+  - A: "Yes, perfect. How's the weather over there?"
+  - B: "Raining, as usual."
+  - A: "Ha. So tell me a bit about {client#1.asr}."
+  - B: "Sure. We run {quantity} stores, mostly around {location}."
+  - A: "And today you're using {brand#1}?"
+  - B: "We use {brand#1.asr} for scheduling, yeah, it's a pain."
+  - A: "What's the budget looking like?"
+  - B: "We've got maybe {amount.spoken} for this year."
+  - A: "Okay, and how many users?"
+  - B: "About {quantity.spoken} people."
+  - A: "Great. Our {product#1} would cut that cost by around {percent.spoken}."
+  - B: "Hmm. I'd want {person#5} on the next call, she's our {location#2} lead."
+  - A: "Of course. What's the best number for her?"
+  - B: "{phone#2.spoken}."
+  - A: "Got it, thanks so much."

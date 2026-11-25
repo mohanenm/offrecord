@@ -1,0 +1,104 @@
+[
+  {
+    "speaker": "Yuki Oduya",
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Hi, is this Emeka?"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 2.4,
+    "end": 3.867,
+    "text": "Yes hi."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 4.067,
+    "end": 9.867,
+    "text": "I'm calling about ticket five nine two three two two five zero six nine."
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 10.067,
+    "end": 13.4,
+    "text": "Oh right, the Pallasite API outage."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 13.6,
+    "end": 18.067,
+    "text": "Yeah. Can you tell me the public IP of your gateway?"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 18.267,
+    "end": 20.733,
+    "text": "Uh, it's 198.51.100.2."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 20.933,
+    "end": 23.0,
+    "text": "And the account?"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 23.2,
+    "end": 25.467,
+    "text": "It's eight five six"
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 25.667,
+    "end": 27.067,
+    "text": "uh huh"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 27.267,
+    "end": 30.133,
+    "text": "four two seven nine I think."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 30.333,
+    "end": 36.267,
+    "text": "Great. And the login page you see is quillfeather dot example slash login?"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 36.467,
+    "end": 37.733,
+    "text": "Yes."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 37.933,
+    "end": 42.867,
+    "text": "Okay, I'll escalate to Oskar Cordova. Your callback number?"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 43.067,
+    "end": 44.667,
+    "text": "555-0177."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 44.867,
+    "end": 47.067,
+    "text": "Thanks, and email?"
+  },
+  {
+    "speaker": "Emeka Uchenna",
+    "start": 47.267,
+    "end": 51.467,
+    "text": "ravi underscore fairweather at mailbox dot test."
+  },
+  {
+    "speaker": "Yuki Oduya",
+    "start": 51.667,
+    "end": 55.933,
+    "text": "Perfect, you'll hear from us by February 3, 2024."
+  }
+]

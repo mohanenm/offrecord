@@ -1,0 +1,50 @@
+[00:00:05] [[PERSON#a:Dr Imani Kessler]]: Morning everyone, this is the weekly ops sync for protocol [[ACCOUNT#p1:VLX-301-207]], the [[CODENAME#d1:VX-17]] phase two. Let's go quick, I have the DSMB prep after this.
+[00:00:13] [[PERSON#b:Teodor]]: Morning.
+[00:00:14] [[PERSON#c:Aisling Murrow]]: Hi.
+[00:00:15] [[PERSON#d:Rashid]]: Here.
+[00:00:16] [[PERSON#a:Dr Imani Kessler]]: Enrollment first. [[PERSON#b:Teodor]]?
+[00:00:18] [[PERSON#b:Teodor]]: We're at [[QUANTITY:one hundred and forty-seven]] randomized out of [[QUANTITY:two forty]] target. That's about [[PERCENT:61%]]. Screen failure rate is running high, [[PERCENT:thirty-eight percent]], mostly on the eGFR criterion.
+[00:00:30] [[PERSON#a:Dr Imani Kessler]]: Which sites are behind?
+[00:00:32] [[PERSON#b:Teodor]]: Site [[ACCOUNT:oh one four]], that's [[ORG#h1:Calderbrook University Hospital]], has enrolled [[QUANTITY:two]] since [[DATE:August]]. And site [[ACCOUNT:022]] in [[LOCATION:Vellmar]] hasn't activated yet.
+[00:00:41] [[PERSON#c:Aisling Murrow]]: [[ACCOUNT:022]] is waiting on their ethics committee. Approval is expected [[DATE:the 4th of December]].
+[00:00:46] [[PERSON#a:Dr Imani Kessler]]: Okay. Last patient in target was [[DATE:March 31, 2027]]. Are we still on track?
+[00:00:51] [[PERSON#b:Teodor]]: Honestly, it's more like [[DATE:end of May]].
+[00:00:54] [[PERSON#a:Dr Imani Kessler]]: Hmm. [[PERSON#d:Rashid]], safety.
+[00:00:56] [[PERSON#d:Rashid]]: Yeah. So, we had [[NEG:two]] SAEs this week. First, subject [[ACCOUNT#s1:014-0032]], [[TOPIC:a sixty-eight year old man who was hospitalized with acute kidney injury about nine days after his third dose, he's recovering but it's being assessed as possibly related.]]
+[00:01:10] [[PERSON#a:Dr Imani Kessler]]: Possibly related. Okay. Was he on the higher dose arm?
+[00:01:14] [[PERSON#d:Rashid]]: We don't know, we're blinded. The site PI, [[PERSON#e:Dr. Vasquez-Lund]], wants to unblind.
+[00:01:19] [[PERSON#a:Dr Imani Kessler]]: Not yet. Let the DSMB decide. What's the second?
+[00:01:22] [[PERSON#d:Rashid]]: Subject [[ACCOUNT:zero three one, dash, zero zero eight]]. [[TOPIC:A woman in her forties with a history of depression who had a suicide attempt, the investigator thinks it's unrelated to study drug but we have to report it within seven days.]]
+[00:01:35] [[PERSON#c:Aisling Murrow]]: Oh god. Is she okay?
+[00:01:37] [[PERSON#d:Rashid]]: She's stable. Inpatient.
+[00:01:39] [[PERSON#a:Dr Imani Kessler]]: Okay. Make sure both are in the safety database by [[DATE:Friday]]. Reference numbers?
+[00:01:43] [[PERSON#d:Rashid]]: [[ACCOUNT:SAE-2026-0119]] and [[ACCOUNT:SAE-2026-0121]].
+[00:01:47] [[PERSON#a:Dr Imani Kessler]]: Thanks. [[PERSON#c:Aisling]], budget and vendors.
+[00:01:50] [[PERSON#c:Aisling Murrow]]: Right. The CRO, [[ORG#o1:Pellucid Clinical]], sent a change order for the enrollment extension. [[AMOUNT:Seven hundred and eighty thousand dollars]], which is about [[PERCENT:eleven percent]] over the original contract of [[AMOUNT:$7.1 million]].
+[00:02:02] [[PERSON#a:Dr Imani Kessler]]: That's a lot.
+[00:02:04] [[PERSON#c:Aisling Murrow]]: It's mostly monitoring visits. They're charging [[AMOUNT:two thousand one hundred]] per on-site visit, and the per-patient site grant is [[AMOUNT:eighteen thousand four hundred]] on average.
+[00:02:13] [[PERSON#a:Dr Imani Kessler]]: Push back on the visit rate. We agreed [[AMOUNT:$1,850]].
+[00:02:17] [[PERSON#c:Aisling Murrow]]: Will do. Their contact is [[PERSON#f:Hollis Granger-Pike]], [[EMAIL#e1:hgrangerpike at pellucid-clinical dot example]].
+[00:02:24] [[PERSON#b:Teodor]]: Is that [[PERSON#f:Granger dash Pike]] or no dash?
+[00:02:26] [[PERSON#c:Aisling Murrow]]: No dash in the email. [[EMAIL#e1:hgrangerpike@pellucid-clinical.example]].
+[00:02:31] [[PERSON#a:Dr Imani Kessler]]: Okay. Drug supply?
+[00:02:33] [[PERSON#b:Teodor]]: Fine for now. Depot in [[LOCATION:Hartwell Park]] has around [[QUANTITY:nine hundred]] kits. Next manufacturing lot [[ACCOUNT:LOT 26K0814]] releases [[DATE:mid-January]].
+[00:02:42] [[PERSON#a:Dr Imani Kessler]]: Good. And the IRT, any issues?
+[00:02:45] [[PERSON#b:Teodor]]: One randomization error at site [[ACCOUNT:oh one nine]]. Kit [[ACCOUNT:K-55120]] was dispensed to the wrong subject. Deviation logged as [[ACCOUNT:PD-0447]].
+[00:02:53] [[PERSON#a:Dr Imani Kessler]]: Ugh. Okay. Database lock.
+[00:02:56] [[PERSON#c:Aisling Murrow]]: With the new last-patient-in, database lock moves from [[DATE:September 2027]] to [[DATE:November]].
+[00:03:01] [[PERSON#a:Dr Imani Kessler]]: [[TOPIC:That's going to be a problem, because the company told investors we'd have topline data before the end of next year, and the partnering discussions with a larger pharma depend on it.]]
+[00:03:12] [[PERSON#d:Rashid]]: Is that partnership still happening?
+[00:03:14] [[PERSON#a:Dr Imani Kessler]]: [[TOPIC:It's in diligence, codename Otterbrook, and nobody below director level should know about it, so keep it off the minutes.]]
+[00:03:21] [[PERSON#c:Aisling Murrow]]: Understood, I'll leave it off.
+[00:03:23] [[PERSON#a:Dr Imani Kessler]]: Anything on audits?
+[00:03:25] [[PERSON#d:Rashid]]: There's an inspection notice for site [[ACCOUNT:oh one four]]. Inspection is [[DATE:Monday the eighteenth of January]] through [[DATE:the 20th]].
+[00:03:32] [[PERSON#a:Dr Imani Kessler]]: [[ORG#h1:Calderbrook]] again. [[TOPIC:Their coordinator was fired last month for backdating consent forms, so this is going to be ugly.]]
+[00:03:39] [[PERSON#b:Teodor]]: Who's the new coordinator?
+[00:03:41] [[PERSON#d:Rashid]]: [[PERSON#g:Ottilie]], I don't have her last name. Phone at the site is [[PHONE:555-0197 ext 2]].
+[00:03:46] [[PERSON#a:Dr Imani Kessler]]: Okay. Let's get our QA lead on site [[NEG:the week before]]. Patient MRN cross-check too, they had some mix-ups. Like [[ACCOUNT:MRN 8820-1147]] mapped to two subjects.
+[00:03:56] [[PERSON#c:Aisling Murrow]]: I'll set it up.
+[00:03:58] [[PERSON#a:Dr Imani Kessler]]: Last thing, the investigator meeting. Venue?
+[00:04:01] [[PERSON#c:Aisling Murrow]]: [[LOCATION:The Wexmoor Conference Centre]], [[DATE:Feb 24 and 25]]. Budget is [[AMOUNT:a hundred and ten K]] for about [[QUANTITY:sixty]] attendees.
+[00:04:09] [[PERSON#a:Dr Imani Kessler]]: Fine. Okay, that's it. Same time [[NEG:next week]]. Thanks all.
+[00:04:12] [[PERSON#d:Rashid]]: Thanks. Good luck with the [[NEG:board]].

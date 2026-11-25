@@ -1,0 +1,200 @@
+[
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 0.0,
+    "end": 7.4,
+    "text": "Thanks for holding. You've reached account security, my name is Anouk. Can I get your full name?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 7.6,
+    "end": 13.533,
+    "text": "Hi, yes, it's Wanjiru Ferreira. Sorry, there's a lot of wind, I'm walking."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 13.733,
+    "end": 20.067,
+    "text": "That's um, alright. I understand you got a text about a login from a new device?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 20.267,
+    "end": 26.2,
+    "text": "Yes, from somewhere in Fallowmere, and I have never been there in my life."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 26.4,
+    "end": 33.2,
+    "text": "Okay. We'll lock that down. First I need to verify you. Do you have the account number?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 33.4,
+    "end": 37.2,
+    "text": "Um, not on me. Can you use something else?"
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 37.4,
+    "end": 41.333,
+    "text": "Sure, I can use your social security number."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 41.533,
+    "end": 44.533,
+    "text": "Okay, it's nine two nine three"
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 44.733,
+    "end": 47.0,
+    "text": "sorry, a bit slower"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 47.2,
+    "end": 51.267,
+    "text": "four seven four four six did you get all that?"
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 51.467,
+    "end": 57.733,
+    "text": "Yes, thank you. I've pulled up account AC4789802. And the phone number on file?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 57.933,
+    "end": 68.667,
+    "text": "five five one five two... let me redo that, five five one five five five zero one three one. Sorry, I changed it last month and I still mix it up."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 68.867,
+    "end": 75.4,
+    "text": "No worries, that matches. So the login attempt came from IP address 2001:db8::f979."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 75.6,
+    "end": 79.333,
+    "text": "I have no idea what that means, but okay."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 79.533,
+    "end": 84.733,
+    "text": "Basically it tells us it wasn't your usual internet connection."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 84.933,
+    "end": 86.333,
+    "text": "Right."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 86.533,
+    "end": 92.933,
+    "text": "I'm going to bring in my team lead, because there was also a payee I mean, added."
+  },
+  {
+    "speaker": "Mateus Delacroix",
+    "start": 93.133,
+    "end": 101.467,
+    "text": "Hi, this is Soren Sorensen. Ms. Ferreira, did you add a sort of, payee called ke nji bergstrom on December 26?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 101.667,
+    "end": 103.733,
+    "text": "No! Who is that?"
+  },
+  {
+    "speaker": "Mateus Delacroix",
+    "start": 103.933,
+    "end": 108.733,
+    "text": "Okay. We'll reverse that and flag it. Was any money sent?"
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 108.933,
+    "end": 113.4,
+    "text": "One um, transfer of $800 is pending. We can stop it."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 113.6,
+    "end": 115.867,
+    "text": "Oh like, thank god."
+  },
+  {
+    "speaker": "Mateus Delacroix",
+    "start": 116.067,
+    "end": 128.267,
+    "text": "We'll also reissue your debit card. Let me read the current basically, one so you can confirm: five one oh five one zero five one zero five one zero five one zero zero."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 128.467,
+    "end": 130.467,
+    "text": "Yes, that's it."
+  },
+  {
+    "speaker": "Mateus Delacroix",
+    "start": 130.667,
+    "end": 137.0,
+    "text": "Okay, that's cancelled. The new card goes to your address in Kessington Heights."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 137.2,
+    "end": 139.8,
+    "text": "Yes, that's still right."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 140.0,
+    "end": 146.4,
+    "text": "And we'll send a confirmation to nikhil.oyelaran@kestrelmoor.example. Still good?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 146.6,
+    "end": 147.867,
+    "text": "Yes."
+  },
+  {
+    "speaker": "Mateus Delacroix",
+    "start": 148.067,
+    "end": 155.867,
+    "text": "One last thing. I'd change your password at https://support.oxvane.example/login and turn on two-step."
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 156.067,
+    "end": 158.533,
+    "text": "Okay. I will, tonight."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 158.733,
+    "end": 161.733,
+    "text": "Anything else I can help with?"
+  },
+  {
+    "speaker": "Yara Chaudhry",
+    "start": 161.933,
+    "end": 165.733,
+    "text": "No, I just -- thank you know, you. Really."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 165.933,
+    "end": 168.333,
+    "text": "Of course. Take care."
+  }
+]

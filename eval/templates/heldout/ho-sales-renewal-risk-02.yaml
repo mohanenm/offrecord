@@ -1,0 +1,42 @@
+id: ho-sales-renewal-risk-02
+domain: sales
+speakers:
+  A: customer success manager at the vendor
+  B: vice president of operations at the client
+  C: procurement lead at the client
+turns:
+  - A: "Good afternoon, everyone. Can everyone hear me alright?"
+  - C: "Yes, we can hear you."
+  - B: "Just a second -- sorry, my dog. Okay. Go ahead."
+  - A: "No problem at all. Thank you both for joining. The purpose today is to talk through the {client#1} renewal ahead of {date#1}."
+  - B: "Right. And I'll be direct. We're not sure we're renewing."
+  - A: "I appreciate you saying that."
+  - B: "The price went up {percent#1} last cycle and usage on our side hasn't moved at all."
+  - C: "Our current contract is {amount#1} a year. The quote we received was {amount#2.spoken}."
+  - A: "Mm-hmm."
+  - C: "That is not something I can take to our finance committee."
+  - A: "Understood. So, um, two things. First, [[TOPIC: we're moving every customer to per-seat pricing in January and flat-rate contracts won't be offered again]]."
+  - B: "Great. So it gets worse."
+  - A: "Not necessarily -- for your seat count it could come down. You have, what, {quantity#1} active users?"
+  - C: "Closer to {quantity#2.spoken}, actually. We cleaned up a lot of dormant logins."
+  - A: "Okay, that changes the math quite a bit."
+  - B: "Look, I'll be honest. Our team in {location#1} has been piloting {brand#1} for the past two months."
+  - A: "Okay."
+  - B: "And they like it. Their onboarding was, frankly, better."
+  - A: "That's fair feedback. Is the pilot formal, or..."
+  - B: "Semi-formal. [[TOPIC: If we don't see a better number by the end of the month, we are moving the whole company off your platform]]."
+  - A: "Understood. I'd like to bring my director in, that's {person#1.full}."
+  - C: "Can you give me her direct number? I'd rather not go through the switchboard."
+  - A: "Sure, it's {phone#1.corrected}."
+  - C: "Thanks. And the renewal paperwork lives where?"
+  - A: "Everything is on the portal at {url#1}. Your login should still work."
+  - C: "It didn't last time. I had to reset it twice."
+  - A: "I'll have support look at that. Sorry about that."
+  - B: "So what's realistic? What can you actually do?"
+  - A: "I can't commit on this call, but something around {percent#2.spoken} off list feels defensible given how long {client#1.lower} has been with us."
+  - B: "Hm. Okay. That's a start."
+  - C: "Put it in writing and I'll circulate it."
+  - A: "You'll have it by {date#2}. And I've flagged {client#1.asr} as a priority account internally, so it won't get stuck."
+  - B: "Fine. Thanks for being straight with us."
+  - A: "Of course. Thank you both. Have a good rest of your day."
+  - C: "You too."

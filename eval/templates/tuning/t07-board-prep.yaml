@@ -1,0 +1,18 @@
+id: t07-board-prep
+domain: internal
+speakers: {A: CEO, B: general counsel, C: chief of staff, D: VP strategy}
+turns:
+  - C: "Okay, I think everyone's here. Let's jump in."
+  - A: "Thanks. So for the board deck, the headline is {amount} ARR, {percent} growth."
+  - D: "And net retention at {percent#2}."
+  - B: "[[TOPIC: Before the deck, the {client#1} litigation is likely to settle for around {amount#3}.]]"
+  - A: "Okay. Keep that out of the slides."
+  - D: "[[TOPIC: {codename#1} is the acquisition of {brand#1}, we should present it as a partnership until signing.]]"
+  - B: "Agreed, and {codename#1.asr} needs to stay in the closed session."
+  - C: "{person#spkA.first}, do you want {person#6} to present the {product#1} roadmap?"
+  - A: "Yes, {person#6.last} knows it best."
+  - D: "We also lost {client#2}, that's {quantity} units a year."
+  - A: "[[TOPIC: And we're raising prices by {percent} on the {product#2.alias} tier in January.]]"
+  - C: "Noted. I'll send the draft from {email#1} tonight."
+  - B: "Mm-hmm."
+  - A: "Great, thanks all."

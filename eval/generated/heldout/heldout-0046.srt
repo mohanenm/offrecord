@@ -1,0 +1,135 @@
+1
+00:00:00,000 --> 00:00:07,267
+speaker 4: okay, i think we have quorum. petra sort of, is out sick, so we'll catch her i mean, up after.
+
+2
+00:00:07,467 --> 00:00:14,333
+speaker 1: morning all. did basically, everyone survive the storm? our power was out till midnight.
+
+3
+00:00:14,533 --> 00:00:18,867
+speaker 3: ugh, ours too. i ended up working um, from a cafe.
+
+4
+00:00:19,067 --> 00:00:22,067
+speaker 2: we were fine, weirdly. anyway.
+
+5
+00:00:22,267 --> 00:00:29,467
+speaker 4: right. agenda's in the doc. first up, q1 priorities. chidi, want i mean, to kick i mean, off?
+
+6
+00:00:29,667 --> 00:00:37,200
+speaker 1: sure. so, um, the big uh, one is project saltmarsh. we're aiming for beta you know, by 2028-04-26.
+
+7
+00:00:37,400 --> 00:00:41,933
+speaker 2: which -- okay, i'll sort of, say it -- is aggressive.
+
+8
+00:00:42,133 --> 00:00:44,267
+speaker 1: it is aggressive.
+
+9
+00:00:44,467 --> 00:00:49,933
+speaker 2: we have three engineers on it and two of them are half on lodestar.
+
+10
+00:00:50,133 --> 00:00:54,400
+speaker 4: can sort of, we pull them off operation lodestar?
+
+11
+00:00:54,600 --> 00:00:58,067
+speaker 2: not without slipping that by a month.
+
+12
+00:00:58,267 --> 00:01:07,867
+speaker 1: and to be clear about saltmarsh, the real goal is to rip out the legacy billing engine entirely and retire the old pricing pages.
+
+13
+00:01:08,067 --> 00:01:15,467
+speaker 3: from the marketing side, we've already told pellucid robotics to expect something in spring. so.
+
+14
+00:01:15,667 --> 00:01:20,000
+speaker 1: right, and they're our uh, biggest you know, logo.
+
+15
+00:01:20,200 --> 00:01:28,533
+speaker 3: mm-hmm. also, we're sunsetting the free tier at the end of q1 and moving those users onto a paid starter plan.
+
+16
+00:01:28,733 --> 00:01:31,133
+speaker 2: wait, is that public?
+
+17
+00:01:31,333 --> 00:01:36,133
+speaker 3: no. not yet. please don't put it uh, in the team channel.
+
+18
+00:01:36,333 --> 00:01:40,133
+speaker 4: noted. sort of, what's the budget picture?
+
+19
+00:01:40,333 --> 00:01:49,800
+speaker 1: we've um, got 62 million dollars for contractors this quarter. last quarter we burned through 6.5% of it by week you know, six.
+
+20
+00:01:50,000 --> 00:01:52,933
+speaker 4: okay, so, basically, careful.
+
+21
+00:01:53,133 --> 00:02:00,667
+speaker 2: if i could get sort of, two contractors for project saltmarsh, that you know, would unblock a lot.
+
+22
+00:02:00,867 --> 00:02:05,200
+speaker 1: that's maybe four hundred dollars for the quarter.
+
+23
+00:02:05,400 --> 00:02:06,867
+speaker 4: doable.
+
+24
+00:02:07,067 --> 00:02:12,400
+speaker 3: sorry, i'm getting a ton of echo -- is someone not on headphones?
+
+25
+00:02:12,600 --> 00:02:16,133
+speaker 2: oh, that's me, sorry, one sec. better?
+
+26
+00:02:16,333 --> 00:02:17,800
+speaker 3: better.
+
+27
+00:02:18,000 --> 00:02:23,533
+speaker 4: okay. launch uh, locations. we said ravelstoke and fallowmere first.
+
+28
+00:02:23,733 --> 00:02:29,267
+speaker 3: yeah. fallowmere because that's where pellucid has its headquarters.
+
+29
+00:02:29,467 --> 00:02:31,267
+speaker 1: makes sense.
+
+30
+00:02:31,467 --> 00:02:38,400
+speaker 2: quick thing -- the notes bot keeps writing salt mash, like, can someone fix the glossary?
+
+31
+00:02:38,600 --> 00:02:48,067
+speaker 4: ha, i'll fix it. action items: ingrid okonkwo owns the contractor request, i'll update the roadmap, and we revisit on may 18th.
+
+32
+00:02:48,267 --> 00:02:50,067
+speaker 1: sounds good.
+
+33
+00:02:50,267 --> 00:02:52,333
+speaker 3: thanks everyone.
+
+34
+00:02:52,533 --> 00:02:54,000
+speaker 2: cheers.

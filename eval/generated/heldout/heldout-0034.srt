@@ -1,0 +1,139 @@
+1
+00:00:00,000 --> 00:00:05,133
+Quentin Haddad: Hey, can you hear me? I think my headset is being weird again.
+
+2
+00:00:05,333 --> 00:00:09,667
+Yusuf Chaudhry: Yeah, I've got you. Bit of an echo, but it's fine.
+
+3
+00:00:09,867 --> 00:00:15,867
+Ingrid Mendoza-Hart: Hi all, sorry, I was on mute. I was talking for like ten seconds to nobody.
+
+4
+00:00:16,067 --> 00:00:21,733
+Quentin Haddad: Ha, classic. Hamid, how was the long weekend, did you get away at all?
+
+5
+00:00:21,933 --> 00:00:28,600
+Yusuf Chaudhry: We drove up to Ravelstoke, um, which was gorgeous until it started pouring on Sunday.
+
+6
+00:00:28,800 --> 00:00:32,533
+Quentin Haddad: Oh no. Same here honestly, grey all week.
+
+7
+00:00:32,733 --> 00:00:34,600
+Yusuf Chaudhry: Yeah. Anyway.
+
+8
+00:00:34,800 --> 00:00:43,867
+Quentin Haddad: Right, so, um, thanks for making time. I know Copperleaf Municipal Utilities is in I mean, the middle of a lot right now.
+
+9
+00:00:44,067 --> 00:00:53,867
+Yusuf Chaudhry: We are. So the short version, we run about 1,289 trucks out of three depots and dispatch is basically spreadsheets and a whiteboard.
+
+10
+00:00:54,067 --> 00:00:55,533
+Ingrid Mendoza-Hart: Mm-hmm.
+
+11
+00:00:55,733 --> 00:01:04,200
+Yusuf Chaudhry: And our CFO, Ewan Oyelaran, wants to see a real plan before budget season, which for us closes 27th of February.
+
+12
+00:01:04,400 --> 00:01:10,533
+Quentin Haddad: Got it. And is there a, uh, number you're working with? Ballpark is uh, fine.
+
+13
+00:01:10,733 --> 00:01:15,733
+Yusuf Chaudhry: I've been told not to go over $731,000 for year one. All in.
+
+14
+00:01:15,933 --> 00:01:20,467
+Ingrid Mendoza-Hart: Okay. And how many dispatchers would actually log in?
+
+15
+00:01:20,667 --> 00:01:28,800
+Yusuf Chaudhry: Today it's, uh, nine -- no, eleven, we just hired two. Call it one thousand two hundred ninety seven seats.
+
+16
+00:01:29,000 --> 00:01:37,467
+Ingrid Mendoza-Hart: That's helpful. So Inkwarden Vault would uh, cover the routing piece, and the scheduling would sit in Orbitrack.
+
+17
+00:01:37,667 --> 00:01:41,533
+Yusuf Chaudhry: Wait, sorry, is that two separate licences?
+
+18
+00:01:41,733 --> 00:01:45,800
+Quentin Haddad: It's bundled. Don't worry about that part yet.
+
+19
+00:01:46,000 --> 00:01:58,800
+Yusuf Chaudhry: Okay, good, because the last vendor nickel-and-dimed like, us on everything. Oh, and your like, chat bot kept I mean, calling it ink warden, which, I did not know what that was.
+
+20
+00:01:59,000 --> 00:02:07,533
+Quentin Haddad: Ha, yeah, we hear that a lot. Honestly CMU has been on our wishlist for a couple of years, so we'll make it easy.
+
+21
+00:02:07,733 --> 00:02:16,600
+Yusuf Chaudhry: Also, between us, we're probably folding the north depot into the east one next spring, so the truck count could drop.
+
+22
+00:02:16,800 --> 00:02:21,467
+Quentin Haddad: Understood, that's useful context. We'll keep it quiet.
+
+23
+00:02:21,667 --> 00:02:27,267
+Ingrid Mendoza-Hart: Could you send over a sample of your route data? Even a week is fine.
+
+24
+00:02:27,467 --> 00:02:34,200
+Yusuf Chaudhry: Sure. Send the um, request to emoreau@halvorsen-freight.example, that's my work inbox.
+
+25
+00:02:34,400 --> 00:02:40,067
+Yusuf Chaudhry: Or if it's urgent just call me, the cell is six three seven, five five
+
+26
+00:02:40,267 --> 00:02:43,000
+Quentin Haddad: hang on, let me grab a pen
+
+27
+00:02:43,200 --> 00:02:48,000
+Yusuf Chaudhry: five zero one one seven and I usually pick up after four.
+
+28
+00:02:48,200 --> 00:02:50,200
+Quentin Haddad: Got it, thanks.
+
+29
+00:02:50,400 --> 00:03:00,000
+Ingrid Mendoza-Hart: And just so you know, I spoke with zol tan petrov on your IT team last week about single sign-on, like, so that's already moving.
+
+30
+00:03:00,200 --> 00:03:04,533
+Yusuf Chaudhry: Oh great, Zoltan has been chasing that for months.
+
+31
+00:03:04,733 --> 00:03:12,467
+Quentin Haddad: Okay, so next step, we'll put a you know, proposal together by 2026-08-12 and keep it under that cap.
+
+32
+00:03:12,667 --> 00:03:17,933
+Yusuf Chaudhry: Perfect. Send it to me, not procurement, they'll just sit on it.
+
+33
+00:03:18,133 --> 00:03:22,533
+Quentin Haddad: Will do. Thanks Hamid, enjoy the rest of your week.
+
+34
+00:03:22,733 --> 00:03:24,600
+Yusuf Chaudhry: You too. Bye.
+
+35
+00:03:24,800 --> 00:03:26,333
+Ingrid Mendoza-Hart: Bye now.

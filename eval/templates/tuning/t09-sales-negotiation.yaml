@@ -1,0 +1,18 @@
+id: t09-sales-negotiation
+domain: sales
+speakers: {A: enterprise account director, B: VP procurement, C: solutions engineer}
+turns:
+  - A: "Hello hello, sorry I'm a minute late."
+  - B: "No problem."
+  - A: "So, we looked at your counter."
+  - B: "Yeah, we can't go above {amount} for {quantity} licenses."
+  - A: "Our floor is {amount#2}. That's already {percent} off list."
+  - C: "And that includes {product#1} and the {product#2.alias} add-on."
+  - B: "{client#1.alias} signed with {brand#1} at a lower number, you know."
+  - A: "I understand. [[TOPIC: We could offer a three-year term with a price lock if you commit before {date}.]]"
+  - B: "Let me check with {person#8}."
+  - A: "Sure. Is {person#8.first} still on {phone#1}?"
+  - B: "Yes."
+  - C: "Also we'd want the {location} data center for residency."
+  - B: "That's fine."
+  - A: "Great, I'll send redlines to {email#1}."

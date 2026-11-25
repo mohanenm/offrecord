@@ -1,0 +1,53 @@
+id: ho-internal-pipeline-06
+domain: internal
+speakers:
+  A: vice president of sales
+  B: senior account executive
+  C: account executive
+  D: sales operations analyst
+turns:
+  - A: "Alright, happy Monday. Who watched the game?"
+  - B: "Don't. Don't talk to me about the game."
+  - C: "Ha, I did. Great game."
+  - A: "Okay, okay. Pipeline review. {person#1.first}, you're first."
+  - B: "Sure. So, {client#1} -- we're in legal review. Should close by {date#1}. {amount#1} ARR."
+  - A: "Nice."
+  - B: "Then {client#2.alias}, which is, um, wobbly. Their champion left."
+  - A: "Who replaced them?"
+  - B: "Someone called -- I think -- {person#2.asr}. I've only got her assistant's number, {phone#1}."
+  - D: "I can find her in the CRM. What's the account?"
+  - split:
+      speaker: B
+      slot: "account#1.spoken"
+      before: "It's"
+      interrupt: { speaker: D, text: "hold on, typing" }
+      after: "that's the parent account."
+  - D: "Got it. Okay, yeah, she's in there. Her email is..."
+  - split:
+      speaker: D
+      slot: "email#1.spoken"
+      before: "it's"
+      interrupt: { speaker: A, text: "mm-hmm" }
+      after: "and I'll forward it to you."
+  - A: "Good. {person#3.first}?"
+  - C: "Okay, so, um, {client#3.lower} is the big one. They want {product#1} plus the {product#2.asr} add-on."
+  - A: "Wait, they want what?"
+  - C: "{product#2.full}. The reporting one."
+  - A: "Got it."
+  - C: "Deal size is {amount#2.spoken}. They're comparing us to {brand#1}."
+  - A: "Of course they are. {brand#1.alias} is everywhere this year."
+  - D: "And {brand#1.lower} just dropped their prices, like {percent#1}."
+  - C: "Yeah. So I might need some discount room."
+  - A: "How much?"
+  - C: "Uh -- {percent#2}? Maybe {percent#3.spoken} if they sign this quarter."
+  - A: "Run it past deal desk. Don't promise anything."
+  - C: "Got it."
+  - A: "Total pipeline?"
+  - D: "{amount#3} weighted, {amount#4.spoken} unweighted. Coverage is about {quantity#1.spoken} times quota."
+  - A: "Okay, not terrible."
+  - D: "One thing -- {client#2.asr} is on the at-risk list now. [[TOPIC: their renewal is in serious doubt and the account could churn by March]]."
+  - A: "Ugh. Okay. {person#1.first}, get a call with the new person this week."
+  - B: "On it. I'll send the invite and put the dial-in, {phone#2.spoken}, in the notes."
+  - D: "And the shared forecast is at {url#1.spoken} if anyone needs it."
+  - A: "Great. Thanks all, go sell something."
+  - C: "Ha. Bye."

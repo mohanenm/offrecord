@@ -1,0 +1,86 @@
+[
+  {
+    "speaker": "Speaker 1",
+    "start": 0.0,
+    "end": 4.733,
+    "text": "Okay, sort of, um, so, let's start. Can you all hear me?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 4.933,
+    "end": 6.2,
+    "text": "Yep."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 6.4,
+    "end": 7.733,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 7.933,
+    "end": 13.8,
+    "text": "So Project Bluefin launches on May 12th, assuming Ostrander Mutual signs."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 14.0,
+    "end": 18.0,
+    "text": "And the lumaroo co-marketing budget is $1.9M."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 18.2,
+    "end": 23.467,
+    "text": "Conversion on the beta was 39%, basically, about 1,629 accounts."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 23.667,
+    "end": 26.667,
+    "text": "Cool. And ledger line pricing?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 26.867,
+    "end": 31.733,
+    "text": "We're planning to double the price of the enterprise tier."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 31.933,
+    "end": 35.533,
+    "text": "Hmm, that'll spike churn in New Ardley."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 35.733,
+    "end": 39.2,
+    "text": "Fair. Hamza Wexley, can you model it?"
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 39.4,
+    "end": 44.267,
+    "text": "Sure, I'll share it at https://quillfeather.example/login."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 44.467,
+    "end": 48.133,
+    "text": "Great. Okay that's all, thanks everyone."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 48.333,
+    "end": 50.133,
+    "text": "Thanks, bye."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 50.333,
+    "end": 51.6,
+    "text": "Bye."
+  }
+]

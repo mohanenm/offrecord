@@ -1,0 +1,34 @@
+thiago abiodun: okay, i'm going to bring in mei from tier two. mei, basically, you there?
+xiadani varga: yep, here. hi. got the ticket notes.
+hyun-woo delacroix: hi. great. can you hear me alright? i'm in the server room, it's loud.
+xiadani varga: bit fuzzy but fine.
+hyun-woo delacroix: so since about six this morning nobody at our dunwiddie park office can reach the quillon dashboard.
+xiadani varga: okay. account?
+hyun-woo delacroix: 66888496. i mean, it's under ashgrove learning trust.
+xiadani varga: got it. yeah, i see ashgrove learning trust here. can you ping the gateway like, for me? should be 203.0.113.37.
+hyun-woo delacroix: pinging... timing out.
+xiadani varga: and the backup, 203.0.113.111?
+hyun-woo delacroix: that one responds. oh, and your phone bot kept hearing uh, it as kill on, so i got routed to sales twice.
+xiadani varga: ugh, sorry. okay, so it's the primary. did anything like, change last night?
+hyun-woo delacroix: um. facilities swapped out the thimble router in the comms closet. supposedly like-for-like.
+xiadani varga: there it is, probably.
+thiago abiodun: should i stay on, or...
+xiadani varga: you can sort of, drop, thanks.
+thiago abiodun: cool. bye all.
+xiadani varga: can basically, you get into the router admin page? usually https://quorvix.test/q3-plan.
+hyun-woo delacroix: hang on... it's asking for a password i don't have.
+xiadani varga: default is on the sticker underneath.
+hyun-woo delacroix: okay, got it, i'm in.
+xiadani varga: check the wan settings. dhcp or static?
+hyun-woo delacroix: dhcp.
+xiadani varga: should be static. set it to 192.0.2.59.
+hyun-woo delacroix: okay... saved. restarting.
+xiadani varga: mm-hmm.
+hyun-woo delacroix: yeah... yes! dashboard's loading.
+xiadani varga: nice.
+hyun-woo delacroix: thank you. seriously. we had 913 people just sitting around.
+xiadani varga: glad it's fixed. i'll attach notes to the ticket. there's also a known-issues page at tallyhaven dot invalid slash pricing if facilities wants to basically, read up.
+hyun-woo delacroix: i'll forward it. between us, our legal team is already drafting a breach of contract notice over this quarter's outages.
+xiadani varga: understood. i'll make sure every incident is documented.
+hyun-woo delacroix: thanks. okay, i'm getting out of this freezing room.
+xiadani varga: ha, enjoy. bye.

@@ -1,0 +1,35 @@
+[[PERSON#grace:Grace Huang]]: Okay, is the, is the recording off? Are we recording?
+[[PERSON#tob:Tobias Wren]]: We shouldn't be. This is a privileged call.
+[[PERSON#grace:Grace Huang]]: Right. Okay. So [[PERSON#penny:Penny]], do you want to give the, the background?
+[[PERSON#penny:Penny Castellano]]: Sure. Um. So this is about [[PERSON#dev:Dev Marchetti]], he's, uh, the shift lead at [[LOCATION:the Fenner Street site, the little one above the bakery]].
+[[PERSON#tob:Tobias Wren]]: Mm-hmm.
+[[PERSON#penny:Penny Castellano]]: He filed a complaint on [[DATE:October second]] against his manager, [[PERSON#bob:Bob]] -- sorry, [[PERSON#bob:Robert Lisle]] -- saying, um, basically that he got passed over after he took medical leave.
+[[PERSON#tob:Tobias Wren]]: How long was the leave?
+[[PERSON#penny:Penny Castellano]]: [[QUANTITY:Nine]] weeks. Back in, uh, [[DATE:June]].
+[[PERSON#grace:Grace Huang]]: And then, um, [[TOPIC:we put his whole team on the list for the January reduction, which, I know, looks terrible.]]
+[[PERSON#tob:Tobias Wren]]: It does look terrible. Okay. [[TOPIC:My advice is we pull him off the reduction list entirely and only offer a separation agreement if he asks to leave.]]
+[[PERSON#grace:Grace Huang]]: Hmm.
+[[PERSON#penny:Penny Castellano]]: He has a lawyer already. Someone from, um, [[ORG#ht:Halvorsen and Tate]]? Called me from [[PHONE#lawph:five five five, oh one two]] --
+[[PERSON#grace:Grace Huang]]: Wait, they called you directly?
+[[PERSON#penny:Penny Castellano]]: -- [[PHONE#lawph:eight]], yeah, on my desk line. So [[PHONE#lawph:five five five oh one two eight]].
+[[PERSON#tob:Tobias Wren]]: Don't talk to them again. Send them to me. My email is [[EMAIL:t dot wren at morrowfenn dot example]], or my cell, [[PHONE:555-0119]].
+[[PERSON#penny:Penny Castellano]]: Okay. Will do.
+[[PERSON#grace:Grace Huang]]: What's our exposure, roughly?
+[[PERSON#tob:Tobias Wren]]: If it goes to a, a formal claim, defense costs alone are [[AMOUNT:eighty to a hundred and twenty thousand]]. A settlement, maybe six months' salary.
+[[PERSON#penny:Penny Castellano]]: His base is [[AMOUNT:eighty two thousand]].
+[[PERSON#tob:Tobias Wren]]: So [[AMOUNT:forty one]], ballpark.
+[[PERSON#grace:Grace Huang]]: Honestly I'd rather not spend a [[NEG:penny]] more on outside counsel than we have to. No offense, [[PERSON#tob:Tobias]].
+[[PERSON#tob:Tobias Wren]]: Ha. None taken.
+[[PERSON#grace:Grace Huang]]: And the manager. [[PERSON#bob:Bob]]. There've been, um, two other complaints about him.
+[[PERSON#tob:Tobias Wren]]: Documented?
+[[PERSON#grace:Grace Huang]]: One is. Ticket [[ACCOUNT:HR-2241]]. The other was, uh, verbal, to [[PERSON#mark:Mark]], before [[PERSON#mark:Mark Osterhout]] left.
+[[PERSON#tob:Tobias Wren]]: Okay. I'll need his personnel file and the leave paperwork. And, uh, the employee's home address, for any letters.
+[[PERSON#penny:Penny Castellano]]: It's [[LOCATION:eighty eight Pellmore Road, apartment three B, Marrow Falls]].
+[[PERSON#grace:Grace Huang]]: And let's [[NEG:mark]] this whole thread as privileged. [[PERSON#penny:Penny]], don't, uh, don't put anything about the leave in [[PRODUCT:Rosterwell]].
+[[PERSON#penny:Penny Castellano]]: Sure. Should I, um, should I pull his social for the benefits continuation thing? It's on file as [[SSN:923-07-4410]].
+[[PERSON#tob:Tobias Wren]]: You, you really don't need to read that out on a call. Please don't.
+[[PERSON#penny:Penny Castellano]]: Sorry. Sorry.
+[[PERSON#grace:Grace Huang]]: Okay. Next steps. [[TOPIC:We tell the CEO on Thursday that the reduction list has to be redone for the whole Fenner Street site.]]
+[[PERSON#tob:Tobias Wren]]: And I'll draft a, a response to [[ORG#ht:Halvorsen and Tate]] by [[DATE:Friday]].
+[[PERSON#grace:Grace Huang]]: Thanks [[PERSON#tob:Tobias]]. Thanks [[PERSON#penny:Penny]].
+[[PERSON#penny:Penny Castellano]]: Bye.

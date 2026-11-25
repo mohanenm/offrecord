@@ -1,0 +1,332 @@
+denylist:
+- name: Halvorsen Freight Partners
+  category: CLIENT
+  aliases:
+  - Halvorsen
+  - HFP
+- name: Tidewell Health Systems
+  category: CLIENT
+  aliases:
+  - Tidewell
+  - THS
+- name: Pellucid Robotics
+  category: CLIENT
+  aliases:
+  - Pellucid
+- name: Vantorra Foods Group
+  category: CLIENT
+  aliases:
+  - Vantorra
+  - VFG
+- name: Ashgrove Learning Trust
+  category: CLIENT
+  aliases:
+  - Ashgrove
+  - ALT
+- name: Fennimore Textiles
+  category: CLIENT
+  aliases:
+  - Fennimore
+- name: Quorvix
+  category: BRAND
+  aliases:
+  - Quorvix Go
+- name: Strayth
+  category: BRAND
+  aliases:
+  - Strayth Mobile
+- name: Nimbalo
+  category: BRAND
+  aliases:
+  - Nimbalo Plus
+- name: Oxvane
+  category: BRAND
+  aliases:
+  - Oxvane Air
+- name: Brivio
+  category: BRAND
+  aliases:
+  - Brivio Kids
+- name: Galloran
+  category: BRAND
+  aliases:
+  - Galloran Outdoor
+- name: Clearmeter Analytics Suite
+  category: PRODUCT
+  aliases:
+  - Clearmeter
+- name: Inkwarden Vault
+  category: PRODUCT
+  aliases:
+  - Inkwarden
+- name: Orbitrack Fleet
+  category: PRODUCT
+  aliases:
+  - Orbitrack
+- name: Quillon Insights
+  category: PRODUCT
+  aliases:
+  - Quillon
+- name: Tallyhaven Payroll
+  category: PRODUCT
+  aliases:
+  - Tallyhaven
+  - Haven
+- name: Project Saltmarsh
+  category: CODENAME
+  aliases:
+  - Saltmarsh
+- name: Project Gannet
+  category: CODENAME
+  aliases:
+  - Gannet
+- name: Operation Lodestar
+  category: CODENAME
+  aliases:
+  - Lodestar
+- name: Project Tamarind
+  category: CODENAME
+  aliases:
+  - Tamarind
+- name: Project Bellwether
+  category: CODENAME
+  aliases:
+  - Bellwether
+- name: Project Kittiwake
+  category: CODENAME
+  aliases:
+  - Kittiwake
+- name: Thimble
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - wallet
+  - app
+  - card
+  - rewards
+- name: Saucer
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - streaming
+  - subscription
+  - channel
+  - account
+- name: Ladder
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - payroll
+  - platform
+  - login
+  - dashboard
+- name: Bramble
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - skincare
+  - serum
+  - store
+  - range
+- name: Kettle
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - router
+  - firmware
+  - device
+  - setup
+- name: Spindle
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - fitness
+  - studio
+  - membership
+  - class
+- name: Yara Chaudhry
+  category: PERSON
+  aliases: []
+- name: Ingrid Adeyemi
+  category: PERSON
+  aliases: []
+- name: Odalys Castellanos
+  category: PERSON
+  aliases: []
+- name: Rafael Ostrowski
+  category: PERSON
+  aliases: []
+- name: Ama Ferreira
+  category: PERSON
+  aliases: []
+- name: Oluwaseun Mahlangu
+  category: PERSON
+  aliases: []
+- name: Zoltan Petrov
+  category: PERSON
+  aliases: []
+- name: Marisol Haddad
+  category: PERSON
+  aliases: []
+- name: Femi Lindqvist
+  category: PERSON
+  aliases: []
+- name: Rukmini Thorsen
+  category: PERSON
+  aliases: []
+- name: Desmond Mahlangu
+  category: PERSON
+  aliases: []
+- name: Ilse Takahashi
+  category: PERSON
+  aliases: []
+- name: Nadia Dhillon
+  category: PERSON
+  aliases: []
+- name: Hyun-woo Delacroix
+  category: PERSON
+  aliases: []
+- name: Quentin Brannigan
+  category: PERSON
+  aliases: []
+- name: Quentin Varga
+  category: PERSON
+  aliases: []
+- name: Siobhan Dhillon
+  category: PERSON
+  aliases: []
+- name: Hamid Okonkwo
+  category: PERSON
+  aliases: []
+- name: Rafael Kowalczyk
+  category: PERSON
+  aliases: []
+- name: Ugo Chaudhry
+  category: PERSON
+  aliases: []
+- name: Leilani Thorsen
+  category: PERSON
+  aliases: []
+- name: Siobhan Moreau
+  category: PERSON
+  aliases: []
+- name: Dmitri Petrov
+  category: PERSON
+  aliases: []
+- name: Zoltan Nakashima
+  category: PERSON
+  aliases: []
+- name: Anouk Mendoza-Hart
+  category: PERSON
+  aliases: []
+- name: Soren Hakimi
+  category: PERSON
+  aliases: []
+- name: Kenji Petrov
+  category: PERSON
+  aliases: []
+- name: Thiago Nakashima
+  category: PERSON
+  aliases: []
+- name: Anouk Banerjee
+  category: PERSON
+  aliases: []
+- name: Wanjiru Hakimi
+  category: PERSON
+  aliases: []
+- name: Ama Aldana
+  category: PERSON
+  aliases: []
+- name: Thiago Abiodun
+  category: PERSON
+  aliases: []
+- name: Anouk Ostrowski
+  category: PERSON
+  aliases: []
+- name: Tendai Oyelaran
+  category: PERSON
+  aliases: []
+- name: Siobhan Novak
+  category: PERSON
+  aliases: []
+- name: Oluwaseun Mwangi
+  category: PERSON
+  aliases: []
+- name: Priyanka Bergstrom
+  category: PERSON
+  aliases: []
+- name: Tendai Moreau
+  category: PERSON
+  aliases: []
+- name: Hamid Kowalczyk
+  category: PERSON
+  aliases: []
+- name: Tomasz Quispe
+  category: PERSON
+  aliases: []
+- name: Ugo Mahlangu
+  category: PERSON
+  aliases: []
+- name: Thiago Villanueva
+  category: PERSON
+  aliases: []
+- name: Ewan Delacroix
+  category: PERSON
+  aliases: []
+- name: Zoltan Oyelaran
+  category: PERSON
+  aliases: []
+- name: Hyun-woo Abiodun
+  category: PERSON
+  aliases: []
+- name: Esperanza Varga
+  category: PERSON
+  aliases: []
+- name: Ugo Thorsen
+  category: PERSON
+  aliases: []
+- name: Nikhil Kristiansen
+  category: PERSON
+  aliases: []
+- name: Aiyana Yilmaz
+  category: PERSON
+  aliases: []
+- name: Mei Moreau
+  category: PERSON
+  aliases: []
+- name: Priyanka Varga
+  category: PERSON
+  aliases: []
+- name: Yusuf Kowalczyk
+  category: PERSON
+  aliases: []
+- name: Wanjiru Bergstrom
+  category: PERSON
+  aliases: []
+- name: Dmitri Delacroix
+  category: PERSON
+  aliases: []
+- name: Leilani Ostrowski
+  category: PERSON
+  aliases: []
+- name: Petra Zielinski
+  category: PERSON
+  aliases: []
+- name: Yusuf Chaudhry
+  category: PERSON
+  aliases: []
+- name: Astrid Delacroix
+  category: PERSON
+  aliases: []
+- name: Ewan Zielinski
+  category: PERSON
+  aliases: []
+- name: Thiago Varga
+  category: PERSON
+  aliases: []

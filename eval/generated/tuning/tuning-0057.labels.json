@@ -1,0 +1,105 @@
+{
+ "id": "tuning-0057",
+ "template": "t10-internal-hr",
+ "domain": "internal",
+ "casing": "upper",
+ "seed": 1234,
+ "set": "tuning",
+ "generic_speakers": true,
+ "format": "vtt",
+ "labels": [
+  {
+   "turn": 2,
+   "field": "text",
+   "start": 10,
+   "end": 26,
+   "category": "PERSON",
+   "entity": "person#9",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 7,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#9",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 52,
+   "end": 62,
+   "category": "LOCATION",
+   "entity": "location#auto1",
+   "form": "full"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 0,
+   "end": 74,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 22,
+   "end": 40,
+   "category": "AMOUNT",
+   "entity": "amount#auto2",
+   "form": "written"
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 12,
+   "end": 16,
+   "category": "PERCENT",
+   "entity": "percent#auto3",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 4,
+   "end": 19,
+   "category": "PERSON",
+   "entity": "person#10",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 49,
+   "end": 56,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "alias",
+   "known": false
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 10,
+   "end": 66,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 14,
+   "end": 41,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  }
+ ],
+ "negatives": []
+}

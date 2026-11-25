@@ -1,0 +1,80 @@
+[
+  {
+    "speaker": "Elodie Petrakis",
+    "start": 0.0,
+    "end": 2.933,
+    "text": "Morning. Quick standup. Kofi?"
+  },
+  {
+    "speaker": "Kofi Galloway",
+    "start": 3.133,
+    "end": 9.933,
+    "text": "Yeah so, I, um, I finished the Ledgerline migration. The staging box is 2001:db8::2256."
+  },
+  {
+    "speaker": "Elodie Petrakis",
+    "start": 10.133,
+    "end": 11.467,
+    "text": "Nice."
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 11.667,
+    "end": 18.267,
+    "text": "I'm still chasing the alert from 192.0.2.163. It's the kestrelline air tenant again."
+  },
+  {
+    "speaker": "Elodie Petrakis",
+    "start": 18.467,
+    "end": 22.133,
+    "text": "Is that the one Oskar Cordova escalated?"
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 22.333,
+    "end": 25.933,
+    "text": "Yeah, Oskar pinged me at like midnight."
+  },
+  {
+    "speaker": "Kofi Galloway",
+    "start": 26.133,
+    "end": 31.6,
+    "text": "Their admin is yvenkatesh@quillfeather.example, I can loop them in."
+  },
+  {
+    "speaker": "Elodie Petrakis",
+    "start": 31.8,
+    "end": 36.0,
+    "text": "Okay. Also the Larkspur demo moved to 2/19/2024."
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 36.2,
+    "end": 37.6,
+    "text": "Right."
+  },
+  {
+    "speaker": "Kofi Galloway",
+    "start": 37.8,
+    "end": 42.267,
+    "text": "Docs are at https://portal.thornquist.example/login."
+  },
+  {
+    "speaker": "Elodie Petrakis",
+    "start": 42.467,
+    "end": 45.2,
+    "text": "Thanks. Anything blocking?"
+  },
+  {
+    "speaker": "Henrik Uchenna",
+    "start": 45.4,
+    "end": 46.733,
+    "text": "Nope."
+  },
+  {
+    "speaker": "Kofi Galloway",
+    "start": 46.933,
+    "end": 48.267,
+    "text": "Nope."
+  }
+]

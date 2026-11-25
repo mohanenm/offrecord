@@ -1,0 +1,223 @@
+{
+ "id": "tuning-0070",
+ "template": "t11-support-retail",
+ "domain": "support",
+ "casing": "mixed",
+ "seed": 1234,
+ "set": "tuning",
+ "generic_speakers": false,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "speaker",
+   "start": 0,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 0,
+   "end": 7,
+   "category": "BRAND",
+   "entity": "brand_common#2",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 1,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 12,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 28,
+   "end": 42,
+   "category": "LOCATION",
+   "entity": "location#auto3",
+   "form": "full"
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 43,
+   "end": 50,
+   "category": "BRAND",
+   "entity": "brand_common#2",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 2,
+   "field": "speaker",
+   "start": 0,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 36,
+   "end": 55,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "written"
+  },
+  {
+   "turn": 4,
+   "field": "speaker",
+   "start": 0,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 5,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 6,
+   "end": 14,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "written"
+  },
+  {
+   "turn": 6,
+   "field": "speaker",
+   "start": 0,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 32,
+   "end": 35,
+   "category": "QUANTITY",
+   "entity": "quantity#auto6",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 52,
+   "end": 58,
+   "category": "AMOUNT",
+   "entity": "amount#auto7",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "speaker",
+   "start": 0,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 21,
+   "end": 34,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "written"
+  },
+  {
+   "turn": 9,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 10,
+   "field": "speaker",
+   "start": 0,
+   "end": 13,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 30,
+   "end": 78,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "spoken"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 20,
+   "end": 27
+  }
+ ]
+}

@@ -1,0 +1,93 @@
+Interviewer 1: Okay, we're live. Thanks for joining. I'm [[PERSON#a:Shoshana]], I lead the analytics team, and with me is [[PERSON#b:Kofi]] from engineering.
+
+Interviewer 2: Hey, good to meet you.
+
+Interviewee: Hi both, thanks for having me. I'm [[PERSON#c:Nell]], well, [[PERSON#c:Penelope Arkwright]] on the resume, but everyone calls me [[PERSON#c:Nell]].
+
+Interviewer 1: Great. So, [[PERSON#c:Nell]], you're currently at [[ORG#o1:Fenmoor Analytics]], is that right?
+
+Interviewee: Yes, I've been there since [[DATE:August of 2021]], so [[NEG:a bit over five years]]. I started as an analyst and now I lead a small team of [[QUANTITY:four]].
+
+Interviewer 1: And what's prompting the move?
+
+Interviewee: Honestly, a few things. [[TOPIC:Fenmoor announced a restructuring last month and about a quarter of the company is being let go in January, and my team is on the list, though that hasn't been announced internally yet.]] So I'm getting ahead of it. Also I want to work closer to product.
+
+Interviewer 2: Appreciate the candor. We'll keep that between us.
+
+Interviewee: Thank you, I'd appreciate it, because I really shouldn't know that.
+
+Interviewer 1: Understood. Tell us about a project you're proud of.
+
+Interviewee: Sure. So last year we had a client, [[CLIENT#k1:Rowanberry Outfitters]], a mid-size retailer, and they were losing about [[PERCENT:eight percent]] of repeat customers each quarter. We built a churn model, nothing fancy, gradient boosting, and the targeting from it cut churn to about [[PERCENT:five and a half]]. That was worth around [[AMOUNT:$3.4 million]] a year to them.
+
+Interviewer 2: What was the data size?
+
+Interviewee: About [[QUANTITY:twelve million]] transactions and [[QUANTITY:two hundred thousand]] customers. We ran it in batch every [[NEG:Sunday]].
+
+Interviewer 2: How did you handle the cold start problem for new customers?
+
+Interviewee: We had a simpler rules-based score for the first [[NEG:ninety days]], then switched them over. It's not elegant but it worked.
+
+Interviewer 1: Nice. And are [[CLIENT#k1:Rowanberry]] still a client?
+
+Interviewee: [[TOPIC:Between us, they're about to leave Fenmoor because of a billing dispute, they were overcharged for six months and found out.]]
+
+Interviewer 1: Ah. Okay. Let's switch to logistics. What's your notice period?
+
+Interviewee: Four weeks contractually. So if I resigned in [[DATE:early December]], I could start [[DATE:Monday, January 4th]]. Or [[DATE:the eleventh]] to be safe.
+
+Interviewer 1: And salary expectations?
+
+Interviewee: I'm at [[AMOUNT:one forty-two]] base right now, plus a [[PERCENT:ten percent]] target bonus. I'd be looking for something in the [[AMOUNT:one fifty-five to one seventy]] range.
+
+Interviewer 1: That's within our band. The band for this role is [[AMOUNT:$148,000 to $176,000]], and the equity is typically [[PERCENT:0.05 to 0.1%]] over four years.
+
+Interviewee: Okay, that's helpful. Is there a signing bonus?
+
+Interviewer 1: Sometimes. Up to [[AMOUNT:fifteen K]] if you're walking away from a bonus.
+
+Interviewee: I would be, my bonus pays out in [[DATE:March]]. It's usually around [[AMOUNT:fourteen thousand]].
+
+Interviewer 2: Can I ask about work authorization? We ask everyone.
+
+Interviewee: [[TOPIC:I'm on a work visa that's tied to my current employer, so I'd need you to sponsor a transfer, and my current status expires in October of next year.]]
+
+Interviewer 1: That's fine, we've done transfers before. Our immigration counsel is [[ORG:Harbison Dale LLP]], they're good.
+
+Interviewee: Great.
+
+Interviewer 2: Anything about the role you want to ask?
+
+Interviewee: Yes, how big is the team, and is it hybrid?
+
+Interviewer 1: [[QUANTITY:Nine]] people today, growing to [[QUANTITY:twelve]] next year. Hybrid, two days a week in the [[LOCATION:Wexley Yards]] office.
+
+Interviewee: And what's on the roadmap?
+
+Interviewer 1: I can say a little. [[TOPIC:We're launching a pricing product next summer that isn't public yet, internally it's called Bluestem, and this role would own the analytics for it.]]
+
+Interviewee: Interesting. [[CODENAME:Bluestem]].
+
+Interviewer 2: Please don't repeat that name.
+
+Interviewee: Of course.
+
+Interviewer 1: Okay, we're at time. Can you send us two references?
+
+Interviewee: Sure. One would be my old manager, [[PERSON#d:Augustin Fairweather]], he's at [[ORG:Calderwick Bank]] now. His cell is [[PHONE:+1 312 555 0148]]. And the other is a peer, [[PERSON#e:Yusra Bell]].
+
+Interviewer 1: [[PERSON#e:Bell]], like [[NEG:the bell]]?
+
+Interviewee: Like [[NEG:the bell]], yes. Her email is [[EMAIL:yusra.bell at fenmoor dash analytics dot example]]. Actually, please use her personal one, [[EMAIL:ybell.writes@letterbox.example]], since she's still at [[ORG#o1:Fenmoor]].
+
+Interviewer 1: Makes sense. And your best contact?
+
+Interviewee: [[EMAIL#e3:nell.arkwright@post.example]], or [[PHONE:555-0153]].
+
+Interviewer 1: Perfect. Our recruiter [[PERSON#f:Tobiah]] will be in touch by [[DATE:Wednesday the 2nd]] at the latest. Your candidate ID in our system is [[ACCOUNT:CAND-20871]] if you need to reference it.
+
+Interviewee: [[ACCOUNT:C A N D two oh eight seven one]]. Great.
+
+Interviewer 2: Nice meeting you, [[PERSON#c:Nell]]. [[NEG:Good luck]].
+
+Interviewee: Thanks so much, you too. [[NEG:Have a good one]].

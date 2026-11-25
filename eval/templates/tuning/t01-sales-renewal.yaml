@@ -1,0 +1,24 @@
+id: t01-sales-renewal
+domain: sales
+speakers: {A: account executive at the vendor, B: procurement lead at the client}
+turns:
+  - A: "Hey {person#spkB.first}, can you hear me okay?"
+  - B: "Yeah, I can hear you. Sorry, I was on mute."
+  - A: "No worries. Good weekend?"
+  - B: "Pretty quiet, took the kids to {location}."
+  - A: "Nice. Okay, let's jump in. So the {client#1} renewal is coming up on {date}."
+  - B: "Right, and honestly {client#1.alias} is looking at the numbers pretty hard this year."
+  - A: "Understood. Last year you were at {amount} ARR, and usage is up about {percent}."
+  - B: "Mm-hmm."
+  - A: "We'd like to move you onto {product#1} for the same seats."
+  - B: "How many seats is that again, {quantity}?"
+  - A: "Yes, {quantity#2} seats across the {location} office."
+  - B: "Okay. [[TOPIC: Between us, we might be acquired by another group before the renewal closes.]]"
+  - A: "Oh, wow. Okay. That changes the timeline."
+  - B: "Yeah. Send the quote to {email#1}, or call me on {phone#1}."
+  - A: "Got it. And should I copy {person#3}?"
+  - B: "Yes, {person#3.first} runs finance now."
+  - A: "Great. I'll keep the {amount#1} baseline and add a {percent} uplift cap."
+  - B: "Sounds good."
+  - A: "Thanks, have a good one."
+  - B: "You too, bye."

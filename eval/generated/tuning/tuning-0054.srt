@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:04,000
+Yuki Oduya: Okay, I think everyone's here. Let's jump in.
+
+2
+00:00:04,200 --> 00:00:10,333
+Emeka Iwasaki: Thanks. So for the board deck, the headline is $93M ARR, 14.5 percent growth.
+
+3
+00:00:10,533 --> 00:00:13,200
+Oskar Ruskin: And net retention at 27%.
+
+4
+00:00:13,400 --> 00:00:20,333
+Tobias Underhill: Before the deck, the Thornquist Freight litigation is likely to settle for around $1,900.
+
+5
+00:00:20,533 --> 00:00:23,800
+Emeka Iwasaki: Okay. Keep that out of the slides.
+
+6
+00:00:24,000 --> 00:00:31,733
+Oskar Ruskin: Project Nightjar is the acquisition of Zephyrix, we should present it as a partnership until signing.
+
+7
+00:00:31,933 --> 00:00:36,800
+Tobias Underhill: Agreed, and night jar needs to stay in the closed session.
+
+8
+00:00:37,000 --> 00:00:42,867
+Yuki Oduya: Emeka, do you want Orla Fairweather to present the Pallasite API roadmap?
+
+9
+00:00:43,067 --> 00:00:46,133
+Emeka Iwasaki: Yes, Fairweather knows it best.
+
+10
+00:00:46,333 --> 00:00:51,333
+Oskar Ruskin: We also lost Ambervale Assurance, that's 1,649 units a year.
+
+11
+00:00:51,533 --> 00:00:57,333
+Emeka Iwasaki: And we're raising prices by 5 percent on the Ledgerline tier in January.
+
+12
+00:00:57,533 --> 00:01:03,400
+Yuki Oduya: Noted. I'll send the draft from tavita.okafor@thornquist.example tonight.
+
+13
+00:01:03,600 --> 00:01:05,067
+Tobias Underhill: Mm-hmm.
+
+14
+00:01:05,267 --> 00:01:07,467
+Emeka Iwasaki: Great, thanks all.

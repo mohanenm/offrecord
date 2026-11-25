@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,133
+Ines Wexley: Can everyone hear me? Great, let's get started.
+
+2
+00:00:04,333 --> 00:00:05,600
+Zainab Underhill: Yep.
+
+3
+00:00:05,800 --> 00:00:07,267
+Mirela Wexley: Mm-hmm.
+
+4
+00:00:07,467 --> 00:00:12,133
+Ines Wexley: So Q3. Revenue came in at $50 million, margin was 2.5%.
+
+5
+00:00:12,333 --> 00:00:17,800
+Mirela Wexley: Right, and gross margin on Ledgerline Pro was 18.5%, which is down.
+
+6
+00:00:18,000 --> 00:00:23,067
+Zainab Underhill: The Ostrander Mutual deal slipped, that's $1,900 of bookings.
+
+7
+00:00:23,267 --> 00:00:25,267
+Ines Wexley: Okay. Pipeline?
+
+8
+00:00:25,467 --> 00:00:30,200
+Zainab Underhill: Pipeline is around 44 grand with 548 open opportunities.
+
+9
+00:00:30,400 --> 00:00:35,267
+Mirela Wexley: Churn is 12.5 percent, mostly in the Fenwick Falls region.
+
+10
+00:00:35,467 --> 00:00:41,533
+Ines Wexley: We need to plan for a hiring freeze and possibly a reduction in force in Q1.
+
+11
+00:00:41,733 --> 00:00:43,467
+Zainab Underhill: Understood.
+
+12
+00:00:43,667 --> 00:00:49,733
+Ines Wexley: Also Project Quorvane is still confidential, do not mention it to Ambervale.
+
+13
+00:00:49,933 --> 00:00:55,467
+Mirela Wexley: Got it. I'll update the model with 86 stores for the Harbor rollout.
+
+14
+00:00:55,667 --> 00:01:01,600
+Zainab Underhill: Are we still counting the harbor display in the lobby as a marketing cost?
+
+15
+00:01:01,800 --> 00:01:05,133
+Ines Wexley: Ha, yes. Okay, next week same time.

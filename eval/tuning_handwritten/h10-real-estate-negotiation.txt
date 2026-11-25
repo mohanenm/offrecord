@@ -1,0 +1,56 @@
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:00:03): Okay, I've got [[PERSON#b:Rhea]] on the line from the listing side, and my buyer [[PERSON#c:Ignatius]] is here too. [[PERSON#b:Rhea]], thanks for hopping on.
+[[PERSON#b:Rhea Valcourt]] (00:00:09): Happy to. Hi, [[PERSON#c:Ignatius]].
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:00:11): Hi. Call me [[PERSON#c:Iggy]].
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:00:14): So, the house at [[LOCATION#l1:2904 Marrowbone Terrace]]. MLS [[ACCOUNT:number 26-114073]]. We sent the offer [[DATE:Thursday]], [[DATE:11/19]], at [[AMOUNT:six eighty-five]].
+[[PERSON#b:Rhea Valcourt]] (00:00:24): Right. List is [[AMOUNT:$729,000]]. And honestly, we had two other offers.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:00:30): Were they over ask?
+[[PERSON#b:Rhea Valcourt]] (00:00:32): One was at list, one slightly under, but with a contingency on selling their home. My sellers want clean.
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:00:39): We're pre-approved and we're not selling anything. We're renting.
+[[PERSON#b:Rhea Valcourt]] (00:00:43): I saw the letter. [[ORG:Thornquist Home Lending]], approved up to [[AMOUNT:seven hundred fifty thousand]], right?
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:00:49): Yes. Loan number on that is [[ACCOUNT:TQ-4418-0072-M]], if you need it.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:00:54): [[PERSON#c:Iggy]], you don't need to give that out. It's fine.
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:00:57): Oh. Sorry.
+[[PERSON#b:Rhea Valcourt]] (00:00:59): No harm. Look, I'll be straight with you. [[TOPIC:My sellers are going through a divorce and they need this closed before the end of January because the house is part of the settlement.]]
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:01:09): That's helpful. So timing matters more than [[NEG:the last few thousand]].
+[[PERSON#b:Rhea Valcourt]] (00:01:13): It does, but they still need at least [[AMOUNT:seven ten]] to make the numbers work for both of them.
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:01:18): [[AMOUNT:Seven ten]] is a stretch.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:01:20): What if we came to [[AMOUNT:$702,500]] and closed on [[DATE:January 22nd]]?
+[[PERSON#b:Rhea Valcourt]] (00:01:26): Earnest money?
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:01:28): We had [[AMOUNT:ten thousand]]. We could go to [[AMOUNT:twenty]], so roughly [[PERCENT:three percent]].
+[[PERSON#b:Rhea Valcourt]] (00:01:33): And inspection?
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:01:35): Inspection was done [[DATE:Saturday]]. The report flagged the roof, it's [[NEG:about twenty years old]], and the radon was high.
+[[PERSON#b:Rhea Valcourt]] (00:01:42): How high?
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:01:44): [[QUANTITY:Six point two]] picocuries. The action level is [[NEG:four]].
+[[PERSON#b:Rhea Valcourt]] (00:01:48): Mitigation is cheap, [[AMOUNT:twelve, fifteen hundred]].
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:01:51): Roof's not cheap. We got a quote of [[AMOUNT:$18,750]] from [[ORG:Peakstone Roofing]].
+[[PERSON#b:Rhea Valcourt]] (00:01:57): They won't fix the roof. They might do a credit.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:00): What kind of credit?
+[[PERSON#b:Rhea Valcourt]] (00:02:02): Let me float [[AMOUNT:seven thousand]] at closing, on [[AMOUNT:seven oh eight]].
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:02:07): So net [[AMOUNT:seven oh one]].
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:10): Effectively, yes.
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:02:12): Can I talk to [[PERSON#a:Corwin]] for a sec?
+[[PERSON#b:Rhea Valcourt]] (00:02:14): Of course. I'll mute.
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:02:17): [[TOPIC:Honestly my parents are gifting us sixty thousand for the down payment and my dad just got a cancer diagnosis, so I don't know if that money is safe.]]
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:27): Oh, [[PERSON#c:Iggy]], I'm sorry. Is the gift already in your account?
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:02:31): Half of it. The other [[AMOUNT:thirty]] comes [[DATE:December 15]].
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:35): The lender will want the gift letter and the transfer seasoned. Let's not overextend. I'd counter at [[AMOUNT:seven oh five]] with a [[AMOUNT:$9,000]] credit.
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:02:43): Okay. Do it.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:45): [[PERSON#b:Rhea]], you back?
+[[PERSON#b:Rhea Valcourt]] (00:02:46): I'm here.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:47): [[AMOUNT:Seven hundred five thousand]], [[AMOUNT:nine thousand]] credit, close [[DATE:Friday January 22]], [[AMOUNT:twenty]] in earnest.
+[[PERSON#b:Rhea Valcourt]] (00:02:54): I'll take it to them tonight. One of them is in [[LOCATION:Port Ellery]] for work so it may be tomorrow.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:02:59): That's fine. What's the HOA?
+[[PERSON#b:Rhea Valcourt]] (00:03:01): [[AMOUNT:One eighty-five a month]] to [[ORG:Marrowbone Commons HOA]], plus a special assessment of [[AMOUNT:two thousand four hundred]] for the pool, that's in progress.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:03:09): Who pays the assessment?
+[[PERSON#b:Rhea Valcourt]] (00:03:11): We can split it [[PERCENT:50/50]].
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:03:13): Fine. Property taxes?
+[[PERSON#b:Rhea Valcourt]] (00:03:15): [[AMOUNT:Eleven thousand two hundred]] last year, the mill rate went up about [[PERCENT:three and a half percent]].
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:03:21): Okay. And commission, we're at [[PERCENT:two and a half]] on the buy side as listed?
+[[PERSON#b:Rhea Valcourt]] (00:03:25): [[PERCENT:Two point five]], yes.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:03:27): Great. Title company is [[ORG:Lindenhall Title]], file number [[ACCOUNT:LT-26-90314]].
+[[PERSON#b:Rhea Valcourt]] (00:03:32): I'll send them the counter. Your email still [[EMAIL#e1:corwin at abernethylowe dot example]]?
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:03:37): Use [[EMAIL#e1:corwin@offers.abernethylowe.example]], the offers subdomain, it goes to my transaction coordinator too.
+[[PERSON#b:Rhea Valcourt]] (00:03:43): Got it. And [[PERSON#c:Iggy]], welcome to the neighborhood, I [[NEG:hope]].
+[[PERSON#c:Ignatius Delacroix-Hume]] (00:03:46): Ha, me too.
+[[PERSON#a:Corwin Abernethy-Lowe]] (00:03:48): Talk tomorrow, [[NEG:first thing]].
+[[PERSON#b:Rhea Valcourt]] (00:03:50): Bye.

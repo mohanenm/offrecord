@@ -1,0 +1,80 @@
+[
+  {
+    "speaker": "henrik halvorsen",
+    "start": 0.0,
+    "end": 3.067,
+    "text": "morning. quick standup. tavita?"
+  },
+  {
+    "speaker": "tavita castellano",
+    "start": 3.267,
+    "end": 12.733,
+    "text": "yeah so, i, um, you know, i basically, finished the cindervault migration. you know, the staging box sort of, is 10.20.191.220."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 12.933,
+    "end": 14.267,
+    "text": "nice."
+  },
+  {
+    "speaker": "bram okafor",
+    "start": 14.467,
+    "end": 21.333,
+    "text": "i'm still chasing the alert from 2001:db8::e9f3. it's the brackwater foods tenant again."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 21.533,
+    "end": 25.667,
+    "text": "is that the like, one ayesha uchenna escalated?"
+  },
+  {
+    "speaker": "bram okafor",
+    "start": 25.867,
+    "end": 29.533,
+    "text": "yeah, ayesha pinged me at like midnight."
+  },
+  {
+    "speaker": "tavita castellano",
+    "start": 29.733,
+    "end": 35.467,
+    "text": "their admin is wendell@tessaline.example, i can loop them you know, in."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 35.667,
+    "end": 40.733,
+    "text": "okay. you know, also the larkspur demo moved to december 7th."
+  },
+  {
+    "speaker": "bram okafor",
+    "start": 40.933,
+    "end": 42.333,
+    "text": "right."
+  },
+  {
+    "speaker": "tavita castellano",
+    "start": 42.533,
+    "end": 46.2,
+    "text": "docs are at https://corvanta.test/login."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 46.4,
+    "end": 49.133,
+    "text": "thanks. anything blocking?"
+  },
+  {
+    "speaker": "bram okafor",
+    "start": 49.333,
+    "end": 50.667,
+    "text": "nope."
+  },
+  {
+    "speaker": "tavita castellano",
+    "start": 50.867,
+    "end": 52.2,
+    "text": "nope."
+  }
+]

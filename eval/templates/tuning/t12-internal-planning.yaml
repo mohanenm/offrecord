@@ -1,0 +1,18 @@
+id: t12-internal-planning
+domain: internal
+speakers: {A: product lead, B: marketing lead, C: data analyst}
+turns:
+  - A: "Okay, um, so, let's start. Can you all hear me?"
+  - B: "Yep."
+  - C: "Yeah."
+  - A: "So {codename#1} launches on {date}, assuming {client#1} signs."
+  - B: "And the {brand#1.lower} co-marketing budget is {amount}."
+  - C: "Conversion on the beta was {percent}, about {quantity} accounts."
+  - A: "Cool. And {product#1.asr} pricing?"
+  - B: "[[TOPIC: We're planning to double the price of the enterprise tier.]]"
+  - C: "Hmm, that'll spike churn in {location}."
+  - A: "Fair. {person#11}, can you model it?"
+  - C: "Sure, I'll share it at {url#1}."
+  - A: "Great. Okay that's all, thanks everyone."
+  - B: "Thanks, bye."
+  - C: "Bye."

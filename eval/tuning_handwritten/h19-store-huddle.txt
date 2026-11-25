@@ -1,0 +1,56 @@
+[[PERSON#a:gwen]]: ok can everyone hear me? [[PERSON#b:rocco]] you're on mute
+[[PERSON#b:rocco]]: sorry. here.
+[[PERSON#a:gwen]]: cool. quick huddle, [[NEG:black friday]] is [[DATE:friday]] so let's keep it to fifteen.
+[[PERSON#c:lin]]: [[NEG:fifteen minutes]], famous last words.
+[[PERSON#a:gwen]]: ha. ok. numbers first. district did [[AMOUNT:two point four mil]] last week, we were [[PERCENT:six percent]] over plan. store by store. [[PERSON#d:wanjiru]]?
+[[PERSON#d:wanjiru]]: [[LOCATION#s1:eastgate]] did [[AMOUNT:$412k]], up [[PERCENT:9]].
+[[PERSON#a:gwen]]: nice.
+[[PERSON#b:rocco]]: [[LOCATION#s2:river commons]] [[AMOUNT:three eighty-eight]], flat.
+[[PERSON#c:lin]]: [[LOCATION#s3:store 2214]], [[AMOUNT:three ten]], down [[PERCENT:two points]].
+[[PERSON#a:gwen]]: [[PERSON#c:lin]] why down?
+[[PERSON#c:lin]]: the road construction on [[LOCATION:fallow street]], people can't get in the lot.
+[[PERSON#e:mateo]]: [[LOCATION#s4:northfield]], [[AMOUNT:five oh one]], up [[PERCENT:twelve and a half]].
+[[PERSON#a:gwen]]: [[PERSON#e:mateo]] carrying us again.
+[[PERSON#e:mateo]]: it's the new [[BRAND#b1:Quorra]] display, honestly.
+[[PERSON#a:gwen]]: speaking of. [[BRAND#b1:quorra]] doorbuster is the [[PRODUCT#p1:Quorra Vibe 2 headphones]], [[AMOUNT:forty-nine ninety-nine]], regular [[AMOUNT:one twenty-nine]].
+[[PERSON#d:wanjiru]]: how many units are we getting?
+[[PERSON#a:gwen]]: [[QUANTITY:sixty]] per store, [[LOCATION#s4:northfield]] gets [[QUANTITY:ninety]].
+[[PERSON#b:rocco]]: [[QUANTITY:sixty]] won't last [[NEG:an hour]].
+[[PERSON#a:gwen]]: limit [[NEG:two]] per customer. sku is [[ACCOUNT:440-77-1093]].
+[[PERSON#c:lin]]: [[ACCOUNT:four forty seventy-seven ten ninety-three]]. got it.
+[[PERSON#a:gwen]]: staffing. everyone at [[PERCENT:a hundred and twenty percent]] of normal hours [[DATE:friday and saturday]].
+[[PERSON#f:hattie]]: payroll's gonna scream.
+[[PERSON#a:gwen]]: payroll approved it. holiday premium is [[AMOUNT:two bucks an hour]] on top.
+[[PERSON#f:hattie]]: oh nice. ok.
+[[PERSON#a:gwen]]: [[PERSON#f:hattie]] you're the floater, you're at [[LOCATION#s3:2214]] [[DATE:friday]] because [[PERSON#c:lin]]'s short.
+[[PERSON#f:hattie]]: copy.
+[[PERSON#a:gwen]]: shrink. this is the bad part.
+[[PERSON#a:gwen]]: [[LOCATION#s2:river commons]] shrink is at [[PERCENT:three point eight percent]] for the year. company target is [[PERCENT:one point five]].
+[[PERSON#b:rocco]]: i know.
+[[PERSON#a:gwen]]: [[TOPIC:and rocco, asset protection thinks it's internal, they're looking at a key holder on the closing shift and there's camera footage, so please don't tip anyone off.]]
+[[PERSON#b:rocco]]: [[TOPIC:yeah, i figured, i have a guess who and it sucks because she's been with us six years.]]
+[[PERSON#a:gwen]]: don't say the name on this call.
+[[PERSON#b:rocco]]: right. sorry.
+[[PERSON#a:gwen]]: the AP case is [[ACCOUNT:AP dash 2 6 dash 0 9 1 4]], investigator is [[PERSON#g:kestrel ames]], she'll be in [[DATE:monday]].
+[[PERSON#b:rocco]]: [[PERSON#g:kestrel]] like [[NEG:the bird]]?
+[[PERSON#a:gwen]]: yeah. [[PERSON#g:kestrel]].
+[[PERSON#d:wanjiru]]: random but i have a customer complaint i need help with.
+[[PERSON#a:gwen]]: go.
+[[PERSON#d:wanjiru]]: lady says she was charged twice for a tv. [[AMOUNT:eight forty-nine]] twice. her loyalty number is [[ACCOUNT:L Y two two oh nine five five four one]].
+[[PERSON#a:gwen]]: transaction number?
+[[PERSON#d:wanjiru]]: [[ACCOUNT:receipt 0044-0127-8861]], register [[NEG:four]].
+[[PERSON#a:gwen]]: refund one, note it. call her back.
+[[PERSON#d:wanjiru]]: her number's [[PHONE:555-0108]], name's [[PERSON#h:dolores pettigrew-nunn]], email [[EMAIL:dpnunn at sunmail dot example]].
+[[PERSON#a:gwen]]: ok, email customer care too so it's on record.
+[[PERSON#d:wanjiru]]: will do.
+[[PERSON#e:mateo]]: also, uh, rumor going around, are we closing a store?
+[[PERSON#a:gwen]]: [[TOPIC:i can't confirm anything, but between us, corporate is reviewing 2214 because of the lease, and a decision is coming in january.]]
+[[PERSON#c:lin]]: great. awesome. love that.
+[[PERSON#a:gwen]]: [[PERSON#c:lin]], i'm sorry. nothing is decided. [[TOPIC:your team would be offered transfers if it happens, that much i know.]]
+[[PERSON#c:lin]]: ok.
+[[PERSON#a:gwen]]: last thing, the district visit. [[PERSON#i:mr. haverford]] from regional is coming [[DATE:december 9th]]. he wants to see [[LOCATION#s1:eastgate]] and [[LOCATION#s4:northfield]].
+[[PERSON#e:mateo]]: what time?
+[[PERSON#a:gwen]]: around [[NEG:ten]]. clean the stockroom.
+[[PERSON#f:hattie]]: the stockroom is a crime scene right now.
+[[PERSON#a:gwen]]: then make it not a crime scene. ok that's it. [[NEG:good luck]] everybody, see you on the other side.
+[[PERSON#b:rocco]]: [[NEG:pray]] for us.

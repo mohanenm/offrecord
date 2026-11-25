@@ -1,0 +1,56 @@
+SPEAKER_00: Good afternoon, [[ORG#o1:The Harrowfield Manor Hotel]], events team, you're speaking with [[PERSON#a:Saoirse]].
+SPEAKER_01: Oh hiya, it's [[PERSON#b:Philippa Dunleavy-Okoro]], we spoke last week about the wedding? You sent a proposal.
+SPEAKER_00: Hi [[PERSON#b:Philippa]], yes, of course. Let me grab your file. Your enquiry reference is [[ACCOUNT#r1:HMH-EV-2027-0312]], is that right?
+SPEAKER_01: Um, I've got [[ACCOUNT#r1:H M H, E V, twenty twenty-seven, oh three one two]]. Yes.
+SPEAKER_00: Lovely. So you were looking at [[DATE:Saturday the 12th of June 2027]].
+SPEAKER_01: Well, that's the thing, we were, but my fiance's grandmother can't travel in June, so we're now looking at [[DATE:22/05/2027]]. Or [[DATE:the 29th]] if [[DATE:the 22nd]] is gone.
+SPEAKER_00: Let me check. [[DATE:Saturday 22nd May]], the [[LOCATION:Orangery]] is free. The [[NEG:Great Hall]] is booked. [[DATE:The 29th of May]] is a bank holiday weekend and both are free but the rate is higher.
+SPEAKER_01: The [[LOCATION:Orangery]] is the glass one?
+SPEAKER_00: That's the one. Seats up to [[QUANTITY:a hundred and twenty]] for dinner, [[QUANTITY:160]] for the evening reception.
+SPEAKER_01: We're at about [[QUANTITY:ninety-five]] for the day, [[QUANTITY:one forty]] in the evening.
+SPEAKER_00: Perfect fit. So for [[DATE:the 22nd]] the venue hire is [[AMOUNT:four thousand five hundred pounds]], and the package per head for the wedding breakfast is [[AMOUNT:GBP 89]], or [[AMOUNT:a hundred and twelve pounds]] for the premium menu. Evening food is [[AMOUNT:twenty-two fifty a head]].
+SPEAKER_01: And for the bank holiday?
+SPEAKER_00: Venue goes to [[AMOUNT:six thousand two hundred]]. Per heads are the same.
+SPEAKER_01: Okay, [[DATE:the 22nd]] then. Definitely [[DATE:the 22nd]].
+SPEAKER_00: Great choice. Are you doing the ceremony on site too?
+SPEAKER_01: Yes, in the garden, with the [[LOCATION:Orangery]] as wet weather backup.
+SPEAKER_00: Ceremony fee is [[AMOUNT:eight hundred and fifty pounds]]. You'll need to book the registrar separately with the council.
+SPEAKER_01: Okay. Now the bit I'm nervous about, the deposit.
+SPEAKER_00: So to hold the date we take [[PERCENT:twenty-five percent]] of the venue hire, so [[AMOUNT:one thousand one hundred and twenty-five pounds]], non-refundable. Then [[PERCENT:fifty per cent]] of the estimated total [[NEG:ninety days]] out, and the balance [[NEG:fourteen days]] before.
+SPEAKER_01: And the estimated total is roughly?
+SPEAKER_00: With [[QUANTITY:ninety-five]] on the premium menu, evening food, venue, ceremony, drinks package at [[AMOUNT:thirty-four a head]], you're looking at around [[AMOUNT:twenty-two and a half thousand]], before the room block.
+SPEAKER_01: Gulp. Okay. And the room block?
+SPEAKER_00: We'd hold [[QUANTITY:twenty-five]] rooms on the [[DATE:Friday and Saturday]] at [[AMOUNT:one sixty-five per night]] bed and breakfast, that's a [[PERCENT:15%]] discount on rack rate. Release date [[DATE:22 March 2027]], so [[NEG:two months before]], anything not booked goes back.
+SPEAKER_01: Okay, that's fine. Can I pay the deposit now?
+SPEAKER_00: Of course. I'll take the card over the phone, or I can send a secure link.
+SPEAKER_01: Phone's fine. It's a [[ORG:Crestmoor Bank]] card. [[CARD:Five four one three, eight two four six, two eight one nine, four eight two four]].
+SPEAKER_00: [[CARD:Five four one three, eight two four six, two eight one nine, four eight two four]]. Expiry?
+SPEAKER_01: [[DATE:Eleven twenty-eight]].
+SPEAKER_00: And the name on the card?
+SPEAKER_01: [[PERSON#b:P Dunleavy Okoro]], with no hyphen on the card for some reason.
+SPEAKER_00: That's gone through. Authorisation code [[ACCOUNT:A7 7Q 41]]. You'll get a receipt by email. Which email?
+SPEAKER_01: [[EMAIL#e1:pippa dot d dot o at weddingmail dot example]].
+SPEAKER_00: [[EMAIL#e1:Pippa, P I P P A, dot D dot O]]?
+SPEAKER_01: Yep. Actually, can you copy in my fiance, [[PERSON#c:Kwame]]? [[EMAIL#e2:kwame dot okoro plus wedding at inbox dot example]].
+SPEAKER_00: [[EMAIL#e2:kwame.okoro+wedding@inbox.example]]. Done. And a phone number?
+SPEAKER_01: My mobile is [[PHONE:oh seven seven double oh, nine double zero, one two three]], and [[PERSON#c:Kwame]]'s on [[PHONE:+44 7700 900 456]].
+SPEAKER_00: I've got [[PHONE:07700 900123]] for you. Lovely.
+SPEAKER_01: Oh, one more thing. Dietary.
+SPEAKER_00: Of course.
+SPEAKER_01: [[TOPIC:Kwame's mum has coeliac disease and she's quite strict, and my brother has a severe nut allergy, he carries an adrenaline pen.]]
+SPEAKER_00: I've noted both. Our chef will do a separate prep area. We'll go through it again at the menu tasting.
+SPEAKER_01: When's the tasting?
+SPEAKER_00: They run on [[NEG:Thursdays]]. I could do [[DATE:Thursday 18th February]], or [[DATE:4 March]].
+SPEAKER_01: [[DATE:The eighteenth]]. No wait, [[PERSON#c:Kwame]]'s away then. [[DATE:The fourth of March]].
+SPEAKER_00: [[DATE:4th March]], half six in the evening. I've put it in.
+SPEAKER_01: Great. And, um, [[TOPIC:I should mention, my dad won't be coming and if he turns up, please don't let him in, there's a restraining order.]]
+SPEAKER_00: Oh. I'm so sorry. I'll make a confidential note for the duty manager. Do you have a photo we can share with security?
+SPEAKER_01: I can email one. His name's [[PERSON#d:Gerald Dunleavy]].
+SPEAKER_00: Thank you. It'll stay with the security team only.
+SPEAKER_01: Thanks. Sorry, that's heavy.
+SPEAKER_00: Not at all. Is there anything else?
+SPEAKER_01: Parking, how many spaces?
+SPEAKER_00: [[QUANTITY:Eighty]] spaces, free for wedding guests. We're at [[LOCATION#l1:Harrowfield Lane, Lower Ashcombe]], the postcode is [[LOCATION#l1:AC7 2PH]] for satnav, but it takes you to the back gate, so follow the signs.
+SPEAKER_01: Brilliant. Thanks so much, [[PERSON#a:Saoirse]].
+SPEAKER_00: My pleasure, [[PERSON#b:Philippa]]. Congratulations, and I'll send the contract today. My direct line is [[PHONE:+44 20 7946 0588]] if anything comes up.
+SPEAKER_01: Perfect. [[NEG:Cheers]].

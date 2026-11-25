@@ -1,0 +1,212 @@
+[
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 0.0,
+    "end": 4.667,
+    "text": "Good afternoon, everyone. Can everyone hear me alright?"
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 4.867,
+    "end": 7.267,
+    "text": "Yes, we can hear you."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 7.467,
+    "end": 12.2,
+    "text": "Just a second -- sorry, my sort of, dog. Okay. Go ahead."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 12.4,
+    "end": 22.933,
+    "text": "No problem at all. Thank you both for joining. The purpose today is to talk through the Halvorsen Freight Partners renewal ahead of 9th of May."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 23.133,
+    "end": 27.933,
+    "text": "Right. And I'll be direct. We're not sure we're renewing."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 28.133,
+    "end": 31.067,
+    "text": "I appreciate you saying that."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 31.267,
+    "end": 37.733,
+    "text": "The price went up 37 percent last cycle and usage on our side hasn't moved at all."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 37.933,
+    "end": 45.867,
+    "text": "Our current contract basically, is $1,500 a year. The quote we received was thirty five million dollars."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 46.067,
+    "end": 47.533,
+    "text": "Mm-hmm."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 47.733,
+    "end": 52.6,
+    "text": "That is not something I can take to our finance committee."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 52.8,
+    "end": 63.467,
+    "text": "Understood. So, um, two things. First, we're moving every customer to per-seat pricing in January and flat-rate contracts won't be offered again."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 63.667,
+    "end": 66.267,
+    "text": "Great. So it gets worse."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 66.467,
+    "end": 74.4,
+    "text": "Not necessarily -- for your you know, seat count it could come down. You have, what, 1,336 active users?"
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 74.6,
+    "end": 82.0,
+    "text": "Closer to two thousand two hundred eighty four, actually. We cleaned up a lot of dormant logins."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 82.2,
+    "end": 85.867,
+    "text": "Okay, that changes the math quite a bit."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 86.067,
+    "end": 93.667,
+    "text": "Look, I'll um, be honest. Our team in Ravelstoke has been piloting Nimbalo for the past two months."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 93.867,
+    "end": 95.2,
+    "text": "Okay."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 95.4,
+    "end": 100.133,
+    "text": "And they like it. Their onboarding was, frankly, better."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 100.333,
+    "end": 105.067,
+    "text": "That's fair feedback. Is I mean, the pilot formal, or..."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 105.267,
+    "end": 114.267,
+    "text": "Semi-formal. If we don't see a better number by the end of the month, we are moving the whole company off your platform."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 114.467,
+    "end": 120.067,
+    "text": "Understood. I'd like to bring my director in, that's Yusuf Kowalczyk."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 120.267,
+    "end": 126.667,
+    "text": "Can you give me her um, direct number? I'd rather not go through the switchboard."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 126.867,
+    "end": 133.4,
+    "text": "Sure, it's six three four... I mean, six three oh five five five oh one nine eight."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 133.6,
+    "end": 138.4,
+    "text": "Thanks. And the renewal paperwork lives basically, where?"
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 138.6,
+    "end": 146.8,
+    "text": "Everything is on the portal at https://support.oxvane.example/docs/onboarding. Your login should still work."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 147.0,
+    "end": 151.0,
+    "text": "It didn't last time. I had to reset it twice."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 151.2,
+    "end": 155.467,
+    "text": "I'll have support look at that. Sorry about that."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 155.667,
+    "end": 159.733,
+    "text": "So what's realistic? What can you actually do?"
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 159.933,
+    "end": 171.6,
+    "text": "I can't um, commit on this call, but something around twenty seven percent off list feels defensible given how long halvorsen freight partners has been with us."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 171.8,
+    "end": 174.467,
+    "text": "Hm. Okay. That's a start."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 174.667,
+    "end": 178.333,
+    "text": "Put it in writing and I'll circulate it."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 178.533,
+    "end": 187.133,
+    "text": "You'll have it by March 23rd. And I've flagged how verson as a priority account internally, so it won't get stuck."
+  },
+  {
+    "speaker": "Ewan Delacroix",
+    "start": 187.333,
+    "end": 191.0,
+    "text": "Fine. Thanks for being straight with us."
+  },
+  {
+    "speaker": "Anouk Hakimi",
+    "start": 191.2,
+    "end": 195.933,
+    "text": "Of course. Thank you both. Have a good rest of your day."
+  },
+  {
+    "speaker": "Femi Lindqvist",
+    "start": 196.133,
+    "end": 197.667,
+    "text": "You too."
+  }
+]

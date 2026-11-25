@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,133
+Speaker 1: Lantern support, how can I help?
+
+2
+00:00:03,333 --> 00:00:07,800
+Speaker 2: Hi, this is Yuki from the Port Ellery Lantern store.
+
+3
+00:00:08,000 --> 00:00:10,333
+Speaker 1: Hi! What's going on?
+
+4
+00:00:10,533 --> 00:00:15,067
+Speaker 2: The POS keeps rejecting cards, like 6011111111111117.
+
+5
+00:00:15,267 --> 00:00:18,333
+Speaker 1: Okay, what's your store number?
+
+6
+00:00:18,533 --> 00:00:21,000
+Speaker 2: Store ACCT-4502015410.
+
+7
+00:00:21,200 --> 00:00:24,600
+Speaker 1: Thanks. And is it all 260 registers?
+
+8
+00:00:24,800 --> 00:00:30,800
+Speaker 2: Yeah, all of them. We lost maybe 3.3 million dollars in sales this morning.
+
+9
+00:00:31,000 --> 00:00:34,067
+Speaker 1: Oof. I'll open order 629256722.
+
+10
+00:00:34,267 --> 00:00:43,267
+Speaker 2: Thanks. Oh, and the lantern out basically, front is blocking the delivery bay again, not basically, your problem though.
+
+11
+00:00:43,467 --> 00:00:50,800
+Speaker 1: Ha, no. Call I mean, back on eight nine nine, five five five zero one six eight if it persists.

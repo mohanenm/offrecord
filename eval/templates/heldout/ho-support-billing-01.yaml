@@ -1,0 +1,39 @@
+id: ho-support-billing-01
+domain: support
+speakers:
+  A: billing support agent
+  B: customer calling about a double charge
+turns:
+  - A: "Thank you for calling, this is {person#1.first} in billing. Who am I speaking with?"
+  - B: "Hi, um, yes, it's {person#2.full}. Can you hear me okay? I'm on speaker in the car."
+  - A: "I can hear you fine. How can I help today?"
+  - B: "So I've been charged twice for the same order and I'm, honestly, I'm pretty annoyed."
+  - A: "I'm sorry to hear that, let's get it sorted. Can I get the account number?"
+  - B: "Yeah, it's {account#1.spoken}."
+  - A: "Thank you. And for security, the last four of the card on file?"
+  - B: "Uh, hold on... it's the... actually let me just give you the whole thing so we're not going back and forth."
+  - split:
+      speaker: B
+      slot: "card#1.spoken"
+      before: "Okay so it's"
+      interrupt: { speaker: A, text: "mm-hmm" }
+      after: "and that's the one that got hit twice."
+  - A: "Thanks. Just so you know, you only ever need to give us the last four, but I've got it."
+  - B: "Oh. Okay. Sorry."
+  - A: "No problem. So I see order {order#1} placed on {date#1} for {amount#1}."
+  - B: "Right."
+  - A: "And then, yes, a second identical charge about an hour later."
+  - B: "Exactly. I paid through my {brand_common#1} account the first time and it said failed, so I tried again with the card directly."
+  - A: "That explains it. The {brand_common#1} payment did go through, it just showed you an error."
+  - B: "Great. So which one gets refunded?"
+  - A: "I'll refund the card charge. It takes three to five business days."
+  - B: "Three to five. Okay. Fine."
+  - A: "I'm also seeing a second order, {order#2.spoken}, is that one yours as well?"
+  - B: "Uh -- yes, that one's fine, that was a gift."
+  - A: "Okay, I'll leave that alone. Can I confirm your email for the receipt? I have {email#1}."
+  - B: "That's old. Use {email#2.spoken}."
+  - A: "Got it, updated."
+  - B: "Thanks. Sorry I was snippy earlier."
+  - A: "Totally understandable. Anything else?"
+  - B: "No, that's it. Thanks, {person#1.first}."
+  - A: "Thanks for calling, drive safe."

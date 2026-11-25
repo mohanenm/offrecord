@@ -1,0 +1,263 @@
+# Synthetic entity pools for the TUNING set. Every name here is invented.
+# Must not share any entity or name with eval/pools/heldout (tests/test_evaluation.py).
+first_names:
+- Orla
+- Bram
+- Kofi
+- Ines
+- Ravi
+- Mirela
+- Joaquin
+- Yuki
+- Amara
+- Henrik
+- Lucia
+- Tobias
+- Emeka
+- Freya
+- Aurelio
+- Priya
+- Casimir
+- Oskar
+- Zainab
+- Wendell
+- Teodor
+- Ayesha
+- Lorcan
+- Bastian
+- Folake
+- Sunniva
+- Darius
+- Elodie
+- Hamza
+- Greer
+- Tavita
+last_names:
+- Venkatesh
+- Okafor
+- Abernathy
+- Castellano
+- Petrakis
+- Quigley
+- Thornbury
+- Uchenna
+- Valderrama
+- Wexley
+- Ashcombe
+- Brightwater
+- Cordova
+- Esterhazy
+- Fairweather
+- Galloway
+- Halvorsen
+- Iwasaki
+- Jablonski
+- Lachance
+- Mbeki
+- Oduya
+- Pemberton
+- Quintero
+- Ruskin
+- Sandoval
+- Trevelyan
+- Underhill
+- Vasquez
+clients:
+- name: Quillfeather Analytics
+  aliases:
+  - Quillfeather
+  - QFA
+  asr:
+  - quill feather
+  - quil feather
+- name: Tessaline Health
+  aliases:
+  - Tessaline
+  asr:
+  - tessa line
+  - tesseline
+- name: Brackwater Foods
+  aliases:
+  - Brackwater
+  - BWF
+  asr:
+  - brack water
+- name: Ostrander Mutual
+  aliases:
+  - Ostrander
+  asr:
+  - ostrinder
+- name: Vellichor Media
+  aliases:
+  - Vellichor
+  asr:
+  - velli core
+  - vellicor
+- name: Hollowmere Bank
+  aliases:
+  - Hollowmere
+  asr:
+  - hollow mere
+- name: Kestrelline Air
+  aliases:
+  - Kestrelline
+  - KLA
+  asr:
+  - kestrel line
+- name: Dunmarsh Retail Group
+  aliases:
+  - Dunmarsh
+  - DRG
+  asr:
+  - dun marsh
+- name: Thornquist Freight
+  aliases:
+  - Thornquist
+  asr:
+  - thorn quist
+- name: Ambervale Assurance
+  aliases:
+  - Ambervale
+  asr:
+  - amber vale
+brands:
+- name: Corvanta
+  aliases: []
+  asr:
+  - core vanta
+- name: Zephyrix
+  aliases: []
+  asr:
+  - zephyr ix
+  - zefirix
+- name: Lumaroo
+  aliases: []
+  asr:
+  - luma roo
+- name: Glimmerbox
+  aliases: []
+  asr:
+  - glimmer box
+- name: Starkweather Outfitters
+  aliases:
+  - Starkweather
+  asr:
+  - stark weather
+- name: Velcarra
+  aliases: []
+  asr:
+  - vel kara
+brand_common:
+- name: Lantern
+  word: lantern
+  context:
+  - app
+  - subscription
+  - store
+  - account
+  - brand
+- name: Harbor
+  word: harbor
+  context:
+  - bank
+  - card
+  - account
+  - branch
+  - app
+- name: Thistle
+  word: thistle
+  context:
+  - store
+  - stores
+  - brand
+  - chain
+  - retail
+- name: Compass
+  word: compass
+  context:
+  - platform
+  - contract
+  - license
+  - renewal
+  - team
+- name: Meadow
+  word: meadow
+  context:
+  - grocery
+  - stores
+  - chain
+  - account
+  - deal
+products:
+- name: Ledgerline Pro
+  aliases:
+  - Ledgerline
+  asr:
+  - ledger line
+- name: Skyquill
+  aliases: []
+  asr:
+  - sky quill
+- name: Driftmark Console
+  aliases:
+  - Driftmark
+  asr:
+  - drift mark
+- name: Pallasite API
+  aliases:
+  - Pallasite
+  asr:
+  - pallas site
+- name: Oriel Suite
+  aliases:
+  - Oriel
+  asr:
+  - oreal sweet
+- name: Cindervault
+  aliases: []
+  asr:
+  - cinder vault
+codenames:
+- name: Project Bluefin
+  aliases:
+  - Bluefin
+  asr:
+  - blue fin
+- name: Operation Larkspur
+  aliases:
+  - Larkspur
+  asr:
+  - lark spur
+- name: Project Nightjar
+  aliases:
+  - Nightjar
+  asr:
+  - night jar
+- name: Project Quorvane
+  aliases:
+  - Quorvane
+  asr:
+  - core vane
+locations:
+- Port Ellery
+- Halvard County
+- Wrenford
+- East Calloway
+- Mistral Bay
+- Corbin Heights
+- Saltcoast
+- New Ardley
+- Fenwick Falls
+- Lowmoor
+email_domains:
+- quillfeather.example
+- thornquist.example
+- mailbox.test
+- tessaline.example
+- corvanta.test
+- inbox.invalid
+url_hosts:
+- quillfeather.example
+- portal.thornquist.example
+- corvanta.test
+- ledgerline.example

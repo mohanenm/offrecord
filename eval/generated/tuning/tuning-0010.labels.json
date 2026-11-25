@@ -1,0 +1,113 @@
+{
+ "id": "tuning-0010",
+ "template": "t11-support-retail",
+ "domain": "support",
+ "casing": "lower",
+ "seed": 1234,
+ "set": "tuning",
+ "generic_speakers": true,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 0,
+   "end": 6,
+   "category": "BRAND",
+   "entity": "brand_common#2",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 12,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 27,
+   "end": 40,
+   "category": "LOCATION",
+   "entity": "location#auto2",
+   "form": "full"
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 41,
+   "end": 47,
+   "category": "BRAND",
+   "entity": "brand_common#2",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 45,
+   "end": 64,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "written"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 6,
+   "end": 21,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "written"
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 34,
+   "end": 36,
+   "category": "QUANTITY",
+   "entity": "quantity#auto5",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 33,
+   "end": 39,
+   "category": "AMOUNT",
+   "entity": "amount#auto6",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 21,
+   "end": 27,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "written"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 29,
+   "end": 62,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "spoken"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 28,
+   "end": 34
+  }
+ ]
+}

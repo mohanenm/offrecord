@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,067
+speaker 1: harbor support, how can i help?
+
+2
+00:00:03,267 --> 00:00:08,400
+speaker 2: hi, this is amara from the east calloway harbor i mean, store.
+
+3
+00:00:08,600 --> 00:00:10,933
+speaker 1: hi! what's going on?
+
+4
+00:00:11,133 --> 00:00:16,467
+speaker 2: the pos sort of, keeps rejecting cards, like 4242 4242 4242 4242.
+
+5
+00:00:16,667 --> 00:00:20,267
+speaker 1: okay, i mean, what's your store number?
+
+6
+00:00:20,467 --> 00:00:22,933
+speaker 2: store acct-5079681914.
+
+7
+00:00:23,133 --> 00:00:27,533
+speaker 1: thanks. and is like, it like, all 55 um, registers?
+
+8
+00:00:27,733 --> 00:00:32,867
+speaker 2: yeah, all of them. we lost maybe $1,700 in sales this morning.
+
+9
+00:00:33,067 --> 00:00:35,933
+speaker 1: oof. i'll open order 164730.
+
+10
+00:00:36,133 --> 00:00:44,133
+speaker 2: thanks. oh, i mean, and the harbor out front is blocking the delivery bay again, not your problem though.
+
+11
+00:00:44,333 --> 00:00:51,067
+speaker 1: ha, no. uh, call back um, on five five five zero one seven one if i mean, it persists.

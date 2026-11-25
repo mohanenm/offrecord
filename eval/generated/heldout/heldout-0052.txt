@@ -1,0 +1,30 @@
+Speaker 1: Thank you for calling, this is Leilani in billing. Who am I speaking with?
+Speaker 2: Hi, um, yes, it's Hyun-woo Quispe. Can you hear me okay? I'm on speaker in the car.
+Speaker 1: I can hear you fine. How can I help today?
+Speaker 2: So I've been charged twice for the same order and I'm, honestly, I'm pretty annoyed.
+Speaker 1: I'm sorry to hear that, let's get it sorted. Can I get the account number?
+Speaker 2: Yeah, it's seven nine six two four eight three.
+Speaker 1: Thank you. And for security, the last four of the card on file?
+Speaker 2: Uh, hold on... it's the... actually let me just give you the whole thing so we're not going back and forth.
+Speaker 2: Okay so it's four one one one one one one one
+Speaker 1: mm-hmm
+Speaker 2: one one one one one one one one and that's the one that got hit twice.
+Speaker 1: Thanks. Just so you know, you only ever need to give us the last four, but I've got it.
+Speaker 2: Oh. Okay. Sorry.
+Speaker 1: No problem. So I see order 998076905 placed on 8/9/2024 for $409K.
+Speaker 2: Right.
+Speaker 1: And then, yes, a second identical charge about an hour later.
+Speaker 2: Exactly. I paid through my Thimble account the first time and it said failed, so I tried again with the card directly.
+Speaker 1: That explains it. The Thimble payment did go through, it just showed you an error.
+Speaker 2: Great. So which one gets refunded?
+Speaker 1: I'll refund the card charge. It takes three to five business days.
+Speaker 2: Three to five. Okay. Fine.
+Speaker 1: I'm also seeing a second order, eight one five oh eight six four, is that one yours as well?
+Speaker 2: Uh -- yes, that one's fine, that was a gift.
+Speaker 1: Okay, I'll leave that alone. Can I confirm your email for the receipt? I have anwachukwu@mailhub.invalid.
+Speaker 2: That's old. Use rafael underscore delacroix at kestrelmoor dot example.
+Speaker 1: Got it, updated.
+Speaker 2: Thanks. Sorry I was snippy earlier.
+Speaker 1: Totally understandable. Anything else?
+Speaker 2: No, that's it. Thanks, Leilani.
+Speaker 1: Thanks for calling, drive safe.

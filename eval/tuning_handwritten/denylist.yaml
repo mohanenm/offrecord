@@ -1,0 +1,181 @@
+# Synthetic deny-list for eval/tuning_handwritten. Every entry is invented.
+# Deliberately partial: some clients, brands, products, codenames and most people
+# used in the transcripts are NOT listed, so unknown entities are tested too.
+denylist:
+  # --- Clients ---
+  - name: Tessaly Home Goods
+    category: CLIENT
+    aliases: [Tessaly]
+  - name: Varnell Cold Storage
+    category: CLIENT
+    aliases: [Varnell]
+  - name: Rowanberry Outfitters
+    category: CLIENT
+    aliases: [Rowanberry]
+  - name: Altamira Appliances
+    category: CLIENT
+    aliases: [Altamira]
+  - name: Ingleby Pharma Logistics
+    category: CLIENT
+    aliases: [Ingleby]
+  - name: Brightledge Dental
+    category: CLIENT
+    aliases: [Brightledge]
+
+  # --- Brands ---
+  - name: Voltaro Electronics
+    category: BRAND
+    aliases: [Voltaro]
+  - name: Pennyflow
+    category: BRAND
+    aliases: []
+  - name: Crumbwell's
+    category: BRAND
+    aliases: [Crumbwells, Crumbwell]
+  - name: Quorra
+    category: BRAND
+    aliases: []
+
+  # --- Products ---
+  - name: KX-440 bracket
+    category: PRODUCT
+    aliases: [KX-440, KX 440]
+  - name: Tidewell Picker 3
+    category: PRODUCT
+    aliases: [Picker 3]
+  - name: Maple Pecan Crumble Box
+    category: PRODUCT
+    aliases: [Crumble Box]
+  - name: Quorra Vibe 2
+    category: PRODUCT
+    aliases: [Vibe 2]
+
+  # --- Codenames ---
+  - name: Project Lanternfish
+    category: CODENAME
+    aliases: [Lanternfish]
+  - name: Kestrel
+    category: CODENAME
+    aliases: []
+  - name: Project Saltmarsh
+    category: CODENAME
+    aliases: [Saltmarsh]
+  - name: Operation Dandelion
+    category: CODENAME
+    aliases: [Dandelion]
+  - name: Project Heron
+    category: CODENAME
+    aliases: [Heron]
+  - name: Larkspur
+    category: CODENAME
+    aliases: []
+
+  # --- People ---
+  - name: Wendell Faircloth
+    category: PERSON
+    aliases: [Faircloth]
+  - name: Dr. Okonkwo-Reyes
+    category: PERSON
+    aliases: [Okonkwo-Reyes, Okonkwo Reyes]
+  - name: Marisol
+    category: PERSON
+    aliases: []
+  - name: Kwabena
+    category: PERSON
+    aliases: []
+  - name: Imogen Castellanos-Webb
+    category: PERSON
+    aliases: [Imogen]
+  - name: Theodore Amsel
+    category: PERSON
+    aliases: [Theo, Amsel]
+  - name: Corinne Albescu
+    category: PERSON
+    aliases: [Albescu]
+  - name: Garrick Thule
+    category: PERSON
+    aliases: [Thule]
+  - name: Jaden Oyelaran
+    category: PERSON
+    aliases: [Jaden]
+  - name: Priscilla Dorn
+    category: PERSON
+    aliases: []
+  - name: Bea Tremayne
+    category: PERSON
+    aliases: [Tremayne]
+  - name: Hector Amaru
+    category: PERSON
+    aliases: []
+  - name: Wilhelmina Strand
+    category: PERSON
+    aliases: [Billie Strand]
+  - name: Roderick Vane
+    category: PERSON
+    aliases: [Roderick]
+  - name: Gus Teodorescu
+    category: PERSON
+    aliases: [Teodorescu]
+  - name: Ezekiel Brannigan
+    category: PERSON
+    aliases: [Zeke, Brannigan]
+  - name: Cornelius Achterberg
+    category: PERSON
+    aliases: [Achterberg]
+  - name: Margarethe Oyelowo-Finch
+    category: PERSON
+    aliases: [Oyelowo-Finch]
+  - name: Penelope Arkwright
+    category: PERSON
+    aliases: [Nell Arkwright]
+  - name: Yusra Bell
+    category: PERSON
+    aliases: []
+  - name: Ignatius Delacroix-Hume
+    category: PERSON
+    aliases: [Iggy, Ignatius]
+  - name: Rhea Valcourt
+    category: PERSON
+    aliases: [Valcourt]
+  - name: Henrike Vossberg
+    category: PERSON
+    aliases: [Henrike]
+  - name: Ottoline Graves
+    category: PERSON
+    aliases: [Ottoline]
+  - name: Beatrix Szczepanski
+    category: PERSON
+    aliases: [Bix, Szczepanski]
+  - name: Kip Andersson-Hale
+    category: PERSON
+    aliases: []
+  - name: Tobias Wrenfield
+    category: PERSON
+    aliases: []
+  - name: Raoul Ashdown
+    category: PERSON
+    aliases: []
+  - name: Corliss Mbeki-Ward
+    category: PERSON
+    aliases: [Corliss]
+  - name: Philippa Dunleavy-Okoro
+    category: PERSON
+    aliases: [Pippa, Philippa]
+  - name: Gerald Dunleavy
+    category: PERSON
+    aliases: []
+  - name: Fiadh Brennan-Sato
+    category: PERSON
+    aliases: [Fiadh]
+  - name: Hollis Granger-Pike
+    category: PERSON
+    aliases: [Granger-Pike]
+  - name: Dolores Pettigrew-Nunn
+    category: PERSON
+    aliases: [Pettigrew-Nunn]
+  - name: Garrett Thistlewood
+    category: PERSON
+    aliases: [Thistlewood]
+  - name: Mireille
+    category: PERSON
+    aliases: []

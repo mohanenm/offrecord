@@ -1,0 +1,54 @@
+[[PERSON#a:Anya K]]: Okay, it's [[NEG:two past]], let's get going. Welcome to the [[DATE:Q3]] investor update for [[ORG#o1:Tidewell Robotics]]. I've got [[PERSON#b:Benedikt]] our CFO, and on the investor side [[PERSON#c:Priyanka]] from [[ORG#o2:Lodestar]], [[PERSON#d:Hamish]], and [[PERSON#e:Corazon]]. [[PERSON#f:Dev]] might join late.
+[[PERSON#c:Priyanka R]]: Hi all.
+[[PERSON#d:Hamish O]]: Morning.
+[[PERSON#e:Corazon V]]: Hey.
+[[PERSON#a:Anya K]]: So headline numbers, then the hard stuff, then the ask. [[PERSON#b:Benedikt]]?
+[[PERSON#b:Benedikt S]]: Thanks. [[DATE:Q3]], so [[DATE:July through September 2026]]. Revenue was [[AMOUNT:$6.8 million]], up [[PERCENT:41% year over year]]. ARR exiting the quarter was [[AMOUNT:twenty-nine point four million]].
+[[PERSON#d:Hamish O]]: And the plan was?
+[[PERSON#b:Benedikt S]]: Plan was [[AMOUNT:thirty-one]]. So we missed by about [[PERCENT:five percent]].
+[[PERSON#b:Benedikt S]]: Gross margin improved to [[PERCENT:fifty-eight percent]], up [[PERCENT:three hundred basis points]] from [[DATE:Q2]]. Hardware margin is still thin, around [[PERCENT:22 per cent]], software is in the [[PERCENT:high eighties]].
+[[PERSON#c:Priyanka R]]: What drove the miss?
+[[PERSON#a:Anya K]]: Two deals slipped. [[CLIENT#k1:Brackwater Grocers]], which was [[AMOUNT:1.2 mil]], slipped to [[DATE:Q1]]. And [[CLIENT#k2:Ingleby Pharma Logistics]], which is the bigger issue.
+[[PERSON#e:Corazon V]]: Bigger issue how?
+[[PERSON#a:Anya K]]: [[TOPIC:Ingleby has had robots down at their Dunholt warehouse for three weeks because of a firmware bug on our side, and their COO told me directly they are evaluating a competitor and may not renew in February.]]
+[[PERSON#d:Hamish O]]: How big is [[CLIENT#k2:Ingleby]]?
+[[PERSON#b:Benedikt S]]: [[AMOUNT:Four point one million]] ARR. About [[PERCENT:fourteen percent]] of the book.
+[[PERSON#d:Hamish O]]: That's a lot of concentration.
+[[PERSON#a:Anya K]]: It is. We've put our best engineers on site. [[PERSON#g:Tobias Wrenfield]] is personally there.
+[[PERSON#e:Corazon V]]: What's the fix timeline?
+[[PERSON#a:Anya K]]: Patch is in testing, rollout [[DATE:December 4th]]. If it holds for [[NEG:two weeks]] I think we save it.
+[[PERSON#b:Benedikt S]]: Burn. Net burn was [[AMOUNT:two point three a month]] in [[DATE:Q3]], down from [[AMOUNT:2.9]]. Cash at end of September was [[AMOUNT:$41.7M]].
+[[PERSON#c:Priyanka R]]: So runway is?
+[[PERSON#b:Benedikt S]]: About [[NEG:eighteen months]] at current burn. [[NEG:Twenty-one]] if the [[PRODUCT:Tidewell Picker 3]] cost-downs land.
+[[PERSON#c:Priyanka R]]: [[PRODUCT:Picker 3]] is the new arm?
+[[PERSON#a:Anya K]]: Yes. Unit cost goes from [[AMOUNT:forty-eight thousand]] to [[AMOUNT:thirty-one five]]. We're at [[QUANTITY:a hundred and forty]] units deployed across [[QUANTITY:nineteen]] sites.
+[[PERSON#d:Hamish O]]: Headcount?
+[[PERSON#b:Benedikt S]]: [[QUANTITY:212]] at end of quarter.
+[[PERSON#a:Anya K]]: Which brings me to the hard stuff. [[TOPIC:We're planning a reduction of about twenty-five people in January, mostly in sales and the hardware ops team in Pellham, and nobody below VP knows yet.]]
+[[PERSON#e:Corazon V]]: Severance?
+[[PERSON#b:Benedikt S]]: [[NEG:Eight weeks]] base plus [[NEG:a week]] per year of tenure. Total cost around [[AMOUNT:one point six million]].
+[[PERSON#d:Hamish O]]: Okay. And the other thing you mentioned on email?
+[[PERSON#a:Anya K]]: Yes. This is very confidential. [[TOPIC:We've been approached about an acquisition by a large industrial company, the talks are under the name Project Saltmarsh, and they've floated a range of two hundred to two fifty million.]]
+[[PERSON#c:Priyanka R]]: [[CODENAME#s1:Saltmarsh]]. Okay. Is there an LOI?
+[[PERSON#a:Anya K]]: No LOI. Just a first meeting on [[DATE:the 17th of November]] and a follow-up set for [[DATE:12/9]].
+[[PERSON#d:Hamish O]]: [[AMOUNT:Two hundred]] is about [[NEG:seven times]] ARR. That's light.
+[[PERSON#e:Corazon V]]: For hardware it's not crazy.
+[[PERSON#a:Anya K]]: I'm not looking to sell. But I want the board to know. Our banker on it informally is [[PERSON#h:Raoul Ashdown]] at [[ORG:Fennick Partners]].
+[[PERSON#c:Priyanka R]]: [[ORG#o2:Lodestar]]'s view is we don't stop a good outcome, but we'd want at least [[AMOUNT:three hundred]]. And our pro-rata on any bridge stands.
+[[PERSON#a:Anya K]]: Understood. That's the ask, actually. We'd like a [[AMOUNT:fifteen million dollar]] insider bridge, convertible, [[PERCENT:20% discount]], [[AMOUNT:four hundred million]] cap.
+[[PERSON#d:Hamish O]]: Cap's high given the miss.
+[[PERSON#a:Anya K]]: Fair. We can talk [[AMOUNT:three fifty]].
+[[PERSON#f:Dev M]]: Sorry, joining late. Did I miss the bridge discussion?
+[[PERSON#a:Anya K]]: Just starting, [[PERSON#f:Dev]]. [[AMOUNT:Fifteen]], [[PERCENT:twenty percent]] discount, cap between [[AMOUNT:three fifty]] and [[AMOUNT:four hundred]].
+[[PERSON#f:Dev M]]: Interest rate on the note?
+[[PERSON#b:Benedikt S]]: [[PERCENT:Eight percent]] simple. Maturity [[DATE:June 30, 2028]].
+[[PERSON#f:Dev M]]: Make it [[PERCENT:six]] and I'm in for my pro-rata. Our fund's allocation would be about [[AMOUNT:three point two]].
+[[PERSON#c:Priyanka R]]: [[ORG#o2:Lodestar]] could do [[AMOUNT:five]].
+[[PERSON#a:Anya K]]: That's great. [[PERSON#b:Benedikt]] will send docs. Data room is at [[URL:https://dataroom.tidewell.example/q3-bridge]], password coming separately.
+[[PERSON#b:Benedikt S]]: I'll send from [[EMAIL:benedikt.s@finance.tidewell.example]]. Please don't forward, the room has the layoff list.
+[[PERSON#d:Hamish O]]: Understood.
+[[PERSON#e:Corazon V]]: One more question. Any update on the patent dispute?
+[[PERSON#a:Anya K]]: [[TOPIC:The patent troll case was dismissed in October, but they've appealed, and our counsel thinks the settlement value is under half a million.]]
+[[PERSON#e:Corazon V]]: Good.
+[[PERSON#a:Anya K]]: Okay, we're at time. Next update is [[DATE:mid-February]], after the [[DATE:Q4]] close. Thank you everyone, I [[NEG:mean]] it, this was a [[NEG:rough]] quarter.
+[[PERSON#d:Hamish O]]: Thanks [[PERSON#a:Anya]].

@@ -1,0 +1,92 @@
+[
+  {
+    "speaker": "Wendell Abernathy",
+    "start": 0.0,
+    "end": 4.133,
+    "text": "Can everyone hear me? Great, let's get started."
+  },
+  {
+    "speaker": "Wendell Sandoval",
+    "start": 4.333,
+    "end": 5.6,
+    "text": "Yep."
+  },
+  {
+    "speaker": "Priya Thornbury",
+    "start": 5.8,
+    "end": 7.267,
+    "text": "Mm-hmm."
+  },
+  {
+    "speaker": "Wendell Abernathy",
+    "start": 7.467,
+    "end": 11.733,
+    "text": "So Q3. Revenue came in at $5.9M, margin was 1.5%."
+  },
+  {
+    "speaker": "Priya Thornbury",
+    "start": 11.933,
+    "end": 17.0,
+    "text": "Right, and gross margin on Skyquill was 16.5%, which is down."
+  },
+  {
+    "speaker": "Wendell Sandoval",
+    "start": 17.2,
+    "end": 22.6,
+    "text": "The Brackwater Foods deal slipped, that's $71 million of bookings."
+  },
+  {
+    "speaker": "Wendell Abernathy",
+    "start": 22.8,
+    "end": 24.8,
+    "text": "Okay. Pipeline?"
+  },
+  {
+    "speaker": "Wendell Sandoval",
+    "start": 25.0,
+    "end": 29.867,
+    "text": "Pipeline is around $57 million with 34 open opportunities."
+  },
+  {
+    "speaker": "Priya Thornbury",
+    "start": 30.067,
+    "end": 34.4,
+    "text": "Churn is 24%, mostly in the Halvard County region."
+  },
+  {
+    "speaker": "Wendell Abernathy",
+    "start": 34.6,
+    "end": 40.667,
+    "text": "We need to plan for a hiring freeze and possibly a reduction in force in Q1."
+  },
+  {
+    "speaker": "Wendell Sandoval",
+    "start": 40.867,
+    "end": 42.6,
+    "text": "Understood."
+  },
+  {
+    "speaker": "Wendell Abernathy",
+    "start": 42.8,
+    "end": 48.4,
+    "text": "Also Project Bluefin is still confidential, do not mention it to KLA."
+  },
+  {
+    "speaker": "Priya Thornbury",
+    "start": 48.6,
+    "end": 54.267,
+    "text": "Got it. I'll update the model with 462 stores for the Lantern rollout."
+  },
+  {
+    "speaker": "Wendell Sandoval",
+    "start": 54.467,
+    "end": 60.467,
+    "text": "Are we still counting the lantern display in the lobby as a marketing cost?"
+  },
+  {
+    "speaker": "Wendell Abernathy",
+    "start": 60.667,
+    "end": 64.0,
+    "text": "Ha, yes. Okay, next week same time."
+  }
+]

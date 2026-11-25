@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "offrecord"
+version = "0.0.1"
+description = "Offline redaction and compression of meeting and call transcripts."
+readme = "README.md"
+requires-python = ">=3.10"
+# Tier 0 runtime dependencies are added only when code uses them, pinned.
+dependencies = [
+    "PyYAML==6.0.4",
+    "rapidfuzz==3.14.5",
+    "jellyfish==1.2.1",
+    "cryptography==50.0.2",
+]
+
+[project.optional-dependencies]
+# Tier 1: NER ensemble (GLiNER + BERT-NER) and sentence embeddings via ONNX Runtime (no PyTorch).
+ner = [
+    "onnxruntime==1.23.2",
+    "numpy==2.2.6",
+    "tokenizers==0.23.3",
+]
+# Tier 2: grammar-constrained JSON labels from a small GGUF model via llama.cpp.
+llm = [
+    "llama-cpp-python==0.3.38",
+]
+dev = [
+    "pytest==9.2.0",
+    "hypothesis==6.168.5",
+    "ruff==0.17.6",
+    "pip-audit==2.10.1",
+]
+
+[project.scripts]
+offrecord = "offrecord.cli:entry"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"offrecord.data" = ["*.gz", "LICENSE-SCOWL.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.format]
+# Code sketches in docs keep hand-aligned comments.
+exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "BLE", "T20", "SIM", "RUF"]
+# SIM905: "a b c".split() word lists are easier to read and review than list literals.
+ignore = ["SIM905"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S603", "S607", "S311"]
+# Dev scripts print synthetic tuning data only.
+"scripts/**" = ["T20"]
+# The only modules allowed to print (to stderr / command output). T20 guards against stray
+# debug prints leaking data everywhere else.
+"src/offrecord/cli.py" = ["T20"]
+"src/offrecord/safe_errors.py" = ["T20"]
+"src/offrecord/models/setup.py" = ["T20"]  # download progress on stderr
+"src/offrecord/models/__init__.py" = ["E501"]  # pinned SHA-256 strings
+# Seeded PRNG is the point of a deterministic synthetic-data generator.
+"src/offrecord/evaluation/generator.py" = ["S311"]

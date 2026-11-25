@@ -1,0 +1,119 @@
+1
+00:00:00,000 --> 00:00:06,467
+Kenji Petrov: Thank you for calling, this is Rafael in sort of, billing. Who am I speaking with?
+
+2
+00:00:06,667 --> 00:00:13,000
+Yara Chaudhry: Hi, um, yes, it's Leilani Iyer. Can you hear me okay? I'm on speaker in the car.
+
+3
+00:00:13,200 --> 00:00:17,400
+Kenji Petrov: I can like, hear you fine. How can I help today?
+
+4
+00:00:17,600 --> 00:00:25,067
+Yara Chaudhry: So sort of, I've been charged twice for the same order uh, and I'm, honestly, I'm pretty annoyed.
+
+5
+00:00:25,267 --> 00:00:31,200
+Kenji Petrov: I'm sorry to hear that, let's get it sorted. Can I get the account number?
+
+6
+00:00:31,400 --> 00:00:35,333
+Yara Chaudhry: Yeah, it's seven four oh nine one nine nine.
+
+7
+00:00:35,533 --> 00:00:41,733
+Kenji Petrov: Thank you. uh, And basically, for security, the last four of the card on file?
+
+8
+00:00:41,933 --> 00:00:52,067
+Yara Chaudhry: Uh, hold on... it's the... like, actually let me just give you um, the whole thing so you know, we're you know, not going back and forth.
+
+9
+00:00:52,267 --> 00:00:56,733
+Yara Chaudhry: Okay so it's three five three zero one one one three
+
+10
+00:00:56,933 --> 00:00:58,333
+Kenji Petrov: mm-hmm
+
+11
+00:00:58,533 --> 00:01:04,533
+Yara Chaudhry: three three three zero oh oh zero oh and that's the one that got hit twice.
+
+12
+00:01:04,733 --> 00:01:11,933
+Kenji Petrov: Thanks. Just so you know, you only ever need to give us the last four, but I've got like, it.
+
+13
+00:01:12,133 --> 00:01:14,200
+Yara Chaudhry: Oh. Okay. Sorry.
+
+14
+00:01:14,400 --> 00:01:21,600
+Kenji Petrov: No problem. So I see sort of, order PO-1303883160 placed on 9th of December for $2.2 million.
+
+15
+00:01:21,800 --> 00:01:23,200
+Yara Chaudhry: Right.
+
+16
+00:01:23,400 --> 00:01:28,467
+Kenji Petrov: And then, yes, a second identical charge about an hour later.
+
+17
+00:01:28,667 --> 00:01:38,200
+Yara Chaudhry: Exactly. I paid through my Spindle account the first time and it said failed, so I tried you know, again with the card directly.
+
+18
+00:01:38,400 --> 00:01:45,133
+Kenji Petrov: That um, explains it. The Spindle payment did go through, it just showed you an error.
+
+19
+00:01:45,333 --> 00:01:49,267
+Yara Chaudhry: Great. So which one you know, gets refunded?
+
+20
+00:01:49,467 --> 00:01:54,867
+Kenji Petrov: I'll refund the card charge. It takes three to five business days.
+
+21
+00:01:55,067 --> 00:01:57,800
+Yara Chaudhry: Three to five. Okay. Fine.
+
+22
+00:01:58,000 --> 00:02:06,067
+Kenji Petrov: I'm also seeing a second order, three seven four nine six six six two two four, is that one yours as well?
+
+23
+00:02:06,267 --> 00:02:11,000
+Yara Chaudhry: Uh -- yes, that one's like, fine, that like, was a gift.
+
+24
+00:02:11,200 --> 00:02:19,467
+Kenji Petrov: Okay, I'll um, leave that alone. Can I confirm your email for the receipt? I have ingrid@kestrelmoor.example.
+
+25
+00:02:19,667 --> 00:02:23,467
+Yara Chaudhry: That's old. Use ewan at pellucid dot test.
+
+26
+00:02:23,667 --> 00:02:25,733
+Kenji Petrov: Got it, updated.
+
+27
+00:02:25,933 --> 00:02:30,000
+Yara Chaudhry: Thanks. Sorry I basically, was snippy earlier.
+
+28
+00:02:30,200 --> 00:02:34,600
+Kenji Petrov: Totally understandable. um, Anything sort of, else?
+
+29
+00:02:34,800 --> 00:02:38,467
+Yara Chaudhry: No, you know, that's it. Thanks, Rafael.
+
+30
+00:02:38,667 --> 00:02:41,733
+Kenji Petrov: Thanks for calling, drive safe.

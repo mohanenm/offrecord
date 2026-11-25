@@ -1,0 +1,42 @@
+id: ho-internal-planning-01
+domain: internal
+speakers:
+  A: head of product
+  B: engineering manager
+  C: marketing lead
+  D: program manager running the meeting
+turns:
+  - D: "Okay, I think we have quorum. {person#1.first} is out sick, so we'll catch her up after."
+  - A: "Morning all. Did everyone survive the storm? Our power was out till midnight."
+  - C: "Ugh, ours too. I ended up working from a cafe."
+  - B: "We were fine, weirdly. Anyway."
+  - D: "Right. Agenda's in the doc. First up, Q1 priorities. {person#2.first}, want to kick off?"
+  - A: "Sure. So, um, the big one is {codename#1}. We're aiming for beta by {date#1}."
+  - B: "Which -- okay, I'll say it -- is aggressive."
+  - A: "It is aggressive."
+  - B: "We have {quantity#1.spoken} engineers on it and two of them are half on {codename#2.alias}."
+  - D: "Can we pull them off {codename#2.lower}?"
+  - B: "Not without slipping that by a month."
+  - A: "And to be clear about {codename#1.alias}, [[TOPIC: the real goal is to rip out the legacy billing engine entirely and retire the old pricing pages]]."
+  - C: "From the marketing side, we've already told {client#1} to expect something in spring. So."
+  - A: "Right, and they're our biggest logo."
+  - C: "Mm-hmm. Also, [[TOPIC: we're sunsetting the free tier at the end of Q1 and moving those users onto a paid starter plan]]."
+  - B: "Wait, is that public?"
+  - C: "No. Not yet. Please don't put it in the team channel."
+  - D: "Noted. What's the budget picture?"
+  - A: "We've got {amount#1} for contractors this quarter. Last quarter we burned through {percent#1} of it by week six."
+  - D: "Okay, so, careful."
+  - B: "If I could get two contractors for {codename#1.lower}, that would unblock a lot."
+  - A: "That's maybe {amount#2.spoken} for the quarter."
+  - D: "Doable."
+  - C: "Sorry, I'm getting a ton of echo -- is someone not on headphones?"
+  - B: "Oh, that's me, sorry, one sec. Better?"
+  - C: "Better."
+  - D: "Okay. Launch locations. We said {location#1} and {location#2} first."
+  - C: "Yeah. {location#2} because that's where {client#1.alias} has its headquarters."
+  - A: "Makes sense."
+  - B: "Quick thing -- the notes bot keeps writing {codename#1.asr}, can someone fix the glossary?"
+  - D: "Ha, I'll fix it. Action items: {person#3.full} owns the contractor request, I'll update the roadmap, and we revisit on {date#2}."
+  - A: "Sounds good."
+  - C: "Thanks everyone."
+  - B: "Cheers."

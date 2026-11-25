@@ -1,0 +1,104 @@
+[
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 0.0,
+    "end": 2.867,
+    "text": "HI, IS YOU KNOW, THIS AMARA?"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 3.067,
+    "end": 4.533,
+    "text": "YES HI."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 4.733,
+    "end": 9.467,
+    "text": "I'M CALLING ABOUT TICKET OH FOUR THREE EIGHT OH OH FOUR."
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 9.667,
+    "end": 13.067,
+    "text": "OH RIGHT, THE LEDGERLINE PRO OUTAGE."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 13.267,
+    "end": 17.733,
+    "text": "YEAH. CAN YOU TELL ME THE PUBLIC IP OF YOUR GATEWAY?"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 17.933,
+    "end": 20.533,
+    "text": "UH, IT'S 198.51.100.208."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 20.733,
+    "end": 22.8,
+    "text": "AND THE ACCOUNT?"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 23.0,
+    "end": 25.467,
+    "text": "IT'S SIX SIX SEVEN TWO"
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 25.667,
+    "end": 27.067,
+    "text": "UH HUH"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 27.267,
+    "end": 30.133,
+    "text": "FIVE NINE EIGHT TWO I THINK."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 30.333,
+    "end": 35.933,
+    "text": "GREAT. AND THE LOGIN PAGE YOU SEE IS CORVANTA DOT TEST SLASH Q3-PLAN?"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 36.133,
+    "end": 37.4,
+    "text": "YES."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 37.6,
+    "end": 42.4,
+    "text": "OKAY, I'LL ESCALATE TO FREYA MBEKI. YOUR CALLBACK NUMBER?"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 42.6,
+    "end": 44.667,
+    "text": "+1 532 555 0144."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 44.867,
+    "end": 47.067,
+    "text": "THANKS, AND EMAIL?"
+  },
+  {
+    "speaker": "AMARA VENKATESH",
+    "start": 47.267,
+    "end": 51.467,
+    "text": "RAVI DOT CASTELLANO AT QUILLFEATHER DOT EXAMPLE."
+  },
+  {
+    "speaker": "KOFI GALLOWAY",
+    "start": 51.667,
+    "end": 55.467,
+    "text": "PERFECT, YOU'LL HEAR FROM US BY JUNE 11TH."
+  }
+]

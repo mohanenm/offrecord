@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,133
+aurelio jablonski: can everyone hear me? great, let's get started.
+
+2
+00:00:04,333 --> 00:00:05,600
+elodie trevelyan: yep.
+
+3
+00:00:05,800 --> 00:00:07,267
+sunniva uchenna: mm-hmm.
+
+4
+00:00:07,467 --> 00:00:12,400
+aurelio jablonski: so q3. revenue came in at 300 grand, margin was 35 percent.
+
+5
+00:00:12,600 --> 00:00:17,733
+sunniva uchenna: right, and gross margin on oriel suite was 11%, which is down.
+
+6
+00:00:17,933 --> 00:00:23,333
+elodie trevelyan: the thornquist freight deal slipped, that's 810 grand of bookings.
+
+7
+00:00:23,533 --> 00:00:25,533
+aurelio jablonski: okay. pipeline?
+
+8
+00:00:25,733 --> 00:00:30,400
+elodie trevelyan: pipeline is around $836k with 2,488 open opportunities.
+
+9
+00:00:30,600 --> 00:00:35,333
+sunniva uchenna: churn is 13 percent, mostly in the east calloway region.
+
+10
+00:00:35,533 --> 00:00:41,600
+aurelio jablonski: we need to plan for a hiring freeze and possibly a reduction in force in q1.
+
+11
+00:00:41,800 --> 00:00:43,533
+elodie trevelyan: understood.
+
+12
+00:00:43,733 --> 00:00:49,800
+aurelio jablonski: also project quorvane is still confidential, do not mention it to tessaline.
+
+13
+00:00:50,000 --> 00:00:55,800
+sunniva uchenna: got it. i'll update the model with 1,411 stores for the compass rollout.
+
+14
+00:00:56,000 --> 00:01:02,000
+elodie trevelyan: are we still counting the compass display in the lobby as a marketing cost?
+
+15
+00:01:02,200 --> 00:01:05,533
+aurelio jablonski: ha, yes. okay, next week same time.

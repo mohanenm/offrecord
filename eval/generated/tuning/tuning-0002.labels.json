@@ -1,0 +1,167 @@
+{
+ "id": "tuning-0002",
+ "template": "t03-internal-finance",
+ "domain": "internal",
+ "casing": "lower",
+ "seed": 1234,
+ "set": "tuning",
+ "generic_speakers": true,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 26,
+   "end": 35,
+   "category": "AMOUNT",
+   "entity": "amount#auto0",
+   "form": "written"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 48,
+   "end": 59,
+   "category": "PERCENT",
+   "entity": "percent#auto1",
+   "form": "written"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 27,
+   "end": 40,
+   "category": "PRODUCT",
+   "entity": "product#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 45,
+   "end": 55,
+   "category": "PERCENT",
+   "entity": "percent#2",
+   "form": "written"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 4,
+   "end": 19,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 41,
+   "end": 45,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 19,
+   "end": 23,
+   "category": "AMOUNT",
+   "entity": "amount#auto6",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 29,
+   "end": 32,
+   "category": "QUANTITY",
+   "entity": "quantity#auto7",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 9,
+   "end": 14,
+   "category": "PERCENT",
+   "entity": "percent#auto8",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 30,
+   "end": 38,
+   "category": "LOCATION",
+   "entity": "location#auto9",
+   "form": "full"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 0,
+   "end": 76,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 5,
+   "end": 20,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 65,
+   "end": 73,
+   "category": "CLIENT",
+   "entity": "client#2",
+   "form": "alias",
+   "known": false
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 0,
+   "end": 74,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 35,
+   "end": 37,
+   "category": "QUANTITY",
+   "entity": "quantity#auto12",
+   "form": "written"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 53,
+   "end": 59,
+   "category": "BRAND",
+   "entity": "brand_common#1",
+   "form": "full",
+   "known": false
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 26,
+   "end": 32
+  }
+ ]
+}

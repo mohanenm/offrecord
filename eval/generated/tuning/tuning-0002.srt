@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,133
+speaker 1: can everyone hear me? great, let's get started.
+
+2
+00:00:04,333 --> 00:00:05,600
+speaker 2: yep.
+
+3
+00:00:05,800 --> 00:00:07,267
+speaker 3: mm-hmm.
+
+4
+00:00:07,467 --> 00:00:12,467
+speaker 1: so q3. revenue came in at 610 grand, margin was 4.5 percent.
+
+5
+00:00:12,667 --> 00:00:18,400
+speaker 3: right, and gross margin on pallasite api was 44 percent, which is down.
+
+6
+00:00:18,600 --> 00:00:23,467
+speaker 2: the kestrelline air deal slipped, that's $650 of bookings.
+
+7
+00:00:23,667 --> 00:00:25,667
+speaker 1: okay. pipeline?
+
+8
+00:00:25,867 --> 00:00:30,333
+speaker 2: pipeline is around 318k with 481 open opportunities.
+
+9
+00:00:30,533 --> 00:00:34,600
+speaker 3: churn is 16.5%, mostly in the wrenford region.
+
+10
+00:00:34,800 --> 00:00:40,867
+speaker 1: we need to plan for a hiring freeze and possibly a reduction in force in q1.
+
+11
+00:00:41,067 --> 00:00:42,800
+speaker 2: understood.
+
+12
+00:00:43,000 --> 00:00:48,933
+speaker 1: also project bluefin is still confidential, do not mention it to dunmarsh.
+
+13
+00:00:49,133 --> 00:00:54,667
+speaker 3: got it. i'll update the model with 28 stores for the meadow rollout.
+
+14
+00:00:54,867 --> 00:01:00,800
+speaker 2: are we still counting the meadow display in the lobby as a marketing cost?
+
+15
+00:01:01,000 --> 00:01:04,333
+speaker 1: ha, yes. okay, next week same time.

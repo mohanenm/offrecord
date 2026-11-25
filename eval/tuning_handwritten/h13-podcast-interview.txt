@@ -1,0 +1,89 @@
+Host: Welcome back to the show, everybody. Today I'm sitting down with someone I've wanted to get on here for, honestly, [[NEG:two years]]. She's the co-founder and CEO of [[ORG#o1:Glimmerdeck]], the scheduling app half my friends use, [[PERSON#g:Beatrix Szczepanski]], or as everyone in the industry calls her, [[PERSON#g:Bix]]. Welcome.
+
+Guest: Thank you, thank you, it's great to be here. And yeah, nobody can spell [[PERSON#g:Szczepanski]] so [[PERSON#g:Bix]] it is, ha.
+
+Host: So let's go back to the beginning. Where did [[ORG#o1:Glimmerdeck]] come from?
+
+Guest: So, okay, the honest version is I was working at a hospital system in [[LOCATION:Maple Ford]] doing shift scheduling for nurses, like, by hand, in a spreadsheet, for about [[QUANTITY:four hundred]] nurses, and it was a nightmare, and I kept thinking somebody has to have solved this, and nobody had, at least not for a price a hospital would pay. So I started building it at night. That was, God, [[DATE:the spring of 2019]]. And my co-founder at the time was [[PERSON#k:Kip Andersson-Hale]], who I'd met at a hackathon.
+
+Host: At the time. I'm sensing a story.
+
+Guest: Ha. Yeah. I mean, I can say what's public. [[TOPIC:Kip left the company in 2022 and there's an ongoing lawsuit over his equity, he's claiming he was pushed out before his shares vested.]] I can't really go into it more than that, my lawyers would kill me.
+
+Host: Totally fair. Let's talk about growth then. Where are you now?
+
+Guest: So we just crossed [[QUANTITY:two point one million]] monthly active users, which is wild to say. Revenue, I can share, we're at about [[AMOUNT:nineteen million]] in ARR, up from [[AMOUNT:eleven]] last year, so like [[PERCENT:seventy-something percent]] growth.
+
+Host: That's huge. And you raised a round recently?
+
+Guest: We did, our Series B closed in [[DATE:September]], [[AMOUNT:forty-two million dollars]], led by [[ORG:Harrowgate Ventures]]. [[PERSON#h:Delphine Oakes]] there joined our board.
+
+Host: What was the valuation?
+
+Guest: Oh, I'm not going to tell you that. Ha. You can guess.
+
+Host: I'll guess [[AMOUNT:three hundred mil]].
+
+Guest: I'm going to plead [[NEG:the fifth]].
+
+Host: Okay okay. Let's talk about the hard stuff, because I think people want to hear it. You wrote a blog post last year about burnout.
+
+Guest: Yeah. [[TOPIC:So in 2023 I basically had a breakdown, I was diagnosed with severe depression and an anxiety disorder, and I took eight weeks of medical leave without telling the team why.]] And I wrote about it later because I think founders pretend they're fine.
+
+Host: How did the team handle it?
+
+Guest: Better than I deserved. My COO, [[PERSON#m:Marguerite]], [[PERSON#m:Mags]], stepped up. She ran everything. [[TOPIC:And honestly, I'm still on medication, and I see a therapist every week, and I'm fine talking about that now.]]
+
+Host: I really appreciate you sharing that.
+
+Guest: Thanks.
+
+Host: Okay, what's next? Anything you can tease?
+
+Guest: Hmm. So, I'll say this. We have something in the works called, internally, [[CODENAME#c1:Project Driftwood]], and that's all I'll say.
+
+Host: Come on.
+
+Guest: Okay, fine, a little. [[TOPIC:Driftwood is a version of Glimmerdeck for hospitals specifically, which is full circle for me, and we're piloting it with two health systems right now, one of them is Saint Brennock's.]]
+
+Producer: [[PERSON#g:Bix]], sorry, quick flag from the booth, you might not want the hospital name in there.
+
+Guest: Oh, shoot. Yeah, can we cut that? Strike the hospital name.
+
+Host: We'll handle it in the edit. Okay. Pricing. What does it cost?
+
+Guest: The consumer app is free, the pro tier is [[AMOUNT:eight ninety-nine a month]] or [[AMOUNT:$79 a year]]. Teams is [[AMOUNT:twelve bucks a seat]]. Enterprise is custom.
+
+Host: And conversion from free to pro?
+
+Guest: Around [[PERCENT:six point four percent]], which is really good for consumer.
+
+Host: Headcount?
+
+Guest: [[QUANTITY:One hundred and thirty-eight]] people. We'll be at maybe [[QUANTITY:one eighty]] by end of next year.
+
+Host: And remote?
+
+Guest: Remote-first. We have a small office in [[LOCATION:Kettering Wharf]], which is mostly for, like, offsites.
+
+Host: Okay, lightning round. Favorite book?
+
+Guest: Oh. Hmm. Anything by [[NEG:Grace]]... no, I'll say, I'll say a cookbook. I cook to calm down.
+
+Host: Ha. Morning person or night?
+
+Guest: Night, unfortunately.
+
+Host: Best advice you ever got?
+
+Guest: My dad told me, "don't [[NEG:bill]] people for your mistakes." He ran a plumbing business. That stuck.
+
+Host: Love it. Where can people find you?
+
+Guest: I'm on most platforms as [[URL:bix.example/links]], and if anyone wants to reach me for real, [[EMAIL:bix at glimmerdeck dot example]], but please don't sell me anything, ha.
+
+Host: Ha. [[PERSON#g:Bix]], thank you so much.
+
+Guest: Thank you, this was really fun.
+
+Host: And that's our show. New episodes every [[NEG:Tuesday]]. See you next week.

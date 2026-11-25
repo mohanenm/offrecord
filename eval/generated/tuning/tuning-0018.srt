@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:04,000
+Amara Trevelyan: Okay, I think everyone's here. Let's jump in.
+
+2
+00:00:04,200 --> 00:00:09,867
+Ines Lachance: Thanks. So for the board deck, the headline is $1,950 ARR, 53% growth.
+
+3
+00:00:10,067 --> 00:00:13,133
+Oskar Trevelyan: And net retention at 9 percent.
+
+4
+00:00:13,333 --> 00:00:19,933
+Freya Quigley: Before the deck, the Hollowmere Bank litigation is likely to settle for around $18M.
+
+5
+00:00:20,133 --> 00:00:23,400
+Ines Lachance: Okay. Keep that out of the slides.
+
+6
+00:00:23,600 --> 00:00:31,467
+Oskar Trevelyan: Operation Larkspur is the acquisition of Corvanta, we should present it as a partnership until signing.
+
+7
+00:00:31,667 --> 00:00:36,533
+Freya Quigley: Agreed, and lark spur needs to stay in the closed session.
+
+8
+00:00:36,733 --> 00:00:42,533
+Amara Trevelyan: Ines, do you want Greer Jablonski to present the Ledgerline Pro roadmap?
+
+9
+00:00:42,733 --> 00:00:45,667
+Ines Lachance: Yes, Jablonski knows it best.
+
+10
+00:00:45,867 --> 00:00:50,533
+Oskar Trevelyan: We also lost Ostrander Mutual, that's 255 units a year.
+
+11
+00:00:50,733 --> 00:00:56,733
+Ines Lachance: And we're raising prices by 1.5 percent on the Cindervault tier in January.
+
+12
+00:00:56,933 --> 00:01:02,533
+Amara Trevelyan: Noted. I'll send the draft from emeka_underhill@mailbox.test tonight.
+
+13
+00:01:02,733 --> 00:01:04,200
+Freya Quigley: Mm-hmm.
+
+14
+00:01:04,400 --> 00:01:06,600
+Ines Lachance: Great, thanks all.

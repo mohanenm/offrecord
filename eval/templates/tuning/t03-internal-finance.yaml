@@ -1,0 +1,19 @@
+id: t03-internal-finance
+domain: internal
+speakers: {A: CFO, B: head of sales, C: FP&A analyst}
+turns:
+  - A: "Can everyone hear me? Great, let's get started."
+  - B: "Yep."
+  - C: "Mm-hmm."
+  - A: "So Q3. Revenue came in at {amount}, margin was {percent}."
+  - C: "Right, and gross margin on {product#1} was {percent#2}, which is down."
+  - B: "The {client#1} deal slipped, that's {amount#2} of bookings."
+  - A: "Okay. Pipeline?"
+  - B: "Pipeline is around {amount} with {quantity} open opportunities."
+  - C: "Churn is {percent}, mostly in the {location} region."
+  - A: "[[TOPIC: We need to plan for a hiring freeze and possibly a reduction in force in Q1.]]"
+  - B: "Understood."
+  - A: "[[TOPIC: Also {codename#1} is still confidential, do not mention it to {client#2.alias}.]]"
+  - C: "Got it. I'll update the model with {quantity} stores for the {brand_common#1} rollout."
+  - B: "Are we still counting the {brand_common#1.word} display in the lobby as a marketing cost?"
+  - A: "Ha, yes. Okay, next week same time."

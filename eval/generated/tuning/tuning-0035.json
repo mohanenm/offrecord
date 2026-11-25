@@ -1,0 +1,86 @@
+[
+  {
+    "speaker": "elodie okafor",
+    "start": 0.0,
+    "end": 4.867,
+    "text": "okay, um, basically, so, let's start. can you all hear me?"
+  },
+  {
+    "speaker": "emeka trevelyan",
+    "start": 5.067,
+    "end": 6.333,
+    "text": "yep."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 6.533,
+    "end": 7.867,
+    "text": "yeah."
+  },
+  {
+    "speaker": "elodie okafor",
+    "start": 8.067,
+    "end": 14.0,
+    "text": "so operation larkspur launches on may 27, assuming tessaline health signs."
+  },
+  {
+    "speaker": "emeka trevelyan",
+    "start": 14.2,
+    "end": 18.667,
+    "text": "and the glimmerbox co-marketing budget is 864 grand."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 18.867,
+    "end": 23.2,
+    "text": "conversion on the beta was 42%, about 64 accounts."
+  },
+  {
+    "speaker": "elodie okafor",
+    "start": 23.4,
+    "end": 26.467,
+    "text": "cool. and cinder vault pricing?"
+  },
+  {
+    "speaker": "emeka trevelyan",
+    "start": 26.667,
+    "end": 31.533,
+    "text": "we're planning to double the price of the enterprise tier."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 31.733,
+    "end": 35.2,
+    "text": "hmm, that'll spike churn in wrenford."
+  },
+  {
+    "speaker": "elodie okafor",
+    "start": 35.4,
+    "end": 38.867,
+    "text": "fair. hamza wexley, can you model it?"
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 39.067,
+    "end": 44.267,
+    "text": "sure, i'll you know, share it at https://corvanta.test/q3-plan."
+  },
+  {
+    "speaker": "elodie okafor",
+    "start": 44.467,
+    "end": 48.133,
+    "text": "great. okay that's all, thanks everyone."
+  },
+  {
+    "speaker": "emeka trevelyan",
+    "start": 48.333,
+    "end": 50.133,
+    "text": "thanks, bye."
+  },
+  {
+    "speaker": "henrik halvorsen",
+    "start": 50.333,
+    "end": 51.6,
+    "text": "bye."
+  }
+]

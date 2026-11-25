@@ -1,0 +1,36 @@
+[[PERSON#mark:Mark Tolliver]]: Hey, hi [[PERSON#priya:Priya]], can you hear me okay? My headset's been, uh, acting up all morning.
+[[PERSON#priya:Priya Raman]]: Yeah, yeah, you're fine. Little echo maybe.
+[[PERSON#mark:Mark Tolliver]]: Okay good. So I've got [[PERSON#ed:Ed]] on as well, he's our, um, our solutions guy here at [[ORG:Ravelstone]].
+[[PERSON#ed:Ed Brannigan]]: Hi. Morning.
+[[PERSON#priya:Priya Raman]]: Morning. So, look, I only have like thirty minutes, I've got a, a thing at eleven.
+[[PERSON#mark:Mark Tolliver]]: Totally, no problem. So last time we talked about, um, rolling [[PRODUCT#lk:Ledgerkite]] out to the, the depots, right, and you said it was something like [[QUANTITY:forty]] sites?
+[[PERSON#priya:Priya Raman]]: [[QUANTITY#q42:Forty two]] now. We picked up two more in [[LOCATION:Marrow Falls]] last month.
+[[PERSON#mark:Mark Tolliver]]: Oh nice, congrats.
+[[PERSON#priya:Priya Raman]]: Mm-hmm. And honestly, uh, the board wants it live before [[DATE:March thirty first]], so.
+[[PERSON#ed:Ed Brannigan]]: That's doable. The, the pilot at your, uh, the [[LOCATION:Kestrel Bay]] depot took what, six weeks?
+[[PERSON#priya:Priya Raman]]: Something like that. The problem was the integration with [[BRAND#qv:Quorvex]], the scanners kept dropping off.
+[[PERSON#ed:Ed Brannigan]]: Right, the [[BRAND#qv:quarr vex]] handhelds. Yeah we patched that in, um, in the last release. The [[PRODUCT#lk:ledger kite]] four point two build.
+[[PERSON#mark:Mark Tolliver]]: So on pricing. Um. We'd be at [[AMOUNT:a hundred and eighty six thousand]] for the year, that's for all [[QUANTITY#q42:forty two]] sites, and that, that's already [[PERCENT:twelve percent]] off list.
+[[PERSON#priya:Priya Raman]]: Hmm. That's, uh. That's more than [[BRAND:Silvane]] quoted us. I probably shouldn't have said who.
+[[PERSON#mark:Mark Tolliver]]: Sure, sure. Can I ask roughly what they came in at?
+[[PERSON#priya:Priya Raman]]: Like [[AMOUNT:one forty]]? [[AMOUNT:One fifty]] maybe.
+[[PERSON#mark:Mark Tolliver]]: Okay. Um. Let me, let me talk to my side. Off the record, [[TOPIC:we're raising list prices about eight percent across the board in January, so locking in now actually saves you money.]]
+[[PERSON#priya:Priya Raman]]: Huh. Okay. Good to know.
+[[PERSON#ed:Ed Brannigan]]: And the, uh, the [[BRAND#bramble:Bramble]] connector is included, the one for the rota scheduling.
+[[PERSON#priya:Priya Raman]]: Oh we, we stopped using [[BRAND#bramble:Bramble]]. Half the yard at that depot is literally overgrown with [[NEG:bramble]] anyway, ha, that's a joke, sort of.
+[[PERSON#mark:Mark Tolliver]]: Ha. Okay. What should I send the paperwork to, your, your work email?
+[[PERSON#priya:Priya Raman]]: Yeah, it's [[EMAIL#pe:priya dot raman at fennwick]] --
+[[PERSON#ed:Ed Brannigan]]: Sorry, [[CLIENT#fw:fen wick]] with two Ns?
+[[PERSON#priya:Priya Raman]]: Two Ns, yeah, [[EMAIL#pe:fennwick logistics dot example]]. All one word.
+[[PERSON#mark:Mark Tolliver]]: Got it. And [[PERSON#hope:Hope]] from your procurement team, should she be on it?
+[[PERSON#priya:Priya Raman]]: [[PERSON#hope:Hope Abernathy]], yes. Cc her. I'd [[NEG:hope]] she actually reads it, ha.
+[[PERSON#mark:Mark Tolliver]]: [[NEG:Will]] do. And, um, just so I have it, the account on our side is [[ACCOUNT#acc:R S four four eight]] --
+[[PERSON#priya:Priya Raman]]: Mm-hmm.
+[[PERSON#mark:Mark Tolliver]]: -- [[ACCOUNT#acc:one two zero]]. That's still [[CLIENT#fw:Fennwick Logistics]], right, not the parent?
+[[PERSON#priya:Priya Raman]]: Right. Not [[CLIENT:Fennwick Holdings]]. Keep them separate, they're, um... [[TOPIC:there's a reorg coming and the holding company might get sold off next year.]] Don't put that in the notes.
+[[PERSON#mark:Mark Tolliver]]: Understood. Nothing in the notes.
+[[PERSON#ed:Ed Brannigan]]: I'll, uh, I'll set up a sandbox at [[URL:sandbox dot ravelstone dot example slash fennwick]] and send creds over.
+[[PERSON#priya:Priya Raman]]: Great. Can we do, uh, a follow up [[DATE#d9:the ninth]]? Or [[DATE:the tenth]].
+[[PERSON#mark:Mark Tolliver]]: [[DATE#d9:Ninth]] works. I'll send an invite. Thanks [[PERSON#priya:Priya]].
+[[PERSON#priya:Priya Raman]]: Thanks guys. Bye.
+[[PERSON#ed:Ed Brannigan]]: Bye-bye.

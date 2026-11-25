@@ -1,0 +1,51 @@
+14:02 [[PERSON#a:Jolene]]: Alright, let's kick off the monthly ops review for the [[LOCATION#r1:Southeast region]]. We've got [[PERSON#b:Tunde]], [[PERSON#c:Maribel]], [[PERSON#d:Sven]] and [[PERSON#e:Ash]] from marketing.
+14:02 [[PERSON#b:Tunde]]: Hey.
+14:02 [[PERSON#c:Maribel]]: Hi.
+14:03 [[PERSON#a:Jolene]]: So overall, [[BRAND#b1:Crumbwell's]] [[LOCATION#r1:Southeast]] is at [[QUANTITY:sixty-three]] stores open, [[QUANTITY:four]] in development. Same-store sales for [[DATE:October]] were up [[PERCENT:2.8 percent]], system average was [[PERCENT:three point one]].
+14:03 [[PERSON#d:Sven]]: So we're a bit under.
+14:03 [[PERSON#a:Jolene]]: A bit. Traffic was down [[PERCENT:one and a half points]], ticket was up about [[PERCENT:four]]. Price increase is doing the work.
+14:04 [[PERSON#b:Tunde]]: Food cost?
+14:04 [[PERSON#a:Jolene]]: [[PERCENT:Twenty-nine point four percent]] against a target of [[PERCENT:28]]. Egg prices again.
+14:04 [[PERSON#c:Maribel]]: I can speak to that. Our distributor, [[ORG:Harlan Provisions]], raised the egg case price from [[AMOUNT:$38.50]] to [[AMOUNT:forty-four seventy-five]] in [[DATE:mid-October]].
+14:05 [[PERSON#a:Jolene]]: Can we renegotiate?
+14:05 [[PERSON#c:Maribel]]: Contract renews [[DATE:2/28/27]]. Until then we're locked.
+14:05 [[PERSON#a:Jolene]]: Okay. Store-level issues. [[PERSON#d:Sven]], the [[LOCATION#s1:Brayford Mills]] location.
+14:06 [[PERSON#d:Sven]]: Yeah. [[TOPIC:The Brayford store failed its health inspection last Tuesday with a critical violation for cold holding temperatures and a pest finding, and it's closed until the re-inspection.]]
+14:06 [[PERSON#a:Jolene]]: When's the reinspection?
+14:06 [[PERSON#d:Sven]]: [[DATE:Thursday the third]]. Inspection report number is [[ACCOUNT:HD-26-44190]].
+14:07 [[PERSON#b:Tunde]]: Who's the franchisee there again?
+14:07 [[PERSON#d:Sven]]: [[PERSON#f:Corliss Mbeki-Ward]]. She owns [[QUANTITY:three]] units. [[LOCATION#s1:Brayford]], [[LOCATION:Kelso Junction]] and the one on [[LOCATION:Route 41 near the outlet mall]].
+14:07 [[PERSON#a:Jolene]]: And there's the royalty thing with her too.
+14:08 [[PERSON#d:Sven]]: [[TOPIC:Right, Corliss is about ninety days behind on royalties and ad fund, and legal has sent a notice of default, she might lose the franchise agreement if she doesn't cure by January.]]
+14:08 [[PERSON#a:Jolene]]: How much does she owe?
+14:08 [[PERSON#d:Sven]]: [[AMOUNT:Sixty-seven thousand four hundred]] combined. Royalty is [[PERCENT:six percent]] of gross, ad fund is [[PERCENT:two]].
+14:09 [[PERSON#b:Tunde]]: [[TOPIC:Between us, I heard her husband is seriously ill and she's been spending most of her time at the hospital.]]
+14:09 [[PERSON#a:Jolene]]: Okay. Let's be human about it. [[PERSON#d:Sven]], can you offer a payment plan before legal escalates?
+14:09 [[PERSON#d:Sven]]: I'll call her. Her cell is [[PHONE:555-0114]].
+14:10 [[PERSON#a:Jolene]]: Good. Her franchise agreement number, for the file?
+14:10 [[PERSON#d:Sven]]: [[ACCOUNT:F A dash zero two one seven dash S E]].
+14:10 [[PERSON#a:Jolene]]: [[ACCOUNT:FA-0217-SE]]. Okay. [[PERSON#e:Ash]], marketing.
+14:11 [[PERSON#e:Ash]]: Thanks. So the holiday LTO launches [[DATE:December 1]]. It's the [[PRODUCT#p1:Maple Pecan Crumble Box]], [[AMOUNT:$11.99]] for the [[NEG:six-pack]].
+14:11 [[PERSON#c:Maribel]]: Food cost on that?
+14:11 [[PERSON#e:Ash]]: [[PERCENT:Thirty-three percent]], it's a loss leader-ish. We expect about [[QUANTITY:forty]] boxes per store per day.
+14:12 [[PERSON#a:Jolene]]: And the spring one?
+14:12 [[PERSON#e:Ash]]: Spring is still under wraps, internally it's [[CODENAME#k1:Operation Dandelion]]. [[TOPIC:It's a savory breakfast line, the first non-sweet menu item ever, and corporate does not want franchisees to know until the convention in March.]]
+14:13 [[PERSON#b:Tunde]]: [[CODENAME#k1:Dandelion]]. Got it. [[NEG:Mum]]'s the word.
+14:13 [[PERSON#e:Ash]]: Please. Also, regional ad co-op spend for [[DATE:Q4]] is [[AMOUNT:one eighty-four K]], we're [[PERCENT:about two thirds]] spent.
+14:13 [[PERSON#a:Jolene]]: Fine. [[PERSON#b:Tunde]], staffing.
+14:14 [[PERSON#b:Tunde]]: So turnover is at [[PERCENT:a hundred and twelve percent]] annualized, which is actually down. Average crew wage is [[AMOUNT:fourteen sixty an hour]], managers around [[AMOUNT:forty-six to fifty-two k]].
+14:14 [[PERSON#a:Jolene]]: Any HR issues?
+14:15 [[PERSON#b:Tunde]]: One. [[TOPIC:A shift manager at the Kelso store filed a harassment complaint against the general manager, and HR opened an investigation on Monday.]]
+14:15 [[PERSON#a:Jolene]]: Case number?
+14:15 [[PERSON#b:Tunde]]: [[ACCOUNT:ER dash two six dash zero five five]]. The investigator is [[PERSON#g:Wilhelmina Tsai]] from corporate HR, [[EMAIL:w.tsai@hr.crumbwells-corp.example]].
+14:16 [[PERSON#a:Jolene]]: Okay. Keep that tight. [[PERSON#c:Maribel]], anything on supply?
+14:16 [[PERSON#c:Maribel]]: Just that the new ovens for the remodels arrive [[DATE:the week of the 14th]], [[QUANTITY:six]] ovens at [[AMOUNT:eight thousand two hundred]] each.
+14:17 [[PERSON#a:Jolene]]: Remodel schedule?
+14:17 [[PERSON#c:Maribel]]: [[LOCATION:Pinecastle]] first, then [[LOCATION:Orrin Bay]]. Each store closes for [[NEG:five days]].
+14:17 [[PERSON#a:Jolene]]: Okay. Development. [[PERSON#d:Sven]], the four new ones?
+14:18 [[PERSON#d:Sven]]: Two open in [[DATE:Q1]], [[LOCATION:Haverly Commons]] and [[LOCATION:Saltgrass Road]]. One's delayed on permits. And the fourth, the franchisee pulled out.
+14:18 [[PERSON#a:Jolene]]: Pulled out why?
+14:18 [[PERSON#d:Sven]]: Financing fell through. They had a loan at like [[PERCENT:ten and a quarter]], couldn't make it pencil. They lose their [[AMOUNT:forty-five thousand]] franchise fee deposit, well, [[PERCENT:half]] of it.
+14:19 [[PERSON#a:Jolene]]: Ouch. Okay, I think that's everything. Next review is [[DATE:Tuesday December 15th]]. I'll circulate notes on the portal, [[URL:ops.crumbwells-corp.example/se-review]].
+14:19 [[PERSON#e:Ash]]: Thanks [[PERSON#a:Jolene]].
+14:19 [[PERSON#a:Jolene]]: Thanks all. [[NEG:Go team]].

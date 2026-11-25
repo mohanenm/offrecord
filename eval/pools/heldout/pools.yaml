@@ -1,0 +1,59 @@
+# Held-out pools. All entities are invented. Written independently of the tuning set.
+first_names: [Tendai, Ingrid, Rafael, Mei, Oluwaseun, Siobhan, Kenji, Priyanka, Mateus, Astrid,
+  Dmitri, Nadia, Esperanza, Tomasz, Yusuf, Leilani, Anouk, Chidi, Margit, Hamid, Saoirse, Thiago,
+  Aiyana, Bogdan, Femi, Ilse, Jun, Kalani, Lucien, Marisol, Nikhil, Odalys, Petra, Quentin,
+  Rukmini, Soren, Tamsin, Ugo, Valentina, Wanjiru, Xiadani, Yara, Zoltan, Hyun-woo, Ama, Desmond,
+  Farida, Ewan]
+last_names: [Okonkwo, Lindqvist, Castellanos, Nakashima, Adeyemi, Brannigan, Haddad, Kowalczyk,
+  Rasmussen, Takahashi, Oyelaran, Dhillon, Ferreira, Achterberg, Mwangi, Petrov, Szabo, Okoro,
+  Iyer, Delacroix, Halloran, Nwachukwu, Bergstrom, Quispe, Aldana, Chaudhry, Moreau, Esposito,
+  Sorensen, Yilmaz, Pham, Abiodun, Novak, Hakimi, Thorsen, Mahlangu, Kealoha, Zielinski,
+  Banerjee, Varga, Whitcombe, Kristiansen, Ndiaye, Villanueva, Ostrowski, Mendoza-Hart]
+clients:
+  - { name: Halvorsen Freight Partners, aliases: [Halvorsen, HFP], asr: [hal versen freight, how verson] }
+  - { name: Tidewell Health Systems, aliases: [Tidewell, THS], asr: [tide well health, tied well] }
+  - { name: Marrowgate Insurance, aliases: [Marrowgate], asr: [marrow gate, mara gate] }
+  - { name: Pellucid Robotics, aliases: [Pellucid], asr: [pella sid robotics, pell you said] }
+  - { name: Copperleaf Municipal Utilities, aliases: [Copperleaf, CMU], asr: [copper leaf, copper leave] }
+  - { name: Vantorra Foods Group, aliases: [Vantorra, VFG], asr: [van torra, fan tora] }
+  - { name: Kestrelmoor Bank, aliases: [Kestrelmoor, KMB], asr: [kestrel more, chestrel moor] }
+  - { name: Ashgrove Learning Trust, aliases: [Ashgrove, ALT], asr: [ash grove, ash grow] }
+  - { name: Zephyrine Telecom, aliases: [Zephyrine], asr: [zephyr een, zefferine] }
+  - { name: Fennimore Textiles, aliases: [Fennimore], asr: [fenny more, fenner more] }
+brands:
+  - { name: Quorvix, aliases: [Quorvix Go], asr: [core vix, quor vicks] }
+  - { name: Lumbrella, aliases: [Lumbrella Home], asr: [loom brella, lum umbrella] }
+  - { name: Strayth, aliases: [Strayth Mobile], asr: [straight, strath] }
+  - { name: Nimbalo, aliases: [Nimbalo Plus], asr: [nim ballo, nimble oh] }
+  - { name: Oxvane, aliases: [Oxvane Air], asr: [ox vane, oaks vein] }
+  - { name: Teskara, aliases: [Teskara Beauty], asr: [tess kara, desk ara] }
+  - { name: Brivio, aliases: [Brivio Kids], asr: [bree vee oh, brevio] }
+  - { name: Galloran, aliases: [Galloran Outdoor], asr: [gallo ran, gal or an] }
+brand_common:
+  - { name: Thimble, word: thimble, context: [wallet, app, card, rewards] }
+  - { name: Saucer, word: saucer, context: [streaming, subscription, channel, account] }
+  - { name: Ladder, word: ladder, context: [payroll, platform, login, dashboard] }
+  - { name: Bramble, word: bramble, context: [skincare, serum, store, range] }
+  - { name: Kettle, word: kettle, context: [router, firmware, device, setup] }
+  - { name: Spindle, word: spindle, context: [fitness, studio, membership, class] }
+products:
+  - { name: Clearmeter Analytics Suite, aliases: [Clearmeter], asr: [clear meter, clear metre] }
+  - { name: Pathwise Scheduler, aliases: [Pathwise], asr: [path wise, past wise] }
+  - { name: Inkwarden Vault, aliases: [Inkwarden], asr: [ink warden, ink war den] }
+  - { name: Orbitrack Fleet, aliases: [Orbitrack], asr: [orbit track, or bit rack] }
+  - { name: Quillon Insights, aliases: [Quillon], asr: [quill on, kill on] }
+  - { name: Shelfsight POS, aliases: [Shelfsight], asr: [shelf sight, shelf site] }
+  - { name: Murmurly Voice, aliases: [Murmurly], asr: [murmur lee, more merely] }
+  - { name: Tallyhaven Payroll, aliases: [Tallyhaven, Haven], asr: [tally haven, tally heaven] }
+codenames:
+  - { name: Project Saltmarsh, aliases: [Saltmarsh], asr: [salt marsh, salt mash] }
+  - { name: Project Gannet, aliases: [Gannet], asr: [gan it, garnet] }
+  - { name: Operation Lodestar, aliases: [Lodestar], asr: [load star, low destar] }
+  - { name: Project Tamarind, aliases: [Tamarind], asr: [tamer ind, tam a rind] }
+  - { name: Project Bellwether, aliases: [Bellwether], asr: [bell weather, bel whether] }
+  - { name: Project Kittiwake, aliases: [Kittiwake], asr: [kitty wake, kitty weak] }
+locations: [Hollin Bay, Westmarch Junction, Carrow Ridge, New Talliford, Brennock Falls,
+  Ormsby Cross, Dunwiddie Park, Fallowmere, Kessington Heights, Ravelstoke]
+email_domains: [halvorsen-freight.example, tidewell.test, mailhub.invalid, kestrelmoor.example,
+  pellucid.test, inbox-relay.example]
+url_hosts: [quorvix.test, support.oxvane.example, portal.copperleaf.example, tallyhaven.invalid]

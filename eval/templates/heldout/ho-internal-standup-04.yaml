@@ -1,0 +1,43 @@
+id: ho-internal-standup-04
+domain: internal
+speakers:
+  A: engineering lead
+  B: backend developer
+  C: site reliability engineer
+  D: frontend developer
+turns:
+  - A: "Morning. Quick one today, I've got a conflict at ten past."
+  - B: "Morning."
+  - D: "Hey."
+  - C: "Can you hear me? Mic's been flaky."
+  - A: "Yep. {person#1.first}, go."
+  - B: "Yesterday, finished the retry logic for the {product#1.lower} webhook. Today, tests. No blockers."
+  - A: "Cool."
+  - D: "Me next? Yesterday was mostly the settings page for {codename#1}. Today, uh, still that. Blocked on design for the empty states."
+  - A: "I'll ping {person#2.first}."
+  - D: "Thanks. Also the captions keep calling it {codename#1.asr}, it's driving me nuts."
+  - C: "So, overnight, staging fell over twice."
+  - A: "Again?"
+  - split:
+      speaker: C
+      slot: "ip#1"
+      before: "Yeah, the box at"
+      interrupt: { speaker: B, text: "the old one?" }
+      after: "yeah, the old one, it ran out of disk."
+  - C: "I moved the logs to {ip#2} for now. Error rate's back under {percent#1.spoken}."
+  - A: "Okay. Can we decommission the old one?"
+  - C: "After the {codename#1.alias} demo, yeah. Not touching anything before {date#1}."
+  - B: "Sure. Oh, also the runbook link in the alert is dead. It points to {url#1}."
+  - C: "Ugh. It moved to {url#2}. I'll fix the alert."
+  - A: "Thanks."
+  - D: "Random question, is {codename#2.lower} still happening? I heard it got shelved."
+  - A: "[[TOPIC: Between us, it's paused because leadership is looking at buying a company that already built the same thing]]."
+  - D: "Huh. Okay."
+  - C: "That explains the budget freeze."
+  - A: "Maybe. Don't repeat it."
+  - B: "Yeah, yeah."
+  - A: "Last thing, load test numbers?"
+  - C: "We held {quantity#1} requests a second before latency spiked. Target was {quantity#2.spoken}."
+  - A: "Okay, close enough for now. That's it, thanks all."
+  - D: "Bye."
+  - C: "Later."

@@ -1,0 +1,40 @@
+id: ho-support-return-04
+domain: support
+speakers:
+  A: returns agent at an online clothing retailer
+  B: customer returning a jacket
+turns:
+  - A: "Hi, thanks for calling, you're through to returns. I'm {person#1.first}."
+  - B: "Hi, hello? Is this -- sorry, can you hear me? This line's been terrible all day."
+  - A: "I can hear you now."
+  - B: "Okay, good. I'm calling about a return. I ordered a jacket from the {brand#1} range and it's way too small."
+  - A: "Oh no. Let's get that sorted. Do you have the order number?"
+  - split:
+      speaker: B
+      slot: "order#1.spoken"
+      before: "Yes, it's, um"
+      interrupt: { speaker: A, text: "take your time" }
+      after: "I think that's right, it's on the email."
+  - A: "Perfect, found it. Delivered on {date#1} to {location#1}?"
+  - B: "That's the one."
+  - A: "I also see an older order on the account, {order#2}, but that's outside the window, so we'll leave it."
+  - B: "Yeah, that's fine."
+  - A: "So for {brand#1.alias} items we can do an exchange or a refund."
+  - B: "Refund, please. I'll just order a size up separately."
+  - A: "Sure. It'll go back to the card you paid with, which I have as {card#1}."
+  - B: "Um, I actually cancelled that card. Can you use this one instead? {card#2}."
+  - A: "Refunds have to go to the original card, but your bank will forward it. Or I can do store credit."
+  - B: "Ugh. Okay. Store credit is fine."
+  - A: "Okay, {amount#1} in store credit. You'll get an email."
+  - B: "Oh -- and the {brand#1.asr} jacket was marked down on your site the day after I bought it. Can I get the difference?"
+  - A: "Let me check... yes, we price-match within fourteen days. That's an extra {amount#2.spoken}."
+  - B: "Oh, nice, thank you."
+  - A: "Can I get a phone number in case the courier needs to reach you for pickup?"
+  - B: "Sure, {phone#1.spoken}."
+  - A: "And is that a mobile?"
+  - B: "Yes. Or my partner's, {phone#2}, if I don't pick up."
+  - A: "Got it. Pickup can happen any day this week. Will someone be home?"
+  - B: "Yeah, I work from home. My daughter painted a big {brand_common#1.word} on the parcel, so the driver can't miss it."
+  - A: "Ha, love that. Anything else today?"
+  - B: "No, that's everything. Thanks for being so quick."
+  - A: "My pleasure. Have a lovely evening."

@@ -1,0 +1,135 @@
+1
+00:00:00,000 --> 00:00:05,667
+Dmitri Delacroix: Okay, I'm going to bring in Wanjiru from tier two. Wanjiru, you there?
+
+2
+00:00:05,867 --> 00:00:09,267
+Anouk Dhillon: Yep, here. Hi. Got the ticket notes.
+
+3
+00:00:09,467 --> 00:00:15,133
+Xiadani Dhillon: Hi. Great. Can you hear me alright? I'm in the server room, it's loud.
+
+4
+00:00:15,333 --> 00:00:17,600
+Anouk Dhillon: Bit fuzzy but fine.
+
+5
+00:00:17,800 --> 00:00:25,467
+Xiadani Dhillon: So since about six this morning nobody at our New Talliford office can reach the Pathwise dashboard.
+
+6
+00:00:25,667 --> 00:00:27,600
+Anouk Dhillon: Okay. Account?
+
+7
+00:00:27,800 --> 00:00:31,600
+Xiadani Dhillon: AC1725304471. It's under Kestrelmoor Bank.
+
+8
+00:00:31,800 --> 00:00:39,533
+Anouk Dhillon: Got it. Yeah, I see kestrelmoor bank here. Can you ping the gateway for me? Should be 2001:db8::6d15.
+
+9
+00:00:39,733 --> 00:00:42,200
+Xiadani Dhillon: Pinging... timing out.
+
+10
+00:00:42,400 --> 00:00:45,267
+Anouk Dhillon: And the backup, 10.20.3.176?
+
+11
+00:00:45,467 --> 00:00:53,333
+Xiadani Dhillon: That one responds. Oh, and your phone bot kept hearing it as past wise, so I got routed to sales twice.
+
+12
+00:00:53,533 --> 00:00:59,200
+Anouk Dhillon: Ugh, sorry. Okay, so it's the primary. Did anything change last night?
+
+13
+00:00:59,400 --> 00:01:06,533
+Xiadani Dhillon: Um. Facilities swapped out the Thimble router in the comms closet. Supposedly like-for-like.
+
+14
+00:01:06,733 --> 00:01:09,200
+Anouk Dhillon: There it is, probably.
+
+15
+00:01:09,400 --> 00:01:11,933
+Dmitri Delacroix: Should I stay on, or...
+
+16
+00:01:12,133 --> 00:01:14,533
+Anouk Dhillon: You can drop, thanks.
+
+17
+00:01:14,733 --> 00:01:16,667
+Dmitri Delacroix: Cool. Bye all.
+
+18
+00:01:16,867 --> 00:01:23,933
+Anouk Dhillon: Can you get into the router admin page? Usually https://tallyhaven.invalid/docs/onboarding.
+
+19
+00:01:24,133 --> 00:01:28,533
+Xiadani Dhillon: Hang on... it's asking for a password I don't have.
+
+20
+00:01:28,733 --> 00:01:32,200
+Anouk Dhillon: Default is on the sticker underneath.
+
+21
+00:01:32,400 --> 00:01:34,800
+Xiadani Dhillon: Okay, got it, I'm in.
+
+22
+00:01:35,000 --> 00:01:38,600
+Anouk Dhillon: Check the WAN settings. DHCP or static?
+
+23
+00:01:38,800 --> 00:01:40,133
+Xiadani Dhillon: DHCP.
+
+24
+00:01:40,333 --> 00:01:44,067
+Anouk Dhillon: Should be static. Set it to 10.20.80.229.
+
+25
+00:01:44,267 --> 00:01:47,000
+Xiadani Dhillon: Okay... saved. Restarting.
+
+26
+00:01:47,200 --> 00:01:48,667
+Anouk Dhillon: Mm-hmm.
+
+27
+00:01:48,867 --> 00:01:52,067
+Xiadani Dhillon: Yeah... yes! Dashboard's loading.
+
+28
+00:01:52,267 --> 00:01:53,600
+Anouk Dhillon: Nice.
+
+29
+00:01:53,800 --> 00:01:58,733
+Xiadani Dhillon: Thank you. Seriously. We had 40 people just sitting around.
+
+30
+00:01:58,933 --> 00:02:09,800
+Anouk Dhillon: Glad it's fixed. I'll attach notes to the ticket. There's also a known-issues page at quorvix dot test slash q3-plan if facilities wants to read up.
+
+31
+00:02:10,000 --> 00:02:19,000
+Xiadani Dhillon: I'll forward it. Between us, our legal team is already drafting a breach of contract notice over this quarter's outages.
+
+32
+00:02:19,200 --> 00:02:23,933
+Anouk Dhillon: Understood. I'll make sure every incident is documented.
+
+33
+00:02:24,133 --> 00:02:28,600
+Xiadani Dhillon: Thanks. Okay, I'm getting out of this freezing room.
+
+34
+00:02:28,800 --> 00:02:30,800
+Anouk Dhillon: Ha, enjoy. Bye.

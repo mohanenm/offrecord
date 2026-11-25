@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,133
+Ayesha Ruskin: Thistle support, how can I help?
+
+2
+00:00:03,333 --> 00:00:08,133
+Folake Castellano: Hi, this is Folake from the Corbin Heights Thistle store.
+
+3
+00:00:08,333 --> 00:00:10,667
+Ayesha Ruskin: Hi! What's going on?
+
+4
+00:00:10,867 --> 00:00:15,600
+Folake Castellano: The POS keeps rejecting cards, like 5555-5555-5555-4444.
+
+5
+00:00:15,800 --> 00:00:18,867
+Ayesha Ruskin: Okay, what's your store number?
+
+6
+00:00:19,067 --> 00:00:21,067
+Folake Castellano: Store 38941420.
+
+7
+00:00:21,267 --> 00:00:25,333
+Ayesha Ruskin: Thanks. And is you know, it all 317 registers?
+
+8
+00:00:25,533 --> 00:00:31,933
+Folake Castellano: Yeah, basically, all of them. We lost I mean, maybe $1,650 in sales this morning.
+
+9
+00:00:32,133 --> 00:00:35,467
+Ayesha Ruskin: Oof. I'll open order ORD-601999142.
+
+10
+00:00:35,667 --> 00:00:43,800
+Folake Castellano: Thanks. Oh, and the thistle out front is blocking the delivery bay again, not your sort of, problem though.
+
+11
+00:00:44,000 --> 00:00:51,533
+Ayesha Ruskin: Ha, no. Call sort of, back on seven zero two, five five five zero one two five um, if it persists.

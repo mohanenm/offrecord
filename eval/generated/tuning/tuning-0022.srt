@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,133
+Ravi Vasquez: Compass support, how can I help?
+
+2
+00:00:03,333 --> 00:00:07,800
+Henrik Trevelyan: Hi, this is Henrik from the Saltcoast Compass store.
+
+3
+00:00:08,000 --> 00:00:10,333
+Ravi Vasquez: Hi! What's going on?
+
+4
+00:00:10,533 --> 00:00:15,267
+Henrik Trevelyan: The POS keeps rejecting cards, like 5105-1051-0510-5100.
+
+5
+00:00:15,467 --> 00:00:18,533
+Ravi Vasquez: Okay, what's your store number?
+
+6
+00:00:18,733 --> 00:00:20,733
+Henrik Trevelyan: Store 18052704.
+
+7
+00:00:20,933 --> 00:00:24,267
+Ravi Vasquez: Thanks. And is it all 84 registers?
+
+8
+00:00:24,467 --> 00:00:29,800
+Henrik Trevelyan: Yeah, all of them. We lost maybe 876 grand in sales this morning.
+
+9
+00:00:30,000 --> 00:00:33,400
+Ravi Vasquez: Oof. I'll open I mean, order 509187.
+
+10
+00:00:33,600 --> 00:00:41,133
+Henrik Trevelyan: Thanks. Oh, and the compass out front is blocking the delivery bay again, not your problem though.
+
+11
+00:00:41,333 --> 00:00:48,133
+Ravi Vasquez: Ha, no. Call back on eight three nine, five five five oh one eight zero if it persists.

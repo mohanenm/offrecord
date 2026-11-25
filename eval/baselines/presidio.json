@@ -1,0 +1,978 @@
+[
+ {
+  "name": "tuning [presidio]",
+  "transcripts": 72,
+  "words": 10568,
+  "recall": 0.4059040590405904,
+  "labels": 1084,
+  "caught": 440,
+  "partial": 101,
+  "precision_chars": 0.961714900605992,
+  "redacted_chars": 17657,
+  "negatives_hit": 0,
+  "negatives": 18,
+  "leaks_per_1k_words": 60.93868281604845,
+  "per_category": {
+   "ACCOUNT": {
+    "total": 42,
+    "caught": 13,
+    "partial": 14,
+    "recall": 0.30952380952380953
+   },
+   "AMOUNT": {
+    "total": 84,
+    "caught": 2,
+    "partial": 0,
+    "recall": 0.023809523809523808
+   },
+   "BRAND": {
+    "total": 66,
+    "caught": 16,
+    "partial": 2,
+    "recall": 0.24242424242424243
+   },
+   "CARD": {
+    "total": 12,
+    "caught": 6,
+    "partial": 1,
+    "recall": 0.5
+   },
+   "CLIENT": {
+    "total": 60,
+    "caught": 13,
+    "partial": 0,
+    "recall": 0.21666666666666667
+   },
+   "CODENAME": {
+    "total": 36,
+    "caught": 10,
+    "partial": 0,
+    "recall": 0.2777777777777778
+   },
+   "DATE": {
+    "total": 42,
+    "caught": 41,
+    "partial": 1,
+    "recall": 0.9761904761904762
+   },
+   "EMAIL": {
+    "total": 48,
+    "caught": 2,
+    "partial": 18,
+    "recall": 0.041666666666666664
+   },
+   "IP": {
+    "total": 18,
+    "caught": 18,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "LOCATION": {
+    "total": 60,
+    "caught": 26,
+    "partial": 2,
+    "recall": 0.43333333333333335
+   },
+   "PERCENT": {
+    "total": 72,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "PERSON": {
+    "total": 138,
+    "caught": 109,
+    "partial": 1,
+    "recall": 0.7898550724637681
+   },
+   "PHONE": {
+    "total": 48,
+    "caught": 19,
+    "partial": 21,
+    "recall": 0.3958333333333333
+   },
+   "PRODUCT": {
+    "total": 60,
+    "caught": 19,
+    "partial": 0,
+    "recall": 0.31666666666666665
+   },
+   "QUANTITY": {
+    "total": 60,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.016666666666666666
+   },
+   "SPEAKER": {
+    "total": 148,
+    "caught": 139,
+    "partial": 1,
+    "recall": 0.9391891891891891
+   },
+   "SSN": {
+    "total": 12,
+    "caught": 6,
+    "partial": 6,
+    "recall": 0.5
+   },
+   "TOPIC": {
+    "total": 60,
+    "caught": 0,
+    "partial": 28,
+    "recall": 0.0
+   },
+   "URL": {
+    "total": 18,
+    "caught": 0,
+    "partial": 6,
+    "recall": 0.0
+   }
+  },
+  "precision_by_category": {
+   "NAME": 0.961714900605992
+  },
+  "per_form": {
+   "ACCOUNT:spoken": {
+    "total": 12,
+    "caught": 0,
+    "partial": 4,
+    "recall": 0.0
+   },
+   "ACCOUNT:spoken+split": {
+    "total": 12,
+    "caught": 1,
+    "partial": 4,
+    "recall": 0.08333333333333333
+   },
+   "ACCOUNT:written": {
+    "total": 18,
+    "caught": 12,
+    "partial": 6,
+    "recall": 0.6666666666666666
+   },
+   "AMOUNT:spoken": {
+    "total": 6,
+    "caught": 2,
+    "partial": 0,
+    "recall": 0.3333333333333333
+   },
+   "AMOUNT:written": {
+    "total": 78,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "BRAND:asr": {
+    "total": 6,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.16666666666666666
+   },
+   "BRAND:full": {
+    "total": 54,
+    "caught": 15,
+    "partial": 2,
+    "recall": 0.2777777777777778
+   },
+   "BRAND:lower": {
+    "total": 6,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CARD:spoken": {
+    "total": 6,
+    "caught": 0,
+    "partial": 1,
+    "recall": 0.0
+   },
+   "CARD:written": {
+    "total": 6,
+    "caught": 6,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "CLIENT:alias": {
+    "total": 18,
+    "caught": 9,
+    "partial": 0,
+    "recall": 0.5
+   },
+   "CLIENT:asr": {
+    "total": 6,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.16666666666666666
+   },
+   "CLIENT:full": {
+    "total": 30,
+    "caught": 3,
+    "partial": 0,
+    "recall": 0.1
+   },
+   "CLIENT:lower": {
+    "total": 6,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CODENAME:alias": {
+    "total": 12,
+    "caught": 4,
+    "partial": 0,
+    "recall": 0.3333333333333333
+   },
+   "CODENAME:asr": {
+    "total": 6,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CODENAME:full": {
+    "total": 18,
+    "caught": 6,
+    "partial": 0,
+    "recall": 0.3333333333333333
+   },
+   "DATE:written": {
+    "total": 42,
+    "caught": 41,
+    "partial": 1,
+    "recall": 0.9761904761904762
+   },
+   "EMAIL:spoken": {
+    "total": 12,
+    "caught": 0,
+    "partial": 7,
+    "recall": 0.0
+   },
+   "EMAIL:written": {
+    "total": 36,
+    "caught": 2,
+    "partial": 11,
+    "recall": 0.05555555555555555
+   },
+   "IP:written": {
+    "total": 18,
+    "caught": 18,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "LOCATION:full": {
+    "total": 60,
+    "caught": 26,
+    "partial": 2,
+    "recall": 0.43333333333333335
+   },
+   "PERCENT:spoken": {
+    "total": 6,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "PERCENT:written": {
+    "total": 66,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "PERSON:first": {
+    "total": 60,
+    "caught": 38,
+    "partial": 0,
+    "recall": 0.6333333333333333
+   },
+   "PERSON:full": {
+    "total": 66,
+    "caught": 60,
+    "partial": 1,
+    "recall": 0.9090909090909091
+   },
+   "PERSON:last": {
+    "total": 12,
+    "caught": 11,
+    "partial": 0,
+    "recall": 0.9166666666666666
+   },
+   "PHONE:corrected": {
+    "total": 6,
+    "caught": 0,
+    "partial": 4,
+    "recall": 0.0
+   },
+   "PHONE:spoken": {
+    "total": 12,
+    "caught": 0,
+    "partial": 10,
+    "recall": 0.0
+   },
+   "PHONE:spoken+split": {
+    "total": 12,
+    "caught": 4,
+    "partial": 7,
+    "recall": 0.3333333333333333
+   },
+   "PHONE:written": {
+    "total": 18,
+    "caught": 15,
+    "partial": 0,
+    "recall": 0.8333333333333334
+   },
+   "PRODUCT:alias": {
+    "total": 12,
+    "caught": 6,
+    "partial": 0,
+    "recall": 0.5
+   },
+   "PRODUCT:asr": {
+    "total": 6,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.16666666666666666
+   },
+   "PRODUCT:full": {
+    "total": 42,
+    "caught": 12,
+    "partial": 0,
+    "recall": 0.2857142857142857
+   },
+   "QUANTITY:spoken": {
+    "total": 6,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "QUANTITY:written": {
+    "total": 54,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.018518518518518517
+   },
+   "SSN:spoken": {
+    "total": 6,
+    "caught": 0,
+    "partial": 6,
+    "recall": 0.0
+   },
+   "SSN:written": {
+    "total": 6,
+    "caught": 6,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "TOPIC:n/a": {
+    "total": 60,
+    "caught": 0,
+    "partial": 28,
+    "recall": 0.0
+   },
+   "URL:spoken": {
+    "total": 6,
+    "caught": 0,
+    "partial": 3,
+    "recall": 0.0
+   },
+   "URL:written": {
+    "total": 12,
+    "caught": 0,
+    "partial": 3,
+    "recall": 0.0
+   }
+  },
+  "per_casing": {
+   "lower": {
+    "total": 155,
+    "caught": 38,
+    "partial": 15,
+    "recall": 0.24516129032258063
+   },
+   "mixed": {
+    "total": 847,
+    "caught": 381,
+    "partial": 79,
+    "recall": 0.4498229043683589
+   },
+   "upper": {
+    "total": 82,
+    "caught": 21,
+    "partial": 7,
+    "recall": 0.25609756097560976
+   }
+  },
+  "known_vs_unknown": {
+   "BRAND:known": {
+    "total": 46,
+    "caught": 10,
+    "partial": 2,
+    "recall": 0.21739130434782608
+   },
+   "BRAND:unknown": {
+    "total": 20,
+    "caught": 6,
+    "partial": 0,
+    "recall": 0.3
+   },
+   "CLIENT:known": {
+    "total": 32,
+    "caught": 7,
+    "partial": 0,
+    "recall": 0.21875
+   },
+   "CLIENT:unknown": {
+    "total": 28,
+    "caught": 6,
+    "partial": 0,
+    "recall": 0.21428571428571427
+   },
+   "CODENAME:known": {
+    "total": 30,
+    "caught": 9,
+    "partial": 0,
+    "recall": 0.3
+   },
+   "CODENAME:unknown": {
+    "total": 6,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.16666666666666666
+   },
+   "PERSON:known": {
+    "total": 71,
+    "caught": 55,
+    "partial": 0,
+    "recall": 0.7746478873239436
+   },
+   "PERSON:unknown": {
+    "total": 67,
+    "caught": 54,
+    "partial": 1,
+    "recall": 0.8059701492537313
+   },
+   "PRODUCT:known": {
+    "total": 40,
+    "caught": 14,
+    "partial": 0,
+    "recall": 0.35
+   },
+   "PRODUCT:unknown": {
+    "total": 20,
+    "caught": 5,
+    "partial": 0,
+    "recall": 0.25
+   }
+  },
+  "seconds": 4.8
+ },
+ {
+  "name": "heldout [presidio]",
+  "transcripts": 56,
+  "words": 22756,
+  "recall": 0.3719412724306688,
+  "labels": 1226,
+  "caught": 456,
+  "partial": 107,
+  "precision_chars": 0.9157167908811925,
+  "redacted_chars": 27372,
+  "negatives_hit": 0,
+  "negatives": 12,
+  "leaks_per_1k_words": 33.837229741606606,
+  "per_category": {
+   "ACCOUNT": {
+    "total": 40,
+    "caught": 14,
+    "partial": 6,
+    "recall": 0.35
+   },
+   "AMOUNT": {
+    "total": 128,
+    "caught": 5,
+    "partial": 0,
+    "recall": 0.0390625
+   },
+   "BRAND": {
+    "total": 84,
+    "caught": 8,
+    "partial": 0,
+    "recall": 0.09523809523809523
+   },
+   "CARD": {
+    "total": 24,
+    "caught": 12,
+    "partial": 1,
+    "recall": 0.5
+   },
+   "CLIENT": {
+    "total": 84,
+    "caught": 6,
+    "partial": 2,
+    "recall": 0.07142857142857142
+   },
+   "CODENAME": {
+    "total": 52,
+    "caught": 9,
+    "partial": 0,
+    "recall": 0.17307692307692307
+   },
+   "DATE": {
+    "total": 60,
+    "caught": 58,
+    "partial": 2,
+    "recall": 0.9666666666666667
+   },
+   "EMAIL": {
+    "total": 28,
+    "caught": 1,
+    "partial": 10,
+    "recall": 0.03571428571428571
+   },
+   "IP": {
+    "total": 24,
+    "caught": 24,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "LOCATION": {
+    "total": 52,
+    "caught": 30,
+    "partial": 0,
+    "recall": 0.5769230769230769
+   },
+   "PERCENT": {
+    "total": 72,
+    "caught": 0,
+    "partial": 1,
+    "recall": 0.0
+   },
+   "PERSON": {
+    "total": 152,
+    "caught": 123,
+    "partial": 3,
+    "recall": 0.8092105263157895
+   },
+   "PHONE": {
+    "total": 32,
+    "caught": 4,
+    "partial": 13,
+    "recall": 0.125
+   },
+   "PRODUCT": {
+    "total": 44,
+    "caught": 6,
+    "partial": 1,
+    "recall": 0.13636363636363635
+   },
+   "QUANTITY": {
+    "total": 76,
+    "caught": 14,
+    "partial": 1,
+    "recall": 0.18421052631578946
+   },
+   "SPEAKER": {
+    "total": 150,
+    "caught": 134,
+    "partial": 7,
+    "recall": 0.8933333333333333
+   },
+   "SSN": {
+    "total": 20,
+    "caught": 8,
+    "partial": 9,
+    "recall": 0.4
+   },
+   "TOPIC": {
+    "total": 68,
+    "caught": 0,
+    "partial": 37,
+    "recall": 0.0
+   },
+   "URL": {
+    "total": 36,
+    "caught": 0,
+    "partial": 14,
+    "recall": 0.0
+   }
+  },
+  "precision_by_category": {
+   "NAME": 0.9157167908811925
+  },
+  "per_form": {
+   "ACCOUNT:spoken": {
+    "total": 8,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "ACCOUNT:spoken+split": {
+    "total": 16,
+    "caught": 2,
+    "partial": 3,
+    "recall": 0.125
+   },
+   "ACCOUNT:written": {
+    "total": 16,
+    "caught": 12,
+    "partial": 3,
+    "recall": 0.75
+   },
+   "AMOUNT:spoken": {
+    "total": 48,
+    "caught": 3,
+    "partial": 0,
+    "recall": 0.0625
+   },
+   "AMOUNT:spoken+split": {
+    "total": 16,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.0625
+   },
+   "AMOUNT:written": {
+    "total": 64,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.015625
+   },
+   "BRAND:alias": {
+    "total": 16,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "BRAND:asr": {
+    "total": 8,
+    "caught": 1,
+    "partial": 0,
+    "recall": 0.125
+   },
+   "BRAND:full": {
+    "total": 52,
+    "caught": 7,
+    "partial": 0,
+    "recall": 0.1346153846153846
+   },
+   "BRAND:lower": {
+    "total": 8,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CARD:spoken": {
+    "total": 4,
+    "caught": 0,
+    "partial": 1,
+    "recall": 0.0
+   },
+   "CARD:spoken+split": {
+    "total": 8,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CARD:written": {
+    "total": 12,
+    "caught": 12,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "CLIENT:alias": {
+    "total": 16,
+    "caught": 5,
+    "partial": 0,
+    "recall": 0.3125
+   },
+   "CLIENT:asr": {
+    "total": 20,
+    "caught": 1,
+    "partial": 2,
+    "recall": 0.05
+   },
+   "CLIENT:full": {
+    "total": 32,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CLIENT:lower": {
+    "total": 16,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CODENAME:alias": {
+    "total": 20,
+    "caught": 7,
+    "partial": 0,
+    "recall": 0.35
+   },
+   "CODENAME:asr": {
+    "total": 8,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CODENAME:full": {
+    "total": 12,
+    "caught": 2,
+    "partial": 0,
+    "recall": 0.16666666666666666
+   },
+   "CODENAME:lower": {
+    "total": 12,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "DATE:written": {
+    "total": 60,
+    "caught": 58,
+    "partial": 2,
+    "recall": 0.9666666666666667
+   },
+   "EMAIL:spoken": {
+    "total": 8,
+    "caught": 0,
+    "partial": 4,
+    "recall": 0.0
+   },
+   "EMAIL:spoken+split": {
+    "total": 8,
+    "caught": 1,
+    "partial": 2,
+    "recall": 0.125
+   },
+   "EMAIL:written": {
+    "total": 12,
+    "caught": 0,
+    "partial": 4,
+    "recall": 0.0
+   },
+   "IP:written": {
+    "total": 20,
+    "caught": 20,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "IP:written+split": {
+    "total": 4,
+    "caught": 4,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "LOCATION:full": {
+    "total": 52,
+    "caught": 30,
+    "partial": 0,
+    "recall": 0.5769230769230769
+   },
+   "PERCENT:spoken": {
+    "total": 24,
+    "caught": 0,
+    "partial": 1,
+    "recall": 0.0
+   },
+   "PERCENT:written": {
+    "total": 48,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "PERSON:asr": {
+    "total": 16,
+    "caught": 7,
+    "partial": 2,
+    "recall": 0.4375
+   },
+   "PERSON:first": {
+    "total": 84,
+    "caught": 69,
+    "partial": 0,
+    "recall": 0.8214285714285714
+   },
+   "PERSON:full": {
+    "total": 40,
+    "caught": 37,
+    "partial": 1,
+    "recall": 0.925
+   },
+   "PERSON:last": {
+    "total": 12,
+    "caught": 10,
+    "partial": 0,
+    "recall": 0.8333333333333334
+   },
+   "PHONE:corrected": {
+    "total": 8,
+    "caught": 0,
+    "partial": 4,
+    "recall": 0.0
+   },
+   "PHONE:spoken": {
+    "total": 8,
+    "caught": 0,
+    "partial": 6,
+    "recall": 0.0
+   },
+   "PHONE:spoken+split": {
+    "total": 8,
+    "caught": 1,
+    "partial": 3,
+    "recall": 0.125
+   },
+   "PHONE:written": {
+    "total": 8,
+    "caught": 3,
+    "partial": 0,
+    "recall": 0.375
+   },
+   "PRODUCT:alias": {
+    "total": 8,
+    "caught": 2,
+    "partial": 0,
+    "recall": 0.25
+   },
+   "PRODUCT:asr": {
+    "total": 12,
+    "caught": 0,
+    "partial": 1,
+    "recall": 0.0
+   },
+   "PRODUCT:full": {
+    "total": 16,
+    "caught": 4,
+    "partial": 0,
+    "recall": 0.25
+   },
+   "PRODUCT:lower": {
+    "total": 8,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "QUANTITY:spoken": {
+    "total": 36,
+    "caught": 14,
+    "partial": 1,
+    "recall": 0.3888888888888889
+   },
+   "QUANTITY:written": {
+    "total": 40,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "SSN:spoken": {
+    "total": 4,
+    "caught": 0,
+    "partial": 4,
+    "recall": 0.0
+   },
+   "SSN:spoken+split": {
+    "total": 8,
+    "caught": 0,
+    "partial": 5,
+    "recall": 0.0
+   },
+   "SSN:written": {
+    "total": 8,
+    "caught": 8,
+    "partial": 0,
+    "recall": 1.0
+   },
+   "TOPIC:n/a": {
+    "total": 68,
+    "caught": 0,
+    "partial": 37,
+    "recall": 0.0
+   },
+   "URL:spoken": {
+    "total": 12,
+    "caught": 0,
+    "partial": 2,
+    "recall": 0.0
+   },
+   "URL:written": {
+    "total": 24,
+    "caught": 0,
+    "partial": 12,
+    "recall": 0.0
+   }
+  },
+  "per_casing": {
+   "lower": {
+    "total": 249,
+    "caught": 78,
+    "partial": 15,
+    "recall": 0.3132530120481928
+   },
+   "mixed": {
+    "total": 822,
+    "caught": 329,
+    "partial": 74,
+    "recall": 0.4002433090024331
+   },
+   "upper": {
+    "total": 155,
+    "caught": 49,
+    "partial": 18,
+    "recall": 0.3161290322580645
+   }
+  },
+  "known_vs_unknown": {
+   "BRAND:known": {
+    "total": 69,
+    "caught": 6,
+    "partial": 0,
+    "recall": 0.08695652173913043
+   },
+   "BRAND:unknown": {
+    "total": 15,
+    "caught": 2,
+    "partial": 0,
+    "recall": 0.13333333333333333
+   },
+   "CLIENT:known": {
+    "total": 56,
+    "caught": 6,
+    "partial": 2,
+    "recall": 0.10714285714285714
+   },
+   "CLIENT:unknown": {
+    "total": 28,
+    "caught": 0,
+    "partial": 0,
+    "recall": 0.0
+   },
+   "CODENAME:known": {
+    "total": 52,
+    "caught": 9,
+    "partial": 0,
+    "recall": 0.17307692307692307
+   },
+   "PERSON:known": {
+    "total": 75,
+    "caught": 60,
+    "partial": 2,
+    "recall": 0.8
+   },
+   "PERSON:unknown": {
+    "total": 77,
+    "caught": 63,
+    "partial": 1,
+    "recall": 0.8181818181818182
+   },
+   "PRODUCT:known": {
+    "total": 24,
+    "caught": 3,
+    "partial": 1,
+    "recall": 0.125
+   },
+   "PRODUCT:unknown": {
+    "total": 20,
+    "caught": 3,
+    "partial": 0,
+    "recall": 0.15
+   }
+  },
+  "seconds": 8.1
+ }
+]

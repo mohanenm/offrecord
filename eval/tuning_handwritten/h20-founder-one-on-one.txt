@@ -1,0 +1,103 @@
+Speaker A: okay so I blocked an hour, I figured we need the long version this week, not the [[NEG:fifteen minute]] standup version.
+
+Speaker B: Yeah. Yeah, thank you. I've been wanting to do this for a while honestly.
+
+Speaker A: So where do you want to start? Money or the other thing?
+
+Speaker B: Let's do money, it's easier. Ha. Okay so, as of this morning, we have [[AMOUNT:two million one hundred and forty thousand]] in the bank, give or take, and our burn last month was [[AMOUNT:a hundred eighty-six]], which is up from like [[AMOUNT:one fifty]] because of the [[NEG:two hires]] and the [[ORG:Skyfold]] contract, so if nothing changes we've got, what, eleven months? Eleven and a half. And I know you're going to say revenue, but revenue is like [[AMOUNT:forty-one k MRR]] and it's not growing fast enough to matter before we run out.
+
+Speaker A: Eleven months. Okay. That's less than I thought.
+
+Speaker B: It's less than I thought too, [[PERSON#a:Jonah]]. I redid the model three times.
+
+Speaker A: Okay. So the [[CODENAME#k1:Larkspur]] thing.
+
+Speaker B: Right. So, the [[CODENAME#k1:Larkspur]] thing. [[TOPIC:Merriwick's corp dev team came back and said they'd do an acqui-hire at around eighteen million, all in, with most of it in retention packages for the engineers, and almost nothing for the common shareholders.]]
+
+Speaker A: [[AMOUNT:Eighteen]]. Wow. Okay. What does that mean for us, like actually?
+
+Speaker B: So after the preference stack, which is [[AMOUNT:fourteen point five]] with the [[NEG:one x]] liquidation pref, there's like [[AMOUNT:three and a half]] left for common. We each own [[PERCENT:thirty-one percent]] fully diluted, so like [[AMOUNT:a million one]] each, before tax. Plus whatever retention they'd give us, which they said would be something like [[AMOUNT:$600,000 over three years]].
+
+Speaker A: That's not nothing.
+
+Speaker B: It's not nothing. But it's not what we set out to do.
+
+Speaker A: No.
+
+Speaker B: And the other option is the bridge. [[PERSON#c:Odalys]] at [[ORG#v1:Fernhill Capital]] said she'd lead a [[AMOUNT:one point five million]] bridge if we can get the other insiders to match, at a [[PERCENT:twenty-five percent]] discount, no cap. That buys us maybe [[NEG:eight more months]].
+
+Speaker A: And [[PERSON#d:Garrett]]?
+
+Speaker B: [[PERSON#d:Garrett Thistlewood]] won't do it. [[TOPIC:He told me on Friday that his fund is in wind-down mode and they're not doing any follow-ons, which hasn't been announced to his LPs yet.]]
+
+Speaker A: Okay. Okay. Wow.
+
+Speaker B: Yeah. So that's money. Can we do the other thing now?
+
+Speaker A: Yeah. Go.
+
+Speaker B: [[TOPIC:So, um, I'm pregnant. I'm about eleven weeks. And it's been a hard pregnancy so far, I've been really sick, which is why I've been missing the morning meetings.]]
+
+Speaker A: Oh. Oh wow, [[PERSON#b:Mireille]]. Congratulations. I mean, is that the right word? Are you happy?
+
+Speaker B: I'm happy. I'm terrified, but I'm happy. [[TOPIC:I haven't told anyone at work, and I haven't told the board, and I'm planning to take about four months off starting in June.]]
+
+Speaker A: Okay. Okay, we'll figure it out. That actually kind of changes the [[CODENAME#k1:Larkspur]] math for me.
+
+Speaker B: That's why I wanted to tell you before we decide anything.
+
+Speaker A: Right.
+
+Speaker B: Also, the bank. If we do the venture debt instead, [[ORG:Calloway Ridge Bank]] wants a personal guarantee from both of us, which is crazy, but they want it. They sent the form.
+
+Speaker A: What do they need?
+
+Speaker B: Social, address, all of it. They want it by [[DATE:December 4]]. I filled mine in, I'll read you yours from the old cap table doc so you can check it. Is your social still [[SSN:nine four one, oh two, seven seven one six]]?
+
+Speaker A: Uh, [[SSN:941-02-7716]], yes. Wait, why do we have my social in the cap table doc?
+
+Speaker B: The lawyer needed it for the [[NEG:eighty-three b]] filing. Your home address is still [[LOCATION#l1:4417 Juniper Hollow Road]]?
+
+Speaker A: [[LOCATION#l1:Forty-four seventeen]], yeah. Unit [[LOCATION#l1:B]].
+
+Speaker B: Okay. And date of birth, [[DATE:the ninth of October, ninety-one]]?
+
+Speaker A: [[DATE:Ten nine ninety-one]], yep.
+
+Speaker B: Okay. Honestly, I don't want to sign a personal guarantee, especially now.
+
+Speaker A: No. Me neither. Let's not.
+
+Speaker B: Okay. Smaller stuff. The company card, the one ending [[CARD#c1:one nine double oh]], I put the [[ORG:Skyfold]] annual on it and it got declined. Full number's [[CARD#c1:3791 199351 81900]]. Can you call them?
+
+Speaker A: Yeah, I'll call. Limit's [[AMOUNT:twenty-five K]], what was the charge?
+
+Speaker B: [[AMOUNT:Thirty-one thousand two hundred]], annual prepaid. We get [[PERCENT:fifteen percent]] off for annual.
+
+Speaker A: I'll ask them to bump it.
+
+Speaker B: And the VP of sales candidate, [[PERSON#e:Rutger]], wants [[AMOUNT:two-twenty base]] and [[PERCENT:one and a half percent]] equity.
+
+Speaker A: Not in this world.
+
+Speaker B: That's what I said. [[PERCENT:Point seven five]] at most.
+
+Speaker A: Fine. Also, sorry, one more thing on clients. [[CLIENT#k2:Brightledge Dental]] gave notice.
+
+Speaker B: What? When?
+
+Speaker A: [[DATE:Yesterday]]. Their ops lead, [[PERSON#f:Dr. Amara Quist]], emailed from [[EMAIL:aquist@ops.brightledge-dental.example]]. [[TOPIC:They're leaving because of the outage in October, and they're threatening to ask for a refund of the last quarter.]]
+
+Speaker B: That's [[AMOUNT:four thousand two hundred a month]]. That's [[PERCENT:ten percent]] of MRR.
+
+Speaker A: [[PERCENT:Ten percent]]. Yeah.
+
+Speaker B: Okay. You know what, I think we take the [[ORG#m1:Merriwick]] call. Just the call. [[DATE:Thursday the 3rd]], they offered [[NEG:4 pm]].
+
+Speaker A: Okay. I'm in. And [[PERSON#b:Mireille]]? Seriously. I'm really happy for you.
+
+Speaker B: Thanks, [[PERSON#a:Jo]]. Let's not tell anyone yet. Not even [[PERSON#g:Tamsin]].
+
+Speaker A: Lips sealed. I'll [[NEG:grant]] you that it's been a week.
+
+Speaker B: Ha. Understatement.

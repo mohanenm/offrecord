@@ -1,0 +1,87 @@
+[[PERSON#a:Imogen Castellanos-Webb]]: Okay, let's start, I know [[PERSON#b:Theo]] has a hearing at eleven. This is the weekly review on [[ACCOUNT#m1:matter 2026-0417]], the [[CLIENT#c1:Varnell Cold Storage]] dispute. Everyone's read the memo?
+
+[[PERSON#b:Theodore Amsel]]: Skimmed it. The short version is that [[TOPIC:Varnell is being sued by its former warehouse manager for wrongful termination and retaliation after she reported ammonia leaks to the state.]]
+
+[[PERSON#c:Ngozi Pemberton]]: And the complaint was filed in [[LOCATION:Harlow County Superior Court]] on [[DATE:September 14th]], case number [[ACCOUNT#k1:24-CV-03381]]. Service was [[DATE:the 22nd]], so our answer was due [[DATE:October 13]], which we got extended to [[DATE:the third of November]] by stipulation.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Which we filed. Good. Plaintiff is [[PERSON#d:Corinne Albescu]], right? And she's represented by [[ORG:Pratt Ivey and Sola]].
+
+[[PERSON#b:Theodore Amsel]]: Yes. Her lawyer is [[PERSON#e:Desmond Pratt]]. He's aggressive but he settles. I had him on the [[CLIENT#c2:Morrow Bakeries]] thing two years ago and he folded about [[NEG:a week]] before trial.
+
+[[PERSON#f:Lukas Brandvold]]: Can I jump in on numbers? Their demand letter came in [[DATE:yesterday]], it's [[AMOUNT:$1.85 million]]. That's back pay, front pay, emotional distress and fees.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: [[AMOUNT:One point eight five]]. What was her salary?
+
+[[PERSON#f:Lukas Brandvold]]: [[AMOUNT:Ninety-four thousand]] base plus a bonus that was typically [[PERCENT:twelve to fifteen percent]]. She was there [[NEG:six years]].
+
+[[PERSON#c:Ngozi Pemberton]]: So back pay through trial is maybe [[AMOUNT:a hundred and sixty k]], call it. The rest is air.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: What does the client want to do?
+
+[[PERSON#b:Theodore Amsel]]: I spoke with their GC, [[PERSON#g:Harriet Szabo]], on [[DATE:Friday the 20th]]. [[TOPIC:She told me privately that the board would authorize up to four hundred thousand to make this go away before depositions, because they are worried about what the facility inspection logs show.]]
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Okay. That stays in this room. [[PERSON#c:Ngozi]], make sure that is not in any email to the client distribution list, only to [[PERSON#g:Harriet]] directly.
+
+[[PERSON#c:Ngozi Pemberton]]: Understood. Her direct is [[EMAIL#e1:hszabo@legal.varnell-cold.example]], not the general one.
+
+[[PERSON#b:Theodore Amsel]]: Right, and the general one is [[EMAIL:legal-intake@varnell-cold.example]], which goes to like [[QUANTITY:nine]] people.
+
+[[PERSON#f:Lukas Brandvold]]: The inspection logs are the issue. [[TOPIC:There were three ammonia readings above the exposure limit in March that were never reported, and one employee went to urgent care.]]
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Do we have those documents?
+
+[[PERSON#f:Lukas Brandvold]]: We have them in the review platform under batch [[ACCOUNT:VCS-PROD-000412]] through [[ACCOUNT:VCS-PROD-000588]]. Privilege log isn't done yet.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: When's the production deadline?
+
+[[PERSON#c:Ngozi Pemberton]]: [[DATE:12/18/2026]]. And the deposition of [[PERSON#d:Albescu]] is noticed for [[DATE:January 12th]], we noticed hers. Theirs of our plant manager is [[DATE:the 19th]].
+
+[[PERSON#b:Theodore Amsel]]: The plant manager being [[PERSON#h:Garrick Thule]]. [[TOPIC:Who, between us, is being quietly moved out of the role next quarter because of how he handled this.]]
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Does plaintiff know that?
+
+[[PERSON#b:Theodore Amsel]]: Not yet. If he's gone before his deposition, it looks like retaliation number two.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Then we need to advise [[PERSON#g:Harriet]] in writing to hold off. [[PERSON#b:Theo]], draft that.
+
+[[PERSON#b:Theodore Amsel]]: Will do.
+
+[[PERSON#f:Lukas Brandvold]]: On fees. Our budget for this matter was [[AMOUNT:two hundred twenty-five thousand]] through trial. We're at [[AMOUNT:$61,400]] billed, about [[PERCENT:27%]].
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Fine. Rates are the blended [[AMOUNT:$540 an hour]]?
+
+[[PERSON#f:Lukas Brandvold]]: Partner [[AMOUNT:six eighty]], associates [[AMOUNT:four ten]], paralegal [[AMOUNT:one ninety-five]]. They negotiated a [[PERCENT:ten percent]] discount, so take that off.
+
+[[PERSON#c:Ngozi Pemberton]]: Mediation. We proposed [[PERSON#i:Judge Ellery]], retired, out of the [[LOCATION:Corbin Street]] mediation center. [[PERSON#e:Pratt]] proposed [[PERSON#j:Wynn Achebe]].
+
+[[PERSON#a:Imogen Castellanos-Webb]]: [[PERSON#i:Ellery]]'s fine with me. Who pays?
+
+[[PERSON#c:Ngozi Pemberton]]: Split [[PERCENT:fifty-fifty]], her rate is [[AMOUNT:$9,000 per day]].
+
+[[PERSON#b:Theodore Amsel]]: I'd push for mediation in [[DATE:the first week of February]], after his deposition but before ours of the plant manager. No, wait, that's backwards. Before [[PERSON#h:Thule]]'s depo.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Before [[PERSON#h:Thule]], yes. Let's aim for the week of [[DATE:Jan 5]].
+
+[[PERSON#c:Ngozi Pemberton]]: That's tight with the holidays. I'll check the calendar.
+
+[[PERSON#f:Lukas Brandvold]]: One more thing, the client's insurer. [[ORG:Calloway Specialty]] has the EPLI policy, number [[ACCOUNT:EPL 7730 0094 21]], with a [[AMOUNT:$250,000]] retention. So anything under that is the client's own money.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Have they been tendered?
+
+[[PERSON#f:Lukas Brandvold]]: Yes, claim number [[ACCOUNT:CS-EPL-26-00981]], adjuster is [[PERSON#k:Benedetta Ruhl]]. She wants a status report by [[DATE:December 1]].
+
+[[PERSON#a:Imogen Castellanos-Webb]]: [[PERSON#f:Lukas]], you take that. Keep the settlement authority out of it, insurers leak.
+
+[[PERSON#f:Lukas Brandvold]]: Got it.
+
+[[PERSON#c:Ngozi Pemberton]]: I also want to flag a conflict check result. Our firm represented [[CLIENT#c3:Albescu Family Trust]] in an estate matter in [[DATE:2019]]. Different [[PERSON#d2:Albescu]], I think, but I want to confirm.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Good catch. Run it down. If it's the same family we have a problem.
+
+[[PERSON#b:Theodore Amsel]]: I'll [[NEG:press]] [[PERSON#e:Pratt]] on dates too.
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Okay. [[NEG:Summary]]: answer filed, production due on [[DATE:the eighteenth]], depos in [[DATE:January]], mediation target [[DATE:early January]], status to the insurer by [[DATE:the first]]. Anything else?
+
+[[PERSON#f:Lukas Brandvold]]: Just that the next review is [[NEG:same time next week]].
+
+[[PERSON#a:Imogen Castellanos-Webb]]: Great. Thanks all.

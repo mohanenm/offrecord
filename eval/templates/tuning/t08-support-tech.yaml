@@ -1,0 +1,24 @@
+id: t08-support-tech
+domain: support
+speakers: {A: technical support engineer, B: customer admin}
+turns:
+  - A: "Hi, is this {person#spkB.first}?"
+  - B: "Yes hi."
+  - A: "I'm calling about ticket {order#1.spoken}."
+  - B: "Oh right, the {product#1} outage."
+  - A: "Yeah. Can you tell me the public IP of your gateway?"
+  - B: "Uh, it's {ip#1}."
+  - A: "And the account?"
+  - split:
+      speaker: B
+      slot: "account#1"
+      before: "It's"
+      interrupt: {speaker: A, text: "uh huh"}
+      after: "I think."
+  - A: "Great. And the login page you see is {url#1.spoken}?"
+  - B: "Yes."
+  - A: "Okay, I'll escalate to {person#7}. Your callback number?"
+  - B: "{phone#1}."
+  - A: "Thanks, and email?"
+  - B: "{email#1.spoken}."
+  - A: "Perfect, you'll hear from us by {date}."

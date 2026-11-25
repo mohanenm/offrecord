@@ -1,0 +1,86 @@
+[
+  {
+    "speaker": "Speaker 1",
+    "start": 0.0,
+    "end": 4.133,
+    "text": "Okay, um, so, let's start. Can you all hear me?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 4.333,
+    "end": 5.6,
+    "text": "Yep."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 5.8,
+    "end": 7.133,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 7.333,
+    "end": 13.867,
+    "text": "So Operation Larkspur launches on 19th of March, assuming Thornquist Freight signs."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 14.067,
+    "end": 19.733,
+    "text": "And you know, the starkweather outfitters co-marketing budget is $450."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 19.933,
+    "end": 24.267,
+    "text": "Conversion on the beta was 46%, about 49 accounts."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 24.467,
+    "end": 27.533,
+    "text": "Cool. And cinder vault pricing?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 27.733,
+    "end": 32.6,
+    "text": "We're planning to double the price of the enterprise tier."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 32.8,
+    "end": 37.267,
+    "text": "Hmm, that'll uh, spike like, churn in East Calloway."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 37.467,
+    "end": 41.267,
+    "text": "Fair. Casimir Jablonski, can you model it?"
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 41.467,
+    "end": 46.6,
+    "text": "Sure, I'll share like, it at https://ledgerline.example/login."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 46.8,
+    "end": 50.467,
+    "text": "Great. Okay that's all, thanks everyone."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 50.667,
+    "end": 52.467,
+    "text": "Thanks, bye."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 52.667,
+    "end": 53.933,
+    "text": "Bye."
+  }
+]

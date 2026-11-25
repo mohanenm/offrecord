@@ -1,0 +1,35 @@
+Speaker 1: Hey, can you hear me? I think my headset um, is being weird again.
+Speaker 2: Yeah, I've got you. Bit of um, an echo, but it's fine.
+Speaker 3: Hi all, sorry, I was on like, mute. I was talking for like ten seconds to nobody.
+Speaker 1: Ha, classic. Bogdan, how uh, was the you know, long weekend, did you get basically, away at all?
+Speaker 2: We drove up to Kessington Heights, um, which was um, gorgeous until it started pouring on Sunday.
+Speaker 1: Oh no. Same here um, honestly, grey all week.
+Speaker 2: Yeah. Anyway.
+Speaker 1: Right, I mean, so, um, thanks for making time. I know Kestrelmoor Bank is in the middle of a lot right now.
+Speaker 2: We are. So the short version, we run about 83 trucks out of three uh, depots uh, and dispatch is basically spreadsheets and a whiteboard.
+Speaker 3: Mm-hmm.
+Speaker 2: And our CFO, Yusuf Kowalczyk, wants to see a real plan before budget sort of, season, which for us I mean, closes 7th of March.
+Speaker 1: Got it. And is there a, uh, number you're working with? Ballpark is I mean, fine.
+Speaker 2: I've been um, told not to go over $17M for year one. All in.
+Speaker 3: Okay. And how many dispatchers would actually log in?
+Speaker 2: Today it's, uh, nine -- no, eleven, we just hired two. Call it six hundred eighty seven seats.
+Speaker 3: That's um, helpful. So Shelfsight POS would cover the routing piece, and the scheduling would sit in Clearmeter.
+Speaker 2: Wait, sorry, is that two separate licences?
+Speaker 1: It's bundled. Don't worry about that part yet.
+Speaker 2: Okay, good, because the last vendor nickel-and-dimed us on everything. Oh, and your chat bot kept calling it shelf sight, which, I did not know what that was.
+Speaker 1: Ha, yeah, we hear that a lot. Honestly KMB has been on our wishlist for a sort of, couple of years, so I mean, we'll make it easy.
+Speaker 2: Also, between us, we're probably folding the north depot into the east one next spring, so the truck count could drop.
+Speaker 1: Understood, that's useful context. We'll keep it quiet.
+Speaker 3: Could you send over a sample of your route data? sort of, Even a week is fine.
+Speaker 2: Sure. like, Send the request to dmitri_nwachukwu@mailhub.invalid, that's my work inbox.
+Speaker 2: Or if it's urgent just call me, the cell is three three eight, five five
+Speaker 1: hang on, let me grab a pen
+Speaker 2: five oh one eight two and I usually pick up after four.
+Speaker 1: Got it, thanks.
+Speaker 3: And just so you um, know, I spoke with ra fael szabo on your sort of, IT team last sort of, week about single sign-on, so you know, that's already moving.
+Speaker 2: Oh great, Rafael has been chasing that for months.
+Speaker 1: Okay, so next step, we'll put a proposal together by 2026-03-24 and keep it under that cap.
+Speaker 2: Perfect. Send it to me, not procurement, they'll just sit on it.
+Speaker 1: Will do. Thanks Bogdan, enjoy the rest of basically, your week.
+Speaker 2: You too. Bye.
+Speaker 3: Bye now.

@@ -1,0 +1,86 @@
+[
+  {
+    "speaker": "Elodie Trevelyan",
+    "start": 0.0,
+    "end": 4.133,
+    "text": "Okay, um, so, let's start. Can you all hear me?"
+  },
+  {
+    "speaker": "Kofi Petrakis",
+    "start": 4.333,
+    "end": 5.6,
+    "text": "Yep."
+  },
+  {
+    "speaker": "Elodie Quintero",
+    "start": 5.8,
+    "end": 7.133,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Elodie Trevelyan",
+    "start": 7.333,
+    "end": 13.467,
+    "text": "So Operation Larkspur launches on 6/22/2024, assuming Ostrander Mutual signs."
+  },
+  {
+    "speaker": "Kofi Petrakis",
+    "start": 13.667,
+    "end": 17.8,
+    "text": "And the zephyrix co-marketing budget is $1,400."
+  },
+  {
+    "speaker": "Elodie Quintero",
+    "start": 18.0,
+    "end": 23.0,
+    "text": "Conversion on the beta was 19.5 percent, about 747 accounts."
+  },
+  {
+    "speaker": "Elodie Trevelyan",
+    "start": 23.2,
+    "end": 26.2,
+    "text": "Cool. And oreal sweet pricing?"
+  },
+  {
+    "speaker": "Kofi Petrakis",
+    "start": 26.4,
+    "end": 31.267,
+    "text": "We're planning to double the price of the enterprise tier."
+  },
+  {
+    "speaker": "Elodie Quintero",
+    "start": 31.467,
+    "end": 35.133,
+    "text": "Hmm, that'll spike churn in Port Ellery."
+  },
+  {
+    "speaker": "Elodie Trevelyan",
+    "start": 35.333,
+    "end": 39.067,
+    "text": "Fair. Tobias Jablonski, can you model it?"
+  },
+  {
+    "speaker": "Elodie Quintero",
+    "start": 39.267,
+    "end": 44.667,
+    "text": "Sure, I'll share it at https://ledgerline.example/docs/onboarding."
+  },
+  {
+    "speaker": "Elodie Trevelyan",
+    "start": 44.867,
+    "end": 48.533,
+    "text": "Great. Okay that's all, thanks everyone."
+  },
+  {
+    "speaker": "Kofi Petrakis",
+    "start": 48.733,
+    "end": 50.533,
+    "text": "Thanks, bye."
+  },
+  {
+    "speaker": "Elodie Quintero",
+    "start": 50.733,
+    "end": 52.0,
+    "text": "Bye."
+  }
+]

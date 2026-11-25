@@ -1,0 +1,15 @@
+id: t11-support-retail
+domain: support
+speakers: {A: retail support rep, B: store manager}
+turns:
+  - A: "{brand_common#2} support, how can I help?"
+  - B: "Hi, this is {person#spkB.first} from the {location} {brand_common#2} store."
+  - A: "Hi! What's going on?"
+  - B: "The POS keeps rejecting cards, like {card#1}."
+  - A: "Okay, what's your store number?"
+  - B: "Store {account#1}."
+  - A: "Thanks. And is it all {quantity} registers?"
+  - B: "Yeah, all of them. We lost maybe {amount} in sales this morning."
+  - A: "Oof. I'll open order {order#1}."
+  - B: "Thanks. Oh, and the {brand_common#2.word} out front is blocking the delivery bay again, not your problem though."
+  - A: "Ha, no. Call back on {phone#1.spoken} if it persists."

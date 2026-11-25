@@ -1,0 +1,45 @@
+id: ho-sales-discovery-01
+domain: sales
+speakers:
+  A: account executive at the software vendor
+  B: operations director at a logistics prospect
+  C: sales engineer at the software vendor
+turns:
+  - A: "Hey, can you hear me? I think my headset is being weird again."
+  - B: "Yeah, I've got you. Bit of an echo, but it's fine."
+  - C: "Hi all, sorry, I was on mute. I was talking for like ten seconds to nobody."
+  - A: "Ha, classic. {person#1.first}, how was the long weekend, did you get away at all?"
+  - B: "We drove up to {location#1}, um, which was gorgeous until it started pouring on Sunday."
+  - A: "Oh no. Same here honestly, grey all week."
+  - B: "Yeah. Anyway."
+  - A: "Right, so, um, thanks for making time. I know {client#1} is in the middle of a lot right now."
+  - B: "We are. So the short version, we run about {quantity#1} trucks out of three depots and dispatch is basically spreadsheets and a whiteboard."
+  - C: "Mm-hmm."
+  - B: "And our CFO, {person#2.full}, wants to see a real plan before budget season, which for us closes {date#1}."
+  - A: "Got it. And is there a, uh, number you're working with? Ballpark is fine."
+  - B: "I've been told not to go over {amount#1} for year one. All in."
+  - C: "Okay. And how many dispatchers would actually log in?"
+  - B: "Today it's, uh, nine -- no, eleven, we just hired two. Call it {quantity#2.spoken} seats."
+  - C: "That's helpful. So {product#1} would cover the routing piece, and the scheduling would sit in {product#2.alias}."
+  - B: "Wait, sorry, is that two separate licences?"
+  - A: "It's bundled. Don't worry about that part yet."
+  - B: "Okay, good, because the last vendor nickel-and-dimed us on everything. Oh, and your chat bot kept calling it {product#1.asr}, which, I did not know what that was."
+  - A: "Ha, yeah, we hear that a lot. Honestly {client#1.alias} has been on our wishlist for a couple of years, so we'll make it easy."
+  - B: "Also, between us, [[TOPIC: we're probably folding the north depot into the east one next spring, so the truck count could drop]]."
+  - A: "Understood, that's useful context. We'll keep it quiet."
+  - C: "Could you send over a sample of your route data? Even a week is fine."
+  - B: "Sure. Send the request to {email#1}, that's my work inbox."
+  - split:
+      speaker: B
+      slot: "phone#1.spoken"
+      before: "Or if it's urgent just call me, the cell is"
+      interrupt: { speaker: A, text: "hang on, let me grab a pen" }
+      after: "and I usually pick up after four."
+  - A: "Got it, thanks."
+  - C: "And just so you know, I spoke with {person#3.asr} on your IT team last week about single sign-on, so that's already moving."
+  - B: "Oh great, {person#3.first} has been chasing that for months."
+  - A: "Okay, so next step, we'll put a proposal together by {date#2} and keep it under that cap."
+  - B: "Perfect. Send it to me, not procurement, they'll just sit on it."
+  - A: "Will do. Thanks {person#1.first}, enjoy the rest of your week."
+  - B: "You too. Bye."
+  - C: "Bye now."

@@ -1,0 +1,107 @@
+Rep: Thank you for calling [[ORG#o1:Sablewood Insurance]] claims, my name is [[PERSON#r:Daniyar]], can I start with your policy number?
+
+Customer: Yeah, hi. It's, um, [[ACCOUNT#p1:H as in hotel, O as in oscar, M]], then [[ACCOUNT#p1:H O M dash three three eight, two oh, one nine one five]].
+
+Rep: Let me make sure I have that. [[ACCOUNT#p1:HOM-338-20-1915]]?
+
+Customer: No, sorry, it's one nine five one at the end. [[ACCOUNT#p1:One nine five one]].
+
+Rep: [[ACCOUNT#p1:HOM-338-20-1951]]. Okay, I've got it. Is this [[PERSON#c:Mr. Ezekiel Brannigan]]?
+
+Customer: That's me. [[PERSON#c:Zeke]].
+
+Rep: And for verification can I get your date of birth and the last four of your social?
+
+Customer: [[DATE:Seven, twenty-two, eighty-five]]. Last four is [[SSN:four four oh two]].
+
+Rep: Thank you, [[PERSON#c:Mr. Brannigan]]. What happened?
+
+Customer: So we had a pipe burst in the upstairs bathroom. It came through the kitchen ceiling. It happened [[DATE:Saturday night, the twenty-first]], we were away and came back [[DATE:Sunday]] to like [[NEG:an inch]] of water.
+
+Rep: I'm sorry, that's awful. So date of loss [[DATE:November 21st, 2026]]?
+
+Customer: Yeah, though honestly it could've started [[DATE:Friday]], we don't know.
+
+Rep: We'll use [[DATE:the twenty-first]] and the adjuster can sort out the timeline. Property address is still [[LOCATION#l1:77 Larkspur Close, Wendham]]?
+
+Customer: Yes. [[LOCATION#l1:Seventy-seven Larkspur Close]].
+
+Rep: Anyone hurt?
+
+Customer: [[TOPIC:My mother-in-law lives with us and she slipped on the wet floor trying to get to the shutoff and she's got a fractured hip now, she had surgery on Monday.]]
+
+Rep: Oh no. I'm so sorry. Is she on the policy as a resident?
+
+Customer: She is, [[PERSON#m:Odile Marchetti]]. [[PERSON#m:M A R C H E T T I]].
+
+Rep: Okay. The medical payments coverage would apply to her, that's up to [[AMOUNT:five thousand dollars]] per person, regardless of fault. Anything over that would go to her health insurance.
+
+Customer: [[TOPIC:Her health insurance is the problem, she's on a senior supplement plan and they're already saying the rehab facility is out of network.]]
+
+Rep: I understand. I'll note it. On the dwelling side, your deductible is [[AMOUNT:$2,500]], or wait, let me check, it's [[PERCENT:one percent]] of dwelling coverage for water losses. Your dwelling limit is [[AMOUNT:four eighty-five]], so [[AMOUNT:four thousand eight hundred fifty]].
+
+Customer: Ugh. Okay. Is mold covered?
+
+Rep: Mold remediation is capped at [[AMOUNT:ten K]] under your form. You'll want a mitigation company out today. We have a preferred vendor, [[ORG:DryNorth Restoration]], their number is [[PHONE:1 800 555 0164]].
+
+Customer: Can I use my own guy? My neighbor used [[ORG:Pilchard Brothers]].
+
+Rep: You can, just keep every receipt. Okay, I'm opening the claim now. Your claim number is [[ACCOUNT#k1:2 6 W L 0 0 4 8 8 1 7]].
+
+Customer: [[ACCOUNT#k1:Two six W L]], was it, like [[ACCOUNT#k1:W as in whiskey L as in lima]]?
+
+Rep: Exactly. [[ACCOUNT#k1:Two six whiskey lima, zero zero four, eight eight, one seven]].
+
+Customer: [[ACCOUNT#k1:26WL00488 17]], got it.
+
+Rep: The adjuster assigned is [[PERSON#a:Cornelius Achterberg]]. He'll call you within [[NEG:24 hours]]. His direct line is [[PHONE:555-0171 extension 4409]].
+
+Customer: Okay. And an email?
+
+Rep: [[EMAIL#e1:c dot achterberg at claims dot sablewood dot example]]. [[PERSON#a:Achterberg]] is [[PERSON#a:A C H T E R B E R G]].
+
+Customer: [[EMAIL#e1:c.achterberg@claims.sablewood.example]]. Okay.
+
+Rep: Do you need temporary housing? Your loss of use limit is [[AMOUNT:$97,000]], or [[PERCENT:twenty percent]] of dwelling.
+
+Customer: Probably not, we can stay in the upstairs. Well, the kitchen is gone.
+
+Rep: Your policy covers additional living expenses, like restaurant meals above your normal food cost. Keep receipts.
+
+Customer: Okay. Can you send everything to my email? It's [[EMAIL#e2:zbrannigan77 at fastpost dot example]].
+
+Rep: [[EMAIL#e2:Z, B, R, A, N, N, I, G, A, N, seven seven]]?
+
+Customer: Yeah. Wait, no, it's [[EMAIL#e2:zeke dot brannigan]], the other one I never check. [[EMAIL#e2:zeke.brannigan@fastpost.example]].
+
+Rep: Updated. Now, I have to ask, has anything been done in the bathroom recently, renovations, anything like that?
+
+Customer: [[TOPIC:Actually, honestly, my brother-in-law redid the plumbing in that bathroom last year without a permit, is that going to be a problem?]]
+
+Rep: I'll note it for the adjuster. It doesn't automatically deny anything. He'll look at the cause.
+
+Customer: Okay. I just don't want him getting in trouble, he's not licensed.
+
+Rep: Understood. Also, I see a prior claim in [[DATE:2023]], hail, claim [[ACCOUNT:23HL00191 04]], paid [[AMOUNT:eleven thousand four hundred]].
+
+Customer: Yeah, the roof.
+
+Rep: That's fine. Last thing, how would you like payment, check or direct deposit?
+
+Customer: Direct deposit. Routing [[ACCOUNT:oh two one, oh oh oh, oh eight nine]]? Hold on, let me get the card.
+
+Rep: Actually, please don't read me bank details on this line, I'll text you a secure link to enter them.
+
+Customer: Oh, okay. Good.
+
+Rep: The link will come from [[PHONE:555-0190]]. Is your cell still [[PHONE:five five five, oh one five eight]]?
+
+Customer: Yep. [[PHONE:Oh one five eight]].
+
+Rep: Perfect. Anything else, [[PERSON#c:Mr. Brannigan]]?
+
+Customer: No, that's it. Thanks, [[PERSON#r:Danny]], is it?
+
+Rep: [[PERSON#r:Daniyar]], but [[PERSON#r:Danny]]'s fine. Take care and I [[NEG:hope]] your mother-in-law feels better.
+
+Customer: Thanks. [[NEG:Bye]].

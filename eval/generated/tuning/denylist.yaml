@@ -1,0 +1,270 @@
+denylist:
+- name: Brackwater Foods
+  category: CLIENT
+  aliases:
+  - Brackwater
+  - BWF
+- name: Ostrander Mutual
+  category: CLIENT
+  aliases:
+  - Ostrander
+- name: Vellichor Media
+  category: CLIENT
+  aliases:
+  - Vellichor
+- name: Hollowmere Bank
+  category: CLIENT
+  aliases:
+  - Hollowmere
+- name: Kestrelline Air
+  category: CLIENT
+  aliases:
+  - Kestrelline
+  - KLA
+- name: Ambervale Assurance
+  category: CLIENT
+  aliases:
+  - Ambervale
+- name: Corvanta
+  category: BRAND
+  aliases: []
+- name: Zephyrix
+  category: BRAND
+  aliases: []
+- name: Lumaroo
+  category: BRAND
+  aliases: []
+- name: Starkweather Outfitters
+  category: BRAND
+  aliases:
+  - Starkweather
+- name: Velcarra
+  category: BRAND
+  aliases: []
+- name: Ledgerline Pro
+  category: PRODUCT
+  aliases:
+  - Ledgerline
+- name: Driftmark Console
+  category: PRODUCT
+  aliases:
+  - Driftmark
+- name: Oriel Suite
+  category: PRODUCT
+  aliases:
+  - Oriel
+- name: Cindervault
+  category: PRODUCT
+  aliases: []
+- name: Operation Larkspur
+  category: CODENAME
+  aliases:
+  - Larkspur
+- name: Project Nightjar
+  category: CODENAME
+  aliases:
+  - Nightjar
+- name: Project Quorvane
+  category: CODENAME
+  aliases:
+  - Quorvane
+- name: Thistle
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - store
+  - stores
+  - brand
+  - chain
+  - retail
+- name: Compass
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - platform
+  - contract
+  - license
+  - renewal
+  - team
+- name: Teodor Cordova
+  category: PERSON
+  aliases: []
+- name: Sunniva Venkatesh
+  category: PERSON
+  aliases: []
+- name: Kofi Galloway
+  category: PERSON
+  aliases: []
+- name: Bram Okafor
+  category: PERSON
+  aliases: []
+- name: Lorcan Underhill
+  category: PERSON
+  aliases: []
+- name: Lorcan Thornbury
+  category: PERSON
+  aliases: []
+- name: Kofi Iwasaki
+  category: PERSON
+  aliases: []
+- name: Ayesha Uchenna
+  category: PERSON
+  aliases: []
+- name: Aurelio Castellano
+  category: PERSON
+  aliases: []
+- name: Emeka Venkatesh
+  category: PERSON
+  aliases: []
+- name: Oskar Trevelyan
+  category: PERSON
+  aliases: []
+- name: Oskar Pemberton
+  category: PERSON
+  aliases: []
+- name: Oskar Cordova
+  category: PERSON
+  aliases: []
+- name: Ravi Vasquez
+  category: PERSON
+  aliases: []
+- name: Mirela Quigley
+  category: PERSON
+  aliases: []
+- name: Sunniva Oduya
+  category: PERSON
+  aliases: []
+- name: Henrik Halvorsen
+  category: PERSON
+  aliases: []
+- name: Kofi Halvorsen
+  category: PERSON
+  aliases: []
+- name: Elodie Quintero
+  category: PERSON
+  aliases: []
+- name: Wendell Abernathy
+  category: PERSON
+  aliases: []
+- name: Mirela Wexley
+  category: PERSON
+  aliases: []
+- name: Orla Okafor
+  category: PERSON
+  aliases: []
+- name: Folake Castellano
+  category: PERSON
+  aliases: []
+- name: Zainab Underhill
+  category: PERSON
+  aliases: []
+- name: Emeka Uchenna
+  category: PERSON
+  aliases: []
+- name: Oskar Abernathy
+  category: PERSON
+  aliases: []
+- name: Freya Quigley
+  category: PERSON
+  aliases: []
+- name: Yuki Oduya
+  category: PERSON
+  aliases: []
+- name: Elodie Okafor
+  category: PERSON
+  aliases: []
+- name: Amara Trevelyan
+  category: PERSON
+  aliases: []
+- name: Lorcan Iwasaki
+  category: PERSON
+  aliases: []
+- name: Hamza Halvorsen
+  category: PERSON
+  aliases: []
+- name: Elodie Castellano
+  category: PERSON
+  aliases: []
+- name: Yuki Ashcombe
+  category: PERSON
+  aliases: []
+- name: Bram Valderrama
+  category: PERSON
+  aliases: []
+- name: Wendell Lachance
+  category: PERSON
+  aliases: []
+- name: Casimir Vasquez
+  category: PERSON
+  aliases: []
+- name: Folake Pemberton
+  category: PERSON
+  aliases: []
+- name: Emeka Trevelyan
+  category: PERSON
+  aliases: []
+- name: Lucia Galloway
+  category: PERSON
+  aliases: []
+- name: Amara Pemberton
+  category: PERSON
+  aliases: []
+- name: Elodie Trevelyan
+  category: PERSON
+  aliases: []
+- name: Orla Quigley
+  category: PERSON
+  aliases: []
+- name: Elodie Abernathy
+  category: PERSON
+  aliases: []
+- name: Casimir Abernathy
+  category: PERSON
+  aliases: []
+- name: Sunniva Uchenna
+  category: PERSON
+  aliases: []
+- name: Sunniva Castellano
+  category: PERSON
+  aliases: []
+- name: Tobias Ruskin
+  category: PERSON
+  aliases: []
+- name: Orla Esterhazy
+  category: PERSON
+  aliases: []
+- name: Hamza Wexley
+  category: PERSON
+  aliases: []
+- name: Tavita Castellano
+  category: PERSON
+  aliases: []
+- name: Hamza Thornbury
+  category: PERSON
+  aliases: []
+- name: Tobias Jablonski
+  category: PERSON
+  aliases: []
+- name: Oskar Ashcombe
+  category: PERSON
+  aliases: []
+- name: Ayesha Quintero
+  category: PERSON
+  aliases: []
+- name: Henrik Oduya
+  category: PERSON
+  aliases: []
+- name: Mirela Oduya
+  category: PERSON
+  aliases: []
+- name: Priya Thornbury
+  category: PERSON
+  aliases: []
+- name: Wendell Sandoval
+  category: PERSON
+  aliases: []
+- name: Greer Jablonski
+  category: PERSON
+  aliases: []

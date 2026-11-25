@@ -1,0 +1,104 @@
+[
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 0.0,
+    "end": 2.267,
+    "text": "Hi, is this Lorcan?"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 2.467,
+    "end": 3.933,
+    "text": "Yes hi."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 4.133,
+    "end": 9.867,
+    "text": "I'm calling about ticket one four seven nine four eight nine four five."
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 10.067,
+    "end": 13.467,
+    "text": "Oh right, the Ledgerline Pro outage."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 13.667,
+    "end": 18.133,
+    "text": "Yeah. Can you tell me the public IP of your gateway?"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 18.333,
+    "end": 20.933,
+    "text": "Uh, it's 198.51.100.189."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 21.133,
+    "end": 23.2,
+    "text": "And the account?"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 23.4,
+    "end": 25.733,
+    "text": "It's seven five four"
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 25.933,
+    "end": 27.333,
+    "text": "uh huh"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 27.533,
+    "end": 30.467,
+    "text": "seven eight six nine I think."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 30.667,
+    "end": 36.6,
+    "text": "Great. And the login page you see is ledgerline dot example slash q3-plan?"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 36.8,
+    "end": 38.067,
+    "text": "Yes."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 38.267,
+    "end": 43.4,
+    "text": "Okay, I'll escalate to Tobias Jablonski. Your callback number?"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 43.6,
+    "end": 45.6,
+    "text": "(837) 555-0192."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 45.8,
+    "end": 48.0,
+    "text": "Thanks, and email?"
+  },
+  {
+    "speaker": "Lorcan Fairweather",
+    "start": 48.2,
+    "end": 52.467,
+    "text": "emeka underscore wexley at tessaline dot example."
+  },
+  {
+    "speaker": "Emeka Mbeki",
+    "start": 52.667,
+    "end": 56.533,
+    "text": "Perfect, you'll hear from us by January 13."
+  }
+]

@@ -1,0 +1,63 @@
+spk_0: IT service desk, this is [[PERSON#a:Okello]], how can I help
+spk_1: hi yeah i'm locked out of everything, my password expired over the weekend and now it won't let me in
+spk_0: no problem we'll get you sorted, can i get your name and employee ID
+spk_1: [[PERSON#b:Fiadh]], [[PERSON#b:F I A D H]], [[PERSON#b:Brennan-Sato]], no just [[PERSON#b:Brennan Sato]], and the ID is [[ACCOUNT#e1:E zero zero seven four one three]]
+spk_0: [[ACCOUNT#e1:E007413]], and is that [[PERSON#b:F-I-A-D-H]]
+spk_1: yes, it's pronounced [[PERSON#b:fee-a]]
+spk_0: thanks [[PERSON#b:Fiadh]], i've got you, you're in [[ORG:Clinical Data Services]] right
+spk_1: yeah
+spk_0: okay so for verification, i'm going to send a code to the mobile on file ending [[PHONE:zero one six one]], can you read it to me when it comes
+spk_1: okay, got it, it's [[ACCOUNT:four eight two, nine one seven]]
+spk_0: [[ACCOUNT:482917]], perfect that matches
+spk_0: so i'm opening a ticket for this, it's [[ACCOUNT#t1:INC0048813]]
+spk_1: [[ACCOUNT#t1:i n c double oh four double eight one three]]
+spk_0: you got it
+spk_0: okay so your account [[EMAIL#u1:fiadh.brennansato@corp.velloran.example]] is locked after too many attempts, i'm unlocking it now
+spk_1: oh is that what my email is, i always forget the [[PERSON#b:brennansato]] bit is one word
+spk_0: ha yeah the system squashes hyphens
+spk_0: okay i've set a temporary password, i'll read it out, it's case sensitive, ready
+spk_1: go
+spk_0: capital [[ACCOUNT:T as in tango, lowercase r, u, m, p, e, t, seven, seven, exclamation mark, lowercase k, q]]
+spk_1: [[ACCOUNT:capital T r u m p e t seven seven exclamation k q]]
+spk_0: that's it
+spk_1: okay, trying
+spk_1: it's asking for a new one
+spk_0: yep pick anything at least [[NEG:fourteen characters]], can't reuse the last [[NEG:ten]]
+spk_1: done, okay i'm in, thank god
+spk_0: great, are you on site or remote
+spk_1: remote, at home
+spk_0: okay can you connect to the vpn for me, it's [[URL:vpn.velloran.example]]
+spk_1: yeah it says connected, my ip is [[IP:10.42.118.7]]
+spk_0: perfect, and your laptop asset tag, it's on the sticker on the bottom
+spk_1: [[ACCOUNT:VLR dash LT dash four four zero nine one]]
+spk_0: [[ACCOUNT:VLR-LT-44091]], thanks, that's one of the [[BRAND:Norvane]] [[PRODUCT:Stratus 14]] laptops, the older batch, i see it last checked in from [[IP:192.0.2.211]] on [[DATE:the twentieth]], that sound right
+spk_1: no, i wasn't working on [[DATE:the twentieth]], i was off
+spk_0: hm, okay, could be a background sync, but i'll flag it to security just in case
+spk_1: should i be worried
+spk_0: probably not but better safe, security's ticket will be [[ACCOUNT:SEC-26-0771]] if they call you
+spk_1: okay
+spk_0: while i have you, your mfa app was reset on [[DATE:November 3rd, 2026]], was that you
+spk_1: yeah i got a new phone
+spk_0: okay good
+spk_1: actually can i ask one more thing, i need access to the trial dashboard for [[CODENAME#k1:Project Heron]], my manager approved it
+spk_0: who's your manager
+spk_1: [[PERSON#c:Dr. Anselm Okafor-Price]]
+spk_0: okay, i see a request from [[PERSON#c:Anselm]] dated [[DATE:11/23]], yeah, approved, i'll add you to the group [[ACCOUNT:GRP-HERON-RO]]
+spk_1: thank you
+spk_0: dashboard url is [[URL:https://heron-trial.analytics.velloran.example/dash/site-14]]
+spk_1: got it
+spk_1: oh and um this is a bit awkward, [[TOPIC:i'm going on medical leave from the eighth for surgery and i'll be out about six weeks, do i need to do anything with my account]]
+spk_0: oh, hope it goes well, you don't need to do anything, but your manager can request an out of office and delegate access, that's ticket type leave
+spk_1: okay
+spk_0: [[TOPIC:also i should mention, when you're out, the account goes dormant after thirty days and you'll need to call us to reactivate it, it's a policy after the breach last year]]
+spk_1: the breach
+spk_0: [[TOPIC:yeah the one where the contractor's credentials got phished and they got into the hr share, it wasn't widely announced]]
+spk_1: oh wow okay i didn't know about that
+spk_0: yeah, please keep that to yourself, i probably shouldn't have said
+spk_1: of course
+spk_0: anything else
+spk_1: no, that's everything
+spk_0: okay so your ticket [[ACCOUNT#t1:INC0048813]] is resolved, you'll get a survey, if anything comes up reply to [[EMAIL:servicedesk@it.velloran.example]] or call extension [[PHONE:four four three five]]
+spk_1: [[PHONE:four four three five]], got it
+spk_0: thanks for calling, [[NEG:have a good one]], and [[NEG:mark]] the survey however you like
+spk_1: will do, [[NEG:bye]]

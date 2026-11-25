@@ -1,0 +1,34 @@
+Astrid Delacroix: Okay, um, I think we have quorum. Ilse is out sick, so we'll catch her up after.
+Anouk Ostrowski: Morning I mean, all. Did everyone survive the storm? you know, Our power was out till midnight.
+Nikhil Kealoha: Ugh, ours too. I ended up working sort of, from a cafe.
+Priyanka Bergstrom: We were fine, weirdly. Anyway.
+Astrid Delacroix: Right. Agenda's in the doc. like, First up, Q1 priorities. Nadia, want to kick off?
+Anouk Ostrowski: Sure. So, um, the big one is Project Kittiwake. We're aiming sort of, for I mean, beta sort of, by 1/15/2027.
+Priyanka Bergstrom: Which -- okay, um, I'll say it -- sort of, is aggressive.
+Anouk Ostrowski: It is aggressive.
+Priyanka Bergstrom: We have one thousand seven hundred eighteen you know, engineers on it uh, and two of them are half on Saltmarsh.
+Astrid Delacroix: Can we pull them uh, off project saltmarsh?
+Priyanka Bergstrom: Not without slipping that by a you know, month.
+Anouk Ostrowski: And to like, be you know, clear about Kittiwake, the real goal is to rip out the legacy billing engine entirely and retire the old pricing pages.
+Nikhil Kealoha: From um, the marketing basically, side, we've already told Marrowgate Insurance to expect something in spring. So.
+Anouk Ostrowski: Right, and they're our biggest logo.
+Nikhil Kealoha: Mm-hmm. Also, we're sunsetting the free tier at the end of Q1 and moving those users onto a paid starter plan.
+Priyanka Bergstrom: Wait, I mean, is that public?
+Nikhil Kealoha: No. Not yet. Please don't put it in the team channel.
+Astrid Delacroix: Noted. sort of, What's the sort of, budget picture?
+Anouk Ostrowski: We've got $253K for contractors I mean, this quarter. Last quarter we burned through 59% of it by week sort of, six.
+Astrid Delacroix: Okay, so, careful.
+Priyanka Bergstrom: If I could get two contractors for project kittiwake, that would unblock a lot.
+Anouk Ostrowski: That's maybe eighty nine million dollars for the quarter.
+Astrid Delacroix: Doable.
+Nikhil Kealoha: Sorry, I'm basically, getting a ton of echo -- is someone not on headphones?
+Priyanka Bergstrom: Oh, that's me, sorry, one sec. like, Better?
+Nikhil Kealoha: Better.
+Astrid Delacroix: Okay. Launch locations. We um, said Dunwiddie Park and Ravelstoke first.
+Nikhil Kealoha: Yeah. Ravelstoke because that's where Marrowgate has its headquarters.
+Anouk Ostrowski: Makes sense.
+Priyanka Bergstrom: Quick thing -- the notes bot keeps writing kitty weak, can someone fix the glossary?
+Astrid Delacroix: Ha, I'll fix um, it. Action items: Femi Lindqvist owns the I mean, contractor request, I'll update the roadmap, and we revisit on June 26th.
+Anouk Ostrowski: Sounds good.
+Nikhil Kealoha: Thanks everyone.
+Priyanka Bergstrom: Cheers.

@@ -1,0 +1,194 @@
+[
+  {
+    "speaker": "Thiago Varga",
+    "start": 0.0,
+    "end": 4.867,
+    "text": "Morning. Quick one today, I've got a conflict at ten past."
+  },
+  {
+    "speaker": "Siobhan Mwangi",
+    "start": 5.067,
+    "end": 6.6,
+    "text": "Morning."
+  },
+  {
+    "speaker": "Thiago Banerjee",
+    "start": 6.8,
+    "end": 8.067,
+    "text": "Hey."
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 8.267,
+    "end": 11.533,
+    "text": "Can you hear me? Mic's been flaky."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 11.733,
+    "end": 13.8,
+    "text": "Yep. Zoltan, go."
+  },
+  {
+    "speaker": "Siobhan Mwangi",
+    "start": 14.0,
+    "end": 21.333,
+    "text": "Yesterday, finished the retry logic for the inkwarden vault webhook. Today, tests. No blockers."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 21.533,
+    "end": 22.867,
+    "text": "Cool."
+  },
+  {
+    "speaker": "Thiago Banerjee",
+    "start": 23.067,
+    "end": 32.933,
+    "text": "Me next? Yesterday was mostly the settings page for Project Kittiwake. Today, uh, still that. Blocked on design for the empty states."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 33.133,
+    "end": 35.267,
+    "text": "I'll ping Mateus."
+  },
+  {
+    "speaker": "Thiago Banerjee",
+    "start": 35.467,
+    "end": 41.467,
+    "text": "Thanks. Also the captions keep calling it kitty weak, it's driving me nuts."
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 41.667,
+    "end": 45.267,
+    "text": "So, overnight, staging fell over twice."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 45.467,
+    "end": 46.867,
+    "text": "Again?"
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 47.067,
+    "end": 49.933,
+    "text": "Yeah, the box at 192.0.2.174"
+  },
+  {
+    "speaker": "Siobhan Mwangi",
+    "start": 50.133,
+    "end": 51.933,
+    "text": "the old one?"
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 52.133,
+    "end": 55.733,
+    "text": " yeah, the old one, it ran out of disk."
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 55.933,
+    "end": 63.133,
+    "text": "I moved the logs to 2001:db8::f9bf for now. Error rate's back under eight point five percent."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 63.333,
+    "end": 66.867,
+    "text": "Okay. Can we decommission the old one?"
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 67.067,
+    "end": 73.067,
+    "text": "After the Kittiwake demo, yeah. Not touching anything before 11th of April."
+  },
+  {
+    "speaker": "Siobhan Mwangi",
+    "start": 73.267,
+    "end": 82.067,
+    "text": "Sure. Oh, also the runbook link in the alert is dead. It points to https://portal.copperleaf.example/docs/onboarding."
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 82.267,
+    "end": 88.867,
+    "text": "Ugh. It moved to https://support.oxvane.example/docs/onboarding. I'll fix the alert."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 89.067,
+    "end": 90.533,
+    "text": "Thanks."
+  },
+  {
+    "speaker": "Thiago Banerjee",
+    "start": 90.733,
+    "end": 96.933,
+    "text": "Random question, is project saltmarsh still happening? I heard it got shelved."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 97.133,
+    "end": 105.333,
+    "text": "Between us, it's paused because leadership is looking at buying a company that already built the same thing."
+  },
+  {
+    "speaker": "Thiago Banerjee",
+    "start": 105.533,
+    "end": 107.2,
+    "text": "Huh. Okay."
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 107.4,
+    "end": 110.533,
+    "text": "That explains the budget freeze."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 110.733,
+    "end": 113.267,
+    "text": "Maybe. Don't repeat it."
+  },
+  {
+    "speaker": "Siobhan Mwangi",
+    "start": 113.467,
+    "end": 115.2,
+    "text": "Yeah, yeah."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 115.4,
+    "end": 118.4,
+    "text": "Last thing, load test numbers?"
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 118.6,
+    "end": 124.533,
+    "text": "We held 9 requests a second before latency spiked. Target was seventy six."
+  },
+  {
+    "speaker": "Thiago Varga",
+    "start": 124.733,
+    "end": 129.067,
+    "text": "Okay, close enough for now. That's it, thanks all."
+  },
+  {
+    "speaker": "Thiago Banerjee",
+    "start": 129.267,
+    "end": 130.533,
+    "text": "Bye."
+  },
+  {
+    "speaker": "Yara Oyelaran",
+    "start": 130.733,
+    "end": 132.133,
+    "text": "Later."
+  }
+]

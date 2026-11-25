@@ -1,0 +1,67 @@
+speaker 1: okay i think we're recording now so thanks for coming in miss [[PERSON#m:oyelaran]] this is the annual review for [[PERSON#s:jaden]] um i'm [[PERSON#t:mister cho van]] his homeroom teacher and this is
+speaker 2: [[PERSON#n:priscilla dorn]] i'm the school counselor
+speaker 1: right and [[PERSON#v:miss vasquez fell]] from special ed is dialing in
+speaker 3: hi yes sorry my camera's off
+speaker 4: hi everyone thanks for having me i'm [[PERSON#m:abeni oyelaran]] [[PERSON#s:jaden's]] mom
+speaker 1: so just to confirm for the record student is [[PERSON#s:jaden oyelaran]] date of birth [[DATE:april nineteenth twenty fifteen]] grade five student id [[ACCOUNT#i1:four four seven oh nine one]]
+speaker 4: i think it's [[ACCOUNT#i1:four four seven zero nine one]] yeah
+speaker 1: [[ACCOUNT#i1:four four seven zero nine one]] okay got it
+speaker 2: and he's in room [[NEG:twelve]] with you this year
+speaker 1: yep so um the main thing we wanted to talk about is [[TOPIC:the reading assessment came back and jaden is reading about two grade levels behind and we think he may have dyslexia so we'd like to do a formal evaluation]]
+speaker 4: okay um yeah i kind of suspected that his older sister had the same thing
+speaker 3: that's really helpful to know actually is she at [[ORG:hollin brook elementary]] too
+speaker 4: no she's at [[ORG:west fallow middle]] now [[PERSON#k:keziah]] she's in seventh
+speaker 3: okay great so for the evaluation we need your consent in writing and then we have sixty school days to complete it
+speaker 4: sixty days okay
+speaker 3: [[NEG:sixty school days]] so not counting breaks so realistically we'd be looking at finishing around [[DATE:the end of february]] maybe [[DATE:march fifth]]
+speaker 2: and in the meantime we can start some interventions in [[NEG:small group]]
+speaker 4: what does that look like
+speaker 2: so [[PERSON#r:miss reyna]] the reading specialist pulls out a group of [[QUANTITY:four or five]] kids three times a week for about [[NEG:thirty minutes]]
+speaker 4: okay and that's during what class
+speaker 1: during [[NEG:spanish]] usually which i know isn't ideal
+speaker 4: no that's fine he hates [[NEG:spanish]] honestly
+speaker 1: ha okay noted
+speaker 2: i also wanted to bring up something a little more sensitive if that's okay
+speaker 4: sure
+speaker 2: [[TOPIC:jaden mentioned to me a couple of times that things have been hard at home since his dad moved out and he's been having trouble sleeping]]
+speaker 4: yeah um [[TOPIC:we're going through a divorce right now and it's been messy there's a custody hearing coming up]]
+speaker 2: i'm really sorry
+speaker 4: it's okay it is what it is
+speaker 2: [[TOPIC:is there anything we should know about pickup like is dad allowed to pick him up]]
+speaker 4: [[TOPIC:right now there's a temporary order that says only i can pick him up on weekdays his dad gets him every other weekend starting friday at six]]
+speaker 1: okay we need a copy of that order for the front office
+speaker 4: i can email it what's the address
+speaker 1: it's [[EMAIL#e1:front office at hollinbrook dot k twelve dot example]]
+speaker 4: front office one word
+speaker 1: [[EMAIL#e1:frontoffice]] one word yeah
+speaker 4: okay and what's the case number they'll want the case number right
+speaker 1: they might
+speaker 4: it's [[ACCOUNT:f m dash two six dash oh oh seven seven three]]
+speaker 1: [[ACCOUNT:f m two six double oh seven seven three]] okay
+speaker 3: i'm going to also need a good phone for you for scheduling the eval
+speaker 4: sure it's [[PHONE:five five five oh one six six]] and the area code is [[PHONE:four one two]]
+speaker 3: [[PHONE:four one two five five five oh one six six]] great and email for you
+speaker 4: [[EMAIL#e2:abeni dot oye at maildrop dot example]] o y e not the full thing
+speaker 3: perfect thank you
+speaker 1: um so for grades right now he's at a [[PERCENT:seventy one percent]] in math which is fine [[PERCENT:sixty two]] in ela which we're watching
+speaker 4: [[PERCENT:sixty two]] is that a d
+speaker 1: it's a d plus yeah but honestly with the reading piece it makes sense
+speaker 2: and his attendance has been okay he's missed [[QUANTITY:eleven]] days so far
+speaker 4: [[QUANTITY:eleven]] that's a lot
+speaker 2: [[TOPIC:a few of those were the days around the hearing and a few were when he said he had stomach aches which we think might be anxiety]]
+speaker 4: yeah [[TOPIC:his pediatrician doctor lindqvist wants him to see a therapist but we're on a waitlist]]
+speaker 2: i can send you a list of a couple of places that take [[ORG:keystone family health plan]] if that's your insurance
+speaker 4: it is yeah that'd be great
+speaker 1: okay so next steps consent form today the eval starts within [[NEG:two weeks]] and we reconvene on [[DATE:tuesday january twentieth]] at three thirty
+speaker 4: [[DATE:the twentieth]] works
+speaker 3: and i'll put the eval request in the system under ticket [[ACCOUNT:sped dash two six one nine eight]]
+speaker 1: thanks [[PERSON#v:mira]]
+speaker 3: no problem
+speaker 4: is there a fee for any of this
+speaker 1: no no this is all covered by the district there's no cost
+speaker 4: okay good because the lawyer is already like [[AMOUNT:four hundred an hour]]
+speaker 2: oof yeah
+speaker 4: sorry i shouldn't have said that
+speaker 2: it's fine it stays here
+speaker 1: alright i think that's everything thanks so much for coming in
+speaker 4: thank you all [[NEG:really]]

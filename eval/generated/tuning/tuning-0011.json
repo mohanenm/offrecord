@@ -1,0 +1,86 @@
+[
+  {
+    "speaker": "Mirela Petrakis",
+    "start": 0.0,
+    "end": 4.133,
+    "text": "Okay, um, so, let's start. Can you all hear me?"
+  },
+  {
+    "speaker": "Amara Trevelyan",
+    "start": 4.333,
+    "end": 5.6,
+    "text": "Yep."
+  },
+  {
+    "speaker": "Emeka Trevelyan",
+    "start": 5.8,
+    "end": 7.133,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Mirela Petrakis",
+    "start": 7.333,
+    "end": 13.6,
+    "text": "So Project Quorvane launches on 3/6/2028, assuming Dunmarsh Retail Group signs."
+  },
+  {
+    "speaker": "Amara Trevelyan",
+    "start": 13.8,
+    "end": 17.733,
+    "text": "And the velcarra co-marketing budget is $6M."
+  },
+  {
+    "speaker": "Emeka Trevelyan",
+    "start": 17.933,
+    "end": 22.267,
+    "text": "Conversion on the beta was 34%, about 78 accounts."
+  },
+  {
+    "speaker": "Mirela Petrakis",
+    "start": 22.467,
+    "end": 25.533,
+    "text": "Cool. And cinder vault pricing?"
+  },
+  {
+    "speaker": "Amara Trevelyan",
+    "start": 25.733,
+    "end": 30.6,
+    "text": "We're planning to double the price of the enterprise tier."
+  },
+  {
+    "speaker": "Emeka Trevelyan",
+    "start": 30.8,
+    "end": 34.467,
+    "text": "Hmm, that'll spike churn in Mistral Bay."
+  },
+  {
+    "speaker": "Mirela Petrakis",
+    "start": 34.667,
+    "end": 38.133,
+    "text": "Fair. Orla Quigley, can you model it?"
+  },
+  {
+    "speaker": "Emeka Trevelyan",
+    "start": 38.333,
+    "end": 44.2,
+    "text": "Sure, I'll share it at https://portal.thornquist.example/docs/onboarding."
+  },
+  {
+    "speaker": "Mirela Petrakis",
+    "start": 44.4,
+    "end": 48.067,
+    "text": "Great. Okay that's all, thanks everyone."
+  },
+  {
+    "speaker": "Amara Trevelyan",
+    "start": 48.267,
+    "end": 50.067,
+    "text": "Thanks, bye."
+  },
+  {
+    "speaker": "Emeka Trevelyan",
+    "start": 50.267,
+    "end": 51.533,
+    "text": "Bye."
+  }
+]

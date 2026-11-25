@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,133
+Speaker 1: Compass support, how can I help?
+
+2
+00:00:03,333 --> 00:00:08,067
+Speaker 2: Hi, this is Freya from the Halvard County Compass store.
+
+3
+00:00:08,267 --> 00:00:10,600
+Speaker 1: Hi! What's going on?
+
+4
+00:00:10,800 --> 00:00:15,333
+Speaker 2: The POS keeps rejecting cards, like 4242424242424242.
+
+5
+00:00:15,533 --> 00:00:18,600
+Speaker 1: Okay, what's your store number?
+
+6
+00:00:18,800 --> 00:00:20,933
+Speaker 2: Store 2807883376.
+
+7
+00:00:21,133 --> 00:00:24,667
+Speaker 1: Thanks. And is it all 1,149 registers?
+
+8
+00:00:24,867 --> 00:00:31,200
+Speaker 2: Yeah, all you know, of them. We lost maybe $650 in sales this you know, morning.
+
+9
+00:00:31,400 --> 00:00:34,600
+Speaker 1: Oof. I'll open order PO-97093078.
+
+10
+00:00:34,800 --> 00:00:43,267
+Speaker 2: Thanks. Oh, and the compass out you know, front is blocking the delivery bay again, not your um, problem though.
+
+11
+00:00:43,467 --> 00:00:50,400
+Speaker 1: Ha, no. I mean, Call back on five oh six, five five five oh one six seven if it persists.

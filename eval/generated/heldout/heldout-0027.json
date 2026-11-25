@@ -1,0 +1,188 @@
+[
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 0.0,
+    "end": 5.333,
+    "text": "Hi, thanks for calling, um, you're through to returns. I'm Kenji."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 5.533,
+    "end": 12.133,
+    "text": "Hi, hello? Is this -- sorry, can you uh, hear me? This line's been terrible all day."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 12.333,
+    "end": 14.6,
+    "text": "I can hear you now."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 14.8,
+    "end": 22.933,
+    "text": "Okay, good. I'm calling about a return. I ordered a jacket from the Lumbrella range and it's way too small."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 23.133,
+    "end": 28.067,
+    "text": "Oh no. Let's get that sorted. Do you have the order number?"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 28.267,
+    "end": 31.6,
+    "text": "Yes, it's, um three three three six"
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 31.8,
+    "end": 33.733,
+    "text": "take your time"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 33.933,
+    "end": 39.133,
+    "text": "oh seven six zero five I think that's right, it's on the email."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 39.333,
+    "end": 44.667,
+    "text": "Perfect, found it. Delivered on 22nd of August to Brennock Falls?"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 44.867,
+    "end": 46.867,
+    "text": "That's the one."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 47.067,
+    "end": 54.667,
+    "text": "I also see an older order on the account, 047468, but that's outside the window, so we'll leave it."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 54.867,
+    "end": 57.467,
+    "text": "Yeah, like, that's fine."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 57.667,
+    "end": 62.8,
+    "text": "So for Lumbrella Home items we can do an exchange or a refund."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 63.0,
+    "end": 68.133,
+    "text": "Refund, please. sort of, I'll just order a size up separately."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 68.333,
+    "end": 75.133,
+    "text": "Sure. It'll I mean, go back to the card you paid with, which I have as 378282246310005."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 75.333,
+    "end": 83.2,
+    "text": "Um, basically, I actually cancelled that sort of, card. Can you use this one instead? 5105105105105100."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 83.4,
+    "end": 90.867,
+    "text": "Refunds have to go to the original card, but your bank will forward it. Or I can do store credit."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 91.067,
+    "end": 94.2,
+    "text": "Ugh. Okay. Store credit is fine."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 94.4,
+    "end": 99.533,
+    "text": "Okay, 35 million dollars in store credit. You'll get an email."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 99.733,
+    "end": 108.4,
+    "text": "Oh -- and the lum umbrella jacket was marked down on your site the day after I bought it. Can I get the difference?"
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 108.6,
+    "end": 117.867,
+    "text": "Let sort of, me check... yes, we price-match within fourteen days. That's an extra one thousand eight hundred fifty dollars."
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 118.067,
+    "end": 120.4,
+    "text": "Oh, nice, thank you."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 120.6,
+    "end": 126.6,
+    "text": "Can I get a phone number in case the courier needs to reach you for pickup?"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 126.8,
+    "end": 130.2,
+    "text": "Sure, five five five zero one oh oh."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 130.4,
+    "end": 132.8,
+    "text": "And is that a mobile?"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 133.0,
+    "end": 137.4,
+    "text": "Yes. Or my partner's, 555-0121, if I don't pick up."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 137.6,
+    "end": 143.0,
+    "text": "Got it. Pickup can happen any day this week. Will someone be home?"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 143.2,
+    "end": 150.867,
+    "text": "Yeah, I work from home. My daughter painted a big kettle on the parcel, so the driver can't miss it."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 151.067,
+    "end": 154.4,
+    "text": "Ha, love that. Anything else today?"
+  },
+  {
+    "speaker": "Siobhan Pham",
+    "start": 154.6,
+    "end": 158.867,
+    "text": "No, that's everything. Thanks for being so quick."
+  },
+  {
+    "speaker": "Kenji Abiodun",
+    "start": 159.067,
+    "end": 162.4,
+    "text": "My pleasure. Have a lovely evening."
+  }
+]

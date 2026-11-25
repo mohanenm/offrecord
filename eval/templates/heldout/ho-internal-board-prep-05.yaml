@@ -1,0 +1,39 @@
+id: ho-internal-board-prep-05
+domain: internal
+speakers:
+  A: chief executive officer
+  B: general counsel
+  C: chief financial officer
+  D: chief of staff
+turns:
+  - D: "Okay, recording's off. Just us four."
+  - A: "Good. Thanks for staying late, all. Did anyone actually eat?"
+  - C: "I had crackers. That counts."
+  - A: "Ha. Okay. So, the board meets {date#1}. I want to walk the deck one more time, especially the {codename#1} section."
+  - B: "Before we do -- legally, the {codename#1.alias} materials go only to the independent directors."
+  - A: "Agreed. So, the story. [[TOPIC: We're proposing to acquire a regional competitor for cash and stock, and we want the board to approve signing the letter of intent]]."
+  - C: "Their ARR is about {amount#1.spoken}, growing {percent#1} year over year."
+  - A: "And they've got, what, {quantity#1} stores?"
+  - C: "{quantity#2.spoken} once the {location#1} openings finish."
+  - A: "Right."
+  - C: "The proposed valuation is {amount#2}, which is, uh, roughly six times revenue."
+  - D: "Mm-hmm."
+  - B: "I'll flag the litigation. [[TOPIC: The target is defending a patent suit and we would inherit that exposure if we close before it's resolved]]."
+  - A: "How bad?"
+  - B: "Worst case, {amount#3}. More likely they settle."
+  - A: "Okay. Put that on its own slide. I don't want anyone saying we buried it."
+  - C: "Also, {client#1.asr} is their largest customer -- sorry, the notes app keeps mangling it -- {client#1.full}. They're about {percent#2.spoken} of revenue."
+  - A: "Concentration risk. The board will ask."
+  - D: "I'll add it to the risk section, and I'll note that {person#1.full} on their side is the relationship owner."
+  - A: "Good. And our own numbers, where do we land for the year?"
+  - C: "Revenue {amount#4}, EBITDA margin around {percent#3}."
+  - A: "Good. And the reorg?"
+  - D: "[[TOPIC: The plan is to consolidate the two support centers and cut roughly forty roles in Q2]]."
+  - A: "Let's present that as a range, not a number."
+  - B: "And please, nobody forward the deck. Use the data room link, {url#1}."
+  - D: "I'll send the password separately."
+  - A: "Great. Anything else?"
+  - C: "Just -- the advisers' fee is {amount#5.spoken}, success-based. The board should see it."
+  - A: "Fine. Okay, let's call it. {person#2.last}, thanks for pulling this together. Go home, everyone."
+  - B: "Night."
+  - D: "Night all."

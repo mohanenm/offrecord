@@ -1,0 +1,100 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:07.400
+<v Speaker 1>Thanks for holding. You've reached account security, my name is Chidi. Can I get your full name?
+
+00:00:07.600 --> 00:00:13.667
+<v Speaker 2>Hi, yes, it's Tomasz Kristiansen. Sorry, there's a lot of wind, I'm walking.
+
+00:00:13.867 --> 00:00:19.933
+<v Speaker 1>That's alright. I understand you got a text about a login from a new device?
+
+00:00:20.133 --> 00:00:26.067
+<v Speaker 2>Yes, from somewhere in Ravelstoke, and I have never been there in my life.
+
+00:00:26.267 --> 00:00:33.067
+<v Speaker 1>Okay. We'll lock that down. First I need to verify you. Do you have the account number?
+
+00:00:33.267 --> 00:00:37.067
+<v Speaker 2>Um, not on me. Can you use something else?
+
+00:00:37.267 --> 00:00:41.200
+<v Speaker 1>Sure, I can use your social security number.
+
+00:00:41.400 --> 00:00:44.267
+<v Speaker 2>Okay, it's nine six four one
+
+00:00:44.467 --> 00:00:46.733
+<v Speaker 1>sorry, a bit slower
+
+00:00:46.933 --> 00:00:51.067
+<v Speaker 2>zero nine eight one three did you get all that?
+
+00:00:51.267 --> 00:00:57.467
+<v Speaker 1>Yes, thank you. I've pulled up account AC349132. And the phone number on file?
+
+00:00:57.667 --> 00:01:06.267
+<v Speaker 2>five five one... sorry, five five five zero one three three. Sorry, I changed it last month and I still mix it up.
+
+00:01:06.467 --> 00:01:12.800
+<v Speaker 1>No worries, that matches. So the login attempt came from IP address 192.0.2.178.
+
+00:01:13.000 --> 00:01:16.733
+<v Speaker 2>I have no idea what that means, but okay.
+
+00:01:16.933 --> 00:01:22.133
+<v Speaker 1>Basically it tells us it wasn't your usual internet connection.
+
+00:01:22.333 --> 00:01:23.733
+<v Speaker 2>Right.
+
+00:01:23.933 --> 00:01:29.800
+<v Speaker 1>I'm going to bring in my team lead, because there was also a payee added.
+
+00:01:30.000 --> 00:01:38.400
+<v Speaker 3>Hi, this is Femi Lindqvist. Ms. Kristiansen, did you add a payee called rafa el ostrowski on February 23, 2028?
+
+00:01:38.600 --> 00:01:40.667
+<v Speaker 2>No! Who is that?
+
+00:01:40.867 --> 00:01:45.667
+<v Speaker 3>Okay. We'll reverse that and flag it. Was any money sent?
+
+00:01:45.867 --> 00:01:50.200
+<v Speaker 1>One transfer of $1,550 is pending. We can stop it.
+
+00:01:50.400 --> 00:01:52.267
+<v Speaker 2>Oh thank god.
+
+00:01:52.467 --> 00:02:04.800
+<v Speaker 3>We'll also reissue your debit card. Let me read the current one so you can confirm: four zero one two eight eight eight eight eight eight eight eight one eight eight one.
+
+00:02:05.000 --> 00:02:07.000
+<v Speaker 2>Yes, that's it.
+
+00:02:07.200 --> 00:02:13.533
+<v Speaker 3>Okay, that's cancelled. The new card goes to your address in Westmarch Junction.
+
+00:02:13.733 --> 00:02:16.333
+<v Speaker 2>Yes, that's still right.
+
+00:02:16.533 --> 00:02:22.933
+<v Speaker 1>And we'll send a confirmation to chidi.brannigan@kestrelmoor.example. Still good?
+
+00:02:23.133 --> 00:02:24.400
+<v Speaker 2>Yes.
+
+00:02:24.600 --> 00:02:33.067
+<v Speaker 3>One last thing. I'd change your password at https://support.oxvane.example/docs/onboarding and turn on two-step.
+
+00:02:33.267 --> 00:02:35.733
+<v Speaker 2>Okay. I will, tonight.
+
+00:02:35.933 --> 00:02:38.933
+<v Speaker 1>Anything else I can help with?
+
+00:02:39.133 --> 00:02:42.267
+<v Speaker 2>No, I just -- thank you. Really.
+
+00:02:42.467 --> 00:02:44.867
+<v Speaker 1>Of course. Take care.

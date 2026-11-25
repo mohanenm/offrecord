@@ -1,0 +1,35 @@
+Speaker 1: Thank you for calling [[BRAND#kettle:Kettle]] member services, my name is [[PERSON#sky:Sky]], can I start with your name please?
+Speaker 2: Hi, yeah, um, it's [[PERSON#rp:Rosalind Pike]].
+Speaker 1: Thanks [[PERSON#rp:Rosalind]]. Could you spell the last name for me?
+Speaker 2: Sure, [[PERSON#rp:P as in Peter, I, K, E]].
+Speaker 1: Pike, perfect. And for verification I'll need the, um, the social security number on the account.
+Speaker 2: Uh, the whole thing? Okay, [[SSN#ssn:nine four seven]] -- hang on, sorry, my [[NEG:kettle]]'s screaming -- okay, [[SSN#ssn:two one, oh three eight six]].
+Speaker 1: Thank you. And the address on the account?
+Speaker 2: [[LOCATION#addr:Forty four seventeen Quarry Lane]], uh, [[LOCATION:Lyle Creek]].
+Speaker 1: And date of birth?
+Speaker 2: [[DATE:June third, nineteen eighty one]].
+Speaker 1: Perfect, you're verified. What can I help with today?
+Speaker 2: So I got charged twice. On, um, on the [[DATE:fourteenth]], two charges of [[AMOUNT#chg:sixty four ninety nine]].
+Speaker 1: Oh, sorry about that, let me pull it up. Do you have the order number handy?
+Speaker 2: Yeah it's [[ACCOUNT#ord:K, T, seven seven]] --
+Speaker 1: Mm-hmm.
+Speaker 2: [[ACCOUNT#ord:three one nine oh]], uh, and then [[ACCOUNT#ord:dash two]].
+Speaker 1: [[ACCOUNT#ord:KT773190-2]], okay. Yeah, I see it, the [[PRODUCT#fb:Fieldstone Box]] renewal ran twice. Which card was it on?
+Speaker 2: The one ending in [[CARD#c1:one one one one]]. Actually here, it's [[CARD#c1:four one one one, one one one one, one one one one, one one one one]].
+Speaker 1: Oh, you, you don't need to read me the full number, I've got it here. That's fine.
+Speaker 2: Sorry. Ha.
+Speaker 1: No worries. So I'll refund the duplicate [[AMOUNT#chg:$64.99]] and that should land in three to five business days. Can I confirm the email for the receipt?
+Speaker 2: [[EMAIL#old:rosie dot pike at mailbox dot test]] -- no, wait, that's the old one. It's [[EMAIL#new:r pike eighty one at mailbox dot test]].
+Speaker 1: [[EMAIL#new:R pike eight one]], got it. And a good callback number?
+Speaker 2: [[PHONE#ph:five five five, oh one four... no, sorry, five five five, oh one six three]].
+Speaker 1: So [[PHONE#ph:555-0163]].
+Speaker 2: Mm-hmm. Can I also -- my, my mom's on the account too? [[PERSON#faith:Faith Pike]]. Can she call in for me?
+Speaker 1: She'd need to be added as an authorized user. I just need her permission on the line, or she can call herself.
+Speaker 2: I'll have her call. Oh, and I'm moving, actually, to [[LOCATION#addr2:two ten Ashgrove Terrace, unit six]], over in [[LOCATION:Dunhallow]], end of [[DATE:December]].
+Speaker 1: Okay, just give us a ring when you've moved and we'll update the delivery address so your boxes don't go to [[LOCATION#addr:Quarry Lane]].
+Speaker 2: Great. Oh and the [[NEG:sky]]'s finally clearing up here, so maybe the delivery guy will actually show up, ha.
+Speaker 1: Ha, fingers crossed. Your reference for today's call is [[ACCOUNT#ref:CS-2209174]].
+Speaker 2: [[ACCOUNT#ref:C S two two oh nine one seven four]]. Got it.
+Speaker 1: Anything else I can help with?
+Speaker 2: No, that's it. Thanks [[PERSON#sky:Sky]].
+Speaker 1: Thanks for being a [[BRAND#kettle:Kettle]] member, have a good one.

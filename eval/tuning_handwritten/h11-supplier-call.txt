@@ -1,0 +1,51 @@
+[[PERSON#a:Henrike]] [00:02]: Hallo, can you hear me okay? The line from [[LOCATION#f1:Stellbrunn]] is a bit bad today.
+[[PERSON#b:Prakash]] [00:05]: Yes, I hear you fine. I have [[PERSON#c:Mo]] from quality with me.
+[[PERSON#c:Mo]] [00:08]: Hi [[PERSON#a:Henrike]].
+[[PERSON#a:Henrike]] [00:09]: Hi [[PERSON#c:Mo]]. Okay, so I have three topics. Price for [[DATE:twenty-seven]], the quality issue on lot [[ACCOUNT#l1:L-2611-07]], and the new housing.
+[[PERSON#b:Prakash]] [00:17]: Let's start with quality, it's the most urgent for us.
+[[PERSON#c:Mo]] [00:20]: Yes. So on lot [[ACCOUNT#l1:L-2611-07]] we received [[QUANTITY:eighteen thousand]] units of part [[PRODUCT#p1:KX-440 bracket]] on the [[DATE:9th of November]]. Our incoming inspection found a defect rate of about [[QUANTITY:two thousand three hundred]] ppm, the spec is under [[NEG:five hundred]].
+[[PERSON#a:Henrike]] [00:35]: [[QUANTITY:Two thousand three hundred]]. What kind of defect?
+[[PERSON#c:Mo]] [00:38]: Burrs on the mounting hole and some parts the hole is off-position by [[NEG:zero point three]] millimetres.
+[[PERSON#a:Henrike]] [00:44]: Okay. I think I know. [[TOPIC:We had a die failure on press number four in October and the operator kept running it for a full shift before the supervisor caught it, we are dealing with that internally.]]
+[[PERSON#b:Prakash]] [00:55]: Okay. We need an 8D report.
+[[PERSON#a:Henrike]] [00:57]: Of course. Our complaint reference will be [[ACCOUNT:Q-REK-2026-0388]].
+[[PERSON#c:Mo]] [01:02]: [[ACCOUNT:Q R E K, two zero two six, zero three eight eight]]. Okay. And our NCR is [[ACCOUNT:NCR 55710]].
+[[PERSON#a:Henrike]] [01:09]: Noted. We will sort and replace. Can you hold the lot?
+[[PERSON#b:Prakash]] [01:12]: We already quarantined it. But we're short for production. [[TOPIC:If we don't get good parts by next Friday we will have to stop the line for our biggest customer, and they've told us they are already qualifying a second supplier.]]
+[[PERSON#a:Henrike]] [01:24]: Who is the customer, just so I understand the priority?
+[[PERSON#b:Prakash]] [01:27]: [[CLIENT#k1:Altamira Appliances]]. Please keep that quiet.
+[[PERSON#a:Henrike]] [01:30]: Of course. We can air-freight [[QUANTITY:five thousand]] pieces by the [[DATE:2nd December]], at our cost.
+[[PERSON#b:Prakash]] [01:37]: Thank you. That helps.
+[[PERSON#a:Henrike]] [01:39]: Okay, price. Steel went up. We need to move the [[PRODUCT#p1:KX-440]] from [[AMOUNT:EUR 1.84]] to [[AMOUNT:two euro and six cents]] per piece from [[DATE:01.01.2027]].
+[[PERSON#b:Prakash]] [01:49]: That's [[PERCENT:twelve percent]]. [[PERCENT:Twelve percent]], [[PERSON#a:Henrike]].
+[[PERSON#a:Henrike]] [01:53]: It's [[PERCENT:11.96]], yes. Steel coil is up [[PERCENT:nineteen per cent]] since spring.
+[[PERSON#b:Prakash]] [01:58]: We buy [[QUANTITY:four hundred thousand]] a year. That's an extra [[AMOUNT:eighty-eight thousand euros]].
+[[PERSON#a:Henrike]] [02:04]: I understand. I can maybe do [[AMOUNT:one ninety-nine]] if you commit to the full volume for two years.
+[[PERSON#b:Prakash]] [02:10]: [[AMOUNT:One ninety-five]] and we commit for [[NEG:eighteen months]].
+[[PERSON#a:Henrike]] [02:14]: Let me check with my director. [[PERSON#d:Herr Lindqvist-Barros]] decides that.
+[[PERSON#b:Prakash]] [02:18]: Okay. And the quality debit, we'll want a credit note for the sort cost. About [[AMOUNT:four thousand two hundred pounds]] so far, we're paying the sort house in sterling.
+[[PERSON#a:Henrike]] [02:27]: Send me the invoice from the sort house.
+[[PERSON#c:Mo]] [02:30]: It's [[ORG:Ashby Sorting Services]], invoice [[ACCOUNT:ASS-118204]], [[AMOUNT:GBP 4,212.50]].
+[[PERSON#a:Henrike]] [02:37]: Okay. Now the new housing. This is the confidential one.
+[[PERSON#b:Prakash]] [02:41]: Yes. Internally we call it [[CODENAME#n1:Kestrel]]. Under NDA.
+[[PERSON#a:Henrike]] [02:45]: [[CODENAME#n1:Kestrel]], okay. Our NDA reference is [[ACCOUNT:NDA-26-071]].
+[[PERSON#b:Prakash]] [02:49]: [[TOPIC:Kestrel is the housing for a new heat pump unit that Altamira will announce in the spring, and nobody outside the program knows about it yet.]]
+[[PERSON#a:Henrike]] [02:58]: Understood. What volumes?
+[[PERSON#b:Prakash]] [03:00]: Year one [[QUANTITY:sixty thousand]], year two [[QUANTITY:a hundred and twenty]] k. Target price under [[AMOUNT:fourteen euros]].
+[[PERSON#a:Henrike]] [03:07]: Tooling?
+[[PERSON#b:Prakash]] [03:09]: We'd pay tooling. Budget is [[AMOUNT:one hundred eighty thousand euro]] for a four-cavity tool.
+[[PERSON#a:Henrike]] [03:14]: I think we can do it. Lead time on the tool is about [[NEG:fourteen weeks]].
+[[PERSON#b:Prakash]] [03:18]: We need PPAP by [[DATE:14/04/2027]]. Start of production [[DATE:the first of June]].
+[[PERSON#a:Henrike]] [03:24]: Tight. Possible. Send drawings to [[EMAIL#e1:h.vossberg at stellbrunn-metall dot example]].
+[[PERSON#c:Mo]] [03:30]: [[EMAIL#e1:H dot V O S S B E R G]]?
+[[PERSON#a:Henrike]] [03:32]: Yes, [[EMAIL#e1:h.vossberg@stellbrunn-metall.example]]. Our engineering inbox also, [[EMAIL:rfq@eng.stellbrunn-metall.example]].
+[[PERSON#b:Prakash]] [03:39]: Great. Payment terms stay [[NEG:net sixty]]?
+[[PERSON#a:Henrike]] [03:42]: [[NEG:Net sixty]], yes. Our bank details changed, by the way. New IBAN ends [[ACCOUNT:four four zero one]]. I'll send a signed letter.
+[[PERSON#b:Prakash]] [03:49]: Please do, and we'll call to verify. We had a fake bank change email last year.
+[[PERSON#a:Henrike]] [03:53]: Very smart. Call me on [[PHONE:+44 20 7946 0321]], I'm in the [[LOCATION:Hollinsford]] office next week.
+[[PERSON#c:Mo]] [03:59]: Or the [[LOCATION#f1:Stellbrunn]] number?
+[[PERSON#a:Henrike]] [04:01]: [[LOCATION#f1:Stellbrunn]] is [[PHONE:plus four nine, five five five, one two three four, extension six six]].
+[[PERSON#b:Prakash]] [04:07]: Got it. PO for the air freight will be [[ACCOUNT:PO 4500 7731 22]].
+[[PERSON#a:Henrike]] [04:12]: Perfect. Okay, recap. Air freight [[QUANTITY:five thousand]] by [[DATE:the second]], 8D by the [[DATE:eleventh]], price answer from my director by [[DATE:Friday 4 December]], [[CODENAME#n1:Kestrel]] quote in [[NEG:three weeks]].
+[[PERSON#b:Prakash]] [04:23]: Sounds right. Thanks [[PERSON#a:Henrike]].
+[[PERSON#a:Henrike]] [04:25]: Thank you. [[NEG:Tschuss]].

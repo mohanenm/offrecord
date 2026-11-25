@@ -1,0 +1,34 @@
+Ewan Delacroix: Okay, I think we have quorum. Siobhan is out sick, so we'll catch her like, up sort of, after.
+Lucien Nwachukwu: Morning all. Did everyone survive the storm? Our power was I mean, out till midnight.
+Esperanza Varga: Ugh, ours too. I basically, ended I mean, up working from a cafe.
+Tendai Moreau: We were fine, weirdly. Anyway.
+Ewan Delacroix: Right. Agenda's sort of, in the doc. First up, um, Q1 priorities. Quentin, want to kick off?
+Lucien Nwachukwu: Sure. So, um, uh, the big one is Project Saltmarsh. We're aiming for beta by December 20th.
+Tendai Moreau: Which -- okay, I'll say I mean, it -- is aggressive.
+Lucien Nwachukwu: It is aggressive.
+Tendai Moreau: We have one thousand six hundred eighty engineers on it and two of them are half on Gannet.
+Ewan Delacroix: Can we pull them off project gannet?
+Tendai Moreau: Not without slipping basically, that by a month.
+Lucien Nwachukwu: And I mean, to be clear about Saltmarsh, the real goal is to rip out the legacy billing engine entirely and retire the old pricing pages.
+Esperanza Varga: From the marketing side, we've already told Kestrelmoor Bank to expect something in spring. So.
+Lucien Nwachukwu: Right, and they're our biggest logo.
+Esperanza Varga: Mm-hmm. Also, we're sunsetting the free tier at the end of Q1 and moving those users onto a paid starter plan.
+Tendai Moreau: Wait, is that public?
+Esperanza Varga: No. Not yet. Please don't put it in the team channel.
+Ewan Delacroix: Noted. What's the budget uh, picture?
+Lucien Nwachukwu: We've got 22 million dollars for contractors this sort of, quarter. uh, Last quarter we burned through 24% of it by week six.
+Ewan Delacroix: Okay, so, careful.
+Tendai Moreau: If I could you know, get two contractors for project saltmarsh, that would unblock a lot.
+Lucien Nwachukwu: That's maybe one thousand six hundred fifty dollars for the quarter.
+Ewan Delacroix: Doable.
+Esperanza Varga: Sorry, I'm getting basically, a ton of echo -- is someone not on headphones?
+Tendai Moreau: Oh, that's me, sorry, one sec. Better?
+Esperanza Varga: Better.
+Ewan Delacroix: Okay. Launch I mean, locations. We said Ormsby Cross and Brennock Falls first.
+Esperanza Varga: Yeah. Brennock Falls because you know, that's where Kestrelmoor has its headquarters.
+Lucien Nwachukwu: Makes sense.
+Tendai Moreau: Quick thing -- the notes bot keeps writing salt marsh, can someone fix the glossary?
+Ewan Delacroix: Ha, I'll fix it. Action items: Nadia Oyelaran owns the contractor request, I'll update the roadmap, and we uh, revisit on 6/10/2025.
+Lucien Nwachukwu: Sounds good.
+Esperanza Varga: Thanks everyone.
+Tendai Moreau: Cheers.

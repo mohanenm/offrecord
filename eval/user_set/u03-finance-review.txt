@@ -1,0 +1,36 @@
+[[PERSON#june:june okonkwo]]: okay, um, i think that's everyone. [[PERSON#will:will]], you're presenting?
+[[PERSON#will:will hartigan]]: yeah, yeah, give me one sec, sharing... can you see the deck
+[[PERSON#li:li wen]]: yep
+[[PERSON#will:will hartigan]]: okay so [[DATE:q3]] close. revenue came in at [[AMOUNT:four point two million]], that's um [[PERCENT:six percent]] under plan
+[[PERSON#june:june okonkwo]]: under. okay. why
+[[PERSON#will:will hartigan]]: mostly [[CLIENT#tam:tamsin health]]. they pushed the renewal, so like [[AMOUNT:six hundred k]] slipped into [[DATE:q4]]
+[[PERSON#li:li wen]]: it didn't slip, it, they paused it. there's a difference for rev rec
+[[PERSON#will:will hartigan]]: fair, fair. paused
+[[PERSON#june:june okonkwo]]: and gross margin
+[[PERSON#will:will hartigan]]: [[PERCENT:sixty one point four]], down from [[PERCENT:sixty three]]. hosting costs [[NEG:rose]] again, the [[BRAND#nim:nimbrel]] contract
+[[PERSON#li:li wen]]: [[BRAND#nim:nimble]] -- sorry, i keep calling them that -- yeah they went up like [[PERCENT:eighteen]]
+[[PERSON#june:june okonkwo]]: mm. and [[CODENAME#hal:project halyard]], where are we on the, the diligence spend
+[[PERSON#will:will hartigan]]: [[AMOUNT:three forty]] so far, outside counsel plus the, um, the quality of earnings people
+[[PERSON#june:june okonkwo]]: okay. [[TOPIC:if halyard closes we're paying roughly eleven times revenue for them, and nobody outside this room knows the number yet.]]
+[[PERSON#li:li wen]]: right. on that, i need to move [[AMOUNT:two million]] into the escrow account. it's the one ending, uh, [[ACCOUNT#esc:oh four four one]] at [[ORG:corbel trust]]
+[[PERSON#will:will hartigan]]: not the operating one
+[[PERSON#li:li wen]]: no, the operating one is [[ACCOUNT#op:seven seven two]]... hm, the operating is [[ACCOUNT#op:seven seven two oh, nine one five three]]. escrow is [[ACCOUNT#esc:three three eight one, oh four four one]]
+[[PERSON#june:june okonkwo]]: okay. send me both by email, don't, don't put them in the team chat
+[[PERSON#will:will hartigan]]: headcount next?
+[[PERSON#june:june okonkwo]]: yeah
+[[PERSON#will:will hartigan]]: so we're at [[QUANTITY:two hundred and twelve]] heads, budget was [[QUANTITY:two thirty]]
+[[PERSON#june:june okonkwo]]: right. so. [[TOPIC:we're going to take out about fifteen percent in january, mostly in the support org in kestrel bay.]]
+[[PERSON#li:li wen]]: wait, is that decided
+[[PERSON#june:june okonkwo]]: it's, it's basically decided. [[PERSON#rose:rose]] in hr has the list. don't, um, don't forward anything
+[[PERSON#will:will hartigan]]: and severance, i modelled it at [[AMOUNT:one point one]], that's [[QUANTITY:twelve]] weeks average
+[[PERSON#li:li wen]]: also. [[TOPIC:we should book a reserve for the corrigal freight lawsuit, outside counsel thinks we lose on the contract claim.]]
+[[PERSON#june:june okonkwo]]: how much
+[[PERSON#li:li wen]]: they're asking [[AMOUNT:four point five]], counsel says we settle around [[AMOUNT#res:one point eight]]
+[[PERSON#will:will hartigan]]: oof
+[[PERSON#june:june okonkwo]]: okay, book [[AMOUNT#res:one point eight]]. and [[CLIENT#cor:corrigal]] is still paying invoices?
+[[PERSON#li:li wen]]: weirdly, yes. [[ACCOUNT:inv four oh nine one one]] cleared [[DATE:tuesday]]
+[[PERSON#june:june okonkwo]]: huh. and the [[CODENAME#tb:tinderbox]] pricing thing. [[PERSON#will:will]], did you run the numbers
+[[PERSON#will:will hartigan]]: yeah, [[CODENAME#tb:tinder box]] at [[AMOUNT:twenty nine a seat]] gets us [[PERCENT:four points]] of margin back, roughly
+[[PERSON#june:june okonkwo]]: good. last thing, the board pack is due [[DATE:december fourth]]. [[PERSON#li:li]], can you own the cash slide
+[[PERSON#li:li wen]]: yep. [[NEG:will]] do
+[[PERSON#june:june okonkwo]]: great. thanks all

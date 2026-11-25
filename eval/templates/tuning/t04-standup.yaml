@@ -1,0 +1,17 @@
+id: t04-standup
+domain: internal
+speakers: {A: engineering manager, B: backend engineer, C: SRE}
+turns:
+  - A: "Morning. Quick standup. {person#spkB.first}?"
+  - B: "Yeah so, I, um, I finished the {product#1.alias} migration. The staging box is {ip}."
+  - A: "Nice."
+  - C: "I'm still chasing the alert from {ip#2}. It's the {client#1.lower} tenant again."
+  - A: "Is that the one {person#4} escalated?"
+  - C: "Yeah, {person#4.first} pinged me at like midnight."
+  - B: "Their admin is {email#1}, I can loop them in."
+  - A: "Okay. Also the {codename#1.alias} demo moved to {date}."
+  - C: "Right."
+  - B: "Docs are at {url#1}."
+  - A: "Thanks. Anything blocking?"
+  - C: "Nope."
+  - B: "Nope."

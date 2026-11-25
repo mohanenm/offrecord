@@ -1,0 +1,86 @@
+[
+  {
+    "speaker": "Teodor Quintero",
+    "start": 0.0,
+    "end": 4.133,
+    "text": "Okay, um, so, let's start. Can you all hear me?"
+  },
+  {
+    "speaker": "Folake Castellano",
+    "start": 4.333,
+    "end": 5.6,
+    "text": "Yep."
+  },
+  {
+    "speaker": "Folake Esterhazy",
+    "start": 5.8,
+    "end": 7.133,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Teodor Quintero",
+    "start": 7.333,
+    "end": 13.933,
+    "text": "So Project Quorvane launches on January 11, 2027, assuming Thornquist Freight signs."
+  },
+  {
+    "speaker": "Folake Castellano",
+    "start": 14.133,
+    "end": 18.067,
+    "text": "And the lumaroo co-marketing budget is $85M."
+  },
+  {
+    "speaker": "Folake Esterhazy",
+    "start": 18.267,
+    "end": 22.6,
+    "text": "Conversion on the beta was 1.5%, about 3 accounts."
+  },
+  {
+    "speaker": "Teodor Quintero",
+    "start": 22.8,
+    "end": 25.667,
+    "text": "Cool. And sky quill pricing?"
+  },
+  {
+    "speaker": "Folake Castellano",
+    "start": 25.867,
+    "end": 30.733,
+    "text": "We're planning to double the price of the enterprise tier."
+  },
+  {
+    "speaker": "Folake Esterhazy",
+    "start": 30.933,
+    "end": 35.067,
+    "text": "Hmm, that'll spike churn uh, in Halvard County."
+  },
+  {
+    "speaker": "Teodor Quintero",
+    "start": 35.267,
+    "end": 39.067,
+    "text": "Fair. Sunniva Esterhazy, can you model it?"
+  },
+  {
+    "speaker": "Folake Esterhazy",
+    "start": 39.267,
+    "end": 43.667,
+    "text": "Sure, I'll share it at https://corvanta.test/login."
+  },
+  {
+    "speaker": "Teodor Quintero",
+    "start": 43.867,
+    "end": 48.067,
+    "text": "Great. I mean, Okay that's all, thanks everyone."
+  },
+  {
+    "speaker": "Folake Castellano",
+    "start": 48.267,
+    "end": 50.067,
+    "text": "Thanks, bye."
+  },
+  {
+    "speaker": "Folake Esterhazy",
+    "start": 50.267,
+    "end": 51.533,
+    "text": "Bye."
+  }
+]

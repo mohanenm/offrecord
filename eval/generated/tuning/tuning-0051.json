@@ -1,0 +1,80 @@
+[
+  {
+    "speaker": "ZAINAB WEXLEY",
+    "start": 0.0,
+    "end": 3.133,
+    "text": "MORNING. QUICK STANDUP. SUNNIVA?"
+  },
+  {
+    "speaker": "SUNNIVA CASTELLANO",
+    "start": 3.333,
+    "end": 9.6,
+    "text": "YEAH SO, I, UM, I FINISHED THE ORIEL MIGRATION. THE STAGING BOX IS 10.20.28.33."
+  },
+  {
+    "speaker": "ZAINAB WEXLEY",
+    "start": 9.8,
+    "end": 11.133,
+    "text": "NICE."
+  },
+  {
+    "speaker": "HENRIK ODUYA",
+    "start": 11.333,
+    "end": 19.2,
+    "text": "I'M STILL SORT OF, CHASING THE ALERT FROM 198.51.100.170. IT'S THE QUILLFEATHER ANALYTICS TENANT AGAIN."
+  },
+  {
+    "speaker": "ZAINAB WEXLEY",
+    "start": 19.4,
+    "end": 23.2,
+    "text": "IS THAT THE ONE EMEKA VENKATESH ESCALATED?"
+  },
+  {
+    "speaker": "HENRIK ODUYA",
+    "start": 23.4,
+    "end": 27.0,
+    "text": "YEAH, EMEKA PINGED ME AT LIKE MIDNIGHT."
+  },
+  {
+    "speaker": "SUNNIVA CASTELLANO",
+    "start": 27.2,
+    "end": 33.067,
+    "text": "THEIR ADMIN IS FREYA_ABERNATHY@CORVANTA.TEST, I I MEAN, CAN LOOP THEM IN."
+  },
+  {
+    "speaker": "ZAINAB WEXLEY",
+    "start": 33.267,
+    "end": 38.533,
+    "text": "OKAY. ALSO YOU KNOW, THE LARKSPUR UM, DEMO MOVED TO NOVEMBER 17."
+  },
+  {
+    "speaker": "HENRIK ODUYA",
+    "start": 38.733,
+    "end": 40.133,
+    "text": "RIGHT."
+  },
+  {
+    "speaker": "SUNNIVA CASTELLANO",
+    "start": 40.333,
+    "end": 44.467,
+    "text": "DOCS ARE AT HTTPS://LEDGERLINE.EXAMPLE/PRICING."
+  },
+  {
+    "speaker": "ZAINAB WEXLEY",
+    "start": 44.667,
+    "end": 48.133,
+    "text": "THANKS. ANYTHING BASICALLY, BLOCKING?"
+  },
+  {
+    "speaker": "HENRIK ODUYA",
+    "start": 48.333,
+    "end": 49.667,
+    "text": "NOPE."
+  },
+  {
+    "speaker": "SUNNIVA CASTELLANO",
+    "start": 49.867,
+    "end": 51.2,
+    "text": "NOPE."
+  }
+]

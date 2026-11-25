@@ -1,0 +1,82 @@
+# Deny-list for the hand-written user set. All entries are invented.
+# Some entities used in the transcripts are deliberately NOT listed here,
+# so detection of unknown names is tested too.
+denylist:
+  # clients
+  - name: Fennwick Logistics
+    category: CLIENT
+    aliases: [Fennwick, fen wick]
+  - name: Tamsin Health Partners
+    category: CLIENT
+    aliases: [Tamsin Health, Tamsin]
+  - name: Vellmont Credit Union
+    category: CLIENT
+    aliases: [Vellmont, vell mont]
+  - name: Halloran-Brisk Foods
+    category: CLIENT
+    aliases: [Halloran-Brisk, Halloran Brisk]
+  - name: Pellridge Veterinary
+    category: CLIENT
+    aliases: [Pellridge]
+
+  # brands
+  - name: Quorvex
+    category: BRAND
+    aliases: [quarr vex]
+  - name: Nimbrel
+    category: BRAND
+    aliases: []
+  - name: Bramble
+    category: BRAND
+    aliases: []
+    common_word: true
+    context: [connector, scheduling, rota, integration, app]
+  - name: Kettle
+    category: BRAND
+    aliases: []
+    common_word: true
+    context: [member, membership, subscription, box, services, account]
+  - name: Wicker
+    category: BRAND
+    aliases: [Wiker]
+    common_word: true
+    context: [quote, pallets, warehouse, supplier, vendor]
+
+  # products
+  - name: Ledgerkite
+    category: PRODUCT
+    aliases: [ledger kite]
+  - name: Sorrel Sync
+    category: PRODUCT
+    aliases: [Sorrel]
+  - name: Ironquill API
+    category: PRODUCT
+    aliases: [Ironquill]
+  - name: Fieldstone Box
+    category: PRODUCT
+    aliases: []
+
+  # codenames
+  - name: Project Halyard
+    category: CODENAME
+    aliases: [Halyard]
+  - name: Tinderbox
+    category: CODENAME
+    aliases: [tinder box]
+  - name: Project Glasswing
+    category: CODENAME
+    aliases: [Glasswing]
+
+  # known people
+  - name: Priya Raman
+    category: PERSON
+    aliases: [Priya]
+  - name: Hope Abernathy
+    category: PERSON
+    aliases: []
+  - name: Dev Marchetti
+    category: PERSON
+    aliases: []
+  - name: Oswald Kerr
+    category: PERSON
+    aliases: [Oswald]

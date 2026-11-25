@@ -1,0 +1,26 @@
+id: t02-support-billing
+domain: support
+speakers: {A: support agent, B: customer}
+turns:
+  - A: "Thanks for calling {brand#1} support, my name is {person#spkA.first}. Who am I speaking with?"
+  - B: "Hi, it's {person#spkB}."
+  - A: "Thanks. Can you spell your last name for me?"
+  - B: "Sure, um, it's {person#spkB.last}."
+  - A: "And the account number?"
+  - B: "It's {account#1.spoken}."
+  - A: "Okay I found it. What can I help with?"
+  - B: "I was charged twice on my card ending, uh, the full number is {card#1.spoken}."
+  - A: "Let me check. I see two charges of {amount} on {date}."
+  - B: "Yeah, exactly."
+  - split:
+      speaker: B
+      slot: "phone#1"
+      before: "You can call me back on"
+      interrupt: {speaker: A, text: "go ahead"}
+      after: "after five."
+  - A: "Perfect. And the email on file is {email#1}?"
+  - B: "No, it's {email#2.spoken}."
+  - A: "Updated. The refund reference is {order#1}."
+  - B: "Okay great."
+  - A: "Anything else today?"
+  - B: "No that's it, thanks."

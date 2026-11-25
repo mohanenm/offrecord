@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:03,133
+Wendell Abernathy: Morning. Quick standup. Wendell?
+
+2
+00:00:03,333 --> 00:00:10,067
+Wendell Sandoval: Yeah so, I, um, I finished the Driftmark migration. The staging box is 2001:db8::9772.
+
+3
+00:00:10,267 --> 00:00:11,600
+Wendell Abernathy: Nice.
+
+4
+00:00:11,800 --> 00:00:18,400
+Priya Thornbury: I'm still chasing the alert from 192.0.2.213. It's the vellichor media tenant again.
+
+5
+00:00:18,600 --> 00:00:22,333
+Wendell Abernathy: Is that the one Ayesha Uchenna escalated?
+
+6
+00:00:22,533 --> 00:00:26,200
+Priya Thornbury: Yeah, Ayesha pinged me at like midnight.
+
+7
+00:00:26,400 --> 00:00:31,667
+Wendell Sandoval: Their admin is bastian@quillfeather.example, I can loop them in.
+
+8
+00:00:31,867 --> 00:00:36,267
+Wendell Abernathy: Okay. Also the Larkspur demo moved to January 16th.
+
+9
+00:00:36,467 --> 00:00:37,867
+Priya Thornbury: Right.
+
+10
+00:00:38,067 --> 00:00:42,200
+Wendell Sandoval: Docs are at https://ledgerline.example/q3-plan.
+
+11
+00:00:42,400 --> 00:00:45,133
+Wendell Abernathy: Thanks. Anything blocking?
+
+12
+00:00:45,333 --> 00:00:46,667
+Priya Thornbury: Nope.
+
+13
+00:00:46,867 --> 00:00:48,200
+Wendell Sandoval: Nope.

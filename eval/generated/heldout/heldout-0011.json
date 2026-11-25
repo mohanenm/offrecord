@@ -1,0 +1,200 @@
+[
+  {
+    "speaker": "Speaker 1",
+    "start": 0.0,
+    "end": 7.333,
+    "text": "Thanks for holding. You've reached account security, my name is Ilse. Can I get your full name?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 7.533,
+    "end": 13.333,
+    "text": "Hi, yes, it's Ewan Nwachukwu. Sorry, there's a lot of wind, I'm walking."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 13.533,
+    "end": 19.6,
+    "text": "That's alright. I understand you got a text about a login from a new device?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 19.8,
+    "end": 26.267,
+    "text": "Yes, from somewhere in Kessington Heights, and I have never been there in my life."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 26.467,
+    "end": 33.267,
+    "text": "Okay. We'll lock that down. First I need to verify you. Do you have the account number?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 33.467,
+    "end": 37.267,
+    "text": "Um, not on me. Can you use something else?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 37.467,
+    "end": 41.4,
+    "text": "Sure, I can use your social security number."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 41.6,
+    "end": 44.6,
+    "text": "Okay, it's nine one zero three"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 44.8,
+    "end": 47.067,
+    "text": "sorry, a bit slower"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 47.267,
+    "end": 51.4,
+    "text": "four three two nine three did you get all that?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 51.6,
+    "end": 57.8,
+    "text": "Yes, thank you. I've pulled up account 01000794. And the phone number on file?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 58.0,
+    "end": 69.667,
+    "text": "three four nine five five five oh one six six... no wait, three four nine five five five zero one six one. Sorry, I changed it last month and I still mix it up."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 69.867,
+    "end": 76.333,
+    "text": "No worries, that matches. So the login attempt came from IP address 203.0.113.181."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 76.533,
+    "end": 80.267,
+    "text": "I have no idea what that means, but okay."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 80.467,
+    "end": 85.667,
+    "text": "Basically it tells us it wasn't your usual internet connection."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 85.867,
+    "end": 87.267,
+    "text": "Right."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 87.467,
+    "end": 93.333,
+    "text": "I'm going to bring in my team lead, because there was also a payee added."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 93.533,
+    "end": 101.133,
+    "text": "Hi, this is Dmitri Petrov. Ms. Nwachukwu, did you add a payee called khidi haddad on July 19, 2024?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 101.333,
+    "end": 103.4,
+    "text": "No! Who is that?"
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 103.6,
+    "end": 108.4,
+    "text": "Okay. We'll reverse that and flag it. Was any money sent?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 108.6,
+    "end": 113.267,
+    "text": "One transfer of $65 million is pending. We can stop it."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 113.467,
+    "end": 115.333,
+    "text": "Oh thank god."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 115.533,
+    "end": 127.4,
+    "text": "We'll also reissue your debit card. Let me read the current one so you can confirm: three five three zero one one one three three three three zero zero oh zero oh."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 127.6,
+    "end": 129.6,
+    "text": "Yes, that's it."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 129.8,
+    "end": 135.733,
+    "text": "Okay, that's cancelled. The new card goes to your address in Ormsby Cross."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 135.933,
+    "end": 138.533,
+    "text": "Yes, that's still right."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 138.733,
+    "end": 144.6,
+    "text": "And we'll send a confirmation to fmendoza-hart@pellucid.test. Still good?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 144.8,
+    "end": 146.067,
+    "text": "Yes."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 146.267,
+    "end": 153.933,
+    "text": "One last thing. I'd change your password at https://tallyhaven.invalid/q3-plan and turn on two-step."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 154.133,
+    "end": 156.6,
+    "text": "Okay. I will, tonight."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 156.8,
+    "end": 159.8,
+    "text": "Anything else I can help with?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 160.0,
+    "end": 163.133,
+    "text": "No, I just -- thank you. Really."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 163.333,
+    "end": 165.733,
+    "text": "Of course. Take care."
+  }
+]

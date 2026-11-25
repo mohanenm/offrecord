@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,133
+lorcan underhill: can everyone hear me? great, let's get started.
+
+2
+00:00:04,333 --> 00:00:05,600
+oskar pemberton: yep.
+
+3
+00:00:05,800 --> 00:00:07,267
+folake sandoval: mm-hmm.
+
+4
+00:00:07,467 --> 00:00:12,133
+lorcan underhill: so q3. revenue came in at $5.2m, margin was 21 percent.
+
+5
+00:00:12,333 --> 00:00:18,000
+folake sandoval: right, and gross margin on driftmark console was 14.5%, which is down.
+
+6
+00:00:18,200 --> 00:00:23,800
+oskar pemberton: the quillfeather analytics deal slipped, that's $879,000 of bookings.
+
+7
+00:00:24,000 --> 00:00:26,000
+lorcan underhill: okay. pipeline?
+
+8
+00:00:26,200 --> 00:00:30,667
+oskar pemberton: pipeline is around $500k with 28 open opportunities.
+
+9
+00:00:30,867 --> 00:00:35,067
+folake sandoval: churn is 2%, mostly in the fenwick falls region.
+
+10
+00:00:35,267 --> 00:00:41,333
+lorcan underhill: we need to plan for a hiring freeze and possibly a reduction in force in q1.
+
+11
+00:00:41,533 --> 00:00:43,267
+oskar pemberton: understood.
+
+12
+00:00:43,467 --> 00:00:49,533
+lorcan underhill: also project nightjar is still confidential, do not mention it to vellichor.
+
+13
+00:00:49,733 --> 00:00:55,467
+folake sandoval: got it. i'll update the model with 1,262 stores for the meadow rollout.
+
+14
+00:00:55,667 --> 00:01:01,600
+oskar pemberton: are we still counting the meadow display in the lobby as a marketing cost?
+
+15
+00:01:01,800 --> 00:01:05,133
+lorcan underhill: ha, yes. okay, next week same time.

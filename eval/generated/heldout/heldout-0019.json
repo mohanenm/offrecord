@@ -1,0 +1,194 @@
+[
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 0.0,
+    "end": 4.867,
+    "text": "Morning. Quick one today, I've got a conflict at ten past."
+  },
+  {
+    "speaker": "Priyanka Varga",
+    "start": 5.067,
+    "end": 6.6,
+    "text": "Morning."
+  },
+  {
+    "speaker": "Aiyana Ndiaye",
+    "start": 6.8,
+    "end": 8.067,
+    "text": "Hey."
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 8.267,
+    "end": 11.533,
+    "text": "Can you hear me? Mic's been flaky."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 11.733,
+    "end": 13.667,
+    "text": "Yep. Ewan, go."
+  },
+  {
+    "speaker": "Priyanka Varga",
+    "start": 13.867,
+    "end": 21.133,
+    "text": "Yesterday, finished the retry logic for the murmurly voice webhook. Today, tests. No blockers."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 21.333,
+    "end": 22.667,
+    "text": "Cool."
+  },
+  {
+    "speaker": "Aiyana Ndiaye",
+    "start": 22.867,
+    "end": 34.333,
+    "text": "Me sort of, next? Yesterday was mostly the settings uh, page for Project Kittiwake. Today, uh, still that. Blocked on design for basically, the empty states."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 34.533,
+    "end": 36.667,
+    "text": "I'll ping Dmitri."
+  },
+  {
+    "speaker": "Aiyana Ndiaye",
+    "start": 36.867,
+    "end": 43.267,
+    "text": "Thanks. Also like, the captions keep calling it kitty wake, it's driving me nuts."
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 43.467,
+    "end": 47.067,
+    "text": "So, overnight, staging fell over twice."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 47.267,
+    "end": 48.667,
+    "text": "Again?"
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 48.867,
+    "end": 51.933,
+    "text": "Yeah, the box at 2001:db8::2466"
+  },
+  {
+    "speaker": "Priyanka Varga",
+    "start": 52.133,
+    "end": 53.933,
+    "text": "the old one?"
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 54.133,
+    "end": 57.733,
+    "text": " yeah, the old one, it ran out of disk."
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 57.933,
+    "end": 65.533,
+    "text": "I uh, moved the logs to 10.20.247.252 for now. Error I mean, rate's back under thirty five percent."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 65.733,
+    "end": 69.267,
+    "text": "Okay. Can we decommission the old one?"
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 69.467,
+    "end": 75.133,
+    "text": "After the Kittiwake demo, yeah. Not touching anything before 3/7/2025."
+  },
+  {
+    "speaker": "Priyanka Varga",
+    "start": 75.333,
+    "end": 83.4,
+    "text": "Sure. Oh, also the runbook link in the alert is dead. It points to https://support.oxvane.example/q3-plan."
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 83.6,
+    "end": 89.933,
+    "text": "Ugh. It moved uh, to https://support.oxvane.example/pricing. I'll fix the alert."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 90.133,
+    "end": 91.6,
+    "text": "Thanks."
+  },
+  {
+    "speaker": "Aiyana Ndiaye",
+    "start": 91.8,
+    "end": 98.067,
+    "text": "Random question, is project bellwether still happening? I heard it got shelved."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 98.267,
+    "end": 106.467,
+    "text": "Between us, it's paused because leadership is looking at buying a company that already built the same thing."
+  },
+  {
+    "speaker": "Aiyana Ndiaye",
+    "start": 106.667,
+    "end": 108.333,
+    "text": "Huh. Okay."
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 108.533,
+    "end": 111.667,
+    "text": "That explains the budget freeze."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 111.867,
+    "end": 114.4,
+    "text": "Maybe. Don't repeat it."
+  },
+  {
+    "speaker": "Priyanka Varga",
+    "start": 114.6,
+    "end": 116.333,
+    "text": "Yeah, yeah."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 116.533,
+    "end": 119.533,
+    "text": "Last thing, load test numbers?"
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 119.733,
+    "end": 126.733,
+    "text": "We held 943 requests a second before latency spiked. Target was four hundred eighty three."
+  },
+  {
+    "speaker": "Dmitri Petrov",
+    "start": 126.933,
+    "end": 131.533,
+    "text": "Okay, close enough for now. That's uh, it, thanks all."
+  },
+  {
+    "speaker": "Aiyana Ndiaye",
+    "start": 131.733,
+    "end": 133.0,
+    "text": "Bye."
+  },
+  {
+    "speaker": "Kenji Chaudhry",
+    "start": 133.2,
+    "end": 134.6,
+    "text": "Later."
+  }
+]

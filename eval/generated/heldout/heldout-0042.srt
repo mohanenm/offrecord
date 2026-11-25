@@ -1,0 +1,123 @@
+1
+00:00:00,000 --> 00:00:03,400
+Siobhan Novak: Okay, recording's off. Just us four.
+
+2
+00:00:03,600 --> 00:00:08,600
+Nikhil Moreau: Good. Thanks for staying late, all. Did anyone actually eat?
+
+3
+00:00:08,800 --> 00:00:11,667
+Odalys Halloran: I had crackers. That counts.
+
+4
+00:00:11,867 --> 00:00:21,267
+Nikhil Moreau: Ha. Okay. So, the board meets March 1, 2028. I want to walk the deck one more time, especially the Project Bellwether section.
+
+5
+00:00:21,467 --> 00:00:28,267
+Thiago Abiodun: Before we do -- legally, the Bellwether materials go only to the independent directors.
+
+6
+00:00:28,467 --> 00:00:39,733
+Nikhil Moreau: Agreed. So, the story. We're proposing to acquire a regional competitor for cash and stock, and we want the board to approve signing the letter of intent.
+
+7
+00:00:39,933 --> 00:00:47,067
+Odalys Halloran: Their ARR is about seven million nine hundred thousand dollars, growing 5.5% year over year.
+
+8
+00:00:47,267 --> 00:00:50,400
+Nikhil Moreau: And they've got, what, 4 stores?
+
+9
+00:00:50,600 --> 00:00:54,800
+Odalys Halloran: twenty five once the Fallowmere openings finish.
+
+10
+00:00:55,000 --> 00:00:56,400
+Nikhil Moreau: Right.
+
+11
+00:00:56,600 --> 00:01:02,467
+Odalys Halloran: The proposed valuation is $865K, which is, uh, roughly six times revenue.
+
+12
+00:01:02,667 --> 00:01:04,133
+Siobhan Novak: Mm-hmm.
+
+13
+00:01:04,333 --> 00:01:14,133
+Thiago Abiodun: I'll flag the litigation. The target is defending a patent suit and we would inherit that exposure if we close before it's resolved.
+
+14
+00:01:14,333 --> 00:01:15,867
+Nikhil Moreau: How bad?
+
+15
+00:01:16,067 --> 00:01:20,267
+Thiago Abiodun: Worst case, $5 million. More likely they settle.
+
+16
+00:01:20,467 --> 00:01:26,333
+Nikhil Moreau: Okay. Put that on its own slide. I don't want anyone saying we buried it.
+
+17
+00:01:26,533 --> 00:01:37,933
+Odalys Halloran: Also, fan tora is their largest customer -- sorry, the notes app keeps mangling it -- Vantorra Foods Group. They're about ten point five percent of revenue.
+
+18
+00:01:38,133 --> 00:01:41,733
+Nikhil Moreau: Concentration risk. The board will ask.
+
+19
+00:01:41,933 --> 00:01:49,933
+Siobhan Novak: I'll add it to the risk section, and I'll note that Ama Banerjee on their side is the relationship owner.
+
+20
+00:01:50,133 --> 00:01:54,933
+Nikhil Moreau: Good. And our own numbers, where do we land for the year?
+
+21
+00:01:55,133 --> 00:01:59,200
+Odalys Halloran: Revenue $99 million, EBITDA margin around 57%.
+
+22
+00:01:59,400 --> 00:02:01,733
+Nikhil Moreau: Good. And the reorg?
+
+23
+00:02:01,933 --> 00:02:08,600
+Siobhan Novak: The plan is to consolidate the two support centers and cut roughly forty roles in Q2.
+
+24
+00:02:08,800 --> 00:02:12,733
+Nikhil Moreau: Let's present that as a range, not a number.
+
+25
+00:02:12,933 --> 00:02:21,200
+Thiago Abiodun: And please, nobody forward the deck. Use the data room link, https://support.oxvane.example/account/settings.
+
+26
+00:02:21,400 --> 00:02:24,667
+Siobhan Novak: I'll send the password separately.
+
+27
+00:02:24,867 --> 00:02:27,267
+Nikhil Moreau: Great. Anything else?
+
+28
+00:02:27,467 --> 00:02:34,800
+Odalys Halloran: Just -- the advisers' fee is sixty six million dollars, success-based. The board should see it.
+
+29
+00:02:35,000 --> 00:02:41,800
+Nikhil Moreau: Fine. Okay, let's call it. Mwangi, thanks for pulling this together. Go home, everyone.
+
+30
+00:02:42,000 --> 00:02:43,400
+Thiago Abiodun: Night.
+
+31
+00:02:43,600 --> 00:02:45,267
+Siobhan Novak: Night all.

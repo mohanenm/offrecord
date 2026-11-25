@@ -1,0 +1,37 @@
+[[PERSON#mar:Marisol Quint]]: Hi, hi, is this, am I talking to [[PERSON#ezra:Dr. Fallowfield]]?
+[[PERSON#ezra:Ezra Fallowfield]]: Yes, hi, and I've got [[PERSON#bea:Bea]] here too, our office manager.
+[[PERSON#bea:Bea Tran]]: Hi!
+[[PERSON#mar:Marisol Quint]]: Hi [[PERSON#bea:Bea]]. So, um, this is just the quarterly check-in for [[CLIENT#tam:Tamsin Health Partners]], shouldn't take more than half an hour.
+[[PERSON#ezra:Ezra Fallowfield]]: Sure.
+[[PERSON#mar:Marisol Quint]]: So first, usage. You've got [[QUANTITY:sixty four]] seats on [[PRODUCT#lk:Ledgerkite]], and active users last month was [[QUANTITY:fifty one]], so about [[PERCENT:eighty percent]].
+[[PERSON#bea:Bea Tran]]: Yeah, the, the night staff don't really log in.
+[[PERSON#ezra:Ezra Fallowfield]]: And honestly, um, [[TOPIC:we're thinking about dropping Ledgerkite at renewal and moving to whatever our new parent company uses.]]
+[[PERSON#mar:Marisol Quint]]: Oh. Okay. New parent?
+[[PERSON#ezra:Ezra Fallowfield]]: [[TOPIC:We're being acquired by Ardent Valley Health, and it's not public until February.]]
+[[PERSON#mar:Marisol Quint]]: Understood, I won't, um, that stays with me.
+[[PERSON#bea:Bea Tran]]: The other thing is the, the [[PRODUCT#ss:Sorrel Sync]] thing keeps logging us out.
+[[PERSON#mar:Marisol Quint]]: [[PRODUCT#ss:Sorrel]] logging out, okay. Do you have a ticket number?
+[[PERSON#bea:Bea Tran]]: Yeah, [[ACCOUNT#tk:T K four four]], uh --
+[[PERSON#ezra:Ezra Fallowfield]]: It's in the email, [[PERSON#bea:Bea]].
+[[PERSON#bea:Bea Tran]]: Hold on -- [[ACCOUNT#tk:six oh one nine]]. So [[ACCOUNT#tk:T K four four six oh one nine]]. I always think of [[NEG:sorrel]] soup when I say that product name, ha.
+[[PERSON#mar:Marisol Quint]]: Ha. Got it. It might be the IP allow list. What's your office's public IP?
+[[PERSON#bea:Bea Tran]]: Um, it's on a sticky note somewhere... [[IP:two oh three dot oh dot one one three dot four two]].
+[[PERSON#mar:Marisol Quint]]: And the second site?
+[[PERSON#ezra:Ezra Fallowfield]]: That's [[ORG:the only pediatric practice we run in Dunhallow County]], they have their own, I don't know it.
+[[PERSON#bea:Bea Tran]]: I'll get it from [[PERSON:Sora]] over there.
+[[PERSON#mar:Marisol Quint]]: Perfect. Just send it to me, [[EMAIL:marisol.quint@ravelstone.example]].
+[[PERSON#ezra:Ezra Fallowfield]]: And the renewal number, what are we looking at?
+[[PERSON#mar:Marisol Quint]]: Current is [[AMOUNT:$48,600]]. Renewal would be, um, [[AMOUNT:$52,000]] flat, but I can probably get you [[PERCENT:10%]] off if it's a two-year.
+[[PERSON#ezra:Ezra Fallowfield]]: Hmm. Let me, let me hold off until the, the deal closes.
+[[PERSON#mar:Marisol Quint]]: Totally fair. Your renewal date is [[DATE:January 31st]], so there's time.
+[[PERSON#bea:Bea Tran]]: Oh, and billing. The card on file expired. Can I just give you the new one?
+[[PERSON#mar:Marisol Quint]]: Um, I'd rather you use the, the billing portal, [[URL:billing dot ravelstone dot example]], it's safer.
+[[PERSON#bea:Bea Tran]]: Oh it's fine, it's [[CARD#cc:five five five five, five five five five]] --
+[[PERSON#ezra:Ezra Fallowfield]]: [[PERSON#bea:Bea]], maybe don't --
+[[PERSON#bea:Bea Tran]]: -- [[CARD#cc:five five five five, four four four four]], expiry, um, [[DATE:oh nine twenty nine]].
+[[PERSON#mar:Marisol Quint]]: Okay, I, um, I'll put that through and then delete it from my notes.
+[[PERSON#ezra:Ezra Fallowfield]]: And if anything comes up, call [[PERSON#bea:Bea]] directly, [[PHONE:five five five, oh one nine one]].
+[[PERSON#bea:Bea Tran]]: Or the front desk, [[PHONE:(555) 555-0104]].
+[[PERSON#mar:Marisol Quint]]: Got it. And our address for the, um, the BAA paperwork is [[LOCATION:1450 Larkspur Avenue, Suite 300, Marrow Falls]].
+[[PERSON#ezra:Ezra Fallowfield]]: Great. Thanks [[PERSON#mar:Marisol]].
+[[PERSON#mar:Marisol Quint]]: Thank you both. Talk soon.
