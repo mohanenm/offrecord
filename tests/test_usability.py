@@ -148,3 +148,29 @@ def test_clipboard_backend_unsupported_is_clear(monkeypatch):
     monkeypatch.setattr(sys, "platform", "sunos5")
     with pytest.raises(Exception, match="clipboard"):
         clipboard.backend()
+
+
+def test_review_draft_labels_round_trip(home, tmp_path, capsys):
+    from offrecord.evaluation.runner import load_markup_dir, score
+    from offrecord.redact.pipeline import tier0_system
+
+    src = tmp_path / "call.txt"
+    src.write_text(
+        "Orla Venkatesh: Call me on 555-0142 about the Quillfeather renewal.\n"
+        "Bram: Sure. Zorbleth will join too.\n"
+    )
+    private = tmp_path / "private"
+    private.mkdir()
+    out = private / "call.txt"
+    assert main(["review", str(src), "--draft-labels"]) == ExitCode.USAGE  # needs -o
+    assert main(["review", str(src), "--draft-labels", "-o", str(out)]) == ExitCode.OK
+    draft = out.read_text()
+    assert "[[PHONE:555-0142]]" in draft and "?:" in draft  # unknown word left unresolved
+    assert "555-0142" not in capsys.readouterr().err
+    with pytest.raises(Exception, match="unresolved draft label"):
+        load_markup_dir(private)
+    import re
+
+    out.write_text(re.sub(r"\[\[[A-Z]+\?:(.*?)\]\]", r"[[PERSON:\1]]", draft))
+    items, cfg = load_markup_dir(private)
+    assert score(items, tier0_system(cfg), "own draft").overall.recall == 1.0

@@ -154,3 +154,13 @@ def test_review_markup_with_suggestions(tmp_path, capsys):
     assert main(["review", str(p), "--markup", "--suggest"]) == ExitCode.OK
     out = capsys.readouterr().out
     assert "ORIGINAL" in out and "REDACTED" in out and "missed label" in out
+
+
+def test_eval_warns_about_trackable_private_folder(tmp_path, capsys):
+    from pathlib import Path
+
+    root = Path(__file__).parent.parent
+    main(["eval", "--dir", str(root / "eval" / "user_set"), "--system", "null"])
+    assert "warning" not in capsys.readouterr().err
+    main(["eval", "--dir", str(root / "docs"), "--system", "null"])
+    assert "not git-ignored" in capsys.readouterr().err

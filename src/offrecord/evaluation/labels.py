@@ -13,6 +13,7 @@ from typing import Any
 from offrecord.errors import InputFormatError
 from offrecord.model import categories
 
+UNRESOLVED_RE = re.compile(r"\[\[[A-Z]+\?:")  # written by `review --draft-labels`
 MARKUP_RE = re.compile(r"\[\[(?P<cat>[A-Z]+)(?:#(?P<id>[\w.-]+))?:(?P<text>.*?)\]\]", re.DOTALL)
 
 
@@ -66,6 +67,10 @@ def strip_markup(s: str, turn: int, field_name: str) -> tuple[str, list[Label], 
     pos = 0
     clean_len = 0
     known = set(categories())
+    if UNRESOLVED_RE.search(s):
+        raise InputFormatError(
+            f"unresolved draft label in markup (turn {turn}): set the category or remove it"
+        )
     for m in MARKUP_RE.finditer(s):
         out.append(s[pos : m.start()])
         clean_len += m.start() - pos

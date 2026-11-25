@@ -76,6 +76,7 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     targets: list[tuple[str, Path]] = []
     if args.dir:
         targets += [(f"dir:{i}", Path(d)) for i, d in enumerate(args.dir)]
+        _warn_if_trackable(args.dir)
     if args.set or not args.dir:
         root = sets.repo_root()
         wanted = dict.fromkeys(sets.ALIASES.get(n, n) for n in (args.set or sets.SET_NAMES))
@@ -119,6 +120,31 @@ def _cmd_eval(args: argparse.Namespace) -> int:
             sys.stdout.write("\n" + format_extras(extras) + "\n")
         sys.stdout.write("Synthetic data only. Recall = labels fully covered by a redaction.\n")
     return ExitCode.OK
+
+
+def _warn_if_trackable(dirs: Sequence[str]) -> None:
+    """Private, real transcripts belong outside the repository or in its git-ignored
+    ``private/`` or ``eval/private/`` folders, so they cannot be committed by accident."""
+    from pathlib import Path
+
+    from offrecord.errors import UsageError
+    from offrecord.evaluation import sets
+
+    try:
+        root = sets.repo_root()
+    except UsageError:
+        return
+    safe = [root / "private", root / "eval" / "private", root / "eval" / "generated"]
+    safe += [sets.set_dir(n, root) for n in sets.SET_NAMES]  # the synthetic built-in sets
+    for d in dirs:
+        p = Path(d).resolve()
+        inside = p == root or root in p.parents
+        if inside and not any(p == s or s in p.parents for s in safe):
+            print(
+                "offrecord: warning: an --dir folder is inside the repository and not git-ignored;"
+                " keep real transcripts outside it or in private/ (docs/private-eval.md)",
+                file=sys.stderr,
+            )
 
 
 # Mirrors offrecord.evaluation.sets.SET_NAMES plus its aliases (kept literal so the CLI starts
@@ -587,6 +613,7 @@ def _cmd_review(args: argparse.Namespace) -> int:
     from pathlib import Path
 
     from offrecord import adapters, review
+    from offrecord.errors import UsageError
     from offrecord.evaluation.labels import Label
     from offrecord.evaluation.runner import parse_markup_transcript
     from offrecord.limits import DEFAULT_LIMITS
@@ -611,6 +638,17 @@ def _cmd_review(args: argparse.Namespace) -> int:
             raw = read_input_text(lp, DEFAULT_LIMITS)
             labels = [Label.from_json(d) for d in _json.loads(raw)["labels"]]
     red, spans, _mapping, _stats = redact_document(doc, cfg)
+    if args.draft_labels:
+        if not args.output:
+            raise UsageError("--draft-labels needs -o FILE (put it in your private folder)")
+        draft = review.draft_markup(doc, spans).encode("utf-8")
+        write_atomic(args.output, draft, force=args.force)
+        print(
+            f"offrecord: draft labels written ({sum(s.action == 'redact' for s in spans)} "
+            "redaction(s)); correct every one before running eval",
+            file=sys.stderr,
+        )
+        return ExitCode.OK
     out = review.side_by_side(doc, red, spans, labels, width=args.width,
                               threshold=cfg.review_threshold)  # fmt: skip
     misses = review.find_misses(doc, spans, labels) if labels else []
@@ -858,6 +896,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sp.add_argument("--labels", help="labels JSON (default: <input>.labels.json if present)")
     sp.add_argument("--suggest", action="store_true", help="suggest deny-list entries for misses")
+    sp.add_argument(
+        "--draft-labels",
+        action="store_true",
+        help="write the transcript as inline markup pre-filled with offrecord's redactions, to "
+        "correct into labels (see docs/private-eval.md)",
+    )
     sp.add_argument("--width", type=int, default=60)
     sp.add_argument("-o", "--output", help="write to an owner-only file instead of stdout")
     sp.add_argument("--force", action="store_true")
