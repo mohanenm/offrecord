@@ -13,7 +13,7 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   and ranges, dictated identifiers and passwords, dictated emails, and organisation/place
   names with generic words ("Family Health", "and Sons"). User-set recall 68.6% -> 79.0% (Tier 0).
 - Fiscal quarters, bare years after a cue, codes/passwords and last-four digits now count as
-  sensitive (D-055).
+  sensitive.
 
 ### Added
 - Apache-2.0 licence (LICENSE, package metadata).

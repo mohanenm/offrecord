@@ -110,7 +110,6 @@ pre { background: var(--code-bg); border: 1px solid var(--border); border-radius
 .steps h3 { margin: 0 0 .35rem; font: 600 1rem var(--mono); }
 .steps p { margin: 0; color: var(--muted); font-size: .93rem; }
 
-.new { display: inline-block; font: 700 .7rem var(--sans); text-transform: uppercase; letter-spacing: .06em; background: var(--accent); color: var(--accent-text); border-radius: 4px; padding: .1rem .4rem; vertical-align: .15em; margin-left: .35rem; }
 
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 table { width: 100%; border-collapse: collapse; font-size: .94rem; }
@@ -194,7 +193,7 @@ footer p { margin: 0; }
       </a>
       <a class="btn ghost" href="#install">Quick start</a>
     </div>
-    <p class="status">Status: all tiers built; Apache-2.0 licensed; not yet on PyPI. Open source, early, and honest about its <a href="#limitations">limits</a>.</p>
+    <p class="status">Status: all tiers built; Apache-2.0 licensed; not yet on PyPI. Read the <a href="#limitations">limitations</a> before relying on it.</p>
   </div>
 
   <section id="example" aria-labelledby="example-h">
@@ -276,17 +275,17 @@ offrecord restore answer.txt --assume-mapping \
     --mapping ~/.local/share/offrecord/mappings/&lt;id&gt;.ormap \
     --key-file ~/.config/offrecord/keys/default.key</code></pre></div>
 
-      <h3>LLM round trip <span class="new">new</span></h3>
+      <h3>LLM round trip</h3>
       <p>Copy a transcript, redact it, paste it into any chat LLM, copy the answer back, restore it.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
           <tbody>
-            <tr><td><code>offrecord redact call.vtt --prompt "Summarise the decisions"</code> <span class="new">new</span></td><td>Put your instruction first and tell the LLM to keep placeholders exactly as written, so its answer restores cleanly. The instruction is redacted too: &ldquo;the QFA call&rdquo; becomes &ldquo;the &lt;C1&gt; call&rdquo;.</td></tr>
-            <tr><td><code>offrecord paste</code> <span class="new">new</span></td><td>Redact whatever is on the clipboard, in place (accepts <code>--prompt</code> too).</td></tr>
-            <tr><td><code>offrecord unpaste</code> <span class="new">new</span></td><td>Restore the LLM&rsquo;s copied answer on the clipboard, using the most recent mapping.</td></tr>
-            <tr><td><code>offrecord init</code> <span class="new">new</span></td><td>Guided setup of your deny-list (clients, codenames, people); used automatically afterwards.</td></tr>
-            <tr><td><code>offrecord denylist add "Quillfeather Analytics" --alias QFA</code> <span class="new">new</span></td><td>Add a name later, or <code>denylist import clients.csv</code> from a CRM export. Names are never printed back.</td></tr>
+            <tr><td><code>offrecord redact call.vtt --prompt "Summarise the decisions"</code></td><td>Put your instruction first and tell the LLM to keep placeholders exactly as written, so its answer restores cleanly. The instruction is redacted too: &ldquo;the QFA call&rdquo; becomes &ldquo;the &lt;C1&gt; call&rdquo;.</td></tr>
+            <tr><td><code>offrecord paste</code></td><td>Redact whatever is on the clipboard, in place (accepts <code>--prompt</code> too).</td></tr>
+            <tr><td><code>offrecord unpaste</code></td><td>Restore the LLM&rsquo;s copied answer on the clipboard, using the most recent mapping.</td></tr>
+            <tr><td><code>offrecord init</code></td><td>Guided setup of your deny-list (clients, codenames, people); used automatically afterwards.</td></tr>
+            <tr><td><code>offrecord denylist add "Quillfeather Analytics" --alias QFA</code></td><td>Add a name later, or <code>denylist import clients.csv</code> from a CRM export. Names are never printed back.</td></tr>
           </tbody>
         </table>
       </div>

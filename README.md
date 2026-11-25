@@ -3,7 +3,7 @@
 Redact sensitive information from meeting and call transcripts, then compress them for LLM
 analysis. Fully offline, on modest hardware, and reversible on an authorised machine.
 
-> **Status: all tiers built; Apache-2.0; not yet on PyPI.** Recall on held-out / user set
+> Status: all tiers built; Apache-2.0; not yet on PyPI. Recall on held-out / user set
 > (synthetic): Tier 0 91.4% / 79.0%, Tier 1 94.2% / 82.8%, Tier 2 94.7% / 82.5%. The user set
 > is the harder, more honest number (see [the numbers](#status-what-the-numbers-measure)). Read
 > [Known limitations](#known-limitations) before relying on it.
@@ -75,26 +75,27 @@ offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord
 normalize -> redact -> compress -> output
 ```
 
-1. **Normalize**: adapters (plain text, WebVTT, SRT, Whisper-style JSON) produce one turn model.
+1. Normalize: adapters (plain text, WebVTT, SRT, Whisper-style JSON) produce one turn model.
    Every field (turn text, speaker labels, headers, notes, cue ids, unknown JSON values) gets a
    verbatim view and a normalised view where spoken forms become canonical ("five five five
    one two one two" -> 5551212, "john at example dot com" -> john@example.com, "S as in Sam").
    Offset maps tie every normalised character back to the original.
-2. **Redact** (Tier 0, rules only): regex + validators (email, phone, SSN, card with Luhn, IP,
+2. Redact (Tier 0, rules only): regex + validators (email, phone, SSN, card with Luhn, IP,
    URL, account/order numbers, dates), your deny-list (fuzzy + phonetic matching, aliases,
    per-entry options for common-word brands), business context (amounts, percentages,
    quantities, sensitive topic sentences, codenames), name heuristics (speaker names, cue
    phrases, out-of-dictionary words). PII split across an interruption is caught by re-scanning
    one speaker's turns joined together. Spans are merged (union: nothing is dropped) and
    replaced with short consistent placeholders (`<C1>`, `<P2>`, `<AMT1>`).
-3. **Compress**: `light` (default) removes fillers, stutters, false starts and backchannel turns
+3. Compress: `light` (default) removes fillers, stutters, false starts and backchannel turns
    and merges same-speaker turns; `medium` also drops opening/closing small talk, short
    contentless turns and near-duplicates (MinHash). Negations, decisions and numbers are never
    dropped, and no placeholder is ever lost.
-4. **Output**: compact text (default: speaker legend with placeholders only) or the original
+4. Output: compact text (default: speaker legend with placeholders only) or the original
    format, with a header carrying the random mapping id.
 
-Recall comes first: over-redaction is the preferred failure mode.
+Recall comes first: over-redaction is the preferred failure mode. `docs/architecture.md` has
+the longer explanation.
 
 ## Tiers and hardware floors
 
@@ -112,17 +113,16 @@ command, with pinned versions and checksums.
 
 ## Status: what the numbers measure
 
-All evaluation data is **synthetic**: fake names, companies and numbers only. Four sets are
-reported side by side (`offrecord eval`):
+All evaluation data is synthetic: generated conversations with invented names, companies and
+numbers. Apart from the tuning templates, the sets were written by coding agents that saw only
+the format description, never the detector code, so their phrasing is independent of the rules,
+but none of it is real speech. `docs/eval-format.md` describes each set. In short:
 
-- **tuning**: generated from my own templates; detectors were tuned on these.
-- **tuning-hw**: 20 hand-written transcripts (clinic, dispatch, law firm, bank fraud, permit
-  office, ...) by an independent agent that never saw detector code; detectors were tuned on
-  these too.
-- **held-out**: templates and pools written by a separate agent that never saw detector code;
-  frozen (checksum pinned in code) and never tuned on.
-- **user**: hand-written transcripts in `eval/user_set/`, never tuned on. The current eight were
-  written by an independent agent at the user's request, as a stand-in for your own phrasing.
+- tuning and tuning-hw: the detectors were tuned on these;
+- held-out (now called validation): written blind and frozen, but looked at often enough
+  during development that it is no longer a blind test;
+- user: eight hand-written transcripts in `eval/user_set/`, never tuned on, standing in until
+  you add transcripts in your own phrasing.
 
 Baselines on the same data: plain regexes 6.4% held-out recall; Microsoft Presidio with its
 defaults 37.2% (its email/URL recognisers reject our reserved test domains, so those two
@@ -148,7 +148,7 @@ and use the review flags.
 
 ## Known limitations
 
-- **No tool catches everything. Review the flagged spans before sharing output.**
+- No tool catches everything. Review the flagged spans before sharing output.
 - Tier 0 cannot recognise names that are ordinary dictionary words ("Amber", "Art") unless
   they are in the deny-list, a speaker label, or follow a cue ("my name is ..."); Tier 1 models
   catch most of them.
@@ -161,7 +161,8 @@ and use the review flags.
 - Sensitive-topic sentences are found by keyword (layoffs, lawsuits, health conditions,
   divorce, fraud, "not public", ...): a sensitive sentence with none of those words is missed.
   Pricing/renewal sentences are only flagged by default, not redacted (configurable via
-  `topics.redact` / `topics.flag`; docs/DECISIONS.md D-034, D-043, D-059).
+  `topics.redact` / `topics.flag`), because redacting every pricing sentence would blank out
+  most of a sales call.
 - Fiscal quarters ("Q3"), years after a cue ("in 2019"), codes and last-four digits are
   redacted; relative dates ("yesterday", "next Friday") are not.
 - Python cannot wipe memory: decrypted mappings and transcript text live in process memory
@@ -169,7 +170,7 @@ and use the review flags.
 
 ## Privacy
 
-- **Nothing leaves the machine at run time**: no telemetry, no update checks, no downloads.
+- Nothing leaves the machine at run time: no telemetry, no update checks, no downloads.
   Every command except `setup` blocks network access and child processes, and fails if anything
   tries.
 - Transcript text is never logged or echoed; errors give positions and categories only.
@@ -181,7 +182,7 @@ and use the review flags.
 ## Restore and the mapping file
 
 - Each run creates a mapping (placeholder -> original value) with a random id. It is the most
-  sensitive artefact: it is written **only encrypted** (Fernet; key from a passphrase via scrypt
+  sensitive artefact: it is written only encrypted (Fernet; key from a passphrase via scrypt
   N=2^17 r=8 p=1, or from a key file via HKDF), by default to a private per-user store
   (`~/.local/share/offrecord/mappings/<id>.ormap`), never next to the output, and never next to
   the key file.
@@ -199,7 +200,8 @@ and use the review flags.
 
 ## Docs
 
-[docs/DECISIONS.md](docs/DECISIONS.md) · [docs/security.md](docs/security.md) · [docs/eval-format.md](docs/eval-format.md) ·
+[docs/architecture.md](docs/architecture.md) · [docs/security.md](docs/security.md) ·
+[docs/eval-format.md](docs/eval-format.md) · [CONTRIBUTING.md](CONTRIBUTING.md) ·
 [CHANGELOG.md](CHANGELOG.md)
 
 ## Licence
