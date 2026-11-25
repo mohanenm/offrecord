@@ -5,10 +5,27 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 ## [Unreleased]
 
 ### Changed
+- Tier 0 finds more business context: rates said without "percent" ("attrition is nine", "up
+  about four", "a fifth of your book"), places by shape and cue ("Route 9", "High Street", "in
+  Fort Worth", "our Leeds store"), and sensitive topics said in plain words (lawyers, rumours,
+  "keep this close", hours being cut, an owner looking to sell).
+- Tier 1 also redacts sensitive sentences that use none of the topic keywords, by comparing
+  each sentence with example sentences using the MiniLM model it already ships. It follows
+  `topics.mode`.
+- `eval` reports the clean-transcript rate (share of transcripts with nothing leaked), the
+  share with no high-severity leak, leaks per transcript, and how much of the text is redacted.
+  The run summary also says how much of the text was redacted.
 - The original held-out set is now called `validation` (`--set heldout` still works). It was
   looked at during development, so it no longer counts as blind.
+- Bad UTF-8 on the clipboard is now reported like bad UTF-8 in a file (exit code 3), and
+  clipboard text gets the same line-ending normalisation and line-length limit.
+- Token counts from tiktoken are labelled as such instead of "approx".
+- Windows is not supported (the package metadata now says macOS and Linux).
 
 ### Added
+- `offrecord review --draft-labels -o FILE` writes a transcript as inline markup pre-filled
+  with offrecord's redactions, for labelling your own transcripts privately
+  (`docs/private-eval.md`).
 - A sealed evaluation set (80 synthetic transcripts in new phrasing). `offrecord eval --set
   sealed` refuses to run without `--final-check`, and CI fails if the set changes.
 - `CONTRIBUTING.md`, `SECURITY.md`, `AGENTS.md` and `docs/architecture.md`.
@@ -18,6 +35,9 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 
 ### Fixed
 - "$300 baseline" no longer redacts part of "baseline"; negative token savings read "more".
+- The embedding model used by `--compress aggressive` is now checksum-verified before loading,
+  like the other models.
+- A long chain of spoken numbers can no longer make the quantity rules take minutes.
 
 ### Changed
 - Tier 0 catches far more unseen phrasing (tuned on a new tuning set written in inline markup): spoken and
