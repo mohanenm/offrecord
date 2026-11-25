@@ -1,0 +1,33 @@
+[00:00:04] [[PERSON#lv:Lucia Wixgrav]]: Morning. Peak planning, round three. [[PERSON#dm:Desmond]], where are we on capacity?
+[00:00:11] [[PERSON#dm:Desmond Achebe-Lowry]]: Network is at [[PERCENT:87%]] utilisation. [[LOCATION#mem:Memphis]] is the bottleneck, it's running at [[PERCENT#96:ninety-six]].
+[00:00:22] [[PERSON#lv:Lucia Wixgrav]]: [[PERCENT#96:Ninety-six]] is not sustainable.
+[00:00:26] [[PERSON#dm:Desmond Achebe-Lowry]]: Agreed. We can push [[PERCENT:a third]] of the [[CLIENT#sw:Sablewood Home]] volume through [[LOCATION#lou:Louisville]] instead.
+[00:00:37] [[PERSON#kr:Kiran Rao-Whitfield]]: [[LOCATION#lou:Louisville]] can take it with a night shift. Today they sit at [[PERCENT:60 pct]].
+[00:00:45] [[PERSON#lv:Lucia Wixgrav]]: What does the night shift cost?
+[00:00:49] [[PERSON#kr:Kiran Rao-Whitfield]]: Roughly [[AMOUNT:$38,000]] a week for [[QUANTITY:22 temps]].
+[00:00:58] [[PERSON#lv:Lucia Wixgrav]]: Fine. What about the [[LOCATION:Laredo]] crossing?
+[00:01:03] [[PERSON#dm:Desmond Achebe-Lowry]]: On-time slipped [[PERCENT:40 basis points]] to [[PERCENT:91.6]].
+[00:01:09] [[PERSON#dm:Desmond Achebe-Lowry]]: [[TOPIC:Customs pulled two of our trailers for secondary inspection and there's an open inquiry the client hasn't heard about.]]
+[00:01:20] [[PERSON#lv:Lucia Wixgrav]]: Who's handling it?
+[00:01:23] [[PERSON#dm:Desmond Achebe-Lowry]]: Our broker in [[LOCATION:Nuevo Laredo]], [[ORG:Trosaxqua Customs Brokerage]]. Case number [[ACCOUNT:MX-44817-C]].
+[00:01:34] [[PERSON#kr:Kiran Rao-Whitfield]]: Do we tell [[CLIENT#dp:Draycott]]?
+[00:01:37] [[PERSON#lv:Lucia Wixgrav]]: [[TOPIC:Not until counsel says so, and none of it goes in email.]]
+[00:01:42] [[PERSON#lv:Lucia Wixgrav]]: Next, [[CODENAME:Project Drazel]].
+[00:01:46] [[PERSON#kr:Kiran Rao-Whitfield]]: [[TOPIC:The Drazel model assumes we take the Draycott Pet Supply contract off their current carrier in March, which nobody has announced.]]
+[00:01:58] [[PERSON#lv:Lucia Wixgrav]]: Margin on that?
+[00:02:01] [[PERSON#kr:Kiran Rao-Whitfield]]: [[PERCENT:Mid-single digits]]. [[PERCENT:Five]], maybe [[PERCENT:six]].
+[00:02:08] [[PERSON#dm:Desmond Achebe-Lowry]]: Fuel's the other lever. Diesel is up [[PERCENT:eleven percent]] since [[DATE:August]].
+[00:02:15] [[PERSON#lv:Lucia Wixgrav]]: Can we pass all of it through?
+[00:02:18] [[PERSON#dm:Desmond Achebe-Lowry]]: [[PERCENT:Two-thirds]], realistically. The contracts cap us.
+[00:02:24] [[PERSON#kr:Kiran Rao-Whitfield]]: [[TOPIC:Also, and keep this close, Sablewood has been quietly running a pilot with another 3PL out of Atlanta.]]
+[00:02:33] [[PERSON#lv:Lucia Wixgrav]]: How big a pilot?
+[00:02:35] [[PERSON#kr:Kiran Rao-Whitfield]]: [[QUANTITY:Forty loads]] a week, so call it [[PERCENT:8%]] of what they give us.
+[00:02:42] [[PERSON#dm:Desmond Achebe-Lowry]]: Weather. Snow is forecast for [[LOCATION:Minnesota]] and the [[LOCATION:Upper Peninsula]] on the [[DATE:fourth]].
+[00:02:50] [[PERSON#lv:Lucia Wixgrav]]: Pre-stage trailers at the [[LOCATION:Fallowmere]] yard, doors [[NEG:fourteen]] through [[NEG:twenty]].
+[00:02:57] [[PERSON#dm:Desmond Achebe-Lowry]]: Address for drivers is [[LOCATION:9100 Ridgeback Parkway, Brantley Falls, Wisconsin]].
+[00:03:05] [[PERSON#lv:Lucia Wixgrav]]: [[TOPIC:One more, and it's sensitive: the Memphis GM starts medical leave next month and we haven't named cover.]]
+[00:03:15] [[PERSON#kr:Kiran Rao-Whitfield]]: I can cover two days a week from [[LOCATION:Nashville]].
+[00:03:20] [[PERSON#lv:Lucia Wixgrav]]: Thanks. Plan to [[EMAIL:l.wixgrav@wexmoor.test]] by [[DATE:Friday the 5th]].
+[00:03:26] [[PERSON#dm:Desmond Achebe-Lowry]]: Last number. Damage claims are down to [[PERCENT:0.4%]] of shipments, lowest since [[DATE:2021]].
+[00:03:34] [[PERSON#kr:Kiran Rao-Whitfield]]: [[NEG:We should kill the old pallet report, nobody reads it.]]
+[00:03:39] [[PERSON#lv:Lucia Wixgrav]]: Agreed. That's it, thanks.

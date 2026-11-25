@@ -1,0 +1,34 @@
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:00:03): We're calling the budget workshop to order. Finance Director, go ahead.
+[[PERSON#cp:Cyril Pasternak]] (00:00:09): Thank you. General fund revenue for next year is projected up [[PERCENT:3.1%]]. Property tax is about [[PERCENT:half]] of that, sales tax the rest.
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:00:21): And expenses?
+[[PERSON#cp:Cyril Pasternak]] (00:00:24): Up [[PERCENT:five point eight]]. Health premiums alone rose [[PERCENT#14:fourteen]].
+Councilmember [[PERSON#lb:Leroy Bastian]] (00:00:33): [[PERCENT#14:Fourteen]]? Who's our carrier now?
+[[PERSON#cp:Cyril Pasternak]] (00:00:37): [[ORG:Northgate Mutual Benefits]]. The pool rate for [[LOCATION#co:Colorado]] cities was [[PERCENT:nine to ten percent]], so we came in worse.
+Councilmember [[PERSON#lb:Leroy Bastian]] (00:00:48): [[TOPIC:Is that because of the two claims we can't talk about in open session?]]
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:00:54): Let's hold that for executive session, please.
+[[PERSON#cp:Cyril Pasternak]] (00:00:59): The gap is [[AMOUNT:$2.3 million]]. Options are in the packet, page [[NEG:eleven]].
+Councilmember [[PERSON#dv:Daria Voss]] (00:01:06): I see a mill levy increase of [[NEG:one]] mill. What does that mean for a homeowner?
+[[PERSON#cp:Cyril Pasternak]] (00:01:12): About [[AMOUNT:$48]] a year on a median home in [[LOCATION:Calderwood]].
+Councilmember [[PERSON#dv:Daria Voss]] (00:01:19): And the library hours cut?
+[[PERSON#cp:Cyril Pasternak]] (00:01:23): The [[LOCATION:Eastridge]] branch would drop to [[NEG:four]] days. Saves [[AMOUNT:$310,000]].
+Councilmember [[PERSON#dv:Daria Voss]] (00:01:31): [[TOPIC:I'll just say, if we touch Eastridge again, the residents on Kittredge Avenue will be in this room with lawyers.]]
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:01:41): Noted. Public safety?
+Chief [[PERSON#ws:Winona Sandoval]] (00:01:45): Overtime is up [[PERCENT:a third]] over last year. Vacancy rate is [[PERCENT:seventeen]].
+Councilmember [[PERSON#lb:Leroy Bastian]] (00:01:53): [[TOPIC:Is it true the state is looking at our department over the use-of-force reports?]]
+Chief [[PERSON#ws:Winona Sandoval]] (00:01:58): [[TOPIC:I can't comment on any review that may or may not be underway.]]
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:02:03): Let's stay on the numbers. Utilities fund?
+[[PERSON#cp:Cyril Pasternak]] (00:02:07): Water rates go up [[PERCENT:six percent]] in [[DATE:July]]. Sewer [[PERCENT:4.5]].
+Councilmember [[PERSON#dv:Daria Voss]] (00:02:14): Neighbouring [[LOCATION:Boulder]] did [[PERCENT:eight]] last year.
+[[PERSON#cp:Cyril Pasternak]] (00:02:19): And [[LOCATION:Fort Collins]] did [[PERCENT:low single digits]]. We're in the middle.
+Councilmember [[PERSON#lb:Leroy Bastian]] (00:02:26): The [[LOCATION:Arapahoe Street]] reservoir project, is it still in?
+[[PERSON#cp:Cyril Pasternak]] (00:02:30): It's in, at [[AMOUNT:$11.7 million]], financed over [[NEG:twenty years]].
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:02:37): [[TOPIC:Before we move on, I'll confirm we are not selling the Ridgemont golf course, whatever you've heard.]]
+Councilmember [[PERSON#dv:Daria Voss]] (00:02:45): [[TOPIC:But a developer from Denver did approach the city manager about it.]]
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:02:51): That's executive session too. Staffing?
+[[PERSON#cp:Cyril Pasternak]] (00:02:55): We propose holding [[QUANTITY:fourteen vacant positions]] open. That's roughly [[PERCENT:three percent]] of headcount.
+Councilmember [[PERSON#lb:Leroy Bastian]] (00:03:03): [[TOPIC:So we're shrinking the workforce through attrition and calling it a hiring pause.]]
+[[PERSON#cp:Cyril Pasternak]] (00:03:09): That's one way to describe it. [[NEG:We're also retiring the old budget binder format, nobody will miss it.]]
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:03:13): Reserve policy?
+[[PERSON#cp:Cyril Pasternak]] (00:03:16): Policy is [[NEG:sixteen percent]] of operating. We're at [[PERCENT:nineteen]], so there's room to draw [[PERCENT:two to three points]].
+Councilmember [[PERSON#dv:Daria Voss]] (00:03:25): I'd rather draw reserves than cut [[LOCATION:Eastridge]].
+Mayor [[PERSON#mh:Hildegard Ruiz-Ottley]] (00:03:29): Comments to the clerk at [[EMAIL:clerk@calderwood-co.test]] before [[DATE:December 8]]. We're adjourned to executive session.

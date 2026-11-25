@@ -1,0 +1,41 @@
+Speaker A: Okay, let's do the weekly. I'll start with the scorecard. Script count is up [[PERCENT:3.4%]] chain-wide, but the [[LOCATION:Carolinas]] region is down [[PERCENT:two]], and that's almost entirely the stores around [[LOCATION:Charleston]].
+
+Speaker B: [[LOCATION:Charleston]] is the staffing problem. We had [[QUANTITY:five stores]] close early last week because there was no pharmacist. [[TOPIC:And one of those pharmacists filed a complaint with the state board about workload, which legal is now handling.]]
+
+Speaker A: Right. What's the fill rate on the generics side?
+
+Speaker B: [[PERCENT:Ninety-two]]. The wholesaler, [[ORG:Thornhaven Rx Distribution]], has had shortages on amoxicillin and a couple of ADHD meds. In some stores it's closer to [[PERCENT#85:eighty-five]].
+
+Speaker A: [[PERCENT#85:Eighty-five]] is bad. Is it a supply issue or a contract issue?
+
+Speaker B: Mostly supply. [[TOPIC:But I'll be honest, we're also behind on payments to them, and they've started holding orders.]]
+
+Speaker A: Okay, that stays here. Margins. Gross margin on pharmacy is [[PERCENT:twenty-one point three]], down [[PERCENT:ninety basis points]]. Front store is [[PERCENT:thirty-four]].
+
+Speaker B: Reimbursement cuts from [[ORG:Pinecrest PBM]] are about [[PERCENT:half]] of that drop.
+
+Speaker A: [[TOPIC:And their contract is up in March and they're signalling another cut, maybe three to five percent.]]
+
+Speaker B: We can't absorb that. [[TOPIC:If they push it, we close the bottom twenty stores, mostly rural ones in Georgia and Alabama.]]
+
+Speaker A: Let's not say "close" outside this call. Vaccines. Flu shots are at [[QUANTITY:184,000]], that's about [[PERCENT:two-thirds]] of goal.
+
+Speaker B: [[LOCATION:Tennessee]] is ahead, [[LOCATION:Virginia]] is behind. Our [[LOCATION:Richmond]] district is at [[PERCENT:forty-eight percent]] of goal.
+
+Speaker A: Okay. Next item, the [[CODENAME:Lighthouse]] pilot, the home delivery program.
+
+Speaker B: [[TOPIC:Lighthouse launches in Atlanta and Nashville in April, and we haven't told the store managers it will take volume from their counters.]] Delivery penetration in the test market is [[PERCENT:seven and a half]].
+
+Speaker A: And what's adoption among seniors?
+
+Speaker B: About [[PERCENT:a quarter]]. Higher than we expected. [[NEG:Mark]] that down as a win, and the drivers wear store [[NEG:number eleven]] fleeces, which helps.
+
+Speaker A: Good. [[NEG:We also need to kill the old fax line in the back office, it's been dead for a year.]] Loss prevention. Controlled substance discrepancies.
+
+Speaker B: [[TOPIC:The DEA has asked for records from our store at 902 Magnolia Avenue in Savannah, after the audit found a gap in the counts.]] That store's case is [[ACCOUNT:LP-55102]].
+
+Speaker A: Who's the pharmacist in charge there?
+
+Speaker B: [[PERSON:Desmond Ferreira-Vail]]. [[TOPIC:He's been on leave since the audit, officially for health reasons.]]
+
+Speaker A: Okay. Anything else? Send the full deck to [[EMAIL:ops-weekly@keystone-pharmacy.example]], and let's move next week to [[DATE:Wednesday the 9th]] because of the holiday.

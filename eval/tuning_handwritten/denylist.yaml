@@ -179,3 +179,154 @@ denylist:
   - name: Mireille
     category: PERSON
     aliases: []
+  # h21-h40
+  - name: Pellbrook Foods
+    category: CLIENT
+    aliases:
+    - Pellbrook
+  - name: Sablewood Home
+    category: CLIENT
+    aliases:
+    - Sablewood
+  - name: Draycott Pet Supply
+    category: CLIENT
+    aliases:
+    - Draycott
+  - name: Tessbrook Poultry
+    category: CLIENT
+    aliases:
+    - Tessbrook
+  - name: Thimthim Hospitality Group
+    category: CLIENT
+    aliases:
+    - Thimthim
+  - name: Ferrovale Beverages
+    category: CLIENT
+    aliases:
+    - Ferrovale
+  - name: Orbelle Health
+    category: CLIENT
+    aliases:
+    - Orbelle
+  - name: Tanager Freight
+    category: CLIENT
+    aliases:
+    - Tanager
+  - name: Fernhallow Senior Living
+    category: CLIENT
+    aliases:
+    - Fernhallow
+  - name: Northbay Mining
+    category: CLIENT
+    aliases:
+    - Northbay
+  - name: Velloria Cosmetics
+    category: CLIENT
+    aliases:
+    - Velloria
+  - name: Quamibdra Outdoor
+    category: CLIENT
+    aliases:
+    - Quamibdra
+  - name: Kowalski Brothers Hog Farm
+    category: CLIENT
+    aliases:
+    - Kowalski Brothers
+  - name: Halyard 9
+    category: PRODUCT
+    aliases:
+    - Halyard nine
+  - name: Project Bittern
+    category: CODENAME
+    aliases:
+    - Bittern
+  - name: Project Drazel
+    category: CODENAME
+    aliases:
+    - Drazel
+  - name: Project Kestrelwood
+    category: CODENAME
+    aliases:
+    - Kestrelwood
+  - name: Project Albatross
+    category: CODENAME
+    aliases:
+    - Albatross
+  - name: Saffron Hour
+    category: CODENAME
+    aliases: []
+  - name: Trosaxqua Customs Brokerage
+    category: ORG
+    aliases:
+    - Trosaxqua
+  - name: Kilbride Steel
+    category: ORG
+    aliases:
+    - Kilbride
+  - name: Vondrasek Fabrication
+    category: ORG
+    aliases:
+    - Vondrasek
+  - name: Hollenvaart Builders
+    category: ORG
+    aliases:
+    - Hollenvaart
+  - name: Crestway Health Plan
+    category: ORG
+    aliases:
+    - Crestway
+  - name: Quillmoor Residential
+    category: ORG
+    aliases:
+    - Quillmoor
+  - name: Tallowcreek Electric Cooperative
+    category: ORG
+    aliases:
+    - Tallowcreek
+  - name: Glacierline Ground Services
+    category: ORG
+    aliases:
+    - Glacierline
+  - name: Bramblecrest Ag Lending
+    category: ORG
+    aliases:
+    - Bramblecrest
+  - name: Thornhaven Rx Distribution
+    category: ORG
+    aliases:
+    - Thornhaven
+  - name: Lexmoor Professional Indemnity
+    category: ORG
+    aliases:
+    - Lexmoor
+  - name: Brasswing Collective
+    category: ORG
+    aliases:
+    - Brasswing
+  - name: Tobin Kessler
+    category: PERSON
+    aliases:
+    - Tobin
+  - name: Desmond Achebe-Lowry
+    category: PERSON
+    aliases:
+    - Achebe-Lowry
+  - name: Oriana Yulwixzel
+    category: PERSON
+    aliases:
+    - Yulwixzel
+  - name: Tavish Bramwell
+    category: PERSON
+    aliases: []
+  - name: Anneliese Holm
+    category: PERSON
+    aliases:
+    - Anneliese
+  - name: Desmond Ferreira-Vail
+    category: PERSON
+    aliases:
+    - Ferreira-Vail
+  - name: Keshmiblun Marchbanks
+    category: PERSON
+    aliases:
+    - Marchbanks

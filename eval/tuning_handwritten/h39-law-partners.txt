@@ -1,0 +1,31 @@
+[[PERSON#cw:Clementine Wyatt-Osei]]: Let's start with the year-end numbers, then the lateral, then the two matters everyone has been asking about. Realization this year is [[PERCENT:eighty-seven percent]], which is up [[PERCENT:a point and a half]] but still short of the [[PERCENT:ninety]] we budgeted. Collections are at [[PERCENT:ninety-one]], and the [[LOCATION:London]] office is dragging the average down.
+
+[[PERSON#hf:Horatio Fairweather]]: [[LOCATION:London]] is a staffing story, not a client story. We lost two senior associates to a firm in [[LOCATION:Surrey]] in the summer, and the team that's left is billing about [[PERCENT:seventy]] of target. [[TOPIC:I'll also say, and this is for partners only, that one of those associates left after a grievance about a partner's conduct that we settled quietly.]]
+
+[[PERSON#cw:Clementine Wyatt-Osei]]: Understood. Profit per partner is [[AMOUNT:$1.42 million]], up [[PERCENT:six]]. Leverage is at [[QUANTITY:3.8]] associates per partner.
+
+[[PERSON#ib:Ines Barrowcliffe]]: On the lateral. [[TOPIC:We're in late talks with the head of the restructuring group at another firm in Toronto, and she'd bring a team of six.]] Her book is around [[AMOUNT:CAD 9 million]], and roughly [[PERCENT:a third]] of it is one client, [[CLIENT#nb:Northbay Mining]].
+
+[[PERSON#hf:Horatio Fairweather]]: Do we have a conflict with [[CLIENT#nb:Northbay]]?
+
+[[PERSON#ib:Ines Barrowcliffe]]: [[TOPIC:Potentially, because we act for a lender in the Ontario insolvency that Northbay is on the other side of.]] The conflicts team is reviewing it.
+
+[[PERSON#cw:Clementine Wyatt-Osei]]: Rates. The proposal is a [[PERCENT:seven to eight percent]] increase for [[DATE:2027]]. Last year we did [[PERCENT:five]], and clients pushed back to an effective [[PERCENT:three and a half]].
+
+[[PERSON#ib:Ines Barrowcliffe]]: [[TOPIC:Our biggest bank client has told us they'll cap us at four or move panel work elsewhere.]]
+
+[[PERSON#hf:Horatio Fairweather]]: Then [[PERCENT:four]] for them and [[PERCENT:eight]] for everyone else.
+
+[[PERSON#cw:Clementine Wyatt-Osei]]: Now the matters. First, [[CLIENT:Hollinshead Group]]. [[TOPIC:The regulator in Brussels has opened a formal investigation into the merger we advised on, and our advice may be scrutinised.]] Our insurer, [[ORG:Lexmoor Professional Indemnity]], has been notified.
+
+[[PERSON#hf:Horatio Fairweather]]: What's the exposure?
+
+[[PERSON#cw:Clementine Wyatt-Osei]]: The deductible is [[AMOUNT:$2 million]]. Coverage is fine.
+
+[[PERSON#ib:Ines Barrowcliffe]]: Second matter. [[TOPIC:One of our partners in the Edinburgh office is going through a difficult divorce and has asked to drop to a four-day week.]] I'd support it. Her utilisation is still over [[PERCENT:a hundred and ten percent]].
+
+[[PERSON#cw:Clementine Wyatt-Osei]]: Agreed. Offices. We're consolidating space in [[LOCATION:Manchester]] and expanding at [[LOCATION:14 Albemarle Row]] in [[LOCATION:Bristol]]. Occupancy cost is about [[PERCENT:nine percent]] of revenue.
+
+[[PERSON#hf:Horatio Fairweather]]: And [[LOCATION:Singapore]]?
+
+[[PERSON#cw:Clementine Wyatt-Osei]]: [[TOPIC:We are not exiting Singapore, whatever the associates are saying on the forums.]] Questions to [[EMAIL:managing.partner@wyatt-barrowcliffe.example]]. Thanks, everyone. [[NEG:Grace]] period on time entries ends [[DATE:Friday]], by the way.

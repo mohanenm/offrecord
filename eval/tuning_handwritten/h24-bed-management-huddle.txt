@@ -1,0 +1,33 @@
+07:30 [[PERSON#gw:Gwen]]: Morning, bed huddle. House census is [[QUANTITY:412]], occupancy [[PERCENT:94%]].
+07:30 [[PERSON#ar:Arjun]]: ED has [[QUANTITY:nineteen boarders]], longest is [[QUANTITY#31:31 hours]].
+07:31 [[PERSON#gw:Gwen]]: [[QUANTITY#31:Thirty-one]]. Okay. What's discharge looking like?
+07:31 [[PERSON#tl:Drakeshdra]]: [[QUANTITY:Forty-four]] projected, but only [[PERCENT:a third]] before noon.
+07:32 [[PERSON#gw:Gwen]]: We need [[PERCENT#half:half]] out before noon. [[PERCENT#half:Half]], people.
+07:32 [[PERSON#ar:Arjun]]: [[TOPIC:Four West is still closed because of the C. diff cluster, and infection control hasn't cleared it.]]
+07:33 [[PERSON#gw:Gwen]]: Expected reopen?
+07:33 [[PERSON#ar:Arjun]]: [[DATE:Thursday]] if swabs come back clean.
+07:33 [[PERSON#tl:Drakeshdra]]: Transfers in. [[ORG#hc:Harlow County General]] wants to send two vents from [[LOCATION:Kearny Springs]].
+07:34 [[PERSON#gw:Gwen]]: ICU is at [[PERCENT:100]]. Can't.
+07:34 [[PERSON#tl:Drakeshdra]]: [[TOPIC:Their CEO already called ours about it, so expect pressure.]]
+07:35 [[PERSON#gw:Gwen]]: Noted. Divert status?
+07:35 [[PERSON#ar:Arjun]]: Not on divert. We were last on divert [[PERCENT:12%]] of hours in [[DATE:October]].
+07:35 [[PERSON#gw:Gwen]]: State flags anything over [[NEG:ten]].
+07:36 [[PERSON#ar:Arjun]]: [[TOPIC:Which is why the health department sent a letter asking for our surge plan.]]
+07:36 [[PERSON#gw:Gwen]]: Staffing.
+07:37 [[PERSON#tl:Drakeshdra]]: Sick calls are [[PERCENT:double]] last week. Agency fill rate is [[PERCENT:sixty-five]].
+07:37 [[PERSON#gw:Gwen]]: [[TOPIC:And I'll say it once: the travel nurse contracts end in January and finance is not renewing most of them.]]
+07:38 [[PERSON#ar:Arjun]]: Does the floor know?
+07:38 [[PERSON#gw:Gwen]]: Not yet. Patient flow. Bed [[NEG:twelve]] on Five North.
+07:39 [[PERSON#tl:Drakeshdra]]: That's [[PERSON:Mr. Odalric Penhale]], [[ACCOUNT:MRN 00488213]]. Waiting on placement at [[LOCATION:Linden Hollow Rehab]] on [[LOCATION:Old Mill Road]].
+07:39 [[PERSON#gw:Gwen]]: Insurance?
+07:40 [[PERSON#tl:Drakeshdra]]: [[ORG:Crestway Health Plan]] approved [[PERCENT:eighty percent]], family's appealing the rest.
+07:40 [[PERSON#ar:Arjun]]: [[TOPIC:His daughter told me he has early dementia and she's worried about him going home alone.]]
+07:41 [[PERSON#gw:Gwen]]: Social work's on it. Readmissions?
+07:41 [[PERSON#tl:Drakeshdra]]: [[NEG:Thirty-day]] is [[PERCENT:14.1]], up [[PERCENT:point six]].
+07:42 [[PERSON#gw:Gwen]]: CMS benchmark is [[NEG:15]], so we're okay but trending wrong.
+07:42 [[PERSON#ar:Arjun]]: Outlying units. The [[LOCATION:Westgate]] campus has [[QUANTITY:six beds]] open.
+07:43 [[PERSON#gw:Gwen]]: Move the low-acuity ortho patients there. Transport out of [[LOCATION:Brookfield]] can run at ten.
+07:43 [[PERSON#tl:Drakeshdra]]: I'll page them on [[PHONE:555-0142]].
+07:44 [[PERSON#gw:Gwen]]: [[TOPIC:One last thing, the sentinel event review on the fall in radiology is Friday and it's privileged.]]
+07:44 [[PERSON#ar:Arjun]]: Who's going?
+07:44 [[PERSON#gw:Gwen]]: Me, risk, and [[PERSON:Dr. Imre Mibpel]]. That's it, thanks.

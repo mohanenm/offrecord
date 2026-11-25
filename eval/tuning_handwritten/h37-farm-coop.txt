@@ -1,0 +1,36 @@
+00:05 [[PERSON#ew:Elwood]]: Alright, let's call the co-op board to order. Harvest numbers first. [[PERSON#ri:Ruthanne]]?
+00:12 [[PERSON#ri:Ruthanne]]: Corn deliveries are up [[PERCENT:six percent]] on last year, soybeans down about [[PERCENT:four]].
+00:21 [[PERSON#ew:Elwood]]: Moisture?
+00:23 [[PERSON#ri:Ruthanne]]: Averaging [[PERCENT:sixteen]] at intake, so drying costs ran high. Propane was up [[PERCENT:a fifth]].
+00:32 [[PERSON#jb:Jethro]]: The [[LOCATION:Wapello]] elevator ran at [[PERCENT:ninety-five]] capacity for three weeks.
+00:39 [[PERSON#ew:Elwood]]: And [[LOCATION:Ottumwa]]?
+00:41 [[PERSON#jb:Jethro]]: [[PERCENT:Seventy]]. Lots of members trucked straight to the ethanol plant in [[LOCATION:Nebraska]].
+00:49 [[PERSON#ri:Ruthanne]]: [[TOPIC:Because the plant is paying a basis we can't match, and three of our biggest growers have told me they're thinking of leaving the co-op.]]
+00:59 [[PERSON#ew:Elwood]]: Which three?
+01:01 [[PERSON#ri:Ruthanne]]: I'd rather not say on the record.
+01:04 [[PERSON#ew:Elwood]]: Fine. Patronage dividend. Finance proposes [[PERCENT:thirty percent]] cash, the rest retained.
+01:13 [[PERSON#jb:Jethro]]: Last year was [[PERCENT:forty]].
+01:16 [[PERSON#ew:Elwood]]: [[TOPIC:The bank wants us to hold more equity after the loss on the grain contracts in the spring.]]
+01:24 [[PERSON#ri:Ruthanne]]: [[TOPIC:Which nobody has explained to the membership yet.]]
+01:28 [[PERSON#ew:Elwood]]: We will, at the annual meeting. Lender is [[ORG:Bramblecrest Ag Lending]], loan number [[ACCOUNT:HP-2290-1147]].
+01:37 [[PERSON#jb:Jethro]]: Rate went from [[PERCENT:six and a quarter]] to [[PERCENT:seven point one]].
+01:43 [[PERSON#ew:Elwood]]: Agronomy. Fertilizer prepay.
+01:47 [[PERSON#ri:Ruthanne]]: Anhydrous is down [[PERCENT:twelve pct]] from last fall. Prepay discount is [[PERCENT:two and a half]].
+01:55 [[PERSON#jb:Jethro]]: Our supplier out of [[LOCATION:Saskatchewan]] wants a longer commitment.
+02:00 [[PERSON#ew:Elwood]]: How long?
+02:02 [[PERSON#jb:Jethro]]: Three years. [[TOPIC:And I hear they're being sold to a bigger outfit, so prices could jump.]]
+02:09 [[PERSON#ew:Elwood]]: Hold off then. Feed mill?
+02:12 [[PERSON#ri:Ruthanne]]: Volume [[PERCENT:doubled]] after we picked up the [[CLIENT:Kowalski Brothers Hog Farm]] account.
+02:19 [[PERSON#jb:Jethro]]: [[TOPIC:But Kowalski's had a disease scare in one of their barns, the state vet was out last week.]]
+02:27 [[PERSON#ew:Elwood]]: Is it confirmed?
+02:29 [[PERSON#jb:Jethro]]: Not yet. Results by [[DATE:the 3rd]].
+02:33 [[PERSON#ew:Elwood]]: Keep it quiet till then. Fuel division?
+02:36 [[PERSON#ri:Ruthanne]]: Margin is [[AMOUNT:eight cents]] a gallon, that's about [[PERCENT:three percent]].
+02:44 [[PERSON#ew:Elwood]]: Okay. Membership?
+02:46 [[PERSON#ri:Ruthanne]]: [[QUANTITY:612 active members]]. Average age is up. Under-forty members are [[PERCENT:single digits]].
+02:55 [[PERSON#jb:Jethro]]: [[TOPIC:And we're not closing the Eddyville location, I want that in the minutes, people keep asking.]]
+03:03 [[PERSON#ew:Elwood]]: So noted. New scale house at [[LOCATION:Route 34 and Hollins Road]]?
+03:09 [[PERSON#jb:Jethro]]: Bid came in at [[AMOUNT:$186,000]].
+03:12 [[PERSON#ew:Elwood]]: Motion to approve? [[NEG:Hope]] somebody seconds.
+03:15 [[PERSON#ri:Ruthanne]]: Second.
+03:17 [[PERSON#ew:Elwood]]: Passed. Minutes go to [[EMAIL:board@southfork-coop.example]]. Adjourned.

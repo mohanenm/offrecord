@@ -1,0 +1,38 @@
+Interviewer 1: Thanks for coming in. I'm [[PERSON#ma:Marguerite Aldous]] from employee relations, and this is [[PERSON#sh:Silas Hargreave]], who'll take notes.
+Interviewer 2: Morning.
+Interviewee: Morning.
+Interviewer 1: Can you confirm your name and employee number?
+Interviewee: [[PERSON#tb:Tavish Bramwell]], [[ACCOUNT:E-118274]].
+Interviewer 1: And you work out of the [[LOCATION:Columbus]] office?
+Interviewee: [[LOCATION:Columbus]], yes, but I travel to the [[LOCATION:Dayton]] site most weeks.
+Interviewer 1: [[TOPIC:We're looking into a complaint about comments made at the team dinner on the fourteenth.]]
+Interviewee: Okay.
+Interviewer 1: Were you there?
+Interviewee: Yes, at [[LOCATION:Morrow's Grill]] on [[LOCATION:High Street]].
+Interviewer 2: Who else was at your table?
+Interviewee: [[PERSON#dk:Dana Quatro]], [[PERSON:Reuben Osei]], and my manager.
+Interviewer 1: [[TOPIC:Did you hear anyone make remarks about a colleague's pregnancy or her ability to handle the promotion?]]
+Interviewee: [[TOPIC:I heard my manager say she'd be checked out half the year anyway.]]
+Interviewer 1: Was that said to her directly?
+Interviewee: No, she'd gone to the restroom. [[PERSON#dk:Dana]] told her afterwards.
+Interviewer 2: Had you heard similar comments before?
+Interviewee: [[TOPIC:Once or twice, about who gets the Ohio accounts and who doesn't.]]
+Interviewer 1: Can you say more about that?
+Interviewee: [[TOPIC:The bigger accounts go to the guys, put it that way.]]
+Interviewer 1: Do you have any data on that?
+Interviewee: I pulled it myself. Men on the team hold about [[PERCENT:seventy percent]] of the book, and they're [[PERCENT:half]] the headcount.
+Interviewer 2: And quota attainment?
+Interviewee: Similar. Women averaged [[PERCENT:ninety-six]], men [[PERCENT:ninety-one]]. So it's not performance.
+Interviewer 1: Bonuses?
+Interviewee: The pool was [[PERCENT:12%]] of base. Top quartile got [[PERCENT:double]] that.
+Interviewer 1: Thank you. [[TOPIC:Have you felt any pressure or retaliation since this complaint was raised?]]
+Interviewee: [[TOPIC:My territory got changed last week, I lost Cincinnati and got moved to Toledo.]]
+Interviewer 2: Is [[LOCATION:Toledo]] smaller?
+Interviewee: About [[PERCENT:a third]] the revenue. Commission is [[PERCENT:eight and a half]] on that, so it hits me.
+Interviewer 1: We'll note that. Anything else we should know?
+Interviewee: [[TOPIC:Just that I'm worried this gets back to him, I have a kid starting college and I can't lose this job.]]
+Interviewer 1: We take confidentiality seriously. You can reach me directly at [[PHONE:614-555-0128]] or [[EMAIL:m.aldous@hollowell-group.example]].
+Interviewee: Thanks. [[NEG:Sorry if I'm slow today, just tired from the drive.]]
+Interviewer 2: [[NEG:Will]] you be around [[DATE:next Thursday]] if we have follow-ups?
+Interviewee: I'm in [[LOCATION:Pittsburgh]] for a client then, but I can call in.
+Interviewer 1: That works. Case reference is [[ACCOUNT:ER-2026-0417]]. Thanks for your time.
