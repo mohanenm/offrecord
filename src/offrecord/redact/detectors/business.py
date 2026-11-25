@@ -127,9 +127,11 @@ PERCENT_BARE = [
         rf"nearly\s+|almost\s+|another\s+|over\s+)?(?P<d>{FIG})\b{NOT_A_RATE}"
     ),
     re.compile(
-        rf"(?i)(?P<d>\b(?:(?:a|one|two|three|four)[\s-]+(?:half|halves|thirds?|quarters?|fifths?|"
-        rf"tenths?)|half|{NUM_WORD}\s+and\s+a\s+(?:half|quarter)))\b"
-        r"(?!\s+(?:past|an?\s+(?:hour|day|week|month|year|mile|inch|pound|dozen)|"
+        r"(?i)(?<!first\s)(?<!second\s)(?<!back\s)(?<!other\s)(?<!better\s)"
+        rf"(?P<d>\b(?:(?<!and\s)a[\s-]+half|(?:a|one|two|three|four)[\s-]+(?:halves|thirds?|"
+        rf"quarters?|fifths?|tenths?)|one[\s-]+half|half|{NUM_WORD}\s+and\s+a\s+(?:half|quarter)))\b"
+        r"(?![\s-]+(?:past|to\s+\w+|running|in\s+a\s+row|"
+        r"an?\s+(?:hour|day|week|month|year|mile|inch|pound|dozen)|"
         r"of\s+an?\s+(?:hour|inch|mile)|of\s+(?:the\s+)?(?:year|fiscal)|ago|time|way|"
         rf"century|{TIME_UNITS})\b)"
     ),
@@ -138,10 +140,11 @@ PERCENT_BARE = [
         rf"(?P<d>(?<![\d.])\d{{1,2}}\.\d{{1,2}})(?![\d.]){NOT_A_RATE}"
     ),
 ]
+LONE_ONE = re.compile(r"(?i)one(?:-(?:off|on|time|way|to))?$")
 # Spoken numbers ("nine", "seventeen", "sixty two", "six and change", "one in five", "double")
 # count as figures near a trigger, like digits do. A lone "one" is too common to count.
 SPOKEN_NUM = re.compile(
-    rf"(?i)\b(?:{NUM_WORD}(?:[\s-]+(?:and\s+)?(?:{NUM_WORD}|hundred))*"
+    rf"(?i)\b(?:{NUM_WORD}(?:[\s-]+(?:and\s+)?(?:{NUM_WORD}|hundred)){{0,6}}"
     rf"(?:\s+and\s+a\s+(?:half|quarter)|\s+point(?:\s+{DIG_WORD})+|\s+and\s+change|[\s-]ish)?"
     rf"|(?:a\s+)?point(?:\s+{DIG_WORD})+|double|doubled|triple|tripled"
     rf"|{NUM_WORD}\s+in\s+{NUM_WORD})\b"
@@ -151,7 +154,7 @@ SPOKEN_NUM = re.compile(
 QWORD = rf"(?:{NUM_WORD}|hundred|thousand|million|billion)"
 QFIG = (
     rf"(?:(?:{NUM})|(?:an?\s+(?=hundred|thousand|million))?{QWORD}"
-    rf"(?:[\s-]+(?:and\s+)?{QWORD})*)"
+    rf"(?:[\s-]+(?:and\s+)?{QWORD}){{0,6}})"  # bounded: linear time on long number chains
 )
 QTY_UNIT_RE = re.compile(
     rf"(?i)(?<![\w.$])(?:{QFIG}\s+(?:or|to)\s+)?{QFIG}"
@@ -244,6 +247,8 @@ class BusinessDetector:
                        "percent", view=view)  # fmt: skip
         for rx in (*PERCENT_MORE, *PERCENT_BARE):
             for m in rx.finditer(text):
+                if LONE_ONE.match(m.group("d")):  # "follow up one more time"
+                    continue
                 yield Span(f.id, m.start("d"), m.end("d"), "PERCENT", "business.percent", 0.6,
                            None, "percent:spoken", view=view)  # fmt: skip
         for m in QTY_UNIT_RE.finditer(text):
@@ -260,7 +265,7 @@ class BusinessDetector:
             spoken = SPOKEN_NUM.finditer(text) if view == "orig" else iter(())
             for m in (*BARE_NUM_RE.finditer(text), *spoken):
                 s, e = m.span()
-                if m.group().lower() == "one":
+                if LONE_ONE.match(m.group()):
                     continue
                 # Nearest trigger starts via bisect: linear-time overall.
                 k = bisect.bisect_left(trig, s)

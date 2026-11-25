@@ -96,3 +96,29 @@ def test_durations_and_times_are_not_rates(text):
         if word in text:
             i = text.index(word)
             assert not set(range(i, i + len(word))) & covered(text)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "It took a year and a half to ship.",
+        "In the second half we hired.",
+        "Call me at a quarter to nine.",
+        "We booked a half-day session.",
+        "There is a one-off fee for setup.",
+        "Let me follow up one more time.",
+    ],
+)
+def test_everyday_fractions_and_ones_are_not_figures(text):
+    for word in ("a half", "half", "a quarter", "one"):
+        i = text.find(word)
+        if i >= 0:
+            assert not set(range(i, i + len(word))) & covered(text)
+
+
+def test_long_number_word_chains_stay_fast():
+    import time
+
+    t0 = time.perf_counter()
+    covered("twenty and " * 2000 + "zz")
+    assert time.perf_counter() - t0 < 5
