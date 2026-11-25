@@ -30,17 +30,22 @@ def repo_root(start: Path | None = None) -> Path:
     raise UsageError("could not find the eval/ folder; run from the repository or pass --dir")
 
 
-# Built-in sets, in report order. ``tuning-hw`` is hand-written tuning data (inline markup,
-# written by an independent agent; DECISIONS D-054). Tuning happens only on the first two.
-SET_NAMES = ("tuning", "tuning-hw", "heldout", "user")
+# Built-in sets, in report order. Tuning happens only on TUNING_SETS. ``validation`` is the
+# generated set first used as the held-out set; its folder and generator name keep the old
+# name ``heldout`` (the generator seeds from it), which is also accepted as an alias.
+SET_NAMES = ("tuning", "tuning-hw", "validation", "user")
 TUNING_SETS = ("tuning", "tuning-hw")
+ALIASES = {"heldout": "validation"}
 
 
 def set_dir(name: str, root: Path) -> Path:
+    name = ALIASES.get(name, name)
     if name == "user":
         return root / "eval" / "user_set"
     if name == "tuning-hw":
         return root / "eval" / "tuning_handwritten"
+    if name == "validation":
+        return root / "eval" / "generated" / "heldout"
     return root / "eval" / "generated" / name
 
 

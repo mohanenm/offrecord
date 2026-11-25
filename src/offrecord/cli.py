@@ -76,7 +76,8 @@ def _cmd_eval(args: argparse.Namespace) -> int:
         targets += [(f"dir:{i}", Path(d)) for i, d in enumerate(args.dir)]
     if args.set or not args.dir:
         root = sets.repo_root()
-        targets += [(n, sets.set_dir(n, root)) for n in (args.set or sets.SET_NAMES)]
+        wanted = dict.fromkeys(sets.ALIASES.get(n, n) for n in (args.set or sets.SET_NAMES))
+        targets += [(n, sets.set_dir(n, root)) for n in wanted]
 
     reports = []
     extras = []
@@ -91,10 +92,8 @@ def _cmd_eval(args: argparse.Namespace) -> int:
         if not items:
             print(f"offrecord: note: set {name} has no transcripts; skipped", file=sys.stderr)
             continue
-        if (name == "heldout" or sets.is_heldout(d)) and not sets.verify_manifest(
-            d, sets.HELDOUT_MANIFEST_SHA256
-        ):
-            raise UsageError("the held-out set does not match its pinned manifest (frozen set)")
+        if sets.is_heldout(d) and not sets.verify_manifest(d, sets.HELDOUT_MANIFEST_SHA256):
+            raise UsageError("the validation set does not match its pinned manifest (frozen set)")
         names = [system_name] + (
             ["baseline"] if args.baseline and system_name != "baseline" else []
         )
@@ -119,9 +118,9 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     return ExitCode.OK
 
 
-# Mirrors offrecord.evaluation.sets.SET_NAMES (kept literal so the CLI starts without importing
-# the evaluation package; a test checks they match).
-SET_CHOICES = ("tuning", "tuning-hw", "heldout", "user")
+# Mirrors offrecord.evaluation.sets.SET_NAMES plus its aliases (kept literal so the CLI starts
+# without importing the evaluation package; a test checks they match).
+SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "heldout")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
 
 

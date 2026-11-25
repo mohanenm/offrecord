@@ -323,7 +323,8 @@ def test_cli_set_choices_match_sets_module():
     from offrecord import cli
     from offrecord.evaluation import sets
 
-    assert tuple(cli.SET_CHOICES) == sets.SET_NAMES
+    assert tuple(cli.SET_CHOICES) == sets.SET_NAMES + tuple(sets.ALIASES)
     assert set(sets.TUNING_SETS) <= set(sets.SET_NAMES)
-    assert "heldout" not in sets.TUNING_SETS and "user" not in sets.TUNING_SETS
+    assert "validation" not in sets.TUNING_SETS and "user" not in sets.TUNING_SETS
+    assert sets.set_dir("heldout", Path("/r")) == sets.set_dir("validation", Path("/r"))
     assert sets.set_dir("tuning-hw", Path("/r")) == Path("/r/eval/tuning_handwritten")
