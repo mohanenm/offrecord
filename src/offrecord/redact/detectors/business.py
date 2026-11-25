@@ -190,7 +190,8 @@ BARE_NUM_RE = re.compile(
     r"(?!\s*(?:am|pm|a\.m\.|p\.m\.|o'?clock)\b)"
 )
 TRIGGER_RADIUS = 60  # characters on either side
-SENTENCE_RE = re.compile(r"(?:[^.!?\n]|\.(?=\d))+(?:[.!?]+|$)")
+# A line break also ends a sentence: speech-to-text lines often have no final punctuation.
+SENTENCE_RE = re.compile(r"(?:[^.!?\n]|\.(?=\d))+(?:[.!?]+|$)", re.MULTILINE)
 CODENAME_RE = re.compile(
     r"(?i)\b(?:project|operation|initiative|program|programme|codename|code\s+name)\s+([A-Za-z][\w-]{2,})"
 )
