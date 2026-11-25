@@ -192,7 +192,7 @@ footer p { margin: 0; }
       </a>
       <a class="btn ghost" href="#install">Quick start</a>
     </div>
-    <p class="status">Status: all tiers built; Apache-2.0 licensed; not yet on PyPI. Read the <a href="#limitations">limitations</a> before relying on it.</p>
+    <p class="status">offrecord reduces what you need to check before pasting a transcript into an LLM. It does not remove the need to check. Apache-2.0; not yet on PyPI. Read the <a href="#accuracy">numbers</a> and <a href="#limitations">limitations</a> before relying on it.</p>
   </div>
 
   <section id="example" aria-labelledby="example-h">
@@ -312,22 +312,22 @@ offrecord restore answer.txt --assume-mapping \
   <section id="accuracy" aria-labelledby="accuracy-h">
     <div class="wrap">
       <h2 id="accuracy-h">Accuracy</h2>
-      <p class="lead">Recall is strict: a label counts only if every letter and digit in it is redacted. Precision is measured in characters. The held-out set was never tuned on; the user set (hand-written, never tuned on) is the harder, more honest number.</p>
+      <p class="lead">Recall is the share of sensitive items fully redacted (every letter and digit). A transcript is clean when nothing at all leaked; high severity means names, contact details, account and card numbers. Precision is the share of redacted characters that were actually sensitive. The validation set was written blind but has been looked at during development; the user set is harder phrasing that was never tuned on.</p>
       <div class="table-wrap">
         <table>
-          <caption class="sr-only">Recall and precision by tier on the held-out and user sets</caption>
-          <thead><tr><th scope="col">Recall / precision</th><th scope="col" class="num">Held-out (56 transcripts)</th><th scope="col" class="num">User set (8 transcripts)</th></tr></thead>
+          <caption class="sr-only">Recall, clean-transcript rate, high-severity leaks and precision by tier on the validation and user sets</caption>
+          <thead><tr><th scope="col">Validation (56) / user set (8)</th><th scope="col" class="num">Recall</th><th scope="col" class="num">Clean transcripts</th><th scope="col" class="num">No high-severity leak</th><th scope="col" class="num">Precision</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Tier 0 (rules)</th><td class="num">91.4% / 87.6%</td><td class="num">79.0% / 88.3%</td></tr>
-            <tr><th scope="row">Tier 1 (+ NER ensemble)</th><td class="num">94.2% / 82.7%</td><td class="num">82.8% / 83.3%</td></tr>
-            <tr><th scope="row">Tier 2 (+ Phi-4-mini)</th><td class="num">94.7% / 79.3%</td><td class="num">82.5% / 82.1%</td></tr>
-            <tr class="dim"><th scope="row">Baseline: plain regexes</th><td class="num">6.4%</td><td class="num">3.6%</td></tr>
+            <tr><th scope="row">Tier 0 (rules)</th><td class="num">91.4% / 79.0%</td><td class="num">21% / 0%</td><td class="num">96% / 13%</td><td class="num">87.6% / 88.3%</td></tr>
+            <tr><th scope="row">Tier 1 (+ NER ensemble)</th><td class="num">94.2% / 82.8%</td><td class="num">34% / 0%</td><td class="num">98% / 25%</td><td class="num">82.7% / 83.3%</td></tr>
+            <tr><th scope="row">Tier 2 (+ Phi-4-mini)</th><td class="num">94.7% / 82.5%</td><td class="num">38% / 0%</td><td class="num">98% / 25%</td><td class="num">79.3% / 82.1%</td></tr>
+            <tr class="dim"><th scope="row">Baseline: plain regexes</th><td class="num">6.4% / 3.6%</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">On the same held-out data, Microsoft Presidio with its defaults reached 37.2% recall (its email/URL recognisers reject the reserved test domains, so those categories understate it). On the user set, the weakest Tier 0 categories are topic sentences (47%), locations (44%) and percentages (59%).</p>
+      <p class="note">Read the clean-transcript column first: most transcripts still contain at least one leaked item, usually a sensitive-topic sentence without keywords or a low-severity figure, so you still read the output before sharing it. What offrecord changes is how much you have to find yourself. On the user set the weakest Tier 0 categories are topic sentences (47%), locations (44%) and percentages (59%). Microsoft Presidio with its defaults reaches 37.2% recall on validation.</p>
       <div class="callout" role="note">
-        <p><strong>All evaluation data is synthetic.</strong> Synthetic data cannot capture real speech-recognition errors, real names and their spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list. Expect real-world recall to be lower than these numbers, and review the flagged spans.</p>
+        <p><strong>All evaluation data is synthetic</strong>: generated conversations with invented names. It cannot capture real speech-recognition errors, real names and their spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list. Expect real-world recall to be lower than these numbers, and review the flagged spans.</p>
       </div>
     </div>
   </section>

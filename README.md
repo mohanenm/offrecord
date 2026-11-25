@@ -1,12 +1,14 @@
 # offrecord
 
-Redact sensitive information from meeting and call transcripts, then compress them for LLM
-analysis. Fully offline, on modest hardware, and reversible on an authorised machine.
+Redact sensitive information from meeting and call transcripts before they reach an LLM, then
+restore the originals in the LLM's answer. Fully offline, on modest hardware.
 
-> Status: all tiers built; Apache-2.0; not yet on PyPI. Recall on held-out / user set
-> (synthetic): Tier 0 91.4% / 79.0%, Tier 1 94.2% / 82.8%, Tier 2 94.7% / 82.5%. The user set
-> is the harder, more honest number (see [the numbers](#status-what-the-numbers-measure)). Read
-> [Known limitations](#known-limitations) before relying on it.
+> offrecord reduces what you need to check before pasting a transcript into an LLM. It does
+> not remove the need to check. On the synthetic validation set, Tier 0 catches 91% of
+> sensitive items and leaves no high-severity leak (names, contact details, account and card
+> numbers) in 96% of transcripts, but only 21% of transcripts come out with nothing leaked at
+> all. On harder phrasing the numbers drop: see [Status](#status-what-the-numbers-measure).
+> Apache-2.0; not yet on PyPI.
 
 ## Who it is for
 
@@ -69,41 +71,24 @@ offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord
 
 `samples/` holds one synthetic transcript per supported format (txt, VTT, SRT, JSON).
 
-## Pipeline
+## How it works
 
-```
-normalize -> redact -> compress -> output
-```
-
-1. Normalize: adapters (plain text, WebVTT, SRT, Whisper-style JSON) produce one turn model.
-   Every field (turn text, speaker labels, headers, notes, cue ids, unknown JSON values) gets a
-   verbatim view and a normalised view where spoken forms become canonical ("five five five
-   one two one two" -> 5551212, "john at example dot com" -> john@example.com, "S as in Sam").
-   Offset maps tie every normalised character back to the original.
-2. Redact (Tier 0, rules only): regex + validators (email, phone, SSN, card with Luhn, IP,
-   URL, account/order numbers, dates), your deny-list (fuzzy + phonetic matching, aliases,
-   per-entry options for common-word brands), business context (amounts, percentages,
-   quantities, sensitive topic sentences, codenames), name heuristics (speaker names, cue
-   phrases, out-of-dictionary words). PII split across an interruption is caught by re-scanning
-   one speaker's turns joined together. Spans are merged (union: nothing is dropped) and
-   replaced with short consistent placeholders (`<C1>`, `<P2>`, `<AMT1>`).
-3. Compress: `light` (default) removes fillers, stutters, false starts and backchannel turns
-   and merges same-speaker turns; `medium` also drops opening/closing small talk, short
-   contentless turns and near-duplicates (MinHash). Negations, decisions and numbers are never
-   dropped, and no placeholder is ever lost.
-4. Output: compact text (default: speaker legend with placeholders only) or the original
-   format, with a header carrying the random mapping id.
-
-Recall comes first: over-redaction is the preferred failure mode. `docs/architecture.md` has
-the longer explanation.
+Adapters read plain text, WebVTT, SRT and Whisper-style JSON into one turn model, and a
+normaliser adds a second view of each turn in which spoken forms ("five five five oh one two
+three", "jane at example dot com") become written ones. Rule-based detectors find identifiers,
+deny-list names, business figures, sensitive-topic sentences and name-like words in both views;
+optional model tiers only add to what the rules find. Every finding becomes a consistent
+placeholder (`<P1>`, `<C2>`, `<AMT1>`), compression removes fillers and backchannels, and the
+mapping from placeholders back to the originals is written encrypted.
+[docs/architecture.md](docs/architecture.md) explains each step and why it works that way.
 
 ## Tiers and hardware floors
 
-| Tier | What | Floor | Status |
+| Tier | What | Floor | Install |
 | --- | --- | --- | --- |
-| 0 | Rules only, no models, no downloads | Python 3.10+, 2 GB RAM (Raspberry Pi 4 class) | built |
-| 1 | NER ensemble (GLiNER small + BERT-NER, ONNX int8) + MiniLM embeddings | 4 GB RAM, CPU | built (`pip install -e '.[ner]'`, `offrecord setup models`) |
-| 2 | Phi-4-mini 3.8B (GGUF, llama.cpp) for JSON labels only; Qwen3 1.7B fallback | 8 GB RAM, 4+ cores (fallback: 4 GB) | built (`pip install -e '.[llm]'`, `offrecord setup models --tier 2`) |
+| 0 | Rules only, no models, no downloads | Python 3.10+, 2 GB RAM (Raspberry Pi 4 class) | included |
+| 1 | NER ensemble (GLiNER small + BERT-NER, ONNX int8) + MiniLM embeddings | 4 GB RAM, CPU | `[ner]` extra, then `offrecord setup models` |
+| 2 | Phi-4-mini 3.8B (GGUF, llama.cpp) for JSON labels only; Qwen3 1.7B fallback | 8 GB RAM, 4+ cores (fallback: 4 GB) | `[llm]` extra, then `offrecord setup models --tier 2` |
 
 Select with `offrecord redact --tier 0|1|2|auto` (default 0; `auto` picks the highest tier your
 RAM and installed models allow). `--compress aggressive` needs Tier 1.
@@ -115,36 +100,38 @@ command, with pinned versions and checksums.
 
 All evaluation data is synthetic: generated conversations with invented names, companies and
 numbers. Apart from the tuning templates, the sets were written by coding agents that saw only
-the format description, never the detector code, so their phrasing is independent of the rules,
-but none of it is real speech. `docs/eval-format.md` describes each set. In short:
+the format description, never the detector code, so their phrasing is independent of the
+rules, but none of it is real speech. [docs/eval-format.md](docs/eval-format.md) describes how
+each set was made. Validation was written blind but has been looked at during development; the
+user set is harder phrasing that was never tuned on. A sealed set is scored once per release
+cycle (not yet opened). To measure offrecord on your own transcripts, see
+[docs/private-eval.md](docs/private-eval.md).
 
-- tuning and tuning-hw: the detectors were tuned on these;
-- held-out (now called validation): written blind and frozen, but looked at often enough
-  during development that it is no longer a blind test;
-- user: eight agent-written transcripts in `eval/user_set/`, never tuned on, standing in until
-  you add transcripts in your own phrasing.
+Four numbers per run:
 
-Baselines on the same data: plain regexes 6.4% held-out recall; Microsoft Presidio with its
-defaults 37.2% (its email/URL recognisers reject the reserved test domains used here, so those two
-categories understate it).
+- recall: the share of sensitive items fully redacted (every letter and digit);
+- clean transcripts: the share of transcripts in which nothing at all leaked;
+- no high-severity leak: the share with no leaked name, contact detail, account, card or SSN;
+- precision: the share of redacted characters that were actually sensitive.
 
-Recall is strict: a label counts only if every letter and digit in it is redacted. Each speaker
-counts once per transcript. Precision is measured in characters.
+| Validation (56) / user set (8) | Recall | Clean | No high-severity leak | Leaks per transcript, median (worst) | Precision |
+| --- | --- | --- | --- | --- | --- |
+| Tier 0 (rules) | 91.4% / 79.0% | 21% / 0% | 96% / 13% | 2 (5) / 8.5 (11) | 87.6% / 88.3% |
+| Tier 1 (+ NER ensemble) | 94.2% / 82.8% | 34% / 0% | 98% / 25% | 1 (4) / 6.5 (10) | 82.7% / 83.3% |
+| Tier 2 (+ Phi-4-mini) | 94.7% / 82.5% | 38% / 0% | 98% / 25% | 1 (4) / 6 (10) | 79.3% / 82.1% |
+| Plain regexes | 6.4% / 3.6% | | | | |
 
-| Recall / precision | held-out (56 transcripts) | user set (8 transcripts) |
-| --- | --- | --- |
-| Tier 0 (rules) | 91.4% / 87.6% | 79.0% / 88.3% |
-| Tier 1 (+ NER ensemble) | 94.2% / 82.7% | 82.8% / 83.3% |
-| Tier 2 (+ Phi-4-mini) | 94.7% / 79.3% | 82.5% / 82.1% |
-| Plain regexes | 6.4% | 3.6% |
+Read the clean-transcript column first. Even on validation most transcripts still contain at
+least one leaked item, usually a sensitive-topic sentence phrased without keywords or a
+low-severity figure, so you still need to read the output before sharing it. What offrecord
+changes is how much you have to find yourself. On the user set the weakest categories at
+Tier 0 are topic sentences (47%), locations (44%) and percentages (59%).
 
-The user set is the closest to unseen real phrasing; its weakest categories at Tier 0 are
-topic sentences (47%), locations (44%) and percentages (59%).
-
-Synthetic data cannot capture: real speech-recognition error patterns, real names and their
-spelling variety, domain jargon, real cross-talk, long rambling turns, or the specific clients
-and codenames in your deny-list. Expect real-world recall to be lower than the held-out number,
-and use the review flags.
+Microsoft Presidio with its defaults reaches 37.2% recall on validation (its email and URL
+recognisers reject the reserved test domains used here, so those two categories understate
+it). Synthetic data cannot capture real speech-recognition errors, real names and their
+spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list.
+Expect real-world recall to be lower.
 
 ## Known limitations
 
@@ -153,8 +140,8 @@ and use the review flags.
   they are in the deny-list, a speaker label, or follow a cue ("my name is ..."); Tier 1 models
   catch most of them.
 - Unknown organisations or products whose names are ordinary words are missed at Tier 0 and
-  partly at Tier 1 (held-out PRODUCT: 64% / 84% / 89% at Tiers 0 / 1 / 2).
-- Higher tiers trade precision for recall (held-out precision 87.6% / 82.7% / 79.3%), and are
+  partly at Tier 1 (validation PRODUCT: 64% / 84% / 89% at Tiers 0 / 1 / 2).
+- Higher tiers trade precision for recall (see the table above), and are
   slower (Tier 2 is roughly 15-20 s per call transcript on a laptop CPU).
 - `aggressive` compression is lossy by design (it drops low-information turns), though it never
   drops turns with placeholders, numbers, decisions or questions.
@@ -168,41 +155,30 @@ and use the review flags.
 - Python cannot wipe memory: decrypted mappings and transcript text live in process memory
   until garbage collected (docs/security.md R10).
 
-## Privacy
+## Privacy and the mapping file
 
 - Nothing leaves the machine at run time: no telemetry, no update checks, no downloads.
   Every command except `setup` blocks network access and child processes (except the clipboard
-  helper for `paste`/`unpaste`), and fails if anything
-  tries.
-- Transcript text is never logged or echoed; errors give positions and categories only.
-- Your deny-list config is sensitive (it names clients and codenames): it is never echoed.
-- Every file offrecord writes is owner-only; outputs are atomic and never overwritten without
-  `--force`.
-- Threat model: [docs/security.md](docs/security.md).
+  helper for `paste`/`unpaste`), and fails if anything tries.
+- Transcript text and your deny-list are never logged or echoed; errors give positions and
+  categories only. Every file offrecord writes is owner-only, written atomically, and never
+  overwritten without `--force`.
+- The mapping (placeholder to original value) can reverse the redaction, so it is written only
+  encrypted, with a key file or a passphrase (never a command-line argument), to a private
+  per-user store away from the output and the key.
+- The redacted output carries the mapping's random id, and `restore` refuses a mismatched
+  mapping. An LLM's answer has no header, so `restore --assume-mapping` asks you to confirm and
+  checks every placeholder. Restore accepts common LLM mangling (`<c1>`, `&lt;C1&gt;`, bare
+  `C1`) but never restores anything ambiguous.
+- `--no-mapping` runs are one-way. `--mapping-scope project` shares one mapping across
+  transcripts so the same client gets the same placeholder everywhere.
 
-## Restore and the mapping file
-
-- Each run creates a mapping (placeholder -> original value) with a random id. It is the most
-  sensitive artefact: it is written only encrypted (Fernet; key from a passphrase via scrypt
-  N=2^17 r=8 p=1, or from a key file via HKDF), by default to a private per-user store
-  (`~/.local/share/offrecord/mappings/<id>.ormap`), never next to the output, and never next to
-  the key file.
-- Passphrases come from `OFFRECORD_PASSPHRASE` or a prompt, never from the command line.
-- The redacted output carries the mapping id (a header line, a VTT NOTE, a zero-length first
-  SRT cue, or a `_offrecord_mapping` JSON key). `restore` fails if the id does not match.
-  Header-less text (an LLM's answer) cannot be verified, so `restore` asks you to confirm with
-  `--assume-mapping`; it then checks every placeholder exists in the mapping and warns otherwise
-  (`--strict` turns warnings into failure).
-- `restore` tolerates `<c1>`, `<C 1>`, `<C1>'s`, `&lt;C1&gt;` and bare `C1`, but never restores
-  anything ambiguous (bare tokens that also occur naturally in the redacted text are left as
-  they are and reported).
-- `--no-mapping` runs are one-way. `--mapping-scope project` (or `--mapping-in`) shares one
-  mapping across several transcripts so the same client is the same placeholder everywhere.
+Threat model and the defence for each risk: [docs/security.md](docs/security.md).
 
 ## Docs
 
 [docs/architecture.md](docs/architecture.md) · [docs/security.md](docs/security.md) ·
-[docs/eval-format.md](docs/eval-format.md) · [CONTRIBUTING.md](CONTRIBUTING.md) ·
+[docs/eval-format.md](docs/eval-format.md) · [docs/private-eval.md](docs/private-eval.md) · [CONTRIBUTING.md](CONTRIBUTING.md) ·
 [CHANGELOG.md](CHANGELOG.md)
 
 ## Licence
