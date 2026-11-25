@@ -19,6 +19,7 @@ from offrecord.adapters._common import (
     format_ts,
     no_blank_lines,
     parse_ts,
+    split_blocks,
     split_label,
     strip_markup,
 )
@@ -46,10 +47,9 @@ class VttAdapter:
         lines = text.split("\n")
         meta: dict[str, str] = {}
         i = 0
-        if not lines or not lines[0].startswith("WEBVTT"):
-            # Not strictly VTT; still parse cues so nothing is dropped.
-            pass
-        else:
+        # Without a WEBVTT header the input is not strictly VTT; still parse cues so nothing
+        # is dropped.
+        if lines and lines[0].startswith("WEBVTT"):
             header_rest = lines[0][len("WEBVTT") :].strip()
             if header_rest:
                 meta["header"] = header_rest
@@ -60,24 +60,9 @@ class VttAdapter:
                 n += 1
                 i += 1
 
-        # Split remaining lines into blocks separated by blank lines, keeping line numbers.
-        blocks: list[tuple[int, list[str]]] = []
-        cur: list[str] = []
-        start_no = i + 1
-        for j in range(i, len(lines)):
-            if lines[j].strip():
-                if not cur:
-                    start_no = j + 1
-                cur.append(lines[j])
-            elif cur:
-                blocks.append((start_no, cur))
-                cur = []
-        if cur:
-            blocks.append((start_no, cur))
-
         cues = []
         counters = {"note": 0, "style": 0, "region": 0, "unparsed": 0}
-        for start_no, blk in blocks:
+        for start_no, blk in split_blocks(lines, i):
             first = blk[0]
             kind = first.split(None, 1)[0] if first.split() else ""
             if kind in ("NOTE", "STYLE", "REGION") and "-->" not in first:

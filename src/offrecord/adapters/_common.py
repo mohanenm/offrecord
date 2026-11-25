@@ -33,6 +33,25 @@ def format_ts(seconds: float, sep: str = ".") -> str:
     return f"{h:02d}:{m:02d}:{s:02d}{sep}{ms:03d}"
 
 
+def split_blocks(lines: list[str], start: int = 0) -> list[tuple[int, list[str]]]:
+    """Split ``lines[start:]`` into blocks separated by blank lines, each with its 1-based
+    first line number."""
+    blocks: list[tuple[int, list[str]]] = []
+    cur: list[str] = []
+    first = start + 1
+    for j in range(start, len(lines)):
+        if lines[j].strip():
+            if not cur:
+                first = j + 1
+            cur.append(lines[j])
+        elif cur:
+            blocks.append((first, cur))
+            cur = []
+    if cur:
+        blocks.append((first, cur))
+    return blocks
+
+
 # Only known caption tags (and VTT inline timestamps) are stripped; anything else that looks
 # like a tag stays in the text so it is scanned. Attribute values of stripped styling tags
 # (e.g. font colours) are dropped and never re-emitted.

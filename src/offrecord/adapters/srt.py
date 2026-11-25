@@ -15,6 +15,7 @@ from offrecord.adapters._common import (
     format_ts,
     no_blank_lines,
     parse_ts,
+    split_blocks,
     split_label,
     strip_markup,
 )
@@ -24,23 +25,6 @@ from offrecord.model import Document, Turn
 _TIMING = re.compile(rf"^\s*(?P<a>{TS_RE})\s*-->\s*(?P<b>{TS_RE})(?P<rest>[^\n]*)$")
 _BRACKET_SPEAKER = re.compile(r"^\s*\[(?P<name>[^\]\n]{1,48})\]\s*(?P<rest>.*)$", re.DOTALL)
 _SNIFF = re.compile(rf"^\s*\d+\s*\n\s*{TS_RE}\s*-->\s*{TS_RE}", re.MULTILINE)
-
-
-def _blocks(lines: list[str]) -> list[tuple[int, list[str]]]:
-    blocks: list[tuple[int, list[str]]] = []
-    cur: list[str] = []
-    start = 1
-    for j, ln in enumerate(lines):
-        if ln.strip():
-            if not cur:
-                start = j + 1
-            cur.append(ln)
-        elif cur:
-            blocks.append((start, cur))
-            cur = []
-    if cur:
-        blocks.append((start, cur))
-    return blocks
 
 
 class SrtAdapter:
@@ -55,7 +39,7 @@ class SrtAdapter:
     def parse(self, text: str, limits: Limits) -> Document:
         meta: dict[str, str] = {}
         cues: list[tuple[int, int, re.Match[str], str]] = []
-        for start_no, blk in _blocks(text.split("\n")):
+        for start_no, blk in split_blocks(text.split("\n")):
             t_idx = next((k for k, ln in enumerate(blk[:2]) if "-->" in ln), None)
             m = _TIMING.match(blk[t_idx]) if t_idx is not None else None
             if t_idx is None or m is None:
