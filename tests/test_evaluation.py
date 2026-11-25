@@ -183,11 +183,36 @@ def test_manifest(tmp_path):
     assert not verify_manifest(tmp_path)
 
 
-def test_committed_heldout_set_is_frozen():
-    from offrecord.evaluation.sets import HELDOUT_MANIFEST_SHA256
+def test_committed_frozen_sets_are_unchanged():
+    from offrecord.evaluation.sets import FROZEN
 
-    d = ROOT / "eval" / "generated" / "heldout"
-    assert verify_manifest(d, HELDOUT_MANIFEST_SHA256), "held-out set changed (it is frozen)"
+    for name, pin in FROZEN.items():
+        assert verify_manifest(ROOT / "eval" / "generated" / name, pin), f"{name} set changed"
+
+
+def test_sealed_set_needs_final_check(tmp_path):
+    import shutil
+
+    from offrecord.errors import UsageError
+
+    sealed = ROOT / "eval" / "generated" / "sealed"
+    with pytest.raises(UsageError):
+        load_generated(sealed)
+    copy = tmp_path / "copy"  # a copy elsewhere is still recognised
+    shutil.copytree(sealed, copy)
+    with pytest.raises(UsageError):
+        load_generated(copy)
+    # Structure only, with no detector run and no text in any message: every label points
+    # at a non-empty, stripped stretch of its field.
+    items, _ = load_generated(sealed, final_check=True)
+    bad = 0
+    for it in items:
+        for lb in it.labels:
+            t = it.doc.turns[lb.turn]
+            src = (t.text if lb.field == "text" else t.speaker) or ""
+            piece = src[lb.start : lb.end]
+            bad += not piece or piece != piece.strip()
+    assert len(items) == 80 and bad == 0
 
 
 def test_rewritten_manifest_is_still_detected(tmp_path):
@@ -278,7 +303,7 @@ def test_committed_sets_have_valid_labels():
         assert meta["set"] == name
 
 
-def test_tuning_and_heldout_pools_are_disjoint():
+def test_eval_set_pools_are_disjoint():
     import yaml
 
     def load(name):
@@ -294,10 +319,11 @@ def test_tuning_and_heldout_pools_are_disjoint():
                     out.add(e["word"].lower())
         return out
 
-    t, h = load("tuning"), load("heldout")
-    assert not strings(t) & strings(h)
-    assert not set(t["first_names"]) & set(h["first_names"])
-    assert not set(t["last_names"]) & set(h["last_names"])
+    for a, b in (("tuning", "heldout"), ("tuning", "sealed"), ("heldout", "sealed")):
+        t, h = load(a), load(b)
+        assert not strings(t) & strings(h), (a, b)
+        assert not set(t["first_names"]) & set(h["first_names"]), (a, b)
+        assert not set(t["last_names"]) & set(h["last_names"]), (a, b)
 
 
 def test_coverage_ignores_spaces_between_redacted_words():
@@ -323,7 +349,7 @@ def test_cli_set_choices_match_sets_module():
     from offrecord import cli
     from offrecord.evaluation import sets
 
-    assert tuple(cli.SET_CHOICES) == sets.SET_NAMES + tuple(sets.ALIASES)
+    assert tuple(cli.SET_CHOICES) == (*sets.SET_NAMES, sets.SEALED, *sets.ALIASES)
     assert set(sets.TUNING_SETS) <= set(sets.SET_NAMES)
     assert "validation" not in sets.TUNING_SETS and "user" not in sets.TUNING_SETS
     assert sets.set_dir("heldout", Path("/r")) == sets.set_dir("validation", Path("/r"))

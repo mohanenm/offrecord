@@ -9,17 +9,22 @@ from typing import Any
 from offrecord.errors import UsageError
 from offrecord.evaluation import baseline
 
-# Frozen generation parameters. The held-out set must never be regenerated with different
-# parameters after tuning starts.
+# Frozen generation parameters. The validation ("heldout") and sealed sets must never be
+# regenerated with different parameters.
 SET_PARAMS = {
     "tuning": {"seed": 1234, "n": 72},
     "heldout": {"seed": 987_654, "n": 56},
+    "sealed": {"seed": 271_828, "n": 80},
 }
 MANIFEST = "MANIFEST.sha256"
 # SHA-256 of the committed held-out MANIFEST.sha256. Pinned here so that rewriting the manifest
 # alongside changed files is still detected. Changing this constant must be logged in
 # eval/CORRECTIONS.md.
 HELDOUT_MANIFEST_SHA256 = "4b9a83b03e3d379c22e380ee93178ed4a8378cdef2b5ff9c8d3fca4e99c40d1b"
+# The sealed set is scored once per release cycle, with ``eval --final-check``. CI also fails
+# if any commit after the first one touches it (scripts/check_hygiene.py).
+SEALED_MANIFEST_SHA256 = "f26f0fe219191759ed830a9a5a86a118c6d3852cbda80e0ae00b2e13db649f2e"
+FROZEN = {"heldout": HELDOUT_MANIFEST_SHA256, "sealed": SEALED_MANIFEST_SHA256}
 
 
 def repo_root(start: Path | None = None) -> Path:
@@ -34,6 +39,7 @@ def repo_root(start: Path | None = None) -> Path:
 # generated set first used as the held-out set; its folder and generator name keep the old
 # name ``heldout`` (the generator seeds from it), which is also accepted as an alias.
 SET_NAMES = ("tuning", "tuning-hw", "validation", "user")
+SEALED = "sealed"  # never part of the default report
 TUNING_SETS = ("tuning", "tuning-hw")
 ALIASES = {"heldout": "validation"}
 
@@ -98,9 +104,13 @@ def verify_manifest(directory: Path, pinned: str | None = None) -> bool:
     return m.read_text(encoding="utf-8").splitlines() == manifest_lines(directory)
 
 
-def is_heldout(directory: Path, root: Path | None = None) -> bool:
+def frozen_pin(directory: Path, root: Path | None = None) -> str | None:
+    """The pinned manifest hash if ``directory`` is one of the frozen generated sets."""
     try:
         r = root or repo_root()
     except UsageError:
-        return False
-    return directory.resolve() == set_dir("heldout", r).resolve()
+        return None
+    for name, pin in FROZEN.items():
+        if directory.resolve() == (r / "eval" / "generated" / name).resolve():
+            return pin
+    return None

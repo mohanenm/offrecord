@@ -1,0 +1,292 @@
+{
+ "id": "sealed-0068",
+ "template": "se-other-nonprofit-08",
+ "domain": "other",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "txt",
+ "labels": [
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 12,
+   "end": 18,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 37,
+   "end": 43,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "written"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 57,
+   "end": 76,
+   "category": "PERCENT",
+   "entity": "percent#fifty-eight percent",
+   "form": "literal"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 35,
+   "end": 52,
+   "category": "PERCENT",
+   "entity": "percent#seventy-something",
+   "form": "literal"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 0,
+   "end": 12,
+   "category": "PERCENT",
+   "entity": "percent#seventy-four",
+   "form": "literal"
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 14,
+   "end": 28,
+   "category": "PERCENT",
+   "entity": "percent#sixteen points",
+   "form": "literal"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 36,
+   "end": 49,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "last",
+   "known": true
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 32,
+   "end": 159,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 0,
+   "end": 128,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 0,
+   "end": 151,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 51,
+   "end": 57,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 41,
+   "end": 64,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 132,
+   "end": 138,
+   "category": "LOCATION",
+   "entity": "location#dayton",
+   "form": "literal"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 29,
+   "end": 41,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 84,
+   "end": 100,
+   "category": "CLIENT",
+   "entity": "client#2",
+   "form": "asr",
+   "known": false
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 29,
+   "end": 46,
+   "category": "PERCENT",
+   "entity": "percent#a hundred percent",
+   "form": "literal"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 35,
+   "end": 42,
+   "category": "PERSON",
+   "entity": "person#3",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 55,
+   "end": 60,
+   "category": "QUANTITY",
+   "entity": "quantity#1",
+   "form": "written"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 96,
+   "end": 152,
+   "category": "TOPIC",
+   "entity": "topic#4"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 44,
+   "end": 105,
+   "category": "TOPIC",
+   "entity": "topic#5"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 20,
+   "end": 39,
+   "category": "LOCATION",
+   "entity": "location#the tri-county area",
+   "form": "literal"
+  },
+  {
+   "turn": 31,
+   "field": "text",
+   "start": 18,
+   "end": 27,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 32,
+   "field": "text",
+   "start": 37,
+   "end": 51,
+   "category": "PERCENT",
+   "entity": "percent#three quarters",
+   "form": "literal"
+  },
+  {
+   "turn": 34,
+   "field": "text",
+   "start": 17,
+   "end": 135,
+   "category": "TOPIC",
+   "entity": "topic#6"
+  },
+  {
+   "turn": 38,
+   "field": "text",
+   "start": 90,
+   "end": 106,
+   "category": "DATE",
+   "entity": "date#1",
+   "form": "written"
+  },
+  {
+   "turn": 39,
+   "field": "text",
+   "start": 35,
+   "end": 58,
+   "category": "DATE",
+   "entity": "date#the twelfth of december",
+   "form": "literal"
+  },
+  {
+   "turn": 39,
+   "field": "text",
+   "start": 67,
+   "end": 97,
+   "category": "LOCATION",
+   "entity": "location#grange hall on maple and fifth",
+   "form": "literal"
+  },
+  {
+   "turn": 40,
+   "field": "text",
+   "start": 22,
+   "end": 32,
+   "category": "PERCENT",
+   "entity": "percent#two thirds",
+   "form": "literal"
+  },
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 0,
+   "end": 29,
+   "category": "AMOUNT",
+   "entity": "amount#3",
+   "form": "spoken"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 31,
+   "field": "text",
+   "start": 73,
+   "end": 92
+  },
+  {
+   "turn": 36,
+   "field": "text",
+   "start": 12,
+   "end": 117
+  },
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 62,
+   "end": 76
+  }
+ ]
+}

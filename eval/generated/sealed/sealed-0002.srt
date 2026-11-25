@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:08,733
+Leopold Brackenridge: Okay, recording's off. Sorry, I mean, it's on for my notes, but it doesn't leave this room. Everyone okay with that?
+
+2
+00:00:08,933 --> 00:00:12,067
+Peregrina Wainscott: Notes yes, recording no. Please.
+
+3
+00:00:12,267 --> 00:00:15,333
+Leopold Brackenridge: Right, fine, stopping it. Done.
+
+4
+00:00:15,533 --> 00:00:58,933
+Cormac Haverstock: Great. Thanks everybody. you know, So, um, I want to just, I want to set the scene a bit before we get into the numbers, because I I mean, know there's been a lot of, uh, corridor chatter. I've been in Singapore and then Sydney for most of the last two weeks, talking to the um, teams out there, and honestly the mood is fine, people are working hard, but sort of, they can tell something's coming. And, look, something is coming. We're going to consolidate the three regional hubs into two, which means the Harlow Brook office closes and those roles either move or go. I want us to be really thoughtful about how we sort of, land that.
+
+5
+00:00:59,133 --> 00:01:02,333
+Wendeline Wainscott: Can I just jump in on the timing?
+
+6
+00:01:02,533 --> 00:01:04,000
+Cormac Haverstock: Please.
+
+7
+00:01:04,200 --> 00:01:16,733
+Wendeline Wainscott: So we can't announce anything before the fourteenth, because we have to start the consultation process in the UK properly, and that's a minimum period, we can't shortcut it.
+
+8
+00:01:16,933 --> 00:01:18,933
+Jem Gilchrist-Mohr: How many roles?
+
+9
+00:01:19,133 --> 00:01:26,667
+Wendeline Wainscott: In total, across sort of, everything, it's eighty three. That's about eleven percent of headcount.
+
+10
+00:01:26,867 --> 00:01:29,133
+Jem Gilchrist-Mohr: I had it at twelve.
+
+11
+00:01:29,333 --> 00:01:33,667
+Wendeline Wainscott: Twelve before the voluntary leavers. Eleven after.
+
+12
+00:01:33,867 --> 00:01:35,200
+Jem Gilchrist-Mohr: Okay.
+
+13
+00:01:35,400 --> 00:01:48,733
+Delphine Nakashima-Ford: And how many of those are mine? Because I sort of, am going to be honest, if you take more than a handful from platform we will not ship Project Gannetfall this year. It is that simple.
+
+14
+00:01:48,933 --> 00:01:53,600
+Cormac Haverstock: Gannetfall is protected. I said that in the board pack.
+
+15
+00:01:53,800 --> 00:01:56,933
+Delphine Nakashima-Ford: Protected how? With what people?
+
+16
+00:01:57,133 --> 00:02:00,067
+Cormac Haverstock: With the people you have now.
+
+17
+00:02:00,267 --> 00:02:09,400
+Delphine Nakashima-Ford: Two of my leads are already interviewing elsewhere because of the rumours, so the people I have now is not a fixed number.
+
+18
+00:02:09,600 --> 00:02:20,133
+Wendeline Wainscott: We like, know. We're putting retention bonuses in for, um, a small list. Callum Muldowney is on it. So is Ottilie. And od hran okonjo, I think.
+
+19
+00:02:20,333 --> 00:02:23,200
+Delphine Nakashima-Ford: Good. Thank you. That helps.
+
+20
+00:02:23,400 --> 00:02:30,200
+Jem Gilchrist-Mohr: Can we talk about why we're doing this, for the record? Because um, the board will ask.
+
+21
+00:02:30,400 --> 00:02:32,667
+Cormac Haverstock: Sure, go um, ahead.
+
+22
+00:02:32,867 --> 00:02:47,333
+Jem Gilchrist-Mohr: Revenue came in at 64 million dollars. Plan was higher. Margin's down to 10.5%. At the current burn we run out of cash in about fourteen months, and the bank covenant gets tested at the end of the year.
+
+23
+00:02:47,533 --> 00:02:53,400
+Peregrina Wainscott: And I'd like that last bit not written down in quite those words, please.
+
+24
+00:02:53,600 --> 00:02:57,133
+Leopold Brackenridge: Noted. I'll put 'liquidity discussed'.
+
+25
+00:02:57,333 --> 00:02:59,000
+Peregrina Wainscott: Thank you.
+
+26
+00:02:59,200 --> 00:03:15,067
+Cormac Haverstock: And it's also, it's not just cost, right, it's focus. We've been trying to be everything to everyone. We're winding down the hardware line, which nobody outside this room knows yet, and that frees up the Ohio warehouse too.
+
+27
+00:03:15,267 --> 00:03:18,333
+Peregrina Wainscott: Can I raise something adjacent?
+
+28
+00:03:18,533 --> 00:03:19,733
+Cormac Haverstock: Go.
+
+29
+00:03:19,933 --> 00:03:34,267
+Peregrina Wainscott: The Hobbleford Cycles dispute is getting worse and their lawyers sent a letter on Friday threatening to sue over the delayed rollout. I'd you know, really rather we didn't announce cuts the same week.
+
+30
+00:03:34,467 --> 00:03:38,000
+Cormac Haverstock: Ugh. Okay. How much are they claiming?
+
+31
+00:03:38,200 --> 00:03:46,200
+Peregrina Wainscott: They haven't put a number on it. Outside counsel at Pemberton Raike LLP think it's a negotiating posture.
+
+32
+00:03:46,400 --> 00:03:48,400
+Jem Gilchrist-Mohr: Is it material?
+
+33
+00:03:48,600 --> 00:03:55,067
+Peregrina Wainscott: Could be. Two to three percent of revenue if it went badly. I don't think it will.
+
+34
+00:03:55,267 --> 00:04:11,267
+Wendeline Wainscott: Can I go back to the people side? Sorry. The Ashcombe Vale team. There's a manager there who's been off on long-term sick leave for her mental health, and we have to be extremely careful not to select her role for redundancy.
+
+35
+00:04:11,467 --> 00:04:15,600
+Peregrina Wainscott: Very careful. That's a claim waiting to happen.
+
+36
+00:04:15,800 --> 00:04:17,333
+Wendeline Wainscott: Exactly.
+
+37
+00:04:17,533 --> 00:04:21,667
+Cormac Haverstock: Of course. Yeah. Who else knows about all this?
+
+38
+00:04:21,867 --> 00:04:27,067
+Leopold Brackenridge: Just this group and the board. And the comms agency, under NDA.
+
+39
+00:04:27,267 --> 00:04:29,133
+Cormac Haverstock: Which agency?
+
+40
+00:04:29,333 --> 00:04:32,867
+Leopold Brackenridge: Haverleigh & Stone. Same as last time.
+
+41
+00:04:33,067 --> 00:04:36,600
+Cormac Haverstock: Fine. So, okay, what's the comms plan?
+
+42
+00:04:36,800 --> 00:04:52,533
+Wendeline Wainscott: All-hands on the fourteenth, managers briefed the night before, letters same day. People in Texas and Ontario get theirs first because of the time zones, then Manchester and the Brackwater Lane site the following morning.
+
+43
+00:04:52,733 --> 00:05:00,067
+Delphine Nakashima-Ford: Please do not do you know, it on a Friday. Fridays like, in general are fine, but not for this.
+
+44
+00:05:00,267 --> 00:05:02,267
+Wendeline Wainscott: It's a Tuesday.
+
+45
+00:05:02,467 --> 00:05:03,800
+Delphine Nakashima-Ford: Good.
+
+46
+00:05:04,000 --> 00:05:07,400
+Jem Gilchrist-Mohr: And severance is budgeted at $1,650.
+
+47
+00:05:07,600 --> 00:05:09,933
+Cormac Haverstock: Okay. Anything else?
+
+48
+00:05:10,133 --> 00:05:18,533
+Peregrina Wainscott: Just, everybody, nothing about the restructure in Slack or email, phone or in person only until it's announced.
+
+49
+00:05:18,733 --> 00:05:23,800
+Cormac Haverstock: Got it. Okay. Thanks all, this is hard stuff. Let's take ten.

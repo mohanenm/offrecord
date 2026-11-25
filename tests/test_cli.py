@@ -78,6 +78,14 @@ def test_eval_runs_on_tuning_set(capsys):
     assert 0.0 <= data[0]["recall"] <= 1.0
 
 
+def test_eval_refuses_sealed_set_without_final_check(capsys):
+    from pathlib import Path
+
+    assert main(["eval", "--set", "sealed", "--system", "null"]) == ExitCode.USAGE
+    sealed = str(Path(__file__).parent.parent / "eval" / "generated" / "sealed")
+    assert main(["eval", "--dir", sealed, "--system", "null"]) == ExitCode.USAGE
+
+
 def test_eval_unknown_system(capsys):
     assert main(["eval", "--set", "tuning", "--system", "nope"]) == ExitCode.USAGE
 

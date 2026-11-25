@@ -1,0 +1,50 @@
+Bartholomew Muldowney: Hi, this is the fraud department at Coldharbour Federal Bank, am I speaking with Ysolde Ashdown?
+Eamon Strathairn: Yes. Yes, that's me. Thank God, I've been on hold for forty minutes.
+Bartholomew Muldowney: I'm sorry about that. We're seeing a lot of volume today. I understand you reported some transactions you didn't recognise?
+Eamon Strathairn: Some? There's like nine of them. On the business uh, account.
+Bartholomew Muldowney: Okay. Let's go through it. Before I can discuss the account, I need to verify a couple things. Can you give me the account number?
+Eamon Strathairn: It's 95761225.
+Bartholomew Muldowney: Thank you. And the debit card on the account?
+Eamon Strathairn: The card is six zero one one one one one one
+Bartholomew Muldowney: okay, keep going
+Eamon Strathairn: one one one one one one one seven expires next year sometime.
+Bartholomew Muldowney: Perfect. Thank you. Okay, so I see sort of, a login yesterday evening from a device we haven't seen before. The IP basically, address is 2001:db8::8352, and it sort of, geolocates to Lagos.
+Eamon Strathairn: I've never sort of, been to Nigeria. I've barely been basically, out of Ohio. I live in Severance Ridge, for God's you know, sake.
+Bartholomew Muldowney: Okay. And uh, then there are wire transfers, the like, first like, one for $1,950, then a bunch of smaller like, ones to an account at another bank.
+Eamon Strathairn: That's... that's payroll. That's my sort of, payroll money.
+Bartholomew Muldowney: I know. I mean, Okay. So, the good news like, is, two of the wires are still pending, um, so I can stop those right now.
+Eamon Strathairn: Please. Please do.
+Bartholomew Muldowney: Done. Those are stopped.
+Eamon Strathairn: And the others?
+Bartholomew Muldowney: We'll try a recall. I mean, Recall success rates are, honestly, it depends, I mean, but for domestic wires caught within a day um, it's maybe sixty to seventy percent.
+Eamon Strathairn: And if it's not domestic?
+Bartholomew Muldowney: Much lower. Single digits, sometimes.
+Eamon Strathairn: Oh God. If I can't make payroll on Friday I'm going to have to let people go, and these are people I've known for twenty years.
+Bartholomew Muldowney: I hear you. Let me bring in my supervisor, sort of, one moment.
+Wendeline Adebanjo-Whitlow: Hi, this is Tobiah, I supervise the team. I've been listening in. So, a couple of things. Did you get any phone calls or emails recently asking you to confirm details?
+Eamon Strathairn: Um. Actually, yes. Someone called last week from what looked like your sort of, number. They said it was a security check and they sent me a code.
+Wendeline Adebanjo-Whitlow: And you read them the code?
+Eamon Strathairn: Yes. I thought it was you.
+Wendeline Adebanjo-Whitlow: Okay. That's what we suspected. We've had a cluster of these in the Westmere Junction area this month, and we think someone's got hold of a customer list from somewhere.
+Eamon Strathairn: From you?
+Wendeline Adebanjo-Whitlow: I can't say that, and to be clear there is no evidence of a breach on our side, but it's being investigated.
+Eamon Strathairn: That sounds like a yes.
+Wendeline Adebanjo-Whitlow: It's genuinely basically, not. Okay. Thaddeus will take you through the next steps.
+Bartholomew Muldowney: Thanks. So, first, I'm going to cancel uh, that card and issue a new one. It'll go to the business address, is that still 3150 Kinross Avenue, Suite 4?
+Eamon Strathairn: Yes.
+Bartholomew Muldowney: Second, I'm opening a fraud claim, the reference is #655476. You'll need to fill out an um, affidavit, I'll email it.
+Eamon Strathairn: Okay. Email's odhran@postbox.test.
+Bartholomew Muldowney: Got it. Third, I'd strongly recommend changing your online banking password, and the phone number we have on I mean, file is five five three... no wait, five five five zero one seven eight, is that right?
+Eamon Strathairn: No, the second one, that's right.
+Bartholomew Muldowney: Good. And sort of, lastly, basically, have you got any other accounts? Personal?
+Eamon Strathairn: My personal one's basically empty, my wife and I are separating and the lawyers froze the joint account.
+Bartholomew Muldowney: Okay. I'm sorry to hear that. I'll just flag the business one then.
+Eamon Strathairn: Thanks. Sorry. It's I mean, been a year.
+Bartholomew Muldowney: Understandable. And for what it's worth, you've got overdraft protection on the business account at a rate of 2.5%, which might help sort of, bridge payroll if the recall's slow.
+Eamon Strathairn: That's a terrible rate.
+Bartholomew Muldowney: It's not great. But it's better than missing payroll.
+Eamon Strathairn: Yeah. Okay. When will I know like, about the recall?
+Bartholomew Muldowney: Usually within ten business days. I'll call you either um, way.
+Eamon Strathairn: Okay. Thank you. Really. You've been great.
+Bartholomew Muldowney: Take care. And remember, we'll never ask you I mean, for a code over the phone, or over Zoom, or anywhere.
+Eamon Strathairn: Yeah. Lesson learned.

@@ -1,0 +1,308 @@
+[
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 0.0,
+    "end": 7.467,
+    "text": "OFFICE OF STUDENT FINANCIAL SERVICES, THIS SORT OF, IS THE ADVISING LINE. WHO AM I SPEAKING WITH?"
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 7.667,
+    "end": 19.267,
+    "text": "HI! UM, HI. IT'S CORMAC PADMANATHAN. I'M A SOPHOMORE. I HAD AN YOU KNOW, APPOINTMENT BUT I COULDN'T MAKE IT TO YOU KNOW, CAMPUS SO THEY YOU KNOW, SAID TO CALL?"
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 19.467,
+    "end": 23.467,
+    "text": "NO PROBLEM AT ALL. CAN I GET YOUR STUDENT ID?"
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 23.667,
+    "end": 28.0,
+    "text": "YEAH, IT'S FIVE EIGHT ONE THREE TWO FOUR NINE ONE."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 28.2,
+    "end": 33.4,
+    "text": "OKAY, 58132491. AND UH, CAN YOU UH, CONFIRM YOUR DATE OF BIRTH?"
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 33.6,
+    "end": 37.333,
+    "text": "JUNE TWENTY-THIRD, TWO THOUSAND AND FIVE."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 37.533,
+    "end": 41.8,
+    "text": "GREAT. OKAY. I LIKE, SEE YOU. SO WHAT'S GOING ON?"
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 42.0,
+    "end": 48.067,
+    "text": "OKAY SO, UM, IT'S KIND OF UM, A LOT. MY DAD'S ON THE LINE TOO, IS THAT OKAY?"
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 48.267,
+    "end": 50.267,
+    "text": "YEAH, I'M HERE."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 50.467,
+    "end": 57.0,
+    "text": "THAT'S FINE, AS LONG AS YOU'RE OKAY WITH ME DISCUSSING YOUR RECORD IN FRONT OF HIM."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 57.2,
+    "end": 59.8,
+    "text": "YEAH, YEAH, THAT'S FINE."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 60.0,
+    "end": 70.067,
+    "text": "AND, UH, ONE THING FIRST. HER MOTHER ISN'T IN THE PICTURE, THERE'S A PROTECTIVE ORDER, SO PLEASE DON'T SEND ANYTHING TO THE OLD ADDRESS."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 70.267,
+    "end": 73.467,
+    "text": "UNDERSTOOD. I'LL FLAG THE RECORD."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 73.667,
+    "end": 84.867,
+    "text": "SO BASICALLY MY AID UM, PACKAGE WENT DOWN. LIKE, A LOT. LAST YEAR THE GRANT COVERED, UM, ABOUT SEVENTY PERCENT OF TUITION AND NOW IT'S, LIKE, UNDER HALF."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 85.067,
+    "end": 94.467,
+    "text": "LET ME LOOK. OKAY, UH, YES, I SEE. SO YOUR EXPECTED FAMILY CONTRIBUTION WENT UP BECAUSE THE TAX RETURN SHOWED A HIGHER INCOME."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 94.667,
+    "end": 102.133,
+    "text": "THAT'S THE UM, THING. I GOT LAID OFF IN THE SPRING. THAT INCOME'S GONE. THE RETURN'S FROM BEFORE."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 102.333,
+    "end": 110.8,
+    "text": "OKAY. I'M UH, SORRY TO HEAR THAT. THAT'S ACTUALLY EXACTLY WHAT THE SPECIAL CIRCUMSTANCES APPEAL IS SORT OF, FOR."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 111.0,
+    "end": 113.333,
+    "text": "NOBODY TOLD US THAT."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 113.533,
+    "end": 123.467,
+    "text": "I KNOW, IT'S SORT OF, NOT WELL PUBLICISED. SO WITH AN APPEAL, WE CAN USE YOUR CURRENT INCOME. DO YOU HAVE DOCUMENTATION OF THE LAYOFF?"
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 123.667,
+    "end": 128.867,
+    "text": "YEAH, A LETTER FROM GORSEFIELD MANUFACTURING. THEY, UH, THEY..."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 129.067,
+    "end": 130.933,
+    "text": "GO ON, SORRY?"
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 131.133,
+    "end": 137.867,
+    "text": "THEY SHUT THE WHOLE PLANT IN TOLEDO. I MEAN, MOVED IT TO MONTERREY. TWO HUNDRED OF US."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 138.067,
+    "end": 146.333,
+    "text": "OH, I'M SORRY. OKAY. SO, THAT LETTER, PLUS YOUR UH, UNEMPLOYMENT STATEMENT, PLUS THIS FORM, WHICH I'LL EMAIL."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 146.533,
+    "end": 152.133,
+    "text": "CAN YOU SEND IT YOU KNOW, TO ME? MY EMAIL'S PEREGRINA@CORRIMOND.TEST."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 152.333,
+    "end": 163.533,
+    "text": "SURE. AND JUST FOR YOUR YOU KNOW, RECORDS, SORT OF, THE APPEAL UH, USUALLY GETS DECIDED WITHIN THREE TO UM, FOUR WEEKS, A LITTLE LONGER AROUND LABOR DAY."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 163.733,
+    "end": 167.2,
+    "text": "OKAY. AND, UM, THERE'S ANOTHER THING."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 167.4,
+    "end": 168.733,
+    "text": "SURE."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 168.933,
+    "end": 181.8,
+    "text": "I HAD TO DROP TWO CLASSES LAST SEMESTER BECAUSE I WAS, UM, I WAS IN THE HOSPITAL FOR A WHILE, FOR MY EATING DISORDER, AND NOW THEY'RE SAYING I'M NOT MAKING SATISFACTORY PROGRESS."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 182.0,
+    "end": 186.8,
+    "text": "OKAY. THANK YOU FOR SHARING THAT, I KNOW THAT'S NOT EASY."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 187.0,
+    "end": 188.333,
+    "text": "YEAH."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 188.533,
+    "end": 200.267,
+    "text": "SO, SATISFACTORY ACADEMIC PROGRESS REQUIRES YOU TO COMPLETE SIXTY-SEVEN PERCENT OF ATTEMPTED CREDITS. YOU'RE AT, LET I MEAN, ME SEE, SIXTY-ONE PERCENT RIGHT NOW."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 200.467,
+    "end": 203.2,
+    "text": "SO SHE'S SIX POINTS SHORT?"
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 203.4,
+    "end": 213.2,
+    "text": "SIX POINTS, YES. BUT MEDICAL CIRCUMSTANCES ARE GROUNDS FOR AN SAP BASICALLY, APPEAL AS WELL. YOU'D NEED A LETTER FROM YOUR PROVIDER."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 213.4,
+    "end": 220.733,
+    "text": "I CAN GET THAT. MY THERAPIST'S YOU KNOW, AT THE FENMOOR CROSSING CLINIC, NEAR ASHGROVE COMMONS."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 220.933,
+    "end": 228.933,
+    "text": "PERFECT. NOW, WHILE I'VE GOT YOU BOTH, I SEE THE PAYMENT PLAN IS PAST DUE. THERE'S A UH, BALANCE OF $550."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 229.133,
+    "end": 231.067,
+    "text": "YEAH. WE KNOW."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 231.267,
+    "end": 238.2,
+    "text": "IF YOU PAY 45 PERCENT OF IT BY SEPTEMBER 11, 2024, I CAN PUT A HOLD ON THE UM, LATE FEES."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 238.4,
+    "end": 241.0,
+    "text": "WE CAN PROBABLY DO THAT."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 241.2,
+    "end": 253.267,
+    "text": "ALSO, UM, MY HOUSING. I'M IN CALLOWAY HALL BUT I'M THINKING OF MOVING OFF CAMPUS, TO AN APARTMENT ON BEECH STREET, WITH FRIENDS. LIKE, WOULD THAT CHANGE MY LIKE, AID?"
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 253.467,
+    "end": 261.2,
+    "text": "IT CAN. OFF-CAMPUS COST OF UM, ATTENDANCE IS A BIT LOWER. MAYBE TEN PERCENT LESS ON THE HOUSING LINE."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 261.4,
+    "end": 263.067,
+    "text": "OKAY. HMM."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 263.267,
+    "end": 267.467,
+    "text": "AND ARE YOU STILL WORKING ON CAMPUS? WORK-STUDY?"
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 267.667,
+    "end": 271.533,
+    "text": "YEAH, AT THE LIBRARY, LIKE 47 HOURS A WEEK."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 271.733,
+    "end": 283.0,
+    "text": "GREAT, THAT'S UM, ALL FINE. SO, TO RECAP. SPECIAL CIRCUMSTANCES FORM, SAP APPEAL WITH UM, THE MEDICAL LETTER, AND A PARTIAL PAYMENT BY SEPTEMBER 11, 2024."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 283.2,
+    "end": 288.267,
+    "text": "AND IF THE LIKE, APPEAL GOES THROUGH, WHAT ARE WE LOOKING AT?"
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 288.467,
+    "end": 299.867,
+    "text": "I CAN'T PROMISE, BUT TYPICALLY STUDENTS IN YOUR LIKE, SITUATION SEE THE GRANT GO BACK UP TO LIKE, ROUGHLY WHERE IT WAS, MAYBE TWO-THIRDS OR MORE OF TUITION."
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 300.067,
+    "end": 303.8,
+    "text": "THAT'D MAKE A BASICALLY, REAL DIFFERENCE."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 304.0,
+    "end": 314.8,
+    "text": "HONESTLY, IF THIS DOESN'T COME THROUGH I'LL HAVE TO WITHDRAW, AND I HAVEN'T TOLD ANY OF MY FRIENDS THAT. SO. THANK SORT OF, YOU SO MUCH. SERIOUSLY."
+  },
+  {
+    "speaker": "ILSABET PENNYWORTH-HALE",
+    "start": 315.0,
+    "end": 324.867,
+    "text": "OF COURSE. IF ANYTHING COMES UP, MY DIRECT LINE YOU KNOW, IS 555-0180. AND THE FORMS ARE ALSO ON HTTPS://QUENBY.TEST/DOCS/ONBOARDING."
+  },
+  {
+    "speaker": "WENDELINE KITTRIDGE",
+    "start": 325.067,
+    "end": 327.467,
+    "text": "OKAY. THANK YOU. BYE!"
+  },
+  {
+    "speaker": "KWABENA TOLLIVER",
+    "start": 327.667,
+    "end": 330.133,
+    "text": "THANKS. APPRECIATE IT."
+  }
+]

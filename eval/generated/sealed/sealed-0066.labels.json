@@ -1,0 +1,308 @@
+{
+ "id": "sealed-0066",
+ "template": "se-other-insurance-02",
+ "domain": "other",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 34,
+   "end": 53,
+   "category": "ORG",
+   "entity": "org#aldermoor insurance",
+   "form": "literal"
+  },
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 72,
+   "end": 82,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 26,
+   "end": 32,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "written"
+  },
+  {
+   "turn": 2,
+   "field": "text",
+   "start": 21,
+   "end": 49,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 26,
+   "end": 40,
+   "category": "LOCATION",
+   "entity": "location#12 ferrier row",
+   "form": "literal"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 45,
+   "end": 53,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 58,
+   "end": 61,
+   "category": "LOCATION",
+   "entity": "location#a64",
+   "form": "literal"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 76,
+   "end": 80,
+   "category": "LOCATION",
+   "entity": "location#york",
+   "form": "literal"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 85,
+   "end": 93,
+   "category": "DATE",
+   "entity": "date#saturday",
+   "form": "literal"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 40,
+   "end": 158,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 51,
+   "end": 99,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 15,
+   "field": "text",
+   "start": 31,
+   "end": 37,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "written"
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 54,
+   "end": 66,
+   "category": "LOCATION",
+   "entity": "location#pennsylvania",
+   "form": "literal"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 10,
+   "end": 29,
+   "category": "SSN",
+   "entity": "ssn#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 0,
+   "end": 25,
+   "category": "SSN",
+   "entity": "ssn#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 28,
+   "end": 34,
+   "category": "LOCATION",
+   "entity": "location#malton",
+   "form": "literal"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 39,
+   "end": 55,
+   "category": "LOCATION",
+   "entity": "location#wetherill street",
+   "form": "literal"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 57,
+   "end": 64,
+   "category": "BRAND",
+   "entity": "brand#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 125,
+   "end": 133,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 83,
+   "end": 94,
+   "category": "PERCENT",
+   "entity": "percent#fifty-fifty",
+   "form": "literal"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 168,
+   "end": 182,
+   "category": "PERCENT",
+   "entity": "percent#seventy-thirty",
+   "form": "literal"
+  },
+  {
+   "turn": 29,
+   "field": "text",
+   "start": 0,
+   "end": 7,
+   "category": "PERCENT",
+   "entity": "percent#seventy",
+   "form": "literal"
+  },
+  {
+   "turn": 32,
+   "field": "text",
+   "start": 96,
+   "end": 103,
+   "category": "PERCENT",
+   "entity": "percent#a third",
+   "form": "literal"
+  },
+  {
+   "turn": 34,
+   "field": "text",
+   "start": 68,
+   "end": 86,
+   "category": "PERCENT",
+   "entity": "percent#sixty-five percent",
+   "form": "literal"
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 0,
+   "end": 108,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 13,
+   "end": 112,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 59,
+   "end": 81,
+   "category": "ORG",
+   "entity": "org#pickering vehicle hire",
+   "form": "literal"
+  },
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 88,
+   "end": 96,
+   "category": "DATE",
+   "entity": "date#tomorrow",
+   "form": "literal"
+  },
+  {
+   "turn": 45,
+   "field": "text",
+   "start": 43,
+   "end": 48,
+   "category": "LOCATION",
+   "entity": "location#leeds",
+   "form": "literal"
+  },
+  {
+   "turn": 46,
+   "field": "text",
+   "start": 39,
+   "end": 50,
+   "category": "ACCOUNT",
+   "entity": "account#2",
+   "form": "written"
+  },
+  {
+   "turn": 46,
+   "field": "text",
+   "start": 96,
+   "end": 123,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 134,
+   "end": 143
+  }
+ ]
+}

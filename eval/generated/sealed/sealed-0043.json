@@ -1,0 +1,314 @@
+[
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 0.0,
+    "end": 3.267,
+    "text": "Morning. Let's go fast. Benedikta?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 3.467,
+    "end": 7.867,
+    "text": "Yeah. Finished the migration script. Testing today."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 8.067,
+    "end": 9.667,
+    "text": "Blockers?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 9.867,
+    "end": 11.2,
+    "text": "Nope."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 11.4,
+    "end": 13.133,
+    "text": "Cool. Next."
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 13.333,
+    "end": 20.267,
+    "text": "Still on the checkout redesign for Operation Sable Fern. About, uh, seventy percent done."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 20.467,
+    "end": 22.0,
+    "text": "Seventy?"
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 22.2,
+    "end": 26.333,
+    "text": "Ish. Sixty-five. Sixty-five percent. Be honest."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 26.533,
+    "end": 28.133,
+    "text": "Ha. Okay."
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 28.333,
+    "end": 34.8,
+    "text": "Me. So. Overnight we had a spike. Error rate went to 57% for about twenty minutes."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 35.0,
+    "end": 36.4,
+    "text": "Cause?"
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 36.6,
+    "end": 41.2,
+    "text": "Traffic from 192.0.2.58. Hammering the login endpoint."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 41.4,
+    "end": 43.467,
+    "text": "Like, an attack?"
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 43.667,
+    "end": 50.867,
+    "text": "Looks like credential stuffing, and a handful of accounts may have actually been logged into."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 51.067,
+    "end": 52.667,
+    "text": "How many?"
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 52.867,
+    "end": 55.467,
+    "text": "Not sure yet. Under 689."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 55.667,
+    "end": 58.467,
+    "text": "Okay. Security's looped in?"
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 58.667,
+    "end": 63.733,
+    "text": "Yeah. And I blocked the range. Also 192.0.2.28, same pattern."
+  },
+  {
+    "speaker": "Ysolde Castellane",
+    "start": 63.933,
+    "end": 66.333,
+    "text": "Do we tell customers?"
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 66.533,
+    "end": 74.0,
+    "text": "Not yet, and nobody mention it in the public channel until legal decides whether it's reportable."
+  },
+  {
+    "speaker": "Ysolde Castellane",
+    "start": 74.2,
+    "end": 75.667,
+    "text": "Got it."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 75.867,
+    "end": 78.533,
+    "text": "Anything else, Benedikta?"
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 78.733,
+    "end": 84.733,
+    "text": "Just, the Oregon region's flapping again. I've opened a ticket. 8225314422."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 84.933,
+    "end": 86.667,
+    "text": "Thanks. QA?"
+  },
+  {
+    "speaker": "Ysolde Castellane",
+    "start": 86.867,
+    "end": 92.933,
+    "text": "Regression suite's green except two flaky ones. Coverage's up to eighty-one."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 93.133,
+    "end": 94.467,
+    "text": "Nice."
+  },
+  {
+    "speaker": "Ysolde Castellane",
+    "start": 94.667,
+    "end": 104.333,
+    "text": "Also the Pivotwren release notes link is broken. It points at https://wrennick.invalid/account/settings, which is the old staging."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 104.533,
+    "end": 107.933,
+    "text": "Oh, that's mine. Sorry. I'll fix it."
+  },
+  {
+    "speaker": "Ysolde Castellane",
+    "start": 108.133,
+    "end": 109.333,
+    "text": "Ta."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 109.533,
+    "end": 111.067,
+    "text": "Product?"
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 111.267,
+    "end": 126.2,
+    "text": "Aye. So, couple of things. One, launch date for Sable Fern is the third of March. Please, please do not tell anyone at Duvessa Clinics even though they keep asking, we haven't told the board the scope got cut."
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 126.4,
+    "end": 128.6,
+    "text": "The scope got cut?"
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 128.8,
+    "end": 132.067,
+    "text": "A wee bit. The offline mode's out."
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 132.267,
+    "end": 133.867,
+    "text": "Oh. Okay."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 134.067,
+    "end": 143.8,
+    "text": "Two. Beta signups. We've got about four hundred from Scotland and the north of England, and a big chunk from the Bay Area, weirdly."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 144.0,
+    "end": 147.533,
+    "text": "Not weird. That's where the nerds are."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 147.733,
+    "end": 155.533,
+    "text": "Ha. Fair. And three, conversion on the new onboarding is up, like, doubled. Doubled from where it was."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 155.733,
+    "end": 157.267,
+    "text": "Doubled?"
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 157.467,
+    "end": 161.467,
+    "text": "From three to six percent. Small base. Still."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 161.667,
+    "end": 164.867,
+    "text": "Still. Nice. Okay. Anything else?"
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 165.067,
+    "end": 170.8,
+    "text": "Uh, yeah, quick one. Is the team offsite still happening? In Tullerton?"
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 171.0,
+    "end": 172.2,
+    "text": "Um."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 172.4,
+    "end": 173.667,
+    "text": "Hmm."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 173.867,
+    "end": 180.933,
+    "text": "It's, it's on hold, there's a spending review going on and travel's frozen until it's done."
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 181.133,
+    "end": 182.333,
+    "text": "Oh."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 182.533,
+    "end": 187.6,
+    "text": "Not because anything bad is happening, so don't read into it."
+  },
+  {
+    "speaker": "Aurelian Castellane",
+    "start": 187.8,
+    "end": 189.133,
+    "text": "Sure."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 189.333,
+    "end": 199.867,
+    "text": "That's literally what they said last time. Did anyone watch that show where the whole company gets fired in the first episode? Brilliant telly."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 200.067,
+    "end": 205.133,
+    "text": "Okay! Moving on. Jem Muldowney, you're back on Monday, right?"
+  },
+  {
+    "speaker": "Ysolde Castellane",
+    "start": 205.333,
+    "end": 213.6,
+    "text": "Yeah, she's back Monday. She's doing a phased return after the surgery, so mornings only for the first month."
+  },
+  {
+    "speaker": "Cormac Haverstock",
+    "start": 213.8,
+    "end": 220.8,
+    "text": "Got it. Oh, and the sable fern demo is still on for Thursday. Okay, that's it. Thanks all."
+  },
+  {
+    "speaker": "Ilsabet Merriweather",
+    "start": 221.0,
+    "end": 222.467,
+    "text": "Cheers."
+  }
+]

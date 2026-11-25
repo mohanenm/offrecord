@@ -4,7 +4,7 @@ Working notes, personal assistant settings and environment files belong on the d
 machine only, and the sdist and wheel should contain the package, its tests and its metadata,
 nothing else (no evaluation data, models, keys or mappings).
 
-    python scripts/check_hygiene.py              # tracked files
+    python scripts/check_hygiene.py              # tracked files, sealed set history
     python scripts/check_hygiene.py --dist dist  # also every .tar.gz and .whl in dist/
 """
 
@@ -28,6 +28,8 @@ SDIST_OK = re.compile(
     r"^(src/offrecord(\.egg-info)?/|tests/[^/]+\.py$"
     r"|(pyproject\.toml|README\.md|LICENSE|PKG-INFO|setup\.cfg)$)"
 )
+# The sealed evaluation set is committed once and never touched again.
+SEALED_PATHS = ["eval/templates/sealed", "eval/pools/sealed", "eval/generated/sealed"]
 WHEEL_OK = re.compile(r"^(offrecord/|offrecord-[^/]+\.dist-info/)")
 NEVER_SHIP = re.compile(r"\.(onnx|gguf|key|pem|mapping|ormap|oraudit|env)$|(^|/)eval/")
 
@@ -47,14 +49,17 @@ def bad_members(archive: Path) -> list[str]:
     return [n for n in names if n and (not ok.search(n) or NEVER_SHIP.search(n))]
 
 
+def _git(*args: str) -> str:
+    # Developer script: git comes from PATH, arguments are fixed.
+    return subprocess.run(["git", *args], capture_output=True, text=True, check=True).stdout  # noqa: S603, S607
+
+
 def main(argv: list[str]) -> int:
-    tracked = subprocess.run(
-        ["git", "ls-files"],  # noqa: S607 - developer script; git comes from PATH
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.splitlines()
+    tracked = _git("ls-files").splitlines()
     problems = [f"tracked but must stay local: {p}" for p in offending(tracked)]
+    touched = _git("log", "--format=%H", "--", *SEALED_PATHS).split()
+    if len(touched) > 1:
+        problems.append(f"the sealed set changed after its first commit ({len(touched)} commits)")
     if argv[:1] == ["--dist"]:
         archives = sorted(Path(argv[1]).glob("*.tar.gz")) + sorted(Path(argv[1]).glob("*.whl"))
         if not archives:

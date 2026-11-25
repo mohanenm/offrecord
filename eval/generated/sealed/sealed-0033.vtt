@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.867
+<v Rufus Padmanathan>Morning all. Or afternoon, for some of us. Is everyone on?
+
+00:00:05.067 --> 00:00:10.600
+<v Benedikta Pennyworth-Hale>I'm here. Just about. The trains out of Leeds were a disaster again.
+
+00:00:10.800 --> 00:00:15.267
+<v Rufus Padmanathan>Oh no. Were they? Brilliant. Well, glad you made it.
+
+00:00:15.467 --> 00:00:21.000
+<v Wilhelmina Merriweather>Hi folks, I'm dialling in from Austin, so forgive the coffee noises.
+
+00:00:21.200 --> 00:00:22.933
+<v Benedikta Pennyworth-Hale>Not at all.
+
+00:00:23.133 --> 00:00:34.267
+<v Rufus Padmanathan>Right, so, quick agenda. We wanted to talk about rolling Quarrytone Ledger out beyond the pilot stores, and Ysabeau can walk through the technical bits.
+
+00:00:34.467 --> 00:00:36.400
+<v Wilhelmina Merriweather>Yep, happy to.
+
+00:00:36.600 --> 00:00:45.667
+<v Benedikta Pennyworth-Hale>Lovely. So, where we are. The pilot's been in our Marston Rue shop and the one in Bexley Fold since, um, since September.
+
+00:00:45.867 --> 00:00:48.733
+<v Rufus Padmanathan>And it's gone well, I think?
+
+00:00:48.933 --> 00:00:59.733
+<v Benedikta Pennyworth-Hale>It's gone, yes. Footfall's flat but basket size is up two points and the staff don't hate it, which is a first for anything head office sends them.
+
+00:00:59.933 --> 00:01:02.000
+<v Rufus Padmanathan>Ha. High praise.
+
+00:01:02.200 --> 00:01:04.133
+<v Benedikta Pennyworth-Hale>From me it is.
+
+00:01:04.333 --> 00:01:14.333
+<v Wilhelmina Merriweather>So the numbers I've got show conversion on the kiosks at around 3.5 percent, which is, I mean, that's well above what we see elsewhere.
+
+00:01:14.533 --> 00:01:21.800
+<v Benedikta Pennyworth-Hale>Mm, I'd be careful with that. Bexley Fold had a refit in the middle, so it's a bit flattering.
+
+00:01:22.000 --> 00:01:24.933
+<v Wilhelmina Merriweather>Good to know, I'll caveat it.
+
+00:01:25.133 --> 00:01:30.067
+<v Rufus Padmanathan>So the proposal is the next wave. That's, what, 471 stores?
+
+00:01:30.267 --> 00:01:34.133
+<v Benedikta Pennyworth-Hale>Well. That's the thing. It was going to be.
+
+00:01:34.333 --> 00:01:35.533
+<v Rufus Padmanathan>Oh?
+
+00:01:35.733 --> 00:01:44.933
+<v Benedikta Pennyworth-Hale>There's a review of the whole northern estate going on and I'd be surprised if all of those shops are still open by spring.
+
+00:01:45.133 --> 00:01:46.333
+<v Rufus Padmanathan>Ah.
+
+00:01:46.533 --> 00:01:51.933
+<v Benedikta Pennyworth-Hale>So I'd rather not sign for stores that might not, you know, exist.
+
+00:01:52.133 --> 00:02:00.533
+<v Rufus Padmanathan>No, totally understandable. Could we, um, could we do it in phases? Start with the ones you're confident about?
+
+00:02:00.733 --> 00:02:08.933
+<v Benedikta Pennyworth-Hale>Possibly. The Glasgow and Newcastle ones are safe. The Fenmoor Crossing one, honestly, I wouldn't bet on it.
+
+00:02:09.133 --> 00:02:20.533
+<v Wilhelmina Merriweather>From the tech side phasing is easy. Each store just gets its own tenant on https://duvessa.example/account/settings, and we flip them on when they're ready.
+
+00:02:20.733 --> 00:02:23.667
+<v Benedikta Pennyworth-Hale>Sorry, say the address again?
+
+00:02:23.867 --> 00:02:27.867
+<v Wilhelmina Merriweather>Sure, it's duvessa dot example slash account.
+
+00:02:28.067 --> 00:02:30.067
+<v Benedikta Pennyworth-Hale>Got it, thanks.
+
+00:02:30.267 --> 00:02:38.067
+<v Rufus Padmanathan>And then pricing. So the pilot was at three million four hundred thousand dollars per store per month.
+
+00:02:38.267 --> 00:02:41.600
+<v Benedikta Pennyworth-Hale>Which was a pilot price, I'm aware.
+
+00:02:41.800 --> 00:02:53.267
+<v Rufus Padmanathan>Ha, yes, you are, aren't you. So list is a bit higher, but for a phased deal I think we can hold you at, um, twenty-five percent off list for the first year.
+
+00:02:53.467 --> 00:02:58.333
+<v Benedikta Pennyworth-Hale>Our Saffrowe kiosks came in a lot cheaper, I'll be honest.
+
+00:02:58.533 --> 00:03:02.267
+<v Wilhelmina Merriweather>Sure, but they don't do the stock lookup.
+
+00:03:02.467 --> 00:03:06.800
+<v Benedikta Pennyworth-Hale>No, they don't. And half of them are broken. Fair.
+
+00:03:07.000 --> 00:03:14.200
+<v Rufus Padmanathan>Can I ask, is there anything else going on we should know about? Just so we're not surprised.
+
+00:03:14.400 --> 00:03:25.333
+<v Benedikta Pennyworth-Hale>Mm. Between us, the board is talking to someone about selling the garden centre side of the business, so anything that touches those sites is frozen.
+
+00:03:25.533 --> 00:03:29.400
+<v Rufus Padmanathan>Okay. Noted, and obviously that stays here.
+
+00:03:29.600 --> 00:03:31.067
+<v Benedikta Pennyworth-Hale>Please.
+
+00:03:31.267 --> 00:03:38.133
+<v Wilhelmina Merriweather>Quick technical one, on the payments integration. Are you still on Marigold for loyalty?
+
+00:03:38.333 --> 00:03:41.667
+<v Benedikta Pennyworth-Hale>Yes, the Marigold app. God help us.
+
+00:03:41.867 --> 00:03:46.133
+<v Wilhelmina Merriweather>Ha, okay. That one's fine, we've got a connector.
+
+00:03:46.333 --> 00:03:55.267
+<v Benedikta Pennyworth-Hale>Good. My nan has a tea towel with a marigold print on it, and honestly it does more for customer loyalty than that app.
+
+00:03:55.467 --> 00:04:02.067
+<v Rufus Padmanathan>Ha! So, next steps. I'll send a phased proposal for, say, twelve stores in wave one.
+
+00:04:02.267 --> 00:04:07.000
+<v Benedikta Pennyworth-Hale>Make it ten. Sorry. Make it ten, I want room to breathe.
+
+00:04:07.200 --> 00:04:10.533
+<v Rufus Padmanathan>Ten it is. Who should I send it to?
+
+00:04:10.733 --> 00:04:16.000
+<v Benedikta Pennyworth-Hale>Send it to me and copy my deputy, she's on fergus@quenby.example
+
+00:04:16.200 --> 00:04:18.733
+<v Rufus Padmanathan>sorry, one sec, writing
+
+00:04:18.933 --> 00:04:21.667
+<v Benedikta Pennyworth-Hale> and she'll chase finance.
+
+00:04:21.867 --> 00:04:29.200
+<v Rufus Padmanathan>Perfect. And margin-wise on your side, is there a target we need to hit for you to sign it off?
+
+00:04:29.400 --> 00:04:39.067
+<v Benedikta Pennyworth-Hale>Payback inside a year. And if we miss the half-year number again my director has been told quite plainly it's his job on the line.
+
+00:04:39.267 --> 00:04:41.867
+<v Rufus Padmanathan>Right. No pressure then.
+
+00:04:42.067 --> 00:04:46.667
+<v Benedikta Pennyworth-Hale>None at all. Anyway. Cheers both. Have a good weekend.
+
+00:04:46.867 --> 00:04:49.133
+<v Wilhelmina Merriweather>You too, take care.
+
+00:04:49.333 --> 00:04:52.533
+<v Rufus Padmanathan>Cheers, speak soon. Bye. Bye bye.

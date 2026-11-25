@@ -38,11 +38,18 @@ class EvalItem:
 # --- loading --------------------------------------------------------------------------------
 
 
-def load_generated(directory: Path) -> tuple[list[EvalItem], dict[str, Any]]:
-    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``."""
+def load_generated(
+    directory: Path, final_check: bool = False
+) -> tuple[list[EvalItem], dict[str, Any]]:
+    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``. The sealed set
+    (recognised by its labels, so a copy is refused too) loads only for the final check."""
+    from offrecord.errors import UsageError
+
     items = []
     for lp in sorted(directory.glob("*.labels.json")):
         meta = json.loads(lp.read_text(encoding="utf-8"))
+        if meta.get("set") == "sealed" and not final_check:
+            raise UsageError("the sealed set is scored only with --final-check")
         tid = meta["id"]
         fmt = meta["format"]
         tp = directory / f"{tid}.{fmt}"

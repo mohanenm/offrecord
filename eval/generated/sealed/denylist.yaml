@@ -1,0 +1,335 @@
+denylist:
+- name: Thistlewick Freight
+  category: CLIENT
+  aliases:
+  - Thistlewick
+  - TWF
+- name: Gildersleeve Orthodontics
+  category: CLIENT
+  aliases:
+  - Gildersleeve
+  - GSO
+- name: Quenby Outfitters
+  category: CLIENT
+  aliases:
+  - Quenby
+- name: Palisor Health Partners
+  category: CLIENT
+  aliases:
+  - Palisor
+  - PHP
+- name: Fenwhistle Bakeries
+  category: CLIENT
+  aliases:
+  - Fenwhistle
+- name: Wrennick Hospitality
+  category: CLIENT
+  aliases:
+  - Wrennick
+- name: Glasshollow Media
+  category: CLIENT
+  aliases:
+  - Glasshollow
+- name: Tarrowby Engineering
+  category: CLIENT
+  aliases:
+  - Tarrowby
+- name: Brannoch Systems
+  category: CLIENT
+  aliases:
+  - Brannoch
+- name: Hobbleford Cycles
+  category: CLIENT
+  aliases:
+  - Hobbleford
+- name: Velmora
+  category: BRAND
+  aliases: []
+- name: Quoxa
+  category: BRAND
+  aliases: []
+- name: Nimbrel
+  category: BRAND
+  aliases: []
+- name: Saffrowe
+  category: BRAND
+  aliases: []
+- name: Torvique
+  category: BRAND
+  aliases: []
+- name: Drovane
+  category: BRAND
+  aliases: []
+- name: Kesterly Home
+  category: BRAND
+  aliases:
+  - Kesterly
+- name: Tallyforge Suite
+  category: PRODUCT
+  aliases:
+  - Tallyforge
+- name: Harbormind Analytics
+  category: PRODUCT
+  aliases:
+  - Harbormind
+- name: Mossgrid Scheduler
+  category: PRODUCT
+  aliases:
+  - Mossgrid
+- name: Tidewhistle Concierge
+  category: PRODUCT
+  aliases:
+  - Tidewhistle
+- name: Quarrytone Ledger
+  category: PRODUCT
+  aliases:
+  - Quarrytone
+- name: Operation Stoatbridge
+  category: CODENAME
+  aliases:
+  - Stoatbridge
+- name: Project Ironbark
+  category: CODENAME
+  aliases:
+  - Ironbark
+- name: Project Quernstone
+  category: CODENAME
+  aliases:
+  - Quernstone
+- name: Project Hollyhock
+  category: CODENAME
+  aliases:
+  - Hollyhock
+- name: Project Gannetfall
+  category: CODENAME
+  aliases:
+  - Gannetfall
+- name: Project Wintermere
+  category: CODENAME
+  aliases:
+  - Wintermere
+- name: Ladle
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - app
+  - account
+  - subscription
+  - checkout
+- name: Marigold
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - card
+  - rewards
+  - app
+  - statement
+- name: Teaspoon
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - app
+  - plan
+  - dashboard
+  - login
+- name: Hayloft
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - store
+  - order
+  - delivery
+  - membership
+- name: Wicker
+  category: BRAND
+  aliases: []
+  common_word: true
+  context:
+  - portal
+  - platform
+  - workspace
+  - license
+- name: Cormac Padmanathan
+  category: PERSON
+  aliases: []
+- name: Odhran Okonjo
+  category: PERSON
+  aliases: []
+- name: Benedikta Pennyworth-Hale
+  category: PERSON
+  aliases: []
+- name: Corentin Wainscott
+  category: PERSON
+  aliases: []
+- name: Henrike Okonjo
+  category: PERSON
+  aliases: []
+- name: Fergus Delacroix-Bey
+  category: PERSON
+  aliases: []
+- name: Kwabena Fairbrother
+  category: PERSON
+  aliases: []
+- name: Ysolde Abernathy-Royce
+  category: PERSON
+  aliases: []
+- name: Odhran Ravensworth
+  category: PERSON
+  aliases: []
+- name: Evander Wainscott
+  category: PERSON
+  aliases: []
+- name: Fergus Abernathy-Royce
+  category: PERSON
+  aliases: []
+- name: Rufus Ashdown
+  category: PERSON
+  aliases: []
+- name: Lazarus Merriweather
+  category: PERSON
+  aliases: []
+- name: Eamon Muldowney
+  category: PERSON
+  aliases: []
+- name: Callum Muldowney
+  category: PERSON
+  aliases: []
+- name: Jem Okonjo
+  category: PERSON
+  aliases: []
+- name: Lazarus Brackenridge
+  category: PERSON
+  aliases: []
+- name: Ilsabet Pennyworth-Hale
+  category: PERSON
+  aliases: []
+- name: Wendeline Adebanjo-Whitlow
+  category: PERSON
+  aliases: []
+- name: Cormac Haverstock
+  category: PERSON
+  aliases: []
+- name: Evander Okonjo
+  category: PERSON
+  aliases: []
+- name: Lucinda Merriweather
+  category: PERSON
+  aliases: []
+- name: Kwabena Delacroix-Bey
+  category: PERSON
+  aliases: []
+- name: Leopold Iwuchukwu
+  category: PERSON
+  aliases: []
+- name: Fergus Ashdown
+  category: PERSON
+  aliases: []
+- name: Casimira Treadwell
+  category: PERSON
+  aliases: []
+- name: Ysolde Haverstock
+  category: PERSON
+  aliases: []
+- name: Dariusz Pennyworth-Hale
+  category: PERSON
+  aliases: []
+- name: Peregrina Kittridge
+  category: PERSON
+  aliases: []
+- name: Jem Muldowney
+  category: PERSON
+  aliases: []
+- name: Aurelian Gilchrist-Mohr
+  category: PERSON
+  aliases: []
+- name: Dariusz Castellane
+  category: PERSON
+  aliases: []
+- name: Peregrina Wainscott
+  category: PERSON
+  aliases: []
+- name: Ilsabet Merriweather
+  category: PERSON
+  aliases: []
+- name: Ngozi Padmanathan
+  category: PERSON
+  aliases: []
+- name: Imogen Padmanathan
+  category: PERSON
+  aliases: []
+- name: Wendeline Tolliver
+  category: PERSON
+  aliases: []
+- name: Ilsabet Nakashima-Ford
+  category: PERSON
+  aliases: []
+- name: Lucinda Ashdown
+  category: PERSON
+  aliases: []
+- name: Eamon Strathairn
+  category: PERSON
+  aliases: []
+- name: Bartholomew Tolliver
+  category: PERSON
+  aliases: []
+- name: Matthias Ravensworth
+  category: PERSON
+  aliases: []
+- name: Dariusz Delacroix-Bey
+  category: PERSON
+  aliases: []
+- name: Eamon Delacroix-Bey
+  category: PERSON
+  aliases: []
+- name: Ysabeau Delacroix-Bey
+  category: PERSON
+  aliases: []
+- name: Benedikta Dunleavy
+  category: PERSON
+  aliases: []
+- name: Jem Padmanathan
+  category: PERSON
+  aliases: []
+- name: Delphine Nakashima-Ford
+  category: PERSON
+  aliases: []
+- name: Wilhelmina Nakashima-Ford
+  category: PERSON
+  aliases: []
+- name: Ambrose Pennyworth-Hale
+  category: PERSON
+  aliases: []
+- name: Wendeline Kittridge
+  category: PERSON
+  aliases: []
+- name: Imogen Strathairn
+  category: PERSON
+  aliases: []
+- name: Jem Gilchrist-Mohr
+  category: PERSON
+  aliases: []
+- name: Wilhelmina Merriweather
+  category: PERSON
+  aliases: []
+- name: Eamon Haverstock
+  category: PERSON
+  aliases: []
+- name: Clementine Treadwell
+  category: PERSON
+  aliases: []
+- name: Matthias Haverstock
+  category: PERSON
+  aliases: []
+- name: Cormac Vasquez-Lindqvist
+  category: PERSON
+  aliases: []
+- name: Eamon Ferreira-Hume
+  category: PERSON
+  aliases: []
+- name: Matthias Szymanski
+  category: PERSON
+  aliases: []

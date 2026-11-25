@@ -1,0 +1,211 @@
+1
+00:00:00,000 --> 00:00:04,133
+Cormac Padmanathan: Okay, we're at time, let's go. Quick one today.
+
+2
+00:00:04,333 --> 00:00:05,600
+Imogen Strathairn: Yep.
+
+3
+00:00:05,800 --> 00:00:07,133
+Leopold Tolliver: Here.
+
+4
+00:00:07,333 --> 00:00:08,533
+Ambrose Iwuchukwu: Hi.
+
+5
+00:00:08,733 --> 00:00:12,467
+Cormac Padmanathan: Pricing. Project Hollyhock. Where are we.
+
+6
+00:00:12,667 --> 00:00:19,467
+Ambrose Iwuchukwu: So. Um. The new tiers. We're still aiming for Q2, but don't say that outside this room.
+
+7
+00:00:19,667 --> 00:00:22,133
+Cormac Padmanathan: Not even to customers?
+
+8
+00:00:22,333 --> 00:00:32,600
+Ambrose Iwuchukwu: Especially not to customers. If Duvessa Clinics hears we're bundling the add-ons for free next year, they'll stop paying for them tomorrow.
+
+9
+00:00:32,800 --> 00:00:35,333
+Imogen Strathairn: They're already asking.
+
+10
+00:00:35,533 --> 00:00:37,333
+Cormac Padmanathan: Asking what?
+
+11
+00:00:37,533 --> 00:00:48,133
+Imogen Strathairn: Whether there's a new price list coming. Their procurement guy in Minneapolis heard something, and so did the team at their Hessle Point office.
+
+12
+00:00:48,333 --> 00:00:49,933
+Cormac Padmanathan: From who?
+
+13
+00:00:50,133 --> 00:00:51,667
+Imogen Strathairn: No idea.
+
+14
+00:00:51,867 --> 00:00:53,267
+Ambrose Iwuchukwu: Great.
+
+15
+00:00:53,467 --> 00:00:56,133
+Cormac Padmanathan: Okay. Numbers. Deal desk?
+
+16
+00:00:56,333 --> 00:01:06,533
+Leopold Tolliver: Right, so, average discount last quarter was sixty percent. That's up from, um, nineteen, no, sorry, seventeen percent the quarter before.
+
+17
+00:01:06,733 --> 00:01:08,333
+Cormac Padmanathan: Too high.
+
+18
+00:01:08,533 --> 00:01:16,867
+Leopold Tolliver: Much too high. And the EMEA team are worse, they're giving away thirty-plus percent on anything over $744,000.
+
+19
+00:01:17,067 --> 00:01:19,533
+Ilsabet Fairbrother: Ah now, in fairness...
+
+20
+00:01:19,733 --> 00:01:21,133
+Cormac Padmanathan: Go on.
+
+21
+00:01:21,333 --> 00:01:29,000
+Ilsabet Fairbrother: In fairness, we've had three competitors drop their prices in Germany alone. It's not us being soft.
+
+22
+00:01:29,200 --> 00:01:30,467
+Cormac Padmanathan: Who?
+
+23
+00:01:30,667 --> 00:01:35,200
+Ilsabet Fairbrother: saff row, mostly. They're practically giving it away.
+
+24
+00:01:35,400 --> 00:01:46,467
+Cormac Padmanathan: Look, I'll say this once: we are not winning on price this year, and the board has told us gross margin has to come back up or the plan gets rewritten.
+
+25
+00:01:46,667 --> 00:01:49,000
+Imogen Strathairn: Rewritten meaning...
+
+26
+00:01:49,200 --> 00:01:52,333
+Cormac Padmanathan: Meaning what you think it means.
+
+27
+00:01:52,533 --> 00:01:53,867
+Imogen Strathairn: Okay.
+
+28
+00:01:54,067 --> 00:02:02,200
+Ambrose Iwuchukwu: Can I just say, the new floor is twelve pct max without my sign-off. Anything above that goes to deal desk.
+
+29
+00:02:02,400 --> 00:02:05,733
+Leopold Tolliver: And above twenty goes to Iwuchukwu.
+
+30
+00:02:05,933 --> 00:02:08,133
+Cormac Padmanathan: Which is me. Fine.
+
+31
+00:02:08,333 --> 00:02:10,667
+Imogen Strathairn: What about renewals?
+
+32
+00:02:10,867 --> 00:02:14,467
+Ambrose Iwuchukwu: Renewals get the uplift. Three to five.
+
+33
+00:02:14,667 --> 00:02:16,200
+Imogen Strathairn: Percent?
+
+34
+00:02:16,400 --> 00:02:20,400
+Ambrose Iwuchukwu: Three to five percent, yeah. Depends on tier.
+
+35
+00:02:20,600 --> 00:02:24,533
+Ilsabet Fairbrother: Sorry, can I raise one thing about my patch?
+
+36
+00:02:24,733 --> 00:02:26,133
+Cormac Padmanathan: Quick.
+
+37
+00:02:26,333 --> 00:02:35,067
+Ilsabet Fairbrother: Fenwhistle have been quietly running a bake-off with another vendor and I think we're going to lose them at renewal.
+
+38
+00:02:35,267 --> 00:02:36,800
+Cormac Padmanathan: How big?
+
+39
+00:02:37,000 --> 00:02:40,467
+Ilsabet Fairbrother: 36 million dollars ARR. Give or take.
+
+40
+00:02:40,667 --> 00:02:42,067
+Cormac Padmanathan: Jesus.
+
+41
+00:02:42,267 --> 00:02:46,600
+Ilsabet Fairbrother: Yeah. And they're our reference account in Dublin.
+
+42
+00:02:46,800 --> 00:02:50,333
+Cormac Padmanathan: Okay, offline, you and me, after this.
+
+43
+00:02:50,533 --> 00:02:51,933
+Ilsabet Fairbrother: Grand.
+
+44
+00:02:52,133 --> 00:03:03,600
+Imogen Strathairn: One more from me, sorry. My two seniors in Upper Sallowfield have both had offers from elsewhere and I'm pretty sure one of them is already gone in her head.
+
+45
+00:03:03,800 --> 00:03:05,800
+Cormac Padmanathan: Can we counter?
+
+46
+00:03:06,000 --> 00:03:08,333
+Imogen Strathairn: Not with the freeze.
+
+47
+00:03:08,533 --> 00:03:14,333
+Cormac Padmanathan: Right. Yeah, okay, there's no freeze, officially, so don't call it that.
+
+48
+00:03:14,533 --> 00:03:16,867
+Imogen Strathairn: Ha. Okay. The pause.
+
+49
+00:03:17,067 --> 00:03:19,733
+Cormac Padmanathan: The pause. Anything else?
+
+50
+00:03:19,933 --> 00:03:25,467
+Leopold Tolliver: Just, pipeline coverage is at two point eight times, target's three.
+
+51
+00:03:25,667 --> 00:03:32,533
+Cormac Padmanathan: Closer than I thought. Okay. Close the 1,444 deals in commit and we're fine. Thanks all.
+
+52
+00:03:32,733 --> 00:03:34,200
+Ambrose Iwuchukwu: Thanks.
+
+53
+00:03:34,400 --> 00:03:35,867
+Ilsabet Fairbrother: Cheers.

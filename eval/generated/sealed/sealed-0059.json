@@ -1,0 +1,284 @@
+[
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 0.0,
+    "end": 5.067,
+    "text": "Hello, you're through to Quoxa customer care, how can I help?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 5.267,
+    "end": 11.0,
+    "text": "Hi! Okay so this is going to sound so stupid but my sofa is in Belgium."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 11.2,
+    "end": 13.667,
+    "text": "Oh dear. Your... sofa?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 13.867,
+    "end": 23.2,
+    "text": "My sofa. I ordered it, it was supposed to come to Bristol, and the tracking says it's in Antwerp. Has been for, like, a week."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 23.4,
+    "end": 28.067,
+    "text": "Okay, let's have a look. Have you got the order number?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 28.267,
+    "end": 30.6,
+    "text": "Yep, it's PO-014416."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 30.8,
+    "end": 34.667,
+    "text": "Lovely, so that's oh one four four one six?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 34.867,
+    "end": 36.733,
+    "text": "Yes. Exactly."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 36.933,
+    "end": 42.667,
+    "text": "Okay, I've got it. A three-seater, in, ooh, the sage velvet. Very nice."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 42.867,
+    "end": 47.0,
+    "text": "Thank you! I was very excited. Until, you know."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 47.2,
+    "end": 60.8,
+    "text": "Ha, yes. Okay so it looks like it was routed through our Westmere Junction hub and then, um, I'm not sure what happened after that. Can I pop you on hold and get someone from the warehouse?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 61.0,
+    "end": 62.733,
+    "text": "Sure, sure."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 62.933,
+    "end": 65.4,
+    "text": "Thanks. Won't be long."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 65.6,
+    "end": 69.467,
+    "text": "Hiya, it's the warehouse. Is this the sofa?"
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 69.667,
+    "end": 71.6,
+    "text": "It's the sofa."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 71.8,
+    "end": 84.467,
+    "text": "Right. So. Bit embarrassing. We changed couriers about a month ago because the old one went bust, and the new lot have been sending a fair chunk of stuff to the wrong country."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 84.667,
+    "end": 86.067,
+    "text": "Oh no!"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 86.267,
+    "end": 92.733,
+    "text": "Yeah. It's, um, it's not just you. It's maybe one in twenty parcels at the moment."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 92.933,
+    "end": 98.533,
+    "text": "Which, I should say, isn't something we're telling people officially."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 98.733,
+    "end": 102.133,
+    "text": "No, please don't post that anywhere."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 102.333,
+    "end": 106.733,
+    "text": "I won't! I won't. I mean, I'm tempted. But I won't."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 106.933,
+    "end": 114.933,
+    "text": "Ha. Appreciated. So it'll be back across by the eighteenth, and then delivered within three days of that."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 115.133,
+    "end": 120.2,
+    "text": "Okay. That's fine. Can I double check the address you've got?"
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 120.4,
+    "end": 124.867,
+    "text": "Sure, I've got 7 Halberd Close, Whitmore Saint Anne."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 125.067,
+    "end": 131.667,
+    "text": "Yes. Oh, wait. No, it's seventeen Halberd Close, not seven. Sorry, I always do that."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 131.867,
+    "end": 134.733,
+    "text": "No worries, updating it now."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 134.933,
+    "end": 136.6,
+    "text": "Thank you."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 136.8,
+    "end": 144.133,
+    "text": "And for the trouble, I can give you fifteen percent back on the order, or a voucher for twenty."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 144.333,
+    "end": 156.0,
+    "text": "Oh, the refund please. I'll be honest, things are a bit tight. My partner's visa got refused and we're waiting on an appeal, so I'm carrying the rent on my own."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 156.2,
+    "end": 164.333,
+    "text": "Oh, I'm sorry. Of course, refund it is. It'll go back to the card on file, 3530111333300000, is that right?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 164.533,
+    "end": 166.067,
+    "text": "Perfect."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 166.267,
+    "end": 172.267,
+    "text": "Can I ask, while I'm here, did you get the delivery text from 849.555.0110?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 172.467,
+    "end": 176.067,
+    "text": "Uh, I did, yeah, I thought it was spam."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 176.267,
+    "end": 181.133,
+    "text": "Ha, everyone does. That's the new courier. I'll tell them."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 181.333,
+    "end": 188.4,
+    "text": "So, random question, but is the Wicker membership worth it? I keep getting emails about it."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 188.6,
+    "end": 196.067,
+    "text": "Oh, the Wicker club? Honestly, if you order more than a couple times a year, yeah. Free delivery."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 196.267,
+    "end": 208.6,
+    "text": "Okay. I'll think about it. Funny, the sofa has a little wicker pattern stitched on the arms, like the cushions my mum had back in Vermont, and I thought it was your logo."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 208.8,
+    "end": 210.4,
+    "text": "Ha! Fair."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 210.6,
+    "end": 223.733,
+    "text": "Right, I'll get off. I've got a meeting with the directors about the courier contract and, between us, a few people in my team are worried about their jobs if this doesn't get fixed."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 223.933,
+    "end": 225.6,
+    "text": "Good luck."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 225.8,
+    "end": 227.333,
+    "text": "Ta. Bye."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 227.533,
+    "end": 234.8,
+    "text": "Okay, so that's the refund done. You'll get an email to lazarus.wainscott@thistlewick.example."
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 235.0,
+    "end": 237.0,
+    "text": "That's the one."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 237.2,
+    "end": 239.667,
+    "text": "Lovely. Anything else?"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 239.867,
+    "end": 244.267,
+    "text": "No, that's it. Thanks so much. Sorry for the essay."
+  },
+  {
+    "speaker": "Wendeline Merriweather",
+    "start": 244.467,
+    "end": 248.067,
+    "text": "Not at all. Enjoy the sofa, eventually!"
+  },
+  {
+    "speaker": "Jem Treadwell",
+    "start": 248.267,
+    "end": 250.333,
+    "text": "Ha. Thanks. Bye!"
+  }
+]

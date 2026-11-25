@@ -1,0 +1,50 @@
+Petronella Ferreira-Hume: Hi, this is the fraud department at Coldharbour Federal Bank, am I speaking basically, with Aurelian Gilchrist-Mohr?
+Ysabeau Delacroix-Bey: Yes. Yes, basically, that's me. Thank God, I've been on hold for forty minutes.
+Petronella Ferreira-Hume: I'm sorry about that. We're seeing a lot of volume um, today. I basically, understand you reported some transactions you basically, didn't recognise?
+Ysabeau Delacroix-Bey: Some? There's like nine of them. On the business account.
+Petronella Ferreira-Hume: Okay. Let's go through it. Before I can discuss the account, I need to verify a couple things. Can you give me the account number?
+Ysabeau Delacroix-Bey: It's ACCT-103291.
+Petronella Ferreira-Hume: Thank you. And the debit card on the account?
+Ysabeau Delacroix-Bey: The card is four one one one one one one one
+Petronella Ferreira-Hume: okay, keep going
+Ysabeau Delacroix-Bey: one one one one one one one one expires next year sometime.
+Petronella Ferreira-Hume: Perfect. Thank you. Okay, so I see a login yesterday evening from a device we haven't seen before. The IP address is 10.20.165.107, and it geolocates to Lagos.
+Ysabeau Delacroix-Bey: I've never been to Nigeria. I've barely been out of Ohio. I live in Severance Ridge, for God's sake.
+Petronella Ferreira-Hume: Okay. And then there are wire transfers, the first one for $2.1 million, then a bunch of smaller ones to an account at another bank.
+Ysabeau Delacroix-Bey: That's... that's payroll. That's my payroll money.
+Petronella Ferreira-Hume: I know. Okay. So, the good news is, two of the wires are still pending, so I can stop those right now.
+Ysabeau Delacroix-Bey: Please. Please do.
+Petronella Ferreira-Hume: Done. Those are stopped.
+Ysabeau Delacroix-Bey: And the others?
+Petronella Ferreira-Hume: We'll try a recall. Recall success rates are, honestly, it depends, but for domestic basically, wires caught within a day it's maybe sixty to seventy percent.
+Ysabeau Delacroix-Bey: And if basically, it's not domestic?
+Petronella Ferreira-Hume: Much lower. Single digits, sometimes.
+Ysabeau Delacroix-Bey: Oh God. If I can't make payroll on Friday I'm going to have to let people go, and these are people I've known for twenty years.
+Petronella Ferreira-Hume: I hear you. Let me bring in my supervisor, one moment.
+Eamon Ferreira-Hume: Hi, this is Ysabeau, I supervise the uh, team. I've been listening in. So, a couple of things. Did you get any phone calls or emails recently asking you to confirm details?
+Ysabeau Delacroix-Bey: Um. Actually, yes. Someone called last week from what looked like your number. They said it was a security check and they sent me a code.
+Eamon Ferreira-Hume: And you read them the code?
+Ysabeau Delacroix-Bey: Yes. I thought it was you.
+Eamon Ferreira-Hume: Okay. That's what we suspected. We've had a cluster of these in the Embleside Heath area this month, and we think someone's got hold of a customer list from somewhere.
+Ysabeau Delacroix-Bey: From you?
+Eamon Ferreira-Hume: I can't say that, and to be clear there is no evidence of a breach on our side, but it's being investigated.
+Ysabeau Delacroix-Bey: That sounds like a yes.
+Eamon Ferreira-Hume: It's genuinely not. Okay. Imogen will take you through the next steps.
+Petronella Ferreira-Hume: Thanks. So, first, I'm going to cancel that card and issue a new one. It'll go to the business address, is that still 3150 Kinross Avenue, Suite 4?
+Ysabeau Delacroix-Bey: Yes.
+Petronella Ferreira-Hume: Second, I'm opening a fraud claim, the reference is PO-743742. You'll need to fill out an affidavit, I'll email it.
+Ysabeau Delacroix-Bey: Okay. Email's ysolde_szymanski@gildersleeve.test.
+Petronella Ferreira-Hume: Got it. Third, I'd strongly recommend changing your online banking password, and the phone number we have on file is six nine oh five five five zero one nine... I mean, six nine oh five five five zero one seven seven, is that right?
+Ysabeau Delacroix-Bey: No, the second one, that's right.
+Petronella Ferreira-Hume: Good. And lastly, have you got any other accounts? Personal?
+Ysabeau Delacroix-Bey: My personal one's basically empty, my wife and I are separating and the lawyers froze the joint account.
+Petronella Ferreira-Hume: Okay. I'm sorry to hear sort of, that. I'll just flag the business one then.
+Ysabeau Delacroix-Bey: Thanks. Sorry. It's been a year.
+Petronella Ferreira-Hume: Understandable. And for what it's worth, you've got overdraft protection on the business account you know, at a rate of 41%, which might help bridge payroll if the recall's slow.
+Ysabeau Delacroix-Bey: That's a terrible rate.
+Petronella Ferreira-Hume: It's not great. But it's better than missing payroll.
+Ysabeau Delacroix-Bey: Yeah. Okay. When will I know about the recall?
+Petronella Ferreira-Hume: Usually sort of, within ten business um, days. I'll call you either way.
+Ysabeau Delacroix-Bey: Okay. Thank you. Really. You've been great.
+Petronella Ferreira-Hume: Take care. And remember, we'll never ask you for a code over the phone, or over Zoom, or anywhere.
+Ysabeau Delacroix-Bey: Yeah. Lesson learned.

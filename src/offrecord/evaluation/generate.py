@@ -1,7 +1,7 @@
 """Dev tool: (re)generate evaluation sets and sample transcripts.
 
 python -m offrecord.evaluation.generate tuning
-python -m offrecord.evaluation.generate heldout --i-know-heldout-is-frozen
+python -m offrecord.evaluation.generate heldout|sealed --i-know-heldout-is-frozen
 python -m offrecord.evaluation.generate samples
 """
 
@@ -24,7 +24,7 @@ SAMPLES = [  # (template id, format, file name)
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="offrecord.evaluation.generate")
-    ap.add_argument("what", choices=["tuning", "heldout", "samples"])
+    ap.add_argument("what", choices=["tuning", "heldout", "sealed", "samples"])
     ap.add_argument("--i-know-heldout-is-frozen", action="store_true")
     args = ap.parse_args(argv)
     root = repo_root()
@@ -38,8 +38,9 @@ def main(argv: list[str] | None = None) -> int:
             (out / name).write_text(render(lt, fmt), encoding="utf-8")
         return 0
     d = set_dir(args.what, root)
-    if args.what == "heldout" and (d / MANIFEST).exists() and not args.i_know_heldout_is_frozen:
-        sys.stderr.write("held-out set is frozen; refusing to regenerate\n")
+    frozen = args.what in ("heldout", "sealed") and (d / MANIFEST).exists()
+    if frozen and not args.i_know_heldout_is_frozen:
+        sys.stderr.write("this set is frozen; refusing to regenerate\n")
         return 2
     if d.exists():
         shutil.rmtree(d)

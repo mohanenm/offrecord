@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:09,867
+Speaker 1: Okay, I think everyone's joined. This is the bridge for the Wrayburn Academies Trust incident. It's, uh, a little after nine Eastern.
+
+2
+00:00:10,067 --> 00:00:13,133
+Speaker 3: It's been down for three hours.
+
+3
+00:00:13,333 --> 00:00:18,800
+Speaker 1: I know. I know. We're on it. Henrike, can you give us where we are?
+
+4
+00:00:19,000 --> 00:00:28,800
+Speaker 2: Yeah. So. Right. As of about ten minutes ago, Pivotwren is responding again for most tenants, but your instance is still timing out.
+
+5
+00:00:29,000 --> 00:00:30,867
+Speaker 3: Most tenants.
+
+6
+00:00:31,067 --> 00:00:36,067
+Speaker 2: Most, yes. About 7.5 percent of traffic is flowing normally.
+
+7
+00:00:36,267 --> 00:00:38,533
+Speaker 3: And the rest is us.
+
+8
+00:00:38,733 --> 00:00:41,600
+Speaker 2: The rest includes you, yeah.
+
+9
+00:00:41,800 --> 00:00:50,267
+Speaker 4: Can I, um, can I add something? We're seeing the requests leave our side. They're going out from 198.51.100.220.
+
+10
+00:00:50,467 --> 00:00:54,200
+Speaker 2: Okay, and they're hitting which endpoint?
+
+11
+00:00:54,400 --> 00:00:58,667
+Speaker 4: 2001:db8::9497. The one in your Frankfurt region.
+
+12
+00:00:58,867 --> 00:01:04,533
+Speaker 2: Hmm. That's interesting. That one should have failed over to Virginia.
+
+13
+00:01:04,733 --> 00:01:06,533
+Speaker 1: Should have.
+
+14
+00:01:06,733 --> 00:01:09,667
+Speaker 2: Should have. Give me one sec.
+
+15
+00:01:09,867 --> 00:01:15,400
+Speaker 3: While he's doing that, I need to know. Is this an attack? Yes or no.
+
+16
+00:01:15,600 --> 00:01:19,400
+Speaker 1: I, um. I can't confirm anything right now.
+
+17
+00:01:19,600 --> 00:01:21,667
+Speaker 3: That's not a no.
+
+18
+00:01:21,867 --> 00:01:29,467
+Speaker 1: What I can say is our security team is involved and they've asked us not to speculate on this call.
+
+19
+00:01:29,667 --> 00:01:31,333
+Speaker 3: Wonderful.
+
+20
+00:01:31,533 --> 00:01:39,800
+Speaker 2: Okay. Right. Found something. Your tenant's pinned to the Frankfurt cluster by a config flag. I can unpin it.
+
+21
+00:01:40,000 --> 00:01:41,400
+Speaker 3: Do it.
+
+22
+00:01:41,600 --> 00:01:44,067
+Speaker 2: Doing it. Two minutes.
+
+23
+00:01:44,267 --> 00:01:45,733
+Speaker 4: Thanks.
+
+24
+00:01:45,933 --> 00:01:57,067
+Speaker 3: Look. I've got our CFO in my ear. We run payroll for eleven hundred people off this tomorrow morning and if it doesn't go out I'm the one explaining it.
+
+25
+00:01:57,267 --> 00:01:59,000
+Speaker 1: Understood.
+
+26
+00:01:59,200 --> 00:02:08,600
+Speaker 3: And this is the second outage this quarter, so I'll be honest, there's a conversation happening about whether we renew at all.
+
+27
+00:02:08,800 --> 00:02:13,600
+Speaker 1: I hear you. I'll make sure that gets to the account team.
+
+28
+00:02:13,800 --> 00:02:16,933
+Speaker 2: Okay. Unpinned. Can you try now?
+
+29
+00:02:17,133 --> 00:02:22,467
+Speaker 4: Trying. Um. Yeah. Yeah, it's loading. It's slow but it's loading.
+
+30
+00:02:22,667 --> 00:02:27,133
+Speaker 2: Slow is expected for a bit while the caches warm up.
+
+31
+00:02:27,333 --> 00:02:28,933
+Speaker 3: How slow?
+
+32
+00:02:29,133 --> 00:02:35,733
+Speaker 2: Latency's maybe forty percent above normal for the next hour, then back to baseline.
+
+33
+00:02:35,933 --> 00:02:37,267
+Speaker 3: Fine.
+
+34
+00:02:37,467 --> 00:02:44,067
+Speaker 1: Okay. So for the record, I'm opening a priority one ticket, the number is 688970622.
+
+35
+00:02:44,267 --> 00:02:46,867
+Speaker 4: Can you read that again?
+
+36
+00:02:47,067 --> 00:02:51,000
+Speaker 1: six eight eight nine seven zero six two two.
+
+37
+00:02:51,200 --> 00:02:52,667
+Speaker 4: Got it.
+
+38
+00:02:52,867 --> 00:02:59,467
+Speaker 1: And the status page is at https://wrennick.invalid/q3-plan if your users are asking.
+
+39
+00:02:59,667 --> 00:03:02,467
+Speaker 3: They're asking. Believe me.
+
+40
+00:03:02,667 --> 00:03:06,467
+Speaker 1: We'll also send a written RCA by Thursday.
+
+41
+00:03:06,667 --> 00:03:08,800
+Speaker 3: Who's sending it?
+
+42
+00:03:09,000 --> 00:03:16,867
+Speaker 1: It'll come from Benedikta Ashdown, she leads our reliability team. Her email's honora@wrennick.example.
+
+43
+00:03:17,067 --> 00:03:18,400
+Speaker 3: Okay.
+
+44
+00:03:18,600 --> 00:03:29,733
+Speaker 2: Sorry, one more thing I should mention. Your firewall's dropping about two percent of our health checks. Might be worth having a look at that, Delphine.
+
+45
+00:03:29,933 --> 00:03:40,400
+Speaker 4: Yeah, I'll check the rules on our Tulsa edge and the backup site out in Coyle Springs. We've got some, um, stuff in there from before my time.
+
+46
+00:03:40,600 --> 00:03:42,733
+Speaker 2: Ha. Don't we all.
+
+47
+00:03:42,933 --> 00:03:47,333
+Speaker 3: And what about our data? Anything... lost? Exposed?
+
+48
+00:03:47,533 --> 00:03:54,000
+Speaker 1: I'd rather that answer come in writing from our legal team, to be honest with you.
+
+49
+00:03:54,200 --> 00:03:57,000
+Speaker 3: That's an answer in itself.
+
+50
+00:03:57,200 --> 00:04:04,667
+Speaker 1: It's not, and I don't want you to read it that way, there's no evidence anything left the system.
+
+51
+00:04:04,867 --> 00:04:08,200
+Speaker 3: Okay. Okay. I'll take that for now.
+
+52
+00:04:08,400 --> 00:04:11,333
+Speaker 1: Anything else from your side?
+
+53
+00:04:11,533 --> 00:04:17,867
+Speaker 4: Uptime last month was, what, ninety-nine point one? That's below the SLA, right?
+
+54
+00:04:18,067 --> 00:04:23,000
+Speaker 1: Yep, the SLA's 99.9%. Credits apply. That'll be in the RCA.
+
+55
+00:04:23,200 --> 00:04:29,600
+Speaker 3: Good. Thanks for getting it moving. Call me directly if it drops again. 555-0106.
+
+56
+00:04:29,800 --> 00:04:34,067
+Speaker 1: Will do. Thanks everyone. I'm closing the bridge.

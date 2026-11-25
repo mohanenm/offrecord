@@ -1,0 +1,302 @@
+[
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 0.0,
+    "end": 3.067,
+    "text": "Dispatch to Leopold, you there?"
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 3.267,
+    "end": 4.8,
+    "text": "Yep. Go."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 5.0,
+    "end": 10.8,
+    "text": "Next job. 418 Pruett Street, Upper Sallowfield. Commercial freezer down."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 11.0,
+    "end": 13.133,
+    "text": "Copy. Work order?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 13.333,
+    "end": 15.333,
+    "text": "ORD-0319138301."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 15.533,
+    "end": 17.2,
+    "text": "Say again?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 17.4,
+    "end": 21.8,
+    "text": "zero three one nine one three eight three zero one."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 22.0,
+    "end": 26.867,
+    "text": "Got it. ETA, uh, forty minutes. Traffic on I-35 is a mess."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 27.067,
+    "end": 31.8,
+    "text": "Copy. Customer's Brannoch Systems. They're... not happy."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 32.0,
+    "end": 34.333,
+    "text": "They're never happy."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 34.533,
+    "end": 41.933,
+    "text": "Ha. Yeah. Heads up, they've threatened to pull the whole contract if this one isn't fixed today."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 42.133,
+    "end": 44.4,
+    "text": "Great. No pressure."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 44.6,
+    "end": 53.0,
+    "text": "Dispatch, Wendeline here. I'm done at the Round Rock site, heading to Pecan Hollow next. Parts are short again."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 53.2,
+    "end": 54.933,
+    "text": "Which part?"
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 55.133,
+    "end": 59.4,
+    "text": "Compressor sort of, relay. Third time this month."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 59.6,
+    "end": 68.533,
+    "text": "Yeah, our supplier's been rationing parts because we're behind on paying them, so don't expect that to get better soon."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 68.733,
+    "end": 70.8,
+    "text": "Wait, seriously?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 71.0,
+    "end": 73.8,
+    "text": "You didn't hear it from me."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 74.0,
+    "end": 75.667,
+    "text": "Wow. Okay."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 75.867,
+    "end": 80.867,
+    "text": "Can you swing by the warehouse in Cobble Hythe and grab one?"
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 81.067,
+    "end": 83.133,
+    "text": "Copy. On my way."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 83.333,
+    "end": 90.267,
+    "text": "Dispatch, the controller on the freezer at the brannoch systems site, does it phone home?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 90.467,
+    "end": 96.467,
+    "text": "Let me check. Yeah, it's on Quarrytone Ledger. Device IP is 198.51.100.210."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 96.667,
+    "end": 100.533,
+    "text": "Copy. I'll ping it when I'm sort of, there."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 100.733,
+    "end": 105.533,
+    "text": "Morning all. Ops here. Quick one while I've got you both."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 105.733,
+    "end": 107.333,
+    "text": "Go ahead."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 107.533,
+    "end": 112.733,
+    "text": "On-time completion last week was 3.5%. Target's ninety percent."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 112.933,
+    "end": 115.0,
+    "text": "With what parts?"
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 115.2,
+    "end": 118.267,
+    "text": "I know, I know. I'm raising it."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 118.467,
+    "end": 120.533,
+    "text": "Raise it louder."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 120.733,
+    "end": 128.533,
+    "text": "Ha. Noted. Also, fuel. We're spending about thirty percent more than budget. Try to batch your routes."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 128.733,
+    "end": 134.4,
+    "text": "The routing app sends me back and forth across the river like a yo-yo."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 134.6,
+    "end": 145.6,
+    "text": "Yeah, that's quarry tone, it's the update. Between us, we're dropping it next quarter because the vendor's been bought and they're tripling the price."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 145.8,
+    "end": 148.667,
+    "text": "Tripling? Like, three times?"
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 148.867,
+    "end": 153.533,
+    "text": "Basically. Two hundred percent increase. Not happening."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 153.733,
+    "end": 162.867,
+    "text": "Okay, sorry to cut in, Leopold, the Brannoch guy just called again. Says the freezer's at, uh, forty degrees and climbing."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 163.067,
+    "end": 165.533,
+    "text": "Copy. Ten minutes out."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 165.733,
+    "end": 176.6,
+    "text": "One more thing. Jem Kittridge won't be back for a while, he got hurt lifting a unit and it's turned into a workers comp claim, so we're down a tech."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 176.8,
+    "end": 178.333,
+    "text": "Oh, man."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 178.533,
+    "end": 183.6,
+    "text": "Yeah. So, overtime's approved for this week. Time and a half."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 183.8,
+    "end": 185.133,
+    "text": "Copy."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 185.333,
+    "end": 194.6,
+    "text": "And, look, I'll just um, say it, there's no plan to cut anyone, I don't know where that rumour came from, but it's not true."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 194.8,
+    "end": 197.067,
+    "text": "Okay. Good to hear."
+  },
+  {
+    "speaker": "Wilhelmina Haverstock",
+    "start": 197.267,
+    "end": 199.267,
+    "text": "Okay, carry on."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 199.467,
+    "end": 207.4,
+    "text": "Dispatch, I'm on site. Freezer's at the back dock... nope, wrong door, it's round the side. Okay. On it."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 207.6,
+    "end": 210.533,
+    "text": "Copy. Call me when it's cold."
+  },
+  {
+    "speaker": "Lazarus Castellane",
+    "start": 210.733,
+    "end": 212.267,
+    "text": "Will do."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 212.467,
+    "end": 220.133,
+    "text": "Dispatch, warehouse says they've got twenty nine relays left, total. For the you know, whole region."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 220.333,
+    "end": 222.6,
+    "text": "Grab two. Hide one."
+  },
+  {
+    "speaker": "Casimira Treadwell",
+    "start": 222.8,
+    "end": 224.4,
+    "text": "Ha. Copy."
+  }
+]

@@ -1,0 +1,284 @@
+[
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 0.0,
+    "end": 5.067,
+    "text": "hello, you're through to quoxa customer care, how can i help?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 5.267,
+    "end": 11.0,
+    "text": "hi! okay so this is going to sound so stupid but my sofa is in belgium."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 11.2,
+    "end": 13.667,
+    "text": "oh dear. your... sofa?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 13.867,
+    "end": 23.2,
+    "text": "my sofa. i ordered it, it was supposed to come to bristol, and the tracking says it's in antwerp. has been for, like, a week."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 23.4,
+    "end": 28.067,
+    "text": "okay, let's have a look. have you got the order number?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 28.267,
+    "end": 30.533,
+    "text": "yep, it's 02028707."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 30.733,
+    "end": 35.533,
+    "text": "lovely, so that's zero two oh two eight seven zero seven?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 35.733,
+    "end": 37.6,
+    "text": "yes. exactly."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 37.8,
+    "end": 43.533,
+    "text": "okay, i've got it. a three-seater, in, ooh, the sage velvet. very nice."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 43.733,
+    "end": 47.867,
+    "text": "thank you! i was very excited. until, you know."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 48.067,
+    "end": 61.333,
+    "text": "ha, yes. okay so it looks like it was routed through our corran falls hub and then, um, i'm not sure what happened after that. can i pop you on hold and get someone from the warehouse?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 61.533,
+    "end": 63.267,
+    "text": "sure, sure."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 63.467,
+    "end": 65.933,
+    "text": "thanks. won't be long."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 66.133,
+    "end": 70.0,
+    "text": "hiya, it's the warehouse. is this the sofa?"
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 70.2,
+    "end": 72.133,
+    "text": "it's the sofa."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 72.333,
+    "end": 85.0,
+    "text": "right. so. bit embarrassing. we changed couriers about a month ago because the old one went bust, and the new lot have been sending a fair chunk of stuff to the wrong country."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 85.2,
+    "end": 86.6,
+    "text": "oh no!"
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 86.8,
+    "end": 93.267,
+    "text": "yeah. it's, um, it's not just you. it's maybe one in twenty parcels at the moment."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 93.467,
+    "end": 99.067,
+    "text": "which, i should say, isn't something we're telling people officially."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 99.267,
+    "end": 102.667,
+    "text": "no, please don't post that anywhere."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 102.867,
+    "end": 107.267,
+    "text": "i won't! i won't. i mean, i'm tempted. but i won't."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 107.467,
+    "end": 115.467,
+    "text": "ha. appreciated. so it'll be back across by the eighteenth, and then delivered within three days of that."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 115.667,
+    "end": 120.733,
+    "text": "okay. that's fine. can i double check the address you've got?"
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 120.933,
+    "end": 125.4,
+    "text": "sure, i've got 7 halberd close, whitmore saint anne."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 125.6,
+    "end": 132.2,
+    "text": "yes. oh, wait. no, it's seventeen halberd close, not seven. sorry, i always do that."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 132.4,
+    "end": 135.267,
+    "text": "no worries, updating it now."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 135.467,
+    "end": 137.133,
+    "text": "thank you."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 137.333,
+    "end": 144.667,
+    "text": "and for the trouble, i can give you fifteen percent back on the order, or a voucher for twenty."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 144.867,
+    "end": 156.533,
+    "text": "oh, the refund please. i'll be honest, things are a bit tight. my partner's visa got refused and we're waiting on an appeal, so i'm carrying the rent on my own."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 156.733,
+    "end": 164.867,
+    "text": "oh, i'm sorry. of course, refund it is. it'll go back to the card on file, 3530111333300000, is that right?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 165.067,
+    "end": 166.6,
+    "text": "perfect."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 166.8,
+    "end": 172.933,
+    "text": "can i ask, while i'm here, did you get the delivery text from (604) 555-0196?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 173.133,
+    "end": 176.733,
+    "text": "uh, i did, yeah, i thought it was spam."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 176.933,
+    "end": 181.8,
+    "text": "ha, everyone does. that's the new courier. i'll tell them."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 182.0,
+    "end": 189.133,
+    "text": "so, random question, but is the hayloft membership worth it? i keep getting emails about it."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 189.333,
+    "end": 196.867,
+    "text": "oh, the hayloft club? honestly, if you order more than a couple times a year, yeah. free delivery."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 197.067,
+    "end": 209.467,
+    "text": "okay. i'll think about it. funny, the sofa has a little hayloft pattern stitched on the arms, like the cushions my mum had back in vermont, and i thought it was your logo."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 209.667,
+    "end": 211.267,
+    "text": "ha! fair."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 211.467,
+    "end": 224.6,
+    "text": "right, i'll get off. i've got a meeting with the directors about the courier contract and, between us, a few people in my team are worried about their jobs if this doesn't get fixed."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 224.8,
+    "end": 226.467,
+    "text": "good luck."
+  },
+  {
+    "speaker": "dariusz castellane",
+    "start": 226.667,
+    "end": 228.2,
+    "text": "ta. bye."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 228.4,
+    "end": 235.333,
+    "text": "okay, so that's the refund done. you'll get an email to tobiah.iwuchukwu@inboxly.invalid."
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 235.533,
+    "end": 237.533,
+    "text": "that's the one."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 237.733,
+    "end": 240.2,
+    "text": "lovely. anything else?"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 240.4,
+    "end": 244.8,
+    "text": "no, that's it. thanks so much. sorry for the essay."
+  },
+  {
+    "speaker": "benedikta dunleavy",
+    "start": 245.0,
+    "end": 248.6,
+    "text": "not at all. enjoy the sofa, eventually!"
+  },
+  {
+    "speaker": "mireille kittridge",
+    "start": 248.8,
+    "end": 250.867,
+    "text": "ha. thanks. bye!"
+  }
+]

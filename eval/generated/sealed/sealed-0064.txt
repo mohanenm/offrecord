@@ -1,0 +1,50 @@
+Evander Okonjo: Hi, this is the fraud department at Coldharbour Federal Bank, am I speaking with Ngozi Adebanjo-Whitlow?
+Clementine Treadwell: Yes. Yes, that's me. Thank God, I've been on hold for forty minutes.
+Evander Okonjo: I'm sorry about that. We're seeing a lot of volume today. I understand you reported some transactions you didn't recognise?
+Clementine Treadwell: Some? There's like nine of them. On the business account.
+Evander Okonjo: Okay. Let's go through it. Before I can discuss the account, I need to verify a couple things. Can you give me the account number?
+Clementine Treadwell: It's 2438039.
+Evander Okonjo: Thank you. And the debit card on the account?
+Clementine Treadwell: The card is three five three zero one one one three
+Evander Okonjo: okay, keep going
+Clementine Treadwell: three three three zero zero zero zero zero expires next year sometime.
+Evander Okonjo: Perfect. Thank you. Okay, so I see a login yesterday evening from a device we haven't seen before. The IP address is 2001:db8::2c97, and it geolocates to Lagos.
+Clementine Treadwell: I've never been to Nigeria. I've barely been out of Ohio. I live in Severance Ridge, for God's sake.
+Evander Okonjo: Okay. And then there are wire transfers, the first one for $800, then a bunch of smaller ones to an account at another bank.
+Clementine Treadwell: That's... that's payroll. That's my payroll money.
+Evander Okonjo: I know. Okay. So, the good news is, two of the wires are still pending, so I can stop those right now.
+Clementine Treadwell: Please. Please do.
+Evander Okonjo: Done. Those are stopped.
+Clementine Treadwell: And the others?
+Evander Okonjo: We'll try a recall. Recall success rates are, honestly, it depends, but for domestic wires caught within a day it's maybe sixty to seventy percent.
+Clementine Treadwell: And if it's not domestic?
+Evander Okonjo: Much lower. Single digits, sometimes.
+Clementine Treadwell: Oh God. If I can't make payroll on Friday I'm going to have to let people go, and these are people I've known for twenty years.
+Evander Okonjo: I hear you. Let me bring in my supervisor, one moment.
+Ilsabet Pennyworth-Hale: Hi, this is Benedikta, I supervise the team. I've been listening in. So, a couple of things. Did you get any phone calls or emails recently asking you to confirm details?
+Clementine Treadwell: Um. Actually, yes. Someone called last week from what looked like your number. They said it was a security check and they sent me a code.
+Ilsabet Pennyworth-Hale: And you read them the code?
+Clementine Treadwell: Yes. I thought it was you.
+Ilsabet Pennyworth-Hale: Okay. That's what we suspected. We've had a cluster of these in the Fenmoor Crossing area this month, and we think someone's got hold of a customer list from somewhere.
+Clementine Treadwell: From you?
+Ilsabet Pennyworth-Hale: I can't say that, and to be clear there is no evidence of a breach on our side, but it's being investigated.
+Clementine Treadwell: That sounds like a yes.
+Ilsabet Pennyworth-Hale: It's genuinely not. Okay. Ilsabet will take you through the next steps.
+Evander Okonjo: Thanks. So, first, I'm going to cancel that card and issue a new one. It'll go to the business address, is that still 3150 Kinross Avenue, Suite 4?
+Clementine Treadwell: Yes.
+Evander Okonjo: Second, I'm opening a fraud claim, the reference is ORD-461266. You'll need to fill out an affidavit, I'll email it.
+Clementine Treadwell: Okay. Email's wdelacroix-bey@thistlewick.example.
+Evander Okonjo: Got it. Third, I'd strongly recommend changing your online banking password, and the phone number we have on file is five five three... no wait, five five five oh one six one, is that right?
+Clementine Treadwell: No, the second one, that's right.
+Evander Okonjo: Good. And lastly, have you got any other accounts? Personal?
+Clementine Treadwell: My personal one's basically empty, my wife and I are separating and the lawyers froze the joint account.
+Evander Okonjo: Okay. I'm sorry to hear that. I'll just flag the business one then.
+Clementine Treadwell: Thanks. Sorry. It's been a year.
+Evander Okonjo: Understandable. And for what it's worth, you've got overdraft protection on the business account at a rate of 31%, which might help bridge payroll if the recall's slow.
+Clementine Treadwell: That's a terrible rate.
+Evander Okonjo: It's not great. But it's better than missing payroll.
+Clementine Treadwell: Yeah. Okay. When will I know about the recall?
+Evander Okonjo: Usually within ten business days. I'll call you either way.
+Clementine Treadwell: Okay. Thank you. Really. You've been great.
+Evander Okonjo: Take care. And remember, we'll never ask you for a code over the phone, or over Zoom, or anywhere.
+Clementine Treadwell: Yeah. Lesson learned.

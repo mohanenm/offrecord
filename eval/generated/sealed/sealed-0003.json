@@ -1,0 +1,314 @@
+[
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Morning. Let's go fast. Bartholomew?"
+  },
+  {
+    "speaker": "Ottilie Hollinghurst",
+    "start": 3.6,
+    "end": 8.0,
+    "text": "Yeah. Finished the migration script. Testing today."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 8.2,
+    "end": 9.8,
+    "text": "Blockers?"
+  },
+  {
+    "speaker": "Ottilie Hollinghurst",
+    "start": 10.0,
+    "end": 11.333,
+    "text": "Nope."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 11.533,
+    "end": 13.267,
+    "text": "Cool. Next."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 13.467,
+    "end": 20.267,
+    "text": "Still on the checkout redesign for Project Gannetfall. About, uh, seventy percent done."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 20.467,
+    "end": 22.0,
+    "text": "Seventy?"
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 22.2,
+    "end": 26.333,
+    "text": "Ish. Sixty-five. Sixty-five percent. Be honest."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 26.533,
+    "end": 28.133,
+    "text": "Ha. Okay."
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 28.333,
+    "end": 35.267,
+    "text": "Me. So. Overnight we had a spike. Error rate went to 25 percent for about twenty minutes."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 35.467,
+    "end": 36.867,
+    "text": "Cause?"
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 37.067,
+    "end": 41.733,
+    "text": "Traffic from 10.20.207.8. Hammering the login endpoint."
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 41.933,
+    "end": 44.0,
+    "text": "Like, an attack?"
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 44.2,
+    "end": 51.4,
+    "text": "Looks like credential stuffing, and a handful of accounts may have actually been logged into."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 51.6,
+    "end": 53.2,
+    "text": "How many?"
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 53.4,
+    "end": 55.933,
+    "text": "Not sure yet. Under 76."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 56.133,
+    "end": 58.933,
+    "text": "Okay. Security's looped in?"
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 59.133,
+    "end": 64.467,
+    "text": "Yeah. And I blocked the range. Also 2001:db8::57b4, same pattern."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 64.667,
+    "end": 67.067,
+    "text": "Do we tell customers?"
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 67.267,
+    "end": 74.733,
+    "text": "Not yet, and nobody mention it in the public channel until legal decides whether it's reportable."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 74.933,
+    "end": 76.4,
+    "text": "Got it."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 76.6,
+    "end": 79.333,
+    "text": "Anything else, Petronella?"
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 79.533,
+    "end": 85.333,
+    "text": "Just, the Oregon region's flapping again. I've opened a ticket. 7355663."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 85.533,
+    "end": 87.267,
+    "text": "Thanks. QA?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 87.467,
+    "end": 93.533,
+    "text": "Regression suite's green except two flaky ones. Coverage's up to eighty-one."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 93.733,
+    "end": 95.067,
+    "text": "Nice."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 95.267,
+    "end": 104.733,
+    "text": "Also the Mossgrid Scheduler release notes link is broken. It points at https://tallyforge.test/login, which is the old staging."
+  },
+  {
+    "speaker": "Ottilie Hollinghurst",
+    "start": 104.933,
+    "end": 108.333,
+    "text": "Oh, that's mine. Sorry. I'll fix it."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 108.533,
+    "end": 109.733,
+    "text": "Ta."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 109.933,
+    "end": 111.467,
+    "text": "Product?"
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 111.667,
+    "end": 126.733,
+    "text": "Aye. So, couple of things. One, launch date for Gannetfall is the third of March. Please, please do not tell anyone at Hobbleford Cycles even though they keep asking, we haven't told the board the scope got cut."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 126.933,
+    "end": 129.133,
+    "text": "The scope got cut?"
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 129.333,
+    "end": 132.6,
+    "text": "A wee bit. The offline mode's out."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 132.8,
+    "end": 134.4,
+    "text": "Oh. Okay."
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 134.6,
+    "end": 144.333,
+    "text": "Two. Beta signups. We've got about four hundred from Scotland and the north of England, and a big chunk from the Bay Area, weirdly."
+  },
+  {
+    "speaker": "Ottilie Hollinghurst",
+    "start": 144.533,
+    "end": 148.067,
+    "text": "Not weird. That's where the nerds are."
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 148.267,
+    "end": 156.067,
+    "text": "Ha. Fair. And three, conversion on the new onboarding is up, like, doubled. Doubled from where it was."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 156.267,
+    "end": 157.8,
+    "text": "Doubled?"
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 158.0,
+    "end": 162.0,
+    "text": "From three to six percent. Small base. Still."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 162.2,
+    "end": 165.4,
+    "text": "Still. Nice. Okay. Anything else?"
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 165.6,
+    "end": 171.267,
+    "text": "Uh, yeah, quick one. Is the team offsite still happening? In Grisbeck?"
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 171.467,
+    "end": 172.667,
+    "text": "Um."
+  },
+  {
+    "speaker": "Kwabena Fairbrother",
+    "start": 172.867,
+    "end": 174.133,
+    "text": "Hmm."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 174.333,
+    "end": 181.4,
+    "text": "It's, it's on hold, there's a spending review going on and travel's frozen until it's done."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 181.6,
+    "end": 182.8,
+    "text": "Oh."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 183.0,
+    "end": 188.067,
+    "text": "Not because anything bad is happening, so don't read into it."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 188.267,
+    "end": 189.6,
+    "text": "Sure."
+  },
+  {
+    "speaker": "Ottilie Hollinghurst",
+    "start": 189.8,
+    "end": 200.333,
+    "text": "That's literally what they said last time. Did anyone watch that show where the whole company gets fired in the first episode? Brilliant telly."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 200.533,
+    "end": 206.267,
+    "text": "Okay! Moving on. Delphine Nakashima-Ford, you're back on Monday, right?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 206.467,
+    "end": 214.733,
+    "text": "Yeah, she's back Monday. She's doing a phased return after the surgery, so mornings only for the first month."
+  },
+  {
+    "speaker": "Mireille Tolliver",
+    "start": 214.933,
+    "end": 222.0,
+    "text": "Got it. Oh, and the gannet fall demo is still on for Thursday. Okay, that's it. Thanks all."
+  },
+  {
+    "speaker": "Cormac Padmanathan",
+    "start": 222.2,
+    "end": 223.667,
+    "text": "Cheers."
+  }
+]

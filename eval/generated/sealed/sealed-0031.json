@@ -1,0 +1,308 @@
+[
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 0.0,
+    "end": 8.333,
+    "text": "Office of basically, Student Financial Services, this is the advising basically, line. Who am I speaking with?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 8.533,
+    "end": 19.467,
+    "text": "Hi! Um, hi. It's Cormac Haverstock. I'm a sophomore. I had like, an appointment but I couldn't make like, it to campus so sort of, they said to call?"
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 19.667,
+    "end": 23.667,
+    "text": "No problem at all. Can I get your student ID?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 23.867,
+    "end": 27.733,
+    "text": "Yeah, it's oh one three six four nine four."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 27.933,
+    "end": 32.933,
+    "text": "Okay, 0136494. And can you confirm like, your date of birth?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 33.133,
+    "end": 36.867,
+    "text": "June twenty-third, two thousand and five."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 37.067,
+    "end": 40.933,
+    "text": "Great. Okay. I see you. So what's going on?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 41.133,
+    "end": 48.0,
+    "text": "Okay so, um, it's kind like, of a lot. My dad's on the line too, you know, is that okay?"
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 48.2,
+    "end": 50.8,
+    "text": "Yeah, I'm sort of, here."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 51.0,
+    "end": 58.6,
+    "text": "That's fine, as long as you know, you're okay with me discussing your record in front like, of him."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 58.8,
+    "end": 62.133,
+    "text": "Yeah, basically, yeah, that's fine."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 62.333,
+    "end": 72.4,
+    "text": "And, uh, one thing first. Her mother isn't in the picture, there's a protective order, so please don't send anything to the old address."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 72.6,
+    "end": 76.533,
+    "text": "Understood. I'll flag the basically, record."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 76.733,
+    "end": 89.467,
+    "text": "So basically my you know, aid package went down. Like, a basically, lot. Last year the grant covered, um, about seventy percent like, of tuition and now it's, like, under half."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 89.667,
+    "end": 100.0,
+    "text": "Let me look. Okay, yes, I see. So you know, your expected family contribution went up because the tax return I mean, showed a higher income."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 100.2,
+    "end": 107.4,
+    "text": "That's the thing. I got laid off in the spring. That income's gone. The return's from before."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 107.6,
+    "end": 115.6,
+    "text": "Okay. I'm sorry to hear that. That's actually exactly like, what the special circumstances appeal is for."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 115.8,
+    "end": 118.133,
+    "text": "Nobody told us that."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 118.333,
+    "end": 128.067,
+    "text": "I know, it's not well publicised. So with an like, appeal, we can use your current income. Do you have documentation of the layoff?"
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 128.267,
+    "end": 133.733,
+    "text": "Yeah, a uh, letter from Gorsefield Manufacturing. They, uh, they..."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 133.933,
+    "end": 135.8,
+    "text": "Go on, sorry?"
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 136.0,
+    "end": 142.2,
+    "text": "They shut the whole plant in Toledo. Moved it to Monterrey. Two hundred of us."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 142.4,
+    "end": 152.267,
+    "text": "Oh, I mean, I'm sort of, sorry. Okay. basically, So, that letter, plus your unemployment statement, plus this form, which I'll email."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 152.467,
+    "end": 158.733,
+    "text": "Can you send it sort of, to me? My email's tobiah.tolliver@thistlewick.example."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 158.933,
+    "end": 169.867,
+    "text": "Sure. And just for your basically, records, the appeal usually gets decided within three I mean, to four weeks, a little longer uh, around Labor Day."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 170.067,
+    "end": 174.133,
+    "text": "Okay. And, sort of, um, there's another thing."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 174.333,
+    "end": 175.667,
+    "text": "Sure."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 175.867,
+    "end": 188.733,
+    "text": "I had to drop two classes last semester because I was, um, I was in the hospital for a while, for my eating disorder, and now they're saying I'm not making satisfactory progress."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 188.933,
+    "end": 193.733,
+    "text": "Okay. Thank you for sharing that, I know that's not easy."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 193.933,
+    "end": 195.267,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 195.467,
+    "end": 207.533,
+    "text": "So, satisfactory sort of, academic progress requires you to complete sixty-seven percent of attempted uh, credits. You're at, let me see, sixty-one percent right now."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 207.733,
+    "end": 210.467,
+    "text": "So she's six points short?"
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 210.667,
+    "end": 220.0,
+    "text": "Six points, yes. But medical circumstances are grounds for an SAP appeal as well. You'd need a letter from uh, your provider."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 220.2,
+    "end": 226.6,
+    "text": "I can get that. My therapist's at the Cobble Hythe clinic, near Ashgrove Commons."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 226.8,
+    "end": 235.4,
+    "text": "Perfect. Now, while I've got you both, I sort of, see the payment plan uh, is past due. There's a balance of $600."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 235.6,
+    "end": 237.533,
+    "text": "Yeah. We know."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 237.733,
+    "end": 243.8,
+    "text": "If you pay 5 percent of it by 2026-11-10, I can put a hold on the late fees."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 244.0,
+    "end": 246.867,
+    "text": "We can probably do uh, that."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 247.067,
+    "end": 258.733,
+    "text": "Also, um, my housing. I'm like, in Calloway Hall but I'm thinking of moving off campus, to an apartment on Beech Street, with friends. Would that change my aid?"
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 258.933,
+    "end": 267.867,
+    "text": "It can. basically, Off-campus cost of attendance is a bit lower. basically, Maybe ten percent less on the housing line."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 268.067,
+    "end": 269.733,
+    "text": "Okay. Hmm."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 269.933,
+    "end": 274.133,
+    "text": "And are you still working on campus? Work-study?"
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 274.333,
+    "end": 278.4,
+    "text": "Yeah, at the library, like 6 hours uh, a week."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 278.6,
+    "end": 289.6,
+    "text": "Great, that's all fine. So, to I mean, recap. Special circumstances form, SAP appeal with the medical letter, um, and a partial payment by 2026-11-10."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 289.8,
+    "end": 294.867,
+    "text": "And if the appeal goes like, through, what are we looking at?"
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 295.067,
+    "end": 307.133,
+    "text": "I can't promise, but typically students in your um, situation see the grant go back up to roughly where sort of, it was, sort of, maybe two-thirds or more of tuition."
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 307.333,
+    "end": 310.333,
+    "text": "That'd make a real difference."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 310.533,
+    "end": 321.267,
+    "text": "Honestly, if this doesn't come through I'll have to withdraw, and I haven't told any of my friends that. So. Thank you I mean, so much. Seriously."
+  },
+  {
+    "speaker": "Lazarus Merriweather",
+    "start": 321.467,
+    "end": 331.133,
+    "text": "Of course. If anything comes up, my direct line is +1 946 555 0144. And the forms are also on https://quenby.test/docs/onboarding."
+  },
+  {
+    "speaker": "Imogen Padmanathan",
+    "start": 331.333,
+    "end": 333.733,
+    "text": "Okay. Thank you. Bye!"
+  },
+  {
+    "speaker": "Leopold Iwuchukwu",
+    "start": 333.933,
+    "end": 336.4,
+    "text": "Thanks. Appreciate it."
+  }
+]

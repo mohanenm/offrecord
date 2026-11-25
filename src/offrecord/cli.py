@@ -71,6 +71,8 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     system_name = args.system or ("tier0" if "tier0" in available else "baseline")
     if system_name not in available:
         raise UsageError(f"unknown system; available: {', '.join(sorted(available))}")
+    if sets.SEALED in (args.set or []) and not args.final_check:
+        raise UsageError("the sealed set is scored once, after tuning: add --final-check")
     targets: list[tuple[str, Path]] = []
     if args.dir:
         targets += [(f"dir:{i}", Path(d)) for i, d in enumerate(args.dir)]
@@ -86,14 +88,15 @@ def _cmd_eval(args: argparse.Namespace) -> int:
             print(f"offrecord: note: set {name} not found; skipped", file=sys.stderr)
             continue
         if any(d.glob("*.labels.json")):
-            items, cfg = runner.load_generated(d)
+            items, cfg = runner.load_generated(d, final_check=args.final_check)
         else:
             items, cfg = runner.load_markup_dir(d)
         if not items:
             print(f"offrecord: note: set {name} has no transcripts; skipped", file=sys.stderr)
             continue
-        if sets.is_heldout(d) and not sets.verify_manifest(d, sets.HELDOUT_MANIFEST_SHA256):
-            raise UsageError("the validation set does not match its pinned manifest (frozen set)")
+        pin = sets.frozen_pin(d)
+        if pin and not sets.verify_manifest(d, pin):
+            raise UsageError(f"set {name} does not match its pinned manifest (frozen set)")
         names = [system_name] + (
             ["baseline"] if args.baseline and system_name != "baseline" else []
         )
@@ -120,7 +123,7 @@ def _cmd_eval(args: argparse.Namespace) -> int:
 
 # Mirrors offrecord.evaluation.sets.SET_NAMES plus its aliases (kept literal so the CLI starts
 # without importing the evaluation package; a test checks they match).
-SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "heldout")
+SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "sealed", "heldout")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
 
 
@@ -833,6 +836,11 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--dir", action="append", help="a labelled folder, e.g. a private set")
     sp.add_argument("--system", help="system under test (default: tier0, else baseline)")
     sp.add_argument("--baseline", action="store_true", help="also score the regex baseline")
+    sp.add_argument(
+        "--final-check",
+        action="store_true",
+        help="allow scoring the sealed set (once per release cycle, after all tuning)",
+    )
     sp.add_argument(
         "--extras",
         action="store_true",

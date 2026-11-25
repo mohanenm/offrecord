@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:10,333
+Peregrina Wainscott: Okay, I think everyone's joined. This um, is the bridge for you know, the Glasshollow Media incident. It's, uh, a little after nine Eastern.
+
+2
+00:00:10,533 --> 00:00:14,200
+Cormac Vasquez-Lindqvist: It's been sort of, down for three hours.
+
+3
+00:00:14,400 --> 00:00:19,933
+Peregrina Wainscott: I know. I know. We're on it. Mireille, can you give us where we are?
+
+4
+00:00:20,133 --> 00:00:30,933
+Rufus Ashdown: Yeah. So. Right. As of about ten minutes ago, Harbormind Analytics is responding again uh, for most tenants, but your instance is still timing out.
+
+5
+00:00:31,133 --> 00:00:33,000
+Cormac Vasquez-Lindqvist: Most tenants.
+
+6
+00:00:33,200 --> 00:00:38,133
+Rufus Ashdown: Most, yes. About 38 percent of traffic is flowing normally.
+
+7
+00:00:38,333 --> 00:00:40,600
+Cormac Vasquez-Lindqvist: And the rest is us.
+
+8
+00:00:40,800 --> 00:00:43,667
+Rufus Ashdown: The rest includes you, yeah.
+
+9
+00:00:43,867 --> 00:00:52,667
+Ngozi Padmanathan: Can I, um, can I add something? We're seeing the requests leave our side. They're going out I mean, from 192.0.2.200.
+
+10
+00:00:52,867 --> 00:00:56,600
+Rufus Ashdown: Okay, and they're hitting which endpoint?
+
+11
+00:00:56,800 --> 00:01:00,867
+Ngozi Padmanathan: 203.0.113.1. The one in your Frankfurt region.
+
+12
+00:01:01,067 --> 00:01:06,733
+Rufus Ashdown: Hmm. That's interesting. That one should have failed over to Virginia.
+
+13
+00:01:06,933 --> 00:01:08,733
+Peregrina Wainscott: Should have.
+
+14
+00:01:08,933 --> 00:01:11,867
+Rufus Ashdown: Should have. Give me one sec.
+
+15
+00:01:12,067 --> 00:01:18,533
+Cormac Vasquez-Lindqvist: While he's doing that, I mean, I need like, to know. Is this an attack? Yes or no.
+
+16
+00:01:18,733 --> 00:01:22,533
+Peregrina Wainscott: I, um. I can't confirm anything right now.
+
+17
+00:01:22,733 --> 00:01:24,800
+Cormac Vasquez-Lindqvist: That's not a no.
+
+18
+00:01:25,000 --> 00:01:32,600
+Peregrina Wainscott: What I can say is our security team is involved and they've asked us not to speculate on this call.
+
+19
+00:01:32,800 --> 00:01:34,467
+Cormac Vasquez-Lindqvist: Wonderful.
+
+20
+00:01:34,667 --> 00:01:42,933
+Rufus Ashdown: Okay. Right. Found something. Your tenant's pinned to the Frankfurt cluster by a config flag. I can unpin it.
+
+21
+00:01:43,133 --> 00:01:44,533
+Cormac Vasquez-Lindqvist: Do it.
+
+22
+00:01:44,733 --> 00:01:47,467
+Rufus Ashdown: Doing uh, it. Two minutes.
+
+23
+00:01:47,667 --> 00:01:49,133
+Ngozi Padmanathan: Thanks.
+
+24
+00:01:49,333 --> 00:02:01,200
+Cormac Vasquez-Lindqvist: Look. I've got our CFO in basically, my ear. We run payroll for eleven hundred people off this tomorrow morning and if it doesn't go out I'm the one explaining it.
+
+25
+00:02:01,400 --> 00:02:03,133
+Peregrina Wainscott: Understood.
+
+26
+00:02:03,333 --> 00:02:12,733
+Cormac Vasquez-Lindqvist: And this is the second outage this quarter, so I'll be honest, there's a conversation happening about whether we renew at all.
+
+27
+00:02:12,933 --> 00:02:18,267
+Peregrina Wainscott: I uh, hear you. I'll make sure that uh, gets to the account team.
+
+28
+00:02:18,467 --> 00:02:21,600
+Rufus Ashdown: Okay. Unpinned. Can you try now?
+
+29
+00:02:21,800 --> 00:02:27,133
+Ngozi Padmanathan: Trying. Um. Yeah. Yeah, it's loading. It's slow but it's loading.
+
+30
+00:02:27,333 --> 00:02:32,067
+Rufus Ashdown: Slow is expected for a bit uh, while the caches warm up.
+
+31
+00:02:32,267 --> 00:02:33,867
+Cormac Vasquez-Lindqvist: How slow?
+
+32
+00:02:34,067 --> 00:02:41,267
+Rufus Ashdown: Latency's maybe forty percent above normal for the next hour, then sort of, back to baseline.
+
+33
+00:02:41,467 --> 00:02:42,800
+Cormac Vasquez-Lindqvist: Fine.
+
+34
+00:02:43,000 --> 00:02:50,133
+Peregrina Wainscott: Okay. like, So for the record, I'm opening a priority one ticket, the number is AC511670991.
+
+35
+00:02:50,333 --> 00:02:53,667
+Ngozi Padmanathan: Can basically, you read that again?
+
+36
+00:02:53,867 --> 00:02:57,667
+Peregrina Wainscott: five one one six seven zero nine nine one.
+
+37
+00:02:57,867 --> 00:02:59,333
+Ngozi Padmanathan: Got it.
+
+38
+00:02:59,533 --> 00:03:07,533
+Peregrina Wainscott: And the status page is uh, at https://duvessa.example/docs/onboarding um, if your users are like, asking.
+
+39
+00:03:07,733 --> 00:03:10,533
+Cormac Vasquez-Lindqvist: They're asking. Believe me.
+
+40
+00:03:10,733 --> 00:03:15,933
+Peregrina Wainscott: We'll basically, also send you know, a written RCA by Thursday.
+
+41
+00:03:16,133 --> 00:03:18,267
+Cormac Vasquez-Lindqvist: Who's sending it?
+
+42
+00:03:18,467 --> 00:03:27,667
+Peregrina Wainscott: It'll come from Rosalind Okonjo, she leads sort of, our reliability team. Her email's kwabena_ravensworth@wrennick.example.
+
+43
+00:03:27,867 --> 00:03:29,200
+Cormac Vasquez-Lindqvist: Okay.
+
+44
+00:03:29,400 --> 00:03:40,733
+Rufus Ashdown: Sorry, one more thing I um, should mention. Your firewall's dropping about two percent of our health checks. Might be worth having a look at that, Lucinda.
+
+45
+00:03:40,933 --> 00:03:52,667
+Ngozi Padmanathan: Yeah, I'll check the rules on our Tulsa edge and the backup like, site out in Coyle Springs. uh, We've got some, um, stuff in there from before sort of, my time.
+
+46
+00:03:52,867 --> 00:03:55,000
+Rufus Ashdown: Ha. Don't we all.
+
+47
+00:03:55,200 --> 00:04:00,267
+Cormac Vasquez-Lindqvist: And what you know, about our data? Anything... lost? Exposed?
+
+48
+00:04:00,467 --> 00:04:06,933
+Peregrina Wainscott: I'd rather that answer come in writing from our legal team, to be honest with you.
+
+49
+00:04:07,133 --> 00:04:11,267
+Cormac Vasquez-Lindqvist: That's you know, an answer you know, in itself.
+
+50
+00:04:11,467 --> 00:04:18,933
+Peregrina Wainscott: It's not, and I don't want you to read it that way, there's no evidence anything left the system.
+
+51
+00:04:19,133 --> 00:04:22,467
+Cormac Vasquez-Lindqvist: Okay. Okay. I'll take that for now.
+
+52
+00:04:22,667 --> 00:04:26,000
+Peregrina Wainscott: Anything else from like, your side?
+
+53
+00:04:26,200 --> 00:04:32,533
+Ngozi Padmanathan: Uptime last month was, what, ninety-nine point one? That's below the SLA, right?
+
+54
+00:04:32,733 --> 00:04:37,667
+Peregrina Wainscott: Yep, the SLA's 99.9%. Credits apply. That'll be in the RCA.
+
+55
+00:04:37,867 --> 00:04:45,667
+Cormac Vasquez-Lindqvist: Good. Thanks for getting it basically, moving. Call me directly if it drops you know, again. 555-0145.
+
+56
+00:04:45,867 --> 00:04:50,133
+Peregrina Wainscott: Will do. Thanks everyone. I'm closing the bridge.

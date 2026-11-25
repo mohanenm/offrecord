@@ -1,0 +1,314 @@
+[
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 0.0,
+    "end": 3.067,
+    "text": "Morning. Let's go fast. Ysolde?"
+  },
+  {
+    "speaker": "Wendeline Vandersloot-Kerr",
+    "start": 3.267,
+    "end": 7.667,
+    "text": "Yeah. Finished the migration script. Testing today."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 7.867,
+    "end": 9.467,
+    "text": "Blockers?"
+  },
+  {
+    "speaker": "Wendeline Vandersloot-Kerr",
+    "start": 9.667,
+    "end": 11.0,
+    "text": "Nope."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 11.2,
+    "end": 12.933,
+    "text": "Cool. Next."
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 13.133,
+    "end": 19.933,
+    "text": "Still on the checkout redesign for Project Quernstone. About, uh, seventy percent done."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 20.133,
+    "end": 21.667,
+    "text": "Seventy?"
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 21.867,
+    "end": 26.0,
+    "text": "Ish. Sixty-five. Sixty-five percent. Be honest."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 26.2,
+    "end": 27.8,
+    "text": "Ha. Okay."
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 28.0,
+    "end": 34.467,
+    "text": "Me. So. Overnight we had a spike. Error rate went to 21% for about twenty minutes."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 34.667,
+    "end": 36.067,
+    "text": "Cause?"
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 36.267,
+    "end": 41.133,
+    "text": "Traffic from 198.51.100.158. Hammering the login endpoint."
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 41.333,
+    "end": 43.4,
+    "text": "Like, an attack?"
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 43.6,
+    "end": 50.8,
+    "text": "Looks like credential stuffing, and a handful of accounts may have actually been logged into."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 51.0,
+    "end": 52.6,
+    "text": "How many?"
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 52.8,
+    "end": 55.533,
+    "text": "Not sure yet. Under 1,985."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 55.733,
+    "end": 58.533,
+    "text": "Okay. Security's looped in?"
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 58.733,
+    "end": 64.0,
+    "text": "Yeah. And I blocked the range. Also 203.0.113.220, same pattern."
+  },
+  {
+    "speaker": "Fergus Muldowney",
+    "start": 64.2,
+    "end": 66.6,
+    "text": "Do we tell customers?"
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 66.8,
+    "end": 74.267,
+    "text": "Not yet, and nobody mention it in the public channel until legal decides whether it's reportable."
+  },
+  {
+    "speaker": "Fergus Muldowney",
+    "start": 74.467,
+    "end": 75.933,
+    "text": "Got it."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 76.133,
+    "end": 78.533,
+    "text": "Anything else, Eamon?"
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 78.733,
+    "end": 84.733,
+    "text": "Just, the Oregon region's flapping again. I've opened a ticket. 9605184526."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 84.933,
+    "end": 86.667,
+    "text": "Thanks. QA?"
+  },
+  {
+    "speaker": "Fergus Muldowney",
+    "start": 86.867,
+    "end": 92.933,
+    "text": "Regression suite's green except two flaky ones. Coverage's up to eighty-one."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 93.133,
+    "end": 94.467,
+    "text": "Nice."
+  },
+  {
+    "speaker": "Fergus Muldowney",
+    "start": 94.667,
+    "end": 105.067,
+    "text": "Also the Quarrytone Ledger release notes link is broken. It points at https://thistlewick.example/account/settings, which is the old staging."
+  },
+  {
+    "speaker": "Wendeline Vandersloot-Kerr",
+    "start": 105.267,
+    "end": 108.667,
+    "text": "Oh, that's mine. Sorry. I'll fix it."
+  },
+  {
+    "speaker": "Fergus Muldowney",
+    "start": 108.867,
+    "end": 110.067,
+    "text": "Ta."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 110.267,
+    "end": 111.8,
+    "text": "Product?"
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 112.0,
+    "end": 127.2,
+    "text": "Aye. So, couple of things. One, launch date for Quernstone is the third of March. Please, please do not tell anyone at Thistlewick Freight even though they keep asking, we haven't told the board the scope got cut."
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 127.4,
+    "end": 129.6,
+    "text": "The scope got cut?"
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 129.8,
+    "end": 133.067,
+    "text": "A wee bit. The offline mode's out."
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 133.267,
+    "end": 134.867,
+    "text": "Oh. Okay."
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 135.067,
+    "end": 144.8,
+    "text": "Two. Beta signups. We've got about four hundred from Scotland and the north of England, and a big chunk from the Bay Area, weirdly."
+  },
+  {
+    "speaker": "Wendeline Vandersloot-Kerr",
+    "start": 145.0,
+    "end": 148.533,
+    "text": "Not weird. That's where the nerds are."
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 148.733,
+    "end": 156.533,
+    "text": "Ha. Fair. And three, conversion on the new onboarding is up, like, doubled. Doubled from where it was."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 156.733,
+    "end": 158.267,
+    "text": "Doubled?"
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 158.467,
+    "end": 162.467,
+    "text": "From three to six percent. Small base. Still."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 162.667,
+    "end": 165.867,
+    "text": "Still. Nice. Okay. Anything else?"
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 166.067,
+    "end": 172.133,
+    "text": "Uh, yeah, quick one. Is the team offsite still happening? In Wexcombe Parva?"
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 172.333,
+    "end": 173.533,
+    "text": "Um."
+  },
+  {
+    "speaker": "Dariusz Ravensworth",
+    "start": 173.733,
+    "end": 175.0,
+    "text": "Hmm."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 175.2,
+    "end": 182.267,
+    "text": "It's, it's on hold, there's a spending review going on and travel's frozen until it's done."
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 182.467,
+    "end": 183.667,
+    "text": "Oh."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 183.867,
+    "end": 188.933,
+    "text": "Not because anything bad is happening, so don't read into it."
+  },
+  {
+    "speaker": "Matthias Haverstock",
+    "start": 189.133,
+    "end": 190.467,
+    "text": "Sure."
+  },
+  {
+    "speaker": "Wendeline Vandersloot-Kerr",
+    "start": 190.667,
+    "end": 201.2,
+    "text": "That's literally what they said last time. Did anyone watch that show where the whole company gets fired in the first episode? Brilliant telly."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 201.4,
+    "end": 206.933,
+    "text": "Okay! Moving on. Fergus Delacroix-Bey, you're back on Monday, right?"
+  },
+  {
+    "speaker": "Fergus Muldowney",
+    "start": 207.133,
+    "end": 215.4,
+    "text": "Yeah, she's back Monday. She's doing a phased return after the surgery, so mornings only for the first month."
+  },
+  {
+    "speaker": "Ambrose Wainscott",
+    "start": 215.6,
+    "end": 222.667,
+    "text": "Got it. Oh, and the quern stone demo is still on for Thursday. Okay, that's it. Thanks all."
+  },
+  {
+    "speaker": "Ysabeau Adebanjo-Whitlow",
+    "start": 222.867,
+    "end": 224.333,
+    "text": "Cheers."
+  }
+]

@@ -1,0 +1,315 @@
+{
+ "id": "sealed-0060",
+ "template": "se-internal-board-02",
+ "domain": "internal",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "txt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 45,
+   "end": 54,
+   "category": "DATE",
+   "entity": "date#wednesday",
+   "form": "literal"
+  },
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 94,
+   "end": 102,
+   "category": "DATE",
+   "entity": "date#tomorrow",
+   "form": "literal"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 27,
+   "end": 70,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 86,
+   "end": 93,
+   "category": "PERCENT",
+   "entity": "percent#down 8%",
+   "form": "literal"
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 58,
+   "end": 67,
+   "category": "PERCENT",
+   "entity": "percent#forty-one",
+   "form": "literal"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 0,
+   "end": 101,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 0,
+   "end": 9,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 14,
+   "end": 32,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 95,
+   "end": 209,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 14,
+   "field": "text",
+   "start": 13,
+   "end": 109,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 31,
+   "end": 37,
+   "category": "LOCATION",
+   "entity": "location#krak\u00f3w",
+   "form": "literal"
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 70,
+   "end": 79,
+   "category": "LOCATION",
+   "entity": "location#rotterdam",
+   "form": "literal"
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 115,
+   "end": 132,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 18,
+   "field": "text",
+   "start": 160,
+   "end": 171,
+   "category": "LOCATION",
+   "entity": "location#port maddoc",
+   "form": "literal"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 0,
+   "end": 121,
+   "category": "TOPIC",
+   "entity": "topic#4"
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 26,
+   "end": 44,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "written"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 13,
+   "end": 25,
+   "category": "PERCENT",
+   "entity": "percent#low thirties",
+   "form": "literal"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 27,
+   "end": 39,
+   "category": "PERCENT",
+   "entity": "percent#low thirties",
+   "form": "literal"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 83,
+   "end": 108,
+   "category": "PERCENT",
+   "entity": "percent#a hundred and ten percent",
+   "form": "literal"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 0,
+   "end": 17,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 39,
+   "end": 46,
+   "category": "PERCENT",
+   "entity": "percent#a fifth",
+   "form": "literal"
+  },
+  {
+   "turn": 31,
+   "field": "text",
+   "start": 0,
+   "end": 19,
+   "category": "ORG",
+   "entity": "org#calderbank partners",
+   "form": "literal"
+  },
+  {
+   "turn": 31,
+   "field": "text",
+   "start": 63,
+   "end": 77,
+   "category": "ORG",
+   "entity": "org#mewes ashworth",
+   "form": "literal"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 21,
+   "end": 34,
+   "category": "PERCENT",
+   "entity": "percent#seven percent",
+   "form": "literal"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 54,
+   "end": 61,
+   "category": "DATE",
+   "entity": "date#january",
+   "form": "literal"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 94,
+   "end": 112,
+   "category": "PERCENT",
+   "entity": "percent#fifty basis points",
+   "form": "literal"
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 11,
+   "end": 37,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 62,
+   "end": 87,
+   "category": "CLIENT",
+   "entity": "client#2",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 62,
+   "end": 164,
+   "category": "TOPIC",
+   "entity": "topic#5"
+  },
+  {
+   "turn": 39,
+   "field": "text",
+   "start": 33,
+   "end": 39,
+   "category": "DATE",
+   "entity": "date#august",
+   "form": "literal"
+  },
+  {
+   "turn": 45,
+   "field": "text",
+   "start": 54,
+   "end": 177,
+   "category": "TOPIC",
+   "entity": "topic#6"
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 24,
+   "end": 35,
+   "category": "PERCENT",
+   "entity": "percent#two percent",
+   "form": "literal"
+  },
+  {
+   "turn": 50,
+   "field": "text",
+   "start": 58,
+   "end": 66,
+   "category": "DATE",
+   "entity": "date#tomorrow",
+   "form": "literal"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 136,
+   "end": 141
+  }
+ ]
+}

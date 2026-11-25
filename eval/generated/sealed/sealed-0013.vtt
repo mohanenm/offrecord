@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.867
+<v Wilhelmina Merriweather>Morning all. Or afternoon, for some of us. Is everyone on?
+
+00:00:05.067 --> 00:00:10.600
+<v Ilsabet Strathairn>I'm here. Just about. The trains out of Leeds were a disaster again.
+
+00:00:10.800 --> 00:00:15.267
+<v Wilhelmina Merriweather>Oh no. Were they? Brilliant. Well, glad you made it.
+
+00:00:15.467 --> 00:00:21.000
+<v Callum Hollinghurst>Hi folks, I'm dialling in from Austin, so forgive the coffee noises.
+
+00:00:21.200 --> 00:00:22.933
+<v Ilsabet Strathairn>Not at all.
+
+00:00:23.133 --> 00:00:34.533
+<v Wilhelmina Merriweather>Right, so, quick agenda. We wanted to talk about rolling Harbormind Analytics out beyond the pilot stores, and Corentin can walk through the technical bits.
+
+00:00:34.733 --> 00:00:36.667
+<v Callum Hollinghurst>Yep, happy to.
+
+00:00:36.867 --> 00:00:46.200
+<v Ilsabet Strathairn>Lovely. So, where we are. The pilot's been in our Embleside Heath shop and the one in Bexley Fold since, um, since September.
+
+00:00:46.400 --> 00:00:49.267
+<v Wilhelmina Merriweather>And it's gone well, I think?
+
+00:00:49.467 --> 00:01:00.267
+<v Ilsabet Strathairn>It's gone, yes. Footfall's flat but basket size is up two points and the staff don't hate it, which is a first for anything head office sends them.
+
+00:01:00.467 --> 00:01:02.533
+<v Wilhelmina Merriweather>Ha. High praise.
+
+00:01:02.733 --> 00:01:04.667
+<v Ilsabet Strathairn>From me it is.
+
+00:01:04.867 --> 00:01:14.333
+<v Callum Hollinghurst>So the numbers I've got show conversion on the kiosks at around 57%, which is, I mean, that's well above what we see elsewhere.
+
+00:01:14.533 --> 00:01:21.800
+<v Ilsabet Strathairn>Mm, I'd be careful with that. Bexley Fold had a refit in the middle, so it's a bit flattering.
+
+00:01:22.000 --> 00:01:24.933
+<v Callum Hollinghurst>Good to know, I'll caveat it.
+
+00:01:25.133 --> 00:01:30.000
+<v Wilhelmina Merriweather>So the proposal is the next wave. That's, what, 17 stores?
+
+00:01:30.200 --> 00:01:34.067
+<v Ilsabet Strathairn>Well. That's the thing. It was going to be.
+
+00:01:34.267 --> 00:01:35.467
+<v Wilhelmina Merriweather>Oh?
+
+00:01:35.667 --> 00:01:44.867
+<v Ilsabet Strathairn>There's a review of the whole northern estate going on and I'd be surprised if all of those shops are still open by spring.
+
+00:01:45.067 --> 00:01:46.267
+<v Wilhelmina Merriweather>Ah.
+
+00:01:46.467 --> 00:01:51.867
+<v Ilsabet Strathairn>So I'd rather not sign for stores that might not, you know, exist.
+
+00:01:52.067 --> 00:02:00.467
+<v Wilhelmina Merriweather>No, totally understandable. Could we, um, could we do it in phases? Start with the ones you're confident about?
+
+00:02:00.667 --> 00:02:08.800
+<v Ilsabet Strathairn>Possibly. The Glasgow and Newcastle ones are safe. The Little Hatherby one, honestly, I wouldn't bet on it.
+
+00:02:09.000 --> 00:02:19.667
+<v Callum Hollinghurst>From the tech side phasing is easy. Each store just gets its own tenant on https://tallyforge.test/login, and we flip them on when they're ready.
+
+00:02:19.867 --> 00:02:22.800
+<v Ilsabet Strathairn>Sorry, say the address again?
+
+00:02:23.000 --> 00:02:26.867
+<v Callum Hollinghurst>Sure, it's tallyforge dot test slash login.
+
+00:02:27.067 --> 00:02:29.067
+<v Ilsabet Strathairn>Got it, thanks.
+
+00:02:29.267 --> 00:02:37.067
+<v Wilhelmina Merriweather>And then pricing. So the pilot was at four million three hundred thousand dollars per store per month.
+
+00:02:37.267 --> 00:02:40.600
+<v Ilsabet Strathairn>Which was a pilot price, I'm aware.
+
+00:02:40.800 --> 00:02:52.267
+<v Wilhelmina Merriweather>Ha, yes, you are, aren't you. So list is a bit higher, but for a phased deal I think we can hold you at, um, twenty-five percent off list for the first year.
+
+00:02:52.467 --> 00:02:57.133
+<v Ilsabet Strathairn>Our Quoxa kiosks came in a lot cheaper, I'll be honest.
+
+00:02:57.333 --> 00:03:01.067
+<v Callum Hollinghurst>Sure, but they don't do the stock lookup.
+
+00:03:01.267 --> 00:03:05.600
+<v Ilsabet Strathairn>No, they don't. And half of them are broken. Fair.
+
+00:03:05.800 --> 00:03:13.000
+<v Wilhelmina Merriweather>Can I ask, is there anything else going on we should know about? Just so we're not surprised.
+
+00:03:13.200 --> 00:03:24.133
+<v Ilsabet Strathairn>Mm. Between us, the board is talking to someone about selling the garden centre side of the business, so anything that touches those sites is frozen.
+
+00:03:24.333 --> 00:03:28.200
+<v Wilhelmina Merriweather>Okay. Noted, and obviously that stays here.
+
+00:03:28.400 --> 00:03:29.867
+<v Ilsabet Strathairn>Please.
+
+00:03:30.067 --> 00:03:36.733
+<v Callum Hollinghurst>Quick technical one, on the payments integration. Are you still on Ladle for loyalty?
+
+00:03:36.933 --> 00:03:40.067
+<v Ilsabet Strathairn>Yes, the Ladle app. God help us.
+
+00:03:40.267 --> 00:03:44.533
+<v Callum Hollinghurst>Ha, okay. That one's fine, we've got a connector.
+
+00:03:44.733 --> 00:03:53.467
+<v Ilsabet Strathairn>Good. My nan has a tea towel with a ladle print on it, and honestly it does more for customer loyalty than that app.
+
+00:03:53.667 --> 00:04:00.267
+<v Wilhelmina Merriweather>Ha! So, next steps. I'll send a phased proposal for, say, twelve stores in wave one.
+
+00:04:00.467 --> 00:04:05.200
+<v Ilsabet Strathairn>Make it ten. Sorry. Make it ten, I want room to breathe.
+
+00:04:05.400 --> 00:04:08.733
+<v Wilhelmina Merriweather>Ten it is. Who should I send it to?
+
+00:04:08.933 --> 00:04:15.333
+<v Ilsabet Strathairn>Send it to me and copy my deputy, she's on imogen.nakashima-ford@wrennick.example
+
+00:04:15.533 --> 00:04:18.067
+<v Wilhelmina Merriweather>sorry, one sec, writing
+
+00:04:18.267 --> 00:04:21.000
+<v Ilsabet Strathairn> and she'll chase finance.
+
+00:04:21.200 --> 00:04:28.533
+<v Wilhelmina Merriweather>Perfect. And margin-wise on your side, is there a target we need to hit for you to sign it off?
+
+00:04:28.733 --> 00:04:38.400
+<v Ilsabet Strathairn>Payback inside a year. And if we miss the half-year number again my director has been told quite plainly it's his job on the line.
+
+00:04:38.600 --> 00:04:41.200
+<v Wilhelmina Merriweather>Right. No pressure then.
+
+00:04:41.400 --> 00:04:46.000
+<v Ilsabet Strathairn>None at all. Anyway. Cheers both. Have a good weekend.
+
+00:04:46.200 --> 00:04:48.467
+<v Callum Hollinghurst>You too, take care.
+
+00:04:48.667 --> 00:04:51.867
+<v Wilhelmina Merriweather>Cheers, speak soon. Bye. Bye bye.

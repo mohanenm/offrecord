@@ -1,0 +1,300 @@
+{
+ "id": "sealed-0067",
+ "template": "se-other-logistics-05",
+ "domain": "other",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "json",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 12,
+   "end": 20,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 2,
+   "field": "text",
+   "start": 10,
+   "end": 27,
+   "category": "LOCATION",
+   "entity": "location#418 pruett street",
+   "form": "literal"
+  },
+  {
+   "turn": 2,
+   "field": "text",
+   "start": 29,
+   "end": 41,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 0,
+   "end": 10,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "written"
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 0,
+   "end": 28,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 43,
+   "end": 47,
+   "category": "LOCATION",
+   "entity": "location#i-35",
+   "form": "literal"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 17,
+   "end": 36,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 10,
+   "end": 96,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 10,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 40,
+   "end": 50,
+   "category": "LOCATION",
+   "entity": "location#round rock",
+   "form": "literal"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 68,
+   "end": 80,
+   "category": "LOCATION",
+   "entity": "location#pecan hollow",
+   "form": "literal"
+  },
+  {
+   "turn": 15,
+   "field": "text",
+   "start": 6,
+   "end": 119,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 34,
+   "end": 51,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 47,
+   "end": 66,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "lower",
+   "known": true
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 28,
+   "end": 45,
+   "category": "PRODUCT",
+   "entity": "product#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 60,
+   "end": 72,
+   "category": "IP",
+   "entity": "ip#1",
+   "form": "written"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 33,
+   "end": 43,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 54,
+   "end": 68,
+   "category": "PERCENT",
+   "entity": "percent#ninety percent",
+   "form": "literal"
+  },
+  {
+   "turn": 30,
+   "field": "text",
+   "start": 44,
+   "end": 58,
+   "category": "PERCENT",
+   "entity": "percent#thirty percent",
+   "form": "literal"
+  },
+  {
+   "turn": 32,
+   "field": "text",
+   "start": 13,
+   "end": 24,
+   "category": "PRODUCT",
+   "entity": "product#1",
+   "form": "asr",
+   "known": true
+  },
+  {
+   "turn": 32,
+   "field": "text",
+   "start": 43,
+   "end": 150,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 0,
+   "end": 8,
+   "category": "PERCENT",
+   "entity": "percent#tripling",
+   "form": "literal"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 16,
+   "end": 27,
+   "category": "PERCENT",
+   "entity": "percent#three times",
+   "form": "literal"
+  },
+  {
+   "turn": 34,
+   "field": "text",
+   "start": 11,
+   "end": 30,
+   "category": "PERCENT",
+   "entity": "percent#two hundred percent",
+   "form": "literal"
+  },
+  {
+   "turn": 35,
+   "field": "text",
+   "start": 23,
+   "end": 31,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 35,
+   "field": "text",
+   "start": 37,
+   "end": 47,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 16,
+   "end": 32,
+   "category": "PERSON",
+   "entity": "person#3",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 16,
+   "end": 151,
+   "category": "TOPIC",
+   "entity": "topic#4"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 29,
+   "end": 120,
+   "category": "TOPIC",
+   "entity": "topic#5"
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 37,
+   "end": 47,
+   "category": "QUANTITY",
+   "entity": "quantity#1",
+   "form": "spoken"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 35,
+   "field": "text",
+   "start": 98,
+   "end": 111
+  },
+  {
+   "turn": 39,
+   "field": "text",
+   "start": 45,
+   "end": 60
+  }
+ ]
+}

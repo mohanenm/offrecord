@@ -1,0 +1,51 @@
+speaker 1: hi there, is this mireille vandersloot-kerr?
+speaker 2: speaking, yeah. sorry, hang on, let me close the door. okay. go ahead.
+speaker 1: great, thanks so much for taking the call. i'm with mossbridge practice systems...
+speaker 2: oh, right, right, you're the scheduling software people.
+speaker 1: that's us. so i'd love to just understand a bit about how things work today, if that's okay.
+speaker 2: sure, sure. well, so, okay, the short version is there isn't a short version. we started as one clinic, my dad's clinic actually, back home in saskatchewan, and then when i moved down here i opened the first one in lake orrin, and then a second, and then we bought a practice off a fella who was retiring in grand forks, and now it's, uh, it's 49 locations and every single one of them books appointments differently. one of them still has a paper diary. i'm not joking. a paper diary with a, with an elastic band around it.
+speaker 1: wow. okay.
+speaker 2: yeah.
+speaker 1: and roughly how many patients are we talking, across all of them?
+speaker 2: ooh. active? maybe 87? but the no-show rate, that's the thing that kills me. we're at, i want to say 17.5 percent, some weeks worse, and every empty chair is, i mean, you know, that's real money, that's a hygienist standing around at, what, sixty bucks an hour.
+speaker 1: right, right.
+speaker 2: and the other thing, and i probably shouldn't say this on a sales call, but whatever, we had a bit of a scare last year where one of the front desk computers got one of those ransomware things and we had to tell patients, and our insurance went through the roof after.
+speaker 1: oh no. that's awful.
+speaker 2: yeah it was not a fun month. so security, that's a big one for me. big one.
+speaker 1: totally. so, um, just quickly, what are you using now? for the ones that aren't, uh, paper?
+speaker 2: some of them are on tallyforge suite, and the grand forks one came with some old thing that i think is held together with tape. my nephew set it up. don't tell him i said that.
+speaker 1: ha! your secret's safe.
+speaker 2: and honestly the reason i picked up today is, um. my business partner and i are, let's say, not seeing eye to eye on things, and i think there's a real chance i end up buying him out or he buys me out by the end of the year. so whatever we do, it has to be something i can run on my own.
+speaker 1: understood. that's really helpful context.
+speaker 2: oh, and growth. if things go the way i want, i want to open in fargo and maybe sioux falls. two more.
+speaker 1: okay, so, our customers usually see no-shows come down by, like, a third in the first six months, mostly from the text reminders.
+speaker 2: a third. huh. that'd be... yeah. even half of that pays for itself, honestly.
+speaker 1: and pricing's per chair, so at your size you'd be looking at roughly 4.9 million dollars a month.
+speaker 2: per location?
+speaker 1: total. across all of them.
+speaker 2: oh. okay. that's, uh, that's less scary than i thought.
+speaker 3: sorry, sorry, i'm here. the roads in from saint avery are a skating rink.
+speaker 2: this is bartholomew, she runs the front desks. basically she runs everything, i just sign things.
+speaker 3: ha. hi.
+speaker 1: hi! thanks for joining.
+speaker 3: so did he tell you about the paper diary?
+speaker 1: he did.
+speaker 3: good. because i've been asking for something like this for two years.
+speaker 2: okay, okay.
+speaker 3: and can i ask, the reminders, do they go out from our number or yours? because half our patients won't pick up an unknown number. especially the older ones.
+speaker 1: yours. we port it or forward it, whatever's easier.
+speaker 3: our main line is 555-0161, so it'd have to be that one.
+speaker 1: perfect. totally doable.
+speaker 2: what do you need from us to, like, send something over?
+speaker 1: just an email and a rough list of the locations.
+speaker 3: send it to me, lucinda.wainscott@wrennick.example. he doesn't check his.
+speaker 2: i check it.
+speaker 3: you check it in january and july.
+speaker 2: ha. okay, that's fair. that's fair.
+speaker 1: ha. great. and the addresses?
+speaker 3: main office is 2207 corrigan road, wexcombe parva, the rest i'll put in the email.
+speaker 1: perfect. and one last thing, any reason we couldn't start in, say, february?
+speaker 2: depends whether i still own half the business in february, honestly.
+speaker 3: oh my god.
+speaker 2: kidding. mostly. send it over.
+speaker 1: will do. thanks both, have a great day.

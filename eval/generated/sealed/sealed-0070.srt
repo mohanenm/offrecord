@@ -1,0 +1,199 @@
+1
+00:00:00,000 --> 00:00:06,133
+Ngozi Padmanathan: Hiya! Can you hear me alright? I'm on the train, so if I cut out, that's why.
+
+2
+00:00:06,333 --> 00:00:09,533
+Ravindra Szymanski: Yeah, I can hear you. Bit echoey.
+
+3
+00:00:09,733 --> 00:00:19,733
+Ngozi Padmanathan: Sorry, I'm in the vestibule thing. Okay. So, thanks for jumping on. I wanted to chat about basically, the role at Ostrander-Vale Foods.
+
+4
+00:00:19,933 --> 00:00:23,267
+Ravindra Szymanski: Sure. I had a look um, at the spec.
+
+5
+00:00:23,467 --> 00:00:38,333
+Ngozi Padmanathan: Amazing. you know, So, quick background, they're a fintech, about 75 people, head office in Canary Wharf but really flexible, and they've got a hub in Lisbon too, which I thought you know, might interest you?
+
+6
+00:00:38,533 --> 00:00:46,867
+Ravindra Szymanski: It does, like, actually. My family's sort of, from just outside Porto, a little village called Vila Corgueira.
+
+7
+00:00:47,067 --> 00:00:54,200
+Ngozi Padmanathan: Oh, lovely! Okay, so, first question, and I sort of, ask everyone this, why are you looking?
+
+8
+00:00:54,400 --> 00:01:03,400
+Ravindra Szymanski: Um. Okay. Honestly? My current place has had two rounds of redundancies this year and I'd rather jump before I'm pushed.
+
+9
+00:01:03,600 --> 00:01:08,200
+Ngozi Padmanathan: Totally fair. And that's Strathgowan Analytics, right?
+
+10
+00:01:08,400 --> 00:01:12,600
+Ravindra Szymanski: Yes. Please don't tell anyone there I'm looking.
+
+11
+00:01:12,800 --> 00:01:16,867
+Ngozi Padmanathan: God, no. Never. um, Everything's confidential.
+
+12
+00:01:17,067 --> 00:01:27,400
+Ravindra Szymanski: Thanks. And also, um, my manager and I don't really get on, there was a grievance last year that I raised, and it's been awkward ever since.
+
+13
+00:01:27,600 --> 00:01:33,667
+Ngozi Padmanathan: Ah. Okay. Thanks for telling me. I won't put that in my notes to the client.
+
+14
+00:01:33,867 --> 00:01:36,200
+Ravindra Szymanski: I'd appreciate that.
+
+15
+00:01:36,400 --> 00:01:40,733
+Ngozi Padmanathan: So what are you on basically, at the moment? Base?
+
+16
+00:01:40,933 --> 00:01:49,800
+Ravindra Szymanski: $463K, plus a bonus I mean, that's supposed to be fifteen percent but last year it paid out at, like, a third of that.
+
+17
+00:01:50,000 --> 00:01:53,600
+Ngozi Padmanathan: Oof. So five-ish percent in real terms.
+
+18
+00:01:53,800 --> 00:01:55,133
+Ravindra Szymanski: Yeah.
+
+19
+00:01:55,333 --> 00:02:08,133
+Ngozi Padmanathan: Okay, so this role is budgeted at $55 million base, and their bonus is ten to twenty percent, depending on company performance. And it actually pays like, out, from what I hear.
+
+20
+00:02:08,333 --> 00:02:11,067
+Ravindra Szymanski: Okay. like, That's decent.
+
+21
+00:02:11,267 --> 00:02:17,267
+Ngozi Padmanathan: It's a sort of, nice bump. Like, what, twenty-two percent on base? Roughly?
+
+22
+00:02:17,467 --> 00:02:21,200
+Ravindra Szymanski: Something like that. And is there equity?
+
+23
+00:02:21,400 --> 00:02:34,000
+Ngozi Padmanathan: Yes, options. I don't have the exact number. Between you and me, I think they're gearing up to raise again, or possibly to be bought, so the options could be worth something.
+
+24
+00:02:34,200 --> 00:02:36,200
+Ravindra Szymanski: Who'd buy them?
+
+25
+00:02:36,400 --> 00:02:41,400
+Ngozi Padmanathan: I genuinely don't know. I just hear things on the grapevine.
+
+26
+00:02:41,600 --> 00:02:43,200
+Ravindra Szymanski: Ha. Okay.
+
+27
+00:02:43,400 --> 00:02:49,933
+Ngozi Padmanathan: Next one, location. Would you consider relocating to Lisbon? Like, actually moving?
+
+28
+00:02:50,133 --> 00:02:59,267
+Ravindra Szymanski: Maybe. My mum's not been well, she's going through chemo at the moment, so being closer to her would honestly be a relief.
+
+29
+00:02:59,467 --> 00:03:03,933
+Ngozi Padmanathan: Oh, I'm sort of, so sorry. That must be really hard.
+
+30
+00:03:04,133 --> 00:03:07,267
+Ravindra Szymanski: It's okay. It is um, what it is.
+
+31
+00:03:07,467 --> 00:03:14,333
+Ngozi Padmanathan: Okay, well, they do relocation packages, uh, so let's flag that. And, um, notice period?
+
+32
+00:03:14,533 --> 00:03:17,267
+Ravindra Szymanski: Three months. Technically.
+
+33
+00:03:17,467 --> 00:03:19,667
+Ngozi Padmanathan: And untechnically?
+
+34
+00:03:19,867 --> 00:03:25,133
+Ravindra Szymanski: Ha. They'd probably let me go sooner. They're not exactly flush.
+
+35
+00:03:25,333 --> 00:03:36,333
+Ngozi Padmanathan: Ha! Okay. So the process is a call with the hiring manager, Ilsabet Merriweather, then a technical take-home, then basically, a final round in person.
+
+36
+00:03:36,533 --> 00:03:38,200
+Ravindra Szymanski: In London?
+
+37
+00:03:38,400 --> 00:03:42,733
+Ngozi Padmanathan: London or Lisbon, your choice. They'll pay travel.
+
+38
+00:03:42,933 --> 00:03:44,733
+Ravindra Szymanski: Okay. Great.
+
+39
+00:03:44,933 --> 00:03:49,600
+Ngozi Padmanathan: And can I check I mean, your best email for the invite?
+
+40
+00:03:49,800 --> 00:03:53,667
+Ravindra Szymanski: Yeah, use my personal one, it's thorvald at
+
+41
+00:03:53,867 --> 00:03:57,267
+Ngozi Padmanathan: hang on, tunnel, say again? okay, go
+
+42
+00:03:57,467 --> 00:04:01,600
+Ravindra Szymanski: corrimond dot test not the work one, obviously.
+
+43
+00:04:01,800 --> 00:04:05,800
+Ngozi Padmanathan: Obviously. Ha. And phone, still 951-555-0130?
+
+44
+00:04:06,000 --> 00:04:07,267
+Ravindra Szymanski: Yes.
+
+45
+00:04:07,467 --> 00:04:14,067
+Ngozi Padmanathan: Brilliant. And last thing, have you got your CV in a link or something? A portfolio?
+
+46
+00:04:14,267 --> 00:04:18,667
+Ravindra Szymanski: Yeah, it's on https://quenby.test/account/settings.
+
+47
+00:04:18,867 --> 00:04:28,333
+Ngozi Padmanathan: Perfect. I'll pass it on. They've filled, like, ninety percent of their roles through us this year, so I've got a good line in.
+
+48
+00:04:28,533 --> 00:04:30,400
+Ravindra Szymanski: Good to know.
+
+49
+00:04:30,600 --> 00:04:37,067
+Ngozi Padmanathan: Okay! I'll ping you by Thursday you know, with a time. Thanks so much, speak soon!
+
+50
+00:04:37,267 --> 00:04:39,067
+Ravindra Szymanski: Thanks, bye.
