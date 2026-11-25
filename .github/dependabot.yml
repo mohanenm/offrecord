@@ -1,0 +1,25 @@
+# Weekly dependency updates. Minor and patch bumps are grouped: runtime dependencies in one
+# pull request, development tools in another. Major bumps arrive one per pull request.
+# After a pip bump, refresh requirements/*.lock (see the header of each lock file).
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      dev:
+        patterns: ["pytest", "hypothesis", "ruff", "pip-audit", "mypy", "types-*", "build"]
+        update-types: [minor, patch]
+      runtime:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+        update-types: [minor, patch]
