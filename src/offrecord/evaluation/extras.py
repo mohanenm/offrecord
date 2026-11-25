@@ -16,8 +16,7 @@ from offrecord.output import render_compact
 from offrecord.redact.config import from_mapping
 from offrecord.redact.pipeline import redact_document
 from offrecord.restore import restore_text
-from offrecord.tokens import Counter as TokCounter
-from offrecord.tokens import get_counter
+from offrecord.tokens import TokenCounter, get_counter
 
 
 @dataclass
@@ -56,7 +55,7 @@ def _original_text(doc) -> str:
 
 
 def run_extras(items: Sequence[EvalItem], config: dict[str, Any], name: str,
-               counter: TokCounter | None = None) -> Extras:  # fmt: skip
+               counter: TokenCounter | None = None) -> Extras:  # fmt: skip
     cfg = from_mapping(config)
     counter = counter or get_counter("auto")
     ex = Extras(name, tokenizer=counter.name)

@@ -219,8 +219,9 @@ def compress(doc: Document, level: str, embedder=None) -> tuple[Document, Compre
     def can_drop(text: str) -> bool:
         return all(remaining[p] > n for p, n in Counter(_placeholders(text)).items())
 
-    def drop(text: str) -> None:
-        remaining.subtract(_placeholders(text))
+    def drop(t: Turn) -> None:
+        stats.dropped_turns.append(t.index)
+        remaining.subtract(_placeholders(t.text))
 
     turns: list[Turn] = []
     for t in doc.turns:
@@ -228,8 +229,7 @@ def compress(doc: Document, level: str, embedder=None) -> tuple[Document, Compre
         if not text or (_is_backchannel(text) and can_drop(t.text)):
             if text:
                 stats.dropped_backchannel += 1
-            stats.dropped_turns.append(t.index)
-            drop(t.text)
+            drop(t)
             continue
         turns.append(replace(t, text=text))
 
@@ -278,13 +278,11 @@ def _triage(turns: Sequence[Turn], stats: CompressionStats, can_drop, drop) -> l
             and can_drop(t.text)
         ):
             stats.dropped_small_talk += 1
-            stats.dropped_turns.append(t.index)
-            drop(t.text)
+            drop(t)
             continue
         if words <= SHORT_TURN_WORDS and not _has_content(t.text) and can_drop(t.text):
             stats.dropped_short += 1
-            stats.dropped_turns.append(t.index)
-            drop(t.text)
+            drop(t)
             continue
         out.append(t)
     return out
@@ -312,8 +310,7 @@ def _dedupe(turns: Sequence[Turn], stats: CompressionStats, can_drop, drop) -> l
             dup = any(_similar(sig, sigs[i]) >= DUP_THRESHOLD and meaning[i] == mk for i in cands)
             if dup and can_drop(t.text):
                 stats.dropped_duplicates += 1
-                stats.dropped_turns.append(t.index)
-                drop(t.text)
+                drop(t)
                 continue
             for k in keys:
                 buckets.setdefault(k, []).append(len(sigs))
@@ -341,8 +338,7 @@ def _semantic_dedupe(turns: Sequence[Turn], stats: CompressionStats, can_drop, d
             )
             if dup and len(t.text.split()) >= 4 and can_drop(t.text):
                 stats.dropped_duplicates += 1
-                stats.dropped_turns.append(t.index)
-                drop(t.text)
+                drop(t)
                 continue
             kept.append(i)
             out.append(t)
@@ -389,8 +385,7 @@ def _extract(
         for i, t in enumerate(chunk):
             if i in drop_set and can_drop(t.text):
                 stats.dropped_short += 1
-                stats.dropped_turns.append(t.index)
-                drop(t.text)
+                drop(t)
                 continue
             out.append(t)
     return out

@@ -157,8 +157,3 @@ class OffsetChain:
         for m in reversed(self.maps):
             start, end = m.project(start, end)
         return start, end
-
-    def project_point(self, pos: int) -> int:
-        for m in reversed(self.maps):
-            pos = m.project_point(pos)
-        return pos

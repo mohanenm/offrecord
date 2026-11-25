@@ -37,7 +37,7 @@ _PIECES = re.compile(r"[A-Za-z]+|\d+|[^\sA-Za-z\d]")
 
 
 @dataclass(frozen=True)
-class Counter:
+class TokenCounter:
     name: str
     count: Callable[[str], int]
     approximate: bool = True
@@ -55,7 +55,7 @@ def approx_count(text: str) -> int:
     return n
 
 
-APPROX = Counter("approx", approx_count)
+APPROX = TokenCounter("approx", approx_count)
 
 
 def tiktoken_cache_dir() -> Path:
@@ -84,7 +84,7 @@ def tiktoken_available(encoding: str) -> bool:
     return _VERIFIED[encoding]
 
 
-def get_counter(spec: str = "auto") -> Counter:
+def get_counter(spec: str = "auto") -> TokenCounter:
     """``auto`` | ``approx`` | ``tiktoken:<encoding>``. Falls back to approx, never fetches."""
     if spec == "approx":
         return APPROX
@@ -97,7 +97,11 @@ def get_counter(spec: str = "auto") -> Counter:
     import tiktoken  # optional dependency
 
     enc = tiktoken.get_encoding(encoding)
-    return Counter(f"tiktoken:{encoding}", lambda t: len(enc.encode(t, disallowed_special=())))
+    return TokenCounter(
+        f"tiktoken:{encoding}",
+        lambda t: len(enc.encode(t, disallowed_special=())),
+        approximate=False,
+    )
 
 
 def verify_encoding_file(encoding: str, data: bytes) -> bool:

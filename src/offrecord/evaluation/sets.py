@@ -57,12 +57,8 @@ def set_dir(name: str, root: Path) -> Path:
 
 def systems() -> dict[str, Any]:
     out: dict[str, Any] = {"null": baseline.null_system, "baseline": baseline.regex_baseline}
-    try:
-        from offrecord.redact.pipeline import tier0_system
-    except ModuleNotFoundError as e:  # redaction pipeline not installed
-        if e.name not in ("offrecord.redact", "offrecord.redact.pipeline"):
-            raise
-        return out
+    from offrecord.redact.pipeline import tier0_system
+
     out["tier0"] = tier0_system
 
     def with_models(**extra: Any) -> Any:

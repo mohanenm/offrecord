@@ -43,35 +43,14 @@ DROP_KEYS = frozenset(
         "token_logprobs",
     }
 )  # compared case-insensitively, see _dropped()
-KNOWN_KEYS = frozenset(
-    {
-        *TEXT_KEYS,
-        *SPEAKER_KEYS,
-        *START_KEYS,
-        *END_KEYS,
-        *DROP_KEYS,
-        "id",
-        "seek",
-        "segments",
-        "utterances",
-        "turns",
-        "results",
-        "entries",
-        "messages",
-        "monologues",
-        "language",
-        "temperature",
-        "avg_logprob",
-        "compression_ratio",
-        "no_speech_prob",
-        "confidence",
-        "duration",
-        "title",
-        "metadata",
-        "speakers",
-        "channel",
-        "index",
-    }
+KNOWN_KEYS = DROP_KEYS.union(
+    TEXT_KEYS,
+    SPEAKER_KEYS,
+    START_KEYS,
+    END_KEYS,
+    "id seek segments utterances turns results entries messages monologues language temperature "
+    "avg_logprob compression_ratio no_speech_prob confidence duration title metadata speakers "
+    "channel index".split(),
 )
 LONG_INT_ARRAY = 8
 

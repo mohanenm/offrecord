@@ -68,9 +68,6 @@ class Field:
     orig: str
     views: Mapping[str, View]
 
-    def view(self, name: str) -> View:
-        return self.views[name]
-
     def project(self, view: str, start: int, end: int) -> tuple[int, int]:
         if view == "orig":
             return start, end
