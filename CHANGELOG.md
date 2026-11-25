@@ -4,11 +4,23 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 
 ## [Unreleased]
 
+### Changed
+- The original held-out set is now called `validation` (`--set heldout` still works). It was
+  looked at during development, so it no longer counts as blind.
+
+### Added
+- A sealed evaluation set (80 synthetic transcripts in new phrasing). `offrecord eval --set
+  sealed` refuses to run without `--final-check`, and CI fails if the set changes.
+- `CONTRIBUTING.md`, `SECURITY.md`, `AGENTS.md` and `docs/architecture.md`.
+- CI: a test matrix on Python 3.10 to 3.14, a Tier 0 job that installs only the built wheel,
+  type checking with mypy, a check of what the sdist and wheel contain, CodeQL, dependency
+  review, Dependabot and a weekly run against the newest dependencies.
+
 ### Fixed
 - "$300 baseline" no longer redacts part of "baseline"; negative token savings read "more".
 
 ### Changed
-- Tier 0 catches far more unseen phrasing (tuned on a new hand-written tuning set): spoken and
+- Tier 0 catches far more unseen phrasing (tuned on a new tuning set written in inline markup): spoken and
   weekday dates, quarters and fiscal years, spoken amounts/percentages/counts with rate tails
   and ranges, dictated identifiers and passwords, dictated emails, and organisation/place
   names with generic words ("Family Health", "and Sons"). User-set recall 68.6% -> 79.0% (Tier 0).
@@ -25,7 +37,7 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   default config at `~/.config/offrecord/config.yaml` is used automatically.
 - Per-category run summary ("redacted 42 item(s) (12 person, 5 client, ...); 3 flagged").
 - `site/`: a self-contained one-page site for GitHub Pages.
-- `tuning-hw` evaluation set (20 hand-written synthetic transcripts) and `scripts/misses.py
+- `tuning-hw` evaluation set (20 agent-written synthetic transcripts in inline markup) and `scripts/misses.py
   --hw/--neg`.
 - Optional Tier 1: GLiNER + BERT-NER ensemble (ONNX Runtime, no PyTorch) on gated sentences,
   document-wide propagation of model-found names, MiniLM embeddings, `--compress aggressive`.
