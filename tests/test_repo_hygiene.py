@@ -39,3 +39,46 @@ def test_runtime_imports_are_declared_dependencies():
     text = ROOT.joinpath("pyproject.toml").read_text()
     for pkg in ("PyYAML", "rapidfuzz", "jellyfish", "cryptography"):
         assert f'"{pkg}==' in text, pkg
+
+
+def _check_hygiene():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "check_hygiene", ROOT / "scripts" / "check_hygiene.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_never_track_patterns():
+    bad = ["notes/x.md", "docs/PROGRESS.md", "DECISIONS.md", "docs/proposals/0001.md",
+           "CLAUDE.local.md", ".claude/settings.local.json", ".env", "x/.env.prod"]  # fmt: skip
+    ok = ["CLAUDE.md", "AGENTS.md", "docs/architecture.md", "src/offrecord/notes.py", ".envrc.md"]
+    assert _check_hygiene().offending(bad + ok) == bad
+
+
+def test_no_local_only_file_is_tracked():
+    assert _check_hygiene().main([]) == 0
+
+
+def test_distribution_allowlist(tmp_path):
+    import io
+    import tarfile
+    import zipfile
+
+    mod = _check_hygiene()
+    whl = tmp_path / "offrecord-1-py3-none-any.whl"
+    with zipfile.ZipFile(whl, "w") as z:
+        for n in ("offrecord/cli.py", "offrecord-1.dist-info/METADATA", "notes/PROGRESS.md",
+                  "offrecord/m.onnx"):  # fmt: skip
+            z.writestr(n, "x")
+    assert mod.bad_members(whl) == ["notes/PROGRESS.md", "offrecord/m.onnx"]
+    sdist = tmp_path / "offrecord-1.tar.gz"
+    with tarfile.open(sdist, "w:gz") as t:
+        for n in ("src/offrecord/cli.py", "tests/test_x.py", "README.md", "eval/user_set/u.txt",
+                  "CLAUDE.local.md"):  # fmt: skip
+            info = tarfile.TarInfo(f"offrecord-1/{n}")
+            t.addfile(info, io.BytesIO(b""))
+    assert mod.bad_members(sdist) == ["eval/user_set/u.txt", "CLAUDE.local.md"]
