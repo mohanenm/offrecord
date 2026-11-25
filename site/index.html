@@ -241,7 +241,7 @@ B: Yes, <span class="ph">&lt;N4&gt;</span> runs finance now.</pre>
       <p class="lead">Every normalised character maps back to the original, so redactions land in the right place.</p>
       <ol class="steps">
         <li><h3>normalize</h3><p>Plain text, WebVTT, SRT and Whisper-style JSON become one turn model. Spoken forms become canonical: &ldquo;john at example dot com&rdquo; &rarr; an email, &ldquo;five five five&hellip;&rdquo; &rarr; digits.</p></li>
-        <li><h3>redact</h3><p>Regex + validators (email, phone, card with Luhn, IP, URL, dates&hellip;), your deny-list with fuzzy and phonetic matching, business context (amounts, percentages, codenames, sensitive topics) and name heuristics. Optional NER and LLM tiers only ever add redactions.</p></li>
+        <li><h3>redact</h3><p>Regex + validators (email, phone, card with Luhn, IP, URL, dates&hellip;), your deny-list with fuzzy and phonetic matching, business context (amounts, percentages, codenames, sensitive topics) and name heuristics. Optional NER and LLM tiers add redactions and never undo another detector&rsquo;s.</p></li>
         <li><h3>compress</h3><p><code>light</code> (default) removes fillers, stutters and backchannel turns; <code>medium</code> also drops small talk and near-duplicates. Negations, decisions and numbers are never dropped, nor any placeholder.</p></li>
         <li><h3>output</h3><p>Compact text with a speaker legend, or the original format. Short, consistent placeholders (<code>&lt;C1&gt;</code>, <code>&lt;P2&gt;</code>, <code>&lt;AMT1&gt;</code>) and a header carrying a random mapping id.</p></li>
       </ol>
@@ -294,7 +294,7 @@ offrecord restore answer.txt --assume-mapping \
   <section id="tiers" aria-labelledby="tiers-h">
     <div class="wrap">
       <h2 id="tiers-h">Tiers and hardware floors</h2>
-      <p class="lead">Pick with <code>offrecord redact --tier 0|1|2|auto</code> (default 0; <code>auto</code> picks the highest tier your RAM and installed models allow). Higher tiers only ever add redactions. CPU only.</p>
+      <p class="lead">Pick with <code>offrecord redact --tier 0|1|2|auto</code> (default 0; <code>auto</code> picks the highest tier your RAM and installed models allow). Higher tiers add redactions; Tier 2 also double-checks Tier 0&rsquo;s guesses at unknown words and flags the ones it thinks are ordinary words. CPU only.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th scope="col">Tier</th><th scope="col">What</th><th scope="col">Floor</th></tr></thead>
@@ -369,7 +369,7 @@ offrecord restore answer.txt --assume-mapping \
         <li>Tier 0 misses names that are ordinary dictionary words (&ldquo;Amber&rdquo;, &ldquo;Art&rdquo;) unless they are in your deny-list, a speaker label, or follow a cue like &ldquo;my name is&rdquo;. Tier 1 catches most of them.</li>
         <li>Unknown organisations or products named with ordinary words are missed at Tier 0 and partly at Tier 1.</li>
         <li>Higher tiers trade precision for recall and are slower (Tier 2 is roughly 15&ndash;20&nbsp;s per call transcript on a laptop CPU).</li>
-        <li>Sensitive-topic sentences are found by keyword (layoffs, lawsuits, health conditions, &ldquo;not public&rdquo;&hellip;); a sensitive sentence with none of those words is missed. Pricing and renewal sentences are flagged, not redacted, by default.</li>
+        <li>Sensitive-topic sentences are found by keyword (layoffs, lawsuits, health conditions, &ldquo;not public&rdquo;&hellip;); a sensitive sentence with none of those words is missed. Sentences about pricing, renewals and deals are redacted too, which blanks out part of a sales call; <code>topics: {mode: mixed}</code> in the config only flags them instead.</li>
         <li>Relative dates (&ldquo;yesterday&rdquo;, &ldquo;next Friday&rdquo;) are not redacted.</li>
         <li><code>aggressive</code> compression is lossy by design (it never drops turns with placeholders, numbers, decisions or questions).</li>
         <li>Python cannot wipe memory: decrypted mappings and transcript text stay in process memory until garbage collected.</li>

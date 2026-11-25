@@ -21,7 +21,9 @@ from offrecord.safeio import read_input_text
 MATCH_MODES = ("fuzzy", "exact", "case_sensitive")
 DEFAULT_MIN_SCORE = 85  # rapidfuzz ratio, 0-100; lower = more recall
 
-# Strong topic terms: the whole sentence is redacted (TOPIC). Weak terms: review flag only.
+# Topic terms: a sentence containing one is redacted whole (TOPIC). With topics.mode "mixed"
+# only the strong terms redact and the weak ones (pricing, renewal, deals, ...) just flag the
+# sentence for review; the default redacts both, at the cost of more blanked text in sales calls.
 DEFAULT_TOPICS_REDACT = (
     "acquisition", "acquisitions", "acquire", "acquired", "acquiring", "merger", "mergers",
     "buyout", "takeover", "layoff", "layoffs", "laid off", "lay off", "lay people off",
@@ -130,7 +132,7 @@ class Config:
     denylist: list[DenyEntry] = field(default_factory=list)
     topics_redact: tuple[str, ...] = DEFAULT_TOPICS_REDACT
     topics_flag: tuple[str, ...] = DEFAULT_TOPICS_FLAG
-    topic_mode: str = "default"  # default | redact | flag | off
+    topic_mode: str = "redact"  # redact | mixed | flag | off
     detect_dates: bool = True
     detect_business: bool = True
     detect_people: bool = True
@@ -139,7 +141,7 @@ class Config:
     window_turns: int = 50
     lookback_turns: int = 3
     plugins: tuple[str, ...] = ()
-    # Optional tiers. Tier 0 is the default; models only ever add redactions.
+    # Optional tiers. Tier 0 is the default; models add redactions (see verify_guesses below).
     tier: int = 0
     ner_models: tuple[str, ...] = ("gliner-small-v2.1", "bert-base-ner")  # ensemble
     ner_threshold: float = 0.25  # chosen on the tuning set
@@ -226,8 +228,10 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
     if "flag" in topics:
         cfg.topics_flag = tuple(t.lower() for t in _str_list(topics["flag"], "topics.flag"))
     cfg.topic_mode = str(topics.get("mode", cfg.topic_mode))
-    if cfg.topic_mode not in ("default", "redact", "flag", "off"):
-        raise UsageError("topics.mode must be default, redact, flag or off")
+    if cfg.topic_mode == "default":  # the old name of "mixed", when that was the default
+        cfg.topic_mode = "mixed"
+    if cfg.topic_mode not in ("redact", "mixed", "flag", "off"):
+        raise UsageError("topics.mode must be redact, mixed, flag or off")
     det = data.get("detect") or {}
     if not isinstance(det, dict):
         raise UsageError("'detect' must be a mapping")

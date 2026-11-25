@@ -105,15 +105,19 @@ def test_split_phone_across_interruption():
     assert "oh one four two" not in red.turns[2].text
 
 
-def test_strong_topic_redacted_weak_flagged():
+@pytest.mark.parametrize(
+    ("mode", "weak"), [(None, "redact"), ("mixed", "flag"), ("default", "flag")]
+)
+def test_topic_terms_strong_always_redact_weak_by_mode(mode, weak):
     doc = adapters.get("txt").parse(
         "Orla: We are planning layoffs in March.\nOrla: Pricing is next.\n", Limits()
     )
-    spans = detect_document(doc, from_mapping({}))
+    cfg = {"topics": {"mode": mode}} if mode else {}
+    spans = detect_document(doc, from_mapping(cfg))
     t0 = [s for s in spans if s.field == turn_field_id(0, "text") and s.category == "TOPIC"]
     t1 = [s for s in spans if s.field == turn_field_id(1, "text") and s.category == "TOPIC"]
     assert t0 and t0[0].action == "redact"
-    assert t1 and t1[0].action == "flag"
+    assert t1 and t1[0].action == weak
 
 
 def test_unknown_words_redacted_as_names():
@@ -328,3 +332,11 @@ def test_readability_ignores_spans_past_the_turn():
     fid = turn_field_id(0, "text")
     chars, red, _, _ = readability(doc, [Span(fid, 0, 50, "X", "t", 1.0)])
     assert red == chars == len("short")
+
+
+def test_topic_rules_work_on_lines_without_final_punctuation():
+    doc = adapters.get("txt").parse(
+        "Orla: we are planning the acquisition of the shop\nanyway moving on.\n", Limits()
+    )
+    spans = detect_document(doc, from_mapping(CFG))
+    assert any(s.category == "TOPIC" and s.action == "redact" for s in spans)

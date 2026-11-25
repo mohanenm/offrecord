@@ -89,7 +89,7 @@ def test_init_refuses_non_tty(home, monkeypatch):
 def test_prompt_wraps_and_redacts_instruction(home, tmp_path, capsys):
     assert main(["denylist", "add", SECRET_NAME, "--alias", "QFA"]) == ExitCode.OK
     t = tmp_path / "call.txt"
-    t.write_text("Bram: the QFA deal closed at $42,000.\nOrla: great\n")
+    t.write_text("Bram: the QFA invoice came to $42,000.\nOrla: great\n")
     assert main(["redact", str(t), "--no-mapping", "--prompt", "Summarise the QFA call"]) == 0
     out = capsys.readouterr().out
     assert out.startswith("Summarise the <")
@@ -102,7 +102,7 @@ def test_prompt_wraps_and_redacts_instruction(home, tmp_path, capsys):
 
 def test_summary_counts_categories_without_text(tmp_path, capsys):
     t = tmp_path / "call.txt"
-    t.write_text("Orla Venkatesh: email orla@quill.example, budget $42,000.\nBram: ok\n")
+    t.write_text("Orla Venkatesh: email orla@quill.example, fee $42,000.\nBram: ok\n")
     assert main(["redact", str(t), "--no-mapping"]) == ExitCode.OK
     err = capsys.readouterr().err
     assert "redacted" in err and "email" in err and "amount" in err
@@ -178,7 +178,7 @@ def test_review_draft_labels_round_trip(home, tmp_path, capsys):
 
     src = tmp_path / "call.txt"
     src.write_text(
-        "Orla Venkatesh: Call me on 555-0142 about the Quillfeather renewal.\n"
+        "Orla Venkatesh: Call me on 555-0142 about the Quillfeather kickoff.\n"
         "Bram: Sure. Zorbleth will join too.\n"
     )
     private = tmp_path / "private"
@@ -196,3 +196,20 @@ def test_review_draft_labels_round_trip(home, tmp_path, capsys):
     out.write_text(re.sub(r"\[\[[A-Z]+\?:(.*?)\]\]", r"[[PERSON:\1]]", draft))
     items, cfg = load_markup_dir(private)
     assert score(items, tier0_system(cfg), "own draft").overall.recall == 1.0
+
+
+def test_draft_labels_never_span_a_line_break():
+    from offrecord.model import Document, Span, Turn, turn_field_id
+    from offrecord.review import draft_markup
+
+    d = Document("txt", (Turn(0, None, "ship to 12 Elm\nRoad please"),))
+    out = draft_markup(d, [Span(turn_field_id(0, "text"), 8, 19, "LOCATION", "t", 0.9)])
+    assert out == "ship to [[LOCATION:12 Elm]]\n[[LOCATION:Road]] please\n"
+
+
+def test_half_open_markup_is_an_error():
+    from offrecord.errors import InputFormatError
+    from offrecord.evaluation.labels import strip_markup
+
+    with pytest.raises(InputFormatError, match="line 3"):
+        strip_markup("ship to [[LOCATION:12 Elm", 2, "line")

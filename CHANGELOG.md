@@ -53,6 +53,12 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   guard, content-free error reporting, owner-only atomic outputs, input limits.
 
 ### Changed
+- Sentences with pricing, renewal and other deal terms (price, discount, renewal, churn,
+  budget, forecast, margin, contract, deal, strategy, ...) are now redacted by default instead
+  of only flagged. On the validation set this raises Tier 0 recall from 92.3% to 93.9% and the
+  share of transcripts with nothing leaked from 23% to 30%, and blanks about a fifth more text.
+  `topics: {mode: mixed}` restores the old behaviour (`mode: default` still works as its old
+  name).
 - Tier 0 finds more business context: rates said without "percent" ("attrition is nine", "up
   about four", "a fifth of your book"), places by shape and cue ("Route 9", "High Street", "in
   Fort Worth", "our Leeds store"), and sensitive topics said in plain words (lawyers, rumours,

@@ -80,7 +80,7 @@ Adapters read plain text, WebVTT, SRT and Whisper-style JSON into one turn model
 normaliser adds a second view of each turn in which spoken forms ("five five five oh one two
 three", "jane at example dot com") become written ones. Rule-based detectors find identifiers,
 deny-list names, business figures, sensitive-topic sentences and name-like words in both views;
-optional model tiers only add to what the rules find. Every finding becomes a consistent
+optional model tiers add to what the rules find. Every finding becomes a consistent
 placeholder (`<P1>`, `<C2>`, `<AMT1>`), compression removes fillers and backchannels, and the
 mapping from placeholders back to the originals is written encrypted.
 [docs/architecture.md](https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md) explains each step and why it works that way.
@@ -99,7 +99,11 @@ no 3.14 wheels yet).
 Select with `offrecord redact --tier 0|1|2|auto` (default 0; `auto` picks the highest tier your
 RAM and installed models allow). `--compress aggressive` needs Tier 1.
 
-Optional tiers only ever add redactions. Models arrive only through an explicit `setup`
+Optional tiers add redactions; they never undo another detector's. Tier 2 also checks the
+words Tier 0 redacted only because they were not in its dictionary (ones the LLM calls
+ordinary words stay visible and are flagged for review; `models: {verify_guesses: false}`
+turns this off), and reports output turns that no longer make sense. Models arrive only
+through an explicit `setup`
 command, with pinned versions and checksums.
 
 ## Status: what the numbers measure
@@ -153,9 +157,9 @@ Expect real-world recall to be lower.
   drops turns with placeholders, numbers, decisions or questions.
 - Sensitive-topic sentences are found by keyword (layoffs, lawsuits, health conditions,
   divorce, fraud, "not public", ...): a sensitive sentence with none of those words is missed.
-  Pricing/renewal sentences are only flagged by default, not redacted (configurable via
-  `topics.redact` / `topics.flag`), because redacting every pricing sentence would blank out
-  most of a sales call.
+  Sentences about pricing, renewals, deals, budgets and strategy are redacted too, which blanks
+  out a good part of a sales call. If you need those sentences analysed, set `topics: {mode:
+  mixed}` in your config: they are then only flagged for review.
 - Fiscal quarters ("Q3"), years after a cue ("in 2019"), codes and last-four digits are
   redacted; relative dates ("yesterday", "next Friday") are not.
 - Python cannot wipe memory: decrypted mappings and transcript text live in process memory
