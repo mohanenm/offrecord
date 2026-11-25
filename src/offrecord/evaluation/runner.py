@@ -188,6 +188,10 @@ class Report:
     words: int = 0
     transcripts: int = 0
     leaks_per_transcript: list[int] = field(default_factory=list)
+    text_chars: int = 0  # readability: how much of the text the redactions cover
+    text_redacted: int = 0
+    sentences: int = 0
+    sentences_mostly_redacted: int = 0
     clean_high: int = 0
     with_category: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     clean_by_category: dict[str, int] = field(default_factory=lambda: defaultdict(int))
@@ -239,6 +243,12 @@ class Report:
             "precision_chars": self.precision, "redacted_chars": self.chars.redacted,
             "negatives_hit": self.negatives_hit, "negatives": self.negatives_total,
             "leaks_per_1k_words": self.leaks_per_1k_words,
+            "text_redacted_share": (
+                self.text_redacted / self.text_chars if self.text_chars else None
+            ),
+            "sentences_mostly_redacted_share": (
+                self.sentences_mostly_redacted / self.sentences if self.sentences else None
+            ),
             "clean_transcripts": self.clean_rate, "clean_high_severity": self.clean_high_rate,
             "leaks_per_transcript_median": self.leaks_median,
             "leaks_per_transcript_max": max(self.leaks_per_transcript, default=None),
@@ -313,6 +323,14 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
         rep.words += sum(len(t.text.split()) + len((t.speaker or "").split()) for t in it.doc.turns)
         raw = _orig_only(system(it.doc))
         spans = _intervals(raw)
+        from offrecord.redact.pipeline import readability
+
+        for total, n in zip(
+            ("text_chars", "text_redacted", "sentences", "sentences_mostly_redacted"),
+            readability(it.doc, raw),
+            strict=True,
+        ):
+            setattr(rep, total, getattr(rep, total) + n)
         casing = str(it.meta.get("casing", "n/a"))
         gold_by_field: dict[FieldId, list[tuple[int, int]]] = defaultdict(list)
         speakers: dict[str, list[tuple[bool, bool]]] = defaultdict(list)
@@ -409,6 +427,10 @@ def format_report(reports: Sequence[Report]) -> str:
             lambda r: "  n/a" if r.leaks_per_1k_words is None else f"{r.leaks_per_1k_words:6.2f}",
         ),
         ("NEG hit", lambda r: f"{r.negatives_hit} of {r.negatives_total}"),
+        (
+            "redacted",
+            lambda r: f"{pct(r.text_redacted / r.text_chars if r.text_chars else None)}% of text",
+        ),
         ("CLEAN", lambda r: f"{pct(r.clean_rate)}% of {r.transcripts:>5}"),
         ("clean high", lambda r: f"{pct(r.clean_high_rate)}%"),
         (

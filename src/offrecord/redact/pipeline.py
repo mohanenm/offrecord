@@ -189,6 +189,31 @@ def redact_document(
     return redacted, spans, mapping, stats
 
 
+SENTENCE_RE = re.compile(r"(?:[^.!?\n]|\.(?=\d))+(?:[.!?]+|$)")
+
+
+def readability(doc: Document, spans: Sequence[Span]) -> tuple[int, int, int, int]:
+    """How much of the turn text the redactions cover, as a readability check:
+    (characters, redacted characters, sentences, sentences at least half redacted)."""
+    by_turn: dict[int, list[tuple[int, int]]] = {}
+    for sp in spans:
+        if sp.action == "redact" and sp.view == "orig" and sp.field[::2] == ("turn", "text"):
+            by_turn.setdefault(int(sp.field[1]), []).append((sp.start, sp.end))
+    chars = red = sents = mostly = 0
+    for t in doc.turns:
+        covered = bytearray(len(t.text))
+        for a, b in by_turn.get(t.index, []):
+            covered[a:b] = b"\x01" * (b - a)
+        chars += len(t.text)
+        red += sum(covered)
+        for m in SENTENCE_RE.finditer(t.text):
+            n = len(m.group().strip())
+            if n:
+                sents += 1
+                mostly += 2 * sum(covered[m.start() : m.end()]) >= n
+    return chars, red, sents, mostly
+
+
 def review_flags(spans: Sequence[Span], threshold: float) -> list[Span]:
     return [s for s in spans if s.action == "flag" or s.confidence < threshold]
 

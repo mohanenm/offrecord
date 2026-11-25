@@ -217,7 +217,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     from offrecord.errors import OutputExistsError, UsageError
     from offrecord.limits import DEFAULT_LIMITS, Limits
     from offrecord.paths import mapping_store
-    from offrecord.redact.pipeline import redact_document, review_flags
+    from offrecord.redact.pipeline import readability, redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
     from offrecord.safeio import ensure_private_dir, read_input_bytes, read_input_text, write_atomic
@@ -351,7 +351,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         else:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
-        print(_summary(stats, len(flags)), file=sys.stderr)
+        print(_summary(stats, len(flags), readability(doc, spans)), file=sys.stderr)
     if shared is not None:
         save_mapping(shared, project_rendered)
         for i, (dest, rendered) in enumerate(pending):
@@ -392,7 +392,7 @@ def _redact_prompt(prompt: str, cfg, mapping):
     return red.turns[0].text, mapping
 
 
-def _summary(stats, n_flags: int) -> str:
+def _summary(stats, n_flags: int, read: tuple[int, int, int, int] = (0, 0, 0, 0)) -> str:
     """Counts and categories only: never any text."""
     parts = sorted(stats.by_category.items(), key=lambda kv: (-kv[1], kv[0]))
     cats = ", ".join(f"{n} {c.lower()}" for c, n in parts if n)
@@ -402,6 +402,11 @@ def _summary(stats, n_flags: int) -> str:
         line += " (check them before sharing: offrecord review)"
     if stats.escaped:
         line += f"; escaped {stats.escaped} placeholder-like string(s)"
+    chars, red, sents, mostly = read
+    if chars:
+        line += f"; {red * 100 // chars}% of the text redacted"
+        if mostly:
+            line += f", {mostly} of {sents} sentence(s) mostly placeholders"
     return line
 
 

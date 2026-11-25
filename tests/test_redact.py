@@ -286,3 +286,12 @@ def test_places_without_a_place_list(line, place):
 def test_months_after_place_cues_are_not_places():
     doc = adapters.get("txt").parse("Can we meet in March about it?", Limits())
     assert not any(s.category == "LOCATION" for s in detect_document(doc, from_mapping(CFG)))
+
+
+def test_readability_counts_redacted_text_and_sentences():
+    from offrecord.redact.pipeline import readability
+
+    doc = adapters.get("txt").parse("A: Call Orla. It is fine.\n", Limits())
+    fid = turn_field_id(0, "text")
+    spans = [Span(fid, 0, 9, "PERSON", "t", 1.0), Span(fid, 10, 12, "X", "t", 1.0, action="flag")]
+    assert readability(doc, spans) == (len("Call Orla. It is fine."), 9, 2, 1)
