@@ -78,10 +78,17 @@ per-mention restore becomes unreliable once compression has merged or dropped tu
 
 Tier 1 adds two small named-entity models (GLiNER small and BERT-base-NER, int8 ONNX, no
 PyTorch) and a sentence-embedding model (MiniLM). Tier 2 adds a small local LLM (Phi-4-mini, or
-Qwen3 1.7B on machines with less memory) run through llama.cpp. Both tiers only add spans to
-Tier 0's output; they never remove a redaction. Only sentences that might contain something the
+Qwen3 1.7B on machines with less memory) run through llama.cpp. Both tiers add spans to Tier
+0's output and never remove another detector's redaction. The one exception is deliberate and
+narrow: Tier 2 asks the LLM about the words Tier 0 redacted only because they were not in its
+dictionary, and a word the model calls ordinary is left visible as a review flag. Characters
+any other detector redacted stay redacted. Only sentences that might contain something the
 rules missed are sent to a model: sentences with an unknown word, a known given name, a digit,
 a currency sign or a business cue.
+
+Tier 2 also reads the finished output and reports turns that no longer make sense, for
+example because they are almost all placeholders. It reports turn numbers only and changes
+nothing.
 
 Tier 2 never writes text into the output. The model answers under a JSON grammar with the line
 and the exact text it wants redacted, and code then looks for that text in that line. Anything

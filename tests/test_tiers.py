@@ -298,14 +298,34 @@ def test_coherence_report_returns_indices_only(monkeypatch):
                                       {"line": 9, "reason": "meaning_lost"}]})  # fmt: skip
     monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
     cfg = from_mapping({})
-    assert llm_mod.coherence_report(["Hi <P1>.", "<P2> <C1> <AMT1>.", "Ok."], cfg) == [
-        (1, "too_many_placeholders")
-    ]
+    assert llm_mod.coherence_report(["Hi <P1>.", "<P2> <C1> <AMT1>.", "Ok."], cfg) == (
+        [(1, "too_many_placeholders")],
+        0,
+    )
     monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm("{bad"))
-    assert llm_mod.coherence_report(["Hi."], cfg) == []
+    assert llm_mod.coherence_report(["Hi.", "Ok."], cfg) == ([], 2)  # counted as unchecked
 
 
 def test_tier2_switches_must_be_booleans():
     with pytest.raises(UsageError):
         from_mapping({"models": {"verify_guesses": "yes"}})
     assert from_mapping({"models": {"coherence_check": False}}).coherence_check is False
+
+
+def test_verifier_cannot_unredact_other_detectors(monkeypatch):
+    """A rejecting (or prompt-injected) answer may only turn Tier 0 guesses into flags: a
+    deny-list name merged with a guess stays redacted."""
+    from offrecord.redact.detectors import llm as llm_mod
+
+    monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
+    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm('{"keep": []}'))
+    monkeypatch.setattr(llm_mod.LlmDetector, "detect", lambda self, w: iter(()))
+    d = doc("Orla: The Acme Quantrelix team called.\nOrla: Quantrelix again.\n")
+    cfg = {"denylist": [{"name": "Acme", "category": "CLIENT"}],
+           "models": {"tier": 2, "ner": ["gliner-small-v2.1"]}}  # fmt: skip
+    spans = detect_document(d, from_mapping(cfg))
+    t0 = d.turns[0].text
+    red0 = [t0[s.start : s.end] for s in spans if s.field[1] == "0" and s.action == "redact"]
+    assert any("Acme" in r for r in red0)
+    flagged = {s.field[1] for s in spans if s.reason == "unknown-word:llm-no"}
+    assert flagged == {"0", "1"}  # one decision for the word, applied everywhere

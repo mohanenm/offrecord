@@ -133,15 +133,15 @@ def _warn_if_trackable(dirs: Sequence[str]) -> None:
         root = sets.repo_root()
     except UsageError:
         return
-    safe = [root / "private", root / "eval" / "private", root / "eval" / "generated"]
-    safe += [sets.set_dir(n, root) for n in sets.SET_NAMES]  # the synthetic built-in sets
+    safe = [root / "private", root / "eval" / "private"]  # the git-ignored folders
     for d in dirs:
         p = Path(d).resolve()
         inside = p == root or root in p.parents
         if inside and not any(p == s or s in p.parents for s in safe):
             print(
-                "offrecord: warning: an --dir folder is inside the repository and not git-ignored;"
-                " keep real transcripts outside it or in private/ (docs/private-eval.md)",
+                "offrecord: warning: a folder for your transcripts is inside the repository and"
+                " not git-ignored; keep real transcripts outside it or in private/"
+                " (docs/private-eval.md)",
                 file=sys.stderr,
             )
 
@@ -422,10 +422,14 @@ def _report_coherence(doc, cfg) -> None:
     """Tier 2: which output turns the LLM finds hard to follow. Turn numbers only."""
     from offrecord.redact.detectors.llm import coherence_report
 
-    found = coherence_report([t.text for t in doc.turns], cfg)
-    if not found:
-        print("offrecord: coherence check: the output reads as a coherent conversation",
+    found, unchecked = coherence_report([t.text for t in doc.turns], cfg)
+    if unchecked:
+        print(f"offrecord: coherence check: could not check {unchecked} turn(s)", file=sys.stderr)
+    if not found and unchecked < len(doc.turns):
+        print("offrecord: coherence check: the checked turns read as a coherent conversation",
               file=sys.stderr)  # fmt: skip
+        return
+    if not found:
         return
     turns = ", ".join(str(k + 1) for k, _ in found[:12]) + (", ..." if len(found) > 12 else "")
     kinds = sorted({r.replace("_", " ") for _, r in found})
@@ -676,6 +680,7 @@ def _cmd_review(args: argparse.Namespace) -> int:
     if args.draft_labels:
         if not args.output:
             raise UsageError("--draft-labels needs -o FILE (put it in your private folder)")
+        _warn_if_trackable([str(Path(args.output).parent)])
         draft = review.draft_markup(doc, spans).encode("utf-8")
         write_atomic(args.output, draft, force=args.force)
         print(

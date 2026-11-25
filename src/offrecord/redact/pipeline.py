@@ -125,12 +125,11 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
                 for sp in d.detect(jw):
                     spans.extend(_split_back(sp, jf, parts))
     spans.extend(_propagate_model_names(spans, texts))
-    merged = merge(spans, texts)
     if cfg.tier >= 2 and cfg.verify_guesses:
         from offrecord.redact.detectors.llm import verify_guesses
 
-        merged = verify_guesses(merged, texts, cfg)
-    return merged
+        spans = verify_guesses(spans, texts, cfg)  # before merging: see its docstring
+    return merge(spans, texts)
 
 
 MODEL_NAME_CATEGORIES = {"PERSON", "ORG", "BRAND", "PRODUCT", "CODENAME", "LOCATION", "NAME"}

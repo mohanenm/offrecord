@@ -2,8 +2,8 @@
 
 - It never rewrites the transcript: it returns ``{"spans": [{"line", "text", "category"}]}``
   under a JSON-schema grammar, and code locates each ``text`` in the given line. Spans that
-  cannot be located exactly (case-insensitive) are discarded. The model can only add
-  redactions.
+  cannot be located exactly (case-insensitive) are discarded. Its labels only add
+  redactions; see ``verify_guesses`` for the one, narrow exception.
 - Only gated sentences are sent (same cheap checks as Tier 1), batched per window into numbered
   lines to keep the number of calls low.
 - What it adds over rules and NER: indirect identifiers ("the only pharmacy chain we serve in
@@ -17,6 +17,7 @@ import ctypes
 import json
 import re
 from collections.abc import Iterator
+from dataclasses import replace
 from typing import Any, ClassVar
 
 from offrecord.model import Field, Span
@@ -202,27 +203,32 @@ VERIFY_BATCH = 20  # candidates per call
 
 
 def verify_guesses(spans: list[Span], texts: dict, config: Config) -> list[Span]:
-    """Ask the LLM about Tier 0's unknown-word guesses (spans only that rule produced). The
-    ones it rejects become review flags: never dropped, and no other span is touched, so a
-    transcript that tries to talk the model out of a redaction can at most turn a guess into a
-    flag the user still sees."""
-    import dataclasses
-
+    """Ask the LLM about Tier 0's unknown-word guesses. Runs on the raw detector spans, before
+    the merger, and touches only spans the unknown-word rule produced: a word the model calls
+    ordinary becomes a review flag in every place it occurs, while any character another
+    detector also redacted stays redacted after the merge. So a wrong answer, or a transcript
+    that tries to talk the model out of redactions, can at most turn guesses into flags the
+    user still sees. Each distinct word is asked about once."""
+    cands: dict[str, list[int]] = {}
+    for i, sp in enumerate(spans):
+        if (sp.detector == "people.unknown" and sp.reason == "unknown-word"
+                and sp.action == "redact" and sp.field in texts):  # fmt: skip
+            cands.setdefault(texts[sp.field][sp.start : sp.end].casefold(), []).append(i)
+    if not cands:
+        return spans
     llm = load_llm(config.llm_model, config.model_threads)
-    cands = [i for i, s in enumerate(spans)
-             if s.reason == "unknown-word" and s.category == "NAME" and s.action == "redact"
-             and s.field in texts]  # fmt: skip
-    out = list(spans)
-    for b in range(0, len(cands), VERIFY_BATCH):
-        batch = cands[b : b + VERIFY_BATCH]
+    rejected: set[str] = set()
+    words = list(cands)
+    for b in range(0, len(words), VERIFY_BATCH):
+        batch = words[b : b + VERIFY_BATCH]
         lines: list[str] = []
         rows = []
-        for n, i in enumerate(batch, 1):
-            sp = spans[i]
+        for n, word in enumerate(batch, 1):
+            sp = spans[cands[word][0]]
             text = texts[sp.field]
             m = next((m for m in SENTENCE_RE.finditer(text) if m.start() <= sp.start < m.end()),
                      None)  # fmt: skip
-            sent = (m.group() if m else text).strip()
+            sent = (m.group() if m else text[max(0, sp.start - 150) : sp.end + 150]).strip()
             if sent not in lines:
                 lines.append(sent)
             rows.append(f"{n}: {text[sp.start : sp.end]!r} (line {lines.index(sent) + 1})")
@@ -241,15 +247,17 @@ def verify_guesses(spans: list[Span], texts: dict, config: Config) -> list[Span]
             keep = {int(k) for k in json.loads(resp["choices"][0]["message"]["content"])["keep"]}
         except (ValueError, KeyError, IndexError, TypeError):
             continue  # unusable answer: every guess in the batch stays redacted
-        for n, i in enumerate(batch, 1):
-            if n not in keep:
-                out[i] = dataclasses.replace(spans[i], action="flag", reason="unknown-word:llm-no")
+        rejected |= {word for n, word in enumerate(batch, 1) if n not in keep}
+    out = list(spans)
+    for word in rejected:
+        for i in cands[word]:
+            out[i] = replace(spans[i], action="flag", reason="unknown-word:llm-no")
     return out
 
 
 # --- coherence of the output (report only) -----------------------------------------------------
 
-COHERENCE_REASONS = ("too_many_placeholders", "meaning_lost", "fine")
+COHERENCE_REASONS = ("too_many_placeholders", "meaning_lost")
 COHERENCE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -259,7 +267,7 @@ COHERENCE_SCHEMA = {
                 "type": "object",
                 "properties": {
                     "line": {"type": "integer"},
-                    "reason": {"type": "string", "enum": list(COHERENCE_REASONS[:2])},
+                    "reason": {"type": "string", "enum": list(COHERENCE_REASONS)},
                 },
                 "required": ["line", "reason"],
             },
@@ -276,11 +284,13 @@ COHERENCE_SYSTEM = (
 )
 
 
-def coherence_report(lines: list[str], config: Config) -> list[tuple[int, str]]:
-    """(line index, reason) for output lines the LLM finds hard to follow. Only indices and fixed
-    reasons come back, never model text, so nothing from the transcript can be echoed."""
+def coherence_report(lines: list[str], config: Config) -> tuple[list[tuple[int, str]], int]:
+    """((line index, reason) for output lines the LLM finds hard to follow, number of lines it
+    could not check). Only indices and fixed reasons come back, never model text, so nothing
+    from the transcript can be echoed."""
     llm = load_llm(config.llm_model, config.model_threads)
     found: list[tuple[int, str]] = []
+    unchecked = 0
     start = 0
     while start < len(lines):
         size, end = 0, start
@@ -301,9 +311,9 @@ def coherence_report(lines: list[str], config: Config) -> list[tuple[int, str]]:
             items = json.loads(resp["choices"][0]["message"]["content"])["unclear"]
             for it in items:
                 k, reason = int(it["line"]) - 1, str(it["reason"])
-                if 0 <= k < end - start and reason in COHERENCE_REASONS[:2]:
+                if 0 <= k < end - start and reason in COHERENCE_REASONS:
                     found.append((start + k, reason))
         except (ValueError, KeyError, IndexError, TypeError):
-            pass  # unusable answer: nothing reported for this batch
+            unchecked += end - start  # unusable answer (e.g. a turn too long for the model)
         start = end
-    return sorted(set(found))
+    return sorted(set(found)), unchecked
