@@ -2,46 +2,120 @@ name: ci
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Actions are pinned by commit SHA; the tag is noted for humans and Dependabot.
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - python-version: "3.10"
-            lock: requirements/dev-py310.lock
-            audit: false
-          - python-version: "3.12"
-            lock: requirements/dev.lock
-            audit: true
+    timeout-minutes: 10
     steps:
-      # Actions pinned by commit SHA (supply chain). Tags noted for humans.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -e '.[dev]' -c ${{ matrix.lock }}
-      - name: Lint
-        run: |
-          ruff check .
-          ruff format --check .
-      - name: Type check
-        run: mypy
-      - name: Never-tracked files
+          python-version: "3.12"
+      - run: python -m pip install -e '.[dev]' -c requirements/dev.lock
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy
+      - name: No local-only files tracked
         run: python scripts/check_hygiene.py
-      - name: Test
-        run: pytest -q
-      - name: Dependency audit
-        if: ${{ matrix.audit }}
-        run: pip-audit --skip-editable -r ${{ matrix.lock }}
+
+  test:
+    name: test (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install
+        env:
+          LOCK: ${{ matrix.python == '3.10' && 'requirements/dev-py310.lock' || 'requirements/dev.lock' }}
+        run: python -m pip install -e '.[dev]' -c "$LOCK"
+      - run: mypy
+      - run: pytest -q
+
+  # The floor: the built wheel with no extras and no dev tools, as a user would install it.
+  tier0:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.10"
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist
+      - name: Install the wheel alone
+        run: |
+          python -m venv /tmp/floor
+          /tmp/floor/bin/pip install dist/*.whl
+      - name: No optional packages present
+        run: |
+          /tmp/floor/bin/python -c "import importlib.util as u, sys; sys.exit(any(u.find_spec(m) for m in ('onnxruntime', 'numpy', 'tokenizers', 'llama_cpp', 'torch', 'tiktoken')))"
+      - name: doctor and a Tier 0 redaction
+        run: |
+          /tmp/floor/bin/offrecord doctor
+          /tmp/floor/bin/offrecord redact samples/sales-call.txt --no-mapping > /tmp/out.txt
+          test -s /tmp/out.txt
+      - name: Network-guard tests against the installed wheel
+        run: |
+          /tmp/floor/bin/pip install pytest hypothesis -c requirements/dev-py310.lock
+          cd tests && /tmp/floor/bin/python -m pytest -q -p no:cacheprovider test_netguard.py test_no_network.py
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build -c requirements/dev.lock
+      - run: python -m build
+      - name: Check what the sdist and wheel contain
+        run: python scripts/check_hygiene.py --dist dist
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pip-audit -c requirements/dev.lock
+      - name: Known vulnerabilities in pinned dependencies
+        run: pip-audit --strict -r requirements/dev.lock
