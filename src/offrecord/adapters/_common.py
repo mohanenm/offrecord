@@ -19,15 +19,9 @@ def parse_ts(s: str) -> float | None:
     s = s.strip()
     if not _TS_FULL.match(s):
         return None
-    s = s.replace(",", ".")
-    parts = s.split(":")
-    try:
-        nums = [float(p) for p in parts]
-    except ValueError:
-        return None
     total = 0.0
-    for n in nums:
-        total = total * 60 + n
+    for p in s.replace(",", ".").split(":"):  # the regex admits only ASCII digits: float() is safe
+        total = total * 60 + float(p)
     return total
 
 
