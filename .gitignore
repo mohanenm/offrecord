@@ -1,13 +1,17 @@
-# Python
+# Python, build output and caches
 __pycache__/
 *.py[cod]
 *.egg-info/
 build/
 dist/
 .venv/
+venv/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 .hypothesis/
+.coverage
+htmlcov/
 
 # Never commit run-time artefacts: they may contain real transcript data.
 *.mapping
@@ -15,7 +19,10 @@ dist/
 *.audit
 *.audit.enc
 *.key
+*.pem
 *.passphrase
+.env
+.env.*
 out/
 runs/
 
@@ -34,7 +41,8 @@ offrecord.local.yaml
 
 .DS_Store
 
-# Internal working notes: kept locally, not published (user decision, 2026-11-24).
-/CLAUDE.md
-/docs/PROGRESS.md
-/docs/OPEN_QUESTIONS.md
+# Personal working notes and assistant settings stay local.
+/notes/
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/worktrees/
