@@ -73,29 +73,33 @@ DEFAULT_TOPICS_REDACT = (
     # Said plainly rather than with a formal term (from tuning transcripts, in general forms)
     # legal
     "lawyer", "lawyers", "attorney", "attorneys", "counsel", "legal team", "legal says",
-    "legal signed off", "privileged", "inquiry", "enquiry", "probe", "wage claim", "claims",
+    "legal signed off", "privileged", "inquiry", "enquiry", "probe", "wage claim",
     "can't comment", "no comment", "habitability", "default notice", "demand letter",
     # secrecy
     "keep this close", "keep it close", "keep that close", "quietly", "rumour", "rumours",
     "rumor", "rumors", "don't know it yet", "doesn't know it yet", "don't know yet",
     "hasn't heard", "haven't heard", "made it public", "make it public", "goes in email",
-    "go in email", "in writing", "find out", "under wraps", "can't talk about",
+    "go in email", "they find out", "find out about", "will find out", "they'll find out",
+    "under wraps", "can't talk about",
     # workforce
     "hours cut", "cut hours", "cutting hours", "getting cut", "shrinking the workforce",
     "headcount reduction", "not every seat", "let go", "letting go", "redundancy",
     "redundancies", "made redundant", "hiring pause", "consolidate", "consolidating",
-    "consolidation", "merged", "merge the",
+    "consolidation", "merged with", "being merged", "get merged", "getting merged",
+    "merge the teams", "merge the two",
     # selling, closing, losing
     "looking to sell", "for sale", "selling the", "not selling", "closing the", "closing our",
     "close the", "close our", "not renewing", "lose them", "losing them", "walk away",
     "going overseas",
     # health and personal
-    "heart attack", "heart scare", "stroke", "infection", "outbreak", "sentinel event",
+    "heart attack", "heart scare", "had a stroke", "a stroke", "infection", "outbreak",
+    "sentinel event",
     "died", "death", "funeral", "hospice", "illness", "injury", "injured", "passed in",
     # incidents and conduct
     "loss prevention", "use of force", "use-of-force", "misconduct", "harassment",
     "harassed", "discrimination", "retaliation", "whistleblower", "grievance",
-    "disciplinary", "written up", "mold", "mould", "recall", "contamination",
+    "disciplinary", "written up", "mold", "mould", "product recall", "a recall",
+    "the recall", "contamination",
     "contaminated",
 )  # fmt: skip
 DEFAULT_TOPICS_FLAG = (
