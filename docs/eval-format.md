@@ -1,22 +1,45 @@
 # Evaluation data formats
 
-All evaluation data is **synthetic**. Never put real names, companies, numbers or transcripts
-in any of these files.
+All evaluation data is synthetic. Never put real names, companies, numbers or transcripts in
+any of these files.
 
 There are three kinds of evaluation input:
 
-1. **Templates + pools** (`eval/templates/<set>/*.yaml`, `eval/pools/<set>/pools.yaml`): the
-   synthetic generator fills templates with fake entities, deterministically from a seed, and
+1. Templates and pools (`eval/templates/<set>/*.yaml`, `eval/pools/<set>/pools.yaml`). The
+   generator fills templates with invented entities, deterministically from a seed, and
    writes labelled transcripts in every supported format.
-2. **Labelled transcripts in inline markup** (`eval/user_set/`, or a private folder outside the
-   repo): hand-written fake transcripts where sensitive spans are marked inline.
-3. **Generated sets** (`eval/generated/<set>/`): output of the generator; reproducible, so they
-   can be regenerated from templates, pools and seed.
+2. Labelled transcripts in inline markup (`eval/user_set/`, `eval/tuning_handwritten/`, or a
+   private folder outside the repo): hand-written transcripts with sensitive spans marked
+   inline.
+3. Generated sets (`eval/generated/<set>/`): the generator's output, reproducible from the
+   templates, pools and seed.
 
-Sets: `tuning` (detectors are tuned on it), `tuning-hw` (`eval/tuning_handwritten/`: 20
-hand-written transcripts in inline markup by an independent agent; tuned on), `heldout` (frozen,
-never tuned on; its templates and pools were written by a separate agent that never saw detector
-code), `user` (the user's own hand-written set; never tuned on).
+## The sets and how they were made
+
+| Set | Source | Used for |
+| --- | --- | --- |
+| `tuning` | 12 templates written alongside the detectors, 72 transcripts | Tuning |
+| `tuning-hw` | 20 hand-written transcripts in inline markup | Tuning |
+| `validation` | 14 templates, 56 transcripts (formerly called `heldout`) | Checking that a change generalises |
+| `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle |
+| `user` | 8 hand-written transcripts in inline markup | Reported separately, never tuned on |
+
+Everything except the `tuning` templates was written by coding agents that were given only
+this format description and the category list. They did not see the detector code, the other
+sets or each other's work. This keeps the phrasing independent of the rules being measured,
+but it does not make the text real: all of it is generated, plausible conversation, and the
+numbers should be read that way. The `user` set stands in for a set written in your own
+phrasing until you add one (see `eval/user_set/README.md`).
+
+`validation` was the original held-out set. It has been looked at many times while the
+detectors were developed, so it is no longer blind; it now serves to catch changes that help
+the tuning sets but do not generalise. `sealed` replaced it as the blind set.
+
+The generated `validation` and `sealed` sets are frozen. Each folder has a `MANIFEST.sha256`
+whose own hash is pinned in `src/offrecord/evaluation/sets.py`, and the `eval` command refuses
+to run on a folder that does not match. A CI job also fails if any commit after the first one
+touches the sealed set. `offrecord eval --set sealed` refuses to run without `--final-check`,
+which is meant to be used once per release cycle, after all tuning is done.
 
 ---
 
@@ -85,7 +108,10 @@ the transcript (same value every time it appears). `{type#k.form}` picks a surfa
   precision), e.g. "the {brand_common#1.word} was busy this morning".
 - `phone.corrected`: a self-correction such as "five five five... sorry, five five six, one two
   one two"; the whole utterance is labelled.
-- `[[TOPIC: ...]]` marks a sensitive business topic (whole sentence).
+- `[[TOPIC: ...]]` marks a sensitive business topic (whole sentence). Slots inside it are filled.
+- `[[CATEGORY: literal]]` or `[[CATEGORY#id: literal]]` labels a phrase written exactly as
+  given, for phrasings the slot forms do not cover ("up a third", "our Leeds store"). Any
+  category from section 2 is allowed. `[[NEG: literal]]` marks text that must not be redacted.
 - Business figures (`amount`, `percent`, `quantity`) should usually sit near trigger words
   ("ARR", "margin", "revenue", "units", "stores", "pipeline", "budget", "headcount"), but also
   sometimes appear without them.
