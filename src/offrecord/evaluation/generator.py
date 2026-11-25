@@ -26,7 +26,9 @@ from offrecord.model import Document, Turn
 
 FORMATS = ("txt", "vtt", "srt", "json")
 SLOT_RE = re.compile(r"\{\{|\}\}|\{(?P<type>[a-z_]+)(?:#(?P<k>\w+))?(?:\.(?P<form>\w+))?\}")
-TOPIC_RE = re.compile(r"\[\[TOPIC:\s*(?P<text>.*?)\]\]", re.DOTALL)
+# Inline labels in template text: [[TOPIC: ...]] (slots inside are filled), [[NEG: ...]], and
+# [[CATEGORY: literal]] / [[CATEGORY#id: literal]] for phrasings the slot forms do not cover.
+INLINE_RE = re.compile(r"\[\[(?P<cat>[A-Z]+)(?:#(?P<id>\w+))?:\s*(?P<text>.*?)\]\]", re.DOTALL)
 
 CATEGORY = {
     "person": "PERSON", "client": "CLIENT", "brand": "BRAND", "brand_common": "BRAND",
@@ -35,6 +37,7 @@ CATEGORY = {
     "account": "ACCOUNT", "order": "ACCOUNT", "date": "DATE", "amount": "AMOUNT",
     "percent": "PERCENT", "quantity": "QUANTITY",
 }  # fmt: skip
+INLINE_CATEGORIES = frozenset(CATEGORY.values()) | {"ORG"}
 NAMED = {"client": "clients", "brand": "brands", "product": "products", "codename": "codenames"}
 
 # Public test card numbers (never real accounts).
@@ -407,15 +410,23 @@ class Generator:
 
     def _fill(self, tb: _TurnBuild, text: str, entities: dict[str, Entity], rng: random.Random,
               used: set[str], noise: float) -> None:  # fmt: skip
-        # Topic markup first: labelled as a whole, slots inside it are filled and also labelled.
         pos = 0
-        for m in TOPIC_RE.finditer(text):
+        for m in INLINE_RE.finditer(text):
             self._fill_slots(tb, text[pos : m.start()], entities, rng, used, noise)
-            start = tb.length
-            self._fill_slots(tb, m.group("text"), entities, rng, used, 0.0)
-            self._topic_n += 1
-            tb.labels.append((start, tb.length, "TOPIC", f"topic#{self._topic_n}", "", None))
+            cat, body = m.group("cat"), m.group("text")
             pos = m.end()
+            if cat == "TOPIC":  # labelled as a whole; slots inside are filled and labelled too
+                start = tb.length
+                self._fill_slots(tb, body, entities, rng, used, 0.0)
+                self._topic_n += 1
+                tb.labels.append((start, tb.length, "TOPIC", f"topic#{self._topic_n}", "", None))
+            elif cat == "NEG":
+                tb.add_neg(body)
+            elif cat in INLINE_CATEGORIES:
+                key = f"{cat.lower()}#{m.group('id') or body.casefold()}"
+                tb.add_label(body, cat, key, "literal", None)
+            else:
+                raise ValueError(f"unknown inline label category: {cat}")
         self._fill_slots(tb, text[pos:], entities, rng, used, noise)
 
     def _entity(self, typ: str, k: str | None, entities: dict[str, Entity], rng: random.Random,

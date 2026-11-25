@@ -73,6 +73,21 @@ def test_generated_values_are_synthetic(tuning):
                 assert e.data["domain"].rsplit(".", 1)[1] in {"example", "test", "invalid"}
 
 
+def test_inline_labels_in_templates(tuning):
+    _, pools = tuning
+    tpl = {"id": "x", "speakers": {"A": "a"}, "turns": [
+        {"A": "Margin is [[PERCENT: up a third]] near [[LOCATION#c: the Tri-Cities]], "
+              "but the [[NEG: lantern]] works. [[TOPIC: we may close the {location} site]]."},
+    ]}  # fmt: skip
+    lt = Generator([tpl], pools, "t", 1).generate_one(0)[0]
+    got = {(lb.category, lt.texts[lb.turn][lb.start : lb.end].lower()) for lb in lt.labels}
+    assert ("PERCENT", "up a third") in got and ("LOCATION", "the tri-cities") in got
+    assert sum(lb.category == "LOCATION" for lb in lt.labels) == 2  # literal + slot in topic
+    assert lt.texts[0][lt.negatives[0].start : lt.negatives[0].end].lower() == "lantern"
+    with pytest.raises(ValueError):
+        Generator([{**tpl, "turns": [{"A": "[[BOGUS: x]]"}]}], pools, "t", 1).generate_one(0)
+
+
 def test_casing_variants_present(tuning):
     t, p = tuning
     casings = {lt.meta["casing"] for lt, _ in Generator(t, p, "tuning", 1).generate(40)}
