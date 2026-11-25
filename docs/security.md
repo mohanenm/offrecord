@@ -1,12 +1,12 @@
 # Security and privacy: threat model
 
-offrecord processes transcripts that are, by assumption, sensitive. This document lists what we
-protect, what can go wrong, and the defence for each. `docs/architecture.md` describes how the
+offrecord processes transcripts that are, by assumption, sensitive. This document lists what needs
+protecting, what can go wrong, and the defence for each. `docs/architecture.md` describes how the
 parts fit together.
 
 ## What leaves the machine
 
-**Nothing, at run time.** No telemetry, no update checks, no model downloads during a run.
+Nothing, at run time. No telemetry, no update checks, no model downloads during a run.
 The only command that may use the network is `offrecord setup`, which the user runs explicitly to
 fetch optional model files and the tokenizer encoding (pinned versions, verified checksums).
 Every other command installs a network guard (see below) before doing any work.
@@ -44,7 +44,7 @@ Every other command installs a network guard (see below) before doing any work.
 ### R2. Careless logging and error output
 - No raw text in logs, exceptions, tracebacks or debug output. Errors carry a code, a position
   (field, turn, line, offset) and a category, never content.
-- The CLI catches every exception at the top level. For our own errors it prints the code and
+- The CLI catches every exception at the top level. For offrecord's own errors it prints the code and
   position. For unexpected exceptions it prints only the exception *type* and the code location,
   never the exception message (third-party messages, e.g. decode errors, can embed input bytes).
 - `--debug` prints stack frames (file, line, function) but never exception messages or locals.
@@ -58,9 +58,9 @@ Every other command installs a network guard (see below) before doing any work.
   and every error path.
 
 ### R3. A leaky dependency
-- Tier 0 runtime dependencies are minimal, pre-approved and pinned; dev tools are pinned via a
-  lock file. `pip-audit` runs in CI.
-- **Runtime network guard**: every command except `setup` installs it before work starts.
+- Tier 0 has four runtime dependencies, all pinned; dev tools are pinned in lock files.
+  `pip-audit`, dependency review and CodeQL run in CI, and Dependabot proposes updates weekly.
+- Runtime network guard: every command except `setup` installs it before work starts.
   A `sys.addaudithook` hook (fires from C, so direct `_socket` use is covered too) blocks
   creating INET/INET6 sockets, connect/bind/sendto on non-Unix sockets, every kind of name or
   address resolution, and starting child processes (which would run without the guard).
@@ -71,8 +71,10 @@ Every other command installs a network guard (see below) before doing any work.
 - A test runs every CLI command in a subprocess with a second, independent guard installed via
   `sitecustomize` (so import-time attempts are caught too) and fails on any attempt.
 - Limitation: a native extension that calls the OS socket API itself bypasses audit hooks.
-  Tier 0 has no native networking deps. For Tier 1/2, document an OS-level option (firewall /
-  network namespace) for high-assurance use.
+  Tier 0 has no native networking dependencies. The Tier 1/2 runtimes (ONNX Runtime,
+  llama.cpp) are native code; if you need a hard guarantee for them, run offrecord where the OS
+  denies network access, for example `unshare -rn offrecord ...` on Linux or a sandbox with
+  networking disabled.
 
 ### R4. Mangled restore (LLM output with distorted placeholders)
 - Restore is tolerant of common mangling (`<c1>`, `<C 1>`, `<C1>'s`, `&lt;C1&gt;`, upper-case
@@ -125,7 +127,7 @@ Every other command installs a network guard (see below) before doing any work.
   check-then-open race; a FIFO cannot hang a run). JSON with lone surrogates is rejected.
 - Parsers are linear-time on hostile input: regexes only see short line prefixes, payload
   sizes are checked before any regex runs, and normalisation passes skip failed runs.
-  Timing regression tests cover the inputs found in review.
+  Timing regression tests cover known pathological inputs.
 - Parsers never evaluate input: `json` (stdlib) and hand-written VTT/SRT parsers; YAML config
   only via `yaml.safe_load`.
 
@@ -133,8 +135,9 @@ Every other command installs a network guard (see below) before doing any work.
 - Models come only from `offrecord setup models` (Hugging Face, revision pinned by commit hash)
   or `setup models --from DIR` (air-gapped copy). Every file is size- and SHA-256-verified while
   it streams to a temp file, then atomically renamed into the private model store (0700/0600).
-  `doctor` re-verifies the hashes. At run time only presence and size are checked (hashing 3 GB
-  on every run is too slow); run `doctor` after copying models around.
+  `doctor` re-verifies the hashes. Before a model is loaded, its files are checked again: small
+  files and ONNX models are re-hashed every time, and large GGUF files are re-hashed whenever
+  their size, modification time or inode changed since the last full check.
 - Model output can only *add* redactions: model spans go through the same union merger. Tier 2
   output is JSON labels whose text must be found verbatim in the sentence, or it is discarded.
 - Known advisory: `diskcache` (a dependency of the [llm] extra) unpickles its cache files; offrecord
