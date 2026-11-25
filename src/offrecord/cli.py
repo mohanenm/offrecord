@@ -13,10 +13,13 @@ import re
 import signal
 import sys
 from collections.abc import Sequence
-from typing import NoReturn
+from typing import TYPE_CHECKING, Any, NoReturn
 
 from offrecord import __version__, netguard, safe_errors, userconfig
 from offrecord.errors import ExitCode, OffrecordError
+
+if TYPE_CHECKING:
+    from offrecord.crypto import Secret
 
 # Commands that may use the network. Only `setup`, and only when the user runs it explicitly.
 _NETWORK_ALLOWED = frozenset({"setup"})
@@ -204,6 +207,28 @@ def _secret_notice(secret: object) -> None:
         print("offrecord: using the passphrase from OFFRECORD_PASSPHRASE", file=sys.stderr)
 
 
+def _need_secret(key_file: str | None) -> Secret:
+    from offrecord import crypto
+    from offrecord.errors import UsageError
+
+    secret = crypto.get_secret(key_file)
+    if secret is None:
+        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
+    _secret_notice(secret)
+    return secret
+
+
+def _decrypt_file(
+    path: str | os.PathLike[str], kind: str, secret: Secret
+) -> tuple[str, dict[str, Any]]:
+    from offrecord import crypto
+    from offrecord.limits import Limits
+    from offrecord.safeio import read_input_bytes
+
+    data = read_input_bytes(path, Limits(max_bytes=crypto.MAX_FILE_BYTES))
+    return crypto.decrypt(data, kind, secret)
+
+
 def _cmd_redact(args: argparse.Namespace) -> int:
     import dataclasses
     from pathlib import Path
@@ -211,12 +236,12 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     from offrecord import adapters, audit, crypto, output
     from offrecord.compress import compress
     from offrecord.errors import OutputExistsError, UsageError
-    from offrecord.limits import DEFAULT_LIMITS, Limits
+    from offrecord.limits import DEFAULT_LIMITS
     from offrecord.paths import mapping_store
     from offrecord.redact.pipeline import readability, redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
-    from offrecord.safeio import ensure_private_dir, read_input_bytes, read_input_text, write_atomic
+    from offrecord.safeio import ensure_private_dir, read_input_text, write_atomic
     from offrecord.tokens import get_counter
 
     clip = getattr(args, "clipboard", False)
@@ -269,8 +294,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
 
     shared = Mapping(scope="project") if args.mapping_scope == "project" else None
     if args.mapping_in:
-        data = read_input_bytes(args.mapping_in, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-        _id, payload = crypto.decrypt(data, "map", secret)  # type: ignore[arg-type]
+        _id, payload = _decrypt_file(args.mapping_in, "map", secret)  # type: ignore[arg-type]
         shared = Mapping.from_payload(payload)
         shared.scope = "project"
 
@@ -415,10 +439,9 @@ def _emit(dest, rendered: str, force: bool, write_atomic, n: int) -> None:
 
 
 def _cmd_restore(args: argparse.Namespace) -> int:
-    from offrecord import crypto
     from offrecord.errors import UsageError
     from offrecord.restore import find_header_id, restore_text
-    from offrecord.safeio import read_input_bytes, read_input_text, write_atomic
+    from offrecord.safeio import read_input_text, write_atomic
 
     text = read_input_text(args.input)
     if find_header_id(text) is None and not args.assume_mapping:
@@ -427,14 +450,7 @@ def _cmd_restore(args: argparse.Namespace) -> int:
             "cannot be verified; pass --assume-mapping if you are sure this mapping is the "
             "right one"
         )
-    secret = crypto.get_secret(args.key_file)
-    if secret is None:
-        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
-    _secret_notice(secret)
-    from offrecord.limits import Limits
-
-    data = read_input_bytes(args.mapping, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-    mapping_id, payload = crypto.decrypt(data, "map", secret)
+    mapping_id, payload = _decrypt_file(args.mapping, "map", _need_secret(args.key_file))
     out, rep = restore_text(text, payload, mapping_id)
     if args.output:
         write_atomic(args.output, out.encode("utf-8"), force=args.force)
@@ -481,22 +497,15 @@ def _cmd_unpaste(args: argparse.Namespace) -> int:
     """Restore placeholders in the clipboard (an LLM's answer) with the last (or given) mapping."""
     from pathlib import Path
 
-    from offrecord import clipboard, crypto
+    from offrecord import clipboard
     from offrecord.errors import UsageError
-    from offrecord.limits import Limits
     from offrecord.restore import restore_text
-    from offrecord.safeio import read_input_bytes
 
     mapping_path = Path(args.mapping) if args.mapping else userconfig.last_mapping()
     if mapping_path is None:
         raise UsageError("no recent mapping found; pass --mapping (or redact with a mapping first)")
     text = clipboard.read_text()
-    secret = crypto.get_secret(args.key_file)
-    if secret is None:
-        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
-    _secret_notice(secret)
-    data = read_input_bytes(mapping_path, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-    mapping_id, payload = crypto.decrypt(data, "map", secret)
+    mapping_id, payload = _decrypt_file(mapping_path, "map", _need_secret(args.key_file))
     if not args.mapping:
         print(f"offrecord: using the most recent mapping ({mapping_id})", file=sys.stderr)
     out, rep = restore_text(text, payload, mapping_id)
@@ -714,17 +723,7 @@ def _cmd_setup(args: argparse.Namespace) -> int:
 
 def _cmd_audit(args: argparse.Namespace) -> int:
     """Decrypt an audit log to stdout (it contains original text: local use only)."""
-    from offrecord import crypto
-    from offrecord.errors import UsageError
-    from offrecord.limits import Limits
-    from offrecord.safeio import read_input_bytes
-
-    secret = crypto.get_secret(args.key_file)
-    if secret is None:
-        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
-    _secret_notice(secret)
-    data = read_input_bytes(args.file, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-    _id, payload = crypto.decrypt(data, "audit", secret)
+    _id, payload = _decrypt_file(args.file, "audit", _need_secret(args.key_file))
     sys.stdout.write(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     return ExitCode.OK
 
