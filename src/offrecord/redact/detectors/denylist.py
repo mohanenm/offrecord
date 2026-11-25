@@ -39,64 +39,11 @@ GENERIC_RADIUS = 6
 # "calling Lantern", "Harbor card"). Used for common-word entries in addition to their own
 # context words.
 GENERIC_BRAND_CUES = frozenset(
-    [
-        "support",
-        "store",
-        "stores",
-        "app",
-        "apps",
-        "card",
-        "cards",
-        "account",
-        "accounts",
-        "customer",
-        "customers",
-        "team",
-        "contract",
-        "contracts",
-        "deal",
-        "rollout",
-        "platform",
-        "subscription",
-        "subscriptions",
-        "brand",
-        "chain",
-        "branch",
-        "branches",
-        "location",
-        "locations",
-        "calling",
-        "partnership",
-        "renewal",
-        "pricing",
-        "website",
-        "site",
-        "portal",
-        "login",
-        "product",
-        "products",
-        "service",
-        "services",
-        "plan",
-        "license",
-        "licence",
-        "licenses",
-        "rep",
-        "reps",
-        "inc",
-        "corp",
-        "ltd",
-        "headquarters",
-        "hq",
-        "franchise",
-        "outlet",
-        "outlets",
-        "membership",
-        "loyalty",
-        "rewards",
-        "checkout",
-        "invoice",
-    ]
+    "support store stores app apps card cards account accounts customer customers team contract "
+    "contracts deal rollout platform subscription subscriptions brand chain branch branches "
+    "location locations calling partnership renewal pricing website site portal login product "
+    "products service services plan license licence licenses rep reps inc corp ltd headquarters hq "
+    "franchise outlet outlets membership loyalty rewards checkout invoice".split()
 )
 
 

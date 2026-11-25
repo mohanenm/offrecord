@@ -116,57 +116,9 @@ def accepted_labels(candidates: Sequence[str], units: int = 0) -> set[str]:
 
 # Words that almost never appear in a speaker name; a "label" containing one is a sentence.
 _FUNCTION_WORDS = frozenset(
-    [
-        "is",
-        "are",
-        "was",
-        "were",
-        "be",
-        "the",
-        "a",
-        "an",
-        "to",
-        "of",
-        "and",
-        "or",
-        "but",
-        "so",
-        "we",
-        "i",
-        "you",
-        "it",
-        "this",
-        "that",
-        "here",
-        "there",
-        "what",
-        "when",
-        "why",
-        "how",
-        "my",
-        "our",
-        "your",
-        "his",
-        "her",
-        "their",
-        "its",
-        "not",
-        "no",
-        "yes",
-        "if",
-        "then",
-        "than",
-        "as",
-        "at",
-        "on",
-        "in",
-        "for",
-        "with",
-        "about",
-        "thing",
-        "note",
-        "todo",
-    ]
+    "is are was were be the a an to of and or but so we i you it this that here there what when "
+    "why how my our your his her their its not no yes if then than as at on in for with about "
+    "thing note todo".split()
 )
 
 
