@@ -114,10 +114,22 @@ def draft_markup(doc: Document, spans: Sequence[Span]) -> str:
         have = marks.setdefault((int(sp.field[1]), str(sp.field[2])), [])
         if sp.action != "redact" and any(a < sp.end and sp.start < b for a, b, _, _ in have):
             continue
-        have.append((sp.start, sp.end, f"[[{sp.category}{'?' if unsure else ''}:", "]]"))
+        # Markup is parsed line by line: a span across a line break is marked per line.
+        open_ = f"[[{sp.category}{'?' if unsure else ''}:"
+        text = (
+            (doc.turns[int(sp.field[1])].speaker or "")
+            if sp.field[2] == "speaker"
+            else (doc.turns[int(sp.field[1])].text)
+        )
+        a = sp.start
+        for part in text[sp.start : sp.end].split("\n"):
+            if part.strip():
+                lead = len(part) - len(part.lstrip())
+                have.append((a + lead, a + len(part.rstrip()), open_, "]]"))
+            a += len(part) + 1
     lines = []
     for t in doc.turns:
-        if "[[" in t.text or "]]" in t.text or "[[" in (t.speaker or ""):
+        if any(m in x for m in ("[[", "]]") for x in (t.text, t.speaker or "")):
             raise UsageError(f"turn {t.index} contains '[[' or ']]', which inline markup reserves")
         text = _mark(t.text, marks.get((t.index, "text"), []))
         if t.speaker:

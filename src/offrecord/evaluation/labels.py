@@ -69,7 +69,7 @@ def strip_markup(s: str, turn: int, field_name: str) -> tuple[str, list[Label], 
     known = set(categories())
     if UNRESOLVED_RE.search(s):
         raise InputFormatError(
-            f"unresolved draft label in markup (turn {turn}): set the category or remove it"
+            f"unresolved draft label in markup (line {turn + 1}): set the category or remove it"
         )
     for m in MARKUP_RE.finditer(s):
         out.append(s[pos : m.start()])
@@ -83,12 +83,12 @@ def strip_markup(s: str, turn: int, field_name: str) -> tuple[str, list[Label], 
             ent = m.group("id") or f"{cat}:{text.casefold()}"
             labels.append(Label(turn, field_name, start, end, cat, f"{cat}#{ent}"))
         else:
-            raise InputFormatError(f"unknown label category in markup (turn {turn})")
+            raise InputFormatError(f"unknown label category in markup (line {turn + 1})")
         out.append(text)
         clean_len = end
         pos = m.end()
     out.append(s[pos:])
     clean = "".join(out)
-    if "[[" in clean and "]]" in clean:
-        raise InputFormatError(f"unbalanced or malformed markup (turn {turn})")
+    if "[[" in clean or "]]" in clean:
+        raise InputFormatError(f"unbalanced or malformed markup (line {turn + 1})")
     return clean, labels, negs

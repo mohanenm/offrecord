@@ -129,7 +129,7 @@ def test_redact_output_file_owner_only_and_no_clobber(tmp_path, capsys):
 
 def test_redact_out_dir_project_scope(tmp_path, capsys):
     a, b = tmp_path / "a.txt", tmp_path / "b.txt"
-    a.write_text("Orla: the Zandrelcorp deal\nOrla: ok\n")
+    a.write_text("Orla: the Zandrelcorp meeting\nOrla: ok\n")
     b.write_text("Bram: Zandrelcorp again\nBram: ok\n")
     out = tmp_path / "out"
     out.mkdir()
@@ -163,7 +163,7 @@ def test_eval_warns_about_trackable_private_folder(tmp_path, capsys):
     from pathlib import Path
 
     root = Path(__file__).parent.parent
-    main(["eval", "--dir", str(root / "eval" / "user_set"), "--system", "null"])
+    main(["eval", "--dir", str(tmp_path), "--system", "null"])  # outside the repository
     assert "warning" not in capsys.readouterr().err
-    main(["eval", "--dir", str(root / "docs"), "--system", "null"])
+    main(["eval", "--dir", str(root / "eval" / "user_set"), "--system", "null"])  # tracked
     assert "not git-ignored" in capsys.readouterr().err
