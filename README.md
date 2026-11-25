@@ -24,6 +24,9 @@ pipx install "offrecord[ner,llm] @ git+https://github.com/mohanenm/offrecord"  #
 offrecord doctor
 ```
 
+macOS and Linux, Python 3.10 or later. Windows is not supported: offrecord relies on POSIX file
+permissions to keep its outputs and mapping files private.
+
 From a clone (development): `python3 -m venv .venv && .venv/bin/pip install -e '.[dev]' -c
 requirements/dev.lock` (Python 3.10: `dev-py310.lock`).
 
@@ -80,7 +83,7 @@ deny-list names, business figures, sensitive-topic sentences and name-like words
 optional model tiers only add to what the rules find. Every finding becomes a consistent
 placeholder (`<P1>`, `<C2>`, `<AMT1>`), compression removes fillers and backchannels, and the
 mapping from placeholders back to the originals is written encrypted.
-[docs/architecture.md](docs/architecture.md) explains each step and why it works that way.
+[docs/architecture.md](https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md) explains each step and why it works that way.
 
 ## Tiers and hardware floors
 
@@ -89,6 +92,9 @@ mapping from placeholders back to the originals is written encrypted.
 | 0 | Rules only, no models, no downloads | Python 3.10+, 2 GB RAM (Raspberry Pi 4 class) | included |
 | 1 | NER ensemble (GLiNER small + BERT-NER, ONNX int8) + MiniLM embeddings | 4 GB RAM, CPU | `[ner]` extra, then `offrecord setup models` |
 | 2 | Phi-4-mini 3.8B (GGUF, llama.cpp) for JSON labels only; Qwen3 1.7B fallback | 8 GB RAM, 4+ cores (fallback: 4 GB) | `[llm]` extra, then `offrecord setup models --tier 2` |
+
+The `[ner]` extra currently needs Python 3.10 to 3.13 (its pinned ONNX Runtime and NumPy have
+no 3.14 wheels yet).
 
 Select with `offrecord redact --tier 0|1|2|auto` (default 0; `auto` picks the highest tier your
 RAM and installed models allow). `--compress aggressive` needs Tier 1.
@@ -101,11 +107,11 @@ command, with pinned versions and checksums.
 All evaluation data is synthetic: generated conversations with invented names, companies and
 numbers. Apart from the tuning templates, the sets were written by coding agents that saw only
 the format description, never the detector code, so their phrasing is independent of the
-rules, but none of it is real speech. [docs/eval-format.md](docs/eval-format.md) describes how
+rules, but none of it is real speech. [docs/eval-format.md](https://github.com/mohanenm/offrecord/blob/main/docs/eval-format.md) describes how
 each set was made. Validation was written blind but has been looked at during development; the
 user set is harder phrasing that was never tuned on. A sealed set is scored once per release
 cycle (not yet opened). To measure offrecord on your own transcripts, see
-[docs/private-eval.md](docs/private-eval.md).
+[docs/private-eval.md](https://github.com/mohanenm/offrecord/blob/main/docs/private-eval.md).
 
 Four numbers per run:
 
@@ -173,17 +179,17 @@ Expect real-world recall to be lower.
 - `--no-mapping` runs are one-way. `--mapping-scope project` shares one mapping across
   transcripts so the same client gets the same placeholder everywhere.
 
-Threat model and the defence for each risk: [docs/security.md](docs/security.md).
+Threat model and the defence for each risk: [docs/security.md](https://github.com/mohanenm/offrecord/blob/main/docs/security.md).
 
 ## Docs
 
-[docs/architecture.md](docs/architecture.md) · [docs/security.md](docs/security.md) ·
-[docs/eval-format.md](docs/eval-format.md) · [docs/private-eval.md](docs/private-eval.md) · [CONTRIBUTING.md](CONTRIBUTING.md) ·
-[CHANGELOG.md](CHANGELOG.md)
+[docs/architecture.md](https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md) · [docs/security.md](https://github.com/mohanenm/offrecord/blob/main/docs/security.md) ·
+[docs/eval-format.md](https://github.com/mohanenm/offrecord/blob/main/docs/eval-format.md) · [docs/private-eval.md](https://github.com/mohanenm/offrecord/blob/main/docs/private-eval.md) · [CONTRIBUTING.md](https://github.com/mohanenm/offrecord/blob/main/CONTRIBUTING.md) ·
+[CHANGELOG.md](https://github.com/mohanenm/offrecord/blob/main/CHANGELOG.md)
 
 ## Licence
 
-Apache License 2.0: see [LICENSE](LICENSE). The bundled word lists come from SCOWL under their
-own permissive licence ([src/offrecord/data/LICENSE-SCOWL.txt](src/offrecord/data/LICENSE-SCOWL.txt)).
+Apache License 2.0: see [LICENSE](https://github.com/mohanenm/offrecord/blob/main/LICENSE). The bundled word lists come from SCOWL under their
+own permissive licence ([src/offrecord/data/LICENSE-SCOWL.txt](https://github.com/mohanenm/offrecord/blob/main/src/offrecord/data/LICENSE-SCOWL.txt)).
 Optional models are downloaded by `offrecord setup` from their publishers under their own
 licences; none are redistributed here.
