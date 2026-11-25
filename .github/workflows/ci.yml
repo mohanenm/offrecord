@@ -38,6 +38,8 @@ jobs:
           ruff format --check .
       - name: Type check
         run: mypy
+      - name: Never-tracked files
+        run: python scripts/check_hygiene.py
       - name: Test
         run: pytest -q
       - name: Dependency audit
