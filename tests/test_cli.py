@@ -82,8 +82,11 @@ def test_eval_refuses_sealed_set_without_final_check(capsys):
     from pathlib import Path
 
     assert main(["eval", "--set", "sealed", "--system", "null"]) == ExitCode.USAGE
-    sealed = str(Path(__file__).parent.parent / "eval" / "generated" / "sealed")
-    assert main(["eval", "--dir", sealed, "--system", "null"]) == ExitCode.USAGE
+    sealed = Path(__file__).parent.parent / "eval" / "generated" / "sealed"
+    assert main(["eval", "--dir", str(sealed), "--system", "null"]) == ExitCode.USAGE
+    one = next(sealed.glob("*.txt"))  # review must not show sealed misses either
+    assert main(["review", str(one), "-o", "/dev/null"]) == ExitCode.USAGE
+    capsys.readouterr()
 
 
 def test_eval_unknown_system(capsys):

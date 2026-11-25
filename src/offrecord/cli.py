@@ -635,8 +635,10 @@ def _cmd_review(args: argparse.Namespace) -> int:
         doc = adapter.parse(text, DEFAULT_LIMITS)
         lp = Path(args.labels) if args.labels else Path(args.input).with_suffix(".labels.json")
         if lp.exists():
-            raw = read_input_text(lp, DEFAULT_LIMITS)
-            labels = [Label.from_json(d) for d in _json.loads(raw)["labels"]]
+            meta = _json.loads(read_input_text(lp, DEFAULT_LIMITS))
+            if meta.get("set") == "sealed" and not args.final_check:
+                raise UsageError("sealed-set labels are used only with --final-check")
+            labels = [Label.from_json(d) for d in meta["labels"]]
     red, spans, _mapping, _stats = redact_document(doc, cfg)
     if args.draft_labels:
         if not args.output:
@@ -895,6 +897,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--markup", action="store_true", help="input uses inline [[CATEGORY:...]] labels"
     )
     sp.add_argument("--labels", help="labels JSON (default: <input>.labels.json if present)")
+    sp.add_argument("--final-check", action="store_true", help=argparse.SUPPRESS)
     sp.add_argument("--suggest", action="store_true", help="suggest deny-list entries for misses")
     sp.add_argument(
         "--draft-labels",

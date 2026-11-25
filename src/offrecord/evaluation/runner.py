@@ -49,8 +49,13 @@ def load_generated(
     items = []
     for lp in sorted(directory.glob("*.labels.json")):
         meta = json.loads(lp.read_text(encoding="utf-8"))
-        if meta.get("set") == "sealed" and not final_check:
-            raise UsageError("the sealed set is scored only with --final-check")
+        if meta.get("set") == "sealed":
+            from offrecord.evaluation.sets import SEALED_MANIFEST_SHA256, verify_manifest
+
+            if not final_check:
+                raise UsageError("the sealed set is scored only with --final-check")
+            if not verify_manifest(directory, SEALED_MANIFEST_SHA256):
+                raise UsageError("the sealed set does not match its pinned manifest")
         tid = meta["id"]
         fmt = meta["format"]
         tp = directory / f"{tid}.{fmt}"

@@ -55,7 +55,8 @@ def _check_hygiene():
 def test_never_track_patterns():
     bad = ["notes/x.md", "docs/PROGRESS.md", "DECISIONS.md", "docs/proposals/0001.md",
            "CLAUDE.local.md", ".claude/settings.local.json", ".env", "x/.env.prod",
-           "docs/OPEN_QUESTIONS.md", "a.ormap", "b.oraudit", "k.key", "m/x.onnx"]  # fmt: skip
+           "docs/OPEN_QUESTIONS.md", "a.ormap", "b.oraudit", "k.key", "m/x.onnx",
+           "offrecord.local.yaml", "private/a.txt", "eval/private/x.txt", "out/a.txt"]  # fmt: skip
     ok = ["CLAUDE.md", "AGENTS.md", "docs/architecture.md", "src/offrecord/notes.py", ".envrc.md"]
     assert _check_hygiene().offending(bad + ok) == bad
 
@@ -78,8 +79,7 @@ def test_distribution_allowlist(tmp_path):
     assert mod.bad_members(whl) == ["notes/PROGRESS.md", "offrecord/m.onnx"]
     sdist = tmp_path / "offrecord-1.tar.gz"
     with tarfile.open(sdist, "w:gz") as t:
-        for n in ("src/offrecord/cli.py", "tests/test_x.py", "README.md", "eval/user_set/u.txt",
-                  "CLAUDE.local.md"):  # fmt: skip
+        for n in ("src/offrecord/cli.py", "README.md", "eval/user_set/u.txt", "CLAUDE.local.md"):
             info = tarfile.TarInfo(f"offrecord-1/{n}")
             t.addfile(info, io.BytesIO(b""))
     assert mod.bad_members(sdist) == ["eval/user_set/u.txt", "CLAUDE.local.md"]

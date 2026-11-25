@@ -343,9 +343,10 @@ def test_eval_set_pools_are_disjoint():
 
     for a, b in (("tuning", "heldout"), ("tuning", "sealed"), ("heldout", "sealed")):
         t, h = load(a), load(b)
-        assert not strings(t) & strings(h), (a, b)
-        assert not set(t["first_names"]) & set(h["first_names"]), (a, b)
-        assert not set(t["last_names"]) & set(h["last_names"]), (a, b)
+        # Counts only: a failure must not print sealed pool entries into a CI log.
+        assert len(strings(t) & strings(h)) == 0, (a, b)
+        assert len(set(t["first_names"]) & set(h["first_names"])) == 0, (a, b)
+        assert len(set(t["last_names"]) & set(h["last_names"])) == 0, (a, b)
 
 
 def test_coverage_ignores_spaces_between_redacted_words():
