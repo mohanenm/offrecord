@@ -24,7 +24,10 @@ def offending(paths: list[str]) -> list[str]:
 
 def main() -> int:
     tracked = subprocess.run(
-        ["git", "ls-files"], capture_output=True, text=True, check=True
+        ["git", "ls-files"],  # noqa: S607 - developer script; git comes from PATH
+        capture_output=True,
+        text=True,
+        check=True,
     ).stdout.splitlines()
     bad = offending(tracked)
     for p in bad:
