@@ -147,6 +147,28 @@ def test_scoring_requires_full_coverage():
     assert flagged.overall.caught == 0  # a review flag is not a redaction
 
 
+def test_clean_transcript_rate_and_severity():
+    from offrecord.evaluation.labels import Label
+    from offrecord.evaluation.runner import EvalItem
+    from offrecord.model import Document, Turn
+
+    fid = turn_field_id(0, "text")
+    doc = Document("txt", (Turn(0, None, "call 555-0142 on 3 May"),))
+    labels = [Label(0, "text", 5, 13, "PHONE", "p"), Label(0, "text", 17, 22, "DATE", "d")]
+    items = [EvalItem(str(i), doc, labels, []) for i in range(3)]
+    spans = {"0": [(5, 13), (17, 22)], "1": [(5, 13)], "2": [(17, 22)]}  # date / phone leak
+
+    def system(d):
+        return [Span(fid, a, b, "X", "t", 1.0) for a, b in spans[next(it)]]
+
+    it = iter("012")
+    r = score(items, system, "s")
+    assert r.clean_rate == 1 / 3  # only the first transcript leaks nothing
+    assert r.clean_high_rate == 2 / 3  # a leaked date is not high severity, a phone is
+    assert r.clean_rate_for("PHONE") == 2 / 3 and r.leaks_per_transcript == [0, 1, 1]
+    assert r.to_json()["leaks_per_transcript_max"] == 1
+
+
 MARKUP = """[[PERSON:Orla Venkatesh]]: Morning. Is [[PERSON#bram:Bram]] joining?
 [[PERSON#bram:Bram Okafor]]: Yes. The [[CLIENT:Quillfeather]] deal closed at [[AMOUNT:$42,000]].
 and the [[NEG:lantern]] works, call [[PHONE:555-0142]].

@@ -8,6 +8,7 @@ also counted separately as ``partial``.
 from __future__ import annotations
 
 import json
+import statistics
 from collections import defaultdict
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass, field
@@ -19,7 +20,7 @@ import yaml
 from offrecord import adapters
 from offrecord.evaluation.labels import Label, LabelledTranscript, Negative, strip_markup
 from offrecord.limits import Limits
-from offrecord.model import Document, FieldId, Span, turn_field_id
+from offrecord.model import Document, FieldId, Span, severity, turn_field_id
 from offrecord.safeio import read_input_text
 
 System = Callable[[Document], Sequence[Span]]
@@ -164,6 +165,8 @@ class Report:
     - Precision is character-based: redacted characters inside any gold label / all redacted
       characters. Per-category precision uses the predicted span's category.
     - ``negatives_hit``: NEG items (ordinary uses of common-word brands) touched by a redaction.
+    - A transcript is *clean* if none of its labels leaked; per category, among the transcripts
+      that contain that category. ``clean_high`` counts only high-severity categories.
     """
 
     name: str
@@ -179,6 +182,27 @@ class Report:
     negatives_total: int = 0
     words: int = 0
     transcripts: int = 0
+    leaks_per_transcript: list[int] = field(default_factory=list)
+    clean_high: int = 0
+    with_category: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    clean_by_category: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+
+    @property
+    def clean_rate(self) -> float | None:
+        n = len(self.leaks_per_transcript)
+        return sum(x == 0 for x in self.leaks_per_transcript) / n if n else None
+
+    @property
+    def clean_high_rate(self) -> float | None:
+        return self.clean_high / self.transcripts if self.transcripts else None
+
+    def clean_rate_for(self, cat: str) -> float | None:
+        n = self.with_category.get(cat, 0)
+        return self.clean_by_category.get(cat, 0) / n if n else None
+
+    @property
+    def leaks_median(self) -> float | None:
+        return statistics.median(self.leaks_per_transcript) if self.leaks_per_transcript else None
 
     @property
     def overall(self) -> Counts:
@@ -210,6 +234,12 @@ class Report:
             "precision_chars": self.precision, "redacted_chars": self.chars.redacted,
             "negatives_hit": self.negatives_hit, "negatives": self.negatives_total,
             "leaks_per_1k_words": self.leaks_per_1k_words,
+            "clean_transcripts": self.clean_rate, "clean_high_severity": self.clean_high_rate,
+            "leaks_per_transcript_median": self.leaks_median,
+            "leaks_per_transcript_max": max(self.leaks_per_transcript, default=None),
+            "clean_by_category": {
+                k: self.clean_rate_for(k) for k in sorted(self.with_category)
+            },
             "per_category": cj(self.per_category),
             "precision_by_category": {
                 k: v.precision for k, v in sorted(self.chars_by_category.items())
@@ -281,6 +311,8 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
         casing = str(it.meta.get("casing", "n/a"))
         gold_by_field: dict[FieldId, list[tuple[int, int]]] = defaultdict(list)
         speakers: dict[str, list[tuple[bool, bool]]] = defaultdict(list)
+        present: set[str] = set()
+        leaked: list[str] = []
         for lb in it.labels:
             fid = turn_field_id(lb.turn, lb.field)
             gold_by_field[fid].append((lb.start, lb.end))
@@ -290,6 +322,9 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
             if lb.field == "speaker":
                 speakers[lb.entity].append((full, part))
                 continue
+            present.add(lb.category)
+            if not full:
+                leaked.append(lb.category)
             keys = [
                 (rep.per_category, lb.category),
                 (rep.per_form, f"{lb.category}:{lb.form or 'n/a'}"),
@@ -306,12 +341,20 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
                 c.partial += int(part and not full)
         for occ in speakers.values():
             full = all(f for f, _ in occ)
+            present.add("SPEAKER")
+            if not full:
+                leaked.append("SPEAKER")
             part = any(p for _, p in occ) or (any(f for f, _ in occ) and not full)
             for d, k in ((rep.per_category, "SPEAKER"), (rep.per_casing, casing)):
                 c = d[k]
                 c.total += 1
                 c.caught += int(full)
                 c.partial += int(part and not full)
+        rep.leaks_per_transcript.append(len(leaked))
+        rep.clean_high += not any(severity(cat) == "high" for cat in leaked)
+        for cat in present:
+            rep.with_category[cat] += 1
+            rep.clean_by_category[cat] += cat not in leaked
         gold_union = {fid: _union(ivs) for fid, ivs in gold_by_field.items()}
         for fid, ivs in spans.items():
             for a, b in ivs:
@@ -361,6 +404,23 @@ def format_report(reports: Sequence[Report]) -> str:
             lambda r: "  n/a" if r.leaks_per_1k_words is None else f"{r.leaks_per_1k_words:6.2f}",
         ),
         ("NEG hit", lambda r: f"{r.negatives_hit} of {r.negatives_total}"),
+        ("CLEAN", lambda r: f"{pct(r.clean_rate)}% of {r.transcripts:>5}"),
+        ("clean high", lambda r: f"{pct(r.clean_high_rate)}%"),
+        (
+            "leaks/tr",
+            lambda r: (
+                "n/a"
+                if r.leaks_median is None
+                else f"median {r.leaks_median:g}, max {max(r.leaks_per_transcript)}"
+            ),
+        ),
     ):
         lines.append(f"{label:<10}" + "".join(f" | {fn(r):>22}" for r in reports))
+    lines += ["", "Clean transcripts by category (share of transcripts with that category)"]
+    for c in sorted({c for r in reports for c in r.with_category}):
+        cells = []
+        for r in reports:
+            n = r.with_category.get(c, 0)
+            cells.append(f"{pct(r.clean_rate_for(c))}% of {n:>5}" if n else "")
+        lines.append(f"{c:<10}" + "".join(f" | {x:>22}" for x in cells))
     return "\n".join(lines)

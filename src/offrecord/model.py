@@ -159,3 +159,14 @@ for _name, _prefix, _prio in [
     ("TOPIC", "TOPIC", 10),
 ]:
     register_category(_name, _prefix, _prio)
+
+# How much a leak hurts, for evaluation. High: identifies or harms a person directly (and the
+# speaker labels, which are names). Low: hard to act on alone. Everything else is medium.
+SEVERITY_HIGH = frozenset({"SSN", "CARD", "ACCOUNT", "EMAIL", "PHONE", "PERSON", "SPEAKER"})
+SEVERITY_LOW = frozenset({"DATE", "PERCENT", "QUANTITY"})
+
+
+def severity(category_name: str) -> str:
+    if category_name in SEVERITY_HIGH:
+        return "high"
+    return "low" if category_name in SEVERITY_LOW else "medium"
