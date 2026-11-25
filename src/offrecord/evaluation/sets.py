@@ -81,7 +81,8 @@ def systems() -> dict[str, Any]:
             out["tier1-bert"] = with_models(tier=1, ner=["bert-base-ner"])
     if installed("phi-4-mini-q4") or installed("qwen3-1.7b-q4"):
         llm = "phi-4-mini-q4" if installed("phi-4-mini-q4") else "qwen3-1.7b-q4"
-        ner = ["gliner-small-v2.1"] if installed("gliner-small-v2.1") else []
+        # The same models `redact --tier 2` uses: the Tier 1 ensemble plus the LLM.
+        ner = [n for n in ("gliner-small-v2.1", "bert-base-ner") if installed(n)]
         out["tier2"] = with_models(tier=2, ner=ner, llm=llm)
     return out
 
