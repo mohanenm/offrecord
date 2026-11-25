@@ -290,20 +290,12 @@ def _union(ivs: list[tuple[int, int]]) -> list[tuple[int, int]]:
     return out
 
 
-def _covered(
-    ivs: list[tuple[int, int]], a: int, b: int, src: str | None = None
-) -> tuple[bool, bool]:
-    """(fully covered, partially covered). With ``src``, only letters and digits inside the
-    label must be covered: a leaked space or comma between two redacted words reveals nothing."""
+def _covered(ivs: list[tuple[int, int]], a: int, b: int, src: str) -> tuple[bool, bool]:
+    """(fully covered, partially covered). Only letters and digits inside the label of ``src``
+    must be covered: a leaked space or comma between two redacted words reveals nothing."""
     inside = [(max(a, s), min(b, e)) for s, e in ivs if s < b and e > a]
     if not inside:
         return False, False
-    if src is None:
-        need = a
-        for s, e in inside:
-            if s <= need:
-                need = max(need, e)
-        return need >= b, True
     covered = bytearray(b - a)
     for s, e in inside:
         covered[s - a : e - a] = b"\x01" * (e - s)
