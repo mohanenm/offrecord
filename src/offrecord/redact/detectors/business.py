@@ -84,11 +84,6 @@ PERCENT_MORE = [
         r"(?i)\b(?:up|down|by|gained|lost|dropped|rose|fell|grew|shrank)\s+"
         rf"(?:about\s+|roughly\s+|around\s+)?(?P<d>{FIG}\s+(?:percentage\s+)?points?)\b"
     ),
-    # "two thirds improved", "about two thirds spent", "a third of the way"
-    re.compile(
-        r"(?i)(?P<d>\b(?:about\s+)?(?:two|one|a)\s+thirds?)\b"
-        r"(?=\s+(?:of\b|spent|done|complete|improved|through|used)|\s*[.,;!?]|\s*$)"
-    ),
     # "the high eighties", "mid-twenties"
     re.compile(
         r"(?i)(?P<d>\b(?:high|mid|low)[- ](?:teens|twenties|thirties|forties|fifties|sixties|"
@@ -100,10 +95,6 @@ PERCENT_MORE = [
         r"(?![\d/])|\bfifty[- ]fifty\b)"
     ),
 ]
-# Spoken figures with fractions near a trigger: "commission is two and a half".
-SPOKEN_FIG = re.compile(
-    rf"(?i)\b(?:{NUM_WORD}\s+and\s+a\s+(?:half|quarter)|(?:{NUM_WORD}\s+)?point(?:\s+{DIG_WORD})+)\b"
-)
 PERCENT_IDIOM = re.compile(r"(?i)^(?:100|a hundred|one hundred|110|a thousand)\s?(?:%|percent)")
 UNIT_NOUNS = (
     "stores|store|units|unit|seats|seat|licenses|licences|license|users|customers|clients|"
@@ -116,6 +107,45 @@ UNIT_NOUNS = (
     "students|children|transactions|pieces|parts|items|packages|parcels|containers|loads|"
     "yards|acres|square\\s+feet|sq\\s?ft|patients|participants|volunteers|families|homes|"
     "households|tables|covers|cars|drivers|routes|riders|downloads|installs|signups|sign-ups"
+)
+TIME_UNITS = (
+    r"hours?|hrs?|days?|weeks?|months?|years?|yrs?|minutes?|mins?|seconds?|secs?|nights?|"
+    r"floors?|steps?|levels?|spots?|places?|notches?|inches|inch|miles?|feet|foot|pounds?|lbs?|"
+    r"dozen|o'?clock|am|pm|degrees?"
+)
+NOT_A_RATE = (
+    rf"(?!\s*(?:%|percent\b|per\s?cent\b|pct\b|points?\b|bps\b|basis\b)"
+    rf"|\s+(?:\w+\s+)?(?:{UNIT_NOUNS}|{TIME_UNITS}|{CURRENCY_WORDS}|{SCALE})\b)"
+)
+# Rates without a percent word, found in tuning transcripts: a figure after a movement verb
+# ("ticket was up about four", "usage is down like forty"), a share ("half of my time", "a
+# fifth of your book", "three and a half"), a decimal after "at"/"to"/"is" ("we're at 12.8").
+PERCENT_BARE = [
+    re.compile(
+        r"(?i)\b(?:up|down|rose|fell|grew|dropped|slipped|declined|increased|decreased|climbed|"
+        r"jumped|gained|lost|raised|bumped)\s+(?:about\s+|like\s+|roughly\s+|around\s+|"
+        rf"nearly\s+|almost\s+|another\s+|over\s+)?(?P<d>{FIG})\b{NOT_A_RATE}"
+    ),
+    re.compile(
+        rf"(?i)(?P<d>\b(?:(?:a|one|two|three|four)[\s-]+(?:half|halves|thirds?|quarters?|fifths?|"
+        rf"tenths?)|half|{NUM_WORD}\s+and\s+a\s+(?:half|quarter)))\b"
+        r"(?!\s+(?:past|an?\s+(?:hour|day|week|month|year|mile|inch|pound|dozen)|"
+        r"of\s+an?\s+(?:hour|inch|mile)|of\s+(?:the\s+)?(?:year|fiscal)|ago|time|way|"
+        rf"century|{TIME_UNITS})\b)"
+    ),
+    re.compile(
+        r"(?i)\b(?:at|to|is|was|of|negative|minus|hit|around|about)\s+"
+        rf"(?P<d>(?<![\d.])\d{{1,2}}\.\d{{1,2}})(?![\d.]){NOT_A_RATE}"
+    ),
+]
+# Spoken numbers ("nine", "seventeen", "sixty two", "six and change", "one in five", "double")
+# count as figures near a trigger, like digits do. A lone "one" is too common to count.
+SPOKEN_NUM = re.compile(
+    rf"(?i)\b(?:{NUM_WORD}(?:[\s-]+(?:and\s+)?(?:{NUM_WORD}|hundred))*"
+    rf"(?:\s+and\s+a\s+(?:half|quarter)|\s+point(?:\s+{DIG_WORD})+|\s+and\s+change|[\s-]ish)?"
+    rf"|(?:a\s+)?point(?:\s+{DIG_WORD})+|double|doubled|triple|tripled"
+    rf"|{NUM_WORD}\s+in\s+{NUM_WORD})\b"
+    rf"(?![\s-]+(?:{TIME_UNITS}|past|times|pack)\b)"  # durations and clock times are not figures
 )
 # Spoken counts: "eleven", "three hundred and twelve", "a hundred and forty", "four or five".
 QWORD = rf"(?:{NUM_WORD}|hundred|thousand|million|billion)"
@@ -142,6 +172,12 @@ TRIGGERS = re.compile(
     r"euros?|pounds|cents|matched|capped|commission|stipend|invest|investment|amount|spent|"
     r"transfer|transferred|withdrawal|purchase|bill|billed|range|cheaper|expensive|"
     r"interest|apr|equity|stake|target|traffic|ticket|indirect|markup|dilution|"
+    # rates that are usually said without "percent"
+    r"attrition|vacancy|occupancy|royalty|conversion|turnover|utili[sz]ation|yield|usage|"
+    r"comps?|basket|overhead|increase|increases|premiums|fill\s+rate|on[- ]time|win\s+rate|"
+    r"discounting|labou?r|capacity|share|absenteeism|readmissions?|participation|"
+    r"enrol(?:l)?ment|reimbursement|copay|coinsurance|cpi|inflation|apy|irr|roi|delinquency|"
+    r"chargebacks?|shrink|spoilage|scrap|defects?|uptime|downtime|load\s+factor|"
     + UNIT_NOUNS
     + r")\b"
 )
@@ -206,7 +242,7 @@ class BusinessDetector:
                 continue
             yield Span(f.id, m.start(), m.end(), "PERCENT", "business.percent", 0.9, None,
                        "percent", view=view)  # fmt: skip
-        for rx in PERCENT_MORE:
+        for rx in (*PERCENT_MORE, *PERCENT_BARE):
             for m in rx.finditer(text):
                 yield Span(f.id, m.start("d"), m.end("d"), "PERCENT", "business.percent", 0.6,
                            None, "percent:spoken", view=view)  # fmt: skip
@@ -221,9 +257,11 @@ class BusinessDetector:
                                None, "amount:spoken-scale", view=view)  # fmt: skip
         trig = [t.start() for t in TRIGGERS.finditer(text)]
         if trig:
-            spoken = SPOKEN_FIG.finditer(text) if view == "orig" else iter(())
+            spoken = SPOKEN_NUM.finditer(text) if view == "orig" else iter(())
             for m in (*BARE_NUM_RE.finditer(text), *spoken):
                 s, e = m.span()
+                if m.group().lower() == "one":
+                    continue
                 # Nearest trigger starts via bisect: linear-time overall.
                 k = bisect.bisect_left(trig, s)
                 near = [trig[j] for j in (k - 1, k) if 0 <= j < len(trig)]

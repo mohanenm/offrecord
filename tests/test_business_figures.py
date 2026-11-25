@@ -65,3 +65,34 @@ def test_non_figures_left_alone(text):
 def test_baseline_is_not_an_amount_tail():
     text = "We pay a $300 baseline fee."
     assert "baseline" not in "".join(text[i] for i in sorted(covered(text)))
+
+
+@pytest.mark.parametrize(
+    ("text", "fig"),
+    [
+        ("Attrition on my team is nine, which I'm watching.", "nine"),
+        ("Basket was up like six and change.", "six and change"),
+        ("Usage is down about forty since summer.", "forty"),
+        ("They're what, a fifth of your book?", "a fifth"),
+        ("The coordinator plus half of my time.", "half"),
+        ("Thirty-day readmissions are at 14.1 now.", "14.1"),
+    ],
+)
+def test_rates_without_a_percent_word(text, fig):
+    i = text.index(fig)
+    assert set(range(i, i + len(fig))) <= covered(text)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "Attrition reviews run for ninety days.",
+        "Meet at half past nine about attrition.",
+        "Usage went up two floors.",
+    ],
+)
+def test_durations_and_times_are_not_rates(text):
+    for word in ("ninety", "half", "two"):
+        if word in text:
+            i = text.index(word)
+            assert not set(range(i, i + len(word))) & covered(text)
