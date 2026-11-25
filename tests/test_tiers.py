@@ -122,6 +122,31 @@ def test_ner_detector_adds_spans_and_skips_pronouns(monkeypatch):
     assert not any(g == "I" for g, _ in got)
 
 
+class SaleEmbedder:
+    """Seeds and sentences mentioning a sale point the same way; everything else is orthogonal."""
+
+    def embed(self, texts):
+        np = pytest.importorskip("numpy")
+        vec = {True: [1.0, 0.0, 0.0], False: [0.0, 1.0, 0.0]}
+        other_seed = [0.0, 0.0, 1.0]
+        return np.array(
+            [
+                vec[True] if "sell" in t else other_seed if t in ner_mod.TOPIC_SEEDS else vec[False]
+                for t in texts
+            ]
+        )
+
+
+def test_topic_similarity_redacts_sentences_without_keywords(monkeypatch):
+    pytest.importorskip("numpy")
+    monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
+    monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: SaleEmbedder())
+    d = doc("Orla: The owner wants to sell the whole business soon.\nOrla: Lunch was good today.\n")
+    spans = detect_document(d, from_mapping({"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}}))
+    topics = {s.field[1] for s in spans if s.category == "TOPIC" and s.reason == "topic:similar"}
+    assert topics == {"0"}
+
+
 class FakeLlm:
     def __init__(self, payload):
         self.payload = payload

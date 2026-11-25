@@ -248,13 +248,11 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     if args.compress == "aggressive":
         import importlib.util
 
-        from offrecord.models import installed, model_path
+        if importlib.util.find_spec("onnxruntime"):
+            from offrecord.redact.detectors.ner import load_embedder
 
-        if installed("minilm-l6-v2") and importlib.util.find_spec("onnxruntime"):
-            from offrecord.models.embed import Embedder
-
-            embedder = Embedder(model_path("minilm-l6-v2"), cfg.model_threads)
-        elif args.compress == "aggressive":
+            embedder = load_embedder(cfg.model_threads)
+        if embedder is None:
             raise UsageError("--compress aggressive needs Tier 1 models: offrecord setup models")
     print(f"offrecord: tier {cfg.tier}", file=sys.stderr)
 
