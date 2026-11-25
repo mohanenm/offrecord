@@ -16,7 +16,7 @@ from collections.abc import Sequence
 from typing import NoReturn
 
 from offrecord import __version__, netguard, safe_errors, userconfig
-from offrecord.errors import ExitCode, NotImplementedYetError, OffrecordError
+from offrecord.errors import ExitCode, OffrecordError
 
 # Commands that may use the network. Only `setup`, and only when the user runs it explicitly.
 _NETWORK_ALLOWED = frozenset({"setup"})
@@ -44,10 +44,6 @@ class _Parser(argparse.ArgumentParser):
         self.print_usage(sys.stderr)
         print(f"offrecord: usage error: {sanitize_usage_message(message)}", file=sys.stderr)
         raise SystemExit(ExitCode.USAGE)
-
-
-def _not_built(name: str, phase: int) -> int:
-    raise NotImplementedYetError(f"`{name}` is not built yet (planned for phase {phase})")
 
 
 def _cmd_doctor(args: argparse.Namespace) -> int:
