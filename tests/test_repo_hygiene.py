@@ -54,7 +54,8 @@ def _check_hygiene():
 
 def test_never_track_patterns():
     bad = ["notes/x.md", "docs/PROGRESS.md", "DECISIONS.md", "docs/proposals/0001.md",
-           "CLAUDE.local.md", ".claude/settings.local.json", ".env", "x/.env.prod"]  # fmt: skip
+           "CLAUDE.local.md", ".claude/settings.local.json", ".env", "x/.env.prod",
+           "docs/OPEN_QUESTIONS.md", "a.ormap", "b.oraudit", "k.key", "m/x.onnx"]  # fmt: skip
     ok = ["CLAUDE.md", "AGENTS.md", "docs/architecture.md", "src/offrecord/notes.py", ".envrc.md"]
     assert _check_hygiene().offending(bad + ok) == bad
 

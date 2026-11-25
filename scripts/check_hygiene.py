@@ -17,11 +17,12 @@ from pathlib import Path
 
 NEVER_TRACK = re.compile(
     r"^notes/"
-    r"|(^|/)(PROGRESS|DECISIONS)\.md$"
+    r"|(^|/)(PROGRESS|DECISIONS|OPEN_QUESTIONS)\.md$"
     r"|^docs/proposals/"
     r"|(^|/)CLAUDE\.local\.md$"
     r"|(^|/)\.claude/settings\.local\.json$"
     r"|(^|/)\.env(\..*)?$"
+    r"|\.(ormap|oraudit|key|pem|passphrase|onnx|gguf)$"  # mappings, audit logs, keys, models
 )
 # What a distribution may contain, after the sdist's top-level "offrecord-x.y.z/" is stripped.
 SDIST_OK = re.compile(

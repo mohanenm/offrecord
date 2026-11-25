@@ -14,10 +14,8 @@ venv/
 htmlcov/
 
 # Never commit run-time artefacts: they may contain real transcript data.
-*.mapping
-*.mapping.enc
-*.audit
-*.audit.enc
+*.ormap
+*.oraudit
 *.key
 *.pem
 *.passphrase
@@ -43,6 +41,9 @@ offrecord.local.yaml
 
 # Personal working notes and assistant settings stay local.
 /notes/
+PROGRESS.md
+DECISIONS.md
+OPEN_QUESTIONS.md
 CLAUDE.local.md
 .claude/settings.local.json
 .claude/worktrees/
