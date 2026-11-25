@@ -125,7 +125,7 @@ def run_checks() -> list[Check]:
             "OK" if ok else "FAIL",
             "run-time network guard blocks connections"
             if ok
-            else "network guard did NOT block a loopback connect",
+            else "network guard did not block a loopback connect",
         )
     )
     return checks

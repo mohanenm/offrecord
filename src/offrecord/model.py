@@ -1,4 +1,4 @@
-"""Core data model (approved interface, proposal 0001 / D-020).
+"""Core data model.
 
 Turn and Document come out of adapters. Field/View are what detectors scan. Span is what
 detectors return. All are immutable.
@@ -36,7 +36,6 @@ class Document:
     free_text_extras: frozenset[str] = frozenset()
     # Adapter-private structure needed to re-render the original format (e.g. the JSON
     # skeleton). Holds no scannable text: any text in the input is in turns or metadata.
-    # Additive to proposal 0001; see D-022.
     render_state: Any = None
 
 

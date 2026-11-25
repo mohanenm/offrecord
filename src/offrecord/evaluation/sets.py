@@ -10,7 +10,7 @@ from offrecord.errors import UsageError
 from offrecord.evaluation import baseline
 
 # Frozen generation parameters. The held-out set must never be regenerated with different
-# parameters after tuning starts (see DECISIONS D-030).
+# parameters after tuning starts.
 SET_PARAMS = {
     "tuning": {"seed": 1234, "n": 72},
     "heldout": {"seed": 987_654, "n": 56},
@@ -18,7 +18,7 @@ SET_PARAMS = {
 MANIFEST = "MANIFEST.sha256"
 # SHA-256 of the committed held-out MANIFEST.sha256. Pinned here so that rewriting the manifest
 # alongside changed files is still detected. Changing this constant must be logged in
-# eval/CORRECTIONS.md (DECISIONS D-030).
+# eval/CORRECTIONS.md.
 HELDOUT_MANIFEST_SHA256 = "4b9a83b03e3d379c22e380ee93178ed4a8378cdef2b5ff9c8d3fca4e99c40d1b"
 
 
@@ -53,7 +53,7 @@ def systems() -> dict[str, Any]:
     out: dict[str, Any] = {"null": baseline.null_system, "baseline": baseline.regex_baseline}
     try:
         from offrecord.redact.pipeline import tier0_system
-    except ModuleNotFoundError as e:  # Phase 3 not built yet
+    except ModuleNotFoundError as e:  # redaction pipeline not installed
         if e.name not in ("offrecord.redact", "offrecord.redact.pipeline"):
             raise
         return out

@@ -7,7 +7,7 @@ noun), "11/27", "22/05/2027", "01.01.2027", ISO dates, quarters and fiscal years
 "early January", "end of May", "the first week of February", "the spring of 2019", and ranges
 ("Feb 24 and 25", "July through September 2026").
 
-Relative words ("yesterday", "next Friday") are not dates here (DECISIONS D-055).
+Relative words ("yesterday", "next Friday") are not dates here.
 Recall first: each match is a DATE span with confidence 0.8 (0.6 for the looser forms).
 """
 
@@ -75,7 +75,7 @@ DATES: list[tuple[re.Pattern[str], float]] = [
     (re.compile(r"(?<![\d-])\d{4}-\d{2}-\d{2}(?![\d-])"), 0.8),
     (re.compile(r"(?<![\d.])\d{1,2}\.\d{1,2}\.\d{4}(?!\d|\.\d)"), 0.8),
     (re.compile(r"(?<![\d/.])(?:1[0-2]|0?[1-9])/(?:3[01]|[12]\d|0?[1-9])(?![\d/]|\.\d)"), 0.6),
-    # Quarters, halves, fiscal years (D-055): "Q3", "Q4 2026", "H2", "FY26", "third quarter".
+    # Quarters, halves, fiscal years: "Q3", "Q4 2026", "H2", "FY26", "third quarter".
     (re.compile(r"(?i)\b(?:Q[1-4]|H[12])(?:\s*(?:FY\s?)?'?(?:\d{4}|\d{2}))?\b"), 0.7),
     (re.compile(r"(?i)\bFY\s?'?(?:\d{4}|\d{2})\b"), 0.7),
     (

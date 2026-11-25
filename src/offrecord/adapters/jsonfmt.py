@@ -1,7 +1,7 @@
 """Generic JSON transcripts: Whisper/WhisperX-style ``segments``, and simple arrays of
 ``{speaker, text, start, end}`` objects (also nested under keys like ``utterances``).
 
-Privacy rules (D-023):
+Privacy rules:
 - Every string and number in the file is either turn text/speaker or a metadata field, so it
   is scanned. Object keys outside a small known schema are scanned too.
 - Metadata field names are opaque counters (``json:7``), never JSON paths, because paths

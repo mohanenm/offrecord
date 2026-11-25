@@ -1,4 +1,4 @@
-"""Optional model tiers (Phase 8): manifest, local store, verification.
+"""Optional model tiers: manifest, local store, verification.
 
 Models are obtained only by ``offrecord setup models`` (download from pinned Hugging Face
 revisions) or by copying the files in (air-gapped: ``setup models --from DIR``). Every file is
@@ -104,7 +104,7 @@ MANIFEST: dict[str, ModelSpec] = {
     ),
 }  # fmt: skip
 
-# Default Tier 1 ensemble: GLiNER + BERT-NER (chosen on the tuning set, D-044) + embeddings.
+# Default Tier 1 ensemble: GLiNER + BERT-NER (chosen on the tuning set) + embeddings.
 TIER1_NER = ("gliner-small-v2.1", "bert-base-ner")
 TIER1_DEFAULT = (*TIER1_NER, "minilm-l6-v2")
 TIER2_DEFAULT = "phi-4-mini-q4"

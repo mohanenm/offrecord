@@ -1,4 +1,4 @@
-"""Property tests for the merger and restore (Phase 7 hardening)."""
+"""Property tests for the merger and restore."""
 
 from __future__ import annotations
 

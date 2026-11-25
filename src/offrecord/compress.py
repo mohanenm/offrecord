@@ -1,4 +1,4 @@
-"""Compression after redaction (Phase 5).
+"""Compression after redaction.
 
 Levels:
 - light: deterministic cleanup only: fillers, stutters and false starts removed; standalone

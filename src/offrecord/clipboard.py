@@ -1,4 +1,4 @@
-"""Clipboard access for ``offrecord paste`` / ``unpaste`` (DECISIONS D-061).
+"""Clipboard access for ``offrecord paste`` / ``unpaste``.
 
 Uses the platform's clipboard helper, started by absolute path with no shell and a minimal
 environment, under ``netguard.allow_processes`` (network blocking stays on). Clipboard text is

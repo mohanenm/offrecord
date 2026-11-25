@@ -1,7 +1,7 @@
 """Output rendering: compact plain text (default) or the original format.
 
 Compact text: a header with the mapping id, a legend of short speaker labels (placeholders or
-generic labels only, never names), then one line per turn. Compression (Phase 5) builds on this.
+generic labels only, never names), then one line per turn. Compression builds on this.
 """
 
 from __future__ import annotations

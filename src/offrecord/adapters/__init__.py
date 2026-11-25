@@ -1,4 +1,4 @@
-"""Input adapters (approved interface, proposal 0001 / D-020).
+"""Input adapters.
 
 Adapters turn decoded text into a :class:`Document` and render a (redacted) Document back to
 their format. They never open files and never include input text in errors.

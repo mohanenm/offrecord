@@ -1,6 +1,5 @@
-"""Regression tests for the Phase 1 outside review (docs/DECISIONS.md).
-
-Each test names the finding it covers. All data is synthetic.
+"""Regression tests for input handling: adapters (scan coverage, size limits) and the
+normaliser (Unicode digits, invisible characters, confusables). All data is synthetic.
 """
 
 from __future__ import annotations
@@ -33,7 +32,7 @@ def assert_rendered_text_is_scanned(name: str, text: str) -> None:
         assert CANARY in scanned_text(doc), f"{name}: canary re-emitted without being scanned"
 
 
-# Finding 1: cue settings / timing-line tails re-emitted unscanned.
+# Cue settings and timing-line tails are re-emitted, so they are scanned.
 def test_vtt_cue_settings_are_scanned():
     t = f"WEBVTT\n\n00:00:01.000 --> 00:00:02.000 align:start {CANARY} 555-12-3456\nhi\n"
     assert_rendered_text_is_scanned("vtt", t)
@@ -46,7 +45,7 @@ def test_srt_timing_tail_is_scanned():
     assert CANARY in scanned_text(adapters.get("srt").parse(t, L))
 
 
-# Finding 2: text silently deleted before scanning.
+# No text is dropped before scanning.
 def test_unknown_angle_brackets_are_kept():
     t = f"1\n00:00:01,000 --> 00:00:02,000\nif a < {CANARY} and b > c\n"
     assert CANARY in scanned_text(adapters.get("srt").parse(t, L))
@@ -69,7 +68,7 @@ def test_json_duplicate_keys_both_scanned():
     assert CANARY + "-1" in scanned_text(doc)
 
 
-# Finding 3: other unscanned output.
+# Nothing reaches the output unscanned.
 def test_txt_timestamp_is_ascii_digits_only():
     # Unicode digits must not be accepted as a (non-scanned) timestamp.
     doc = adapters.get("txt").parse("\u0661\u0662:\u0664\u0665 Orla: hi\nOrla: x\n", L)
@@ -89,7 +88,7 @@ def test_json_drop_keys_case_insensitive():
     assert CANARY not in out and "token_ids" not in out
 
 
-# Finding 4: quadratic behaviour within the size caps.
+# Linear time within the size caps.
 @pytest.mark.parametrize(
     ("name", "text"),
     [
@@ -114,7 +113,7 @@ def test_normaliser_is_not_quadratic(text):
     assert time.perf_counter() - t0 < 3.0
 
 
-# Finding 5: odd Unicode digits crashed the normaliser.
+# Unusual Unicode digits.
 @pytest.mark.parametrize(
     "text", ["\\u2776 thousand dollars", "\\u1369 hundred people", "\\u0663 point \\u2776 million"]
 )
@@ -129,7 +128,7 @@ def test_non_ascii_decimal_digits_fold_to_ascii():
     )
 
 
-# Finding 6: normalisation gaps.
+# Normalisation: accents, invisible characters, confusables.
 def test_combining_accents_compose():
     decomposed = b"Jose\\u0301".decode("unicode_escape")
     assert normalize(decomposed)[0] == b"Jos\\u00e9".decode("unicode_escape")
@@ -154,12 +153,12 @@ def test_genuine_cyrillic_left_alone():
     assert normalize(word)[0] == word
 
 
-# Finding 11: common txt routed to JSON.
+# Bracketed-timestamp txt is detected as txt.
 def test_bracket_timestamp_txt_detected_as_txt():
     assert adapters.detect("[00:00:01] Orla: hi\n[00:00:02] Bram: yo\n").name == "txt"
 
 
-# Suspected: lone surrogates.
+# Lone surrogates.
 def test_json_lone_surrogate_rejected():
     from offrecord.errors import InputFormatError
 

@@ -1,4 +1,4 @@
-"""Phase 8: optional tiers. Unit tests use fake models; real-model tests are skipped when the
+"""Optional tiers. Unit tests use fake models; real-model tests are skipped when the
 models are not installed (CI has none)."""
 
 from __future__ import annotations

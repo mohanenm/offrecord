@@ -187,7 +187,7 @@ def test_committed_heldout_set_is_frozen():
     from offrecord.evaluation.sets import HELDOUT_MANIFEST_SHA256
 
     d = ROOT / "eval" / "generated" / "heldout"
-    assert verify_manifest(d, HELDOUT_MANIFEST_SHA256), "held-out set changed (frozen, D-030)"
+    assert verify_manifest(d, HELDOUT_MANIFEST_SHA256), "held-out set changed (it is frozen)"
 
 
 def test_rewritten_manifest_is_still_detected(tmp_path):

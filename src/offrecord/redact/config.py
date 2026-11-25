@@ -22,7 +22,6 @@ MATCH_MODES = ("fuzzy", "exact", "case_sensitive")
 DEFAULT_MIN_SCORE = 85  # rapidfuzz ratio, 0-100; lower = more recall
 
 # Strong topic terms: the whole sentence is redacted (TOPIC). Weak terms: review flag only.
-# See DECISIONS D-034, D-043 and D-059.
 DEFAULT_TOPICS_REDACT = (
     "acquisition", "acquisitions", "acquire", "acquired", "acquiring", "merger", "mergers",
     "buyout", "takeover", "layoff", "layoffs", "laid off", "lay off", "lay people off",
@@ -39,7 +38,7 @@ DEFAULT_TOPICS_REDACT = (
     "cut jobs", "cutting jobs", "close the site", "close the plant", "close the office",
     "closing the site", "shut down the", "shutting down the", "wind down", "exit the market",
     "poach", "poaching", "breach", "data breach",
-    # Health (special-category personal data; D-059)
+    # Health (special-category personal data)
     "diagnosed", "diagnosis", "diabetes", "diabetic", "cancer", "chemo", "chemotherapy",
     "depression", "anxiety", "disorder", "breakdown", "medication", "medications",
     "therapist", "therapy", "surgery", "pregnant", "pregnancy", "miscarriage", "allergy",
@@ -109,10 +108,10 @@ class Config:
     window_turns: int = 50
     lookback_turns: int = 3
     plugins: tuple[str, ...] = ()
-    # Optional tiers (Phase 8). Tier 0 is the default; models only ever add redactions.
+    # Optional tiers. Tier 0 is the default; models only ever add redactions.
     tier: int = 0
-    ner_models: tuple[str, ...] = ("gliner-small-v2.1", "bert-base-ner")  # ensemble (D-044)
-    ner_threshold: float = 0.25  # chosen on the tuning set (D-044)
+    ner_models: tuple[str, ...] = ("gliner-small-v2.1", "bert-base-ner")  # ensemble
+    ner_threshold: float = 0.25  # chosen on the tuning set
     model_threads: int = 2
     llm_model: str = "phi-4-mini-q4"
     # Derived per document by the pipeline (not user config): names from speaker labels.

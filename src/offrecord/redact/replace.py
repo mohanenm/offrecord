@@ -10,7 +10,7 @@
   restore can never confuse it with a real one.
 
 The Mapping holds original values: it is the most sensitive artefact. It is never logged; it is
-written only encrypted (Phase 4).
+written only encrypted.
 """
 
 from __future__ import annotations

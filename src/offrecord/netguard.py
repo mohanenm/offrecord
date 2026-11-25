@@ -37,7 +37,7 @@ _hook_added = False
 _attempts = 0
 _originals: dict[str, Any] = {}
 # Absolute paths of helper programs that may be started while ``allow_processes`` is active
-# (the clipboard commands only; DECISIONS D-061). Empty everywhere else.
+# (the clipboard commands only). Empty everywhere else.
 _allowed_programs: frozenset[str] = frozenset()
 
 _INET = {socket.AF_INET, getattr(socket, "AF_INET6", socket.AF_INET)}

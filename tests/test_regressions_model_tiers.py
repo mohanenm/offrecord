@@ -1,4 +1,5 @@
-"""Regression tests for the Phase 8 outside review. Fake models; synthetic data."""
+"""Regression tests for the optional model tiers and model-aware compression. Fake models;
+synthetic data."""
 
 from __future__ import annotations
 
@@ -32,7 +33,7 @@ class AlwaysSimilar:
         return np.ones((len(texts), 4)) / 2.0
 
 
-# 1. Opposite decisions are never merged.
+# Opposite decisions are never merged.
 @pytest.mark.parametrize("level", ["medium", "aggressive"])
 def test_opposite_decisions_survive(level):
     d = Document("txt", tuple(Turn(i, s, t) for i, (s, t) in enumerate([
@@ -54,7 +55,7 @@ def test_medium_is_tier_independent():
     assert [t.text for t in a.turns] == [t.text for t in b.turns]
 
 
-# 2. Model-found names propagate; short given names are gated.
+# Model-found names propagate; short given names are gated.
 class FakeNer:
     max_width = 12
 
@@ -83,7 +84,7 @@ def test_short_names_are_gated(sentence):
     assert ner_mod.gate(sentence)
 
 
-# 3/8. Tier 2: original offsets, every occurrence, robust to odd output.
+# Tier 2: original offsets, every occurrence, odd output tolerated.
 class FakeLlm:
     def __init__(self, outputs):
         self.outputs = list(outputs)
@@ -129,7 +130,7 @@ def test_llm_truncated_output_retried_in_halves(monkeypatch):
     assert len(spans) == 1
 
 
-# 4. Aggressive keeps questions and the turns their replies depend on.
+# Aggressive keeps questions and the turns their replies depend on.
 def test_aggressive_keeps_questions_and_context():
     turns = [Turn(i, "A" if i % 2 else "B", t) for i, t in enumerate([
         "Should we raise prices for the premium tier this spring", "Honestly I disagree with that.",
@@ -141,7 +142,7 @@ def test_aggressive_keeps_questions_and_context():
     assert "raise prices" in body and "disagree" in body
 
 
-# 5. Graceful degradation: config typos and missing extras.
+# Graceful degradation: config typos and missing extras.
 @pytest.mark.parametrize("bad", [{"llm": "qwen3-1.7b"}, {"ner": ["gliner-smal"]}])
 def test_model_name_typos_rejected_clearly(bad):
     with pytest.raises(UsageError):
@@ -165,7 +166,7 @@ def test_missing_extras_drop_tier(monkeypatch, tmp_path):
         resolve_tier("1", cfg)
 
 
-# 6. A model span that only adds an org word keeps the deny-list identity; others do not adopt it.
+# A model span that only adds an org word keeps the deny-list identity; others do not adopt it.
 def test_cluster_keeps_known_entity_for_suffix_words():
     fid = turn_field_id(0, "text")
     text = "Quarnstead Freight will sign."
@@ -178,7 +179,7 @@ def test_cluster_keeps_known_entity_for_suffix_words():
     assert out2[0].entity != "spk:ada quist"
 
 
-# Suspected: swapped small files are caught at load time.
+# Swapped small files are caught at load time.
 def test_load_time_verification_catches_swapped_file(tmp_path, monkeypatch):
     import hashlib
 

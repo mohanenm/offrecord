@@ -1,4 +1,5 @@
-"""Regression tests for the Phases 4-6 outside review. Synthetic data only."""
+"""Regression tests for restore, the encrypted mapping and key files, compression and the CLI
+output paths. Synthetic data only."""
 
 from __future__ import annotations
 
@@ -32,7 +33,7 @@ def doc(*turns):
     return Document("txt", tuple(Turn(i, s, t) for i, (s, t) in enumerate(turns)))
 
 
-# 1. Bare-token normalisation.
+# Bare-token normalisation.
 ARABIC_ONE = chr(0x661)
 
 
@@ -45,13 +46,13 @@ def test_bare_collisions_use_restore_grammar():
     assert bare_collisions(["room P1 and P01"], ["<P1>"]) == ["P1"]
 
 
-# 2. No double substitution.
+# No double substitution.
 def test_restored_values_are_not_restored_again():
     out, _ = restore_text("<L1> and <P2>", P, "id")
     assert out == 'Suite P2, 9 "Fake" Lane and Zed Fakename'
 
 
-# 3. Escaping covers every form restore accepts; compression cannot create placeholders.
+# Escaping covers every form restore accepts; compression cannot create placeholders.
 @pytest.mark.parametrize("src", ["&lt;P1&gt; here", "<P1>", f"<{BS}P1>", f"{BS}u003cP1{BS}u003e"])
 def test_source_placeholder_forms_round_trip_literally(src):
     esc, _ = escape_placeholder_like(src)
@@ -62,14 +63,14 @@ def test_compression_cannot_create_a_placeholder():
     assert clean_text("< um P1> stays") == "< um P1> stays"
 
 
-# 5. No catastrophic backtracking in light compression.
+# No catastrophic backtracking in light compression.
 def test_light_compression_linear_on_hostile_line():
     t0 = time.perf_counter()
     compress(doc(("A", "a'" * 12_000 + " x- y")), "light")
     assert time.perf_counter() - t0 < 2.0
 
 
-# 6. Crafted KDF parameters are refused before any expensive work.
+# Crafted KDF parameters are refused before any expensive work.
 def test_crafted_scrypt_parameters_refused():
     pw = crypto.Secret("passphrase", b"correct horse battery staple")
     blob = crypto.encrypt("map", "or1-x", {"entries": {}}, pw, scrypt_n=2**14)
@@ -83,7 +84,7 @@ def test_crafted_scrypt_parameters_refused():
     assert time.perf_counter() - t0 < 1.0
 
 
-# 7. Compression must not reverse meaning.
+# Compression must not reverse meaning.
 def test_negation_is_not_a_duplicate():
     d = doc(
         ("A", "The patient should take the medication twice a day with food."),
@@ -106,7 +107,7 @@ def test_numbers_and_yes_no_not_collapsed(text):
     assert clean_text(text) == text
 
 
-# 12. Separation covers subdirectories of the key's directory.
+# Separation covers subdirectories of the key's directory.
 def test_mapping_below_key_dir_refused(tmp_path):
     kp = tmp_path / "keys" / "k.key"
     kp.parent.mkdir()
@@ -128,7 +129,7 @@ def test_symlinked_key_file_refused(tmp_path):
         crypto.load_key_file(link)
 
 
-# 13. Near misses reported; values escaped for the format.
+# Near misses reported; values escaped for the format.
 def test_long_placeholder_reported_unknown():
     _, rep = restore_text("x <C1234567> y", P, "id")
     assert rep.unknown
@@ -144,7 +145,7 @@ def test_json_values_escaped():
     assert json.loads(out)["t"] == 'Suite P2, 9 "Fake" Lane'
 
 
-# CLI-level findings -------------------------------------------------------------------------
+# CLI ----------------------------------------------------------------------------------------
 
 
 @pytest.fixture

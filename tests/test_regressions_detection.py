@@ -1,4 +1,4 @@
-"""Regression tests for the Phase 3 outside review (see docs/DECISIONS.md D-035). Synthetic data."""
+"""Regression tests for detection, placeholders and config parsing. Synthetic data."""
 
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ def body(red) -> str:
     )
 
 
-# 1. Common-word names after strong cues / titles, bigrams, initials, speaker parts.
+# Common-word names after strong cues / titles, bigrams, initials, speaker parts.
 @pytest.mark.parametrize(
     ("line", "secret"),
     [
@@ -58,7 +58,7 @@ def test_deny_person_first_name_alone():
     assert "Marigold" not in red.turns[0].text
 
 
-# 2. Generic speaker labels must not swallow names.
+# Generic speaker labels must not swallow names.
 @pytest.mark.parametrize("label", ["Agent Bob", "Host Kim", "Guest Lin"])
 def test_titled_speaker_labels_are_names(label):
     red, _ = run(f"{label}: hi\n{label}: ok\n")
@@ -66,7 +66,7 @@ def test_titled_speaker_labels_are_names(label):
     assert name not in body(red)
 
 
-# 3/6. Trigger in an earlier turn; longer interruption mid-number.
+# Trigger in an earlier turn; longer interruption mid-number.
 def test_trigger_in_earlier_turn():
     red, _ = run("A: my account number is\nB: mm-hmm\nA: 4471\n")
     assert "4471" not in red.turns[2].text
@@ -79,7 +79,7 @@ def test_split_card_with_longer_interruption():
     assert "1111 1111" not in red.turns[2].text
 
 
-# 4. Corrected digits after a correction cue.
+# Corrected digits after a correction cue.
 @pytest.mark.parametrize(
     "line",
     ["A: my number is 555 0100 sorry 0199", "A: account number is 4471, sorry, 4472"],
@@ -90,7 +90,7 @@ def test_corrected_value_redacted(line):
     assert "0199" not in t and "4472" not in t
 
 
-# 5. Addresses, postcodes and ID formats.
+# Addresses, postcodes and ID formats.
 @pytest.mark.parametrize(
     ("line", "secret"),
     [
@@ -123,7 +123,7 @@ def test_address_split_across_turns():
     assert "Wobble" not in red.turns[2].text
 
 
-# 7/8. Placeholder resolution.
+# Placeholder resolution.
 def test_partial_token_match_does_not_adopt_other_entity():
     red, _m = run("Ada Quist: hi\nBo Zank: I met Ada Brownfield and Zelda Quist\n")
     assert red.turns[1].text.count(red.turns[0].speaker) == 0
@@ -145,7 +145,7 @@ def test_written_and_spoken_email_share_placeholder():
     assert len(emails) == 1
 
 
-# 9. Strict config parsing.
+# Strict config parsing.
 def test_quoted_false_is_false():
     cfg = from_mapping(
         {"denylist": [{"name": "Harbor", "category": "BRAND", "common_word": "false"}]}
@@ -166,7 +166,7 @@ def test_bad_config_types_rejected(bad):
         from_mapping(bad)
 
 
-# 10. Performance cliffs.
+# Performance cliffs.
 @pytest.mark.parametrize(
     "text",
     ["A: " + "1 " * 20_000 + "\nA: ok\n", "A: " + "sales 7, " * 8_000 + "\nA: ok\n"],
@@ -177,7 +177,7 @@ def test_no_quadratic_cliffs(text):
     assert time.perf_counter() - t0 < 10.0
 
 
-# 11. Plurals of common-word entries.
+# Plurals of common-word entries.
 def test_plural_of_common_word_brand():
     cfg = {"denylist": [{"name": "Lantern", "category": "BRAND", "common_word": True,
                          "context": ["lamps"]}]}  # fmt: skip
@@ -185,7 +185,7 @@ def test_plural_of_common_word_brand():
     assert "Lanterns" not in red.turns[0].text
 
 
-# 12. Escaping is one-to-one.
+# Escaping is one-to-one.
 def test_escaping_backslash_form():
     from offrecord.redact.replace import escape_placeholder_like
     from offrecord.restore import restore_text
@@ -198,7 +198,7 @@ def test_escaping_backslash_form():
     assert restore_text(esc, payload, "id")[0] == src
 
 
-# 13. JSON key collisions.
+# JSON key collisions.
 def test_json_keys_colliding_after_redaction_are_kept():
     data = {"Zelda Quuxworth": "a", "zelda quuxworth": "b", "segments": [{"text": "hi"}]}
     red, _ = run(json.dumps(data), fmt="json")
@@ -206,7 +206,7 @@ def test_json_keys_colliding_after_redaction_are_kept():
     assert len([k for k in out if k != "segments"]) == 2
 
 
-# Suspected: common-word names stored alone in JSON metadata.
+# Common-word names stored alone in JSON metadata.
 def test_short_json_value_with_given_name():
     data = {"attendee": "Mark", "segments": [{"text": "hi"}]}
     red, _ = run(json.dumps(data), fmt="json")

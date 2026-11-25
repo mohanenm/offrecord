@@ -1,6 +1,6 @@
 """Off-the-shelf baseline: Microsoft Presidio (AnalyzerEngine defaults, spaCy en_core_web_lg).
 
-Run ONLY in a throwaway virtualenv; Presidio is NOT a dependency of offrecord (D-051):
+Run only in a throwaway virtualenv; Presidio is not a dependency of offrecord:
 
     python3 -m venv /tmp/venv-presidio && /tmp/venv-presidio/bin/pip install presidio-analyzer
     /tmp/venv-presidio/bin/python -m spacy download en_core_web_lg
