@@ -125,7 +125,7 @@ SET_CHOICES = ("tuning", "tuning-hw", "heldout", "user")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
 
 
-def resolve_tier(requested: str, cfg: object) -> int:
+def resolve_tier(requested: str | None, cfg: object) -> int:
     """``auto``: the highest tier this machine's RAM allows whose packages and models are
     installed. An explicit tier that cannot run says exactly what is missing."""
     import importlib.util

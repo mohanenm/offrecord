@@ -27,7 +27,9 @@ _SNIFF = re.compile(rf"^\s*\d+\s*\n\s*{TS_RE}\s*-->\s*{TS_RE}", re.MULTILINE)
 
 
 def _blocks(lines: list[str]) -> list[tuple[int, list[str]]]:
-    blocks, cur, start = [], [], 1
+    blocks: list[tuple[int, list[str]]] = []
+    cur: list[str] = []
+    start = 1
     for j, ln in enumerate(lines):
         if ln.strip():
             if not cur:
@@ -52,11 +54,11 @@ class SrtAdapter:
 
     def parse(self, text: str, limits: Limits) -> Document:
         meta: dict[str, str] = {}
-        cues = []
+        cues: list[tuple[int, int, re.Match[str], str]] = []
         for start_no, blk in _blocks(text.split("\n")):
             t_idx = next((k for k, ln in enumerate(blk[:2]) if "-->" in ln), None)
             m = _TIMING.match(blk[t_idx]) if t_idx is not None else None
-            if m is None:
+            if t_idx is None or m is None:
                 meta[f"unparsed_{len(meta)}"] = "\n".join(blk)
                 continue
             if t_idx == 1 and not blk[0].strip().isdigit():

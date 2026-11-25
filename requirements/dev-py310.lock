@@ -40,3 +40,10 @@ jellyfish==1.2.1
 cryptography==50.0.2
 cffi==2.1.1
 pycparser==3.11
+# Type checking
+ast_serialize==0.13.1
+librt==0.17.0
+mypy==2.4.1
+mypy_extensions==1.2.0
+pathspec==1.1.1
+types-PyYAML==6.0.12.20261122

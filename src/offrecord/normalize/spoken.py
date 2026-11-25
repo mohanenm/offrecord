@@ -224,12 +224,12 @@ def spelled_letters(text: str) -> list[Edit]:
 
 # --- 3/4. numbers ----------------------------------------------------------------------------
 
-DIGIT_WORDS = {
+_DIGIT_WORDS_ALL: dict[str, str | None] = {
     "zero": "0", "oh": "0", "o": "0", "nought": "0", "naught": "0", "one": "1", "two": "2",
     "three": "3", "four": "4", "for": None, "five": "5", "six": "6", "seven": "7",
     "eight": "8", "nine": "9", "niner": "9",
 }  # fmt: skip
-DIGIT_WORDS = {k: v for k, v in DIGIT_WORDS.items() if v is not None}
+DIGIT_WORDS: dict[str, str] = {k: v for k, v in _DIGIT_WORDS_ALL.items() if v is not None}
 TEENS = {
     "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15,
     "sixteen": 16, "seventeen": 17, "eighteen": 18, "nineteen": 19,
@@ -502,7 +502,7 @@ def spoken_email_url(text: str) -> list[Edit]:
         # Email: "local at domain"
         if j - 2 >= 0 and toks[j - 1].low in _AT:
             spoken = spoken or toks[j - 1].low == "at"
-            local = []
+            local: list[str] = []
             m = j - 2
             if _is_label(toks[m]) and toks[m].low not in _STOP_LOCAL:
                 local.insert(0, toks[m].text)

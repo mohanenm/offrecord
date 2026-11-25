@@ -202,17 +202,17 @@ def install(block_processes: bool = True) -> None:
         def resolver(*_args: Any, **_kwargs: Any) -> Any:
             raise _blocked("name resolution")
 
-        socket.socket.connect = connect  # type: ignore[method-assign]
-        socket.socket.connect_ex = connect_ex  # type: ignore[method-assign]
+        socket.socket.connect = connect  # type: ignore[method-assign,assignment]
+        socket.socket.connect_ex = connect_ex  # type: ignore[method-assign,assignment]
         socket.socket.sendto = sendto  # type: ignore[method-assign,assignment]
         if orig_sendmsg is not None:
-            socket.socket.sendmsg = sendmsg  # type: ignore[method-assign]
-        socket.create_connection = create_connection  # type: ignore[assignment]
-        socket.getaddrinfo = resolver  # type: ignore[assignment]
-        socket.getnameinfo = resolver  # type: ignore[assignment]
-        socket.gethostbyname = resolver  # type: ignore[assignment]
-        socket.gethostbyname_ex = resolver  # type: ignore[assignment]
-        socket.gethostbyaddr = resolver  # type: ignore[assignment]
+            socket.socket.sendmsg = sendmsg  # type: ignore[method-assign,assignment]
+        socket.create_connection = create_connection
+        socket.getaddrinfo = resolver
+        socket.getnameinfo = resolver
+        socket.gethostbyname = resolver
+        socket.gethostbyname_ex = resolver
+        socket.gethostbyaddr = resolver
         _installed = True
 
 

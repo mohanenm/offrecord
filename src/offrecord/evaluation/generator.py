@@ -15,7 +15,7 @@ import re
 from collections.abc import Iterator, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import yaml
 
@@ -89,7 +89,7 @@ def spoken_digits(digits: str, rng: random.Random, oh: float = 0.5) -> str:
 def asr_variant(name: str, rng: random.Random) -> str:
     """A speech-recognition-style misspelling: split compounds, phonetic swaps, dropped letters."""
     s = name.lower()
-    ops = []
+    ops: list[str | tuple[str, str]] = []
     word = s.split()[0]
     if len(word) >= 6:
         ops.append("split")
@@ -119,7 +119,7 @@ def asr_variant(name: str, rng: random.Random) -> str:
         return s.replace(word, word[:cut] + " " + word[cut:], 1)
     if op == "drop_e":
         return s[:-1]
-    a, b = op
+    a, b = cast("tuple[str, str]", op)
     return s.replace(a, b, 1)
 
 

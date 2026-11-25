@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
-from typing import ClassVar
+from typing import ClassVar, Literal
 
 from offrecord.adapters._common import GENERIC_SPEAKER_RE
 from offrecord.model import Field, Span
@@ -467,7 +467,9 @@ class PeopleDetector:
                            0.6, None, "person:proper-name", view="norm")  # fmt: skip
             elif self.unknown != "off":
                 a, b, cat = _expand(text, toks, i, j)
-                action = "redact" if self.unknown == "redact" or cat else "flag"
+                action: Literal["redact", "flag"] = (
+                    "redact" if self.unknown == "redact" or cat else "flag"
+                )
                 yield Span(f.id, toks[a].start(), toks[b].end(), cat or "NAME", "people.unknown",
                            0.4, lw if cat is None else None, "unknown-word", action=action,
                            view="norm")  # fmt: skip

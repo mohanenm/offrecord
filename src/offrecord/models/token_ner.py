@@ -70,7 +70,7 @@ class TokenNer:
             continuing = (
                 cur is not None and cur[2] == kind and (lab.startswith("I-") or s == cur[1])
             )
-            if continuing:
+            if continuing and cur is not None:
                 cur[1] = e
                 cur[3] = min(cur[3], score)
             else:

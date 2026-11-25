@@ -40,6 +40,8 @@ dev = [
     "hypothesis==6.168.5",
     "ruff==0.17.6",
     "pip-audit==2.10.1",
+    "mypy==2.4.1",
+    "types-PyYAML==6.0.12.20261122",
 ]
 
 [project.scripts]
@@ -81,3 +83,16 @@ ignore = ["SIM905"]
 "src/offrecord/models/__init__.py" = ["E501"]  # pinned SHA-256 strings
 # Seeded PRNG is the point of a deterministic synthetic-data generator.
 "src/offrecord/evaluation/generator.py" = ["S311"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src"]
+warn_unused_ignores = true
+
+# Optional modules (tiktoken if the user installs it, the [ner] and [llm] extras): tiktoken and
+# onnxruntime ship no types, and none are present on a base install. Typed ones are still
+# checked when installed.
+[[tool.mypy.overrides]]
+module = ["tiktoken", "tiktoken.*", "onnxruntime", "onnxruntime.*", "llama_cpp", "llama_cpp.*",
+          "tokenizers", "tokenizers.*", "numpy", "numpy.*"]
+ignore_missing_imports = true

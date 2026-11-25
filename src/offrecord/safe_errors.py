@@ -97,7 +97,7 @@ def install_hooks() -> None:
     warnings.showwarning = _showwarning
     # Logging: no last-resort handler (it prints messages, which libraries may fill with data),
     # a NullHandler on the root logger, and no tracebacks from handler errors.
-    logging.lastResort = None  # type: ignore[assignment]
+    logging.lastResort = None
     logging.raiseExceptions = False
     root = logging.getLogger()
     if not any(isinstance(h, logging.NullHandler) for h in root.handlers):

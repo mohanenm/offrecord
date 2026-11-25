@@ -41,14 +41,15 @@ def _project(span: Span, fields: dict[FieldId, Field]) -> Span:
 def _joined_fields(w: Window, doc: Document) -> Iterator[tuple[Field, list[tuple[Field, int]]]]:
     """Yield (joined field, [(part field, offset in joined text)]) for split-PII scanning."""
     text_fields = [f for f in (*w.context, *w.fields) if f.kind == "text" and f.turn is not None]
+    keys = [speaker_key(doc.turns[f.turn].speaker or "") for f in text_fields if f.turn is not None]
     n = len(text_fields)
     for i in range(n):
         chain = [text_fields[i]]
-        spk = speaker_key(doc.turns[chain[0].turn].speaker or "")
+        spk = keys[i]
         j = i + 1
         while j < n and len(chain) < JOIN_MAX_TURNS:
             f = text_fields[j]
-            other = speaker_key(doc.turns[f.turn].speaker or "")
+            other = keys[j]
             if other == spk:
                 chain.append(f)
                 j += 1

@@ -43,7 +43,7 @@ def speaker_legend(doc: Document) -> dict[str, str]:
 def render_compact(doc: Document, mapping_id: str | None) -> str:
     """``doc`` must already be redacted."""
     legend = speaker_legend(doc)
-    names = {}
+    names: dict[str, str] = {}
     for t in doc.turns:
         if t.speaker is not None:
             names.setdefault(speaker_key(t.speaker), t.speaker)

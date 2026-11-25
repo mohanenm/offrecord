@@ -72,6 +72,7 @@ def load_model(name: str, threads: int = 1):
             f"model {name} failed its checksum; reinstall: offrecord setup models"
         )
     kind = MANIFEST[name].kind
+    m: object
     if kind == "gliner":
         from offrecord.models.gliner import Gliner
 

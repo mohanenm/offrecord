@@ -32,7 +32,7 @@ _CORRECTION_GAP = 40
 
 
 def _explicit(s: Span) -> bool:
-    return bool(s.entity) and s.entity.startswith(_EXPLICIT)
+    return s.entity is not None and s.entity.startswith(_EXPLICIT)
 
 
 def _joinable(prev: Span, s: Span, gap: str) -> bool:

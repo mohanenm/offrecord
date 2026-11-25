@@ -87,7 +87,7 @@ class VttAdapter:
                 continue
             t_idx = next((k for k, ln in enumerate(blk[:2]) if "-->" in ln), None)
             m = _TIMING.match(blk[t_idx]) if t_idx is not None else None
-            if m is None:
+            if t_idx is None or m is None:
                 meta[f"unparsed_{counters['unparsed']}"] = "\n".join(blk)
                 counters["unparsed"] += 1
                 continue
@@ -99,7 +99,7 @@ class VttAdapter:
         limits.check_turn_count(len(cues))
         for idx, c in enumerate(cues):
             limits.check_turn_chars(idx, len(c[4]))  # before any regex runs on the payload
-        parsed = []
+        parsed: list[tuple[str, str | None, str]] = []
         candidates = []
         for c in cues:
             payload = c[4]
