@@ -1,5 +1,5 @@
 # Newest dependency versions on the newest Pythons, ignoring the locks. This reports breakage
-# early; it never blocks a pull request.
+# early (a failed run notifies the maintainers); it never runs on pull requests.
 name: weekly
 
 on:
@@ -19,7 +19,6 @@ jobs:
     name: latest deps (Python ${{ matrix.python }})
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:

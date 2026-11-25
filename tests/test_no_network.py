@@ -15,8 +15,13 @@ from pathlib import Path
 
 import pytest
 
+import offrecord
+
 SITE = Path(__file__).parent / "netguard_site"
 SRC = Path(__file__).parent.parent / "src"
+# Test whichever offrecord this interpreter imports: the source tree in development, the
+# installed wheel in CI's Tier 0 job.
+PATHS = [str(SITE)] + ([str(SRC)] if SRC in Path(offrecord.__file__).parents else [])
 
 # Extend as commands gain real behaviour (with realistic synthetic arguments).
 COMMANDS = [
@@ -37,7 +42,7 @@ COMMANDS = [
 def test_cli_never_touches_network(argv, tmp_path):
     trip = tmp_path / "tripwire.log"
     env = dict(os.environ)
-    env["PYTHONPATH"] = os.pathsep.join([str(SITE), str(SRC)])
+    env["PYTHONPATH"] = os.pathsep.join(PATHS)
     env["OFFRECORD_TRIPWIRE_FILE"] = str(trip)
     proc = subprocess.run(
         [sys.executable, "-m", "offrecord", *argv],
