@@ -21,6 +21,7 @@ from offrecord import adapters
 from offrecord.evaluation.labels import Label, LabelledTranscript, Negative, strip_markup
 from offrecord.limits import Limits
 from offrecord.model import Document, FieldId, Span, severity, turn_field_id
+from offrecord.redact.pipeline import readability
 from offrecord.safeio import read_input_text
 
 System = Callable[[Document], Sequence[Span]]
@@ -323,8 +324,6 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
         rep.words += sum(len(t.text.split()) + len((t.speaker or "").split()) for t in it.doc.turns)
         raw = _orig_only(system(it.doc))
         spans = _intervals(raw)
-        from offrecord.redact.pipeline import readability
-
         for total, n in zip(
             ("text_chars", "text_redacted", "sentences", "sentences_mostly_redacted"),
             readability(it.doc, raw),

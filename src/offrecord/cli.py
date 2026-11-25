@@ -392,7 +392,7 @@ def _redact_prompt(prompt: str, cfg, mapping):
     return red.turns[0].text, mapping
 
 
-def _summary(stats, n_flags: int, read: tuple[int, int, int, int] = (0, 0, 0, 0)) -> str:
+def _summary(stats, n_flags: int, read: tuple[int, int, int, int]) -> str:
     """Counts and categories only: never any text."""
     parts = sorted(stats.by_category.items(), key=lambda kv: (-kv[1], kv[0]))
     cats = ", ".join(f"{n} {c.lower()}" for c, n in parts if n)
@@ -404,7 +404,7 @@ def _summary(stats, n_flags: int, read: tuple[int, int, int, int] = (0, 0, 0, 0)
         line += f"; escaped {stats.escaped} placeholder-like string(s)"
     chars, red, sents, mostly = read
     if chars:
-        line += f"; {red * 100 // chars}% of the text redacted"
+        line += f"; {round(red * 100 / chars)}% of the text redacted"
         if mostly:
             line += f", {mostly} of {sents} sentence(s) mostly placeholders"
     return line

@@ -19,6 +19,7 @@ from offrecord.model import Document, Field, FieldId, Span
 from offrecord.normalize.fields import Window, iter_windows, make_field
 from offrecord.redact import detectors as det_registry
 from offrecord.redact.config import Config, from_mapping
+from offrecord.redact.detectors import business
 from offrecord.redact.merge import merge
 from offrecord.redact.replace import Mapping, Stats, apply
 
@@ -189,24 +190,26 @@ def redact_document(
     return redacted, spans, mapping, stats
 
 
-SENTENCE_RE = re.compile(r"(?:[^.!?\n]|\.(?=\d))+(?:[.!?]+|$)")
-
-
 def readability(doc: Document, spans: Sequence[Span]) -> tuple[int, int, int, int]:
     """How much of the turn text the redactions cover, as a readability check:
     (characters, redacted characters, sentences, sentences at least half redacted)."""
     by_turn: dict[int, list[tuple[int, int]]] = {}
     for sp in spans:
-        if sp.action == "redact" and sp.view == "orig" and sp.field[::2] == ("turn", "text"):
+        if (
+            sp.action == "redact"
+            and sp.view == "orig"
+            and sp.field[0] == "turn"
+            and sp.field[2] == "text"
+        ):
             by_turn.setdefault(int(sp.field[1]), []).append((sp.start, sp.end))
     chars = red = sents = mostly = 0
     for t in doc.turns:
         covered = bytearray(len(t.text))
         for a, b in by_turn.get(t.index, []):
-            covered[a:b] = b"\x01" * (b - a)
+            covered[a:b] = b"\x01" * len(covered[a:b])  # never past the end of the turn
         chars += len(t.text)
         red += sum(covered)
-        for m in SENTENCE_RE.finditer(t.text):
+        for m in business.SENTENCE_RE.finditer(t.text):
             n = len(m.group().strip())
             if n:
                 sents += 1
