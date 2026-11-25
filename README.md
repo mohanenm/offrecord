@@ -3,7 +3,7 @@
 Redact sensitive information from meeting and call transcripts, then compress them for LLM
 analysis. Fully offline, on modest hardware, and reversible on an authorised machine.
 
-> **Status: all tiers built; not yet packaged or licensed.** Recall on held-out / user set
+> **Status: all tiers built; Apache-2.0; not yet on PyPI.** Recall on held-out / user set
 > (synthetic): Tier 0 91.4% / 79.0%, Tier 1 94.2% / 82.8%, Tier 2 94.7% / 82.5%. The user set
 > is the harder, more honest number (see [the numbers](#status-what-the-numbers-measure)). Read
 > [Known limitations](#known-limitations) before relying on it.
@@ -14,23 +14,56 @@ People who need to send call or meeting transcripts to an LLM (or a colleague) w
 exposing names, clients, contact details or business figures, and who cannot send the raw
 transcript to a cloud service to clean it first.
 
+## Install
+
+```sh
+pipx install "git+https://github.com/mohanenm/offrecord"                    # Tier 0
+pipx install "offrecord[ner,llm] @ git+https://github.com/mohanenm/offrecord"  # + model tiers
+offrecord doctor
+```
+
+From a clone (development): `python3 -m venv .venv && .venv/bin/pip install -e '.[dev]' -c
+requirements/dev.lock` (Python 3.10: `dev-py310.lock`).
+
+## Everyday use: the LLM round trip
+
+```sh
+offrecord init                 # once: list your clients, products, codenames, colleagues
+offrecord keygen               # once: key for reversible redaction
+offrecord paste --prompt "Summarise the decisions and owners"
+# ... paste into ChatGPT / Claude, copy its answer ...
+offrecord unpaste              # placeholders in the copied answer -> real names again
+```
+
+- `init` writes your deny-list to `~/.config/offrecord/config.yaml` (owner-only); `redact`,
+  `paste` and `review` use it automatically. Add names later with
+  `offrecord denylist add "Quillfeather Analytics" --alias QFA`, import a CRM export with
+  `offrecord denylist import clients.csv` (columns `name,category,aliases`), and check it with
+  `offrecord denylist count` (counts only; names are never printed).
+- `paste` redacts the clipboard in place; `unpaste` restores the clipboard using the most recent
+  mapping (`--mapping` to choose one, `--stdout` to print instead). Clipboard helpers: macOS
+  built in; Linux needs wl-clipboard, xclip or xsel. Without a clipboard, use files or stdin:
+  `offrecord redact call.txt --prompt "..." > for-llm.txt`.
+- `--prompt` puts your instruction first and tells the LLM to keep placeholders exactly as
+  written, which is what makes restoring its answer reliable. Your instruction is redacted with
+  the same mapping, so `Summarise the QFA call` becomes `Summarise the <C1> call`.
+- Every run ends with a summary such as "redacted 42 item(s) (12 person, 5 client, ...); 3
+  flagged for review". Review flagged items (`offrecord review`) before sharing.
+
 ## Quick try (synthetic samples)
 
 ```sh
-python3 -m venv .venv
-.venv/bin/pip install -e '.[dev]' -c requirements/dev.lock    # Python 3.10: dev-py310.lock
-.venv/bin/offrecord doctor
-.venv/bin/offrecord redact samples/sales-call.txt --no-mapping
+offrecord redact samples/sales-call.txt --no-mapping
 ```
 
 Reversible run (the mapping is encrypted with a key file; keep the key away from the mapping):
 
 ```sh
-.venv/bin/offrecord keygen                       # ~/.config/offrecord/keys/default.key
-.venv/bin/offrecord redact samples/support-call.vtt -o out.txt \
+offrecord keygen                       # ~/.config/offrecord/keys/default.key
+offrecord redact samples/support-call.vtt -o out.txt \
     --key-file ~/.config/offrecord/keys/default.key
 # ... send out.txt to an LLM, save its answer as answer.txt ...
-.venv/bin/offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord/mappings/<id>.ormap \
+offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord/mappings/<id>.ormap \
     --key-file ~/.config/offrecord/keys/default.key
 ```
 
@@ -121,7 +154,7 @@ and use the review flags.
   catch most of them.
 - Unknown organisations or products whose names are ordinary words are missed at Tier 0 and
   partly at Tier 1 (held-out PRODUCT: 64% / 84% / 89% at Tiers 0 / 1 / 2).
-- Higher tiers trade precision for recall (held-out precision 89.6% / 84.3% / 80.3%), and are
+- Higher tiers trade precision for recall (held-out precision 87.6% / 82.7% / 79.3%), and are
   slower (Tier 2 is roughly 15-20 s per call transcript on a laptop CPU).
 - `aggressive` compression is lossy by design (it drops low-information turns), though it never
   drops turns with placeholders, numbers, decisions or questions.
@@ -168,3 +201,10 @@ and use the review flags.
 
 [docs/DECISIONS.md](docs/DECISIONS.md) · [docs/security.md](docs/security.md) · [docs/eval-format.md](docs/eval-format.md) ·
 [CHANGELOG.md](CHANGELOG.md)
+
+## Licence
+
+Apache License 2.0: see [LICENSE](LICENSE). The bundled word lists come from SCOWL under their
+own permissive licence ([src/offrecord/data/LICENSE-SCOWL.txt](src/offrecord/data/LICENSE-SCOWL.txt)).
+Optional models are downloaded by `offrecord setup` from their publishers under their own
+licences; none are redistributed here.

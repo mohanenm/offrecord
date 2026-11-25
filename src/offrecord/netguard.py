@@ -20,10 +20,12 @@ layers. See docs/security.md (R3).
 
 from __future__ import annotations
 
+import contextlib
 import os
 import socket
 import sys
 import threading
+from collections.abc import Iterable, Iterator
 from typing import Any
 
 from offrecord.errors import NetworkBlockedError
@@ -34,6 +36,9 @@ _block_processes = False
 _hook_added = False
 _attempts = 0
 _originals: dict[str, Any] = {}
+# Absolute paths of helper programs that may be started while ``allow_processes`` is active
+# (the clipboard commands only; DECISIONS D-061). Empty everywhere else.
+_allowed_programs: frozenset[str] = frozenset()
 
 _INET = {socket.AF_INET, getattr(socket, "AF_INET6", socket.AF_INET)}
 _UNIX_FAMILIES = {getattr(socket, "AF_UNIX", object())}
@@ -100,8 +105,42 @@ def _audit(event: str, args: tuple[Any, ...]) -> None:
     if event in _RESOLVE_EVENTS:
         raise _blocked("name resolution")
     if _block_processes and event in _PROCESS_EVENTS:
+        if event in ("subprocess.Popen", "os.posix_spawn") and _program_allowed(args):
+            return
         _count()
         raise NetworkBlockedError("starting child processes is disabled at run time")
+
+
+def _program_allowed(args: tuple[Any, ...]) -> bool:
+    """True if a Popen/posix_spawn audit event starts an allow-listed program by absolute path."""
+    if not _allowed_programs or not args:
+        return False
+    prog = args[0]
+    if prog is None and len(args) > 1:  # Popen(executable=None, args=[...])
+        argv = args[1]
+        prog = argv[0] if isinstance(argv, (list, tuple)) and argv else argv
+    try:
+        prog = os.fsdecode(prog)
+    except TypeError:
+        return False
+    return prog in _allowed_programs
+
+
+@contextlib.contextmanager
+def allow_processes(programs: Iterable[str]) -> Iterator[None]:
+    """Temporarily allow starting exactly these programs (absolute paths, no shell). Network
+    blocking is unaffected."""
+    global _allowed_programs
+    progs = frozenset(programs)
+    if any(not os.path.isabs(p) for p in progs):
+        raise ValueError("allowed programs must be absolute paths")
+    with _lock:
+        previous, _allowed_programs = _allowed_programs, progs
+    try:
+        yield
+    finally:
+        with _lock:
+            _allowed_programs = previous
 
 
 def _is_unix(sock: socket.socket) -> bool:

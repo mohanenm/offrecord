@@ -25,3 +25,9 @@ def _fresh_attempt_counter():
     # CLI tests switch the shared guard into process-blocking mode; reset it so test order
     # does not matter (tests that spawn the CLI need subprocesses).
     netguard.install(block_processes=False)
+
+
+@pytest.fixture(autouse=True)
+def _no_user_config(tmp_path_factory, monkeypatch):
+    # Never pick up the developer's real deny-list (~/.config/offrecord/config.yaml).
+    monkeypatch.setenv("OFFRECORD_CONFIG", str(tmp_path_factory.mktemp("cfg") / "absent.yaml"))

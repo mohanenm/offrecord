@@ -60,3 +60,8 @@ def test_figures_found(text, fig):
 )
 def test_non_figures_left_alone(text):
     assert not covered(text)
+
+
+def test_baseline_is_not_an_amount_tail():
+    text = "We pay a $300 baseline fee."
+    assert "baseline" not in "".join(text[i] for i in sorted(covered(text)))

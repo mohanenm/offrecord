@@ -152,6 +152,18 @@ Every other command installs a network guard (see below) before doing any work.
   `-o`. Never pipe them into anything that leaves the machine.
 - `restore` output is original text again: written owner-only with `-o`.
 
+### R11b. Clipboard commands (`paste`, `unpaste`)
+- They start the platform clipboard helper (`/usr/bin/pbcopy`/`pbpaste`, or `wl-copy`/
+  `wl-paste`, `xclip`, `xsel` resolved to an absolute path) as the only allowed child process:
+  `netguard.allow_processes` admits exactly those paths, no shell, with an environment reduced to
+  the display variables, a timeout, and the input size limit. Network blocking is unchanged and
+  every other child process is still refused (D-061).
+- The clipboard is readable by other local programs (clipboard managers, sync to other devices).
+  `paste` leaves only the redacted text there; `unpaste` puts original text back on it by
+  design. Disable clipboard sync/history if that matters; use files or stdin otherwise.
+- The last mapping's path is kept in an owner-only file (`last-mapping` in the data store) so
+  `unpaste` can find it; it holds a path and a random id, no transcript content.
+
 ### R12. The one networked command
 - `offrecord setup tokenizer` downloads a token-encoding file from a fixed HTTPS URL, verifies
   its SHA-256 before writing it, and sends nothing else. `--from FILE` installs from a local

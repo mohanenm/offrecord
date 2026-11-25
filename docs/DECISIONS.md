@@ -529,3 +529,28 @@ Big items that need sign-off are written up in `docs/proposals/` and linked here
 - Final numbers after tuning on tuning-hw (held-out / user, recall / precision): Tier 0
   91.4/87.6 and 79.0/88.3; Tier 1 94.2/82.7 and 82.8/83.3; Tier 2 94.7/79.3 and 82.5/82.1
   (before: Tier 0 90.6/89.6 and 68.6/90.8). Held-out and user misses were not inspected.
+
+### D-061 Clipboard commands may start the clipboard helper, nothing else (2026-11-25)
+- `paste`/`unpaste` (user-requested usability features) need the platform clipboard helper.
+  `netguard.allow_processes(paths)` temporarily admits exactly those absolute paths for
+  Popen/posix_spawn audit events; no shell, reduced environment, timeout, size limit. The
+  network block is untouched and all other child processes stay blocked. Threat model R11b.
+- Alternatives rejected: tkinter (often missing, needs a display, heavier); a new dependency
+  (needs approval, same subprocess underneath on Linux).
+
+### D-062 Usability: default config, init, denylist, --prompt, run summary (2026-11-25)
+- `redact`/`paste`/`review` load `~/.config/offrecord/config.yaml` (or `OFFRECORD_CONFIG`) when
+  `--config` is not given, and say so on stderr (no content). Tests point OFFRECORD_CONFIG at a
+  missing file so the developer's real deny-list is never used.
+- `init` (interactive) and `denylist add/import/count` edit that file owner-only, merge aliases
+  for an existing name instead of duplicating it, validate before writing, and never print
+  names. YAML comments in the deny-list are not preserved when these commands rewrite it.
+- `--prompt` redacts the instruction with the same mapping (deny-list, patterns, figures) but
+  without the unknown-word heuristic, so the user's wording stays readable; the wrapper tells the
+  LLM to copy placeholders exactly. The last mapping's path is remembered for `unpaste`.
+- The run summary reports counts per category and the number of review flags; never text.
+
+### D-063 Licence: Apache-2.0 (user decision, 2026-11-25)
+- Resolves Q-003. Permissive with an explicit patent grant; compatible with the bundled SCOWL
+  word lists. Model weights are not redistributed (users download them via `setup`), so their
+  licences do not constrain the project's. LICENSE text taken verbatim from GitHub's licence API.

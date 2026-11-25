@@ -15,7 +15,7 @@ import sys
 from collections.abc import Sequence
 from typing import NoReturn
 
-from offrecord import __version__, netguard, safe_errors
+from offrecord import __version__, netguard, safe_errors, userconfig
 from offrecord.errors import ExitCode, NotImplementedYetError, OffrecordError
 
 # Commands that may use the network. Only `setup`, and only when the user runs it explicitly.
@@ -189,13 +189,14 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     from offrecord.errors import OutputExistsError, UsageError
     from offrecord.limits import DEFAULT_LIMITS, Limits
     from offrecord.paths import mapping_store
-    from offrecord.redact import config as config_mod
     from offrecord.redact.pipeline import redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
     from offrecord.safeio import ensure_private_dir, read_input_bytes, read_input_text, write_atomic
     from offrecord.tokens import get_counter
 
+    clip = getattr(args, "clipboard", False)
+    prompt = getattr(args, "prompt", None)
     if args.mapping_out and len(args.inputs) > 1 and args.mapping_scope != "project":
         raise UsageError("--mapping-out with several inputs needs --mapping-scope project")
     if args.mapping_in and args.no_mapping:
@@ -213,7 +214,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
                 "`offrecord keygen`), run interactively, or pass --no-mapping"
             )
         _secret_notice(secret)
-    cfg = config_mod.load(args.config) if args.config else config_mod.Config()
+    cfg = _load_config(args.config)
     cfg.tier = resolve_tier(args.tier, cfg)
     embedder = None
     if args.compress == "aggressive":
@@ -261,13 +262,19 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         crypto.check_separation(dest, secret)
         write_atomic(dest, crypto.encrypt("map", mapping.id, payload, secret), force=force)
         print(f"offrecord: mapping {mapping.id} written to {dest}", file=sys.stderr)
+        userconfig.remember_mapping(dest)
 
     project_rendered: list[str] = []
     pending: list[tuple[Path | None, str]] = []
     audit_entries: list[dict] = []
     counter = get_counter(args.tokenizer)
     for n_input, path in enumerate(args.inputs):
-        text = read_input_text(path, DEFAULT_LIMITS)
+        if clip:
+            from offrecord import clipboard
+
+            text = clipboard.read_text(DEFAULT_LIMITS.max_bytes)
+        else:
+            text = read_input_text(path, DEFAULT_LIMITS)
         adapter = (
             adapters.get(args.format) if args.format != "auto" else adapters.detect(text, path)
         )
@@ -289,10 +296,15 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         pct = (1 - after / before) * 100 if before else 0.0
         label = "approx" if counter.approximate else counter.name
         print(
-            f"offrecord: tokens ({label}, estimate): {before} -> {after} ({pct:.0f}% fewer); "
+            f"offrecord: tokens ({label}, estimate): {before} -> {after} "
+            f"({abs(pct):.0f}% {'fewer' if pct >= 0 else 'more'}); "
             f"compression {args.compress}: {cstats.turns_before} -> {cstats.turns_after} turns",
             file=sys.stderr,
         )
+        if prompt:
+            # The instruction can name a client too: redact it with the same mapping.
+            instruction, mapping = _redact_prompt(prompt, cfg, mapping)
+            rendered = userconfig.wrap_prompt(instruction, rendered)
         dest: Path | None = None
         if args.out_dir:
             # Output names never reuse input names or suffixes (they can carry client names).
@@ -305,15 +317,15 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             dest = Path(args.output)
         if shared is None:
             save_mapping(mapping, [rendered])  # mapping first, then the output
-            _emit(dest, rendered, args.force, write_atomic, n_input)
+            if clip:
+                clipboard.write_text(rendered)
+                print("offrecord: redacted text copied to the clipboard", file=sys.stderr)
+            else:
+                _emit(dest, rendered, args.force, write_atomic, n_input)
         else:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
-        print(
-            f"offrecord: redacted {stats.replaced} span(s), {len(flags)} review flag(s)"
-            + (f", escaped {stats.escaped} placeholder-like string(s)" if stats.escaped else ""),
-            file=sys.stderr,
-        )
+        print(_summary(stats, len(flags)), file=sys.stderr)
     if shared is not None:
         save_mapping(shared, project_rendered)
         for i, (dest, rendered) in enumerate(pending):
@@ -328,6 +340,45 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     return ExitCode.OK
 
 
+def _load_config(explicit: str | None):
+    from offrecord.redact import config as config_mod
+
+    path = userconfig.resolve_config(explicit)
+    if path is None:
+        return config_mod.Config()
+    if not explicit:
+        print("offrecord: using your default config (deny-list)", file=sys.stderr)
+    return config_mod.load(path)
+
+
+def _redact_prompt(prompt: str, cfg, mapping):
+    import dataclasses
+
+    from offrecord.model import Document, Turn
+    from offrecord.redact.pipeline import redact_document
+
+    doc = Document(format="txt", turns=(Turn(index=0, speaker=None, text=prompt),))
+    # The instruction is the user's own wording: deny-list names, patterns and figures are
+    # redacted, but out-of-dictionary words ("Summarise") are not guessed to be names.
+    red, _spans, mapping, _stats = redact_document(
+        doc, dataclasses.replace(cfg, unknown_words="off"), mapping
+    )
+    return red.turns[0].text, mapping
+
+
+def _summary(stats, n_flags: int) -> str:
+    """Counts and categories only: never any text."""
+    parts = sorted(stats.by_category.items(), key=lambda kv: (-kv[1], kv[0]))
+    cats = ", ".join(f"{n} {c.lower()}" for c, n in parts if n)
+    line = f"offrecord: redacted {stats.replaced} item(s)" + (f" ({cats})" if cats else "")
+    line += f"; {n_flags} flagged for review"
+    if n_flags:
+        line += " (check them before sharing: offrecord review)"
+    if stats.escaped:
+        line += f"; escaped {stats.escaped} placeholder-like string(s)"
+    return line
+
+
 def _emit(dest, rendered: str, force: bool, write_atomic, n: int) -> None:
     if dest is None:
         sys.stdout.write(rendered)
@@ -338,7 +389,7 @@ def _emit(dest, rendered: str, force: bool, write_atomic, n: int) -> None:
 
 def _cmd_restore(args: argparse.Namespace) -> int:
     from offrecord import crypto
-    from offrecord.errors import MappingError, UsageError
+    from offrecord.errors import UsageError
     from offrecord.restore import find_header_id, restore_text
     from offrecord.safeio import read_input_bytes, read_input_text, write_atomic
 
@@ -362,6 +413,13 @@ def _cmd_restore(args: argparse.Namespace) -> int:
         write_atomic(args.output, out.encode("utf-8"), force=args.force)
     else:
         sys.stdout.write(out)
+    _report_restore(rep, args.strict)
+    return ExitCode.OK
+
+
+def _report_restore(rep, strict: bool) -> None:
+    from offrecord.errors import MappingError
+
     print(f"offrecord: restored {rep.restored} placeholder(s)", file=sys.stderr)
     if rep.unknown:
         names = ", ".join(sorted(rep.unknown))
@@ -376,8 +434,147 @@ def _cmd_restore(args: argparse.Namespace) -> int:
         print(f"offrecord: warning: {sum(rep.ambiguous.values())} bare placeholder-like token(s) "
               "left as is because they also occur naturally in the redacted text",
               file=sys.stderr)  # fmt: skip
-    if args.strict and (rep.unknown or rep.ambiguous):
+    if strict and (rep.unknown or rep.ambiguous):
         raise MappingError("restore incomplete (--strict)")
+
+
+_PASTE_DEFAULTS = {
+    "inputs": ["<clipboard>"], "output": None, "out_dir": None, "output_format": "compact",
+    "mapping_scope": "document", "mapping_out": None, "mapping_in": None, "audit": False,
+    "force": False, "clipboard": True,
+}  # fmt: skip
+
+
+def _cmd_paste(args: argparse.Namespace) -> int:
+    """Redact the clipboard in place: copy a transcript, run this, paste into an LLM."""
+    return _cmd_redact(argparse.Namespace(**{**vars(args), **_PASTE_DEFAULTS}))
+
+
+def _cmd_unpaste(args: argparse.Namespace) -> int:
+    """Restore placeholders in the clipboard (an LLM's answer) with the last (or given) mapping."""
+    from pathlib import Path
+
+    from offrecord import clipboard, crypto
+    from offrecord.errors import UsageError
+    from offrecord.limits import Limits
+    from offrecord.restore import restore_text
+    from offrecord.safeio import read_input_bytes
+
+    mapping_path = Path(args.mapping) if args.mapping else userconfig.last_mapping()
+    if mapping_path is None:
+        raise UsageError("no recent mapping found; pass --mapping (or redact with a mapping first)")
+    text = clipboard.read_text()
+    secret = crypto.get_secret(args.key_file)
+    if secret is None:
+        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
+    _secret_notice(secret)
+    data = read_input_bytes(mapping_path, Limits(max_bytes=crypto.MAX_FILE_BYTES))
+    mapping_id, payload = crypto.decrypt(data, "map", secret)
+    if not args.mapping:
+        print(f"offrecord: using the most recent mapping ({mapping_id})", file=sys.stderr)
+    out, rep = restore_text(text, payload, mapping_id)
+    if args.stdout:
+        sys.stdout.write(out)
+    else:
+        clipboard.write_text(out)
+        print("offrecord: restored text copied to the clipboard", file=sys.stderr)
+    _report_restore(rep, args.strict)
+    return ExitCode.OK
+
+
+INIT_QUESTIONS = (
+    ("ORG", "Your own organisation's name(s)"),
+    ("CLIENT", "Clients or customers"),
+    ("PRODUCT", "Products and services (yours and theirs)"),
+    ("CODENAME", "Internal codenames and project names"),
+    ("PERSON", "Colleagues and frequent contacts (full names)"),
+    ("BRAND", "Other companies or brands to hide"),
+)
+
+
+def _parse_names(answer: str, category: str) -> list[dict]:
+    """'Quillfeather Analytics (QFA/Quill), Corvanta' -> entries with aliases."""
+    out = []
+    for item in userconfig.split_list(answer):
+        name, _, rest = item.partition("(")
+        aliases = [a.strip() for a in rest.rstrip(")").split("/") if a.strip()]
+        if name.strip():
+            out.append({"name": name.strip(), "category": category, "aliases": aliases})
+    return out
+
+
+def _cmd_init(args: argparse.Namespace) -> int:
+    """Guided setup of the deny-list. Answers are written to an owner-only file, never echoed."""
+    from pathlib import Path
+
+    from offrecord.errors import OutputExistsError, UsageError
+    from offrecord.paths import default_key_path
+
+    path = Path(args.config) if args.config else userconfig.default_config_path()
+    if path.exists() and args.force:
+        raise OutputExistsError("refusing to delete an existing config; remove it yourself")
+    if not sys.stdin.isatty() and not args.yes:
+        raise UsageError(
+            "init is interactive; for scripts use `offrecord denylist add` or `denylist import`"
+        )
+    print(
+        "offrecord init: list the names that must never reach an LLM. Separate items with\n"
+        "commas; put spellings or abbreviations in brackets: Quillfeather Analytics (QFA/Quill).\n"
+        "Press Enter to skip a question. Nothing you type is printed back or sent anywhere.\n",
+        file=sys.stderr,
+    )
+    if path.exists():
+        print("offrecord: a config already exists; new names are added to it", file=sys.stderr)
+    entries: list[dict] = []
+    for category, question in INIT_QUESTIONS:
+        try:
+            answer = input(f"{question}: ")
+        except EOFError:
+            break
+        entries.extend(_parse_names(answer, category))
+    added, merged, total = userconfig.add_entries(path, entries)
+    print(f"offrecord: {added} new deny-list entr{'y' if added == 1 else 'ies'}, {merged} merged; "
+          f"{total} in total, saved to {path} (owner-only; keep it private)",
+          file=sys.stderr)  # fmt: skip
+    if not args.config and path == userconfig.default_config_path():
+        print("offrecord: redact, paste and review now use it automatically", file=sys.stderr)
+    if not default_key_path().exists():
+        print("offrecord: next, create a key for reversible redaction: offrecord keygen",
+              file=sys.stderr)  # fmt: skip
+    return ExitCode.OK
+
+
+def _cmd_denylist(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from offrecord.errors import UsageError
+
+    path = Path(args.config) if args.config else userconfig.default_config_path()
+    if args.action == "add":
+        entry = {"name": args.name, "category": args.category, "aliases": args.alias or []}
+        if args.common_word:
+            entry["common_word"] = True
+            if not args.context:
+                raise UsageError("--common-word needs --context words (e.g. --context app)")
+        if args.context:
+            entry["context"] = args.context
+        entries = [entry]
+    elif args.action == "import":
+        entries = userconfig.read_csv_entries(args.csv)
+    else:  # count
+        from offrecord.redact import config as config_mod
+
+        cfg = config_mod.load(path) if path.exists() else config_mod.Config()
+        counts: dict[str, int] = {}
+        for e in cfg.denylist:
+            counts[e.category] = counts.get(e.category, 0) + 1
+        detail = ", ".join(f"{n} {c.lower()}" for c, n in sorted(counts.items()))
+        line = f"offrecord: {len(cfg.denylist)} deny-list entries"
+        print(line + (f" ({detail})" if detail else ""), file=sys.stderr)
+        return ExitCode.OK
+    added, merged, total = userconfig.add_entries(path, entries)
+    print(f"offrecord: {added} added, {merged} merged into existing entries; {total} in total",
+          file=sys.stderr)  # fmt: skip
     return ExitCode.OK
 
 
@@ -391,11 +588,10 @@ def _cmd_review(args: argparse.Namespace) -> int:
     from offrecord.evaluation.labels import Label
     from offrecord.evaluation.runner import parse_markup_transcript
     from offrecord.limits import DEFAULT_LIMITS
-    from offrecord.redact import config as config_mod
     from offrecord.redact.pipeline import redact_document
     from offrecord.safeio import read_input_text, write_atomic
 
-    cfg = config_mod.load(args.config) if args.config else config_mod.Config()
+    cfg = _load_config(args.config)
     text = read_input_text(args.input, DEFAULT_LIMITS)
     labels: list[Label] = []
     if args.markup:
@@ -560,7 +756,51 @@ def build_parser() -> argparse.ArgumentParser:
         help="write an encrypted audit log (contains original text) to the private store",
     )
     sp.add_argument("--force", action="store_true", help="overwrite existing output files")
+    sp.add_argument("--prompt", help="wrap the output in an LLM prompt with this instruction "
+                    "(the instruction is redacted too)")  # fmt: skip
     sp.set_defaults(func=_cmd_redact)
+
+    sp = sub.add_parser("paste", help="redact the clipboard in place, ready to paste into an LLM")
+    sp.add_argument("--format", default="auto", help="input format: auto, txt, vtt, srt, json")
+    sp.add_argument("--config", help="config file (default: your config from `offrecord init`)")
+    sp.add_argument("--compress", choices=["none", "light", "medium", "aggressive"],
+                    default="light")  # fmt: skip
+    sp.add_argument("--tokenizer", default="auto")
+    sp.add_argument("--tier", choices=["0", "1", "2", "auto"], default=None)
+    sp.add_argument("--no-mapping", action="store_true", help="one-way: cannot be restored")
+    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--prompt", help="wrap the result in an LLM prompt with this instruction")
+    sp.set_defaults(func=_cmd_paste)
+
+    sp = sub.add_parser("unpaste", help="restore placeholders in the clipboard (an LLM answer)")
+    sp.add_argument("--mapping", help="mapping file (default: the most recent one)")
+    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--stdout", action="store_true", help="print instead of copying back")
+    sp.add_argument("--strict", action="store_true", help="fail on unknown placeholders")
+    sp.set_defaults(func=_cmd_unpaste)
+
+    sp = sub.add_parser("init", help="guided setup of your deny-list (clients, codenames, people)")
+    sp.add_argument("--config", help="where to write it (default: your user config)")
+    sp.add_argument("--force", action="store_true", help=argparse.SUPPRESS)
+    sp.add_argument("--yes", action="store_true", help=argparse.SUPPRESS)  # tests: piped answers
+    sp.set_defaults(func=_cmd_init)
+
+    sp = sub.add_parser("denylist", help="add names to your deny-list or import a CSV")
+    dsub = sp.add_subparsers(dest="action", required=True)
+    d = dsub.add_parser("add", help="add one name (never printed back)")
+    d.add_argument("name")
+    d.add_argument("--category", default="CLIENT", type=str.upper,
+                   choices=list(userconfig.DENYLIST_CATEGORIES))  # fmt: skip
+    d.add_argument("--alias", action="append", help="another spelling (repeatable)")
+    d.add_argument("--common-word", action="store_true",
+                   help="an ordinary word: match only near --context words")  # fmt: skip
+    d.add_argument("--context", action="append", help="context word for --common-word")
+    d = dsub.add_parser("import", help="merge a CSV (name,category,aliases,...) into it")
+    d.add_argument("csv")
+    dsub.add_parser("count", help="show how many entries per category (no names)")
+    for d in dsub.choices.values():
+        d.add_argument("--config", help="config file (default: your user config)")
+    sp.set_defaults(func=_cmd_denylist)
 
     sp = sub.add_parser("restore", help="restore placeholders using a mapping file")
     sp.add_argument("input", help="redacted text or an LLM answer about it (- for stdin)")

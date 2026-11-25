@@ -4,15 +4,27 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 
 ## [Unreleased]
 
+### Fixed
+- "$300 baseline" no longer redacts part of "baseline"; negative token savings read "more".
+
 ### Changed
 - Tier 0 catches far more unseen phrasing (tuned on a new hand-written tuning set): spoken and
   weekday dates, quarters and fiscal years, spoken amounts/percentages/counts with rate tails
   and ranges, dictated identifiers and passwords, dictated emails, and organisation/place
-  names with generic words ("Family Health", "and Sons"). User-set recall 68.6% -> 78.3%.
+  names with generic words ("Family Health", "and Sons"). User-set recall 68.6% -> 79.0% (Tier 0).
 - Fiscal quarters, bare years after a cue, codes/passwords and last-four digits now count as
   sensitive (D-055).
 
 ### Added
+- Apache-2.0 licence (LICENSE, package metadata).
+- `offrecord paste` / `offrecord unpaste`: redact the clipboard in place, then restore the
+  LLM's copied answer with the most recent mapping (macOS, Wayland, X11).
+- `--prompt "..."` on `redact` and `paste`: wraps the output in a ready-to-paste LLM prompt
+  that keeps placeholders intact; the instruction itself is redacted with the same mapping.
+- `offrecord init` (guided deny-list setup) and `offrecord denylist add|import|count`; a
+  default config at `~/.config/offrecord/config.yaml` is used automatically.
+- Per-category run summary ("redacted 42 item(s) (12 person, 5 client, ...); 3 flagged").
+- `site/`: a self-contained one-page site for GitHub Pages.
 - `tuning-hw` evaluation set (20 hand-written synthetic transcripts) and `scripts/misses.py
   --hw/--neg`.
 - Optional Tier 1: GLiNER + BERT-NER ensemble (ONNX Runtime, no PyTorch) on gated sentences,

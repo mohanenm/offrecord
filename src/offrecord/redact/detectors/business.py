@@ -34,7 +34,7 @@ RATE_UNITS = (
     r"liter|page|word|minute|min"
 )
 RATE_TAIL = rf"(?:\s*(?:/|\ba\b|\ban\b|\bper\b|\beach\b)\s*(?:{RATE_UNITS})\b)"
-METRIC_TAIL = r"(?:\s+(?:arr|mrr|acv|tcv|base|salary|ote|all[- ]in|upfront|flat|in\s+earnest))"
+METRIC_TAIL = r"(?:\s+(?:arr|mrr|acv|tcv|base|salary|ote|all[- ]in|upfront|flat|in\s+earnest)\b)"
 CENTS_TAIL = r"(?:\s+and\s+[\w-]+\s+cents?\b)"
 OVER_TAIL = r"(?:\s+over\s+(?:\d+|[a-z]+)\s+(?:years?|months?|weeks?|quarters?)\b)"
 TAILS = rf"(?:{CENTS_TAIL}|{RATE_TAIL}|{METRIC_TAIL}|{OVER_TAIL})*"

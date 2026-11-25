@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>offrecord &mdash; offline transcript redaction</title>
+<meta name="description" content="offrecord redacts sensitive information from meeting and call transcripts and compresses them for LLMs. Fully offline, reversible, runs on modest hardware.">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6e5a'/%3E%3Crect x='7' y='10' width='18' height='4' rx='1' fill='%23fff'/%3E%3Crect x='7' y='18' width='11' height='4' rx='1' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #fbfbf9;
+  --surface: #ffffff;
+  --code-bg: #f2f3f0;
+  --text: #1b1d1f;
+  --muted: #565c63;
+  --border: #dfe1dc;
+  --accent: #0f6e5a;
+  --accent-text: #ffffff;
+  --accent-soft: #e2f2ed;
+  --hit: #fbe3dd;
+  --hit-text: #7a2414;
+  --warn-bg: #fff6e0;
+  --warn-border: #e2b54a;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111315;
+    --surface: #171a1d;
+    --code-bg: #1c2024;
+    --text: #e7e9eb;
+    --muted: #a3aab2;
+    --border: #2c3136;
+    --accent: #52d1b2;
+    --accent-text: #08201a;
+    --accent-soft: #143a31;
+    --hit: #3d2420;
+    --hit-text: #ffc2b4;
+    --warn-bg: #2b2414;
+    --warn-border: #a17a24;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 var(--sans);
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1rem; }
+.skip, .sr-only { position: absolute; left: -9999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--surface); padding: .5rem .75rem; z-index: 10; }
+
+header.top { border-bottom: 1px solid var(--border); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: .9rem; padding-bottom: .9rem; flex-wrap: wrap; }
+.brand svg { color: var(--accent); }
+.brand { display: flex; align-items: center; gap: .55rem; font: 600 1.05rem var(--mono); color: var(--text); text-decoration: none; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; font-size: .92rem; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--accent); }
+
+.hero { padding: 4rem 0 3rem; }
+.hero h1 { font: 700 clamp(2.2rem, 6vw, 3.4rem)/1.1 var(--mono); margin: 0 0 1rem; letter-spacing: -.02em; }
+.hero .pitch { font-size: clamp(1.15rem, 2.6vw, 1.45rem); margin: 0 0 1.75rem; max-width: 40rem; }
+.points { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.points li { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+.points strong { display: block; margin-bottom: .2rem; }
+.points span { color: var(--muted); font-size: .95rem; }
+.cta { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent); color: var(--accent-text); text-decoration: none; font-weight: 600; padding: .65rem 1.1rem; border-radius: 8px; }
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.status { margin-top: 1.5rem; font-size: .92rem; color: var(--muted); }
+
+section { padding: 3rem 0; border-top: 1px solid var(--border); }
+h2 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 .5rem; }
+h3 { font-size: 1.1rem; margin: 2rem 0 .5rem; }
+.lead { color: var(--muted); margin: 0 0 1.5rem; max-width: 46rem; }
+p { max-width: 46rem; }
+
+code, pre, kbd { font-family: var(--mono); font-size: .9em; }
+:not(pre) > code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; overflow-x: auto; line-height: 1.55; margin: 0; }
+.cmd { position: relative; margin: 0 0 1rem; }
+.cmd pre { padding-right: 4.5rem; }
+.cmd .c { color: var(--muted); }
+.copy { position: absolute; top: .55rem; right: .55rem; font: 500 .78rem var(--sans); color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .25rem .55rem; cursor: pointer; }
+.copy:hover { color: var(--accent); border-color: var(--accent); }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.compare figure { margin: 0; min-width: 0; }
+.compare figcaption { font: 600 .82rem var(--sans); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: .45rem; }
+.compare pre { white-space: pre-wrap; word-break: break-word; font-size: .84rem; }
+.hit { background: var(--hit); color: var(--hit-text); border-radius: 3px; padding: 0 .15em; }
+.ph { background: var(--accent-soft); color: var(--accent); border-radius: 3px; padding: 0 .15em; font-weight: 600; }
+.gap { color: var(--muted); }
+.note { font-size: .92rem; color: var(--muted); margin-top: 1.25rem; }
+
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; counter-reset: s; }
+.steps li { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; counter-increment: s; }
+.steps li::before { content: counter(s); display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--accent); color: var(--accent-text); font: 700 .85rem var(--mono); margin-bottom: .5rem; }
+.steps li:not(:last-child)::after { content: "\2192"; position: absolute; right: -.85rem; top: 1.15rem; color: var(--muted); font-size: 1.1rem; }
+.steps h3 { margin: 0 0 .35rem; font: 600 1rem var(--mono); }
+.steps p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+.new { display: inline-block; font: 700 .7rem var(--sans); text-transform: uppercase; letter-spacing: .06em; background: var(--accent); color: var(--accent-text); border-radius: 4px; padding: .1rem .4rem; vertical-align: .15em; margin-left: .35rem; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+thead th { font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); background: var(--code-bg); }
+td.num, th.num { text-align: right; font-family: var(--mono); white-space: nowrap; }
+tbody th { font-weight: 600; }
+.dim td, .dim th { color: var(--muted); }
+
+.callout { background: var(--warn-bg); border: 1px solid var(--warn-border); border-left-width: 4px; border-radius: 8px; padding: .9rem 1.1rem; margin: 1.5rem 0 0; max-width: 46rem; }
+.callout p { margin: 0; }
+.callout.top { margin: 0 0 1.5rem; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+ul.ticks { list-style: none; padding: 0; margin: 0; }
+ul.ticks li { position: relative; padding-left: 1.6rem; margin-bottom: .7rem; }
+ul.ticks li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+ul.plain { padding-left: 1.2rem; margin: 0; }
+ul.plain li { margin-bottom: .6rem; }
+
+footer { border-top: 1px solid var(--border); padding: 2rem 0 3rem; color: var(--muted); font-size: .92rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: .5rem 2rem; justify-content: space-between; }
+footer p { margin: 0; }
+
+@media (max-width: 52rem) {
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps li:nth-child(2)::after { content: none; }
+}
+@media (max-width: 40rem) {
+  .compare, .grid2 { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .steps li:not(:last-child)::after { content: "\2193"; right: auto; left: 1.6rem; top: auto; bottom: -1.05rem; }
+  .hero { padding: 2.5rem 0 2rem; }
+  nav ul { gap: .25rem .8rem; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="offrecord, back to top">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor" opacity=".15"/>
+        <rect x="7" y="10" width="18" height="4" rx="1" fill="currentColor"/>
+        <rect x="7" y="18" width="11" height="4" rx="1" fill="currentColor"/>
+      </svg>
+      offrecord
+    </a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#tiers">Tiers</a></li>
+        <li><a href="#accuracy">Accuracy</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="https://github.com/mohanenm/offrecord">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap hero" id="top">
+    <h1>offrecord</h1>
+    <p class="pitch">Redact meeting transcripts before they reach an LLM. Fully offline.</p>
+    <ul class="points">
+      <li><strong>Offline, always</strong><span>No telemetry, no update checks, no downloads at run time. Every command except <code>setup</code> blocks network access.</span></li>
+      <li><strong>Reversible</strong><span>Placeholders like <code>&lt;P1&gt;</code> map back to the originals through an encrypted mapping, so you can restore an LLM&rsquo;s answer on your machine.</span></li>
+      <li><strong>Modest hardware</strong><span>The rules-only tier needs Python 3.10+ and 2&nbsp;GB of RAM: Raspberry Pi 4 class. No GPU, no models required.</span></li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="https://github.com/mohanenm/offrecord">
+        <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View on GitHub
+      </a>
+      <a class="btn ghost" href="#install">Quick start</a>
+    </div>
+    <p class="status">Status: all tiers built; Apache-2.0 licensed; not yet on PyPI. Open source, early, and honest about its <a href="#limitations">limits</a>.</p>
+  </div>
+
+  <section id="example" aria-labelledby="example-h">
+    <div class="wrap">
+      <h2 id="example-h">Before and after</h2>
+      <p class="lead">A real run on the synthetic sample that ships with the repo (every name, company and number is made up). Tier 0, rules only, no models.</p>
+      <div class="cmd"><pre><code>offrecord redact samples/sales-call.txt --no-mapping</code></pre></div>
+      <div class="compare">
+        <figure>
+          <figcaption>Original (excerpt)</figcaption>
+<pre aria-label="Original transcript excerpt"><span class="hit">Wendell Abernathy</span>: Nice. Okay, let's jump in. So the <span class="hit">Vellichor Media</span> renewal is coming up on <span class="hit">March 19, 2027</span>.
+<span class="hit">Wendell Sandoval</span>: Right, and honestly <span class="hit">Vellichor</span> is looking at the numbers pretty hard this year.
+<span class="hit">Wendell Abernathy</span>: Understood. Last year you were at <span class="hit">$100,000 ARR</span>, and usage is up about <span class="hit">16.5%</span>.
+<span class="hit">Wendell Sandoval</span>: Mm-hmm.
+<span class="hit">Wendell Abernathy</span>: We'd like to move you onto <span class="hit">Skyquill</span> for the same seats.
+<span class="gap">[...]</span>
+<span class="hit">Wendell Sandoval</span>: Okay. <span class="hit">Between us, we might be acquired by another group before the renewal closes.</span>
+<span class="hit">Wendell Abernathy</span>: Oh, wow. Okay. That changes the timeline.
+<span class="hit">Wendell Sandoval</span>: Yeah. Send the quote to <span class="hit">bram_trevelyan@mailbox.test</span>, or call me on <span class="hit">973-555-0113</span>.
+<span class="hit">Wendell Abernathy</span>: Got it. And should I copy <span class="hit">Elodie Quigley</span>?
+<span class="hit">Wendell Sandoval</span>: Yes, <span class="hit">Elodie</span> runs finance now.</pre>
+        </figure>
+        <figure>
+          <figcaption>Redacted output (same excerpt)</figcaption>
+<pre aria-label="Redacted output excerpt"># offrecord mapping=none
+# speakers: A=<span class="ph">&lt;P1&gt;</span>, B=<span class="ph">&lt;P3&gt;</span>
+<span class="gap">[...]</span>
+A: Nice. Okay, let's jump in. So the <span class="ph">&lt;O1&gt;</span> renewal is coming up on <span class="ph">&lt;D1&gt;</span>.
+B: Right, and honestly <span class="ph">&lt;N1&gt;</span> is looking at the numbers pretty hard this year.
+A: Understood. Last year you were at <span class="ph">&lt;AMT1&gt;</span>, and usage is up about <span class="ph">&lt;PCT1&gt;</span>. We'd like to move you onto <span class="ph">&lt;N2&gt;</span> for the same seats.
+<span class="gap">[...]</span>
+B: Okay. <span class="ph">&lt;TOPIC1&gt;</span>
+A: Oh, wow. Okay. That changes the <span class="ph">&lt;N3&gt;</span>.
+B: Yeah. Send the quote to <span class="ph">&lt;EMAIL1&gt;</span>, or call me on <span class="ph">&lt;PH1&gt;</span>.
+A: Got it. And should I copy <span class="ph">&lt;P4&gt;</span>?
+B: Yes, <span class="ph">&lt;N4&gt;</span> runs finance now.</pre>
+        </figure>
+      </div>
+      <p class="note">On the full 20-turn sample: 39 spans redacted, 12 review flags, and an estimated 381 &rarr; 317 tokens (17% fewer) with the default <code>light</code> compression, which dropped the &ldquo;Mm-hmm&rdquo; backchannel and merged same-speaker turns (20 &rarr; 16). Note that &ldquo;timeline&rdquo; was redacted too: recall comes first, and over-redaction is the preferred failure mode.</p>
+    </div>
+  </section>
+
+  <section id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works</h2>
+      <p class="lead">One pipeline, four stages. Every normalised character maps back to the original, so redactions land in the right place.</p>
+      <ol class="steps">
+        <li><h3>normalize</h3><p>Plain text, WebVTT, SRT and Whisper-style JSON become one turn model. Spoken forms become canonical: &ldquo;john at example dot com&rdquo; &rarr; an email, &ldquo;five five five&hellip;&rdquo; &rarr; digits.</p></li>
+        <li><h3>redact</h3><p>Regex + validators (email, phone, card with Luhn, IP, URL, dates&hellip;), your deny-list with fuzzy and phonetic matching, business context (amounts, percentages, codenames, sensitive topics) and name heuristics. Optional NER and LLM tiers only ever add redactions.</p></li>
+        <li><h3>compress</h3><p><code>light</code> (default) removes fillers, stutters and backchannel turns; <code>medium</code> also drops small talk and near-duplicates. Negations, decisions and numbers are never dropped, nor any placeholder.</p></li>
+        <li><h3>output</h3><p>Compact text with a speaker legend, or the original format. Short, consistent placeholders (<code>&lt;C1&gt;</code>, <code>&lt;P2&gt;</code>, <code>&lt;AMT1&gt;</code>) and a header carrying a random mapping id.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="install" aria-labelledby="install-h">
+    <div class="wrap">
+      <h2 id="install-h">Install and quick start</h2>
+      <p class="lead">Needs Python 3.10+. Tier 0 has no models and downloads nothing.</p>
+
+      <h3>Install</h3>
+      <div class="cmd"><pre><code>pipx install "git+https://github.com/mohanenm/offrecord"</code></pre></div>
+      <p>With the optional model tiers (NER and local LLM), then fetch the models explicitly:</p>
+      <div class="cmd"><pre><code>pipx install "offrecord[ner,llm] @ git+https://github.com/mohanenm/offrecord"
+offrecord setup models            <span class="c"># Tier 1</span>
+offrecord setup models --tier 2   <span class="c"># Tier 2</span></code></pre></div>
+
+      <h3>Check your machine and redact</h3>
+      <div class="cmd"><pre><code>offrecord doctor                       <span class="c"># Python, RAM, tiers, models, network guard</span>
+offrecord redact call.txt --no-mapping <span class="c"># one-way: redacted text on stdout</span></code></pre></div>
+
+      <h3>Reversible flow</h3>
+      <p>The mapping is encrypted with a key file. Keep the key away from the mapping.</p>
+      <div class="cmd"><pre><code>offrecord keygen                       <span class="c"># ~/.config/offrecord/keys/default.key</span>
+offrecord redact call.vtt -o out.txt \
+    --key-file ~/.config/offrecord/keys/default.key
+<span class="c"># ... send out.txt to an LLM, save its answer as answer.txt ...</span>
+offrecord restore answer.txt --assume-mapping \
+    --mapping ~/.local/share/offrecord/mappings/&lt;id&gt;.ormap \
+    --key-file ~/.config/offrecord/keys/default.key</code></pre></div>
+
+      <h3>LLM round trip <span class="new">new</span></h3>
+      <p>Copy a transcript, redact it, paste it into any chat LLM, copy the answer back, restore it.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+          <tbody>
+            <tr><td><code>offrecord redact call.vtt --prompt "Summarise the decisions"</code> <span class="new">new</span></td><td>Put your instruction first and tell the LLM to keep placeholders exactly as written, so its answer restores cleanly. The instruction is redacted too: &ldquo;the QFA call&rdquo; becomes &ldquo;the &lt;C1&gt; call&rdquo;.</td></tr>
+            <tr><td><code>offrecord paste</code> <span class="new">new</span></td><td>Redact whatever is on the clipboard, in place (accepts <code>--prompt</code> too).</td></tr>
+            <tr><td><code>offrecord unpaste</code> <span class="new">new</span></td><td>Restore the LLM&rsquo;s copied answer on the clipboard, using the most recent mapping.</td></tr>
+            <tr><td><code>offrecord init</code> <span class="new">new</span></td><td>Guided setup of your deny-list (clients, codenames, people); used automatically afterwards.</td></tr>
+            <tr><td><code>offrecord denylist add "Quillfeather Analytics" --alias QFA</code> <span class="new">new</span></td><td>Add a name later, or <code>denylist import clients.csv</code> from a CRM export. Names are never printed back.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiers" aria-labelledby="tiers-h">
+    <div class="wrap">
+      <h2 id="tiers-h">Tiers and hardware floors</h2>
+      <p class="lead">Pick with <code>offrecord redact --tier 0|1|2|auto</code> (default 0; <code>auto</code> picks the highest tier your RAM and installed models allow). Higher tiers only ever add redactions. CPU only.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Tier</th><th scope="col">What</th><th scope="col">Floor</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">0</th><td>Rules only. No models, no downloads.</td><td>Python 3.10+, 2&nbsp;GB RAM (Raspberry Pi 4 class)</td></tr>
+            <tr><th scope="row">1</th><td>NER ensemble (GLiNER small + BERT-NER, ONNX int8) + MiniLM embeddings</td><td>4&nbsp;GB RAM, CPU</td></tr>
+            <tr><th scope="row">2</th><td>Phi-4-mini 3.8B (GGUF, llama.cpp) for JSON labels only; Qwen3 1.7B fallback</td><td>8&nbsp;GB RAM, 4+ cores (fallback: 4&nbsp;GB)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Models arrive only through the explicit <code>offrecord setup</code> command, with pinned versions and checksums, and live outside the repo.</p>
+    </div>
+  </section>
+
+  <section id="accuracy" aria-labelledby="accuracy-h">
+    <div class="wrap">
+      <h2 id="accuracy-h">Accuracy</h2>
+      <p class="lead">Recall is strict: a label counts only if every letter and digit in it is redacted. Precision is measured in characters. The held-out set was never tuned on; the user set (hand-written, never tuned on) is the harder, more honest number.</p>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">Recall and precision by tier on the held-out and user sets</caption>
+          <thead><tr><th scope="col">Recall / precision</th><th scope="col" class="num">Held-out (56 transcripts)</th><th scope="col" class="num">User set (8 transcripts)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Tier 0 (rules)</th><td class="num">91.4% / 87.6%</td><td class="num">79.0% / 88.3%</td></tr>
+            <tr><th scope="row">Tier 1 (+ NER ensemble)</th><td class="num">94.2% / 82.7%</td><td class="num">82.8% / 83.3%</td></tr>
+            <tr><th scope="row">Tier 2 (+ Phi-4-mini)</th><td class="num">94.7% / 79.3%</td><td class="num">82.5% / 82.1%</td></tr>
+            <tr class="dim"><th scope="row">Baseline: plain regexes</th><td class="num">6.4%</td><td class="num">3.6%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">On the same held-out data, Microsoft Presidio with its defaults reached 37.2% recall (its email/URL recognisers reject the reserved test domains, so those categories understate it). On the user set, the weakest Tier 0 categories are topic sentences (47%), locations (44%) and percentages (59%).</p>
+      <div class="callout" role="note">
+        <p><strong>All evaluation data is synthetic.</strong> Synthetic data cannot capture real speech-recognition errors, real names and their spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list. Expect real-world recall to be lower than these numbers, and review the flagged spans.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" aria-labelledby="privacy-h">
+    <div class="wrap">
+      <h2 id="privacy-h">Privacy</h2>
+      <div class="grid2">
+        <div>
+          <h3>Promises</h3>
+          <ul class="ticks">
+            <li><strong>Nothing leaves the machine at run time</strong>: no telemetry, no update checks, no downloads. Every command except <code>setup</code> blocks network access and child processes, and fails if anything tries.</li>
+            <li>Transcript text is never logged or echoed; errors give positions and categories only.</li>
+            <li>Your deny-list config is treated as sensitive (it names clients and codenames) and is never echoed.</li>
+            <li>Every file offrecord writes is owner-only; outputs are atomic and never overwritten without <code>--force</code>.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Restore and the mapping file</h3>
+          <ul class="ticks">
+            <li>The mapping (placeholder &rarr; original) is written <strong>only encrypted</strong> (Fernet; key from a passphrase via scrypt or from a key file via HKDF), to a private per-user store, never next to the output or the key.</li>
+            <li>Passphrases come from <code>OFFRECORD_PASSPHRASE</code> or a prompt, never the command line.</li>
+            <li>Output carries the mapping id; <code>restore</code> fails on a mismatch. For header-less LLM answers you confirm with <code>--assume-mapping</code>, and every placeholder is checked.</li>
+            <li>Ambiguous tokens are never restored. <code>--no-mapping</code> runs are one-way.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Full threat model: <a href="https://github.com/mohanenm/offrecord/blob/main/docs/security.md">docs/security.md</a>.</p>
+    </div>
+  </section>
+
+  <section id="limitations" aria-labelledby="limitations-h">
+    <div class="wrap">
+      <h2 id="limitations-h">Limitations</h2>
+      <div class="callout top" role="note">
+        <p><strong>No tool catches everything. Review the flagged spans before sharing output.</strong></p>
+      </div>
+      <ul class="plain">
+        <li>Tier 0 misses names that are ordinary dictionary words (&ldquo;Amber&rdquo;, &ldquo;Art&rdquo;) unless they are in your deny-list, a speaker label, or follow a cue like &ldquo;my name is&rdquo;. Tier 1 catches most of them.</li>
+        <li>Unknown organisations or products named with ordinary words are missed at Tier 0 and partly at Tier 1.</li>
+        <li>Higher tiers trade precision for recall and are slower (Tier 2 is roughly 15&ndash;20&nbsp;s per call transcript on a laptop CPU).</li>
+        <li>Sensitive-topic sentences are found by keyword (layoffs, lawsuits, health conditions, &ldquo;not public&rdquo;&hellip;); a sensitive sentence with none of those words is missed. Pricing and renewal sentences are flagged, not redacted, by default.</li>
+        <li>Relative dates (&ldquo;yesterday&rdquo;, &ldquo;next Friday&rdquo;) are not redacted.</li>
+        <li><code>aggressive</code> compression is lossy by design (it never drops turns with placeholders, numbers, decisions or questions).</li>
+        <li>Python cannot wipe memory: decrypted mappings and transcript text stay in process memory until garbage collected.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://github.com/mohanenm/offrecord">github.com/mohanenm/offrecord</a></p>
+    <p>Licensed under the <a href="https://github.com/mohanenm/offrecord/blob/main/LICENSE">Apache License 2.0</a>. This page loads nothing from anywhere else.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  if (!navigator.clipboard) return;
+  var blocks = document.querySelectorAll('.cmd');
+  for (var i = 0; i < blocks.length; i++) {
+    (function (box) {
+      var code = box.querySelector('code');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'copy';
+      b.textContent = 'Copy';
+      b.setAttribute('aria-label', 'Copy command');
+      b.addEventListener('click', function () {
+        var lines = code.innerText.split('\n').filter(function (l) { return !/^\s*#/.test(l); });
+        var text = lines.map(function (l) { return l.replace(/\s+#.*$/, ''); }).join('\n').trim();
+        navigator.clipboard.writeText(text).then(function () {
+          b.textContent = 'Copied';
+          setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+        });
+      });
+      box.appendChild(b);
+    })(blocks[i]);
+  }
+})();
+</script>
+</body>
+</html>
