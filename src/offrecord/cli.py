@@ -318,7 +318,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         if clip:
             from offrecord import clipboard
 
-            text = clipboard.read_text(DEFAULT_LIMITS.max_bytes)
+            text = clipboard.read_text(DEFAULT_LIMITS)
         else:
             text = read_input_text(path, DEFAULT_LIMITS)
         adapter = (

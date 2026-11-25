@@ -16,7 +16,8 @@ from dataclasses import dataclass
 
 from offrecord import netguard
 from offrecord.errors import InputLimitError, UsageError
-from offrecord.limits import DEFAULT_LIMITS
+from offrecord.limits import DEFAULT_LIMITS, Limits
+from offrecord.safeio import decode_text
 
 TIMEOUT = 10  # seconds
 # Only what the helpers need to find the display; nothing else is passed on.
@@ -77,16 +78,16 @@ def _run(argv: tuple[str, ...], data: bytes | None) -> bytes:
     return res.stdout
 
 
-def read_text(max_bytes: int = DEFAULT_LIMITS.max_bytes) -> str:
+def read_text(limits: Limits = DEFAULT_LIMITS) -> str:
+    """Clipboard text, checked like file input: size cap, strict UTF-8 (BOM stripped, line
+    endings normalised to LF) and per-line length."""
     data = _run(backend().paste, None)
-    if len(data) > max_bytes:
+    if len(data) > limits.max_bytes:
         raise InputLimitError("clipboard content is larger than the input limit")
-    try:
-        text = data.decode("utf-8")
-    except UnicodeDecodeError:
-        raise UsageError("clipboard content is not UTF-8 text") from None
+    text = decode_text(data)
     if not text.strip():
         raise UsageError("the clipboard is empty")
+    limits.check_lines(text)
     return text
 
 

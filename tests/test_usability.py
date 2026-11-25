@@ -144,6 +144,28 @@ def test_allow_processes_is_narrow():
     netguard.reset_attempts()
 
 
+def test_clipboard_input_checked_like_file_input(monkeypatch):
+    from offrecord.errors import InputDecodeError, InputLimitError
+    from offrecord.limits import Limits
+
+    box = {"data": b""}
+    monkeypatch.setattr(clipboard, "backend", lambda: clipboard.Backend("fake", ("/c",), ("/p",)))
+    monkeypatch.setattr(clipboard, "_run", lambda argv, data: box["data"])
+
+    box["data"] = b"\xef\xbb\xbfOrla: hi\r\nBram: ok\r"  # BOM, CRLF and a bare CR
+    assert clipboard.read_text() == "Orla: hi\nBram: ok\n"
+
+    box["data"] = b"Orla Venkatesh: \xff\xfe"
+    with pytest.raises(InputDecodeError) as e:
+        clipboard.read_text()
+    assert "Orla" not in str(e.value) and "offset 16" in str(e.value)
+
+    box["data"] = b"Bram: ok\n" + b"x" * 50
+    with pytest.raises(InputLimitError, match="line 2") as e2:
+        clipboard.read_text(Limits(max_line_chars=40))
+    assert "Bram" not in str(e2.value)
+
+
 def test_clipboard_backend_unsupported_is_clear(monkeypatch):
     monkeypatch.setattr(sys, "platform", "sunos5")
     with pytest.raises(Exception, match="clipboard"):
