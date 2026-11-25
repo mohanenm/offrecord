@@ -332,6 +332,8 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             audit_entries.extend(audit.entries(n_input, doc, stats.records, flags))
         mapping_id = None if args.no_mapping else mapping.id
         small, cstats = compress(red, args.compress, embedder)
+        if cfg.tier >= 2 and cfg.coherence_check:
+            _report_coherence(small, cfg)
         if args.output_format == "original":
             if small is not red and small.format == "json":
                 small = dataclasses.replace(small, render_state=None)  # turns were merged/dropped
@@ -372,6 +374,10 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
         print(_summary(stats, len(flags), readability(doc, spans)), file=sys.stderr)
+        kept = sum(s.reason == "unknown-word:llm-no" for s in spans)
+        if kept:
+            print(f"offrecord: tier 2 check: {kept} guessed name(s) judged ordinary words; left "
+                  "visible and flagged for review", file=sys.stderr)  # fmt: skip
     if shared is not None:
         save_mapping(shared, project_rendered)
         for i, (dest, rendered) in enumerate(pending):
@@ -410,6 +416,25 @@ def _redact_prompt(prompt: str, cfg, mapping):
         doc, dataclasses.replace(cfg, unknown_words="off"), mapping
     )
     return red.turns[0].text, mapping
+
+
+def _report_coherence(doc, cfg) -> None:
+    """Tier 2: which output turns the LLM finds hard to follow. Turn numbers only."""
+    from offrecord.redact.detectors.llm import coherence_report
+
+    found = coherence_report([t.text for t in doc.turns], cfg)
+    if not found:
+        print("offrecord: coherence check: the output reads as a coherent conversation",
+              file=sys.stderr)  # fmt: skip
+        return
+    turns = ", ".join(str(k + 1) for k, _ in found[:12]) + (", ..." if len(found) > 12 else "")
+    kinds = sorted({r.replace("_", " ") for _, r in found})
+    print(
+        f"offrecord: coherence check: {len(found)} of {len(doc.turns)} output turn(s) hard to "
+        f"follow ({'; '.join(kinds)}): turn(s) {turns}. Consider deny-list exceptions or a "
+        "lower compression level.",
+        file=sys.stderr,
+    )
 
 
 def _summary(stats, n_flags: int, read: tuple[int, int, int, int]) -> str:

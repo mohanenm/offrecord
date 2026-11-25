@@ -258,3 +258,54 @@ def test_topic_similarity_follows_topic_settings(monkeypatch, mode, expect):
     cfg = {"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}, "topics": {"mode": mode}}
     spans = detect_document(d, from_mapping(cfg))
     assert {s.action for s in spans if s.reason == "topic:similar"} == expect
+
+
+def _guess_spans():
+    from offrecord.model import Span, turn_field_id
+
+    fid = turn_field_id(0, "text")
+    text = "We met Zorbleth about the frobnicate plan."
+    spans = [
+        Span(fid, 7, 15, "NAME", "people.unknown", 0.4, None, "unknown-word"),
+        Span(fid, 26, 36, "NAME", "people.unknown", 0.4, None, "unknown-word"),
+        Span(fid, 0, 2, "PERSON", "ner.x", 0.9, None, "ner:x"),
+    ]
+    return spans, {fid: text}
+
+
+@pytest.mark.parametrize(
+    ("payload", "actions"),
+    [
+        ('{"keep": [1]}', ["redact", "flag", "redact"]),  # "frobnicate" judged ordinary
+        ('{"keep": [1, 2]}', ["redact", "redact", "redact"]),
+        ("not json", ["redact", "redact", "redact"]),  # unusable answer: nothing changes
+    ],
+)
+def test_verify_guesses_only_demotes_rejected_guesses(monkeypatch, payload, actions):
+    from offrecord.redact.detectors import llm as llm_mod
+
+    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
+    spans, texts = _guess_spans()
+    out = llm_mod.verify_guesses(spans, texts, from_mapping({}))
+    assert [s.action for s in out] == actions
+    assert len(out) == len(spans)  # never dropped
+
+
+def test_coherence_report_returns_indices_only(monkeypatch):
+    from offrecord.redact.detectors import llm as llm_mod
+
+    payload = json.dumps({"unclear": [{"line": 2, "reason": "too_many_placeholders"},
+                                      {"line": 9, "reason": "meaning_lost"}]})  # fmt: skip
+    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
+    cfg = from_mapping({})
+    assert llm_mod.coherence_report(["Hi <P1>.", "<P2> <C1> <AMT1>.", "Ok."], cfg) == [
+        (1, "too_many_placeholders")
+    ]
+    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm("{bad"))
+    assert llm_mod.coherence_report(["Hi."], cfg) == []
+
+
+def test_tier2_switches_must_be_booleans():
+    with pytest.raises(UsageError):
+        from_mapping({"models": {"verify_guesses": "yes"}})
+    assert from_mapping({"models": {"coherence_check": False}}).coherence_check is False

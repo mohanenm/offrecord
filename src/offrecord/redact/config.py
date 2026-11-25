@@ -145,6 +145,11 @@ class Config:
     ner_threshold: float = 0.25  # chosen on the tuning set
     model_threads: int = 2
     llm_model: str = "phi-4-mini-q4"
+    # Tier 2 only. verify_guesses: the LLM checks Tier 0's unknown-word guesses and turns the
+    # ones it rejects into review flags. coherence_check: the LLM reports turns of the output
+    # that no longer make sense (report only; it changes nothing).
+    verify_guesses: bool = True
+    coherence_check: bool = True
     # Derived per document by the pipeline (not user config): names from speaker labels.
     speaker_names: tuple[str, ...] = ()
 
@@ -259,6 +264,11 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
             raise UsageError("models.ner_threshold must be between 0.05 and 0.95")
     if "threads" in models:
         cfg.model_threads = max(1, int(models["threads"]))
+    for key in ("verify_guesses", "coherence_check"):
+        if key in models:
+            if not isinstance(models[key], bool):
+                raise UsageError(f"models.{key} must be true or false")
+            setattr(cfg, key, models[key])
     if "llm" in models:
         cfg.llm_model = str(models["llm"])
         if cfg.llm_model not in MANIFEST or MANIFEST[cfg.llm_model].kind != "gguf":
