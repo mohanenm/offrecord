@@ -267,3 +267,22 @@ def test_personal_and_risk_topics_redacted(sentence):
     red, _ = redact(f"A: Okay. {sentence} Anyway.\nA: ok\n", cfg={})
     assert sentence not in body(red)
     assert "Anyway." in body(red)
+
+
+@pytest.mark.parametrize(
+    ("line", "place"),
+    [
+        ("We met on High Street by the bank.", "High Street"),
+        ("I'm stuck in Fort Worth, traffic is bad.", "Fort Worth"),
+        ("Traffic on I-30 is backed up past Route 9.", "I-30"),
+        ("Wicker Park is our best store.", "Wicker Park"),
+        ("THE YARD ON QUARRY ROAD IS OURS.", "QUARRY ROAD"),
+    ],
+)
+def test_places_without_a_place_list(line, place):
+    assert place not in body(redact(line)[0])
+
+
+def test_months_after_place_cues_are_not_places():
+    doc = adapters.get("txt").parse("Can we meet in March about it?", Limits())
+    assert not any(s.category == "LOCATION" for s in detect_document(doc, from_mapping(CFG)))
