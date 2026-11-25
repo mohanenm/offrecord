@@ -295,3 +295,36 @@ def test_readability_counts_redacted_text_and_sentences():
     fid = turn_field_id(0, "text")
     spans = [Span(fid, 0, 9, "PERSON", "t", 1.0), Span(fid, 10, 12, "X", "t", 1.0, action="flag")]
     assert readability(doc, spans) == (len("Call Orla. It is fine."), 9, 2, 1)
+
+
+@pytest.mark.parametrize(
+    ("line", "place", "is_place"),
+    [
+        ("traffic on i-30 is bad", "i-30", True),
+        ("We will hear from Bo Kestrel Tuesday.", "Tuesday", False),
+        ("Good point, let's move on.", "Good point", False),
+        ("Our CEO joined late.", "CEO", False),
+        ("Sales at our Leeds store doubled.", "Leeds", True),
+        ("The deck is in English now.", "English", False),
+        ("i live on tolliver street now", "tolliver street", True),
+    ],
+)
+def test_place_rules_edges(line, place, is_place):
+    doc = adapters.get("txt").parse(line, Limits())
+    t = doc.turns[0].text
+    i = t.index(place)
+    spans = [s for s in detect_document(doc, from_mapping(CFG)) if s.action == "redact"]
+    if is_place:  # redacted (a merged span may carry another name category)
+        assert any(s.start <= i and i + len(place) <= s.end for s in spans)
+    else:
+        assert not any(s.category == "LOCATION" and s.start < i + len(place) and i < s.end
+                       for s in spans)  # fmt: skip
+
+
+def test_readability_ignores_spans_past_the_turn():
+    from offrecord.redact.pipeline import readability
+
+    doc = adapters.get("txt").parse("A: short\n", Limits())
+    fid = turn_field_id(0, "text")
+    chars, red, _, _ = readability(doc, [Span(fid, 0, 50, "X", "t", 1.0)])
+    assert red == chars == len("short")

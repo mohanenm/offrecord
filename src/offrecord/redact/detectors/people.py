@@ -14,6 +14,7 @@ detector so later mentions are caught.
 
 from __future__ import annotations
 
+import itertools
 import re
 from collections.abc import Iterator
 from typing import ClassVar, Literal
@@ -289,18 +290,27 @@ ORG_AFTER = frozenset(
 # ("High Street", "Wicker Park", even when the words are ordinary), and capitalised words after
 # a location cue ("in Fort Worth", "out of Cape Town", "our Leeds store").
 ROUTE_RE = re.compile(
-    r"(?i:\b(?:route|highway|hwy|interstate|state\s+route)\s+\d{1,3}[a-z]?\b)|\bI-\d{1,3}\b"
+    r"(?i)\b(?:(?:route|highway|hwy|interstate|state\s+route)\s+\d{1,3}|i-\d{1,3})[a-z]?\b"
 )
 PLACE_CUE = re.compile(
     r"(?i)\b(?:in|at|from|out\s+of|near|across|into|outside|based\s+in|(?:moved|moving|"
-    r"relocating|relocated|headed|heading|flying|flew|drove|driving)\s+to|back\s+home\s+in|"
-    r"our)\s+(?:the\s+)?$"
+    r"relocating|relocated|headed|heading|flying|flew|drove|driving)\s+to|back\s+home\s+in)"
+    r"\s+(?:the\s+)?$"
+)
+# "our Leeds store", "our Tulsa office": "our" counts as a cue only before a site noun.
+OUR_SITE = re.compile(
+    r"(?i)\s+(?:store|office|site|branch|plant|warehouse|location|depot|clinic|campus|"
+    r"factory|team|region|market)\b"
 )
 STREET_SUFFIX = frozenset("street road avenue lane drive boulevard parkway highway square".split())
 NOT_PLACE = frozenset(
     "january february march april may june july august september october november december "
-    "monday tuesday wednesday thursday friday saturday sunday i".split()
+    "monday tuesday wednesday thursday friday saturday sunday i english spanish french german "
+    "italian portuguese chinese mandarin japanese korean arabic hindi russian excel".split()
 )
+# Place words that are also everyday nouns: after a single common word they make a phrase
+# ("Good point", "Either way", "Next drive"), not a place.
+AMBIGUOUS_PLACE_WORDS = frozenset("point way drive spring springs falls crossing".split())
 
 
 def _is_cap(w: str) -> bool:
@@ -455,30 +465,29 @@ class PeopleDetector:
             yield Span(f.id, m.start(), m.end(), "LOCATION", "people.place", 0.6, None,
                        "place:route", view="norm")  # fmt: skip
         toks = list(TOKEN_RE.finditer(text))
-        mixed = any(c.islower() for c in text) and any(c.isupper() for c in text)
-        i, n = 0, len(toks)
+        n = len(toks)
+        # "<word> Road" pairs need no capitals (ASR text is often all lower or upper case).
+        for a, b in itertools.pairwise(toks):
+            w, lw = a.group(), a.group().lower()
+            if (
+                b.group().lower() in STREET_SUFFIX
+                and _adjacent(text, a, b)
+                and lw not in FUNCTION_WORDS
+                and (w[:1].isupper() or not is_common(lw))
+            ):
+                yield Span(f.id, a.start(), b.end(), "LOCATION", "people.place", 0.5, None,
+                           "place:street", view="norm")  # fmt: skip
+        if not any(c.islower() for c in text):
+            return  # all capitals: a capitalised run means nothing
+        i = 0
         while i < n:
-            w = toks[i].group()
-            if not mixed:  # no capitals to go by: only "<word> Road"-style pairs
-                nxt = toks[i + 1] if i + 1 < n else None
-                lw = w.lower()
-                if (
-                    nxt is not None
-                    and nxt.group().lower() in STREET_SUFFIX
-                    and _adjacent(text, toks[i], nxt)
-                    and lw not in FUNCTION_WORDS
-                    and (w.isupper() or not is_common(lw))
-                ):
-                    yield Span(f.id, toks[i].start(), nxt.end(), "LOCATION", "people.place",
-                               0.5, None, "place:street", view="norm")  # fmt: skip
-                i += 1
-                continue
             j = i
             while (
                 j < n
                 and j - i < 4
                 and _is_cap(toks[j].group())
                 and toks[j].group().lower() not in FUNCTION_WORDS
+                and toks[j].group().lower() not in NOT_PLACE
                 and (j == i or _adjacent(text, toks[j - 1], toks[j]))
             ):
                 j += 1
@@ -492,10 +501,16 @@ class PeopleDetector:
                 and _adjacent(text, toks[k - 1], toks[k])
             ):
                 k += 1
-            last = toks[j - 1].group().lower()
+            first, last = toks[i].group().lower(), toks[j - 1].group().lower()
             suffix = k > j or (j - i >= 2 and (last in PLACE_AFTER or last in STREET_SUFFIX))
-            cued = PLACE_CUE.search(text, max(0, toks[i].start() - 30), toks[i].start())
-            if suffix or (cued and toks[i].group().lower() not in NOT_PLACE):
+            if suffix and j - i == 1 and k - j == 1 and is_common(first):
+                suffix = toks[j].group().lower() not in AMBIGUOUS_PLACE_WORDS  # "Good point"
+            before = text[max(0, toks[i].start() - 30) : toks[i].start()]
+            cued = PLACE_CUE.search(before) is not None or (
+                re.search(r"(?i)\bour\s+$", before) is not None
+                and OUR_SITE.match(text, toks[k - 1].end()) is not None
+            )
+            if suffix or cued:
                 yield Span(f.id, toks[i].start(), toks[k - 1].end(), "LOCATION", "people.place",
                            0.5, None, "place:suffix" if suffix else "place:cue",
                            view="norm")  # fmt: skip
