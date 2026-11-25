@@ -24,7 +24,6 @@ from offrecord.model import Document, FieldId, Span, severity, turn_field_id
 from offrecord.safeio import read_input_text
 
 System = Callable[[Document], Sequence[Span]]
-SystemFactory = Callable[[dict[str, Any]], System]
 
 
 @dataclass

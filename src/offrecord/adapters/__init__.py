@@ -52,11 +52,6 @@ def get(name: str) -> Adapter:
         raise UsageError(f"unknown input format; known: {', '.join(sorted(_REGISTRY))}") from None
 
 
-def names() -> list[str]:
-    _ensure_builtins()
-    return sorted(_REGISTRY)
-
-
 def load_plugins(enabled: Iterable[str]) -> None:
     """Load the named third-party adapters from entry points. Unknown names are an error."""
     wanted = set(enabled)
