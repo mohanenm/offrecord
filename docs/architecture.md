@@ -3,8 +3,7 @@
 offrecord reads a transcript, finds the sensitive parts, replaces each one with a placeholder
 such as `<P1>` or `<AMT2>`, and writes the redacted transcript plus an encrypted mapping. You
 paste the redacted text into an LLM, and `offrecord restore` puts the original values back
-into the answer. Everything runs locally. This page explains the moving parts and why they
-are built the way they are.
+into the answer. Everything runs locally.
 
 ## Design priorities
 
@@ -109,18 +108,12 @@ file unless `--force` is given.
 
 ## Evaluation
 
-The evaluation sets are synthetic. Most are generated from YAML templates and pools of
-invented entities, rendered in every input format, with labels recorded by the generator. Two
-sets are hand-written in inline markup. All of them were written by people or coding agents
-working from the format description, not from real transcripts, so they measure the tool on
-plausible text, not on your text. See `docs/eval-format.md` for the formats and the role of
-each set.
+The evaluation sets are synthetic: generated conversations, not real transcripts, so they
+measure the tool on plausible text rather than on yours. `docs/eval-format.md` describes the
+formats, how each set was made and what it is used for.
 
-Recall is strict: a label counts as caught only if every one of its characters is redacted.
+Recall is strict: a label counts as caught only if every letter and digit in it is redacted.
 Precision is measured in characters, so a system cannot raise it by emitting many tiny spans.
-The tool is tuned on the tuning sets only. The validation set is used to check that a change
-generalises, and the sealed set is scored once per release cycle. `docs/eval-format.md`
-explains how sealing works.
 
 ## Limits
 

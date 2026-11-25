@@ -1,6 +1,6 @@
 """Evaluation runner: per-category recall (headline), precision, leaks per 1,000 words.
 
-A gold label counts as *caught* only if every one of its characters is covered by a redaction
+A gold label counts as *caught* only if every letter and digit in it is covered by a redaction
 span in the same field (strict, recall-first). Partially covered labels are *leaks* and are
 also counted separately as ``partial``.
 """
@@ -157,7 +157,7 @@ class CharCounts:
 class Report:
     """Scores for one set and one system.
 
-    - Recall is strict: a label counts only if every character is redacted.
+    - Recall is strict: a label counts only if every letter and digit is redacted.
     - Speaker labels count once per distinct speaker per transcript (category ``SPEAKER``):
       caught only if every occurrence is redacted. Otherwise a speaker label repeated on every
       turn would dominate the headline.

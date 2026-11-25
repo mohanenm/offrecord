@@ -76,7 +76,7 @@ wrote them. Before you submit, check:
 - Not everything comes in threes. Give the number of examples the point needs.
 - No emoji.
 - Comments explain why, not what the next line does. Don't narrate history ("now we",
-  "added in round 2"); that belongs in the commit message.
+  "added after the last release"); that belongs in the commit message.
 - Error messages say what went wrong and what to do, without transcript content.
 - State limits and measured numbers plainly, including the bad ones.
 

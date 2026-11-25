@@ -1,45 +1,39 @@
 # AGENTS.md
 
-Guidance for coding agents working in this repository. Humans: see CONTRIBUTING.md, which this
-file points to rather than repeats.
+Guidance for coding agents in this repository. The project's standards are in CONTRIBUTING.md;
+read it first. This file adds what matters specifically when an agent does the work.
 
 offrecord is an offline Python CLI that redacts meeting and call transcripts before they reach
-an LLM and restores the originals afterwards. `docs/architecture.md` explains how it works.
+an LLM and restores the originals afterwards. `docs/architecture.md` explains how it works,
+`docs/security.md` what it defends against, and `docs/eval-format.md` how it is measured.
 
 ## Commands
 
 ```sh
 python3 -m venv .venv && .venv/bin/pip install -e '.[dev]' -c requirements/dev.lock
 .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy && .venv/bin/pytest -q
-offrecord eval --set tuning --set validation      # recall, precision, clean-transcript rate
+offrecord eval --set tuning --set validation
 ```
 
-All four checks must pass before a commit. Python 3.10 is the floor.
+All four checks pass before every commit. Python 3.10 is the floor.
 
-## Rules that are never relaxed
+## Rules
 
-These are explained in CONTRIBUTING.md under "Rules".
+CONTRIBUTING.md lists the project rules (synthetic data only, no run-time network access,
+recall first, never echo transcript content, Tier 0 without extras). In addition:
 
-- No real sensitive data in code, tests, fixtures, docs or commit messages. Synthetic only.
-- No network access at run time; only `offrecord setup` downloads, pinned and verified.
-- Never print, log or echo transcript text, deny-list entries or mapping contents. Errors name
-  positions and categories only. Lint rule T20 blocks `print` outside the CLI modules.
-- Recall first: prefer over-redaction when trading recall against precision.
-- Tier 0 works without optional extras or models. Never add PyTorch. New runtime dependencies
-  need maintainer approval.
+- Don't print transcript text, deny-list entries or mapping contents in tool output or logs
+  while you work, even from synthetic files you did not write. Counts and categories are fine.
+- Don't open, print or tune on items from the `user` or `sealed` sets. Use `tuning` and
+  `tuning-hw` to find misses (`scripts/misses.py`) and `validation` to check a change.
+- Never edit `eval/generated/sealed`, `eval/templates/sealed` or `eval/pools/sealed`; CI fails
+  if they change.
+- Don't add runtime dependencies or anything that opens a network connection outside
+  `offrecord setup` without the maintainer's agreement.
+- Keep personal assistant files (`CLAUDE.local.md`, `.claude/settings.local.json`) and working
+  notes (`notes/`) out of commits. `scripts/check_hygiene.py` checks this.
 
-## Evaluation discipline
+## Style
 
-- Tune detectors on `tuning` and `tuning-hw` only; check generalisation on `validation`.
-- Never tune on, edit or print items from `user` or the sealed set (`eval/generated/sealed`).
-  CI fails if the sealed set changes.
-- Log label changes in `eval/CORRECTIONS.md`.
-
-## Conventions
-
-- Small commits, one logical change, short imperative messages. Stage files by path.
-- Keep code small: reuse what exists, prefer the standard library, no speculative options or
-  abstractions. Logic with branches, parsing or security gets a test.
-- Write in plain prose; follow the voice checklist in CONTRIBUTING.md.
-- Do not commit personal assistant files (`CLAUDE.local.md`, `.claude/settings.local.json`) or
-  working notes (`notes/`).
+Small commits with short imperative messages; stage files by path. Keep code small and reuse
+what exists. Prose follows the voice checklist in CONTRIBUTING.md.

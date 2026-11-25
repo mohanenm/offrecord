@@ -9,7 +9,7 @@ There are three kinds of evaluation input:
    generator fills templates with invented entities, deterministically from a seed, and
    writes labelled transcripts in every supported format.
 2. Labelled transcripts in inline markup (`eval/user_set/`, `eval/tuning_handwritten/`, or a
-   private folder outside the repo): hand-written transcripts with sensitive spans marked
+   private folder outside the repo): transcripts written as text, with sensitive spans marked
    inline.
 3. Generated sets (`eval/generated/<set>/`): the generator's output, reproducible from the
    templates, pools and seed.
@@ -19,10 +19,10 @@ There are three kinds of evaluation input:
 | Set | Source | Used for |
 | --- | --- | --- |
 | `tuning` | 12 templates written alongside the detectors, 72 transcripts | Tuning |
-| `tuning-hw` | 20 hand-written transcripts in inline markup | Tuning |
+| `tuning-hw` | 20 agent-written transcripts in inline markup | Tuning |
 | `validation` | 14 templates, 56 transcripts (formerly called `heldout`) | Checking that a change generalises |
 | `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle |
-| `user` | 8 hand-written transcripts in inline markup | Reported separately, never tuned on |
+| `user` | 8 agent-written transcripts in inline markup | Reported separately, never tuned on |
 
 Everything except the `tuning` templates was written by coding agents that were given only
 this format description and the category list. They did not see the detector code, the other
@@ -146,7 +146,7 @@ some people are "known" (in the deny-list) and others are unknown. Labels record
 
 ---
 
-## 2. Inline markup (user set and private hand-labelled sets)
+## 2. Inline markup (tuning-hw, user set and private sets)
 
 A plain-text transcript (`.txt`) in any of the speaker-line shapes the txt adapter accepts,
 with sensitive spans marked inline:
