@@ -1,8 +1,8 @@
 # Security and privacy: threat model
 
 offrecord processes transcripts that are, by assumption, sensitive. This document lists what we
-protect, what can go wrong, and the defence for each. It is re-read against the code in the
-hardening phase (Phase 7). Items marked _(planned)_ are not built yet; see `docs/DECISIONS.md`.
+protect, what can go wrong, and the defence for each. `docs/architecture.md` describes how the
+parts fit together.
 
 ## What leaves the machine
 
@@ -28,10 +28,11 @@ Every other command installs a network guard (see below) before doing any work.
 
 ### R1. Shared machine (other local users, backups, sync folders)
 - All files offrecord creates (outputs, mapping, audit log, temp files) are created owner-only
-  (`0600`, directories `0700`) regardless of umask. _(Decision D-009.)_
+  (`0600`, directories `0700`) regardless of umask, including the redacted
+  output, because redaction can miss things.
 - The mapping and audit log are always encrypted at rest (Fernet; key derived by scrypt
-  N=2^17 r=8 p=1 from a passphrase, or by HKDF from a 32-byte key file). Design approved:
-  `docs/proposals/0002-encryption.md`.
+  N=2^17 r=8 p=1 from a passphrase, or by HKDF from a 32-byte key file). The KDF parameters
+  are stored in the file header and checked against safe bounds before use.
 - The tool refuses to write a mapping into the key file's directory, and refuses key files
   readable by other users. Passphrases are never command-line arguments; they come from a
   prompt or `OFFRECORD_PASSPHRASE`. (Setting that variable in a shared shell profile exposes it
@@ -54,7 +55,7 @@ Every other command installs a network guard (see below) before doing any work.
   carry client names).
 - There is no logging framework writing to disk. There is no telemetry.
 - Canary tests: a unique marker string in input must never appear in stderr, for every command
-  and every error path. _(partially built; extended per command)_
+  and every error path.
 
 ### R3. A leaky dependency
 - Tier 0 runtime dependencies are minimal, pre-approved and pinned; dev tools are pinned via a
@@ -76,7 +77,7 @@ Every other command installs a network guard (see below) before doing any work.
 ### R4. Mangled restore (LLM output with distorted placeholders)
 - Restore is tolerant of common mangling (`<c1>`, `<C 1>`, `<C1>'s`, `&lt;C1&gt;`, upper-case
   bare `C1`) but never restores anything ambiguous: bare tokens that also occur naturally in the
-  redacted output, and unknown placeholders, are left as they are and reported (D-037).
+  redacted output, and unknown placeholders, are left as they are and reported.
 - Source text that already looks like a placeholder is escaped one-to-one (`<C1>` -> `<\C1>`,
   `<\C1>` -> `<\\C1>`), and restore removes exactly one backslash.
 
@@ -118,7 +119,7 @@ Every other command installs a network guard (see below) before doing any work.
 
 ### R8. Hostile or malformed input
 - Caps on file size, line length, turn count and JSON nesting depth, with clear errors that
-  name the limit and position. _(limits built; enforced per adapter in Phase 1)_
+  name the limit and position.
 - Strict UTF-8 decoding by default; a decode failure reports the byte offset only.
 - Inputs are opened non-blocking and checked with `fstat` on the open descriptor (no
   check-then-open race; a FIFO cannot hang a run). JSON with lone surrogates is rejected.
@@ -137,7 +138,7 @@ Every other command installs a network guard (see below) before doing any work.
 - Model output can only *add* redactions: model spans go through the same union merger. Tier 2
   output is JSON labels whose text must be found verbatim in the sentence, or it is discarded.
 - Known advisory: `diskcache` (a dependency of the [llm] extra) unpickles its cache files; offrecord
-  never enables llama-cpp-python's disk cache, so it is not reached (D-050).
+  never enables llama-cpp-python's disk cache, so it is not reached.
 - No model package is imported at Tier 0; the network guard and child-process block stay on
   for Tier 1/2; llama.cpp native logs are silenced before the model loads.
 
@@ -157,7 +158,7 @@ Every other command installs a network guard (see below) before doing any work.
   `wl-paste`, `xclip`, `xsel` resolved to an absolute path) as the only allowed child process:
   `netguard.allow_processes` admits exactly those paths, no shell, with an environment reduced to
   the display variables, a timeout, and the input size limit. Network blocking is unchanged and
-  every other child process is still refused (D-061).
+  every other child process is still refused.
 - The clipboard is readable by other local programs (clipboard managers, sync to other devices).
   `paste` leaves only the redacted text there; `unpaste` puts original text back on it by
   design. Disable clipboard sync/history if that matters; use files or stdin otherwise.
@@ -167,7 +168,8 @@ Every other command installs a network guard (see below) before doing any work.
 ### R12. The one networked command
 - `offrecord setup tokenizer` downloads a token-encoding file from a fixed HTTPS URL, verifies
   its SHA-256 before writing it, and sends nothing else. `--from FILE` installs from a local
-  copy (air-gapped). `setup models` (Tier 1/2) is not built and needs approval (Phase 8).
+  copy (air-gapped). `offrecord setup models` fetches the optional Tier 1/2 models the same
+  way (see R9).
 
 ## Known limitations
 
