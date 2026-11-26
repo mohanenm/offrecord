@@ -297,6 +297,23 @@ def test_precision_is_character_based():
     assert rep.precision == pytest.approx(8 / 28)
 
 
+def test_text_precision_leaves_out_speaker_labels():
+    from offrecord.evaluation.labels import Label
+    from offrecord.evaluation.runner import EvalItem
+    from offrecord.model import Document, Turn
+
+    doc = Document("txt", (Turn(0, "Orla V", "aaaa 555-0142"),))
+    labels = [
+        Label(0, "speaker", 0, 6, "PERSON", "person#spk"),
+        Label(0, "text", 5, 13, "PHONE", "p"),
+    ]
+    spans = [Span(turn_field_id(0, "speaker"), 0, 6, "PERSON", "t", 1.0),
+             Span(turn_field_id(0, "text"), 0, 13, "PHONE", "t", 1.0)]  # fmt: skip
+    rep = score([EvalItem("x", doc, labels, [])], lambda d: spans, "p")
+    assert rep.precision == pytest.approx(14 / 19)
+    assert rep.precision_text == pytest.approx(8 / 13)
+
+
 def test_unprojected_spans_rejected():
     from offrecord.evaluation.runner import EvalItem
     from offrecord.model import Document, Turn

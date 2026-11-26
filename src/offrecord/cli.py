@@ -100,6 +100,10 @@ def _cmd_eval(args: argparse.Namespace) -> int:
         names = [system_name] + (
             ["baseline"] if args.baseline and system_name != "baseline" else []
         )
+        if args.no_denylist:
+            # What a new user gets before `init`: no deny-list entries at all.
+            cfg = {k: v for k, v in cfg.items() if k != "denylist"}
+            name += " no deny-list"
         for sysname in names:
             reports.append(runner.score(items, available[sysname](cfg), f"{name} [{sysname}]"))
         if args.extras:
@@ -956,6 +960,8 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--dir", action="append", help="a labelled folder, e.g. a private set")
     sp.add_argument("--system", help="system under test (default: tier0, else baseline)")
     sp.add_argument("--baseline", action="store_true", help="also score the regex baseline")
+    sp.add_argument("--no-denylist", action="store_true",
+                    help="score without the sets' deny-lists (what a new user gets)")  # fmt: skip
     sp.add_argument(
         "--final-check",
         action="store_true",
