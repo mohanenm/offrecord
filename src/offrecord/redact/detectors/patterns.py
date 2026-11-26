@@ -25,6 +25,8 @@ EMAIL = re.compile(r"(?<![\w.+-])[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-
 PHONE_SEP = re.compile(
     r"(?<![\w+])(?:\+?\d{1,3}[\s.-]?)?(?:\(\d{2,4}\)[\s.-]?|\d{2,4}[\s.-])\d{3,4}[\s.-]?\d{3,4}(?!\w)"
 )
+PHONE_EXT = re.compile(r"(?i),?\s*(?:ext\.?|extension|x)\s*\d{1,6}\b")
+AREA_CODE = re.compile(r"(?i)\barea\s+code\s+(?:is\s+|was\s+)?(?P<num>\d{3})\b")
 PHONE7 = re.compile(r"(?<![\w-])\d{3}[\s.-]\d{4}(?![\w-])")
 SSN = re.compile(r"(?<![\d-])\d{3}[\s-]\d{2}[\s-]\d{4}(?![\d-])")
 CARD = re.compile(r"(?<!\d)(?:\d[ -]?){12,18}\d(?!\d)")
@@ -48,9 +50,13 @@ PHONE_TRIGGER = re.compile(
     r"(?i)\b(?:phone|cell|mobile|line|extension|ext|direct|number|call(?:\s+me)?(?:\s+(?:at|on))?|"
     r"reach\s+me(?:\s+(?:at|on))?|text\s+me(?:\s+(?:at|on))?)\b[^.\d]{0,24}?(?P<num>\d[\d\s-]{1,}\d|\d)"
 )
+# The last digits of a card or account: "the card ending 8605", "ends in 3317", "last four are
+# 9088". A card if a card word is near, otherwise an account.
 LAST_FOUR = re.compile(
-    r"(?i)\b(?:last\s+(?:four|4)|ending\s+in|ends\s+in)\b\D{0,12}(?P<num>\d{4})\b"
+    r"(?i)\b(?:end(?:ing|s)(?:\s+in)?|last\s+(?:four|4|five|5)(?:\s+(?:digits|numbers))?"
+    r"(?:\s+(?:are|is|of))?)\b\D{0,12}?(?P<num>\d{3,5})\b"
 )
+CARD_WORD = re.compile(r"(?i)\b(?:card|visa|mastercard|amex|debit|credit)\b")
 SSN_CONTEXT = re.compile(r"(?i)\b(?:social|ssn|ss#|security\s+number|tax\s+id|itin|tin)\b")
 CORRECTION_CUE = re.compile(
     r"(?i)\b(?:sorry|i mean|no wait|wait|scratch that|let me (?:redo|repeat) that|correction|"
@@ -112,9 +118,9 @@ _SYMW = (
     r"dash|hyphen|capital|lowercase|uppercase|exclamation(?:\s+(?:mark|point))?|underscore|hash|"
     r"pound|star|asterisk|at\s+sign|dollar\s+sign|ampersand|slash"
 )
-_ID_TOK = (
-    rf"(?:\d[\dA-Za-z]*|[A-Za-z]{{1,4}}\d[\dA-Za-z]*|[A-Z]{{1,4}}(?![a-z'])|[a-z](?![\w'])"
-    rf"|(?i:[a-z]\s+as\s+in\s+[a-z]+)|(?i:(?:{_DIGW}|{_NATOW}|{_SYMW})(?![\w'])))"
+_ID_TOK = (  # "X as in Word" first, so "L as in lima" is one unit, not "L"
+    rf"(?:(?i:[a-z]\s+as\s+in\s+[a-z]+)|\d[\dA-Za-z]*|[A-Za-z]{{1,4}}\d[\dA-Za-z]*"
+    rf"|[A-Z]{{1,4}}(?![a-z'])|[a-z](?![\w'])|(?i:(?:{_DIGW}|{_NATOW}|{_SYMW})(?![\w'])))"
 )
 ID_SEQ = re.compile(rf"(?<![\w'])(?:{_ID_TOK})(?:(?:\s*,\s*|\s+|\s*-\s*)(?:{_ID_TOK}))+")
 _DIGIT_WORD = re.compile(rf"(?i)^(?:{_DIGW})$")
@@ -129,26 +135,19 @@ ID_TRIGGER = re.compile(
 )
 
 
-# The last digits of a card or account: "the card ending 8605", "last four are 3317".
-LAST_DIGITS = re.compile(
-    r"(?i)\b(?:ending(?:\s+in)?|last\s+(?:four|4|five|5)(?:\s+(?:digits|numbers))?"
-    r"(?:\s+(?:are|is|of))?)\s*[:#]?\s*(?P<num>\d{3,5})\b"
-)
-CARD_WORD = re.compile(r"(?i)\b(?:card|visa|mastercard|amex|debit|credit)\b")
 # A bare number of four or more digits is an identifier or code more often than not
 # (verification codes, ticket, store and member numbers). Years, figures with separators,
 # amounts with a currency sign and decimals are excluded.
 LONG_NUMBER = re.compile(
-    r"(?<![\w$\u20ac\u00a3.,/:-])(?!(?:19|20)\d\d(?!\d))\d{4,}(?![\w.,/:-]|\.\d)"
+    r"(?<![\w$\u20ac\u00a3.,/:-])(?!(?:19|20)\d\d(?!\d))\d{4,}(?![\w/:-]|[.,]\d)"
     r"(?!\s*(?:%|k\b|m\b|bn\b|thousand|million|billion|percent|dollars?|bucks|euros?|pounds))"
 )
 
 
 def _id_digit_units(seq: str) -> tuple[int, int, int]:
-    """(digit units, letter units, tokens) in a dictated identifier."""
-    digits = letters = toks = 0
+    """(digit units, letter units, "X as in Word" units) in a dictated identifier."""
+    digits = letters = spelled = 0
     for piece in _ID_PIECES.findall(seq):
-        toks += 1
         if any(c.isdigit() for c in piece):
             digits += sum(c.isdigit() for c in piece)
             letters += sum(c.isalpha() for c in piece)
@@ -156,7 +155,8 @@ def _id_digit_units(seq: str) -> tuple[int, int, int]:
             digits += 1
         elif _LETTER_TOK.match(piece):
             letters += 1
-    return digits, letters, toks
+            spelled += " as in " in piece.lower()
+    return digits, letters, spelled
 
 
 # Dictated emails the normaliser cannot rebuild: "kwame dot okoro plus wedding at inbox dot
@@ -287,7 +287,12 @@ class PatternDetector:
             for m in rx.finditer(text):
                 d = _digits(m.group())
                 if len(d) >= 7:
-                    yield sp(f, view, m.start(), m.end(), "PHONE", 0.85, d, "phone")
+                    ext = PHONE_EXT.match(text, m.end())
+                    end = ext.end() if ext else m.end()
+                    yield sp(f, view, m.start(), end, "PHONE", 0.85, d, "phone")
+        for m in AREA_CODE.finditer(text):
+            s, e = m.span("num")
+            yield sp(f, view, s, e, "PHONE", 0.6, m.group("num"), "phone:area-code")
         for m in DIGIT_RUN.finditer(text):
             yield from self._bare_digits(f, view, text, m.start(), m.end())
         yield from self._corrections(f, view, text)
@@ -306,7 +311,9 @@ class PatternDetector:
             yield sp(f, view, s, e, "PHONE", 0.5, _digits(m.group("num")), "phone:context")
         for m in LAST_FOUR.finditer(text):
             s, e = m.span("num")
-            yield sp(f, view, s, e, "CARD", 0.6, m.group("num"), "card:last4")
+            card = CARD_WORD.search(text, max(0, m.start() - 40), m.end())
+            yield sp(f, view, s, e, "CARD" if card else "ACCOUNT", 0.6, m.group("num"),
+                     "card:last4" if card else "account:last-digits")  # fmt: skip
         for m in NUMBER_TRIGGER.finditer(text):
             s, e = m.span("num")
             if len(_digits(m.group("num"))) >= 4:
@@ -350,17 +357,15 @@ class PatternDetector:
                     or text[max(0, m.start() - 1) : m.start()] in CURRENCY
                 ):
                     continue  # "1,650" or "$42,000" is a figure, not a dictated ID
-                d, letters, toks = _id_digit_units(m.group())
-                if d >= 4 or (d >= 2 and letters >= 3 and toks >= 6):
+                d, letters, spelled = _id_digit_units(m.group())
+                # Enough digits, or something spelled out letter by letter (an identifier or a
+                # name being spelled): "W as in whiskey", "r, u, m, p".
+                if d >= 4 or (d >= 2 and letters >= 2) or spelled or letters >= 4:
                     yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.6, m.group().lower(),
                              "id:dictated")  # fmt: skip
         for m in ID_TRIGGER.finditer(text):
             yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.6, m.group("num").lower(),
                      "id:context")  # fmt: skip
-        for m in LAST_DIGITS.finditer(text):
-            cat = "CARD" if CARD_WORD.search(text, max(0, m.start() - 40), m.start()) else "ACCOUNT"
-            yield sp(f, view, m.start("num"), m.end("num"), cat, 0.6, m.group("num"),
-                     "id:last-digits")  # fmt: skip
         if view == "orig":  # the norm view turns "three point two million" into digits
             for m in LONG_NUMBER.finditer(text):
                 yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.5, m.group(), "id:long-number")

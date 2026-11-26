@@ -42,3 +42,26 @@ def test_dictated_found(text, secret):
 
 def test_plain_sentence_not_an_id():
     assert not covered("I think we should meet at the office at ten.")
+
+
+@pytest.mark.parametrize(
+    ("line", "secret"),
+    [
+        ("Two six W L, was it, like W as in whiskey L as in lima?", "W as in whiskey L as in lima"),
+        ("The code is r, u, m, p, seven.", "r, u, m, p, seven"),
+        ("Use the one ending 8605.", "8605"),
+        ("The checking account ending 3317 had a transfer.", "3317"),
+        ("482917, perfect, that matches.", "482917"),
+        ("Call 617-555-0142 extension 31 tomorrow.", "617-555-0142 extension 31"),
+        ("And the area code is 412.", "412"),
+    ],
+)
+def test_spelled_ids_last_digits_codes_and_extensions(line, secret):
+    from offrecord.redact.pipeline import redact_document
+
+    doc = adapters.get("txt").parse(f"A: {line}\nB: ok\n", Limits())
+    red = redact_document(doc, from_mapping({}))[0]
+    text = red.turns[0].text
+    # No piece of the value may stay readable (whole words; "as in" is filler).
+    words = set(text.replace(",", " ").replace(".", " ").replace("?", " ").split())
+    assert not words & {p for p in secret.replace(",", " ").split() if p not in ("as", "in")}
