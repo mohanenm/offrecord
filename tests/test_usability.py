@@ -81,6 +81,18 @@ def test_init_writes_config_used_by_redact(home, tmp_path, monkeypatch, capsys):
     assert "default config" in cap.err
 
 
+def test_misspelt_config_key_fails_instead_of_leaving_text_readable(home, tmp_path, capsys):
+    cfg = tmp_path / "typo.yaml"
+    cfg.write_text("protekt: confidential\ndenylist:\n  - name: Vexley Holdings\n")
+    t = tmp_path / "call.txt"
+    t.write_text("Bram: the budget is $40,000 for Vexley Holdings.\nOrla: ok\n")
+    assert main(["redact", str(t), "--no-mapping", "--config", str(cfg)]) == ExitCode.USAGE
+    cap = capsys.readouterr()
+    assert cap.out == ""
+    assert "unknown config key: protekt (did you mean protect?)" in cap.err
+    assert "Vexley" not in cap.err and "confidential" not in cap.err
+
+
 def test_init_refuses_non_tty(home, monkeypatch):
     monkeypatch.setattr(sys, "stdin", io.StringIO(""))
     assert main(["init"]) == ExitCode.USAGE

@@ -112,3 +112,6 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 - The key written by `offrecord keygen` is now used when no `--key-file`, `OFFRECORD_KEY_FILE`
   or `OFFRECORD_PASSPHRASE` is given, as the README's round trip assumed; before, it was
   written but never read. offrecord says on stderr when it uses it.
+- Unknown config keys, at the top level, in `topics`, `detect` and `models` and in deny-list
+  entries, are now an error instead of being ignored: `protekt: confidential` used to run
+  with business context left readable. A near miss of a known key gets a suggestion.

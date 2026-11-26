@@ -103,6 +103,10 @@ Every other command installs a network guard (see below) before doing any work.
 - Documented as sensitive. Never echoed in output, logs or errors (config errors name the entry
   index and field only; tested with canary values). Reason codes refer to deny-list entries by
   index (`deny:fuzzy:#12`).
+- Unknown config keys are an error, so a misspelt `protect` cannot silently leave business
+  context readable. The error names the key only when it is a near miss of a known key
+  (`protekt`); otherwise it gives the key's position, since a mis-indented deny-list name
+  would be a key too.
 - `.gitignore` excludes `*.local.yaml`; the repo ships only a synthetic example config.
 
 ### R6b. Adapters must not drop or hide text
