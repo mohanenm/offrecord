@@ -125,6 +125,7 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
                 for sp in d.detect(jw):
                     spans.extend(_split_back(sp, jf, parts))
     spans.extend(_propagate_model_names(spans, texts))
+    spans.extend(_propagate_rule_names(spans, texts))
     spans = apply_protection(spans, cfg)
     if cfg.tier >= 2 and cfg.verify_guesses:
         from offrecord.redact.detectors.llm import verify_guesses
@@ -157,6 +158,35 @@ def _propagate_model_names(spans: list[Span], texts: dict[FieldId, str]) -> list
         for m in rx.finditer(text):
             cat = found.get(m.group().casefold(), "NAME")
             out.append(Span(fid, m.start(), m.end(), cat, "propagate", 0.5, None, "model-name"))
+    return out
+
+
+def _propagate_rule_names(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
+    """A person's name found by a cue, a title, a speaker label or the deny-list is redacted in
+    its other mentions too: capitalised mentions anywhere, and every mention in a field with no
+    capital letters at all (speech-to-text output), where case gives nothing away."""
+    from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS
+
+    found: set[str] = set()
+    for s in spans:
+        if s.category != "PERSON" or s.action != "redact":
+            continue
+        if not s.detector.startswith(("people.", "denylist")) or s.reason == "person:proper-name":
+            continue
+        for tok in re.findall(r"[^\W\d_]+", texts.get(s.field, "")[s.start : s.end]):
+            t = tok.casefold()
+            if len(t) >= 3 and t not in FUNCTION_WORDS and t not in CALENDAR:
+                found.add(t)
+    if not found:
+        return []
+    rx = re.compile(r"(?<!\w)(?:" + "|".join(sorted(map(re.escape, found))) + r")(?!\w)", re.I)
+    out = []
+    for fid, text in texts.items():
+        lower_field = not any(c.isupper() for c in text)
+        for m in rx.finditer(text):
+            if lower_field or m.group()[:1].isupper():
+                out.append(Span(fid, m.start(), m.end(), "PERSON", "people.propagate", 0.5, None,
+                                "person:repeat"))  # fmt: skip
     return out
 
 

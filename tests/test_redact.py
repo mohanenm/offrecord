@@ -366,3 +366,36 @@ def test_pii_protection_flags_business_context_but_keeps_names_inside_it():
 def test_deny_list_entries_always_redact():
     red, _ = redact("A: The Quillfeather renewal moved.\nA: ok\n", cfg={**CFG, "protect": "pii"})
     assert "Quillfeather" not in body(red)
+
+
+@pytest.mark.parametrize(
+    ("text", "name", "redacted"),
+    [
+        ("A: Yesterday Grace took the Friday shift.\nB: ok\n", "Grace", True),  # mid-sentence
+        ("A: Grace is a nice word.\nB: ok\n", "Grace", False),  # sentence start: unknown
+        ("A: I hope so, will do.\nB: ok\n", "hope", False),  # ordinary words stay
+        (
+            "Mark: I can drive.\nOrla: thanks, mark can take the van.\n",
+            "mark",
+            True,
+        ),  # lower-case repeat of a speaker
+    ],
+)
+def test_names_that_are_ordinary_words(text, name, redacted):
+    red, _ = redact(text, cfg={})
+    turn_texts = " ".join(t.text for t in red.turns)
+    assert (name not in turn_texts) == redacted
+
+
+def test_address_includes_unit_city_and_postcode():
+    red, _ = redact("A: Ship it to 1460 West Fulton Street, Suite 300, Chicago, IL 60607 please.\n")
+    out = body(red)
+    assert not any(x in out for x in ("1460", "Suite 300", "Chicago", "60607"))
+    assert "please." in out
+
+
+def test_titles_are_redacted_with_the_name():
+    red, _ = redact("A: Yeah, Dr. Haldane signed it.\nA: My name is Orla.\n", cfg={})
+    out = body(red)
+    assert "Dr." not in out and "Haldane" not in out
+    assert "My name is" in out

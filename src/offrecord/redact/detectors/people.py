@@ -23,7 +23,7 @@ from offrecord.adapters._common import GENERIC_SPEAKER_RE
 from offrecord.model import Field, Span
 from offrecord.normalize.fields import Window
 from offrecord.redact.config import Config
-from offrecord.redact.wordlists import FUNCTION_WORDS, is_common, proper_names
+from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS, is_common, proper_names
 
 TOKEN_RE = re.compile(r"[^\W\d_]+(?:'[^\W\d_]+)?")
 CUES = re.compile(
@@ -39,6 +39,7 @@ STRONG_CUES = re.compile(
     r"(?i)^(?:my\s+name\s+is|name's|speaking\s+with|mr|mrs|ms|miss|mx|dr|prof|dear|named|called)"
 )
 # Titles and strong cues: the next one or two words are a name, whatever they are.
+INTRO_CUE = re.compile(r"(?i)(?:my\s+name|name's|this\s+is|i'm|named|called)\b")
 TITLE_CUE = re.compile(
     r"(?i)\b(?:my\s+name\s+is|my\s+name's|name's|this\s+is|i'm|named|called|"
     r"mr|mrs|ms|miss|mx|dr|doctor|prof|professor|sgt|sergeant|lt|lieutenant|capt|captain|"
@@ -215,8 +216,9 @@ class PeopleDetector:
                 take.append(w)
             if not take:
                 continue
-            s = m.start("name")
-            e = s + len(" ".join(take))
+            # An honorific is part of the name ("Dr. Haldane"); a phrase like "my name is" is not.
+            s = m.start("name") if INTRO_CUE.match(m.group()) else m.start()
+            e = m.start("name") + len(" ".join(take))
             yield Span(f.id, s, e, "PERSON", "people.title", 0.6, None, "person:title", view="norm")
         for m in INITIALS.finditer(text):
             if NOT_INITIALS.match(m.group()):
@@ -317,12 +319,28 @@ class PeopleDetector:
                 last_place = toks[k - 1].end()
             i = j
 
+    def _capitalised_name(self, text: str, m: re.Match[str], lw: str) -> bool:
+        """A known given name that is also a common word ("Grace", "Will", "Hope") counts as a
+        name when it is capitalised in the middle of a sentence of mixed-case text."""
+        w = m.group()
+        if lw not in self.proper or lw in FUNCTION_WORDS or lw in CALENDAR or not w[:1].isupper():
+            return False
+        if w.isupper() and len(w) > 1:
+            return False  # all capitals: no information
+        before = text[: m.start()].rstrip()
+        # Not at a sentence start, and only in a field that has lower case at all.
+        return bool(before) and before[-1] not in ".!?:\"'\n" and any(c.islower() for c in text)
+
     def _tokens(self, f: Field, text: str) -> Iterator[Span]:
         toks = list(TOKEN_RE.finditer(text))
         for i, m in enumerate(toks):
             w = m.group()
             lw = w.lower().removesuffix("'s")
             if len(lw) < 3:
+                continue
+            if is_common(lw) and self._capitalised_name(text, m, lw):
+                yield Span(f.id, m.start(), m.end(), "PERSON", "people.proper", 0.5, None,
+                           "person:capitalised-name", view="norm")  # fmt: skip
                 continue
             if is_common(lw):
                 # Given name + surname even when both are dictionary words ("Mark Brown",
