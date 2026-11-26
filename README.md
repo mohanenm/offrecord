@@ -143,8 +143,10 @@ once at the end of this release cycle, against targets fixed before it was opene
 Tier 0 misses two targets, almost entirely because of places: 76 of its 78 misses are
 locations, which it catches 84% of the time here against 96% on validation. Names, account
 and card numbers, SSNs, IPs and URLs were all caught; one email and one phone number were
-missed. Tier 1 halves the place misses. Brackets are 95% intervals. The next release will be
-scored on a new sealed set; this one now serves as a second validation set.
+missed. Tier 1 halves the place misses. Brackets are 95% intervals. Place handling has since
+been improved on new tuning data written for that purpose (Tier 0 place recall there went
+from 85.9% to 89.1%), but that cannot be checked against this set: it now serves as a second
+validation set, and the next release will be scored on a new sealed set.
 
 The numbers below are for the default protection (personal data):
 
@@ -192,6 +194,10 @@ real-world recall to be lower.
 - Tier 0 cannot recognise names that are ordinary dictionary words ("Amber", "Art") unless
   they are in the deny-list, a speaker label, or follow a cue ("my name is ..."); Tier 1 models
   catch most of them.
+- Place names are Tier 0's weakest category: it caught 84% of them on the sealed set. Places
+  that are ordinary words ("Mobile", "Reading") or that appear in text without capitals and
+  without a cue ("in", "from", "near") are the usual misses; Tier 1 catches about half of
+  those.
 - Organisations and products are business context: unless they are in your deny-list or
   look like names to the rules, they are flagged rather than redacted. Put clients and
   codenames you need hidden in the deny-list.
@@ -201,7 +207,8 @@ real-world recall to be lower.
   drops turns with placeholders, numbers, decisions or questions.
 - Sentences about someone's health, family or legal situation are found by keyword at Tier 0
   ("diagnosed", "divorce", "arrested", ...) and also by meaning at Tier 1; a personal sentence
-  that uses none of the keywords can still be missed.
+  that uses none of the keywords can still be missed. A keyword sentence that names no one and
+  refers to no one ("our cancer franchise grew") is flagged rather than redacted.
 - An individual's salary or debt is personal, but amounts are business figures by default:
   they are flagged, not redacted. Use `protect: confidential` if that matters to you.
 - Day-level dates, codes and last-four digits are redacted. Quarters, fiscal years and a month

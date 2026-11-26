@@ -326,7 +326,7 @@ offrecord restore answer.txt --assume-mapping \
           </tbody>
         </table>
       </div>
-      <p class="note"><strong>Sealed set:</strong> 80 transcripts written blind and opened once, against targets fixed beforehand. Tier 0 missed two of them: PII recall 93.4% (target 95%) and PII-clean transcripts 46% (target 65%), almost entirely because of place names (84% caught). Names, account and card numbers, SSNs, IPs and URLs were all caught. Tier 1 reached 96.4% and 65%.</p>
+      <p class="note"><strong>Sealed set:</strong> 80 transcripts written blind and opened once, against targets fixed beforehand. Tier 0 missed two of them: PII recall 93.4% (target 95%) and PII-clean transcripts 46% (target 65%), almost entirely because of place names (84% caught). Names, account and card numbers, SSNs, IPs and URLs were all caught. Tier 1 reached 96.4% and 65%. Place handling has since been improved on new tuning data; the next release will be scored on a fresh sealed set.</p>
       <p class="note">Read the PII-clean column first: in some transcripts a name or number still gets through, so you still read the output before sharing it. The user set has only 8 transcripts, so its numbers are loose (95% interval for Tier 0 PII recall: 80.8&ndash;94.7%). Tier 2 adds indirect identifiers rather than PII recall: on 15 held-back transcripts, descriptions of a person were redacted 63% of the time at Tier 0, 68% at Tier 1 and 78% at Tier 2. On Earnings-21 (44 real earnings calls, never tuned on) PII recall is 85.7% at Tier 0 and 89.8% at Tier 1.</p>
       <div class="callout" role="note">
         <p><strong>All evaluation data is synthetic</strong>: generated conversations with invented names. It cannot capture real speech-recognition errors, real names and their spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list. Expect real-world recall to be lower than these numbers, and review the flagged spans.</p>
@@ -369,9 +369,10 @@ offrecord restore answer.txt --assume-mapping \
       </div>
       <ul class="plain">
         <li>Tier 0 misses names that are ordinary dictionary words (&ldquo;Amber&rdquo;, &ldquo;Art&rdquo;) unless they are in your deny-list, a speaker label, or follow a cue like &ldquo;my name is&rdquo;. Tier 1 catches most of them.</li>
+        <li>Place names are Tier 0&rsquo;s weakest category (84% caught on the sealed set): places that are ordinary words (&ldquo;Mobile&rdquo;, &ldquo;Reading&rdquo;) or appear without capitals and without a cue like &ldquo;in&rdquo; are the usual misses. Tier 1 catches about half of those.</li>
         <li>Unknown organisations or products named with ordinary words are missed at Tier 0 and partly at Tier 1.</li>
         <li>Higher tiers trade precision for recall and are slower (Tier 2 adds roughly 10&nbsp;s per call transcript on a laptop CPU).</li>
-        <li>Sentences about someone&rsquo;s health, family or legal situation are found by keyword (and by meaning at Tier 1); a personal sentence with none of those words can be missed. Business context (figures, organisations, layoffs, pricing) is flagged, not redacted, unless you set <code>protect: confidential</code>.</li>
+        <li>Sentences about someone&rsquo;s health, family or legal situation are found by keyword (and by meaning at Tier 1); a personal sentence with none of those words can be missed, and a keyword sentence about no one in particular (&ldquo;our cancer franchise grew&rdquo;) is flagged rather than redacted. Business context (figures, organisations, layoffs, pricing) is flagged, not redacted, unless you set <code>protect: confidential</code>.</li>
         <li>Relative dates (&ldquo;yesterday&rdquo;, &ldquo;next Friday&rdquo;) are not redacted.</li>
         <li><code>aggressive</code> compression is lossy by design (it never drops turns with placeholders, numbers, decisions or questions).</li>
         <li>Python cannot wipe memory: decrypted mappings and transcript text stay in process memory until garbage collected.</li>

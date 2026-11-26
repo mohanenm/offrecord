@@ -21,7 +21,7 @@ There are three kinds of evaluation input:
 | `tuning` | 12 templates written alongside the detectors, 72 transcripts | Tuning |
 | `tuning-hw` | 80 agent-written transcripts in inline markup | Tuning |
 | `validation` | 14 templates, 56 transcripts (formerly called `heldout`) | Checking that a change generalises |
-| `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle |
+| `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle (opened for the first release; now a second validation set) |
 | `user` | 8 agent-written transcripts in inline markup | Reported separately, never tuned on |
 
 Everything except the `tuning` templates was written by coding agents that were given only
@@ -33,7 +33,9 @@ phrasing until you add one (see `eval/user_set/README.md`).
 
 `validation` was the original held-out set. It has been looked at many times while the
 detectors were developed, so it is no longer blind; it now serves to catch changes that help
-the tuning sets but do not generalise. `sealed` replaced it as the blind set.
+the tuning sets but do not generalise. `sealed` replaced it as the blind set and was opened
+once, at the end of the first release cycle; its result is in the README. It is no longer
+blind either, so the next release will be scored on a new sealed set written the same way.
 
 The generated `validation` and `sealed` sets are frozen. Each folder has a `MANIFEST.sha256`
 whose own hash is pinned in `src/offrecord/evaluation/sets.py`, and the `eval` command refuses

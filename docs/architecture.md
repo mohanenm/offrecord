@@ -48,12 +48,23 @@ Tier 0 has four rule-based detectors:
 - the deny-list: names you supply (clients, products, codenames, people), matched with fuzzy
   string similarity and a phonetic key, so speech-recognition misspellings still match;
 - business context: amounts, percentages, quantities near business terms, and sentences that
-  mention sensitive topics such as layoffs or litigation;
-- people: cue phrases ("my name is", "Dr"), a bundled list of proper names, and the
-  unknown-word rule.
+  mention sensitive topics. Personal topics (health, family, legal or employment situations)
+  count as personal data only when the sentence is about someone: it has a pronoun, a person
+  word or a name, or names an event that only happens to a person, such as a divorce.
+  Otherwise ("our cancer franchise grew") they are business context, like layoffs or
+  litigation;
+- people: cue phrases ("my name is", "Dr"), a bundled list of proper names, the unknown-word
+  rule, places (after a cue such as "in" or "moved to", before a word such as "County" or
+  "Springs", in lists, and before such words in text without capitals), and indirect
+  identifiers, descriptions that single out one person ("the patient in bed twelve", "my
+  husband") or organisation ("the vendor that went bust").
 
 Most detectors also run on a view that joins consecutive turns, so a phone number split by an
 "mm-hmm" from the other speaker is still found.
+
+Before merging, two passes work across detectors. A name found once is also redacted in its
+other mentions, and a capitalised name found only in part is redacted whole ("Port St.
+Lucie" when only "Lucie" was found).
 
 The merger takes the union of all spans, so no character that any detector marked is
 dropped. It joins adjacent name words into one placeholder and joins number fragments across
