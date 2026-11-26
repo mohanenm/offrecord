@@ -84,6 +84,13 @@ POSTCODE_TRIGGER = re.compile(
     r"(?i)\b(?:zip|zipcode|zip\s+code|postcode|post\s+code|postal\s+code)\b"
     r"\W{0,12}(?P<num>[a-z0-9][a-z0-9 -]{2,9}[a-z0-9])"
 )
+# What may follow a street address: unit, then ", City", ", State", ZIP or postcode, in order.
+ADDRESS_TAIL = re.compile(
+    r"(?:,?\s+(?:flat|apt|apartment|suite|ste|unit|floor|fl|#)\.?\s*#?\w{1,6}\b)?"
+    r"(?:,\s+[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+){0,2}){0,2}"
+    rf"(?:,?\s+(?:(?:{US_STATES})\.?\s+)?\d{{5}}(?:-\d{{4}})?(?!\d)"
+    r"|,?\s+[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b)?"
+)
 INTL_PHONE = re.compile(r"(?<![\w+])\+\d{1,3}(?:[\s.-]?\(?\d{1,5}\)?){2,6}(?!\w)")
 IBAN = re.compile(r"(?i)\b[a-z]{2}\d{2}(?:\s?[a-z0-9]{4}){2,7}(?:\s?[a-z0-9]{1,4})?\b")
 MIXED_ID = re.compile(r"(?<![\w-])(?=[\w-]*\d)(?=[\w-]*[A-Za-z])[\w-]{6,40}(?![\w-])")
@@ -358,7 +365,9 @@ class PatternDetector:
             for m in LONG_NUMBER.finditer(text):
                 yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.5, m.group(), "id:long-number")
         for m in ADDRESS.finditer(text):
-            yield sp(f, view, m.start(), m.end(), "LOCATION", 0.7, m.group().lower(), "address")
+            tail = ADDRESS_TAIL.match(text, m.end())  # all parts optional: always matches
+            end = tail.end() if tail else m.end()
+            yield sp(f, view, m.start(), end, "LOCATION", 0.7, m.group().lower(), "address")
         for m in UNIT.finditer(text):
             yield sp(
                 f, view, m.start(), m.end(), "LOCATION", 0.6, m.group().lower(), "address:unit"
