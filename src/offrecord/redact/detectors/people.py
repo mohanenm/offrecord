@@ -56,6 +56,18 @@ TITLE_CUE = re.compile(
     r"president|dean|nurse|aunt|uncle|lord|lady|sir|dame|madam)\.?\s+"
     r"(?P<name>[^\W\d_]+(?:[-'][^\W\d_]+)?(?:\s+[^\W\d_]+(?:[-'][^\W\d_]+)?)?)"
 )
+# "my name is Will", "Dr. May", "this is An": right after an introduction or a title, a
+# function word that looks like a name is one. Capitalised, or any case after "my name is".
+_NAME_IS = re.compile(r"(?i)^(?:my\s+name\s+is|my\s+name's|name's)\s+$")
+FUNCTION_NAMES = frozenset("will may an my do".split()) & FUNCTION_WORDS
+
+
+def _function_word_name(cue: str, word: str) -> bool:
+    if word.lower() not in FUNCTION_NAMES:
+        return False
+    return word[:1].isupper() or _NAME_IS.match(cue) is not None
+
+
 INITIALS = re.compile(r"(?i)(?<![\w.])(?:[a-z]\.\s?){1,3}(?:[a-z]\.|[a-z][\w'-]{1,})")
 NOT_INITIALS = re.compile(r"(?i)^(?:e\.\s?g\.|i\.\s?e\.|a\.\s?m\.|p\.\s?m\.|u\.\s?s\.|u\.\s?k\.)")
 
@@ -296,9 +308,10 @@ class PeopleDetector:
         for m in TITLE_CUE.finditer(text):
             words = m.group("name").split()
             intro = INTRO_CUE.match(m.group()) is not None
-            take = []
+            take: list[str] = []
+            cue = m.group()[: m.start("name") - m.start()]
             for w in words:
-                if w.lower() in FUNCTION_WORDS:
+                if w.lower() in FUNCTION_WORDS and not (not take and _function_word_name(cue, w)):
                     break
                 # After a title word ("general", "agent", "miss" are ordinary words too), only a
                 # capitalised or non-dictionary word is a name: "Dr. Haldane approved" stops at

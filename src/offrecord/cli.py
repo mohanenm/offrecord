@@ -413,13 +413,54 @@ def _redact_prompt(prompt: str, cfg, mapping):
     from offrecord.model import Document, Turn
     from offrecord.redact.pipeline import redact_document
 
-    doc = Document(format="txt", turns=(Turn(index=0, speaker=None, text=prompt),))
+    # Anything already redacted in the transcript is replaced first, with the same placeholder:
+    # "the Peltonen escalation" must not name in clear what the transcript below hides. Private
+    # use characters hold the place so the detectors and the escaping leave it alone.
+    text, held = _hold_known_surfaces(prompt, mapping)
+    doc = Document(format="txt", turns=(Turn(index=0, speaker=None, text=text),))
     # The instruction is the user's own wording: deny-list names, patterns and figures are
     # redacted, but out-of-dictionary words ("Summarise") are not guessed to be names.
     red, _spans, mapping, _stats = redact_document(
         doc, dataclasses.replace(cfg, unknown_words="off"), mapping
     )
-    return red.turns[0].text, mapping
+    out = red.turns[0].text
+    for mark, ph in held.items():
+        out = out.replace(mark, ph)
+    return out, mapping
+
+
+def _hold_known_surfaces(text: str, mapping) -> tuple[str, dict[str, str]]:
+    import re
+
+    from offrecord.redact.replace import NAME_CATEGORIES
+
+    surfaces: dict[str, str] = {}
+    parts: dict[str, set[str]] = {}
+    for ph, e in mapping.entries.items():
+        for occ in e.occurrences:
+            if len(occ.strip()) >= 2:
+                surfaces.setdefault(occ.strip().casefold(), ph)
+            if e.category in NAME_CATEGORIES:
+                for tok in re.findall(r"[^\W\d_]{3,}", occ):
+                    parts.setdefault(tok.casefold(), set()).add(ph)
+    for tok, phs in parts.items():
+        if len(phs) == 1:  # a name part shared by two people stays to the detectors
+            surfaces.setdefault(tok, next(iter(phs)))
+    if not surfaces:
+        return text, {}
+    alts = sorted(map(re.escape, surfaces), key=len, reverse=True)
+    rx = re.compile(r"(?<!\w)(?:" + "|".join(alts) + r")(?!\w)", re.IGNORECASE)
+    held: dict[str, str] = {}
+    by_ph: dict[str, str] = {}
+
+    def hold(m: re.Match[str]) -> str:
+        ph = surfaces[m.group().casefold()]
+        if ph not in by_ph:
+            by_ph[ph] = "\ue000" + chr(0xE100 + len(by_ph)) + "\ue001"
+            held[by_ph[ph]] = ph
+        return by_ph[ph]
+
+    return rx.sub(hold, text), held
 
 
 def _summary(stats, n_flags: int, read: tuple[int, int, int, int]) -> str:

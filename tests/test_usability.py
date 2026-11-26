@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import io
 import os
+import re
 import subprocess
 import sys
 
@@ -222,3 +223,19 @@ def test_init_can_choose_confidential_protection(home, monkeypatch, capsys):
     assert main(["init", "--yes"]) == ExitCode.OK
     data = yaml.safe_load(userconfig.default_config_path().read_text())
     assert data["protect"] == "confidential"
+
+
+def test_prompt_uses_the_transcripts_placeholders(tmp_path, capsys):
+    from offrecord.cli import main
+
+    src = tmp_path / "p.txt"
+    src.write_text("Ann Quenby: Hello Riku Peltonen, the Peltonen file is open.\n"
+                   "Riku Peltonen: Yes, Quenby.\n")  # fmt: skip
+    prompt = "Summarise the Peltonen escalation and list Quenby's action items"
+    assert main(["redact", str(src), "--no-mapping", "--compress", "none", "--prompt", prompt]) == 0
+    out = capsys.readouterr().out
+    assert "Peltonen" not in out and "Quenby" not in out
+    first = out.splitlines()[0]
+    speakers = next(line for line in out.splitlines() if line.startswith("# speakers:"))
+    for ph in re.findall(r"<P\d+>", first):
+        assert ph in speakers

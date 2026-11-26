@@ -268,6 +268,7 @@ def _trim_scores_higher(words: list[str], target: str) -> bool:
     for edge, rest in ((words[0], words[1:]), (words[-1], words[:-1])):
         if edge in _HANDLE_WORDS:
             continue
-        if len(edge) >= 2 and is_common(edge) and fuzz.ratio("".join(rest), target) >= full:
+        ordinary = (len(edge) >= 2 and is_common(edge)) or edge in ("i", "a")
+        if ordinary and fuzz.ratio("".join(rest), target) >= full:
             return True
     return False

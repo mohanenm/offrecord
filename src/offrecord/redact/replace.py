@@ -46,7 +46,7 @@ _RNG = secrets.SystemRandom()
 _TITLE = r"(?:mr|mrs|ms|mx|dr|miss|prof)\.?\s+"
 _TITLED = re.compile(f"(?i)^{_TITLE}\\S")
 _TITLE_BEFORE = re.compile(f"(?i)\\b{_TITLE}$")
-_NAME_CATEGORIES = {"PERSON", "NAME", "CLIENT", "BRAND", "PRODUCT", "CODENAME", "ORG", "LOCATION"}
+NAME_CATEGORIES = {"PERSON", "NAME", "CLIENT", "BRAND", "PRODUCT", "CODENAME", "ORG", "LOCATION"}
 
 
 def new_mapping_id() -> str:
@@ -108,11 +108,11 @@ class Mapping:
         cat = span.category
         c = canonical(cat, surface)
         titled = bool(_TITLED.match(surface) or _TITLE_BEFORE.search(before))
-        if titled and cat in _NAME_CATEGORIES and not (span.entity or "").startswith("deny#"):
+        if titled and cat in NAME_CATEGORIES and not (span.entity or "").startswith("deny#"):
             return cat, "titled:" + c
         if span.entity and span.entity.startswith(("deny#", "spk:")):
             return cat, span.entity
-        if cat in _NAME_CATEGORIES:
+        if cat in NAME_CATEGORIES:
             hit = self._alias.get(c)
             if hit is None:
                 toks = [t for t in _TOKEN.findall(surface) if len(t) >= 3]

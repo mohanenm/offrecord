@@ -221,13 +221,14 @@ def _propagate_rule_names(spans: list[Span], texts: dict[FieldId, str]) -> list[
     field with no capital letters (speech-to-text output). A single-word guess that is also an
     ordinary word ("Grant", "Lane") spreads only to capitalised mentions in mixed-case text, so
     one guess never hides "grant" or "lane" in their everyday sense."""
-    from offrecord.redact.detectors.people import TITLE_WORDS
+    from offrecord.redact.detectors.people import FUNCTION_NAMES, TITLE_WORDS
     from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS, is_common
 
     sources = ("person:intro", "person:cue", "person:title", "person:name-bigram",
                "person:capitalised-name", "person:context")  # fmt: skip
     wide: set[str] = set()  # spread to every mention in lower-case fields too
     narrow: set[str] = set()  # spread to capitalised mentions in mixed-case fields only
+    titled: set[str] = set()  # function-word names ("Will", "May"): never at a sentence start
     for s in spans:
         if s.category != "PERSON" or s.action != "redact":
             continue
@@ -242,14 +243,17 @@ def _propagate_rule_names(spans: list[Span], texts: dict[FieldId, str]) -> list[
         )
         for tok in names:
             t = tok.casefold()
+            if strong and t in FUNCTION_NAMES and tok[:1].isupper():
+                titled.add(t)  # a speaker "Will": capitalised mid-sentence mentions only
+                continue
             if len(t) < 3 or t in FUNCTION_WORDS or t in CALENDAR:
                 continue
             (wide if strong or not is_common(t) else narrow).add(t)
     narrow -= wide
-    if not wide and not narrow:
+    if not wide and not narrow and not titled:
         return []
-    rx = re.compile(r"(?<!\w)(?:" + "|".join(sorted(map(re.escape, wide | narrow))) + r")(?!\w)",
-                    re.I)  # fmt: skip
+    rx = re.compile(r"(?<!\w)(?:" + "|".join(sorted(map(re.escape, wide | narrow | titled)))
+                    + r")(?!\w)", re.I)  # fmt: skip
     out = []
     for fid, text in texts.items():
         lower_field = not any(c.isupper() for c in text)
@@ -257,7 +261,13 @@ def _propagate_rule_names(spans: list[Span], texts: dict[FieldId, str]) -> list[
         for m in rx.finditer(text):
             w = m.group()
             capital = w[:1].isupper()
-            if w.casefold() in wide:
+            if w.casefold() in titled:
+                j = m.start() - 1
+                while j >= 0 and text[j].isspace():
+                    j -= 1  # no slice copy: keeps the pass linear on long fields
+                sentence_start = j < 0 or text[j] in ".?!"
+                ok = mixed and capital and not w.isupper() and not sentence_start
+            elif w.casefold() in wide:
                 ok = lower_field or capital
             else:
                 ok = mixed and capital and not w.isupper()
