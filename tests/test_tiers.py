@@ -110,6 +110,7 @@ class FakeGliner:
 
 def test_ner_detector_adds_spans_and_skips_pronouns(monkeypatch):
     monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
+    monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: None)  # not under test
     d = doc("Orla: I spoke with Mark Brown at Zorbatek.\nOrla: ok\n")
     spans = detect_document(d, from_mapping({"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}}))
     t = d.turns[0].text

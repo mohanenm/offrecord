@@ -25,14 +25,14 @@ class Turn:
     start: float | None = None
     end: float | None = None
     source_lines: tuple[int, int] | None = None
-    extra: Mapping[str, str] = field(default=_EMPTY)
+    extra: Mapping[str, str] = field(default_factory=lambda: _EMPTY)
 
 
 @dataclass(frozen=True, slots=True)
 class Document:
     format: str
     turns: tuple[Turn, ...]
-    metadata: Mapping[str, str] = field(default=_EMPTY)
+    metadata: Mapping[str, str] = field(default_factory=lambda: _EMPTY)
     free_text_extras: frozenset[str] = frozenset()
     # Adapter-private structure needed to re-render the original format (e.g. the JSON
     # skeleton). Holds no scannable text: any text in the input is in turns or metadata.

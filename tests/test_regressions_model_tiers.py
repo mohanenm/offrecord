@@ -72,6 +72,7 @@ class FakeNer:
 
 def test_model_names_propagate_to_ungated_mentions(monkeypatch):
     monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeNer())
+    monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: None)  # not under test
     d = doc("A: The Falcon plan with Zorbatek is moving.\nB: ok so the falcon plan is still on.\n")
     spans = detect_document(d, from_mapping({"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}}))
     t1 = d.turns[1].text
