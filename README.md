@@ -62,7 +62,8 @@ offrecord unpaste              # placeholders in the copied answer -> real names
   `offrecord redact call.txt --prompt "..." > for-llm.txt`.
 - `--prompt` puts your instruction first and tells the LLM to keep placeholders exactly as
   written, which is what makes restoring its answer reliable. Your instruction is redacted with
-  the same mapping, so `Summarise the QFA call` becomes `Summarise the <C1> call`.
+  the same mapping, and anything already redacted in the transcript gets the same placeholder,
+  so `Summarise the QFA call` becomes `Summarise the <C417> call`.
 - Every run ends with a summary such as "redacted 42 item(s) (12 person, 5 client, ...); 3
   flagged for review". Review flagged items (`offrecord review`) before sharing.
 
@@ -94,7 +95,7 @@ normaliser adds a second view of each turn in which spoken forms ("five five fiv
 three", "jane at example dot com") become written ones. Rule-based detectors find names, identifiers, places,
 dates, deny-list entries, business figures and sensitive-topic sentences in both views;
 optional model tiers add to what the rules find. Personal data becomes a consistent
-placeholder (`<P1>`, `<EMAIL1>`, `<ACCT2>`) and business context becomes a review flag;
+placeholder (`<P417>`, `<EMAIL283>`, `<ACCT605>`) and business context becomes a review flag;
 compression removes fillers and backchannel turns that don't answer a question, and the
 mapping from placeholders back to the originals is written encrypted.
 [docs/architecture.md](https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md) explains each step and why it works that way.
@@ -233,9 +234,11 @@ real-world recall to be lower.
   per-user store away from the output and the key.
 - The redacted output carries the mapping's random id, and `restore` refuses a mismatched
   mapping. An LLM's answer has no header, so `restore` refuses it unless you pass
-  `--assume-mapping` to say the mapping is the right one; it then warns about any placeholder
-  the mapping does not contain (`--strict` makes that a failure). Restore accepts common LLM
-  mangling (`<c1>`, `&lt;C1&gt;`, bare `C1`) but never restores anything ambiguous.
+  `--assume-mapping` to say the mapping is the right one. Placeholder numbers are drawn at
+  random for each mapping, so an answer about another call almost never fits: if the answer
+  holds any placeholder the mapping lacks, `restore` and `unpaste` refuse and restore nothing.
+  Restore accepts common LLM mangling (`<c417>`, `&lt;C417&gt;`, bare `C417`); a bare token
+  needs three digits, so an answer's own `P1` or `L2` is never taken for a placeholder.
 - `--no-mapping` runs are one-way. `--mapping-scope project` shares one mapping across
   transcripts so the same client gets the same placeholder everywhere.
 

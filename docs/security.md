@@ -82,9 +82,10 @@ Every other command installs a network guard (see below) before doing any work.
   networking disabled.
 
 ### R4. Mangled restore (LLM output with distorted placeholders)
-- Restore is tolerant of common mangling (`<c1>`, `<C 1>`, `<C1>'s`, `&lt;C1&gt;`, upper-case
-  bare `C1`) but never restores anything ambiguous: bare tokens that also occur naturally in the
-  redacted output, and unknown placeholders, are left as they are and reported.
+- Restore is tolerant of common mangling (`<c417>`, `<C 417>`, `<C417>'s`, `&lt;C417&gt;`,
+  upper-case bare `C417`). Bare tokens need three digits and must not occur naturally in the
+  redacted output, so an answer's own `P1` or `L2` is never restored. Placeholder numbers are
+  random per mapping.
 - Source text that already looks like a placeholder is escaped one-to-one (`<C1>` -> `<\C1>`,
   `<\C1>` -> `<\\C1>`), and restore removes exactly one backslash.
 
@@ -92,8 +93,9 @@ Every other command installs a network guard (see below) before doing any work.
 - Each mapping has a random ID (128 bits, no content-derived bits) and a format version.
   Redacted output carries the ID (compact/txt header line, VTT NOTE, zero-length first SRT cue,
   `_offrecord_mapping` JSON key). Restore fails on an ID mismatch or on a `mapping=none` header.
-  Header-less text (an LLM answer) needs `--assume-mapping`; then every placeholder must exist
-  in the mapping or a warning is printed (`--strict` turns warnings into failure).
+  Header-less text (an LLM answer) needs `--assume-mapping` for `restore`; for `restore` and
+  `unpaste` every bracketed placeholder must exist in the mapping, or nothing is restored. In
+  headed text unknown placeholders are left and reported (`--strict` turns that into failure).
 - Crafted mapping headers cannot demand expensive key derivation: only the parameters this
   version writes are accepted.
 - The ID, format version and file kind are repeated inside the encrypted payload, so a tampered

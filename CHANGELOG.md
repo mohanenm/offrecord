@@ -106,6 +106,19 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   sensitive.
 
 ### Fixed
+- Restore no longer writes wrong names into an LLM's answer. Placeholder numbers are drawn at
+  random per mapping (`<P417>`, not `<P1>`), a bare token needs three digits (an answer's own
+  "P1 incident" or "L2 support" stays), and header-less text holding a placeholder the mapping
+  lacks is refused, so `unpaste` with the most recent mapping cannot fill in another call's
+  names.
+- A titled name ("Mr. Whitfield") no longer takes a speaker's identity, so restore cannot turn a
+  speaker's husband into the speaker.
+- A fuzzy deny-list match no longer swallows the words next to it ("that Glimmerforge pays"
+  became one placeholder, and restore put the extra words back).
+- Leaks closed: names, cards and SSNs with a combining mark on each character, identifiers
+  written with slashes or underscores (`987/65/4321`, `4111_1111_1111_1111`), function-word
+  names after an introduction or as a speaker ("my name is Will", "thanks May"), and names in
+  the `--prompt` instruction, which now reuse the transcript's placeholders.
 - "$300 baseline" no longer redacts part of "baseline"; negative token savings read "more".
 - The embedding model used by `--compress aggressive` is now checksum-verified before loading,
   like the other models.
