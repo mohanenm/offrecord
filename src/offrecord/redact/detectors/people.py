@@ -92,6 +92,16 @@ PLACE_CUE = re.compile(
     r"relocating|relocated|headed|heading|flying|flew|drove|driving)\s+to|back\s+home\s+in)"
     r"\s+(?:the\s+)?$"
 )
+# Words said to or about a person, next to a given name that is also a common word.
+PERSON_BEFORE = re.compile(
+    r"(?i)\b(?:hi|hey|hello|thanks|thank\s+you|tell|ask|asked|told|call|called|ping|email|"
+    r"text|cc|copy|with|and|via|from|for|to|like)\s+$"
+)
+PERSON_AFTER = re.compile(
+    r"(?i)\s+(?:said|says|asked|told|thinks|thought|wants|wanted|needs|took|takes|called|"
+    r"texted|emailed|is\s+out|was\s+out|is\s+off|will\s+cover|can\s+cover|covered|"
+    r"agreed|signed|left|joined|and\s+i\b|and\s+me\b)"
+)
 LIST_SEP = re.compile(r"\s*(?:,|,?\s*(?:and|or|&))\s*")
 # "our Leeds store", "our Tulsa office": "our" counts as a cue only before a site noun.
 OUR_SITE = re.compile(
@@ -319,6 +329,15 @@ class PeopleDetector:
                 last_place = toks[k - 1].end()
             i = j
 
+    def _person_context(self, text: str, m: re.Match[str], lw: str) -> bool:
+        """A known given name that is also a common word, next to a word that is said of or
+        to a person, in any case: "tell mark", "thanks grace", "hope said", "Will took"."""
+        if lw not in self.proper or lw in FUNCTION_WORDS or lw in CALENDAR:
+            return False
+        before = text[max(0, m.start() - 16) : m.start()]
+        after = text[m.end() : m.end() + 24]
+        return bool(PERSON_BEFORE.search(before) or PERSON_AFTER.match(after))
+
     def _capitalised_name(self, text: str, m: re.Match[str], lw: str) -> bool:
         """A known given name that is also a common word ("Grace", "Will", "Hope") counts as a
         name when it is capitalised in the middle of a sentence of mixed-case text."""
@@ -338,7 +357,9 @@ class PeopleDetector:
             lw = w.lower().removesuffix("'s")
             if len(lw) < 3:
                 continue
-            if is_common(lw) and self._capitalised_name(text, m, lw):
+            if is_common(lw) and (
+                self._capitalised_name(text, m, lw) or self._person_context(text, m, lw)
+            ):
                 yield Span(f.id, m.start(), m.end(), "PERSON", "people.proper", 0.5, None,
                            "person:capitalised-name", view="norm")  # fmt: skip
                 continue

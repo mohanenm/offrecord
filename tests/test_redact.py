@@ -399,3 +399,18 @@ def test_titles_are_redacted_with_the_name():
     out = body(red)
     assert "Dr." not in out and "Haldane" not in out
     assert "My name is" in out
+
+
+@pytest.mark.parametrize(
+    ("text", "name", "redacted"),
+    [
+        ("A: ok so tell mark the van is ready\nB: ok\n", "mark", True),
+        ("A: Hope said the Friday shift is fine.\nB: ok\n", "Hope", True),
+        ("A: thanks grace, see you then\nB: ok\n", "grace", True),
+        ("A: I hope the van is ready.\nB: ok\n", "hope", False),
+    ],
+)
+def test_ordinary_word_names_next_to_person_words(text, name, redacted):
+    red, _ = redact(text, cfg={})
+    words = " ".join(t.text for t in red.turns).replace(",", " ").split()
+    assert (name not in words) == redacted
