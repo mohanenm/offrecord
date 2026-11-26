@@ -85,6 +85,39 @@ jobs:
           /tmp/floor/bin/pip install pytest -c requirements/dev-py310.lock
           cd tests && /tmp/floor/bin/python -m pytest -q -p no:cacheprovider test_netguard.py test_no_network.py
 
+  # Tier 1: the [ner] extra with the real pinned models, so the model tests run instead of
+  # skipping. Tier 2 (a 2.5 GB model) is not run in CI.
+  tier1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e '.[dev,ner]' -c requirements/dev.lock -c requirements/ner.lock
+      - name: Locate the model store
+        id: store
+        run: python -c "from offrecord.models import models_dir; print(f'dir={models_dir()}')" >> "$GITHUB_OUTPUT"
+      # Keyed on the manifest that pins each model's revision and SHA-256. Files are verified
+      # again below and before every load, so a stale or altered cache cannot slip through.
+      - name: Restore Tier 1 models
+        id: models
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ steps.store.outputs.dir }}
+          key: tier1-models-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('src/offrecord/models/__init__.py') }}
+      - name: Download Tier 1 models (setup is the only command allowed to use the network)
+        if: steps.models.outputs.cache-hit != 'true'
+        run: offrecord setup models
+      - name: Every Tier 1 model present and matching its pinned SHA-256
+        run: |
+          python -c "import sys; from offrecord import models as m; sys.exit(not all(m.installed(n, verify=True) for n in m.TIER1_DEFAULT))"
+      - run: mypy
+      - run: pytest -q
+
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -116,7 +149,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install pip-audit -c requirements/dev.lock
+      # The lock files pin every transitive dependency, so --no-deps still covers all of them.
+      # PYSEC-2026-2447: diskcache (via llama-cpp-python) unpickles its cache files and has no
+      # fixed release; offrecord never enables that cache (docs/security.md, R9).
       - name: Known vulnerabilities in pinned dependencies, including the optional extras
-        run: |
-          python -c "import tomllib; e = tomllib.load(open('pyproject.toml', 'rb'))['project']['optional-dependencies']; print('\n'.join(e['ner'] + e['llm']))" > /tmp/extras.txt
-          pip-audit --strict --no-deps --disable-pip -r requirements/dev.lock -r /tmp/extras.txt
+        run: >-
+          pip-audit --strict --no-deps --disable-pip
+          -r requirements/dev.lock -r requirements/ner.lock -r requirements/llm.lock
+          --ignore-vuln PYSEC-2026-2447
