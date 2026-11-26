@@ -244,6 +244,28 @@ def test_cli_unheaded_unknown_placeholders_warn_and_strict_fails(home, capsys):
     assert main([*base, "--strict"]) == ExitCode.MAPPING
 
 
+def test_cli_strict_failure_writes_nothing(home, capsys):
+    key = home / "keys" / "k.key"
+    main(["keygen", str(key)])
+    a = home / "a.txt"
+    a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
+    main(["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key)])
+    mid = (home / "a.out").read_text().splitlines()[0].split("mapping=")[1]
+    m = home / "home" / "data" / "mappings" / f"{mid}.ormap"
+    ans = home / "ans.txt"
+    ans.write_text("<C1> and <P77>")
+    base = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key), "--assume-mapping"]
+    capsys.readouterr()
+    assert main([*base, "--strict"]) == ExitCode.MAPPING
+    cap = capsys.readouterr()
+    assert cap.out == "" and "nothing was written" in cap.err
+    out = home / "restored.txt"
+    assert main([*base, "--strict", "-o", str(out)]) == ExitCode.MAPPING
+    assert not out.exists()
+    assert main([*base, "-o", str(out)]) == ExitCode.OK  # without --strict: written, warned
+    assert out.exists()
+
+
 def test_cli_no_secret_fails_clearly(home, capsys, monkeypatch):
     monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)
     a = home / "a.txt"

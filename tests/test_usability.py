@@ -137,6 +137,18 @@ def test_paste_unpaste_round_trip(home, fake_clipboard, capsys):
     assert "415" not in cap.err and "Orla" not in cap.err
 
 
+def test_unpaste_strict_failure_leaves_clipboard(home, fake_clipboard, capsys):
+    fake_clipboard["text"] = "Orla Venkatesh: call me about Corvanta.\nBram: ok\n"
+    assert main(["paste"]) == ExitCode.OK
+    answer = "Summary: ask <P1> and <P99>."
+    fake_clipboard["text"] = answer
+    assert main(["unpaste", "--strict"]) == ExitCode.MAPPING
+    assert fake_clipboard["text"] == answer
+    capsys.readouterr()
+    assert main(["unpaste", "--strict", "--stdout"]) == ExitCode.MAPPING
+    assert capsys.readouterr().out == ""
+
+
 def test_unpaste_without_mapping_is_usage_error(home, fake_clipboard):
     fake_clipboard["text"] = "anything"
     assert main(["unpaste"]) == ExitCode.USAGE

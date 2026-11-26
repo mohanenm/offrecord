@@ -124,3 +124,5 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   read-only directory) before it writes the mapping, and points `last-mapping` at a new
   mapping only after the output is written. A refused output used to leave an orphaned
   mapping that `unpaste` would then pick.
+- `restore --strict` and `unpaste --strict` write nothing (no file, stdout or clipboard) when
+  they fail; they used to write the partly restored text and then exit 5.

@@ -483,11 +483,11 @@ def _cmd_restore(args: argparse.Namespace) -> int:
         )
     mapping_id, payload = _decrypt_file(args.mapping, "map", _need_secret(args.key_file))
     out, rep = restore_text(text, payload, mapping_id)
+    _report_restore(rep, args.strict)  # before writing: --strict writes nothing on failure
     if args.output:
         write_atomic(args.output, out.encode("utf-8"), force=args.force)
     else:
         sys.stdout.write(out)
-    _report_restore(rep, args.strict)
     return ExitCode.OK
 
 
@@ -509,7 +509,7 @@ def _report_restore(rep, strict: bool) -> None:
               "left as is because they also occur naturally in the redacted text",
               file=sys.stderr)  # fmt: skip
     if strict and (rep.unknown or rep.ambiguous):
-        raise MappingError("restore incomplete (--strict)")
+        raise MappingError("restore incomplete (--strict); nothing was written")
 
 
 _PASTE_DEFAULTS = {
@@ -540,12 +540,12 @@ def _cmd_unpaste(args: argparse.Namespace) -> int:
     if not args.mapping:
         print(f"offrecord: using the most recent mapping ({mapping_id})", file=sys.stderr)
     out, rep = restore_text(text, payload, mapping_id)
+    _report_restore(rep, args.strict)  # before writing: --strict writes nothing on failure
     if args.stdout:
         sys.stdout.write(out)
     else:
         clipboard.write_text(out)
         print("offrecord: restored text copied to the clipboard", file=sys.stderr)
-    _report_restore(rep, args.strict)
     return ExitCode.OK
 
 
