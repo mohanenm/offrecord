@@ -1,6 +1,6 @@
 """Evaluation runner: per-category recall (headline), precision, leaks per 1,000 words.
 
-A gold label counts as *caught* only if every one of its characters is covered by a redaction
+A gold label counts as *caught* only if every letter and digit in it is covered by a redaction
 span in the same field (strict, recall-first). Partially covered labels are *leaks* and are
 also counted separately as ``partial``.
 """
@@ -8,9 +8,11 @@ also counted separately as ``partial``.
 from __future__ import annotations
 
 import json
+import random
+import statistics
 from collections import defaultdict
 from collections.abc import Callable, Iterable, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
@@ -19,11 +21,14 @@ import yaml
 from offrecord import adapters
 from offrecord.evaluation.labels import Label, LabelledTranscript, Negative, strip_markup
 from offrecord.limits import Limits
-from offrecord.model import Document, FieldId, Span, turn_field_id
+from offrecord.model import Document, FieldId, Span, severity, turn_field_id
+from offrecord.redact.pipeline import readability
 from offrecord.safeio import read_input_text
 
 System = Callable[[Document], Sequence[Span]]
-SystemFactory = Callable[[dict[str, Any]], System]
+# Label categories that are personal data in every set. TOPIC and DATE labels mix personal and
+# business items, so they are reported separately rather than in the PII headline.
+PII_LABELS = frozenset("PERSON SPEAKER EMAIL PHONE SSN CARD ACCOUNT IP URL LOCATION".split())
 
 
 @dataclass
@@ -38,11 +43,23 @@ class EvalItem:
 # --- loading --------------------------------------------------------------------------------
 
 
-def load_generated(directory: Path) -> tuple[list[EvalItem], dict[str, Any]]:
-    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``."""
+def load_generated(
+    directory: Path, final_check: bool = False
+) -> tuple[list[EvalItem], dict[str, Any]]:
+    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``. The sealed set
+    (recognised by its labels, so a copy is refused too) loads only for the final check."""
+    from offrecord.errors import UsageError
+
     items = []
     for lp in sorted(directory.glob("*.labels.json")):
         meta = json.loads(lp.read_text(encoding="utf-8"))
+        if meta.get("set") == "sealed":
+            from offrecord.evaluation.sets import SEALED_MANIFEST_SHA256, verify_manifest
+
+            if not final_check:
+                raise UsageError("the sealed set is scored only with --final-check")
+            if not verify_manifest(directory, SEALED_MANIFEST_SHA256):
+                raise UsageError("the sealed set does not match its pinned manifest")
         tid = meta["id"]
         fmt = meta["format"]
         tp = directory / f"{tid}.{fmt}"
@@ -150,13 +167,15 @@ class CharCounts:
 class Report:
     """Scores for one set and one system.
 
-    - Recall is strict: a label counts only if every character is redacted.
+    - Recall is strict: a label counts only if every letter and digit is redacted.
     - Speaker labels count once per distinct speaker per transcript (category ``SPEAKER``):
       caught only if every occurrence is redacted. Otherwise a speaker label repeated on every
       turn would dominate the headline.
     - Precision is character-based: redacted characters inside any gold label / all redacted
       characters. Per-category precision uses the predicted span's category.
     - ``negatives_hit``: NEG items (ordinary uses of common-word brands) touched by a redaction.
+    - A transcript is *clean* if none of its labels leaked; per category, among the transcripts
+      that contain that category. ``clean_high`` counts only high-severity categories.
     """
 
     name: str
@@ -172,6 +191,68 @@ class Report:
     negatives_total: int = 0
     words: int = 0
     transcripts: int = 0
+    leaks_per_transcript: list[int] = field(default_factory=list)
+    # Personal data only (PII_LABELS), the headline for the default protect: pii. The other
+    # labels (business context) are counted when redacted or flagged for review; a flag is a
+    # prompt to look, not protection.
+    pii: Counts = field(default_factory=Counts)
+    pii_by_transcript: list[tuple[int, int]] = field(default_factory=list)  # (labels, caught)
+    clean_pii: int = 0
+    other_total: int = 0
+    other_redacted_or_flagged: int = 0
+    text_chars: int = 0  # readability: how much of the text the redactions cover
+    text_redacted: int = 0
+    sentences: int = 0
+    sentences_mostly_redacted: int = 0
+    clean_high: int = 0
+    with_category: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    clean_by_category: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+
+    @property
+    def clean_rate(self) -> float | None:
+        n = len(self.leaks_per_transcript)
+        return sum(x == 0 for x in self.leaks_per_transcript) / n if n else None
+
+    @property
+    def clean_pii_rate(self) -> float | None:
+        return self.clean_pii / self.transcripts if self.transcripts else None
+
+    @property
+    def other_redacted_or_flagged_rate(self) -> float | None:
+        return self.other_redacted_or_flagged / self.other_total if self.other_total else None
+
+    def pii_intervals(self, rounds: int = 2000) -> dict[str, tuple[float, float] | None]:
+        """95% bootstrap intervals for PII recall and the PII-clean rate, resampling whole
+        transcripts (labels in one transcript are not independent). Fixed seed: the same
+        report always gives the same interval."""
+        rows = self.pii_by_transcript
+        if len(rows) < 2:
+            return {"pii_recall": None, "clean_pii": None}
+        rng = random.Random(0)  # noqa: S311 (resampling, not security)
+        recall, clean = [], []
+        for _ in range(rounds):
+            sample = rng.choices(rows, k=len(rows))
+            total = sum(t for t, _ in sample)
+            recall.append(sum(c for _, c in sample) / total if total else 1.0)
+            clean.append(sum(c == t for t, c in sample) / len(sample))
+
+        def ci(xs: list[float]) -> tuple[float, float]:
+            xs.sort()
+            return xs[int(0.025 * len(xs))], xs[int(0.975 * len(xs)) - 1]
+
+        return {"pii_recall": ci(recall), "clean_pii": ci(clean)}
+
+    @property
+    def clean_high_rate(self) -> float | None:
+        return self.clean_high / self.transcripts if self.transcripts else None
+
+    def clean_rate_for(self, cat: str) -> float | None:
+        n = self.with_category.get(cat, 0)
+        return self.clean_by_category.get(cat, 0) / n if n else None
+
+    @property
+    def leaks_median(self) -> float | None:
+        return statistics.median(self.leaks_per_transcript) if self.leaks_per_transcript else None
 
     @property
     def overall(self) -> Counts:
@@ -203,6 +284,22 @@ class Report:
             "precision_chars": self.precision, "redacted_chars": self.chars.redacted,
             "negatives_hit": self.negatives_hit, "negatives": self.negatives_total,
             "leaks_per_1k_words": self.leaks_per_1k_words,
+            "text_redacted_share": (
+                self.text_redacted / self.text_chars if self.text_chars else None
+            ),
+            "sentences_mostly_redacted_share": (
+                self.sentences_mostly_redacted / self.sentences if self.sentences else None
+            ),
+            "pii_recall": self.pii.recall, "pii_labels": self.pii.total,
+            "clean_pii": self.clean_pii_rate,
+            **{f"{k}_ci95": v for k, v in self.pii_intervals().items()},
+            "other_redacted_or_flagged": self.other_redacted_or_flagged_rate,
+            "clean_transcripts": self.clean_rate, "clean_high_severity": self.clean_high_rate,
+            "leaks_per_transcript_median": self.leaks_median,
+            "leaks_per_transcript_max": max(self.leaks_per_transcript, default=None),
+            "clean_by_category": {
+                k: self.clean_rate_for(k) for k in sorted(self.with_category)
+            },
             "per_category": cj(self.per_category),
             "precision_by_category": {
                 k: v.precision for k, v in sorted(self.chars_by_category.items())
@@ -239,20 +336,12 @@ def _union(ivs: list[tuple[int, int]]) -> list[tuple[int, int]]:
     return out
 
 
-def _covered(
-    ivs: list[tuple[int, int]], a: int, b: int, src: str | None = None
-) -> tuple[bool, bool]:
-    """(fully covered, partially covered). With ``src``, only letters and digits inside the
-    label must be covered: a leaked space or comma between two redacted words reveals nothing."""
+def _covered(ivs: list[tuple[int, int]], a: int, b: int, src: str) -> tuple[bool, bool]:
+    """(fully covered, partially covered). Only letters and digits inside the label of ``src``
+    must be covered: a leaked space or comma between two redacted words reveals nothing."""
     inside = [(max(a, s), min(b, e)) for s, e in ivs if s < b and e > a]
     if not inside:
         return False, False
-    if src is None:
-        need = a
-        for s, e in inside:
-            if s <= need:
-                need = max(need, e)
-        return need >= b, True
     covered = bytearray(b - a)
     for s, e in inside:
         covered[s - a : e - a] = b"\x01" * (e - s)
@@ -268,12 +357,22 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
     rep = Report(name)
     for it in items:
         rep.transcripts += 1
+        pii_before = (rep.pii.total, rep.pii.caught)
         rep.words += sum(len(t.text.split()) + len((t.speaker or "").split()) for t in it.doc.turns)
         raw = _orig_only(system(it.doc))
         spans = _intervals(raw)
+        flagged = _intervals(replace(s, action="redact") for s in raw if s.action == "flag")
+        for total, n in zip(
+            ("text_chars", "text_redacted", "sentences", "sentences_mostly_redacted"),
+            readability(it.doc, raw),
+            strict=True,
+        ):
+            setattr(rep, total, getattr(rep, total) + n)
         casing = str(it.meta.get("casing", "n/a"))
         gold_by_field: dict[FieldId, list[tuple[int, int]]] = defaultdict(list)
         speakers: dict[str, list[tuple[bool, bool]]] = defaultdict(list)
+        present: set[str] = set()
+        leaked: list[str] = []
         for lb in it.labels:
             fid = turn_field_id(lb.turn, lb.field)
             gold_by_field[fid].append((lb.start, lb.end))
@@ -283,6 +382,16 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
             if lb.field == "speaker":
                 speakers[lb.entity].append((full, part))
                 continue
+            present.add(lb.category)
+            if not full:
+                leaked.append(lb.category)
+            if lb.category in PII_LABELS:
+                rep.pii.total += 1
+                rep.pii.caught += int(full)
+            else:
+                rep.other_total += 1
+                seen = full or _covered(flagged.get(fid, []), lb.start, lb.end, src)[0]
+                rep.other_redacted_or_flagged += int(seen)
             keys = [
                 (rep.per_category, lb.category),
                 (rep.per_form, f"{lb.category}:{lb.form or 'n/a'}"),
@@ -299,12 +408,26 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
                 c.partial += int(part and not full)
         for occ in speakers.values():
             full = all(f for f, _ in occ)
+            present.add("SPEAKER")
+            rep.pii.total += 1
+            rep.pii.caught += int(full)
+            if not full:
+                leaked.append("SPEAKER")
             part = any(p for _, p in occ) or (any(f for f, _ in occ) and not full)
             for d, k in ((rep.per_category, "SPEAKER"), (rep.per_casing, casing)):
                 c = d[k]
                 c.total += 1
                 c.caught += int(full)
                 c.partial += int(part and not full)
+        rep.pii_by_transcript.append(
+            (rep.pii.total - pii_before[0], rep.pii.caught - pii_before[1])
+        )
+        rep.leaks_per_transcript.append(len(leaked))
+        rep.clean_high += not any(severity(cat) == "high" for cat in leaked)
+        rep.clean_pii += not any(cat in PII_LABELS for cat in leaked)
+        for cat in present:
+            rep.with_category[cat] += 1
+            rep.clean_by_category[cat] += cat not in leaked
         gold_union = {fid: _union(ivs) for fid, ivs in gold_by_field.items()}
         for fid, ivs in spans.items():
             for a, b in ivs:
@@ -329,6 +452,10 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
     return rep
 
 
+def _ci(iv: tuple[float, float] | None) -> str:
+    return "n/a" if iv is None else f"{iv[0] * 100:.1f}-{iv[1] * 100:.1f}%"
+
+
 def format_report(reports: Sequence[Report]) -> str:
     """Side-by-side per-category recall table for several reports (e.g. tuning vs held-out)."""
 
@@ -347,6 +474,14 @@ def format_report(reports: Sequence[Report]) -> str:
         lines.append(row)
     lines.append("-" * len(head))
     for label, fn in (
+        ("PII RECALL", lambda r: f"{pct(r.pii.recall)}% of {r.pii.total:>5}"),
+        ("  95% CI", lambda r: _ci(r.pii_intervals()["pii_recall"])),
+        ("PII clean", lambda r: f"{pct(r.clean_pii_rate)}%"),
+        ("  95% CI", lambda r: _ci(r.pii_intervals()["clean_pii"])),
+        (
+            "other r/f",
+            lambda r: f"{pct(r.other_redacted_or_flagged_rate)}% of {r.other_total:>5}",
+        ),
         ("RECALL", lambda r: f"{pct(r.overall.recall)}% of {r.overall.total:>5}"),
         ("prec(char)", lambda r: f"{pct(r.precision)}%"),
         (
@@ -354,6 +489,32 @@ def format_report(reports: Sequence[Report]) -> str:
             lambda r: "  n/a" if r.leaks_per_1k_words is None else f"{r.leaks_per_1k_words:6.2f}",
         ),
         ("NEG hit", lambda r: f"{r.negatives_hit} of {r.negatives_total}"),
+        (
+            "redacted",
+            lambda r: f"{pct(r.text_redacted / r.text_chars if r.text_chars else None)}% of text",
+        ),
+        ("CLEAN", lambda r: f"{pct(r.clean_rate)}% of {r.transcripts:>5}"),
+        ("clean high", lambda r: f"{pct(r.clean_high_rate)}%"),
+        (
+            "leaks/tr",
+            lambda r: (
+                "n/a"
+                if r.leaks_median is None
+                else f"median {r.leaks_median:g}, max {max(r.leaks_per_transcript)}"
+            ),
+        ),
     ):
         lines.append(f"{label:<10}" + "".join(f" | {fn(r):>22}" for r in reports))
+    lines += [
+        "95% CI: bootstrap over transcripts. other r/f: labels that are not personal data "
+        "(figures, organisations, business topics) redacted or flagged; a flag only asks you "
+        "to look.",
+    ]
+    lines += ["", "Clean transcripts by category (share of transcripts with that category)"]
+    for c in sorted({c for r in reports for c in r.with_category}):
+        cells = []
+        for r in reports:
+            n = r.with_category.get(c, 0)
+            cells.append(f"{pct(r.clean_rate_for(c))}% of {n:>5}" if n else "")
+        lines.append(f"{c:<10}" + "".join(f" | {x:>22}" for x in cells))
     return "\n".join(lines)

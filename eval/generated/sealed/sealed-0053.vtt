@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.867
+<v Speaker 1>Morning all. Or afternoon, for some of us. Is everyone on?
+
+00:00:05.067 --> 00:00:10.600
+<v Speaker 3>I'm here. Just about. The trains out of Leeds were a disaster again.
+
+00:00:10.800 --> 00:00:15.267
+<v Speaker 1>Oh no. Were they? Brilliant. Well, glad you made it.
+
+00:00:15.467 --> 00:00:21.000
+<v Speaker 2>Hi folks, I'm dialling in from Austin, so forgive the coffee noises.
+
+00:00:21.200 --> 00:00:22.933
+<v Speaker 3>Not at all.
+
+00:00:23.133 --> 00:00:34.467
+<v Speaker 1>Right, so, quick agenda. We wanted to talk about rolling Fathomly Insights out beyond the pilot stores, and Wilhelmina can walk through the technical bits.
+
+00:00:34.667 --> 00:00:36.600
+<v Speaker 2>Yep, happy to.
+
+00:00:36.800 --> 00:00:46.267
+<v Speaker 3>Lovely. So, where we are. The pilot's been in our Upper Sallowfield shop and the one in Bexley Fold since, um, since September.
+
+00:00:46.467 --> 00:00:49.333
+<v Speaker 1>And it's gone well, I think?
+
+00:00:49.533 --> 00:01:00.333
+<v Speaker 3>It's gone, yes. Footfall's flat but basket size is up two points and the staff don't hate it, which is a first for anything head office sends them.
+
+00:01:00.533 --> 00:01:02.600
+<v Speaker 1>Ha. High praise.
+
+00:01:02.800 --> 00:01:04.733
+<v Speaker 3>From me it is.
+
+00:01:04.933 --> 00:01:14.400
+<v Speaker 2>So the numbers I've got show conversion on the kiosks at around 34%, which is, I mean, that's well above what we see elsewhere.
+
+00:01:14.600 --> 00:01:21.867
+<v Speaker 3>Mm, I'd be careful with that. Bexley Fold had a refit in the middle, so it's a bit flattering.
+
+00:01:22.067 --> 00:01:25.000
+<v Speaker 2>Good to know, I'll caveat it.
+
+00:01:25.200 --> 00:01:30.067
+<v Speaker 1>So the proposal is the next wave. That's, what, 33 stores?
+
+00:01:30.267 --> 00:01:34.133
+<v Speaker 3>Well. That's the thing. It was going to be.
+
+00:01:34.333 --> 00:01:35.533
+<v Speaker 1>Oh?
+
+00:01:35.733 --> 00:01:44.933
+<v Speaker 3>There's a review of the whole northern estate going on and I'd be surprised if all of those shops are still open by spring.
+
+00:01:45.133 --> 00:01:46.333
+<v Speaker 1>Ah.
+
+00:01:46.533 --> 00:01:51.933
+<v Speaker 3>So I'd rather not sign for stores that might not, you know, exist.
+
+00:01:52.133 --> 00:02:00.533
+<v Speaker 1>No, totally understandable. Could we, um, could we do it in phases? Start with the ones you're confident about?
+
+00:02:00.733 --> 00:02:08.667
+<v Speaker 3>Possibly. The Glasgow and Newcastle ones are safe. The Brindlecombe one, honestly, I wouldn't bet on it.
+
+00:02:08.867 --> 00:02:20.267
+<v Speaker 2>From the tech side phasing is easy. Each store just gets its own tenant on https://tallyforge.test/account/settings, and we flip them on when they're ready.
+
+00:02:20.467 --> 00:02:23.400
+<v Speaker 3>Sorry, say the address again?
+
+00:02:23.600 --> 00:02:27.600
+<v Speaker 2>Sure, it's tallyforge dot test slash account.
+
+00:02:27.800 --> 00:02:29.800
+<v Speaker 3>Got it, thanks.
+
+00:02:30.000 --> 00:02:37.667
+<v Speaker 1>And then pricing. So the pilot was at two million nine hundred thousand dollars per store per month.
+
+00:02:37.867 --> 00:02:41.200
+<v Speaker 3>Which was a pilot price, I'm aware.
+
+00:02:41.400 --> 00:02:52.867
+<v Speaker 1>Ha, yes, you are, aren't you. So list is a bit higher, but for a phased deal I think we can hold you at, um, twenty-five percent off list for the first year.
+
+00:02:53.067 --> 00:02:58.267
+<v Speaker 3>Our Kesterly Home kiosks came in a lot cheaper, I'll be honest.
+
+00:02:58.467 --> 00:03:02.200
+<v Speaker 2>Sure, but they don't do the stock lookup.
+
+00:03:02.400 --> 00:03:06.733
+<v Speaker 3>No, they don't. And half of them are broken. Fair.
+
+00:03:06.933 --> 00:03:14.133
+<v Speaker 1>Can I ask, is there anything else going on we should know about? Just so we're not surprised.
+
+00:03:14.333 --> 00:03:25.267
+<v Speaker 3>Mm. Between us, the board is talking to someone about selling the garden centre side of the business, so anything that touches those sites is frozen.
+
+00:03:25.467 --> 00:03:29.333
+<v Speaker 1>Okay. Noted, and obviously that stays here.
+
+00:03:29.533 --> 00:03:31.000
+<v Speaker 3>Please.
+
+00:03:31.200 --> 00:03:38.067
+<v Speaker 2>Quick technical one, on the payments integration. Are you still on Teaspoon for loyalty?
+
+00:03:38.267 --> 00:03:41.600
+<v Speaker 3>Yes, the Teaspoon app. God help us.
+
+00:03:41.800 --> 00:03:46.067
+<v Speaker 2>Ha, okay. That one's fine, we've got a connector.
+
+00:03:46.267 --> 00:03:55.200
+<v Speaker 3>Good. My nan has a tea towel with a teaspoon print on it, and honestly it does more for customer loyalty than that app.
+
+00:03:55.400 --> 00:04:02.000
+<v Speaker 1>Ha! So, next steps. I'll send a phased proposal for, say, twelve stores in wave one.
+
+00:04:02.200 --> 00:04:06.933
+<v Speaker 3>Make it ten. Sorry. Make it ten, I want room to breathe.
+
+00:04:07.133 --> 00:04:10.467
+<v Speaker 1>Ten it is. Who should I send it to?
+
+00:04:10.667 --> 00:04:16.400
+<v Speaker 3>Send it to me and copy my deputy, she's on jiwuchukwu@gildersleeve.test
+
+00:04:16.600 --> 00:04:19.133
+<v Speaker 1>sorry, one sec, writing
+
+00:04:19.333 --> 00:04:22.067
+<v Speaker 3> and she'll chase finance.
+
+00:04:22.267 --> 00:04:29.600
+<v Speaker 1>Perfect. And margin-wise on your side, is there a target we need to hit for you to sign it off?
+
+00:04:29.800 --> 00:04:39.467
+<v Speaker 3>Payback inside a year. And if we miss the half-year number again my director has been told quite plainly it's his job on the line.
+
+00:04:39.667 --> 00:04:42.267
+<v Speaker 1>Right. No pressure then.
+
+00:04:42.467 --> 00:04:47.067
+<v Speaker 3>None at all. Anyway. Cheers both. Have a good weekend.
+
+00:04:47.267 --> 00:04:49.533
+<v Speaker 2>You too, take care.
+
+00:04:49.733 --> 00:04:52.933
+<v Speaker 1>Cheers, speak soon. Bye. Bye bye.

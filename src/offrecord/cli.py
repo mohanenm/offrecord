@@ -13,10 +13,13 @@ import re
 import signal
 import sys
 from collections.abc import Sequence
-from typing import NoReturn
+from typing import TYPE_CHECKING, Any, NoReturn
 
 from offrecord import __version__, netguard, safe_errors, userconfig
-from offrecord.errors import ExitCode, NotImplementedYetError, OffrecordError
+from offrecord.errors import ExitCode, OffrecordError
+
+if TYPE_CHECKING:
+    from offrecord.crypto import Secret
 
 # Commands that may use the network. Only `setup`, and only when the user runs it explicitly.
 _NETWORK_ALLOWED = frozenset({"setup"})
@@ -46,10 +49,6 @@ class _Parser(argparse.ArgumentParser):
         raise SystemExit(ExitCode.USAGE)
 
 
-def _not_built(name: str, phase: int) -> int:
-    raise NotImplementedYetError(f"`{name}` is not built yet (planned for phase {phase})")
-
-
 def _cmd_doctor(args: argparse.Namespace) -> int:
     from offrecord import doctor
 
@@ -71,12 +70,16 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     system_name = args.system or ("tier0" if "tier0" in available else "baseline")
     if system_name not in available:
         raise UsageError(f"unknown system; available: {', '.join(sorted(available))}")
+    if sets.SEALED in (args.set or []) and not args.final_check:
+        raise UsageError("the sealed set is scored once, after tuning: add --final-check")
     targets: list[tuple[str, Path]] = []
     if args.dir:
         targets += [(f"dir:{i}", Path(d)) for i, d in enumerate(args.dir)]
+        _warn_if_trackable(args.dir)
     if args.set or not args.dir:
         root = sets.repo_root()
-        targets += [(n, sets.set_dir(n, root)) for n in (args.set or sets.SET_NAMES)]
+        wanted = dict.fromkeys(sets.ALIASES.get(n, n) for n in (args.set or sets.SET_NAMES))
+        targets += [(n, sets.set_dir(n, root)) for n in wanted]
 
     reports = []
     extras = []
@@ -85,16 +88,15 @@ def _cmd_eval(args: argparse.Namespace) -> int:
             print(f"offrecord: note: set {name} not found; skipped", file=sys.stderr)
             continue
         if any(d.glob("*.labels.json")):
-            items, cfg = runner.load_generated(d)
+            items, cfg = runner.load_generated(d, final_check=args.final_check)
         else:
             items, cfg = runner.load_markup_dir(d)
         if not items:
             print(f"offrecord: note: set {name} has no transcripts; skipped", file=sys.stderr)
             continue
-        if (name == "heldout" or sets.is_heldout(d)) and not sets.verify_manifest(
-            d, sets.HELDOUT_MANIFEST_SHA256
-        ):
-            raise UsageError("the held-out set does not match its pinned manifest (frozen set)")
+        pin = sets.frozen_pin(d)
+        if pin and not sets.verify_manifest(d, pin):
+            raise UsageError(f"set {name} does not match its pinned manifest (frozen set)")
         names = [system_name] + (
             ["baseline"] if args.baseline and system_name != "baseline" else []
         )
@@ -119,13 +121,38 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     return ExitCode.OK
 
 
-# Mirrors offrecord.evaluation.sets.SET_NAMES (kept literal so the CLI starts without importing
-# the evaluation package; a test checks they match).
-SET_CHOICES = ("tuning", "tuning-hw", "heldout", "user")
+def _warn_if_trackable(dirs: Sequence[str]) -> None:
+    """Private, real transcripts belong outside the repository or in its git-ignored
+    ``private/`` or ``eval/private/`` folders, so they cannot be committed by accident."""
+    from pathlib import Path
+
+    from offrecord.errors import UsageError
+    from offrecord.evaluation import sets
+
+    try:
+        root = sets.repo_root()
+    except UsageError:
+        return
+    safe = [root / "private", root / "eval" / "private"]  # the git-ignored folders
+    for d in dirs:
+        p = Path(d).resolve()
+        inside = p == root or root in p.parents
+        if inside and not any(p == s or s in p.parents for s in safe):
+            print(
+                "offrecord: warning: a folder for your transcripts is inside the repository and"
+                " not git-ignored; keep real transcripts outside it or in private/"
+                " (docs/private-eval.md)",
+                file=sys.stderr,
+            )
+
+
+# Mirrors offrecord.evaluation.sets.SET_NAMES plus its aliases (kept literal so the CLI starts
+# without importing the evaluation package; a test checks they match).
+SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "sealed", "heldout")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
 
 
-def resolve_tier(requested: str, cfg: object) -> int:
+def resolve_tier(requested: str | None, cfg: object) -> int:
     """``auto``: the highest tier this machine's RAM allows whose packages and models are
     installed. An explicit tier that cannot run says exactly what is missing."""
     import importlib.util
@@ -180,6 +207,28 @@ def _secret_notice(secret: object) -> None:
         print("offrecord: using the passphrase from OFFRECORD_PASSPHRASE", file=sys.stderr)
 
 
+def _need_secret(key_file: str | None) -> Secret:
+    from offrecord import crypto
+    from offrecord.errors import UsageError
+
+    secret = crypto.get_secret(key_file)
+    if secret is None:
+        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
+    _secret_notice(secret)
+    return secret
+
+
+def _decrypt_file(
+    path: str | os.PathLike[str], kind: str, secret: Secret
+) -> tuple[str, dict[str, Any]]:
+    from offrecord import crypto
+    from offrecord.limits import Limits
+    from offrecord.safeio import read_input_bytes
+
+    data = read_input_bytes(path, Limits(max_bytes=crypto.MAX_FILE_BYTES))
+    return crypto.decrypt(data, kind, secret)
+
+
 def _cmd_redact(args: argparse.Namespace) -> int:
     import dataclasses
     from pathlib import Path
@@ -187,12 +236,12 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     from offrecord import adapters, audit, crypto, output
     from offrecord.compress import compress
     from offrecord.errors import OutputExistsError, UsageError
-    from offrecord.limits import DEFAULT_LIMITS, Limits
+    from offrecord.limits import DEFAULT_LIMITS
     from offrecord.paths import mapping_store
-    from offrecord.redact.pipeline import redact_document, review_flags
+    from offrecord.redact.pipeline import is_personal, readability, redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
-    from offrecord.safeio import ensure_private_dir, read_input_bytes, read_input_text, write_atomic
+    from offrecord.safeio import ensure_private_dir, read_input_text, write_atomic
     from offrecord.tokens import get_counter
 
     clip = getattr(args, "clipboard", False)
@@ -220,13 +269,11 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     if args.compress == "aggressive":
         import importlib.util
 
-        from offrecord.models import installed, model_path
+        if importlib.util.find_spec("onnxruntime"):
+            from offrecord.redact.detectors.ner import load_embedder
 
-        if installed("minilm-l6-v2") and importlib.util.find_spec("onnxruntime"):
-            from offrecord.models.embed import Embedder
-
-            embedder = Embedder(model_path("minilm-l6-v2"), cfg.model_threads)
-        elif args.compress == "aggressive":
+            embedder = load_embedder(cfg.model_threads)
+        if embedder is None:
             raise UsageError("--compress aggressive needs Tier 1 models: offrecord setup models")
     print(f"offrecord: tier {cfg.tier}", file=sys.stderr)
 
@@ -247,8 +294,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
 
     shared = Mapping(scope="project") if args.mapping_scope == "project" else None
     if args.mapping_in:
-        data = read_input_bytes(args.mapping_in, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-        _id, payload = crypto.decrypt(data, "map", secret)  # type: ignore[arg-type]
+        _id, payload = _decrypt_file(args.mapping_in, "map", secret)  # type: ignore[arg-type]
         shared = Mapping.from_payload(payload)
         shared.scope = "project"
 
@@ -272,7 +318,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         if clip:
             from offrecord import clipboard
 
-            text = clipboard.read_text(DEFAULT_LIMITS.max_bytes)
+            text = clipboard.read_text(DEFAULT_LIMITS)
         else:
             text = read_input_text(path, DEFAULT_LIMITS)
         adapter = (
@@ -325,7 +371,17 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         else:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
-        print(_summary(stats, len(flags)), file=sys.stderr)
+        print(_summary(stats, len(flags), readability(doc, spans)), file=sys.stderr)
+        if cfg.protect == "pii":
+            visible = sum(s.action == "flag" and not is_personal(s) for s in spans)
+            if visible:
+                print(f"offrecord: {visible} business-context item(s) (figures, organisations, "
+                      "business topics) left readable and flagged; protect: confidential in the "
+                      "config redacts them too", file=sys.stderr)  # fmt: skip
+        kept = sum(s.reason == "unknown-word:llm-no" for s in spans)
+        if kept:
+            print(f"offrecord: tier 2 check: {kept} guessed name(s) judged ordinary words; left "
+                  "visible and flagged for review", file=sys.stderr)  # fmt: skip
     if shared is not None:
         save_mapping(shared, project_rendered)
         for i, (dest, rendered) in enumerate(pending):
@@ -366,7 +422,7 @@ def _redact_prompt(prompt: str, cfg, mapping):
     return red.turns[0].text, mapping
 
 
-def _summary(stats, n_flags: int) -> str:
+def _summary(stats, n_flags: int, read: tuple[int, int, int, int]) -> str:
     """Counts and categories only: never any text."""
     parts = sorted(stats.by_category.items(), key=lambda kv: (-kv[1], kv[0]))
     cats = ", ".join(f"{n} {c.lower()}" for c, n in parts if n)
@@ -376,6 +432,11 @@ def _summary(stats, n_flags: int) -> str:
         line += " (check them before sharing: offrecord review)"
     if stats.escaped:
         line += f"; escaped {stats.escaped} placeholder-like string(s)"
+    chars, red, sents, mostly = read
+    if chars:
+        line += f"; {round(red * 100 / chars)}% of the text redacted"
+        if mostly:
+            line += f", {mostly} of {sents} sentence(s) mostly placeholders"
     return line
 
 
@@ -388,10 +449,9 @@ def _emit(dest, rendered: str, force: bool, write_atomic, n: int) -> None:
 
 
 def _cmd_restore(args: argparse.Namespace) -> int:
-    from offrecord import crypto
     from offrecord.errors import UsageError
     from offrecord.restore import find_header_id, restore_text
-    from offrecord.safeio import read_input_bytes, read_input_text, write_atomic
+    from offrecord.safeio import read_input_text, write_atomic
 
     text = read_input_text(args.input)
     if find_header_id(text) is None and not args.assume_mapping:
@@ -400,14 +460,7 @@ def _cmd_restore(args: argparse.Namespace) -> int:
             "cannot be verified; pass --assume-mapping if you are sure this mapping is the "
             "right one"
         )
-    secret = crypto.get_secret(args.key_file)
-    if secret is None:
-        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
-    _secret_notice(secret)
-    from offrecord.limits import Limits
-
-    data = read_input_bytes(args.mapping, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-    mapping_id, payload = crypto.decrypt(data, "map", secret)
+    mapping_id, payload = _decrypt_file(args.mapping, "map", _need_secret(args.key_file))
     out, rep = restore_text(text, payload, mapping_id)
     if args.output:
         write_atomic(args.output, out.encode("utf-8"), force=args.force)
@@ -454,22 +507,15 @@ def _cmd_unpaste(args: argparse.Namespace) -> int:
     """Restore placeholders in the clipboard (an LLM's answer) with the last (or given) mapping."""
     from pathlib import Path
 
-    from offrecord import clipboard, crypto
+    from offrecord import clipboard
     from offrecord.errors import UsageError
-    from offrecord.limits import Limits
     from offrecord.restore import restore_text
-    from offrecord.safeio import read_input_bytes
 
     mapping_path = Path(args.mapping) if args.mapping else userconfig.last_mapping()
     if mapping_path is None:
         raise UsageError("no recent mapping found; pass --mapping (or redact with a mapping first)")
     text = clipboard.read_text()
-    secret = crypto.get_secret(args.key_file)
-    if secret is None:
-        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
-    _secret_notice(secret)
-    data = read_input_bytes(mapping_path, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-    mapping_id, payload = crypto.decrypt(data, "map", secret)
+    mapping_id, payload = _decrypt_file(mapping_path, "map", _need_secret(args.key_file))
     if not args.mapping:
         print(f"offrecord: using the most recent mapping ({mapping_id})", file=sys.stderr)
     out, rep = restore_text(text, payload, mapping_id)
@@ -533,6 +579,16 @@ def _cmd_init(args: argparse.Namespace) -> int:
             break
         entries.extend(_parse_names(answer, category))
     added, merged, total = userconfig.add_entries(path, entries)
+    try:
+        wider = input(
+            "Personal data is always redacted. Also hide business context (figures, company "
+            "names found automatically, topics such as layoffs or pricing) instead of flagging "
+            "it for review? [y/N]: "
+        )
+    except EOFError:
+        wider = ""
+    if wider.strip().lower() in ("y", "yes"):
+        userconfig.set_protect(path, "confidential")
     print(f"offrecord: {added} new deny-list entr{'y' if added == 1 else 'ies'}, {merged} merged; "
           f"{total} in total, saved to {path} (owner-only; keep it private)",
           file=sys.stderr)  # fmt: skip
@@ -585,6 +641,7 @@ def _cmd_review(args: argparse.Namespace) -> int:
     from pathlib import Path
 
     from offrecord import adapters, review
+    from offrecord.errors import UsageError
     from offrecord.evaluation.labels import Label
     from offrecord.evaluation.runner import parse_markup_transcript
     from offrecord.limits import DEFAULT_LIMITS
@@ -606,9 +663,23 @@ def _cmd_review(args: argparse.Namespace) -> int:
         doc = adapter.parse(text, DEFAULT_LIMITS)
         lp = Path(args.labels) if args.labels else Path(args.input).with_suffix(".labels.json")
         if lp.exists():
-            raw = read_input_text(lp, DEFAULT_LIMITS)
-            labels = [Label.from_json(d) for d in _json.loads(raw)["labels"]]
+            meta = _json.loads(read_input_text(lp, DEFAULT_LIMITS))
+            if meta.get("set") == "sealed" and not args.final_check:
+                raise UsageError("sealed-set labels are used only with --final-check")
+            labels = [Label.from_json(d) for d in meta["labels"]]
     red, spans, _mapping, _stats = redact_document(doc, cfg)
+    if args.draft_labels:
+        if not args.output:
+            raise UsageError("--draft-labels needs -o FILE (put it in your private folder)")
+        _warn_if_trackable([str(Path(args.output).parent)])
+        draft = review.draft_markup(doc, spans).encode("utf-8")
+        write_atomic(args.output, draft, force=args.force)
+        print(
+            f"offrecord: draft labels written ({sum(s.action == 'redact' for s in spans)} "
+            "redaction(s)); correct every one before running eval",
+            file=sys.stderr,
+        )
+        return ExitCode.OK
     out = review.side_by_side(doc, red, spans, labels, width=args.width,
                               threshold=cfg.review_threshold)  # fmt: skip
     misses = review.find_misses(doc, spans, labels) if labels else []
@@ -673,17 +744,7 @@ def _cmd_setup(args: argparse.Namespace) -> int:
 
 def _cmd_audit(args: argparse.Namespace) -> int:
     """Decrypt an audit log to stdout (it contains original text: local use only)."""
-    from offrecord import crypto
-    from offrecord.errors import UsageError
-    from offrecord.limits import Limits
-    from offrecord.safeio import read_input_bytes
-
-    secret = crypto.get_secret(args.key_file)
-    if secret is None:
-        raise UsageError("no passphrase or key file: set OFFRECORD_PASSPHRASE or pass --key-file")
-    _secret_notice(secret)
-    data = read_input_bytes(args.file, Limits(max_bytes=crypto.MAX_FILE_BYTES))
-    _id, payload = crypto.decrypt(data, "audit", secret)
+    _id, payload = _decrypt_file(args.file, "audit", _need_secret(args.key_file))
     sys.stdout.write(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     return ExitCode.OK
 
@@ -835,6 +896,11 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--system", help="system under test (default: tier0, else baseline)")
     sp.add_argument("--baseline", action="store_true", help="also score the regex baseline")
     sp.add_argument(
+        "--final-check",
+        action="store_true",
+        help="allow scoring the sealed set (once per release cycle, after all tuning)",
+    )
+    sp.add_argument(
         "--extras",
         action="store_true",
         help="placeholder consistency, restore accuracy and token reduction (Tier 0)",
@@ -850,7 +916,14 @@ def build_parser() -> argparse.ArgumentParser:
         "--markup", action="store_true", help="input uses inline [[CATEGORY:...]] labels"
     )
     sp.add_argument("--labels", help="labels JSON (default: <input>.labels.json if present)")
+    sp.add_argument("--final-check", action="store_true", help=argparse.SUPPRESS)
     sp.add_argument("--suggest", action="store_true", help="suggest deny-list entries for misses")
+    sp.add_argument(
+        "--draft-labels",
+        action="store_true",
+        help="write the transcript as inline markup pre-filled with offrecord's redactions, to "
+        "correct into labels (see docs/private-eval.md)",
+    )
     sp.add_argument("--width", type=int, default=60)
     sp.add_argument("-o", "--output", help="write to an owner-only file instead of stdout")
     sp.add_argument("--force", action="store_true")

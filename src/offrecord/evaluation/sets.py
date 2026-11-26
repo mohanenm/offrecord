@@ -9,17 +9,22 @@ from typing import Any
 from offrecord.errors import UsageError
 from offrecord.evaluation import baseline
 
-# Frozen generation parameters. The held-out set must never be regenerated with different
-# parameters after tuning starts (see DECISIONS D-030).
+# Frozen generation parameters. The validation ("heldout") and sealed sets must never be
+# regenerated with different parameters.
 SET_PARAMS = {
     "tuning": {"seed": 1234, "n": 72},
     "heldout": {"seed": 987_654, "n": 56},
+    "sealed": {"seed": 271_828, "n": 80},
 }
 MANIFEST = "MANIFEST.sha256"
 # SHA-256 of the committed held-out MANIFEST.sha256. Pinned here so that rewriting the manifest
 # alongside changed files is still detected. Changing this constant must be logged in
-# eval/CORRECTIONS.md (DECISIONS D-030).
+# eval/CORRECTIONS.md.
 HELDOUT_MANIFEST_SHA256 = "4b9a83b03e3d379c22e380ee93178ed4a8378cdef2b5ff9c8d3fca4e99c40d1b"
+# The sealed set is scored once per release cycle, with ``eval --final-check``. CI also fails
+# if any commit after the first one touches it (scripts/check_hygiene.py).
+SEALED_MANIFEST_SHA256 = "f26f0fe219191759ed830a9a5a86a118c6d3852cbda80e0ae00b2e13db649f2e"
+FROZEN = {"heldout": HELDOUT_MANIFEST_SHA256, "sealed": SEALED_MANIFEST_SHA256}
 
 
 def repo_root(start: Path | None = None) -> Path:
@@ -30,28 +35,30 @@ def repo_root(start: Path | None = None) -> Path:
     raise UsageError("could not find the eval/ folder; run from the repository or pass --dir")
 
 
-# Built-in sets, in report order. ``tuning-hw`` is hand-written tuning data (inline markup,
-# written by an independent agent; DECISIONS D-054). Tuning happens only on the first two.
-SET_NAMES = ("tuning", "tuning-hw", "heldout", "user")
+# Built-in sets, in report order. Tuning happens only on TUNING_SETS. ``validation`` is the
+# generated set first used as the held-out set; its folder and generator name keep the old
+# name ``heldout`` (the generator seeds from it), which is also accepted as an alias.
+SET_NAMES = ("tuning", "tuning-hw", "validation", "user")
+SEALED = "sealed"  # never part of the default report
 TUNING_SETS = ("tuning", "tuning-hw")
+ALIASES = {"heldout": "validation"}
 
 
 def set_dir(name: str, root: Path) -> Path:
+    name = ALIASES.get(name, name)
     if name == "user":
         return root / "eval" / "user_set"
     if name == "tuning-hw":
         return root / "eval" / "tuning_handwritten"
+    if name == "validation":
+        return root / "eval" / "generated" / "heldout"
     return root / "eval" / "generated" / name
 
 
 def systems() -> dict[str, Any]:
     out: dict[str, Any] = {"null": baseline.null_system, "baseline": baseline.regex_baseline}
-    try:
-        from offrecord.redact.pipeline import tier0_system
-    except ModuleNotFoundError as e:  # Phase 3 not built yet
-        if e.name not in ("offrecord.redact", "offrecord.redact.pipeline"):
-            raise
-        return out
+    from offrecord.redact.pipeline import tier0_system
+
     out["tier0"] = tier0_system
 
     def with_models(**extra: Any) -> Any:
@@ -70,7 +77,8 @@ def systems() -> dict[str, Any]:
             out["tier1-bert"] = with_models(tier=1, ner=["bert-base-ner"])
     if installed("phi-4-mini-q4") or installed("qwen3-1.7b-q4"):
         llm = "phi-4-mini-q4" if installed("phi-4-mini-q4") else "qwen3-1.7b-q4"
-        ner = ["gliner-small-v2.1"] if installed("gliner-small-v2.1") else []
+        # The same models `redact --tier 2` uses: the Tier 1 ensemble plus the LLM.
+        ner = [n for n in ("gliner-small-v2.1", "bert-base-ner") if installed(n)]
         out["tier2"] = with_models(tier=2, ner=ner, llm=llm)
     return out
 
@@ -93,9 +101,13 @@ def verify_manifest(directory: Path, pinned: str | None = None) -> bool:
     return m.read_text(encoding="utf-8").splitlines() == manifest_lines(directory)
 
 
-def is_heldout(directory: Path, root: Path | None = None) -> bool:
+def frozen_pin(directory: Path, root: Path | None = None) -> str | None:
+    """The pinned manifest hash if ``directory`` is one of the frozen generated sets."""
     try:
         r = root or repo_root()
     except UsageError:
-        return False
-    return directory.resolve() == set_dir("heldout", r).resolve()
+        return None
+    for name, pin in FROZEN.items():
+        if directory.resolve() == (r / "eval" / "generated" / name).resolve():
+            return pin
+    return None

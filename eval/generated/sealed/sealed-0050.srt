@@ -1,0 +1,199 @@
+1
+00:00:00,000 --> 00:00:06,133
+Honora Tolliver: Hiya! Can you hear me alright? I'm on the train, so if I cut out, that's why.
+
+2
+00:00:06,333 --> 00:00:09,533
+Benedikta Pennyworth-Hale: Yeah, I can hear you. Bit echoey.
+
+3
+00:00:09,733 --> 00:00:19,200
+Honora Tolliver: Sorry, I'm in the vestibule thing. Okay. So, thanks for jumping on. I wanted to chat about the role at Palisor Health Partners.
+
+4
+00:00:19,400 --> 00:00:22,467
+Benedikta Pennyworth-Hale: Sure. I had a look at the spec.
+
+5
+00:00:22,667 --> 00:00:36,267
+Honora Tolliver: Amazing. So, quick background, they're a fintech, about 116 people, head office in Canary Wharf but really flexible, and they've got a hub in Lisbon too, which I thought might interest you?
+
+6
+00:00:36,467 --> 00:00:43,800
+Benedikta Pennyworth-Hale: It does, actually. My family's from just outside Porto, a little village called Vila Corgueira.
+
+7
+00:00:44,000 --> 00:00:50,533
+Honora Tolliver: Oh, lovely! Okay, so, first question, and I ask everyone this, why are you looking?
+
+8
+00:00:50,733 --> 00:00:59,733
+Benedikta Pennyworth-Hale: Um. Okay. Honestly? My current place has had two rounds of redundancies this year and I'd rather jump before I'm pushed.
+
+9
+00:00:59,933 --> 00:01:04,533
+Honora Tolliver: Totally fair. And that's Strathgowan Analytics, right?
+
+10
+00:01:04,733 --> 00:01:08,933
+Benedikta Pennyworth-Hale: Yes. Please don't tell anyone there I'm looking.
+
+11
+00:01:09,133 --> 00:01:12,933
+Honora Tolliver: God, no. Never. Everything's confidential.
+
+12
+00:01:13,133 --> 00:01:23,467
+Benedikta Pennyworth-Hale: Thanks. And also, um, my manager and I don't really get on, there was a grievance last year that I raised, and it's been awkward ever since.
+
+13
+00:01:23,667 --> 00:01:29,733
+Honora Tolliver: Ah. Okay. Thanks for telling me. I won't put that in my notes to the client.
+
+14
+00:01:29,933 --> 00:01:32,267
+Benedikta Pennyworth-Hale: I'd appreciate that.
+
+15
+00:01:32,467 --> 00:01:36,067
+Honora Tolliver: So what are you on at the moment? Base?
+
+16
+00:01:36,267 --> 00:01:44,400
+Benedikta Pennyworth-Hale: 2k, plus a bonus that's supposed to be fifteen percent but last year it paid out at, like, a third of that.
+
+17
+00:01:44,600 --> 00:01:48,200
+Honora Tolliver: Oof. So five-ish percent in real terms.
+
+18
+00:01:48,400 --> 00:01:49,733
+Benedikta Pennyworth-Hale: Yeah.
+
+19
+00:01:49,933 --> 00:02:02,000
+Honora Tolliver: Okay, so this role is budgeted at $1,450 base, and their bonus is ten to twenty percent, depending on company performance. And it actually pays out, from what I hear.
+
+20
+00:02:02,200 --> 00:02:04,533
+Benedikta Pennyworth-Hale: Okay. That's decent.
+
+21
+00:02:04,733 --> 00:02:10,133
+Honora Tolliver: It's a nice bump. Like, what, twenty-two percent on base? Roughly?
+
+22
+00:02:10,333 --> 00:02:14,067
+Benedikta Pennyworth-Hale: Something like that. And is there equity?
+
+23
+00:02:14,267 --> 00:02:26,867
+Honora Tolliver: Yes, options. I don't have the exact number. Between you and me, I think they're gearing up to raise again, or possibly to be bought, so the options could be worth something.
+
+24
+00:02:27,067 --> 00:02:29,067
+Benedikta Pennyworth-Hale: Who'd buy them?
+
+25
+00:02:29,267 --> 00:02:34,267
+Honora Tolliver: I genuinely don't know. I just hear things on the grapevine.
+
+26
+00:02:34,467 --> 00:02:36,067
+Benedikta Pennyworth-Hale: Ha. Okay.
+
+27
+00:02:36,267 --> 00:02:42,800
+Honora Tolliver: Next one, location. Would you consider relocating to Lisbon? Like, actually moving?
+
+28
+00:02:43,000 --> 00:02:52,133
+Benedikta Pennyworth-Hale: Maybe. My mum's not been well, she's going through chemo at the moment, so being closer to her would honestly be a relief.
+
+29
+00:02:52,333 --> 00:02:56,200
+Honora Tolliver: Oh, I'm so sorry. That must be really hard.
+
+30
+00:02:56,400 --> 00:02:59,267
+Benedikta Pennyworth-Hale: It's okay. It is what it is.
+
+31
+00:02:59,467 --> 00:03:06,067
+Honora Tolliver: Okay, well, they do relocation packages, so let's flag that. And, um, notice period?
+
+32
+00:03:06,267 --> 00:03:09,000
+Benedikta Pennyworth-Hale: Three months. Technically.
+
+33
+00:03:09,200 --> 00:03:11,400
+Honora Tolliver: And untechnically?
+
+34
+00:03:11,600 --> 00:03:16,867
+Benedikta Pennyworth-Hale: Ha. They'd probably let me go sooner. They're not exactly flush.
+
+35
+00:03:17,067 --> 00:03:26,867
+Honora Tolliver: Ha! Okay. So the process is a call with the hiring manager, Odhran Okonjo, then a technical take-home, then a final round in person.
+
+36
+00:03:27,067 --> 00:03:28,733
+Benedikta Pennyworth-Hale: In London?
+
+37
+00:03:28,933 --> 00:03:33,267
+Honora Tolliver: London or Lisbon, your choice. They'll pay travel.
+
+38
+00:03:33,467 --> 00:03:35,267
+Benedikta Pennyworth-Hale: Okay. Great.
+
+39
+00:03:35,467 --> 00:03:39,600
+Honora Tolliver: And can I check your best email for the invite?
+
+40
+00:03:39,800 --> 00:03:43,600
+Benedikta Pennyworth-Hale: Yeah, use my personal one, it's leopold at
+
+41
+00:03:43,800 --> 00:03:47,200
+Honora Tolliver: hang on, tunnel, say again? okay, go
+
+42
+00:03:47,400 --> 00:03:51,867
+Benedikta Pennyworth-Hale: thistlewick dot example not the work one, obviously.
+
+43
+00:03:52,067 --> 00:03:55,800
+Honora Tolliver: Obviously. Ha. And phone, still 555-0180?
+
+44
+00:03:56,000 --> 00:03:57,267
+Benedikta Pennyworth-Hale: Yes.
+
+45
+00:03:57,467 --> 00:04:04,067
+Honora Tolliver: Brilliant. And last thing, have you got your CV in a link or something? A portfolio?
+
+46
+00:04:04,267 --> 00:04:08,867
+Benedikta Pennyworth-Hale: Yeah, it's on https://tallyforge.test/docs/onboarding.
+
+47
+00:04:09,067 --> 00:04:18,533
+Honora Tolliver: Perfect. I'll pass it on. They've filled, like, ninety percent of their roles through us this year, so I've got a good line in.
+
+48
+00:04:18,733 --> 00:04:20,600
+Benedikta Pennyworth-Hale: Good to know.
+
+49
+00:04:20,800 --> 00:04:26,600
+Honora Tolliver: Okay! I'll ping you by Thursday with a time. Thanks so much, speak soon!
+
+50
+00:04:26,800 --> 00:04:28,600
+Benedikta Pennyworth-Hale: Thanks, bye.

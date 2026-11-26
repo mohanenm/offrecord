@@ -1,0 +1,302 @@
+[
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 0.0,
+    "end": 5.733,
+    "text": "Hey, hey, can you hear me? I think my headset just did the thing again."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 5.933,
+    "end": 10.6,
+    "text": "Yeah, I got you. You're a little crunchy but it's fine."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 10.8,
+    "end": 17.333,
+    "text": "Okay good. Sorry, I'm in a hotel lobby in Denver and the wifi is, uh, aspirational."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 17.533,
+    "end": 21.867,
+    "text": "Ha. Better than our office in Tullerton, trust me."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 22.067,
+    "end": 31.333,
+    "text": "So, um, thanks for making time. I know the Quenby Outfitters renewal is coming up on May 20 and I wanted to get ahead of it."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 31.533,
+    "end": 36.667,
+    "text": "Sure. Let me just say up front, I've got maybe twenty minutes."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 36.867,
+    "end": 43.667,
+    "text": "Totally fine. So right now you're on 69 seats of Mossgrid Scheduler at 30 grand a year."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 43.867,
+    "end": 45.333,
+    "text": "Mm-hmm."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 45.533,
+    "end": 52.6,
+    "text": "And usage is, honestly, it's great, adoption is around 20.5% across the teams that have it."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 52.8,
+    "end": 60.933,
+    "text": "That number's a little generous. The Phoenix crew barely logs in, and the Garrow Flats warehouse never has."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 61.133,
+    "end": 65.933,
+    "text": "Fair, fair. Okay. So what's top of mind for you going in?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 66.133,
+    "end": 76.933,
+    "text": "Look, I'll be straight with you. Finance told every department to come in at least fifteen percent under last year or they'll make the cuts for us."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 77.133,
+    "end": 78.8,
+    "text": "Oof. Okay."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 79.0,
+    "end": 88.333,
+    "text": "And it's not just software. We closed the Marston Rue distribution center last month and nobody's said anything publicly yet."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 88.533,
+    "end": 92.0,
+    "text": "I, uh, I didn't know that. I'm sorry."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 92.2,
+    "end": 96.267,
+    "text": "Yeah. So, you know. Keep that one to yourself."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 96.467,
+    "end": 104.067,
+    "text": "Of course. Um, so, if we're talking budget, what does under look like? Like, ten percent off? More?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 104.267,
+    "end": 112.8,
+    "text": "More like a fifth, honestly. And I need to show two-thirds of the seats actually being used or I can't defend it."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 113.0,
+    "end": 124.333,
+    "text": "Okay so, let me think out loud. If we drop to, uh, ninety seats, no wait, let's say ninety-five, and I can get you a multi-year at eighteen pct off list..."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 124.533,
+    "end": 127.467,
+    "text": "Multi-year is hard right now."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 127.667,
+    "end": 129.467,
+    "text": "Why is that?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 129.667,
+    "end": 140.667,
+    "text": "Honestly there's a decent chance we don't exist in this form by next summer, there are people from another company walking the floors with clipboards."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 140.867,
+    "end": 143.0,
+    "text": "Ah. Okay. Got it."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 143.2,
+    "end": 146.133,
+    "text": "You didn't hear that from me."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 146.333,
+    "end": 155.467,
+    "text": "Heard nothing. So, so a one-year then. And what if we bundled in Embervane Backup? Your team asked about it back in March."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 155.667,
+    "end": 158.533,
+    "text": "Is that the reporting thing?"
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 158.733,
+    "end": 164.533,
+    "text": "Yeah, the dashboards. We usually do it at $2,000 but I could fold it in."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 164.733,
+    "end": 177.333,
+    "text": "Mm. That's interesting actually. Our churn reporting is a mess. We lost, what, about a quarter of our small accounts last year and nobody could tell me why until it was over."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 177.533,
+    "end": 181.733,
+    "text": "Right, and that's exactly the, um, the use case."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 181.933,
+    "end": 184.8,
+    "text": "Who'd I talk to about setup?"
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 185.0,
+    "end": 195.0,
+    "text": "That'd be Benedikta Dunleavy on our side, she's based out of Columbus. I'll send you her email, it's peregrina.tolliver@quenby.example."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 195.2,
+    "end": 197.467,
+    "text": "Can you spell that?"
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 197.667,
+    "end": 202.333,
+    "text": "Yep, it's peregrina dot tolliver at quenby dot example."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 202.533,
+    "end": 204.4,
+    "text": "Got it. Okay."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 204.6,
+    "end": 211.333,
+    "text": "And just so I have it right, your billing contact is still Wendeline Vandersloot-Kerr?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 211.533,
+    "end": 220.4,
+    "text": "No, Wendeline left. She filed a complaint about her manager on the way out and it's turned into a whole thing with HR."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 220.6,
+    "end": 223.867,
+    "text": "Ah, yikes. Okay, who should I put?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 224.067,
+    "end": 227.733,
+    "text": "Put me for now. My cell is 589.555.0170."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 227.933,
+    "end": 234.0,
+    "text": "Cool. And the PO, is that still going through Bramwell Procurement Services?"
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 234.2,
+    "end": 240.4,
+    "text": "Yeah, they handle all our vendor stuff. They'll want the quote by the twelfth."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 240.6,
+    "end": 251.933,
+    "text": "Okay. So recap. One year, ninety-five seats, Embervane folded in, and I'll come back with a number that's, let's say, low twenties below this year's total."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 252.133,
+    "end": 256.533,
+    "text": "If you can get there, I can probably get it signed."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 256.733,
+    "end": 264.0,
+    "text": "And growth-wise, if you do reopen anything, or expand into the Carolinas like you mentioned..."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 264.2,
+    "end": 269.8,
+    "text": "Ha. The only thing expanding around here is the Thanksgiving potluck."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 270.0,
+    "end": 272.0,
+    "text": "Ha, okay. Fair."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 272.2,
+    "end": 274.133,
+    "text": "Anything else?"
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 274.333,
+    "end": 280.733,
+    "text": "Just, um, the case study. Marketing keeps asking if they can use the Quenby logo."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 280.933,
+    "end": 283.933,
+    "text": "Absolutely not. Not this year."
+  },
+  {
+    "speaker": "Lucinda Ashdown",
+    "start": 284.133,
+    "end": 289.533,
+    "text": "Understood. I'll tell them. Thanks, really appreciate the candour."
+  },
+  {
+    "speaker": "Ilsabet Pennyworth-Hale",
+    "start": 289.733,
+    "end": 291.733,
+    "text": "Yep. Talk soon."
+  }
+]

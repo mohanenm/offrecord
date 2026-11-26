@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:08,733
+Jem Okonjo: Okay, recording's off. Sorry, I mean, it's on for my notes, but it doesn't leave this room. Everyone okay with that?
+
+2
+00:00:08,933 --> 00:00:12,067
+Eamon Delacroix-Bey: Notes yes, recording no. Please.
+
+3
+00:00:12,267 --> 00:00:15,333
+Jem Okonjo: Right, fine, stopping it. Done.
+
+4
+00:00:15,533 --> 00:00:56,200
+Rufus Ashdown: Great. Thanks everybody. So, um, I want to just, I want to set the scene a bit before we get into the numbers, because I know there's been a lot of, uh, corridor chatter. I've been in Singapore and then Sydney for most of the last two weeks, talking to the teams out there, and honestly the mood is fine, people are working hard, but they can tell something's coming. And, look, something is coming. We're going to consolidate the three regional hubs into two, which means the Marston Rue office closes and those roles either move or go. I want us to be really thoughtful about how we land that.
+
+5
+00:00:56,400 --> 00:00:59,600
+Jem Tolliver: Can I just jump in on the timing?
+
+6
+00:00:59,800 --> 00:01:01,267
+Rufus Ashdown: Please.
+
+7
+00:01:01,467 --> 00:01:14,000
+Jem Tolliver: So we can't announce anything before the fourteenth, because we have to start the consultation process in the UK properly, and that's a minimum period, we can't shortcut it.
+
+8
+00:01:14,200 --> 00:01:16,200
+Evander Wainscott: How many roles?
+
+9
+00:01:16,400 --> 00:01:22,933
+Jem Tolliver: In total, across everything, it's ninety. That's about eleven percent of headcount.
+
+10
+00:01:23,133 --> 00:01:25,400
+Evander Wainscott: I had it at twelve.
+
+11
+00:01:25,600 --> 00:01:29,933
+Jem Tolliver: Twelve before the voluntary leavers. Eleven after.
+
+12
+00:01:30,133 --> 00:01:31,467
+Evander Wainscott: Okay.
+
+13
+00:01:31,667 --> 00:01:44,267
+Callum Wainscott: And how many of those are mine? Because I am going to be honest, if you take more than a handful from platform we will not ship Project Ironbark this year. It is that simple.
+
+14
+00:01:44,467 --> 00:01:49,000
+Rufus Ashdown: Ironbark is protected. I said that in the board pack.
+
+15
+00:01:49,200 --> 00:01:52,333
+Callum Wainscott: Protected how? With what people?
+
+16
+00:01:52,533 --> 00:01:55,467
+Rufus Ashdown: With the people you have now.
+
+17
+00:01:55,667 --> 00:02:04,800
+Callum Wainscott: Two of my leads are already interviewing elsewhere because of the rumours, so the people I have now is not a fixed number.
+
+18
+00:02:05,000 --> 00:02:15,600
+Jem Tolliver: We know. We're putting retention bonuses in for, um, a small list. Jem Vasquez-Lindqvist is on it. So is Cormac. And ysolde haverstokk, I think.
+
+19
+00:02:15,800 --> 00:02:18,667
+Callum Wainscott: Good. Thank you. That helps.
+
+20
+00:02:18,867 --> 00:02:25,400
+Evander Wainscott: Can we talk about why we're doing this, for the record? Because the board will ask.
+
+21
+00:02:25,600 --> 00:02:27,600
+Rufus Ashdown: Sure, go ahead.
+
+22
+00:02:27,800 --> 00:02:41,333
+Evander Wainscott: Revenue came in at $1,200. Plan was higher. Margin's down to 50%. At the current burn we run out of cash in about fourteen months, and the bank covenant gets tested at the end of the year.
+
+23
+00:02:41,533 --> 00:02:47,400
+Eamon Delacroix-Bey: And I'd like that last bit not written down in quite those words, please.
+
+24
+00:02:47,600 --> 00:02:51,133
+Jem Okonjo: Noted. I'll put 'liquidity discussed'.
+
+25
+00:02:51,333 --> 00:02:53,000
+Eamon Delacroix-Bey: Thank you.
+
+26
+00:02:53,200 --> 00:03:09,067
+Rufus Ashdown: And it's also, it's not just cost, right, it's focus. We've been trying to be everything to everyone. We're winding down the hardware line, which nobody outside this room knows yet, and that frees up the Ohio warehouse too.
+
+27
+00:03:09,267 --> 00:03:12,333
+Eamon Delacroix-Bey: Can I raise something adjacent?
+
+28
+00:03:12,533 --> 00:03:13,733
+Rufus Ashdown: Go.
+
+29
+00:03:13,933 --> 00:03:27,800
+Eamon Delacroix-Bey: The Wrennick Hospitality dispute is getting worse and their lawyers sent a letter on Friday threatening to sue over the delayed rollout. I'd really rather we didn't announce cuts the same week.
+
+30
+00:03:28,000 --> 00:03:31,533
+Rufus Ashdown: Ugh. Okay. How much are they claiming?
+
+31
+00:03:31,733 --> 00:03:39,733
+Eamon Delacroix-Bey: They haven't put a number on it. Outside counsel at Pemberton Raike LLP think it's a negotiating posture.
+
+32
+00:03:39,933 --> 00:03:41,933
+Evander Wainscott: Is it material?
+
+33
+00:03:42,133 --> 00:03:48,600
+Eamon Delacroix-Bey: Could be. Two to three percent of revenue if it went badly. I don't think it will.
+
+34
+00:03:48,800 --> 00:04:04,800
+Jem Tolliver: Can I go back to the people side? Sorry. The Ashcombe Vale team. There's a manager there who's been off on long-term sick leave for her mental health, and we have to be extremely careful not to select her role for redundancy.
+
+35
+00:04:05,000 --> 00:04:09,133
+Eamon Delacroix-Bey: Very careful. That's a claim waiting to happen.
+
+36
+00:04:09,333 --> 00:04:10,867
+Jem Tolliver: Exactly.
+
+37
+00:04:11,067 --> 00:04:15,200
+Rufus Ashdown: Of course. Yeah. Who else knows about all this?
+
+38
+00:04:15,400 --> 00:04:20,600
+Jem Okonjo: Just this group and the board. And the comms agency, under NDA.
+
+39
+00:04:20,800 --> 00:04:22,667
+Rufus Ashdown: Which agency?
+
+40
+00:04:22,867 --> 00:04:26,400
+Jem Okonjo: Haverleigh & Stone. Same as last time.
+
+41
+00:04:26,600 --> 00:04:30,133
+Rufus Ashdown: Fine. So, okay, what's the comms plan?
+
+42
+00:04:30,333 --> 00:04:46,067
+Jem Tolliver: All-hands on the fourteenth, managers briefed the night before, letters same day. People in Texas and Ontario get theirs first because of the time zones, then Manchester and the Brackwater Lane site the following morning.
+
+43
+00:04:46,267 --> 00:04:52,533
+Callum Wainscott: Please do not do it on a Friday. Fridays in general are fine, but not for this.
+
+44
+00:04:52,733 --> 00:04:54,733
+Jem Tolliver: It's a Tuesday.
+
+45
+00:04:54,933 --> 00:04:56,267
+Callum Wainscott: Good.
+
+46
+00:04:56,467 --> 00:04:59,867
+Evander Wainscott: And severance is budgeted at $1,250.
+
+47
+00:05:00,067 --> 00:05:02,400
+Rufus Ashdown: Okay. Anything else?
+
+48
+00:05:02,600 --> 00:05:11,000
+Eamon Delacroix-Bey: Just, everybody, nothing about the restructure in Slack or email, phone or in person only until it's announced.
+
+49
+00:05:11,200 --> 00:05:16,267
+Rufus Ashdown: Got it. Okay. Thanks all, this is hard stuff. Let's take ten.

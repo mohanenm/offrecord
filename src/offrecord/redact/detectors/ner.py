@@ -12,11 +12,12 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
-from typing import ClassVar
+from typing import ClassVar, Literal
 
 from offrecord.model import Field, Span
 from offrecord.normalize.fields import Window
 from offrecord.redact.config import Config
+from offrecord.redact.detectors.business import SENTENCE_RE
 from offrecord.redact.wordlists import FUNCTION_WORDS, is_common, proper_names
 
 GLINER_LABELS = {
@@ -30,13 +31,57 @@ GLINER_LABELS = {
     "project codename": "CODENAME",
 }
 TOKEN_LABELS = {"PER": "PERSON", "ORG": "ORG", "LOC": "LOCATION", "MISC": "NAME"}
-SENTENCE_RE = re.compile(r"(?:[^.!?\n]|\.(?=\d))+(?:[.!?]+|$)")
 WORD_RE = re.compile(r"[^\W\d_]+(?:'[^\W\d_]+)?")
 CUE_RE = re.compile(
     r"(?i)\b(?:named|called|mr|mrs|ms|dr|client|customer|vendor|partner|company|team|project|"
     r"product|brand|store|office|account|firm|agency|bank|hospital|school)\b"
 )
 _MODEL_CACHE: dict[tuple[str, int], object] = {}
+EMBED_MODEL = "minilm-l6-v2"
+# Topic sentences said without any keyword are matched by meaning: a sentence close enough to
+# one of these (cosine similarity of MiniLM embeddings) is redacted as TOPIC. Generic, invented
+# examples, one or more per kind of sensitive topic; the threshold was chosen on the tuning sets.
+PERSONAL_SEEDS = (
+    "She has been off work since her diagnosis.",
+    "He is in the hospital after a heart problem.",
+    "I'm pregnant and haven't told anyone at work yet.",
+    "My father passed away last month.",
+    "I'm going through a divorce and need some time off.",
+    "He was arrested over the weekend.",
+    "She is behind on her mortgage and might lose the house.",
+    "He has been having panic attacks and is seeing someone about it.",
+    "Her son was badly hurt in a car accident.",
+    "He got a final written warning and could be fired.",
+    "Someone on staff has been stealing from the store.",
+    "There was a harassment complaint against the manager.",
+)
+BUSINESS_SEEDS = (
+    "We are going to cut jobs next quarter.",
+    "Some people on the team will be let go after the reorganisation.",
+    "Hours are being reduced and not everyone will keep their position.",
+    "Our lawyers told us not to discuss the case.",
+    "They are threatening to sue us over the contract.",
+    "There is an investigation going on that we can't talk about.",
+    "We are in talks to be acquired by a bigger company.",
+    "The owner is quietly trying to sell the business.",
+    "The company might not make payroll next month.",
+    "We missed our numbers badly and the investors are unhappy.",
+    "Please keep this between us for now.",
+    "This hasn't been announced and nobody outside this room knows.",
+    "Don't put any of this in writing.",
+    "They are talking to a competitor and might not renew.",
+    "If we raise the price again we will lose the account.",
+    "Our biggest customer is planning to leave us.",
+    "We had a data breach and customers haven't been told.",
+    "The regulator is looking into our safety reports.",
+    "We plan to close the site at the end of the year.",
+    "We are launching a new product our competitors don't know about.",
+    "We plan to raise prices across the board in January.",
+    "Our real floor on the discount is much lower than what we quoted.",
+)
+TOPIC_SEEDS = PERSONAL_SEEDS + BUSINESS_SEEDS
+TOPIC_WINDOW = 30  # words
+TOPIC_SIMILARITY = 0.40  # tuning-hw TOPIC 60 -> 71%, precision -3.6 points
 
 
 def gate(sentence: str) -> bool:
@@ -72,6 +117,7 @@ def load_model(name: str, threads: int = 1):
             f"model {name} failed its checksum; reinstall: offrecord setup models"
         )
     kind = MANIFEST[name].kind
+    m: object
     if kind == "gliner":
         from offrecord.models.gliner import Gliner
 
@@ -86,6 +132,28 @@ def load_model(name: str, threads: int = 1):
     return m
 
 
+def load_embedder(threads: int = 1):
+    """The Tier 1 sentence-embedding model, verified and loaded once per process; None if it
+    is not installed."""
+    from offrecord.errors import EnvironmentCheckError
+    from offrecord.models import installed, model_path, verify_for_load
+
+    key = (EMBED_MODEL, threads)
+    if key not in _MODEL_CACHE:
+        if not installed(EMBED_MODEL):
+            return None
+        if not verify_for_load(EMBED_MODEL):
+            raise EnvironmentCheckError(
+                f"model {EMBED_MODEL} failed its checksum; reinstall: offrecord setup models"
+            )
+        from offrecord.models.embed import Embedder
+
+        emb = Embedder(model_path(EMBED_MODEL), threads)
+        emb.seeds = emb.embed(list(TOPIC_SEEDS))  # type: ignore[attr-defined]
+        _MODEL_CACHE[key] = emb
+    return _MODEL_CACHE[key]
+
+
 class NerDetector:
     name: ClassVar[str] = "ner"
     categories: ClassVar[frozenset[str]] = frozenset(
@@ -97,6 +165,13 @@ class NerDetector:
         self.threshold = config.ner_threshold
         self.gated = 0
         self.skipped = 0
+        # Topic matching by meaning follows the topic settings: off with topics.mode off or
+        # detect.business false, review flags only with topics.mode flag.
+        self.topic_action: Literal["redact", "flag"] = (
+            "flag" if config.topic_mode == "flag" else "redact"
+        )
+        on = config.detect_business and config.topic_mode != "off"
+        self.embedder = load_embedder(config.model_threads) if on else None
 
     def detect(self, window: Window) -> Iterator[Span]:
         for f in window.fields:
@@ -106,6 +181,7 @@ class NerDetector:
 
     def _field(self, f: Field) -> Iterator[Span]:
         text = f.orig
+        yield from self._topics(f, text)
         for m in SENTENCE_RE.finditer(text):
             sent = m.group()
             if not sent.strip():
@@ -127,3 +203,32 @@ class NerDetector:
                     s, t = m.start() + e.start, m.start() + e.end
                     yield Span(f.id, s, t, cat, f"ner.{name}", round(min(0.9, e.score), 2), None,
                                f"ner:{name}")  # fmt: skip
+
+    def _topics(self, f: Field, text: str) -> Iterator[Span]:
+        if self.embedder is None:
+            return
+        # Long run-on sentences (common in ASR) are embedded in overlapping word windows, so
+        # one sensitive clause is not averaged away; any window that matches flags the sentence.
+        sents, pieces, owner = [], [], []
+        for m in SENTENCE_RE.finditer(text):
+            words = WORD_RE.findall(m.group())
+            if len(words) < 4:
+                continue
+            sents.append(m)
+            for start in range(0, max(1, len(words) - TOPIC_WINDOW // 3), TOPIC_WINDOW * 2 // 3):
+                pieces.append(" ".join(words[start : start + TOPIC_WINDOW]))
+                owner.append(len(sents) - 1)
+        if not sents:
+            return
+        sims = self.embedder.embed(pieces) @ self.embedder.seeds.T
+        n = len(PERSONAL_SEEDS)
+        personal, business = [0.0] * len(sents), [0.0] * len(sents)
+        for k, row in zip(owner, sims, strict=True):
+            personal[k] = max(personal[k], float(row[:n].max()))
+            business[k] = max(business[k], float(row[n:].max()))
+        for m, p, b in zip(sents, personal, business, strict=True):
+            if max(p, b) >= TOPIC_SIMILARITY:
+                s = m.start() + len(m.group()) - len(m.group().lstrip())
+                reason = "topic:similar-personal" if p >= TOPIC_SIMILARITY else "topic:similar"
+                yield Span(f.id, s, m.end(), "TOPIC", "ner.topic", 0.5, None, reason,
+                           action=self.topic_action)  # fmt: skip

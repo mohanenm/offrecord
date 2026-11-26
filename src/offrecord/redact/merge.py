@@ -32,7 +32,7 @@ _CORRECTION_GAP = 40
 
 
 def _explicit(s: Span) -> bool:
-    return bool(s.entity) and s.entity.startswith(_EXPLICIT)
+    return s.entity is not None and s.entity.startswith(_EXPLICIT)
 
 
 def _joinable(prev: Span, s: Span, gap: str) -> bool:
@@ -136,10 +136,13 @@ def merge(spans: Iterable[Span], texts: dict[FieldId, str] | None = None) -> lis
         covered[s.field].append((s.start, s.end))
     starts = {fid: [a for a, _ in sorted(ivs)] for fid, ivs in covered.items()}
     ends = {fid: [b for _, b in sorted(ivs)] for fid, ivs in covered.items()}
+    seen: set[tuple[FieldId, int, int]] = set()
     for fl in flags:
         st = starts.get(fl.field, [])
         k = bisect.bisect_right(st, fl.start) - 1  # redactions never overlap after merging
-        if not (k >= 0 and ends[fl.field][k] >= fl.end):
+        key = (fl.field, fl.start, fl.end)  # the same flag from several views counts once
+        if not (k >= 0 and ends[fl.field][k] >= fl.end) and key not in seen:
+            seen.add(key)
             out.append(fl)
     out.sort(key=lambda s: (s.field, s.start))
     return out

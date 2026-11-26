@@ -25,6 +25,8 @@ EMAIL = re.compile(r"(?<![\w.+-])[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-
 PHONE_SEP = re.compile(
     r"(?<![\w+])(?:\+?\d{1,3}[\s.-]?)?(?:\(\d{2,4}\)[\s.-]?|\d{2,4}[\s.-])\d{3,4}[\s.-]?\d{3,4}(?!\w)"
 )
+PHONE_EXT = re.compile(r"(?i),?\s*(?:ext\.?|extension|x)\s*\d{1,6}\b")
+AREA_CODE = re.compile(r"(?i)\barea\s+code\s+(?:is\s+|was\s+)?(?P<num>\d{3})\b")
 PHONE7 = re.compile(r"(?<![\w-])\d{3}[\s.-]\d{4}(?![\w-])")
 SSN = re.compile(r"(?<![\d-])\d{3}[\s-]\d{2}[\s-]\d{4}(?![\d-])")
 CARD = re.compile(r"(?<!\d)(?:\d[ -]?){12,18}\d(?!\d)")
@@ -48,9 +50,14 @@ PHONE_TRIGGER = re.compile(
     r"(?i)\b(?:phone|cell|mobile|line|extension|ext|direct|number|call(?:\s+me)?(?:\s+(?:at|on))?|"
     r"reach\s+me(?:\s+(?:at|on))?|text\s+me(?:\s+(?:at|on))?)\b[^.\d]{0,24}?(?P<num>\d[\d\s-]{1,}\d|\d)"
 )
+# The last digits of a card or account: "the card ending 8605", "ends in 3317", "last four are
+# 9088". A card if a card word is near, otherwise an account.
 LAST_FOUR = re.compile(
-    r"(?i)\b(?:last\s+(?:four|4)|ending\s+in|ends\s+in)\b\D{0,12}(?P<num>\d{4})\b"
+    r"(?i)\b(?:(?P<cue>end(?:ing|s)\s+in|last\s+(?:four|4|five|5)(?:\s+(?:digits|numbers))?"
+    r"(?:\s+(?:are|is|of))?)\b\D{0,12}?|end(?:ing|s)\s*[:#]?\s*)(?P<num>\d{3,5})\b"
 )
+CARD_WORD = re.compile(r"(?i)\b(?:card|visa|mastercard|amex|debit|credit)\b")
+ACCOUNT_WORD = re.compile(r"(?i)\b(?:account|acct|checking|savings|member|policy|card|visa)\b")
 SSN_CONTEXT = re.compile(r"(?i)\b(?:social|ssn|ss#|security\s+number|tax\s+id|itin|tin)\b")
 CORRECTION_CUE = re.compile(
     r"(?i)\b(?:sorry|i mean|no wait|wait|scratch that|let me (?:redo|repeat) that|correction|"
@@ -84,6 +91,16 @@ POSTCODE_TRIGGER = re.compile(
     r"(?i)\b(?:zip|zipcode|zip\s+code|postcode|post\s+code|postal\s+code)\b"
     r"\W{0,12}(?P<num>[a-z0-9][a-z0-9 -]{2,9}[a-z0-9])"
 )
+# What may follow a street address: unit, then ", City", ", State", ZIP or postcode, in order.
+_STATE_OR_CODE = (
+    rf"(?:(?:{US_STATES})\b|\d{{5}}(?:-\d{{4}})?(?!\d)|[A-Z]{{1,2}}\d[A-Z\d]?\s*\d[A-Z]{{2}}\b)"
+)
+ADDRESS_TAIL = re.compile(
+    r"(?:,?\s+(?i:flat|apt|apartment|suite|ste|unit|floor|fl|#)\.?\s*#?(?:\d\w{0,4}|[A-Za-z]\d?)\b)?"
+    rf"(?:,\s+[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+){{0,2}}(?=,?\s+{_STATE_OR_CODE})){{0,2}}"
+    rf"(?:,?\s+(?:(?:{US_STATES})\.?\s+)?\d{{5}}(?:-\d{{4}})?(?!\d)"
+    r"|,?\s+[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b|,?\s+(?:" + US_STATES + r")\b)?"
+)
 INTL_PHONE = re.compile(r"(?<![\w+])\+\d{1,3}(?:[\s.-]?\(?\d{1,5}\)?){2,6}(?!\w)")
 IBAN = re.compile(r"(?i)\b[a-z]{2}\d{2}(?:\s?[a-z0-9]{4}){2,7}(?:\s?[a-z0-9]{1,4})?\b")
 MIXED_ID = re.compile(r"(?<![\w-])(?=[\w-]*\d)(?=[\w-]*[A-Za-z])[\w-]{6,40}(?![\w-])")
@@ -105,14 +122,17 @@ _SYMW = (
     r"dash|hyphen|capital|lowercase|uppercase|exclamation(?:\s+(?:mark|point))?|underscore|hash|"
     r"pound|star|asterisk|at\s+sign|dollar\s+sign|ampersand|slash"
 )
-_ID_TOK = (
-    rf"(?:\d[\dA-Za-z]*|[A-Za-z]{{1,4}}\d[\dA-Za-z]*|[A-Z]{{1,4}}(?![a-z'])|[a-z](?![\w'])"
-    rf"|(?i:[a-z]\s+as\s+in\s+[a-z]+)|(?i:(?:{_DIGW}|{_NATOW}|{_SYMW})(?![\w'])))"
+_ID_TOK = (  # "X as in Word" first, so "L as in lima" is one unit, not "L"
+    rf"(?:(?i:[a-z]\s+as\s+in\s+[a-z]+)|\d[\dA-Za-z]*|[A-Za-z]{{1,4}}\d[\dA-Za-z]*"
+    rf"|[A-Z]{{1,4}}(?![a-z'])|[a-z](?![\w'])|(?i:(?:{_DIGW}|{_NATOW}|{_SYMW})(?![\w'])))"
 )
 ID_SEQ = re.compile(rf"(?<![\w'])(?:{_ID_TOK})(?:(?:\s*,\s*|\s+|\s*-\s*)(?:{_ID_TOK}))+")
 _DIGIT_WORD = re.compile(rf"(?i)^(?:{_DIGW})$")
 _LETTER_TOK = re.compile(rf"(?i)^(?:[a-z]|{_NATOW}|[a-z]\s+as\s+in\s+[a-z]+)$")
 _ID_PIECES = re.compile(r"(?i)[a-z]\s+as\s+in\s+[a-z]+|[\w']+")
+PERIOD_CODES = re.compile(r"(?i)(?:(?:Q[1-4]|H[12]|FY\s?'?\d{2,4})[\s,-]*)+")
+FIGURE_RE = re.compile(r"\d{1,3}(?:,\d{3})+(?:\.\d+)?\b")
+CURRENCY = {"$", "\u20ac", "\u00a3", "\u00a5"}
 ID_TRIGGER = re.compile(
     r"(?i)\b(?:matter|docket|parcel|mls|bol|pro|ncr|lot|kit|receipt|loyalty|permit|subject|po|so|"
     r"trk|mrn|sku|serial|site|unit)\b(?:\s+(?:number|no\.?|#|is|was))*[\s#:.-]*"
@@ -120,11 +140,19 @@ ID_TRIGGER = re.compile(
 )
 
 
+# A bare number of four or more digits is an identifier or code more often than not
+# (verification codes, ticket, store and member numbers). Years, figures with separators,
+# amounts with a currency sign and decimals are excluded.
+LONG_NUMBER = re.compile(
+    r"(?<![\w$\u20ac\u00a3.,/:-])(?!(?:19|20)\d\d(?!\d))(?:\d{5,}(?![\w/:-]|[.,]\d)|\d{4}(?![\w.,/:-]))"
+    r"(?!\s*(?:%|k\b|m\b|bn\b|thousand|million|billion|percent|dollars?|bucks|euros?|pounds))"
+)
+
+
 def _id_digit_units(seq: str) -> tuple[int, int, int]:
-    """(digit units, letter units, tokens) in a dictated identifier."""
-    digits = letters = toks = 0
+    """(digit units, letter units, "X as in Word" units) in a dictated identifier."""
+    digits = letters = spelled = 0
     for piece in _ID_PIECES.findall(seq):
-        toks += 1
         if any(c.isdigit() for c in piece):
             digits += sum(c.isdigit() for c in piece)
             letters += sum(c.isalpha() for c in piece)
@@ -132,16 +160,34 @@ def _id_digit_units(seq: str) -> tuple[int, int, int]:
             digits += 1
         elif _LETTER_TOK.match(piece):
             letters += 1
-    return digits, letters, toks
+            spelled += " as in " in piece.lower()
+    return digits, letters, spelled
 
 
 # Dictated emails the normaliser cannot rebuild: "kwame dot okoro plus wedding at inbox dot
 # example", "yusra.bell at fenmoor dash analytics dot example", "front office at hollinbrook
 # dot k twelve dot example" (one extra word allowed per label for split or spoken parts).
 _SEP = r"(?:dot|underscore|dash|hyphen|plus|period)"
+# Words that end a spoken local part going backwards ("email it to | w underscore tarrant").
+_EMAIL_STOP = (
+    r"(?:to|it|me|is|was|at|her|his|him|them|send|email|mail|address|the|my|your|our|their|"
+    r"that's|thats|its|it's|and|or|on|in|from|for|copy|cc|have|has|had|are|were|we|they|"
+    r"one|two|three|four|five|six|seven|eight|nine|ten|some|many|all|our|few)"
+)
+_LOCAL_TOK = rf"(?!{_EMAIL_STOP}\b)[\w.'+-]+"
+# Plain words join a local part only through a separator ("zeb dot quux"); single letters and
+# numbers may join without one ("j albrecht", "w underscore tarrant forty-one").
+_LOCAL_SHORT = (
+    r"(?:[a-z]|\d+|(?:zero|oh|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|"
+    r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-[a-z]+)?)\b"
+)
+# Spoken top-level domains, without the ones that are everyday words ("dash in", "dot it").
+_SPOKEN_TLDS = "|".join(t for t in TLDS.split("|") if t not in {"in", "it", "me", "no", "us", "co"})
 SPOKEN_EMAIL = re.compile(
-    rf"(?i)(?<![\w@])(?P<pre>[\w'-]+\s+)?(?P<local>[\w.'+-]+(?:\s+{_SEP}\s+[\w.'+-]+){{0,5}})\s+at\s+"
-    rf"(?:[\w-]+(?:\s+[\w-]+)?\s+(?:dot|dash|hyphen)\s+){{1,5}}(?:{TLDS})\b"
+    rf"(?i)(?<![\w@])(?P<pre>{_LOCAL_TOK}\s+)?(?P<local>(?:[a-z]\s+)?{_LOCAL_TOK}"
+    rf"(?:\s+(?:{_SEP}\s+{_LOCAL_TOK}|{_LOCAL_SHORT})){{0,5}})"
+    rf"\s+at\s+(?:{_LOCAL_TOK}(?:\s+{_LOCAL_TOK}){{0,2}}\s+(?:dot|dash|hyphen)\s+){{1,5}}"
+    rf"(?:{_SPOKEN_TLDS})\b"
 )
 _CANON_SEP = {"dot": ".", "period": ".", "underscore": "_", "dash": "-", "hyphen": "-", "plus": "+",
               "at": "@"}  # fmt: skip
@@ -158,6 +204,70 @@ def canon_spoken_email(s: str) -> str:
 SPELLED_EMAIL = re.compile(r"(?i)\b[a-z]\s+dot\s+(?:(?:[a-z]\s+){2,}[a-z]\b|[a-z][a-z'-]+)")
 
 
+_NUMW = (
+    r"(?:zero|oh|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|"
+    r"fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|"
+    r"seventy|eighty|ninety|hundred|\d{1,3})(?:-[a-z]+)?"
+)
+_OCTET = rf"{_NUMW}(?:[\s-]+{_NUMW}){{0,3}}"
+# "one ninety-two dot zero dot two dot one", "two oh three, dot oh, dot one thirteen ..."
+BIG_NUMW = re.compile(
+    r"(?i)\b(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|"
+    r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|\d{2,3})\b"
+)
+IP_SPOKEN = re.compile(rf"(?i)\b{_OCTET}(?:,?\s+dot,?\s+{_OCTET}){{3}}\b")
+# "slash area slash one eight oh four two" after a (spoken) domain
+URL_PATH_SPOKEN = re.compile(
+    rf"(?i)(?:\s+slash\s+(?!dot\b)[\w-]+(?:\s+(?:dash|hyphen|underscore|dot)\s+(?!dot\b)[\w-]+)*"
+    rf"(?:\s+{_NUMW}){{0,6}})+"
+)
+_PHRASE_END = (
+    r"(?:all|like|if|and|so|for|okay|ok|got|which|that|but|then|it|its|it's|is|was|the|a|an|"
+    r"please|thanks|right|yes|no|anyone|everyone|when|before|after|until|on|in|at|to|with|"
+    r"lower|upper|case|she|he|they|we|you|i|required|ready|expired|wrong|changing|changed|"
+    r"same|posted|printed|reset|working|broken|loose|complicated|strong|weak|easy|hard|long|"
+    r"short|sensitive|approved|fine|different|new|old|good|bad|still|now|here|there)"
+)
+
+
+def _phrase_value(max_extra: int) -> str:
+    return rf"(?!{_PHRASE_END}\b)[\w-]+(?:,?\s+(?!{_PHRASE_END}\b)[\w-]+){{0,{max_extra}}}"
+
+
+# Multi-word secrets. A code ("barrier code is star two five eight hash") must contain a digit,
+# a number word, a spelled letter or a symbol word; a password or code word ("the password for
+# her visitors is blue lantern forty") is at most four words.
+SECRET_CODE = re.compile(
+    r"(?i)\b(?:pin|passcode|(?:barrier|gate|door|alarm|join|access|entry|verification|"
+    r"security|wi-?fi|one[- ]time)\s+code)(?:\s+(?:is|was|will\s+be)|\s*[:=])\s+"
+    rf"(?P<num>{_phrase_value(6)})"
+)
+SECRET_WORDS = re.compile(
+    r"(?i)\b(?:pass\s?word|passphrase|code\s+word|security\s+word|secret\s+word)"
+    r"(?:\s+for\s+(?:the\s+|her\s+|his\s+|their\s+|your\s+|my\s+)?[\w-]+)?"
+    r"(?:\s+(?:is|was|will\s+be)|\s*[:=])\s+"
+    rf"(?P<num>{_phrase_value(3)})"
+)
+_CODE_CONTENT = re.compile(rf"(?i)\d|\b(?:{_DIGW}|{_NATOW}|{_SYMW}|star|hash)\b")
+# Words that may follow an address: US state names, then a (spoken or written) ZIP code.
+US_STATE_NAMES = (
+    "alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|"
+    "hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|"
+    "michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new\\s+hampshire|"
+    "new\\s+jersey|new\\s+mexico|new\\s+york|north\\s+carolina|north\\s+dakota|ohio|oklahoma|"
+    "oregon|pennsylvania|rhode\\s+island|south\\s+carolina|south\\s+dakota|tennessee|texas|utah|"
+    "vermont|virginia|washington|west\\s+virginia|wisconsin|wyoming"
+)
+_CITY_WORD = (
+    r"(?!(?:and|or|but|we|you|they|i|it|to|in|at|on|for|then|not|cover|fly|drive|move|from|"
+    r"with|the|our|their|ship|send|is|was|are|be)\b)[a-z]+"
+)
+# Spoken or lower-case addresses: "... apartment twelve c lindenfield ohio four three oh two six".
+# Used only in fields without capital letters (mixed case uses ADDRESS_TAIL).
+STATE_TAIL = re.compile(
+    rf"(?i)(?:,?\s+{_CITY_WORD}){{0,3}}?,?\s+(?:{US_STATE_NAMES})\b(?:,?\s+(?:\d{{5}}(?:-\d{{4}})?"
+    rf"|(?:{_NUMW}[\s-]*){{5}}))?"
+)
 SECRET_TRIGGER = re.compile(
     r"(?i)\b(?:pin|pin\s+code|cvv|cvc|cv2|security\s+code|passcode|password|sort\s+code|"
     r"verification\s+code|one[- ]time\s+code|otp|access\s+code)\b"
@@ -225,10 +335,23 @@ class PatternDetector:
                 # The extra leading word is only for a one-word spoken local part ("front office
                 # at ..."), never in front of "zeb dot quux at ...".
                 start = m.start()
-                if m.group("pre") and re.search(rf"(?i)\s{_SEP}\s", m.group("local")):
+                # The extra leading word only for a one-word local part ("front office at").
+                if m.group("pre") and len(m.group("local").split()) > 1:
                     start = m.start("local")
                 ent = canon_spoken_email(text[m.start("local") : m.end()])
                 yield sp(f, view, start, m.end(), "EMAIL", 0.6, ent, "email:dictated")
+            for m in IP_SPOKEN.finditer(text):
+                octets = re.split(r"(?i),?\s+dot,?\s+", m.group())
+                if not any(len(o.split()) > 1 or BIG_NUMW.search(o) for o in octets):
+                    continue  # "two dot four dot one dot seven" is a version, not an address
+                yield sp(f, view, m.start(), m.end(), "IP", 0.7, m.group().lower(), "ip:spoken")
+            for rx in (SECRET_CODE, SECRET_WORDS):
+                for m in rx.finditer(text):
+                    if rx is SECRET_CODE and not _CODE_CONTENT.search(m.group("num")):
+                        continue  # "the door code is changing" has no code in it
+                    s0, e0 = m.span("num")
+                    yield sp(f, view, s0, e0, "ACCOUNT", 0.6, m.group("num").lower(),
+                             "secret:phrase")  # fmt: skip
             for m in SPELLED_EMAIL.finditer(text):
                 yield sp(f, view, m.start(), m.end(), "EMAIL", 0.6, canon_spoken_email(m.group()),
                          "email:spelled")  # fmt: skip
@@ -239,6 +362,9 @@ class PatternDetector:
                     e -= 1
                 if "@" in text[max(0, s - 1) : s]:
                     continue
+                path = URL_PATH_SPOKEN.match(text, e)
+                if path:
+                    e = path.end()
                 yield sp(f, view, s, e, "URL", 0.9, text[s:e].lower(), "url")
         for m in IPV4.finditer(text):
             yield sp(f, view, m.start(), m.end(), "IP", 1.0, m.group(), "ipv4")
@@ -263,7 +389,12 @@ class PatternDetector:
             for m in rx.finditer(text):
                 d = _digits(m.group())
                 if len(d) >= 7:
-                    yield sp(f, view, m.start(), m.end(), "PHONE", 0.85, d, "phone")
+                    ext = PHONE_EXT.match(text, m.end())
+                    end = ext.end() if ext else m.end()
+                    yield sp(f, view, m.start(), end, "PHONE", 0.85, d, "phone")
+        for m in AREA_CODE.finditer(text):
+            s, e = m.span("num")
+            yield sp(f, view, s, e, "PHONE", 0.6, m.group("num"), "phone:area-code")
         for m in DIGIT_RUN.finditer(text):
             yield from self._bare_digits(f, view, text, m.start(), m.end())
         yield from self._corrections(f, view, text)
@@ -282,7 +413,16 @@ class PatternDetector:
             yield sp(f, view, s, e, "PHONE", 0.5, _digits(m.group("num")), "phone:context")
         for m in LAST_FOUR.finditer(text):
             s, e = m.span("num")
-            yield sp(f, view, s, e, "CARD", 0.6, m.group("num"), "card:last4")
+            num = m.group("num")
+            near = ACCOUNT_WORD.search(text, max(0, m.start() - 40), m.end())
+            # A bare "ending" + a year or a 3-digit figure is not a card ("quarter ending 2026").
+            if not near and (
+                re.fullmatch(r"(?:19|20)\d\d", num) or (len(num) == 3 and not m.group("cue"))
+            ):
+                continue
+            card = CARD_WORD.search(text, max(0, m.start() - 40), m.end())
+            yield sp(f, view, s, e, "CARD" if card else "ACCOUNT", 0.6, m.group("num"),
+                     "card:last4" if card else "account:last-digits")  # fmt: skip
         for m in NUMBER_TRIGGER.finditer(text):
             s, e = m.span("num")
             if len(_digits(m.group("num"))) >= 4:
@@ -293,8 +433,9 @@ class PatternDetector:
                     f, view, m.start(), m.end(), "ACCOUNT", 0.7, m.group().lower(), "account:id"
                 )
         if self.dates:
-            for s0, e0, conf in find_dates(text):
-                yield sp(f, view, s0, e0, "DATE", conf, text[s0:e0].lower(), "date")
+            for s0, e0, conf, coarse in find_dates(text):
+                reason = "date:coarse" if coarse else "date"
+                yield sp(f, view, s0, e0, "DATE", conf, text[s0:e0].lower(), reason)
 
     def _corrections(self, f: Field, view: str, text: str) -> Iterator[Span]:
         """ "555... sorry, 556-0142" / "4471, sorry, 4472": digit groups right before and right
@@ -320,15 +461,42 @@ class PatternDetector:
         sp = self._span
         if view == "orig":
             for m in ID_SEQ.finditer(text):
-                d, letters, toks = _id_digit_units(m.group())
-                if d >= 4 or (d >= 2 and letters >= 3 and toks >= 6):
+                if (
+                    FIGURE_RE.match(m.group())
+                    or text[max(0, m.start() - 1) : m.start()] in CURRENCY
+                ):
+                    continue  # "1,650" or "$42,000" is a figure, not a dictated ID
+                if PERIOD_CODES.fullmatch(m.group()):
+                    continue  # "Q4 FY25" is a period, not an ID
+                d, letters, spelled = _id_digit_units(m.group())
+                # Enough digits, or something spelled out letter by letter (an identifier or a
+                # name being spelled): "W as in whiskey", "r, u, m, p".
+                if d >= 4 or (d >= 2 and letters >= 2) or spelled or letters >= 4:
                     yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.6, m.group().lower(),
                              "id:dictated")  # fmt: skip
+            # A turn that is nothing but a short code read out ("Seven one four.", "R two four
+            # six..."): an identifier being given or read back.
+            core = text.strip(" \t.,!?;:\u2026\"'")
+            whole = ID_SEQ.fullmatch(core) if core else None
+            if whole:
+                d, letters, _ = _id_digit_units(core)
+                if d >= 1 and d + letters >= 3:
+                    s0 = text.index(core)
+                    yield sp(f, view, s0, s0 + len(core), "ACCOUNT", 0.5, core.lower(),
+                             "id:read-back")  # fmt: skip
         for m in ID_TRIGGER.finditer(text):
             yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.6, m.group("num").lower(),
                      "id:context")  # fmt: skip
+        if view == "orig":  # the norm view turns "three point two million" into digits
+            for m in LONG_NUMBER.finditer(text):
+                yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.5, m.group(), "id:long-number")
         for m in ADDRESS.finditer(text):
-            yield sp(f, view, m.start(), m.end(), "LOCATION", 0.7, m.group().lower(), "address")
+            tail = ADDRESS_TAIL.match(text, m.end())  # all parts optional: always matches
+            end = tail.end() if tail else m.end()
+            state = STATE_TAIL.match(text, end) if not any(c.isupper() for c in text) else None
+            if state:  # lower-case or spoken: "cedar falls iowa ..."
+                end = state.end()
+            yield sp(f, view, m.start(), end, "LOCATION", 0.7, m.group().lower(), "address")
         for m in UNIT.finditer(text):
             yield sp(
                 f, view, m.start(), m.end(), "LOCATION", 0.6, m.group().lower(), "address:unit"

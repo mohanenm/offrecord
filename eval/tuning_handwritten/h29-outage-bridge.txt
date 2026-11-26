@@ -1,0 +1,35 @@
+SPEAKER_00: Bridge is open, it's oh-two-ten. Current customers out?
+SPEAKER_01: [[QUANTITY:Forty-six thousand two hundred]]. That's about [[PERCENT:eleven percent]] of the service territory.
+SPEAKER_00: Where's it concentrated?
+SPEAKER_01: [[LOCATION:Harlan Ridge]], [[LOCATION:Millbrook]] and the north end of [[LOCATION:Spartanburg]]. [[LOCATION:Harlan Ridge]] is [[PERCENT:ninety]] out.
+SPEAKER_02: Substation [[NEG:nine]] tripped at oh-one-forty. Crews from [[LOCATION:Greenville]] are on the way.
+SPEAKER_00: ETR?
+SPEAKER_02: Optimistic is [[PERCENT:two-thirds]] restored by six. Full restoration late morning.
+SPEAKER_03: Mutual aid. [[ORG:Tallowcreek Electric Cooperative]] can send [[QUANTITY:twelve bucket trucks]] from [[LOCATION:North Carolina]].
+SPEAKER_00: Accept it. What about the [[LOCATION:Asheville]] crews?
+SPEAKER_03: They're [[PERCENT:half]] committed to their own outage in the [[LOCATION:Blue Ridge]].
+SPEAKER_01: [[TOPIC:The fault at substation nine was not storm related, the relay logs show someone was inside the fence.]]
+SPEAKER_00: Say that again?
+SPEAKER_01: [[TOPIC:The cameras caught two people cutting the gate lock about twenty minutes before the trip.]]
+SPEAKER_00: [[TOPIC:Okay, that's now a physical security incident, notify corporate security and keep it off the public updates.]]
+SPEAKER_04: Do we tell the regulator?
+SPEAKER_00: [[TOPIC:Under our filing obligations we have to notify the commission within twenty-four hours, so legal makes that call.]]
+SPEAKER_04: Understood. Critical customers?
+SPEAKER_02: [[CLIENT:Saint Orlaith Medical Center]] on [[LOCATION:Calhoun Pike]] is on generator. They have about [[PERCENT:forty percent]] fuel left.
+SPEAKER_00: Get a fuel truck there. Who's the contact?
+SPEAKER_02: Facilities manager, [[PERSON:Lunqua Okwuosa]], [[PHONE:864-555-0119]].
+SPEAKER_03: Also the [[CLIENT:Tessbrook Poultry]] plant near [[LOCATION:Gaffney]]. They're losing chill.
+SPEAKER_00: Priority two. Call volume?
+SPEAKER_04: [[QUANTITY:Nine thousand calls]] in the last hour, abandonment at [[PERCENT#34:thirty-four]].
+SPEAKER_00: [[PERCENT#34:Thirty-four]] is bad. Open the overflow center.
+SPEAKER_04: Overflow is in [[LOCATION:Augusta]], they can take [[PERCENT:a fifth]] of the load.
+SPEAKER_01: Outage map is up on [[URL:outages.carolina-grid.example]], it's showing [[PERCENT:12%]] because of the lag.
+SPEAKER_00: Fine. Media?
+SPEAKER_04: [[TOPIC:A reporter is already asking whether this is related to last month's equipment failure at the same site.]]
+SPEAKER_00: [[TOPIC:Tell them nothing about cause. We are not confirming any link to the earlier failure.]]
+SPEAKER_02: Weather's clear, so no excuse there. [[NEG:And somebody kill the old dashboard view, nobody uses it.]]
+SPEAKER_00: [[NEG:Grant]] the crews an extra break at four. Next update at oh-three-hundred.
+SPEAKER_01: Restoration curve so far is up [[PERCENT:six points]] in the last half hour.
+SPEAKER_00: Good. Ticket number for the log?
+SPEAKER_03: [[ACCOUNT:INC-0098812]].
+SPEAKER_00: Thanks. Bridge stays open.

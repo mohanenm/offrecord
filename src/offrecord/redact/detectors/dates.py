@@ -7,7 +7,7 @@ noun), "11/27", "22/05/2027", "01.01.2027", ISO dates, quarters and fiscal years
 "early January", "end of May", "the first week of February", "the spring of 2019", and ranges
 ("Feb 24 and 25", "July through September 2026").
 
-Relative words ("yesterday", "next Friday") are not dates here (DECISIONS D-055).
+Relative words ("yesterday", "next Friday") are not dates here.
 Recall first: each match is a DATE span with confidence 0.8 (0.6 for the looser forms).
 """
 
@@ -41,6 +41,9 @@ WEEKDAY = (
     r"(?:\s+(?:night|morning|afternoon|evening))?,?"
 )
 
+# Coarse dates (a month, quarter, fiscal year, season or period rather than a day) are not
+# personal data on their own; with protect: pii they become review flags.
+COARSE = {3, 8, 9, 10, 11, 12}  # indices into DATES
 DATES: list[tuple[re.Pattern[str], float]] = [
     # Month first: "March 3rd, 2027", "February, the eleventh", "april nineteenth 2015",
     # "Feb 24 and 25", optionally after a weekday ("tuesday january twentieth").
@@ -75,7 +78,7 @@ DATES: list[tuple[re.Pattern[str], float]] = [
     (re.compile(r"(?<![\d-])\d{4}-\d{2}-\d{2}(?![\d-])"), 0.8),
     (re.compile(r"(?<![\d.])\d{1,2}\.\d{1,2}\.\d{4}(?!\d|\.\d)"), 0.8),
     (re.compile(r"(?<![\d/.])(?:1[0-2]|0?[1-9])/(?:3[01]|[12]\d|0?[1-9])(?![\d/]|\.\d)"), 0.6),
-    # Quarters, halves, fiscal years (D-055): "Q3", "Q4 2026", "H2", "FY26", "third quarter".
+    # Quarters, halves, fiscal years: "Q3", "Q4 2026", "H2", "FY26", "third quarter".
     (re.compile(r"(?i)\b(?:Q[1-4]|H[12])(?:\s*(?:FY\s?)?'?(?:\d{4}|\d{2}))?\b"), 0.7),
     (re.compile(r"(?i)\bFY\s?'?(?:\d{4}|\d{2})\b"), 0.7),
     (
@@ -147,18 +150,18 @@ def _bare_ordinal_ok(text: str, end: int) -> bool:
     return word in _FOLLOW_OK
 
 
-def find_dates(text: str) -> Iterator[tuple[int, int, float]]:
-    """(start, end, confidence) for every date-like span in ``text``."""
-    for rx, conf in DATES:
+def find_dates(text: str) -> Iterator[tuple[int, int, float, bool]]:
+    """(start, end, confidence, coarse) for every date-like span in ``text``."""
+    for k, (rx, conf) in enumerate(DATES):
         for m in rx.finditer(text):
-            yield m.start(), m.end(), conf
+            yield m.start(), m.end(), conf, k in COARSE
     for m in CUE_MONTH.finditer(text):
         word = m.group("d").lower()
         if word in ("may", "march") and _MAY_VERB.match(text, m.end()):
             continue
-        yield m.start("d"), m.end("d"), 0.6
+        yield m.start("d"), m.end("d"), 0.6, True
     for m in CUE_YEAR.finditer(text):
-        yield m.start("d"), m.end("d"), 0.6
+        yield m.start("d"), m.end("d"), 0.6, True
     for m in _THE_ORD.finditer(text):
         if _bare_ordinal_ok(text, m.end()):
-            yield m.start(), m.end(), 0.6
+            yield m.start(), m.end(), 0.6, False

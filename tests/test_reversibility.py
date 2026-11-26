@@ -281,11 +281,12 @@ def test_cli_audit_log_encrypted_and_readable(home, capsys):
     main(["keygen", str(key)])
     a = home / "a.txt"
     a.write_text(
-        "Orla Venkatesh: the Zandrelcorp deal at $42,000. Pricing next.\nBram Okafor: ok\n"
+        "Orla Venkatesh: the Zandrelcorp meeting at $42,000. Pricing next.\nBram Okafor: ok\n"
     )
-    assert (
-        main(["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key), "--audit"]) == 0
-    )
+    cfg = home / "mixed.yaml"
+    cfg.write_text("topics:\n  mode: mixed\n")  # "Pricing next." is then flagged, not redacted
+    argv = ["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key), "--audit"]
+    assert main([*argv, "--config", str(cfg)]) == 0
     err = capsys.readouterr().err
     logs = list((home / "home" / "data" / "mappings").glob("*.oraudit"))
     assert len(logs) == 1 and "Zandrelcorp" not in logs[0].read_text(errors="replace")

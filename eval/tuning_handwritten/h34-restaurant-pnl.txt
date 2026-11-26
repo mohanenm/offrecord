@@ -1,0 +1,34 @@
+[[PERSON#mt:Marco T.]]: Okay, period eleven P&L. Group sales were [[AMOUNT:$6.2 million]], up [[PERCENT:4%]] same-store.
+[[PERSON#ad:Ada K.]]: Food cost came in at [[PERCENT:thirty-one point two]]. Target is [[NEG:thirty]].
+[[PERSON#mt:Marco T.]]: Why the miss?
+[[PERSON#ad:Ada K.]]: Beef. Our protein supplier, [[ORG:Holbrook Provisions]], raised prices [[PERCENT:nine percent]] in [[DATE:September]].
+[[PERSON#fr:Felix R.]]: And we didn't move menu prices until the [[DATE:20th]].
+[[PERSON#mt:Marco T.]]: Labor?
+[[PERSON#ad:Ada K.]]: [[PERCENT:Twenty-nine]]. Prime cost is [[PERCENT:sixty and change]].
+[[PERSON#mt:Marco T.]]: By store. [[PERSON#fr:Felix]]?
+[[PERSON#fr:Felix R.]]: [[LOCATION:Wicker Park]] is our best, [[PERCENT:twenty-two]] four-wall. [[LOCATION:Logan Square]] is [[PERCENT:fifteen]]. The [[LOCATION:Naperville]] store is negative [[PERCENT:three]].
+[[PERSON#mt:Marco T.]]: [[TOPIC:Naperville doesn't survive the lease renewal, let's be honest with ourselves.]]
+[[PERSON#ad:Ada K.]]: [[TOPIC:The landlord there doesn't know we've been looking at the space in Oak Brook.]]
+[[PERSON#mt:Marco T.]]: Keep it that way. Delivery mix?
+[[PERSON#fr:Felix R.]]: Delivery is [[PERCENT:a third]] of sales at [[LOCATION:Logan Square]], but the commission is [[PERCENT:28 pct]].
+[[PERSON#ad:Ada K.]]: Net of commission it's breakeven at best.
+[[PERSON#mt:Marco T.]]: Beverage?
+[[PERSON#fr:Felix R.]]: Bar sales [[PERCENT:doubled]] at [[LOCATION:Wicker Park]] since the patio opened. Pour cost is [[PERCENT:eighteen]].
+[[PERSON#mt:Marco T.]]: [[TOPIC:Speaking of the bar, where are we with the liquor board complaint?]]
+[[PERSON#ad:Ada K.]]: [[TOPIC:The hearing is in January, and our lawyer thinks we get a fine rather than a suspension.]]
+[[PERSON#mt:Marco T.]]: Good. New concept. [[CODENAME:Project Ember]].
+[[PERSON#fr:Felix R.]]: [[TOPIC:The investors in Milwaukee want to see three months of numbers from the test kitchen before they commit.]]
+[[PERSON#mt:Marco T.]]: Test kitchen is at [[LOCATION:1640 West Fulton]]?
+[[PERSON#fr:Felix R.]]: Yes. Check average is [[AMOUNT:forty-two]], and repeat rate is about [[PERCENT:35%]].
+[[PERSON#ad:Ada K.]]: That's high for a soft open.
+[[PERSON#mt:Marco T.]]: Catering. [[CLIENT:Ashgrove-Penn Consulting]] cancelled the holiday party.
+[[PERSON#fr:Felix R.]]: [[TOPIC:They're cutting staff, their office manager told me off the record.]]
+[[PERSON#mt:Marco T.]]: That's [[AMOUNT:eighteen thousand]] gone. Anything to replace it?
+[[PERSON#ad:Ada K.]]: Two smaller events from the [[LOCATION:Evanston]] office park. Maybe [[PERCENT:half]] of what we lost.
+[[PERSON#mt:Marco T.]]: Staffing.
+[[PERSON#fr:Felix R.]]: [[TOPIC:My sous chef at Logan Square is going on leave for a family emergency back in Guadalajara.]]
+[[PERSON#mt:Marco T.]]: Cover it with [[PERSON:Jun-seo]] from [[LOCATION:Wicker Park]].
+[[PERSON#ad:Ada K.]]: Turnover for the period is [[PERCENT:eleven]], annualized over [[PERCENT:a hundred]].
+[[PERSON#mt:Marco T.]]: Also, [[NEG:Rosemary]] focaccia goes on the menu next week, by the way.
+[[PERSON#fr:Felix R.]]: Love it. [[NEG:The new fryer is killing it too.]]
+[[PERSON#mt:Marco T.]]: Send updated forecasts to [[EMAIL:marco@saltandtimber.example]] by [[DATE:Monday the 1st]].

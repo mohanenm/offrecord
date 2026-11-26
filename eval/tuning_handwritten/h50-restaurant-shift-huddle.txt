@@ -1,0 +1,32 @@
+[[PERSON#am:Amber]]: Quick huddle before doors. [[PERSON#gr:Grace]] took the Friday close, so I'm off that one.
+[[PERSON#vc:Victor]]: Who's on brunch Sunday?
+[[PERSON#am:Amber]]: [[PERSON#mk:Mark]] and [[PERSON#ch:Chase]] on line, [[PERSON#hn:Hunter]] on dish.
+[[PERSON#su:Sue]]: [[PERSON#hn:Hunter]] asked for Sunday off last week.
+[[PERSON#am:Amber]]: Then [[PERSON#bl:Bill]] covers dish. Tell [[PERSON#mk:Mark]] the van is ready for the catering run, the brakes are done.
+[[PERSON#vc:Victor]]: [[NEG:Will]] do. Where's the catering going?
+[[PERSON#am:Amber]]: [[LOCATION#c1:Fourteen sixty West Fulbright, suite three hundred, Chicago, Illinois, six oh six oh seven]]. It's an office lunch for forty.
+[[PERSON#su:Sue]]: [[LOCATION#c1:Fourteen sixty]]...
+[[PERSON#vc:Victor]]: [[LOCATION#c1:West Fulbright, suite three hundred]].
+[[PERSON#am:Amber]]: Right. Loading dock is [[LOCATION:the alley behind the old bank building on Halsted, the green roll-up door next to the dumpsters]]. Contact on site is [[PERSON#ct:Grant Ishikawa]], [[PHONE#ph1:three one two, five five five, oh one two six]].
+[[PERSON#vc:Victor]]: [[PHONE#ph1:Three one two, five five five, zero one two six]]. Got it.
+[[PERSON#am:Amber]]: The order number with them is [[ACCOUNT#or1:C T dash eight eight one, dash, four oh]]. Invoice goes to [[EMAIL#e1:ap underscore team at ishikawa design dot example]].
+[[PERSON#su:Sue]]: [[EMAIL#e1:A P underscore team]]?
+[[PERSON#am:Amber]]: [[EMAIL#e1:a-p, underscore, t-e-a-m, at ishikawa design dot example]]. One word, [[EMAIL#e1:ishikawa design]].
+[[PERSON#su:Sue]]: Okay.
+[[PERSON#am:Amber]]: Next. Alarm code changed after [[PERSON#fk:Frank]] left. New one is [[ACCOUNT#al1:three oh, double seven, one]].
+[[PERSON#vc:Victor]]: [[ACCOUNT#al1:Three zero seven seven one]].
+[[PERSON#am:Amber]]: Yes. And the walk-in lock is [[ACCOUNT#wi1:one four, one four]].
+[[PERSON#su:Sue]]: Same as before?
+[[PERSON#am:Amber]]: No, before was [[ACCOUNT#wi0:one one four four]]. Now it's [[ACCOUNT#wi1:fourteen fourteen]].
+[[PERSON#vc:Victor]]: Manager PIN on the register still mine?
+[[PERSON#am:Amber]]: Changed. Yours is [[ACCOUNT#mp1:eight, oh, oh, six]]. Don't share it. [[PERSON#ch:Chase]] used [[PERSON#fk:Frank's]] PIN for a whole month.
+[[PERSON#vc:Victor]]: To be [[NEG:frank]], nobody noticed.
+[[PERSON#am:Amber]]: Ha. Produce order. [[PERSON#ft:Faith]] at the supplier says our account is [[ACCOUNT#sp1:R F, four four seven one, dash, oh nine]] now, they merged accounts.
+[[PERSON#su:Sue]]: [[ACCOUNT#sp1:R F four four seven one oh nine]].
+[[PERSON#am:Amber]]: Yes. Her direct line, [[PHONE#ph2:seven seven three, five five five, oh one eight two]]. Or [[EMAIL#e2:faith dot ng at greenmarket supply dot test]].
+[[PERSON#vc:Victor]]: [[NEG:Hope]] she's better than the last rep.
+[[PERSON#am:Amber]]: I [[NEG:hope]] so. Also, the new schedule app is [[URL#u1:shiftwren dot test slash team slash fulton]]. Join code [[ACCOUNT#jc1:kilo, delta, seven, seven, two]].
+[[PERSON#su:Sue]]: [[ACCOUNT#jc1:K D seven seven two]].
+[[PERSON#am:Amber]]: Yep. Last thing, [[PERSON#jy:Joy]] is training on bar [[DATE:Tuesday]], so [[NEG:mark]] her in yellow on the board.
+[[PERSON#vc:Victor]]: The [[NEG:amber]] light on the dish machine is back, by the way.
+[[PERSON#am:Amber]]: Call the repair guy. His card is on the corkboard. That's it, let's open.

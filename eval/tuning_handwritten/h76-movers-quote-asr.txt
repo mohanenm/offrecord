@@ -1,0 +1,62 @@
+spk_0: thanks for calling [[ORG:steadyhand movers]] this is [[PERSON#ga:gus]] how can i help
+spk_1: hi yeah i need a quote for a long distance move
+spk_0: sure thing can i get your name
+spk_1: [[PERSON#ln:leontyne navarro-pike]]
+spk_0: thanks [[PERSON#ln:leontyne]] where are we moving from
+spk_1: [[LOCATION#eg:elk grove]] it's just south of [[LOCATION#sac:sacra mento]]
+spk_0: [[LOCATION#eg:elk grove]] okay can you spell that for me so i get it right in the system
+spk_1: [[LOCATION#eg:e l k]] and then [[LOCATION#eg:g r o v e]]
+spk_0: got it and the street address
+spk_1: [[LOCATION#a1:ninety one forty two laguna springs drive]] zip [[LOCATION#z1:nine five seven five eight]]
+spk_0: [[LOCATION#a1:nine one four two laguna springs drive]] [[LOCATION#z1:nine five seven five eight]] perfect and where are we going
+spk_1: [[LOCATION#abq:albuquerque]]
+spk_0: [[LOCATION#abq:al buker key]] [[LOCATION#nm:new mexico]]
+spk_1: yep [[LOCATION#nm:new mexico]] the [[LOCATION:northeast heights]] area
+spk_0: okay do you have the new address yet
+spk_1: not yet we're renting first probably near [[LOCATION:nob hill]] or up by [[LOCATION:tramway]]
+spk_0: no problem we can do it with a zip for now
+spk_1: um [[LOCATION:eight seven one one one]] i think
+spk_0: okay great and when do you need to move
+spk_1: we have to be out by [[DATE:the thirtieth]] so like [[DATE:the twenty seventh]] pickup
+spk_0: okay let me check our trucks we have a truck coming back from [[LOCATION:saint louis]] that'll be in [[LOCATION#sac:sacramento]] on [[DATE:the twenty fifth]]
+spk_1: oh perfect
+spk_0: so for the route we'd usually go [[LOCATION:i five]] south down through [[LOCATION:stockton]] to [[LOCATION:bakersfield]] then [[LOCATION:fifty eight]] over to [[LOCATION:barstow]] and pick up [[LOCATION:forty]] east
+spk_1: okay
+spk_0: then [[LOCATION:needles]] [[LOCATION:kingman]] [[LOCATION:flag staff]] [[LOCATION:gallup]] and into [[LOCATION#abq:albuquerque]] about fourteen hours driving
+spk_1: wow okay is it cheaper to go through [[LOCATION:vegas]]
+spk_0: not really it adds miles you'd go [[LOCATION:fifteen]] up through [[LOCATION:baker]] and then [[LOCATION:ninety three]] down to [[LOCATION:kingman]] it's about the same
+spk_1: okay whatever's easiest
+spk_0: how big is the house
+spk_1: three bedroom two bath single story
+spk_0: and any big items piano safe gun safe
+spk_1: no piano but we have a big [[NEG:china]] hutch it was my grandma's and a [[NEG:french door]] fridge
+spk_0: okay the [[NEG:china]] hutch we'll crate do you want us to pack the [[NEG:china]] inside too or are you packing
+spk_1: you pack it please i don't trust myself
+spk_0: okay and plants we can't take plants across state lines into [[LOCATION#nm:new mexico]] without inspection
+spk_1: oh no i have like a dozen [[NEG:boston ferns]]
+spk_0: those you'd have to drive yourself or give away sorry
+spk_1: ugh okay my sister in [[LOCATION#lj:la hoya]] wants them anyway
+spk_0: [[LOCATION#lj:la jolla]] [[NEG:nice]]
+spk_1: yeah she's always bugging me to move down there but it's so expensive
+spk_0: yeah [[LOCATION:san diego]] is pricey okay so any storage
+spk_1: maybe for a month until we find a place
+spk_0: we have a warehouse in [[LOCATION#abq:albuquerque]] off [[LOCATION:san mateo]] near the airport [[LOCATION:sunport]] they call it
+spk_1: okay that works
+spk_0: alright so estimate is about [[QUANTITY:nine thousand pounds]] based on three bedrooms that comes to around [[AMOUNT:seven thousand two hundred]] with packing and the storage first month free
+spk_1: [[AMOUNT:seven two]] okay that's not bad
+spk_0: i'll email you the written estimate what's your email
+spk_1: [[EMAIL#em:leontyne dot pike at sunmail dot test]]
+spk_0: [[EMAIL#em:l e o n t y n e dot p i k e at sunmail dot test]]
+spk_1: yes
+spk_0: and best phone
+spk_1: [[PHONE:nine one six five five five zero one seven one]] that's my [[NEG:mobile]]
+spk_0: got it and is there anything tricky at pickup stairs narrow street
+spk_1: no it's a cul de sac off [[LOCATION:elk grove florin road]] easy access
+spk_0: perfect and delivery side we'll figure out once you have the address
+spk_1: sounds good oh one question do you go through [[LOCATION:new orleans]] ever my brother might move from there next year
+spk_0: we do we have a hub in [[LOCATION:baton rouge]]
+spk_1: okay cool
+spk_0: alright [[PERSON#ln:leontyne]] your quote number is [[ACCOUNT:q four four eight one nine]] i'll send it now
+spk_1: thanks [[PERSON#ga:gus]]
+spk_0: thank you safe travels and [[NEG:head east]] early if you can beat the heat in [[LOCATION:needles]]
+spk_1: ha will do bye

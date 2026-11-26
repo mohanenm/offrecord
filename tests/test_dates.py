@@ -7,7 +7,7 @@ from offrecord.redact.detectors.dates import find_dates
 
 def covered(text: str) -> set[int]:
     out: set[int] = set()
-    for s, e, _ in find_dates(text):
+    for s, e, _, _ in find_dates(text):
         out.update(range(s, e))
     return out
 

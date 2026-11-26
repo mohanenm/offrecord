@@ -1,4 +1,4 @@
-"""Phase 8: optional tiers. Unit tests use fake models; real-model tests are skipped when the
+"""Optional tiers. Unit tests use fake models; real-model tests are skipped when the
 models are not installed (CI has none)."""
 
 from __future__ import annotations
@@ -110,6 +110,7 @@ class FakeGliner:
 
 def test_ner_detector_adds_spans_and_skips_pronouns(monkeypatch):
     monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
+    monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: None)  # not under test
     d = doc("Orla: I spoke with Mark Brown at Zorbatek.\nOrla: ok\n")
     spans = detect_document(d, from_mapping({"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}}))
     t = d.turns[0].text
@@ -120,6 +121,35 @@ def test_ner_detector_adds_spans_and_skips_pronouns(monkeypatch):
     }
     assert any("Mark Brown" in g for g, _ in got)
     assert not any(g == "I" for g, _ in got)
+
+
+class SaleEmbedder:
+    """Seeds and sentences mentioning a sale point the same way; everything else is orthogonal."""
+
+    @property
+    def seeds(self):
+        return self.embed(list(ner_mod.TOPIC_SEEDS))
+
+    def embed(self, texts):
+        np = pytest.importorskip("numpy")
+        vec = {True: [1.0, 0.0, 0.0], False: [0.0, 1.0, 0.0]}
+        other_seed = [0.0, 0.0, 1.0]
+        return np.array(
+            [
+                vec[True] if "sell" in t else other_seed if t in ner_mod.TOPIC_SEEDS else vec[False]
+                for t in texts
+            ]
+        )
+
+
+def test_topic_similarity_redacts_sentences_without_keywords(monkeypatch):
+    pytest.importorskip("numpy")
+    monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
+    monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: SaleEmbedder())
+    d = doc("Orla: The owner wants to sell the whole business soon.\nOrla: Lunch was good today.\n")
+    spans = detect_document(d, from_mapping({"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}}))
+    topics = {s.field[1] for s in spans if s.category == "TOPIC" and s.reason == "topic:similar"}
+    assert topics == {"0"}
 
 
 class FakeLlm:
@@ -134,24 +164,28 @@ class FakeLlm:
     ("payload", "expect"),
     [
         (json.dumps({"spans": [{"line": 1, "text": "the only pharmacy chain we serve in Alaska",
-                                "category": "indirect_identifier"}]}), True),
+                                "kind": "organization"}]}), "flag"),
+        (json.dumps({"spans": [{"line": 1, "text": "the only pharmacy chain we serve in Alaska",
+                                "kind": "person"}]}), "redact"),
         # A paraphrase cannot be located in the line, so it is dropped.
         (json.dumps({"spans": [{"line": 1, "text": "a pharmacy we serve up north",
-                                "category": "indirect_identifier"}]}), False),
-        ("not json at all", False),  # malformed: nothing added, no crash
-        (json.dumps({"spans": [{"line": 9, "text": "Alaska", "category": "location"}]}), False),
+                                "kind": "organization"}]}), None),
+        ("not json at all", None),  # malformed: nothing added, no crash
+        (json.dumps({"spans": [{"line": 9, "text": "Alaska", "kind": "person"}]}), None),
     ],
 )  # fmt: skip
 def test_llm_detector_only_adds_located_spans(monkeypatch, payload, expect):
     from offrecord.redact.detectors import llm as llm_mod
+    from offrecord.redact.detectors import people as people_mod
 
     monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
+    monkeypatch.setattr(people_mod, "INDIRECT_RES", [])  # only what the LLM adds
+    monkeypatch.setattr(llm_mod, "INDIRECT_RES", [])
     d = doc("Orla: We are the only pharmacy chain we serve in Alaska.\nOrla: ok\n")
     spans = detect_document(
         d, from_mapping({"models": {"tier": 2, "ner": [], "llm": "qwen3-1.7b-q4"}})
     )
-    found = any(s.category == "INDIRECT" for s in spans)
-    assert found is expect
+    assert {s.action for s in spans if s.category == "INDIRECT"} == ({expect} if expect else set())
 
 
 def test_tier_requires_installed_models(tmp_path, monkeypatch):
@@ -216,3 +250,32 @@ def test_real_gliner_finds_common_word_names_lowercase():
     g = Gliner(models.model_path("gliner-small-v2.1"))
     ents = g.predict("i met mark brown from zandrelcorp yesterday", ["person", "company"], 0.25)
     assert any(e.label == "person" for e in ents)
+
+
+@pytest.mark.parametrize(
+    ("mode", "expect"), [("off", set()), ("flag", {"flag"}), ("redact", {"redact"})]
+)
+def test_topic_similarity_follows_topic_settings(monkeypatch, mode, expect):
+    pytest.importorskip("numpy")
+    monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
+    monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: SaleEmbedder())
+    d = doc("Orla: The owner wants to sell the whole business soon.\nOrla: ok\n")
+    cfg = {"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}, "topics": {"mode": mode},
+           "protect": "confidential"}  # fmt: skip
+    spans = detect_document(d, from_mapping(cfg))
+    assert {s.action for s in spans if s.reason == "topic:similar"} == expect
+
+
+@pytest.mark.parametrize(
+    ("sentence", "asked"),
+    [
+        ("Talk to the night nurse about it.", True),
+        ("We're their sole stockist up north.", True),
+        ("That works for me, thanks.", False),
+        ("My husband picked it up.", False),  # the rules already cover it
+    ],
+)
+def test_llm_only_sees_candidate_sentences(sentence, asked):
+    from offrecord.redact.detectors.llm import candidate
+
+    assert candidate(sentence) is asked

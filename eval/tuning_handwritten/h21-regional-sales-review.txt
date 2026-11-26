@@ -1,0 +1,36 @@
+[[PERSON#ns:Nadia Sorrell]]: Okay, everyone's on. Let's go region by region. [[PERSON#tk:Tobin]], start us off in the West.
+[[PERSON#tk:Tobin Kessler]]: Sure. The [[LOCATION:Pacific Northwest]] closed [[DATE:Q3]] at [[PERCENT:104%]] of plan, mostly [[LOCATION:Spokane]] and our [[LOCATION:Boise]] office.
+[[PERSON#ns:Nadia Sorrell]]: And margin?
+[[PERSON#tk:Tobin Kessler]]: Margin came in at [[PERCENT:thirty-one]], which is up [[PERCENT:two points]] on last year. Discounting averaged about [[PERCENT#six:six]].
+[[PERSON#ns:Nadia Sorrell]]: [[PERCENT#six:Six]] on average, or [[PERCENT#six:six]] on the big deals?
+[[PERSON#tk:Tobin Kessler]]: Average. The big deals were closer to the [[PERCENT:low teens]].
+[[PERSON#ns:Nadia Sorrell]]: Okay. And [[CLIENT#pb:Pellbrook Foods]]?
+[[PERSON#tk:Tobin Kessler]]: [[TOPIC:Their new finance lead has asked for three competing bids before they sign anything again.]]
+[[PERSON#ns:Nadia Sorrell]]: That's not great. They're what, a [[PERCENT:fifth]] of your book?
+[[PERSON#tk:Tobin Kessler]]: Closer to [[PERCENT:a quarter]] if you count the [[LOCATION:Tacoma]] warehouses.
+[[PERSON#rm:Rafael Mendonca]]: I can jump in on Central. [[LOCATION:Ohio]] and [[LOCATION:Indiana]] were flat, [[LOCATION#mi:Michigan]] was down [[PERCENT:three to four percent]].
+[[PERSON#ns:Nadia Sorrell]]: Why [[LOCATION#mi:Michigan]]?
+[[PERSON#rm:Rafael Mendonca]]: [[TOPIC:We are not renewing the distributor agreement in Grand Rapids, and they don't know it yet.]]
+[[PERSON#ns:Nadia Sorrell]]: Has anyone put that in writing?
+[[PERSON#rm:Rafael Mendonca]]: Not yet. Legal wants the letter out by [[DATE:December 4th]].
+[[PERSON#ns:Nadia Sorrell]]: Okay. [[PERSON#jo:Joelle]], East?
+[[PERSON#jo:Joelle Okafor-Byrne]]: East was the bright spot. Bookings [[PERCENT:doubled]] in [[LOCATION:New Jersey]] after the [[CLIENT:Thimtromib Marine]] win, and the [[LOCATION:Hartwell Crossing]] branch hit [[PERCENT#q:118]].
+[[PERSON#ns:Nadia Sorrell]]: [[PERCENT#q:One-eighteen]] of quota?
+[[PERSON#jo:Joelle Okafor-Byrne]]: Of quota, yes. Attrition on my team is [[PERCENT:nine]], which I'm watching.
+[[PERSON#ns:Nadia Sorrell]]: [[TOPIC:Speaking of teams, the two inside-sales pods get merged after the holidays and not every seat is coming across.]]
+[[PERSON#rm:Rafael Mendonca]]: Is that public?
+[[PERSON#ns:Nadia Sorrell]]: No. Keep it in this room. [[PERSON:Harriet Delacourt]] in HR briefs managers on the [[DATE:9th]].
+[[PERSON#jo:Joelle Okafor-Byrne]]: Understood.
+[[PERSON#ns:Nadia Sorrell]]: Pricing. The proposal is to raise list on the [[PRODUCT:Halyard 9]] by [[PERCENT:seven and a half]] in [[DATE:January]].
+[[PERSON#tk:Tobin Kessler]]: [[TOPIC:If we do that before Pellbrook signs, we lose them, full stop.]]
+[[PERSON#ns:Nadia Sorrell]]: Noted. We can grandfather existing accounts for [[NEG:ninety days]].
+[[PERSON#rm:Rafael Mendonca]]: What's the expected volume hit?
+[[PERSON#ns:Nadia Sorrell]]: Finance models a [[PERCENT:point five percent]] dip, so roughly [[QUANTITY:1,200 units]] across the year.
+[[PERSON#jo:Joelle Okafor-Byrne]]: And [[CODENAME#bt:Project Bittern]]? Still on for spring?
+[[PERSON#ns:Nadia Sorrell]]: [[TOPIC:Bittern slipped again because engineering found a seal problem, and nobody outside product is supposed to know it exists.]]
+[[PERSON#tk:Tobin Kessler]]: [[NEG:Mark]] my words, customers will ask about it at the trade show.
+[[PERSON#ns:Nadia Sorrell]]: Then deflect. Last item, the [[LOCATION:Toronto]] office. [[LOCATION:Ontario]] first, then [[LOCATION:Quebec]] next year.
+[[PERSON#rm:Rafael Mendonca]]: The space at [[LOCATION:220 Kingsmere Road]]?
+[[PERSON#ns:Nadia Sorrell]]: That one. Lease is [[AMOUNT:$14,500]] a month. Send questions to [[EMAIL:nadia.sorrell@corvane.example]].
+[[PERSON#jo:Joelle Okafor-Byrne]]: Will do. Can we move next week's call to [[NEG:half]] past nine?
+[[PERSON#ns:Nadia Sorrell]]: Fine. [[NEG:And let's cut the deck down to ten slides before anyone sees it.]] Thanks, all.

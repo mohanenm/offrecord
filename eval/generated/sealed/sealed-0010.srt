@@ -1,0 +1,199 @@
+1
+00:00:00,000 --> 00:00:06,667
+Jem Muldowney: Hiya! Can you I mean, hear me alright? I'm on the train, so if I cut out, that's why.
+
+2
+00:00:06,867 --> 00:00:10,067
+Tobiah Pennyworth-Hale: Yeah, I can hear you. Bit echoey.
+
+3
+00:00:10,267 --> 00:00:20,067
+Jem Muldowney: Sorry, I'm in the vestibule thing. Okay. So, thanks I mean, for jumping on. I wanted to chat about the role at Wrennick Hospitality.
+
+4
+00:00:20,267 --> 00:00:23,333
+Tobiah Pennyworth-Hale: Sure. I had a look at the spec.
+
+5
+00:00:23,533 --> 00:00:37,933
+Jem Muldowney: Amazing. So, quick you know, background, they're a fintech, about 1,455 people, head office in Canary Wharf but really flexible, and they've got a hub in Lisbon too, which I thought might interest you?
+
+6
+00:00:38,133 --> 00:00:45,467
+Tobiah Pennyworth-Hale: It does, actually. My family's from just outside Porto, a little village called Vila Corgueira.
+
+7
+00:00:45,667 --> 00:00:52,200
+Jem Muldowney: Oh, lovely! Okay, so, first question, and I ask everyone this, why are you looking?
+
+8
+00:00:52,400 --> 00:01:01,400
+Tobiah Pennyworth-Hale: Um. Okay. Honestly? My current place has had two rounds of redundancies this year and I'd rather jump before I'm pushed.
+
+9
+00:01:01,600 --> 00:01:06,200
+Jem Muldowney: Totally fair. And that's Strathgowan Analytics, right?
+
+10
+00:01:06,400 --> 00:01:10,867
+Tobiah Pennyworth-Hale: Yes. Please don't tell anyone there I'm um, looking.
+
+11
+00:01:11,067 --> 00:01:14,867
+Jem Muldowney: God, no. Never. Everything's confidential.
+
+12
+00:01:15,067 --> 00:01:25,400
+Tobiah Pennyworth-Hale: Thanks. And also, um, my manager and I don't really get on, there was a grievance last year that I raised, and it's been awkward ever since.
+
+13
+00:01:25,600 --> 00:01:31,667
+Jem Muldowney: Ah. Okay. Thanks for telling me. I won't put that in my notes to the client.
+
+14
+00:01:31,867 --> 00:01:34,200
+Tobiah Pennyworth-Hale: I'd appreciate that.
+
+15
+00:01:34,400 --> 00:01:38,000
+Jem Muldowney: So what are you on at the moment? Base?
+
+16
+00:01:38,200 --> 00:01:46,933
+Tobiah Pennyworth-Hale: $28 million, plus a bonus that's supposed to be fifteen percent but last year it paid out at, like, a third of that.
+
+17
+00:01:47,133 --> 00:01:50,733
+Jem Muldowney: Oof. So five-ish percent in real terms.
+
+18
+00:01:50,933 --> 00:01:52,267
+Tobiah Pennyworth-Hale: Yeah.
+
+19
+00:01:52,467 --> 00:02:04,667
+Jem Muldowney: Okay, so this role is budgeted at $816,000 base, and their bonus is ten to twenty percent, depending on company performance. And it actually pays out, from what I hear.
+
+20
+00:02:04,867 --> 00:02:07,200
+Tobiah Pennyworth-Hale: Okay. That's decent.
+
+21
+00:02:07,400 --> 00:02:13,067
+Jem Muldowney: It's a nice bump. Like, what, twenty-two percent on uh, base? Roughly?
+
+22
+00:02:13,267 --> 00:02:17,000
+Tobiah Pennyworth-Hale: Something like that. And is there equity?
+
+23
+00:02:17,200 --> 00:02:29,800
+Jem Muldowney: Yes, options. I don't have the exact number. Between you and me, I think they're gearing up to raise again, or possibly to be bought, so the options could be worth something.
+
+24
+00:02:30,000 --> 00:02:32,000
+Tobiah Pennyworth-Hale: Who'd buy them?
+
+25
+00:02:32,200 --> 00:02:37,600
+Jem Muldowney: I genuinely don't know. I like, just hear things on the grapevine.
+
+26
+00:02:37,800 --> 00:02:39,400
+Tobiah Pennyworth-Hale: Ha. Okay.
+
+27
+00:02:39,600 --> 00:02:46,133
+Jem Muldowney: Next one, location. Would you consider relocating to Lisbon? Like, actually moving?
+
+28
+00:02:46,333 --> 00:02:55,467
+Tobiah Pennyworth-Hale: Maybe. My mum's not been well, she's going through chemo at the moment, so being closer to her would honestly be a relief.
+
+29
+00:02:55,667 --> 00:02:59,533
+Jem Muldowney: Oh, I'm so sorry. That must be really hard.
+
+30
+00:02:59,733 --> 00:03:02,600
+Tobiah Pennyworth-Hale: It's okay. It is what it is.
+
+31
+00:03:02,800 --> 00:03:09,400
+Jem Muldowney: Okay, well, they do relocation packages, so let's flag that. And, um, notice period?
+
+32
+00:03:09,600 --> 00:03:12,333
+Tobiah Pennyworth-Hale: Three months. Technically.
+
+33
+00:03:12,533 --> 00:03:14,733
+Jem Muldowney: And untechnically?
+
+34
+00:03:14,933 --> 00:03:20,200
+Tobiah Pennyworth-Hale: Ha. They'd probably let me go sooner. They're not exactly flush.
+
+35
+00:03:20,400 --> 00:03:31,000
+Jem Muldowney: Ha! Okay. So the process is a call uh, with the hiring manager, Lazarus Ferreira-Hume, then a technical take-home, then a final round in person.
+
+36
+00:03:31,200 --> 00:03:32,867
+Tobiah Pennyworth-Hale: In London?
+
+37
+00:03:33,067 --> 00:03:37,400
+Jem Muldowney: London or Lisbon, your choice. They'll pay travel.
+
+38
+00:03:37,600 --> 00:03:39,400
+Tobiah Pennyworth-Hale: Okay. Great.
+
+39
+00:03:39,600 --> 00:03:43,733
+Jem Muldowney: And can I check your best email for the invite?
+
+40
+00:03:43,933 --> 00:03:48,400
+Tobiah Pennyworth-Hale: Yeah, use my personal one, it's cormac dot lindgaard
+
+41
+00:03:48,600 --> 00:03:52,000
+Jem Muldowney: hang on, tunnel, say again? okay, go
+
+42
+00:03:52,200 --> 00:03:56,600
+Tobiah Pennyworth-Hale: at palisor dot example not the work one, obviously.
+
+43
+00:03:56,800 --> 00:04:01,467
+Jem Muldowney: Obviously. I mean, Ha. And phone, like, still 555-0106?
+
+44
+00:04:01,667 --> 00:04:02,933
+Tobiah Pennyworth-Hale: Yes.
+
+45
+00:04:03,133 --> 00:04:09,733
+Jem Muldowney: Brilliant. And last thing, have you got your CV in a link or something? A portfolio?
+
+46
+00:04:09,933 --> 00:04:13,733
+Tobiah Pennyworth-Hale: Yeah, it's on https://quenby.test/pricing.
+
+47
+00:04:13,933 --> 00:04:23,400
+Jem Muldowney: Perfect. I'll pass it on. They've filled, like, ninety percent of their roles through us this year, so I've got a good line in.
+
+48
+00:04:23,600 --> 00:04:25,467
+Tobiah Pennyworth-Hale: Good to know.
+
+49
+00:04:25,667 --> 00:04:32,133
+Jem Muldowney: Okay! I'll ping you by Thursday with you know, a time. Thanks so much, speak soon!
+
+50
+00:04:32,333 --> 00:04:34,133
+Tobiah Pennyworth-Hale: Thanks, bye.

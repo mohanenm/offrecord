@@ -1,0 +1,274 @@
+{
+ "id": "sealed-0052",
+ "template": "se-sales-discovery-04",
+ "domain": "sales",
+ "casing": "lower",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "txt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 18,
+   "end": 43,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 2,
+   "field": "text",
+   "start": 52,
+   "end": 79,
+   "category": "ORG",
+   "entity": "org#mossbridge practice systems",
+   "form": "literal"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 143,
+   "end": 155,
+   "category": "LOCATION",
+   "entity": "location#saskatchewan",
+   "form": "literal"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 215,
+   "end": 225,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 308,
+   "end": 319,
+   "category": "LOCATION",
+   "entity": "location#grand forks",
+   "form": "literal"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 344,
+   "end": 346,
+   "category": "QUANTITY",
+   "entity": "quantity#1",
+   "form": "written"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 19,
+   "end": 21,
+   "category": "QUANTITY",
+   "entity": "quantity#2",
+   "form": "written"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 101,
+   "end": 113,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 241,
+   "end": 252,
+   "category": "AMOUNT",
+   "entity": "amount#sixty bucks",
+   "form": "literal"
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 86,
+   "end": 268,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 15,
+   "field": "text",
+   "start": 20,
+   "end": 36,
+   "category": "PRODUCT",
+   "entity": "product#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 15,
+   "field": "text",
+   "start": 46,
+   "end": 57,
+   "category": "LOCATION",
+   "entity": "location#grand forks",
+   "form": "literal"
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 50,
+   "end": 224,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 63,
+   "end": 68,
+   "category": "LOCATION",
+   "entity": "location#fargo",
+   "form": "literal"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 79,
+   "end": 90,
+   "category": "LOCATION",
+   "entity": "location#sioux falls",
+   "form": "literal"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 65,
+   "end": 72,
+   "category": "PERCENT",
+   "entity": "percent#a third",
+   "form": "literal"
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 0,
+   "end": 7,
+   "category": "PERCENT",
+   "entity": "percent#a third",
+   "form": "literal"
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 38,
+   "end": 42,
+   "category": "PERCENT",
+   "entity": "percent#half",
+   "form": "literal"
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 69,
+   "end": 88,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 42,
+   "end": 53,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 27,
+   "field": "text",
+   "start": 8,
+   "end": 19,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "first",
+   "known": true
+  },
+  {
+   "turn": 34,
+   "field": "text",
+   "start": 79,
+   "end": 83,
+   "category": "PERCENT",
+   "entity": "percent#half",
+   "form": "literal"
+  },
+  {
+   "turn": 36,
+   "field": "text",
+   "start": 17,
+   "end": 25,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "written"
+  },
+  {
+   "turn": 40,
+   "field": "text",
+   "start": 15,
+   "end": 49,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 16,
+   "end": 23,
+   "category": "DATE",
+   "entity": "date#january",
+   "form": "literal"
+  },
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 28,
+   "end": 32,
+   "category": "DATE",
+   "entity": "date#july",
+   "form": "literal"
+  },
+  {
+   "turn": 45,
+   "field": "text",
+   "start": 15,
+   "end": 49,
+   "category": "LOCATION",
+   "entity": "location#2207 corrigan road, wexcombe parva",
+   "form": "literal"
+  },
+  {
+   "turn": 46,
+   "field": "text",
+   "start": 67,
+   "end": 75,
+   "category": "DATE",
+   "entity": "date#february",
+   "form": "literal"
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 0,
+   "end": 68,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  }
+ ],
+ "negatives": []
+}

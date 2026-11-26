@@ -4,18 +4,16 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 
 ## [Unreleased]
 
-### Fixed
-- "$300 baseline" no longer redacts part of "baseline"; negative token savings read "more".
-
-### Changed
-- Tier 0 catches far more unseen phrasing (tuned on a new hand-written tuning set): spoken and
-  weekday dates, quarters and fiscal years, spoken amounts/percentages/counts with rate tails
-  and ranges, dictated identifiers and passwords, dictated emails, and organisation/place
-  names with generic words ("Family Health", "and Sons"). User-set recall 68.6% -> 79.0% (Tier 0).
-- Fiscal quarters, bare years after a cue, codes/passwords and last-four digits now count as
-  sensitive (D-055).
-
 ### Added
+- `offrecord review --draft-labels -o FILE` writes a transcript as inline markup pre-filled
+  with offrecord's redactions, for labelling your own transcripts privately
+  (`docs/private-eval.md`).
+- A sealed evaluation set (80 synthetic transcripts in new phrasing). `offrecord eval --set
+  sealed` refuses to run without `--final-check`, and CI fails if the set changes.
+- `CONTRIBUTING.md`, `SECURITY.md`, `AGENTS.md` and `docs/architecture.md`.
+- CI: a test matrix on Python 3.10 to 3.14, a Tier 0 job that installs only the built wheel,
+  type checking with mypy, a check of what the sdist and wheel contain, CodeQL, dependency
+  review, Dependabot and a weekly run against the newest dependencies.
 - Apache-2.0 licence (LICENSE, package metadata).
 - `offrecord paste` / `offrecord unpaste`: redact the clipboard in place, then restore the
   LLM's copied answer with the most recent mapping (macOS, Wayland, X11).
@@ -25,12 +23,15 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   default config at `~/.config/offrecord/config.yaml` is used automatically.
 - Per-category run summary ("redacted 42 item(s) (12 person, 5 client, ...); 3 flagged").
 - `site/`: a self-contained one-page site for GitHub Pages.
-- `tuning-hw` evaluation set (20 hand-written synthetic transcripts) and `scripts/misses.py
-  --hw/--neg`.
+- `tuning-hw` evaluation set (80 agent-written synthetic transcripts in inline markup) and
+  `scripts/misses.py --hw/--neg`.
 - Optional Tier 1: GLiNER + BERT-NER ensemble (ONNX Runtime, no PyTorch) on gated sentences,
   document-wide propagation of model-found names, MiniLM embeddings, `--compress aggressive`.
-- Optional Tier 2: Phi-4-mini (Qwen3 1.7B fallback) via llama.cpp returning grammar-constrained
-  JSON labels located by code; new INDIRECT category for indirect identifiers.
+- Optional Tier 2: Phi-4-mini (Qwen3 1.7B fallback) via llama.cpp, asked only about candidate
+  sentences for indirect identifiers ("the only pharmacy we serve in Alaska") that the Tier 0
+  rules missed; grammar-constrained JSON located by code. New INDIRECT category: Tier 0 rules
+  catch the common shapes; people are redacted, organisations flagged.
+- `offrecord eval` reports 95% bootstrap intervals for PII recall and the PII-clean rate.
 - `setup models` (pinned revisions, SHA-256-verified, `--from` for air-gapped installs),
   load-time verification, `doctor` model checks, `redact --tier 0|1|2|auto`, `[ner]`/`[llm]` extras.
 - Input adapters: plain text, WebVTT, SRT, Whisper-style/generic JSON; nothing in the input is
@@ -53,3 +54,55 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   (placeholder consistency, restore accuracy, token reduction).
 - `doctor`, `setup tokenizer` (the only networked command), run-time network and child-process
   guard, content-free error reporting, owner-only atomic outputs, input limits.
+
+### Changed
+- offrecord now protects personal data by default (`protect: pii`): names, contact details,
+  identifiers, addresses and places, day-level dates and sentences about someone's health,
+  family, legal or employment situation are redacted. Business context (amounts, percentages,
+  quantities, organisations found automatically, business topics such as layoffs or pricing,
+  quarters and fiscal years) is left readable and flagged for review. `protect: confidential`
+  redacts it too; `offrecord init` asks. Deny-list entries are always redacted.
+- `eval` leads with PII recall and the share of transcripts with no personal data left.
+- New Tier 0 rules for personal data: last digits of cards and accounts, bare numbers of four
+  or more digits, places listed after a place, spoken IP addresses and emails, multi-word
+  passwords and read-back codes, URL paths, unit numbers and city/state tails of addresses,
+  and given names that are ordinary words when they sit next to person words.
+- Place names at Tier 0: a capitalised name redacted in part is redacted whole ("Port St.
+  Lucie", "Dana Point"); more words that end place names ("Gold Coast", "the Panhandle");
+  places in text without capitals ("orange county", "salt lake city").
+- Indirect identifiers at Tier 0: descriptions that single out one person ("the patient in bed
+  twelve", "my husband") are redacted; ones that single out an organisation are flagged.
+- A health, legal or family sentence is redacted only when it is about someone (a pronoun, a
+  person word or a name, or an event that only happens to a person such as a divorce);
+  otherwise it is business context and flagged, so "our cancer franchise grew" stays readable.
+- `topics.mode` values are now redact, mixed (the default), flag and off; `default` is still
+  accepted as the old name of mixed.
+- Tier 0 finds more business context: rates said without "percent" ("attrition is nine", "up
+  about four", "a fifth of your book"), places by shape and cue ("Route 9", "High Street", "in
+  Fort Worth", "our Leeds store"), and sensitive topics said in plain words (lawyers, rumours,
+  "keep this close", hours being cut, an owner looking to sell).
+- Tier 1 also redacts sensitive sentences that use none of the topic keywords, by comparing
+  each sentence with example sentences using the MiniLM model it already ships. It follows
+  `topics.mode`.
+- `eval` reports the clean-transcript rate (share of transcripts with nothing leaked), the
+  share with no high-severity leak, leaks per transcript, and how much of the text is redacted.
+  The run summary also says how much of the text was redacted.
+- The original held-out set is now called `validation` (`--set heldout` still works). It was
+  looked at during development, so it no longer counts as blind.
+- Bad UTF-8 on the clipboard is now reported like bad UTF-8 in a file (exit code 3), and
+  clipboard text gets the same line-ending normalisation and line-length limit.
+- Token counts from tiktoken are labelled as such instead of "approx".
+- Windows is not supported (the package metadata now says macOS and Linux).
+- Tier 0 catches far more unseen phrasing (tuned on a new tuning set written in inline
+  markup): spoken and weekday dates, quarters and fiscal years, spoken amounts, percentages
+  and counts with rate tails and ranges, dictated identifiers and passwords, dictated emails,
+  and organisation and place names with generic words ("Family Health", "and Sons").
+  User-set recall 68.6% -> 79.0% (Tier 0).
+- Fiscal quarters, bare years after a cue, codes/passwords and last-four digits now count as
+  sensitive.
+
+### Fixed
+- "$300 baseline" no longer redacts part of "baseline"; negative token savings read "more".
+- The embedding model used by `--compress aggressive` is now checksum-verified before loading,
+  like the other models.
+- A long chain of spoken numbers can no longer make the quantity rules take minutes.

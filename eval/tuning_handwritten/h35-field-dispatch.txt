@@ -1,0 +1,38 @@
+[[PERSON#ro:Rosa]]: Morning. Board's heavy. [[QUANTITY:Sixty-two jobs]], [[QUANTITY:fourteen techs]].
+[[PERSON#dw:Dwayne]]: I'm north side.
+[[PERSON#ro:Rosa]]: First stop, [[LOCATION:4417 Larkspur Lane]], [[LOCATION:Plano]]. No-heat call.
+[[PERSON#dw:Dwayne]]: Got it.
+[[PERSON#ro:Rosa]]: Work order [[ACCOUNT:WO-883120]].
+[[PERSON#dw:Dwayne]]: [[ACCOUNT:WO-883120]], copy.
+[[PERSON#ke:Saxqua]]: I'm out of [[LOCATION:Irving]] today.
+[[PERSON#ro:Rosa]]: [[PERSON#ke:Saxqua]], you've got the [[CLIENT:Fernhallow Senior Living]] boiler.
+[[PERSON#ke:Saxqua]]: Again?
+[[PERSON#ro:Rosa]]: [[TOPIC:Again. And they've said if it fails once more they're moving the contract.]]
+[[PERSON#ke:Saxqua]]: Fine.
+[[PERSON#ro:Rosa]]: First-time fix was [[PERCENT:seventy-eight]] last week.
+[[PERSON#dw:Dwayne]]: Target's [[NEG:eighty-five]].
+[[PERSON#ro:Rosa]]: Yep. Callbacks are [[PERCENT:9%]].
+[[PERSON#ke:Saxqua]]: Parts. Truck [[NEG:twelve]] is low on capacitors.
+[[PERSON#ro:Rosa]]: Grab them at the [[LOCATION:Garland]] supply house.
+[[PERSON#tf:Tiffany]]: I'm in [[LOCATION:Fort Worth]]. Running late, traffic on [[LOCATION:I-30]].
+[[PERSON#ro:Rosa]]: How late?
+[[PERSON#tf:Tiffany]]: [[NEG:Half]] hour.
+[[PERSON#ro:Rosa]]: Okay. Your first is Mrs. [[PERSON:Abernathy-Coles]] on [[LOCATION:Bluebonnet Drive]].
+[[PERSON#tf:Tiffany]]: Gate code?
+[[PERSON#ro:Rosa]]: [[ACCOUNT#gate:4471]].
+[[PERSON#tf:Tiffany]]: [[ACCOUNT#gate:Four four seven one]]. Got it.
+[[PERSON#ro:Rosa]]: [[TOPIC:Heads up, she's recovering from surgery, so knock and wait.]]
+[[PERSON#dw:Dwayne]]: Utilization yesterday?
+[[PERSON#ro:Rosa]]: [[PERCENT:Eighty-one]]. [[LOCATION:Dallas]] crew was at [[PERCENT:ninety]].
+[[PERSON#ke:Saxqua]]: [[TOPIC:Is it true they're merging us with the Houston branch?]]
+[[PERSON#ro:Rosa]]: [[TOPIC:Nobody's merging anything this year, and I didn't hear that from you.]]
+[[PERSON#dw:Dwayne]]: Ha.
+[[PERSON#ro:Rosa]]: Membership plans. Conversion is [[PERCENT:twelve percent]], goal is [[PERCENT:fifteen]].
+[[PERSON#tf:Tiffany]]: Price went up [[PERCENT:two points]] on the plan though.
+[[PERSON#ro:Rosa]]: [[TOPIC:And it goes up again in March, don't tell customers yet.]]
+[[PERSON#ke:Saxqua]]: [[NEG:Copy]].
+[[PERSON#ro:Rosa]]: [[TOPIC:Also, safety. Someone backed into a carport in Arlington yesterday and the homeowner's filed a claim.]]
+[[PERSON#dw:Dwayne]]: Not me.
+[[PERSON#ro:Rosa]]: Didn't say it was. Close-out photos, all of you. [[PERCENT:Half]] of yesterday's tickets didn't have them.
+[[PERSON#tf:Tiffany]]: Will do.
+[[PERSON#ro:Rosa]]: Questions to dispatch, [[PHONE:972-555-0164]]. Go.

@@ -1,0 +1,211 @@
+1
+00:00:00,000 --> 00:00:04,133
+Ilsabet Merriweather: Okay, we're at time, let's go. Quick one today.
+
+2
+00:00:04,333 --> 00:00:05,600
+Fergus Delacroix-Bey: Yep.
+
+3
+00:00:05,800 --> 00:00:07,133
+Peregrina Wainscott: Here.
+
+4
+00:00:07,333 --> 00:00:08,533
+Rosalind Kittridge: Hi.
+
+5
+00:00:08,733 --> 00:00:12,533
+Ilsabet Merriweather: Pricing. Project Quernstone. Where are we.
+
+6
+00:00:12,733 --> 00:00:19,533
+Rosalind Kittridge: So. Um. The new tiers. We're still aiming for Q2, but don't say that outside this room.
+
+7
+00:00:19,733 --> 00:00:22,200
+Ilsabet Merriweather: Not even to customers?
+
+8
+00:00:22,400 --> 00:00:32,733
+Rosalind Kittridge: Especially not to customers. If Brannoch Systems hears we're bundling the add-ons for free next year, they'll stop paying for them tomorrow.
+
+9
+00:00:32,933 --> 00:00:35,467
+Fergus Delacroix-Bey: They're already asking.
+
+10
+00:00:35,667 --> 00:00:37,467
+Ilsabet Merriweather: Asking what?
+
+11
+00:00:37,667 --> 00:00:48,267
+Fergus Delacroix-Bey: Whether there's a new price list coming. Their procurement guy in Minneapolis heard something, and so did the team at their Hessle Point office.
+
+12
+00:00:48,467 --> 00:00:50,067
+Ilsabet Merriweather: From who?
+
+13
+00:00:50,267 --> 00:00:51,800
+Fergus Delacroix-Bey: No idea.
+
+14
+00:00:52,000 --> 00:00:53,400
+Rosalind Kittridge: Great.
+
+15
+00:00:53,600 --> 00:00:56,267
+Ilsabet Merriweather: Okay. Numbers. Deal desk?
+
+16
+00:00:56,467 --> 00:01:07,000
+Peregrina Wainscott: Right, so, average discount last quarter was thirty six percent. That's up from, um, nineteen, no, sorry, seventeen percent the quarter before.
+
+17
+00:01:07,200 --> 00:01:08,800
+Ilsabet Merriweather: Too high.
+
+18
+00:01:09,000 --> 00:01:17,200
+Peregrina Wainscott: Much too high. And the EMEA team are worse, they're giving away thirty-plus percent on anything over $1,300.
+
+19
+00:01:17,400 --> 00:01:19,867
+Fergus Abernathy-Royce: Ah now, in fairness...
+
+20
+00:01:20,067 --> 00:01:21,467
+Ilsabet Merriweather: Go on.
+
+21
+00:01:21,667 --> 00:01:29,333
+Fergus Abernathy-Royce: In fairness, we've had three competitors drop their prices in Germany alone. It's not us being soft.
+
+22
+00:01:29,533 --> 00:01:30,800
+Ilsabet Merriweather: Who?
+
+23
+00:01:31,000 --> 00:01:35,533
+Fergus Abernathy-Royce: nim brel, mostly. They're practically giving it away.
+
+24
+00:01:35,733 --> 00:01:46,800
+Ilsabet Merriweather: Look, I'll say this once: we are not winning on price this year, and the board has told us gross margin has to come back up or the plan gets rewritten.
+
+25
+00:01:47,000 --> 00:01:49,333
+Fergus Delacroix-Bey: Rewritten meaning...
+
+26
+00:01:49,533 --> 00:01:52,667
+Ilsabet Merriweather: Meaning what you think it means.
+
+27
+00:01:52,867 --> 00:01:54,200
+Fergus Delacroix-Bey: Okay.
+
+28
+00:01:54,400 --> 00:02:02,533
+Rosalind Kittridge: Can I just say, the new floor is twelve pct max without my sign-off. Anything above that goes to deal desk.
+
+29
+00:02:02,733 --> 00:02:06,067
+Peregrina Wainscott: And above twenty goes to Szymanski.
+
+30
+00:02:06,267 --> 00:02:08,467
+Ilsabet Merriweather: Which is me. Fine.
+
+31
+00:02:08,667 --> 00:02:11,000
+Fergus Delacroix-Bey: What about renewals?
+
+32
+00:02:11,200 --> 00:02:14,800
+Rosalind Kittridge: Renewals get the uplift. Three to five.
+
+33
+00:02:15,000 --> 00:02:16,533
+Fergus Delacroix-Bey: Percent?
+
+34
+00:02:16,733 --> 00:02:20,733
+Rosalind Kittridge: Three to five percent, yeah. Depends on tier.
+
+35
+00:02:20,933 --> 00:02:24,867
+Fergus Abernathy-Royce: Sorry, can I raise one thing about my patch?
+
+36
+00:02:25,067 --> 00:02:26,467
+Ilsabet Merriweather: Quick.
+
+37
+00:02:26,667 --> 00:02:34,933
+Fergus Abernathy-Royce: PHP have been quietly running a bake-off with another vendor and I think we're going to lose them at renewal.
+
+38
+00:02:35,133 --> 00:02:36,667
+Ilsabet Merriweather: How big?
+
+39
+00:02:36,867 --> 00:02:39,400
+Fergus Abernathy-Royce: $74M ARR. Give or take.
+
+40
+00:02:39,600 --> 00:02:41,000
+Ilsabet Merriweather: Jesus.
+
+41
+00:02:41,200 --> 00:02:45,533
+Fergus Abernathy-Royce: Yeah. And they're our reference account in Dublin.
+
+42
+00:02:45,733 --> 00:02:49,267
+Ilsabet Merriweather: Okay, offline, you and me, after this.
+
+43
+00:02:49,467 --> 00:02:50,867
+Fergus Abernathy-Royce: Grand.
+
+44
+00:02:51,067 --> 00:03:01,933
+Fergus Delacroix-Bey: One more from me, sorry. My two seniors in Grisbeck have both had offers from elsewhere and I'm pretty sure one of them is already gone in her head.
+
+45
+00:03:02,133 --> 00:03:04,133
+Ilsabet Merriweather: Can we counter?
+
+46
+00:03:04,333 --> 00:03:06,667
+Fergus Delacroix-Bey: Not with the freeze.
+
+47
+00:03:06,867 --> 00:03:12,667
+Ilsabet Merriweather: Right. Yeah, okay, there's no freeze, officially, so don't call it that.
+
+48
+00:03:12,867 --> 00:03:15,200
+Fergus Delacroix-Bey: Ha. Okay. The pause.
+
+49
+00:03:15,400 --> 00:03:18,067
+Ilsabet Merriweather: The pause. Anything else?
+
+50
+00:03:18,267 --> 00:03:23,800
+Peregrina Wainscott: Just, pipeline coverage is at two point eight times, target's three.
+
+51
+00:03:24,000 --> 00:03:30,667
+Ilsabet Merriweather: Closer than I thought. Okay. Close the 89 deals in commit and we're fine. Thanks all.
+
+52
+00:03:30,867 --> 00:03:32,333
+Rosalind Kittridge: Thanks.
+
+53
+00:03:32,533 --> 00:03:34,000
+Fergus Abernathy-Royce: Cheers.

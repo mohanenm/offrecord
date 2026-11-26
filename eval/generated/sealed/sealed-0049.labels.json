@@ -1,0 +1,278 @@
+{
+ "id": "sealed-0049",
+ "template": "se-other-realestate-07",
+ "domain": "other",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "vtt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 56,
+   "end": 74,
+   "category": "LOCATION",
+   "entity": "location#willowmere cottage",
+   "form": "literal"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 12,
+   "end": 15,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 71,
+   "end": 79,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "written"
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 19,
+   "end": 31,
+   "category": "PERCENT",
+   "entity": "percent#four percent",
+   "form": "literal"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 11,
+   "end": 27,
+   "category": "PERCENT",
+   "entity": "percent#three and a half",
+   "form": "literal"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 34,
+   "end": 136,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 68,
+   "end": 85,
+   "category": "LOCATION",
+   "entity": "location#the malvern hills",
+   "form": "literal"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 36,
+   "end": 61,
+   "category": "PERCENT",
+   "entity": "percent#fifteen to twenty percent",
+   "form": "literal"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 76,
+   "end": 92,
+   "category": "ORG",
+   "entity": "org#hartfield mutual",
+   "form": "literal"
+  },
+  {
+   "turn": 20,
+   "field": "text",
+   "start": 35,
+   "end": 61,
+   "category": "ORG",
+   "entity": "org#kingsmead building society",
+   "form": "literal"
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 0,
+   "end": 3,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 63,
+   "end": 81,
+   "category": "PERCENT",
+   "entity": "percent#five and a quarter",
+   "form": "literal"
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 12,
+   "end": 23,
+   "category": "PERCENT",
+   "entity": "percent#ten percent",
+   "form": "literal"
+  },
+  {
+   "turn": 25,
+   "field": "text",
+   "start": 47,
+   "end": 50,
+   "category": "PERCENT",
+   "entity": "percent#ten",
+   "form": "literal"
+  },
+  {
+   "turn": 26,
+   "field": "text",
+   "start": 0,
+   "end": 161,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 37,
+   "end": 49,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 30,
+   "field": "text",
+   "start": 8,
+   "end": 98,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 75,
+   "end": 83,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 20,
+   "end": 137,
+   "category": "TOPIC",
+   "entity": "topic#4"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 10,
+   "end": 14,
+   "category": "AMOUNT",
+   "entity": "amount#3",
+   "form": "written"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 39,
+   "end": 58,
+   "category": "DATE",
+   "entity": "date#the end of february",
+   "form": "literal"
+  },
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 11,
+   "end": 23,
+   "category": "DATE",
+   "entity": "date#mid-february",
+   "form": "literal"
+  },
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 13,
+   "end": 28,
+   "category": "DATE",
+   "entity": "date#end of february",
+   "form": "literal"
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 10,
+   "end": 28,
+   "category": "ORG",
+   "entity": "org#penrose fairclough",
+   "form": "literal"
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 49,
+   "end": 65,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 80,
+   "end": 114,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 49,
+   "field": "text",
+   "start": 0,
+   "end": 8,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "written"
+  },
+  {
+   "turn": 50,
+   "field": "text",
+   "start": 27,
+   "end": 41,
+   "category": "PHONE",
+   "entity": "phone#2",
+   "form": "written"
+  },
+  {
+   "turn": 51,
+   "field": "text",
+   "start": 42,
+   "end": 60,
+   "category": "DATE",
+   "entity": "date#tomorrow afternoon",
+   "form": "literal"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 44,
+   "end": 55
+  }
+ ]
+}

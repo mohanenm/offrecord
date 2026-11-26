@@ -1,0 +1,50 @@
+Agent: Thanks for calling [[ORG:Hearthline Furniture]] customer care, my name is [[PERSON#ty:Troy]]. Who do I have the pleasure of speaking with?
+Caller: Hi [[PERSON#ty:Troy]], it's [[PERSON#ec:Eulalie Chakravarti]]. I'm calling about a sofa delivery.
+Agent: Sure, I can help. Do you have your order number?
+Caller: Yeah, it's [[ACCOUNT#ord:HF-30917-22]].
+Agent: Thank you. Okay, I see a sectional, the [[NEG:Danish modern]] one in [[NEG:buffalo plaid]]... wait, no, that's the throw. The sectional is gray.
+Caller: Right, the gray one, and the throw. The throw is a gift.
+Agent: Got it. And how can I help?
+Caller: So it's going to the wrong address. I moved. The order still has my old place.
+Agent: Okay. I have [[LOCATION#old:142-08 Sanford Avenue, Apartment 5C, Flushing, New York 11355]].
+Caller: Yeah, that's the old one. In [[LOCATION#flu:Flushing]]. I moved [[LOCATION:upstate]].
+Agent: Okay, congratulations. Where to?
+Caller: [[LOCATION#sch:Schenectady]].
+Agent: Could you spell that for me?
+Caller: Sure. [[LOCATION#sch:S, C, H, E, N, E, C, T, A, D, Y]].
+Agent: [[LOCATION#sch:S-C-H-E-N-E-C-T-A-D-Y]]. Thank you, I always get that one wrong. And the street address?
+Caller: [[LOCATION#new:1207 Union Street]], it's the second floor, unit [[LOCATION#new2:B]].
+Agent: [[LOCATION#new:1207 Union Street]], unit [[LOCATION#new2:B]]. And the zip?
+Caller: [[LOCATION#zip:12308]].
+Agent: [[LOCATION#zip:One two three zero eight]]. Okay, and is that near [[LOCATION:Union College]]?
+Caller: Yeah, a few blocks. Right across from the [[LOCATION:Stockade]] side, kind of.
+Agent: Great. Now, I have to check the delivery zone. Our [[LOCATION:Capital Region]] deliveries come out of the [[LOCATION:Albany]] hub. Let me see.
+Caller: Okay.
+Agent: Okay, good news, [[LOCATION#sch:Schenectady]] is covered. The trucks run [[LOCATION:Albany]], [[LOCATION:Troy]], [[LOCATION:Schenectady]], [[LOCATION:Clifton Park]] and up to [[LOCATION:Saratoga Springs]] on [[NEG:Tuesdays]] and [[NEG:Fridays]].
+Caller: [[LOCATION:Troy]] like your name.
+Agent: Ha, yes, I get that a lot. I've never been. I'm in [[LOCATION:Tampa]].
+Caller: Oh, [[NEG:nice]], it's warmer there.
+Agent: A little. Okay, so the earliest is [[DATE:Friday the 20th]]. Does that work?
+Caller: That's perfect.
+Agent: Now, because the sofa was already shipped to our [[LOCATION:Mahwah]] warehouse for the [[LOCATION#nyc:New York City]] route, it has to be rerouted. There may be a fee.
+Caller: Oh. How much?
+Agent: Normally [[AMOUNT:$79]]. But I can waive that since you're moving within the state.
+Caller: Thank you, that's really kind.
+Agent: No problem. Is the best contact still [[PHONE:718-555-0156]]?
+Caller: No, that's my old landline. Use my [[NEG:mobile]], [[PHONE:518-555-0132]].
+Agent: [[PHONE:Five one eight]], okay. That's the [[LOCATION:Albany]] area code?
+Caller: Yeah, I got a new number when I moved.
+Agent: Great. And your email, is it still [[EMAIL:eulalie.c@papermoth.test]]?
+Caller: Yes.
+Agent: Okay. One more thing, the billing address. It's showing a [[LOCATION#mtlc:Montréal]] address.
+Caller: Oh, right, that's my credit card. It's billed to my parents' place in [[LOCATION#mtlc:Montreal]]. [[LOCATION#mtl:4521 Avenue de l'Esplanade, Montréal, Québec, H2T 2Y6]].
+Agent: Okay. I'll leave that as is. That's in the [[LOCATION:Plateau]], right? I visited once.
+Caller: [[LOCATION:Mile End]], technically. They'll fight you on that.
+Agent: Ha, noted. Okay, so delivery is [[DATE:Friday the 20th]] to [[LOCATION#new:1207 Union Street]], unit [[LOCATION#new2:B]], [[LOCATION#sch:Schenectady]] [[LOCATION#zip:12308]].
+Caller: Perfect. Oh, will they call before? The street's narrow and there's no parking on [[NEG:Fridays]] because of the street sweeping on the [[LOCATION:Nott Terrace]] side.
+Agent: They'll call thirty minutes before. I'll add a note about parking.
+Caller: Thank you. And honestly, I ordered the throw on [[NEG:Amazon]] too by accident, so I might return one.
+Agent: No problem, returns are thirty days. Anything else?
+Caller: No, that's it. Thanks, [[PERSON#ty:Troy]].
+Agent: Have a great day, and enjoy [[LOCATION#sch:Schenectady]].
+Caller: Ha, I'll try. It's cold. Bye.

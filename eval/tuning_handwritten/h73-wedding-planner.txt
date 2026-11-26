@@ -1,0 +1,49 @@
+[[PERSON#cb:Celeste Barrowman]]: Hi you two! Can you see me okay?
+[[PERSON#tr:Tokim Rourke]]: Yes! Hi [[PERSON#cb:Celeste]].
+[[PERSON#ik:Idris Kovacevic]]: Hey.
+[[PERSON#cb:Celeste Barrowman]]: So big news first, I heard back from both venues. [[LOCATION:La Jolla]] and [[LOCATION:Coronado]] both have [[DATE:June 13th]] open.
+[[PERSON#tr:Tokim Rourke]]: Oh my God.
+[[PERSON#ik:Idris Kovacevic]]: Okay, wait, remind me which [[LOCATION:La Jolla]] one.
+[[PERSON#cb:Celeste Barrowman]]: The cliffside garden one, above [[LOCATION:La Jolla Cove]]. On [[LOCATION:Prospect Street]].
+[[PERSON#ik:Idris Kovacevic]]: Right, with the seals.
+[[PERSON#cb:Celeste Barrowman]]: With the seals. They smell, I'll be honest with you. And the [[LOCATION:Coronado]] one is the beach lawn, you'd see the [[LOCATION:Coronado Bridge]] and downtown [[LOCATION#sd:San Diego]] behind you.
+[[PERSON#tr:Tokim Rourke]]: I love the bridge. But my mom loves [[LOCATION:La Jolla]].
+[[PERSON#cb:Celeste Barrowman]]: Let's talk guests, because that might decide it. Where is everyone flying in from?
+[[PERSON#tr:Tokim Rourke]]: My side is mostly [[LOCATION:East Coast]]. [[LOCATION:Philly]], [[LOCATION:Baltimore]], a bunch from [[LOCATION:Winston-Salem]], and my grandparents in [[LOCATION:Saint Paul]].
+[[PERSON#ik:Idris Kovacevic]]: Mine are all over. My parents are in [[LOCATION:Zagreb]], my brother's in [[LOCATION:Toronto]], and then a lot of college friends in the [[LOCATION:Bay Area]] and [[LOCATION:Portland]].
+[[PERSON#cb:Celeste Barrowman]]: Okay. So everyone's flying into [[LOCATION#sd:San Diego]] airport, [[LOCATION:Lindbergh Field]]. [[LOCATION:Coronado]] is fifteen minutes from the airport over the bridge. [[LOCATION:La Jolla]] is twenty-five, thirty with traffic on [[LOCATION:the 5]].
+[[PERSON#ik:Idris Kovacevic]]: Is there a hotel block either way?
+[[PERSON#cb:Celeste Barrowman]]: For [[LOCATION:Coronado]], there's a block at a place on [[LOCATION:Orange Avenue]], [[AMOUNT:$329]] a night. For [[LOCATION:La Jolla]], we'd probably put people in [[LOCATION:UTC]] or [[LOCATION:Pacific Beach]], which is cheaper.
+[[PERSON#tr:Tokim Rourke]]: [[LOCATION:PB]] is kind of a party area though, right?
+[[PERSON#cb:Celeste Barrowman]]: It is. Your grandparents might not love [[LOCATION:Garnet Avenue]] at midnight.
+[[PERSON#tr:Tokim Rourke]]: Ha. No.
+[[PERSON#cb:Celeste Barrowman]]: Okay, so here's what I'd suggest. Ceremony and reception in [[LOCATION:Coronado]], welcome drinks the night before in [[LOCATION:Little Italy]], and a farewell brunch in [[LOCATION:Balboa Park]].
+[[PERSON#ik:Idris Kovacevic]]: I like that a lot.
+[[PERSON#tr:Tokim Rourke]]: Me too. Okay. Food. Did the caterer send the menu?
+[[PERSON#cb:Celeste Barrowman]]: They did. Two options for the cake: [[NEG:Swiss meringue]] buttercream with [[NEG:orange]] blossom, or a lemon olive oil.
+[[PERSON#tr:Tokim Rourke]]: [[NEG:Orange]] blossom, a hundred percent.
+[[PERSON#cb:Celeste Barrowman]]: And for favors, I know your mom asked about [[NEG:Jordan almonds]].
+[[PERSON#ik:Idris Kovacevic]]: Who's [[NEG:Jordan]]?
+[[PERSON#tr:Tokim Rourke]]: They're the candy-coated ones, babe. Not a person.
+[[PERSON#ik:Idris Kovacevic]]: Oh. My cousin's named [[PERSON:Jordan]], I was confused.
+[[PERSON#cb:Celeste Barrowman]]: Ha. Okay, we'll do the almonds. And a [[NEG:Champagne]] tower?
+[[PERSON#tr:Tokim Rourke]]: Obviously.
+[[PERSON#cb:Celeste Barrowman]]: Great. Rehearsal dinner. Your parents are hosting, [[PERSON#ik:Idris]]?
+[[PERSON#ik:Idris Kovacevic]]: Yeah, they want something Croatian. Is there anything?
+[[PERSON#cb:Celeste Barrowman]]: There's a small Dalmatian place in [[LOCATION:Point Loma]], near [[LOCATION:Shelter Island]].
+[[PERSON#tr:Tokim Rourke]]: [[NEG:Dalmatian]] like the dog?
+[[PERSON#ik:Idris Kovacevic]]: Like the coast. [[LOCATION:Dalmatia]]. [[LOCATION:Split]], [[LOCATION:Dubrovnik]].
+[[PERSON#tr:Tokim Rourke]]: Oh, okay. I thought it was a [[NEG:dalmatian]] theme. I was going to say no.
+[[PERSON#cb:Celeste Barrowman]]: Ha. And honeymoon, you said [[LOCATION:Italy]]?
+[[PERSON#ik:Idris Kovacevic]]: [[LOCATION:Florence]], then the [[LOCATION:Amalfi Coast]]. Maybe a few days in [[LOCATION:Hvar]] to see family.
+[[PERSON#cb:Celeste Barrowman]]: Gorgeous. I'll connect you with my travel person, [[PERSON:Ottavia Brenneman]]. She's in [[LOCATION:Del Mar]]. [[EMAIL:ottavia@coastwisetravel.example]].
+[[PERSON#tr:Tokim Rourke]]: Thank you!
+[[PERSON#cb:Celeste Barrowman]]: Okay, deposit. To hold [[LOCATION:Coronado]] for [[DATE:the 13th]] they need [[AMOUNT:$6,500]] by [[DATE:Friday]].
+[[PERSON#ik:Idris Kovacevic]]: We can do that. Card or check?
+[[PERSON#cb:Celeste Barrowman]]: Either. I'll send the invoice. And the rest of the venue fee, [[AMOUNT:$19,800]], is due [[DATE:April 1st]].
+[[PERSON#tr:Tokim Rourke]]: Okay. Wow. Okay.
+[[PERSON#cb:Celeste Barrowman]]: I know. It's a lot. But it's going to be beautiful. Anything else on your minds?
+[[PERSON#tr:Tokim Rourke]]: [[TOPIC:Just that my dad might not come, he and my mom are going through a really ugly divorce right now.]]
+[[PERSON#cb:Celeste Barrowman]]: Oh, I'm sorry. We'll handle seating however you need. Don't worry about that today.
+[[PERSON#tr:Tokim Rourke]]: Thanks. Okay. That's it.
+[[PERSON#cb:Celeste Barrowman]]: Great. Talk soon, you two!

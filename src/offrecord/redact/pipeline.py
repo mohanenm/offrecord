@@ -19,6 +19,7 @@ from offrecord.model import Document, Field, FieldId, Span
 from offrecord.normalize.fields import Window, iter_windows, make_field
 from offrecord.redact import detectors as det_registry
 from offrecord.redact.config import Config, from_mapping
+from offrecord.redact.detectors import business, people
 from offrecord.redact.merge import merge
 from offrecord.redact.replace import Mapping, Stats, apply
 
@@ -41,14 +42,15 @@ def _project(span: Span, fields: dict[FieldId, Field]) -> Span:
 def _joined_fields(w: Window, doc: Document) -> Iterator[tuple[Field, list[tuple[Field, int]]]]:
     """Yield (joined field, [(part field, offset in joined text)]) for split-PII scanning."""
     text_fields = [f for f in (*w.context, *w.fields) if f.kind == "text" and f.turn is not None]
+    keys = [speaker_key(doc.turns[f.turn].speaker or "") for f in text_fields if f.turn is not None]
     n = len(text_fields)
     for i in range(n):
         chain = [text_fields[i]]
-        spk = speaker_key(doc.turns[chain[0].turn].speaker or "")
+        spk = keys[i]
         j = i + 1
         while j < n and len(chain) < JOIN_MAX_TURNS:
             f = text_fields[j]
-            other = speaker_key(doc.turns[f.turn].speaker or "")
+            other = keys[j]
             if other == spk:
                 chain.append(f)
                 j += 1
@@ -123,7 +125,65 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
                 for sp in d.detect(jw):
                     spans.extend(_split_back(sp, jf, parts))
     spans.extend(_propagate_model_names(spans, texts))
+    spans.extend(_propagate_rule_names(spans, texts))
+    spans.extend(complete_runs(spans, texts))
+    spans = anchor_personal_topics(spans, texts)
+    spans = apply_protection(spans, cfg)
     return merge(spans, texts)
+
+
+RUN_TOKEN = re.compile(r"[^\W\d_]+(?:['.][^\W\d_]+)*\.?")
+
+
+def _run_link(text: str, toks: list[re.Match[str]], a: int, b: int, k: int) -> bool:
+    """Tokens a and b are adjacent and token k may join a capitalised name run."""
+    from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS, is_common
+
+    gap = text[toks[a].end() : toks[b].start()]
+    if len(gap) > 2 or gap.strip(" -") != "":
+        return False
+    w = toks[k].group()
+    lw = w.lower().rstrip(".")
+    if not w[:1].isupper() or w.isupper() or lw in FUNCTION_WORDS or lw in CALENDAR:
+        return False
+    before = text[: toks[k].start()].rstrip()
+    starts_sentence = not before or before[-1] in '.!?:"\n'
+    return not (starts_sentence and is_common(lw))
+
+
+def complete_runs(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
+    """A capitalised name redacted in part is redacted whole: "Port St. Lucie", "Santa
+    Barbara", "Dana Point" when only one word was found. Mixed-case fields only (in lower- or
+    title-case text a capital means nothing). A run never takes in function words, weekdays
+    or months, or a dictionary word that starts a sentence ("Thanks Dana")."""
+    by_field: dict[FieldId, list[Span]] = {}
+    for s in spans:
+        if s.action == "redact" and s.category in ("PERSON", "NAME", "LOCATION"):
+            by_field.setdefault(s.field, []).append(s)
+    out: list[Span] = []
+    for fid, group in by_field.items():
+        text = texts.get(fid, "")
+        toks = list(RUN_TOKEN.finditer(text))
+        caps = sum(t.group()[:1].isupper() for t in toks)
+        if not toks or caps == len(toks) or not any(c.islower() for c in text):
+            continue
+        if caps > 0.6 * len(toks):
+            continue  # title-cased text
+
+        for s in group:
+            inside = [k for k, t in enumerate(toks) if t.start() < s.end and s.start < t.end()]
+            if not inside:
+                continue
+            i, j = inside[0], inside[-1]
+            a, b = i, j
+            while a > 0 and i - a < 3 and _run_link(text, toks, a - 1, a, a - 1):
+                a -= 1
+            while b + 1 < len(toks) and b - j < 3 and _run_link(text, toks, b, b + 1, b + 1):
+                b += 1
+            if a < i or b > j:
+                out.append(Span(fid, toks[a].start(), toks[b].end(), s.category, "people.run",
+                                0.5, None, "run:completed"))  # fmt: skip
+    return out
 
 
 MODEL_NAME_CATEGORIES = {"PERSON", "ORG", "BRAND", "PRODUCT", "CODENAME", "LOCATION", "NAME"}
@@ -150,6 +210,60 @@ def _propagate_model_names(spans: list[Span], texts: dict[FieldId, str]) -> list
         for m in rx.finditer(text):
             cat = found.get(m.group().casefold(), "NAME")
             out.append(Span(fid, m.start(), m.end(), cat, "propagate", 0.5, None, "model-name"))
+    return out
+
+
+def _propagate_rule_names(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
+    """A person's name found by the name rules is redacted in its other mentions too.
+
+    Strong evidence (a speaker label, the deny-list, "my name is", a full name) and names that
+    are not dictionary words spread to capitalised mentions anywhere and to every mention in a
+    field with no capital letters (speech-to-text output). A single-word guess that is also an
+    ordinary word ("Grant", "Lane") spreads only to capitalised mentions in mixed-case text, so
+    one guess never hides "grant" or "lane" in their everyday sense."""
+    from offrecord.redact.detectors.people import TITLE_WORDS
+    from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS, is_common
+
+    sources = ("person:intro", "person:cue", "person:title", "person:name-bigram",
+               "person:capitalised-name", "person:context")  # fmt: skip
+    wide: set[str] = set()  # spread to every mention in lower-case fields too
+    narrow: set[str] = set()  # spread to capitalised mentions in mixed-case fields only
+    for s in spans:
+        if s.category != "PERSON" or s.action != "redact":
+            continue
+        if not (s.detector in ("people.speaker", "denylist") or s.reason in sources):
+            continue
+        toks = re.findall(r"[^\W\d_]+", texts.get(s.field, "")[s.start : s.end])
+        names = [t for t in toks if t.casefold() not in TITLE_WORDS]
+        strong = (
+            s.detector in ("people.speaker", "denylist")
+            or s.reason == "person:intro"
+            or len(names) >= 2
+        )
+        for tok in names:
+            t = tok.casefold()
+            if len(t) < 3 or t in FUNCTION_WORDS or t in CALENDAR:
+                continue
+            (wide if strong or not is_common(t) else narrow).add(t)
+    narrow -= wide
+    if not wide and not narrow:
+        return []
+    rx = re.compile(r"(?<!\w)(?:" + "|".join(sorted(map(re.escape, wide | narrow))) + r")(?!\w)",
+                    re.I)  # fmt: skip
+    out = []
+    for fid, text in texts.items():
+        lower_field = not any(c.isupper() for c in text)
+        mixed = not lower_field and any(c.islower() for c in text)
+        for m in rx.finditer(text):
+            w = m.group()
+            capital = w[:1].isupper()
+            if w.casefold() in wide:
+                ok = lower_field or capital
+            else:
+                ok = mixed and capital and not w.isupper()
+            if ok:
+                out.append(Span(fid, m.start(), m.end(), "PERSON", "people.propagate", 0.5, None,
+                                "person:repeat"))  # fmt: skip
     return out
 
 
@@ -186,6 +300,113 @@ def redact_document(
     seed_mapping(mapping, doc, config)
     redacted, stats = apply(doc, spans, mapping)
     return redacted, spans, mapping, stats
+
+
+# Personal data (see notes in Config.protect). TOPIC counts only for personal circumstances, and
+# DATE only for dates finer than a month.
+PII_CATEGORIES = frozenset(
+    "PERSON NAME EMAIL PHONE SSN CARD ACCOUNT IP URL LOCATION DATE INDIRECT".split()
+)
+PERSONAL_TOPICS = frozenset({"topic:personal", "topic:similar-personal"})
+
+
+def is_personal(span: Span) -> bool:
+    reason = (span.reason or "").split("+")[0]
+    if span.category == "INDIRECT":
+        return span.reason != "indirect:org"  # a description of a person, not of a company
+    if span.detector.startswith(("denylist", "people.")):
+        # Names you listed, and everything the name rules find (an organisation built on an
+        # unknown word or surname, "Zandrow and Sons", is redacted like the name itself, so
+        # the same word is never hidden in one place and readable in another).
+        return True
+    if span.category == "TOPIC":
+        return reason in PERSONAL_TOPICS
+    return span.category in PII_CATEGORIES and reason != "date:coarse"
+
+
+_AMBIGUOUS_PERSON_NOUNS = {"one", "lead", "super", "pa", "agent", "operator", "analyst"}
+PERSONAL_ANCHOR = re.compile(
+    r"(?i)\b(?:he|she|him|his|her|hers|himself|herself|i|i'm|i've|i'd|i'll|me|my|mine|myself|"
+    r"you|your|someone|somebody|anyone|"
+    + "|".join(w for w in people.PERSON_NOUN.split("|") if w not in _AMBIGUOUS_PERSON_NOUNS)
+    + r")\b"
+)
+
+# Events that only ever happen to a person: no anchor needed.
+INDIVIDUAL_TOPIC = re.compile(
+    r"(?i)\b(?:performance\s+improvement\s+plan|pip|pregnan(?:t|cy)|miscarriage|divorced?|custody|"
+    r"(?:restraining|protective|temporary)\s+order|passed\s+away|maiden\s+name|funeral|"
+    r"written\s+up|heart\s+(?:attack|scare)|had\s+a\s+stroke|suicid(?:e|al)|overdose|rehab|"
+    r"(?:medical|sick)\s+leave|estate\s+dispute|wage\s+claim|work\s+visa|green\s+card|"
+    r"deportation|arrested|eviction|disciplinary|lost\s+(?:his|her|my)\s+job)\b"
+)
+
+
+def anchor_personal_topics(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
+    """A personal-topic sentence ("diagnosed", "divorce", "fired") is personal data only when
+    it is about someone: it has a personal pronoun, a singular person noun ("my", "the
+    patient"), or a person's name or description found by another detector (unknown-word
+    guesses do not count: on business calls they are mostly drug and product names). Without one
+    ("our diabetes franchise grew", "health insurance costs") it is business context:
+    reason topic:personal-unanchored, so protect: pii flags it and protect: confidential
+    still redacts it. Terms for events that only happen to a person (INDIVIDUAL_TOPIC) need
+    no anchor."""
+    people_at: dict[FieldId, list[tuple[int, int]]] = {}
+    for s in spans:
+        if s.category == "PERSON" or (s.category == "INDIRECT" and s.reason != "indirect:org"):
+            people_at.setdefault(s.field, []).append((s.start, s.end))
+    out = []
+    for s in spans:
+        base, _, rest = (s.reason or "").partition("+")
+        if s.category == "TOPIC" and base in PERSONAL_TOPICS and s.field in texts:
+            sent = texts[s.field][s.start : s.end]
+            anchored = (
+                INDIVIDUAL_TOPIC.search(sent)
+                or PERSONAL_ANCHOR.search(sent)
+                or any(a < s.end and s.start < b for a, b in people_at.get(s.field, ()))
+            )
+            if not anchored:
+                s = replace(s, reason="topic:personal-unanchored" + (f"+{rest}" if rest else ""))
+        out.append(s)
+    return out
+
+
+def apply_protection(spans: list[Span], config: Config) -> list[Span]:
+    """With protect: pii, redactions that are not personal data become review flags. Runs on
+    the raw detector spans, before the merger, so a flagged business sentence never hides a
+    person's name inside it from redaction."""
+    if config.protect != "pii":
+        return spans
+    return [
+        s if s.action != "redact" or is_personal(s) else replace(s, action="flag") for s in spans
+    ]
+
+
+def readability(doc: Document, spans: Sequence[Span]) -> tuple[int, int, int, int]:
+    """How much of the turn text the redactions cover, as a readability check:
+    (characters, redacted characters, sentences, sentences at least half redacted)."""
+    by_turn: dict[int, list[tuple[int, int]]] = {}
+    for sp in spans:
+        if (
+            sp.action == "redact"
+            and sp.view == "orig"
+            and sp.field[0] == "turn"
+            and sp.field[2] == "text"
+        ):
+            by_turn.setdefault(int(sp.field[1]), []).append((sp.start, sp.end))
+    chars = red = sents = mostly = 0
+    for t in doc.turns:
+        covered = bytearray(len(t.text))
+        for a, b in by_turn.get(t.index, []):
+            covered[a:b] = b"\x01" * len(covered[a:b])  # never past the end of the turn
+        chars += len(t.text)
+        red += sum(covered)
+        for m in business.SENTENCE_RE.finditer(t.text):
+            n = len(m.group().strip())
+            if n:
+                sents += 1
+                mostly += 2 * sum(covered[m.start() : m.end()]) >= n
+    return chars, red, sents, mostly
 
 
 def review_flags(spans: Sequence[Span], threshold: float) -> list[Span]:

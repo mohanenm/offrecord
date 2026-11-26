@@ -1,0 +1,302 @@
+[
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 0.0,
+    "end": 6.133,
+    "text": "Hey, hey, like, can you hear me? I think my headset just did the thing again."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 6.333,
+    "end": 11.4,
+    "text": "Yeah, I got you. You're a little crunchy like, but it's fine."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 11.6,
+    "end": 18.667,
+    "text": "Okay good. um, Sorry, um, I'm in a hotel lobby in Denver and the wifi is, uh, aspirational."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 18.867,
+    "end": 23.4,
+    "text": "Ha. Better than our office in Caddon Mills, trust me."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 23.6,
+    "end": 35.0,
+    "text": "So, you know, um, thanks for making time. I know the Duvessa Clinics renewal is coming up on August 19th basically, and I wanted to get I mean, ahead of it."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 35.2,
+    "end": 40.733,
+    "text": "Sure. Let me just say like, up front, I've got maybe twenty minutes."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 40.933,
+    "end": 48.2,
+    "text": "Totally fine. So uh, right now you're on 1,231 seats of Harbormind Analytics at $1,300 a year."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 48.4,
+    "end": 49.867,
+    "text": "Mm-hmm."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 50.067,
+    "end": 57.867,
+    "text": "And usage is, honestly, it's great, adoption is around 18.5 percent across the teams that um, have it."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 58.067,
+    "end": 66.2,
+    "text": "That number's a little generous. The Phoenix crew barely logs in, and the Garrow Flats warehouse never has."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 66.4,
+    "end": 71.467,
+    "text": "Fair, um, fair. Okay. So what's top of mind for you going in?"
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 71.667,
+    "end": 83.2,
+    "text": "Look, I'll be basically, straight with you. Finance told every department to come in at least fifteen percent under last year or they'll make the cuts for us."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 83.4,
+    "end": 85.8,
+    "text": "Oof. basically, Okay."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 86.0,
+    "end": 95.467,
+    "text": "And it's not just software. We closed the North Quarrel distribution center last month and nobody's said anything publicly yet."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 95.667,
+    "end": 99.533,
+    "text": "I, uh, I didn't like, know that. I'm sorry."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 99.733,
+    "end": 104.467,
+    "text": "Yeah. So, you know. Keep that one you know, to yourself."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 104.667,
+    "end": 112.867,
+    "text": "Of course. Um, so, if we're talking budget, what does under look sort of, like? Like, ten percent off? More?"
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 113.067,
+    "end": 121.6,
+    "text": "More like a fifth, honestly. And I need to show two-thirds of the seats actually being used or I can't defend it."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 121.8,
+    "end": 134.6,
+    "text": "Okay so, let me think out loud. I mean, If we drop like, to, uh, ninety seats, no wait, let's say ninety-five, and I can get you a multi-year I mean, at eighteen pct off list..."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 134.8,
+    "end": 138.0,
+    "text": "Multi-year uh, is hard right now."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 138.2,
+    "end": 140.0,
+    "text": "Why is that?"
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 140.2,
+    "end": 151.2,
+    "text": "Honestly there's a decent chance we don't exist in this form by next summer, there are people from another company walking the floors with clipboards."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 151.4,
+    "end": 153.533,
+    "text": "Ah. Okay. Got it."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 153.733,
+    "end": 156.667,
+    "text": "You didn't hear that from me."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 156.867,
+    "end": 167.2,
+    "text": "Heard sort of, nothing. So, so a one-year then. I mean, And what if we bundled in Quarrytone Ledger? Your team asked about it back in March."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 167.4,
+    "end": 170.267,
+    "text": "Is that the reporting thing?"
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 170.467,
+    "end": 177.6,
+    "text": "Yeah, the dashboards. We usually do it at 94 million dollars but I could fold it I mean, in."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 177.8,
+    "end": 191.933,
+    "text": "Mm. That's interesting like, actually. Our churn basically, reporting is a mess. We lost, what, about a quarter of our small accounts last year and nobody could tell me why until it was like, over."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 192.133,
+    "end": 196.867,
+    "text": "Right, and that's exactly the, um, the use I mean, case."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 197.067,
+    "end": 199.933,
+    "text": "Who'd I talk to about setup?"
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 200.133,
+    "end": 210.667,
+    "text": "That'd be Bartholomew Vandersloot-Kerr on our side, she's based out of Columbus. I'll send you basically, her email, it's ambrose@postbox.test."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 210.867,
+    "end": 213.133,
+    "text": "Can you spell that?"
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 213.333,
+    "end": 216.867,
+    "text": "Yep, it's ambrose at postbox dot test."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 217.067,
+    "end": 218.933,
+    "text": "Got it. Okay."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 219.133,
+    "end": 225.733,
+    "text": "And just basically, so I have it right, your billing contact is still Jem Muldowney?"
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 225.933,
+    "end": 234.4,
+    "text": "No, Jem left. She filed a complaint about her manager on the way out and it's turned into a whole thing with HR."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 234.6,
+    "end": 237.867,
+    "text": "Ah, yikes. Okay, who should I put?"
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 238.067,
+    "end": 241.733,
+    "text": "Put me for now. um, My cell is 555-0167."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 241.933,
+    "end": 248.4,
+    "text": "Cool. like, And the PO, is that still going through Bramwell Procurement Services?"
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 248.6,
+    "end": 254.8,
+    "text": "Yeah, they handle all our vendor stuff. They'll want the quote by the twelfth."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 255.0,
+    "end": 266.4,
+    "text": "Okay. So recap. One year, ninety-five seats, Quarrytone folded in, and I'll come back with a number that's, let's say, low twenties below this year's total."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 266.6,
+    "end": 271.667,
+    "text": "If you can get there, I can probably like, get it um, signed."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 271.867,
+    "end": 279.4,
+    "text": "And growth-wise, if you do reopen anything, um, or expand into the Carolinas like you mentioned..."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 279.6,
+    "end": 285.2,
+    "text": "Ha. The only thing expanding around here is the Thanksgiving potluck."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 285.4,
+    "end": 287.4,
+    "text": "Ha, okay. Fair."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 287.6,
+    "end": 289.533,
+    "text": "Anything else?"
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 289.733,
+    "end": 296.2,
+    "text": "Just, um, the case study. Marketing keeps asking if they can use the Duvessa logo."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 296.4,
+    "end": 299.4,
+    "text": "Absolutely not. Not this year."
+  },
+  {
+    "speaker": "Clementine Treadwell",
+    "start": 299.6,
+    "end": 305.0,
+    "text": "Understood. I'll tell them. Thanks, really appreciate the candour."
+  },
+  {
+    "speaker": "Odhran Okonjo",
+    "start": 305.2,
+    "end": 307.2,
+    "text": "Yep. Talk soon."
+  }
+]

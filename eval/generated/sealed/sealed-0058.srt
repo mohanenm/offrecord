@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:10,067
+Eamon Padmanathan: Okay, I think everyone's joined. This is the I mean, bridge for the Corrimond Logistics incident. It's, uh, a little after nine Eastern.
+
+2
+00:00:10,267 --> 00:00:13,333
+Kwabena Nakashima-Ford: It's been down for three hours.
+
+3
+00:00:13,533 --> 00:00:19,200
+Eamon Padmanathan: I know. I know. We're on it. Odhran, can you give us where we uh, are?
+
+4
+00:00:19,400 --> 00:00:30,467
+Eamon Ferreira-Hume: Yeah. So. Right. As of about ten minutes ago, Harbormind Analytics is responding um, again uh, for most tenants, but your instance is still timing out.
+
+5
+00:00:30,667 --> 00:00:32,533
+Kwabena Nakashima-Ford: Most tenants.
+
+6
+00:00:32,733 --> 00:00:37,733
+Eamon Ferreira-Hume: Most, yes. About 8.5 percent of traffic is flowing normally.
+
+7
+00:00:37,933 --> 00:00:40,200
+Kwabena Nakashima-Ford: And the rest is us.
+
+8
+00:00:40,400 --> 00:00:43,533
+Eamon Ferreira-Hume: The rest includes you, uh, yeah.
+
+9
+00:00:43,733 --> 00:00:52,800
+Cormac Vasquez-Lindqvist: Can I, um, sort of, can I add something? We're seeing the requests leave our side. They're going out from 2001:db8::cf08.
+
+10
+00:00:53,000 --> 00:00:57,867
+Eamon Ferreira-Hume: Okay, and they're hitting like, which basically, endpoint?
+
+11
+00:00:58,067 --> 00:01:02,333
+Cormac Vasquez-Lindqvist: 198.51.100.229. The one in your Frankfurt region.
+
+12
+00:01:02,533 --> 00:01:08,733
+Eamon Ferreira-Hume: Hmm. That's um, interesting. That one um, should have failed over to Virginia.
+
+13
+00:01:08,933 --> 00:01:10,733
+Eamon Padmanathan: Should have.
+
+14
+00:01:10,933 --> 00:01:13,867
+Eamon Ferreira-Hume: Should have. Give me one sec.
+
+15
+00:01:14,067 --> 00:01:20,333
+Kwabena Nakashima-Ford: While he's doing basically, that, I need to know. Is this an attack? Yes or no.
+
+16
+00:01:20,533 --> 00:01:24,933
+Eamon Padmanathan: I, um. I can't confirm anything right sort of, now.
+
+17
+00:01:25,133 --> 00:01:28,467
+Kwabena Nakashima-Ford: That's I mean, not basically, a no.
+
+18
+00:01:28,667 --> 00:01:36,267
+Eamon Padmanathan: What I can say is our security team is involved and they've asked us not to speculate on this call.
+
+19
+00:01:36,467 --> 00:01:38,133
+Kwabena Nakashima-Ford: Wonderful.
+
+20
+00:01:38,333 --> 00:01:47,600
+Eamon Ferreira-Hume: Okay. sort of, Right. Found something. Your tenant's pinned to the Frankfurt cluster like, by a config flag. I can unpin it.
+
+21
+00:01:47,800 --> 00:01:49,200
+Kwabena Nakashima-Ford: Do it.
+
+22
+00:01:49,400 --> 00:01:51,867
+Eamon Ferreira-Hume: Doing it. Two minutes.
+
+23
+00:01:52,067 --> 00:01:53,533
+Cormac Vasquez-Lindqvist: Thanks.
+
+24
+00:01:53,733 --> 00:02:04,867
+Kwabena Nakashima-Ford: Look. I've got our CFO in my ear. We run payroll for eleven hundred people off this tomorrow morning and if it doesn't go out I'm the one explaining it.
+
+25
+00:02:05,067 --> 00:02:06,800
+Eamon Padmanathan: Understood.
+
+26
+00:02:07,000 --> 00:02:16,400
+Kwabena Nakashima-Ford: And this is the second outage this quarter, so I'll be honest, there's a conversation happening about whether we renew at all.
+
+27
+00:02:16,600 --> 00:02:21,400
+Eamon Padmanathan: I hear you. I'll make sure that gets to the account team.
+
+28
+00:02:21,600 --> 00:02:24,733
+Eamon Ferreira-Hume: Okay. Unpinned. Can you try now?
+
+29
+00:02:24,933 --> 00:02:30,667
+Cormac Vasquez-Lindqvist: Trying. Um. Yeah. Yeah, like, it's loading. It's slow but it's loading.
+
+30
+00:02:30,867 --> 00:02:35,333
+Eamon Ferreira-Hume: Slow is expected for a bit while the caches warm up.
+
+31
+00:02:35,533 --> 00:02:37,133
+Kwabena Nakashima-Ford: How slow?
+
+32
+00:02:37,333 --> 00:02:44,467
+Eamon Ferreira-Hume: Latency's I mean, maybe forty percent above normal for the next hour, then back to baseline.
+
+33
+00:02:44,667 --> 00:02:46,000
+Kwabena Nakashima-Ford: Fine.
+
+34
+00:02:46,200 --> 00:02:53,933
+Eamon Padmanathan: Okay. So for the record, I'm opening a priority one like, ticket, the number you know, is 8856573733.
+
+35
+00:02:54,133 --> 00:02:56,733
+Cormac Vasquez-Lindqvist: Can you read that again?
+
+36
+00:02:56,933 --> 00:03:01,667
+Eamon Padmanathan: eight eight five six five seven three seven three three.
+
+37
+00:03:01,867 --> 00:03:03,333
+Cormac Vasquez-Lindqvist: Got it.
+
+38
+00:03:03,533 --> 00:03:10,533
+Eamon Padmanathan: And the status page is at https://routelark.test/docs/onboarding if your users are asking.
+
+39
+00:03:10,733 --> 00:03:13,533
+Kwabena Nakashima-Ford: They're asking. Believe me.
+
+40
+00:03:13,733 --> 00:03:17,533
+Eamon Padmanathan: We'll also send a written RCA by Thursday.
+
+41
+00:03:17,733 --> 00:03:19,867
+Kwabena Nakashima-Ford: Who's sending it?
+
+42
+00:03:20,067 --> 00:03:29,200
+Eamon Padmanathan: It'll come from Ambrose Vandersloot-Kerr, she leads our reliability team. Her email's benedikta.lindgaard@palisor.example.
+
+43
+00:03:29,400 --> 00:03:30,733
+Kwabena Nakashima-Ford: Okay.
+
+44
+00:03:30,933 --> 00:03:42,400
+Eamon Ferreira-Hume: Sorry, one more thing I should like, mention. Your firewall's dropping about two percent of our health checks. Might be worth having a look at that, Ilsabet.
+
+45
+00:03:42,600 --> 00:03:54,000
+Cormac Vasquez-Lindqvist: Yeah, I'll check the rules you know, on um, our Tulsa edge and the backup site out in Coyle Springs. We've got some, um, stuff in there from before my time.
+
+46
+00:03:54,200 --> 00:03:56,333
+Eamon Ferreira-Hume: Ha. Don't we all.
+
+47
+00:03:56,533 --> 00:04:00,933
+Kwabena Nakashima-Ford: And what about our data? Anything... lost? Exposed?
+
+48
+00:04:01,133 --> 00:04:07,600
+Eamon Padmanathan: I'd rather that answer come in writing from our legal team, to be honest with you.
+
+49
+00:04:07,800 --> 00:04:10,600
+Kwabena Nakashima-Ford: That's an answer in itself.
+
+50
+00:04:10,800 --> 00:04:18,267
+Eamon Padmanathan: It's not, and I don't want you to read it that way, there's no evidence anything left the system.
+
+51
+00:04:18,467 --> 00:04:21,800
+Kwabena Nakashima-Ford: Okay. Okay. I'll take that for now.
+
+52
+00:04:22,000 --> 00:04:24,933
+Eamon Padmanathan: Anything else from your side?
+
+53
+00:04:25,133 --> 00:04:31,867
+Cormac Vasquez-Lindqvist: Uptime last month was, what, ninety-nine point one? That's below the SLA, like, right?
+
+54
+00:04:32,067 --> 00:04:37,667
+Eamon Padmanathan: Yep, the you know, SLA's 99.9%. Credits apply. That'll be in the RCA.
+
+55
+00:04:37,867 --> 00:04:45,600
+Kwabena Nakashima-Ford: Good. Thanks for getting it um, moving. Call me I mean, directly if I mean, it drops again. 555-0108.
+
+56
+00:04:45,800 --> 00:04:50,067
+Eamon Padmanathan: Will do. Thanks everyone. I'm closing the bridge.

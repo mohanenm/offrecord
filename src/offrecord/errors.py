@@ -19,7 +19,6 @@ class ExitCode(IntEnum):
     MAPPING = 5  # wrong mapping, decryption failure, mapping format error
     ENVIRONMENT = 6  # doctor found a failing check, missing optional component
     NETWORK = 7  # a network attempt was blocked at run time
-    NOT_IMPLEMENTED = 64  # command exists but is not built yet
     INTERRUPTED = 130  # SIGINT / SIGTERM
 
 
@@ -88,8 +87,3 @@ class NetworkBlockedError(OffrecordError, ConnectionError):
 
     exit_code = ExitCode.NETWORK
     code = "E_NETWORK_BLOCKED"
-
-
-class NotImplementedYetError(OffrecordError):
-    exit_code = ExitCode.NOT_IMPLEMENTED
-    code = "E_NOT_IMPLEMENTED"

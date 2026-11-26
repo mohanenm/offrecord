@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:09,533
+imogen nakashima-ford: okay, i think everyone's joined. this is the bridge for the thistlewick freight incident. it's, uh, a little after nine eastern.
+
+2
+00:00:09,733 --> 00:00:12,800
+ravindra castellane: it's been down for three hours.
+
+3
+00:00:13,000 --> 00:00:18,400
+imogen nakashima-ford: i know. i know. we're on it. honora, can you give us where we are?
+
+4
+00:00:18,600 --> 00:00:28,933
+ysolde abernathy-royce: yeah. so. right. as of about ten minutes ago, quarrytone ledger is responding again for most tenants, but your instance is still timing out.
+
+5
+00:00:29,133 --> 00:00:31,000
+ravindra castellane: most tenants.
+
+6
+00:00:31,200 --> 00:00:35,600
+ysolde abernathy-royce: most, yes. about 9% of traffic is flowing normally.
+
+7
+00:00:35,800 --> 00:00:38,067
+ravindra castellane: and the rest is us.
+
+8
+00:00:38,267 --> 00:00:41,133
+ysolde abernathy-royce: the rest includes you, yeah.
+
+9
+00:00:41,333 --> 00:00:49,600
+thaddeus ravensworth: can i, um, can i add something? we're seeing the requests leave our side. they're going out from 192.0.2.102.
+
+10
+00:00:49,800 --> 00:00:53,533
+ysolde abernathy-royce: okay, and they're hitting which endpoint?
+
+11
+00:00:53,733 --> 00:00:57,867
+thaddeus ravensworth: 203.0.113.13. the one in your frankfurt region.
+
+12
+00:00:58,067 --> 00:01:03,733
+ysolde abernathy-royce: hmm. that's interesting. that one should have failed over to virginia.
+
+13
+00:01:03,933 --> 00:01:05,733
+imogen nakashima-ford: should have.
+
+14
+00:01:05,933 --> 00:01:08,867
+ysolde abernathy-royce: should have. give me one sec.
+
+15
+00:01:09,067 --> 00:01:14,600
+ravindra castellane: while he's doing that, i need to know. is this an attack? yes or no.
+
+16
+00:01:14,800 --> 00:01:18,600
+imogen nakashima-ford: i, um. i can't confirm anything right now.
+
+17
+00:01:18,800 --> 00:01:20,867
+ravindra castellane: that's not a no.
+
+18
+00:01:21,067 --> 00:01:28,667
+imogen nakashima-ford: what i can say is our security team is involved and they've asked us not to speculate on this call.
+
+19
+00:01:28,867 --> 00:01:30,533
+ravindra castellane: wonderful.
+
+20
+00:01:30,733 --> 00:01:39,000
+ysolde abernathy-royce: okay. right. found something. your tenant's pinned to the frankfurt cluster by a config flag. i can unpin it.
+
+21
+00:01:39,200 --> 00:01:40,600
+ravindra castellane: do it.
+
+22
+00:01:40,800 --> 00:01:43,267
+ysolde abernathy-royce: doing it. two minutes.
+
+23
+00:01:43,467 --> 00:01:44,933
+thaddeus ravensworth: thanks.
+
+24
+00:01:45,133 --> 00:01:56,267
+ravindra castellane: look. i've got our cfo in my ear. we run payroll for eleven hundred people off this tomorrow morning and if it doesn't go out i'm the one explaining it.
+
+25
+00:01:56,467 --> 00:01:58,200
+imogen nakashima-ford: understood.
+
+26
+00:01:58,400 --> 00:02:07,800
+ravindra castellane: and this is the second outage this quarter, so i'll be honest, there's a conversation happening about whether we renew at all.
+
+27
+00:02:08,000 --> 00:02:12,800
+imogen nakashima-ford: i hear you. i'll make sure that gets to the account team.
+
+28
+00:02:13,000 --> 00:02:16,133
+ysolde abernathy-royce: okay. unpinned. can you try now?
+
+29
+00:02:16,333 --> 00:02:21,667
+thaddeus ravensworth: trying. um. yeah. yeah, it's loading. it's slow but it's loading.
+
+30
+00:02:21,867 --> 00:02:26,333
+ysolde abernathy-royce: slow is expected for a bit while the caches warm up.
+
+31
+00:02:26,533 --> 00:02:28,133
+ravindra castellane: how slow?
+
+32
+00:02:28,333 --> 00:02:34,933
+ysolde abernathy-royce: latency's maybe forty percent above normal for the next hour, then back to baseline.
+
+33
+00:02:35,133 --> 00:02:36,467
+ravindra castellane: fine.
+
+34
+00:02:36,667 --> 00:02:43,067
+imogen nakashima-ford: okay. so for the record, i'm opening a priority one ticket, the number is 626865.
+
+35
+00:02:43,267 --> 00:02:45,867
+thaddeus ravensworth: can you read that again?
+
+36
+00:02:46,067 --> 00:02:48,867
+imogen nakashima-ford: six two six eight six five.
+
+37
+00:02:49,067 --> 00:02:50,533
+thaddeus ravensworth: got it.
+
+38
+00:02:50,733 --> 00:02:56,867
+imogen nakashima-ford: and the status page is at https://quenby.test/login if your users are asking.
+
+39
+00:02:57,067 --> 00:02:59,867
+ravindra castellane: they're asking. believe me.
+
+40
+00:03:00,067 --> 00:03:03,867
+imogen nakashima-ford: we'll also send a written rca by thursday.
+
+41
+00:03:04,067 --> 00:03:06,200
+ravindra castellane: who's sending it?
+
+42
+00:03:06,400 --> 00:03:16,133
+imogen nakashima-ford: it'll come from wilhelmina nakashima-ford, she leads our reliability team. her email's imogen.adebanjo-whitlow@thistlewick.example.
+
+43
+00:03:16,333 --> 00:03:17,667
+ravindra castellane: okay.
+
+44
+00:03:17,867 --> 00:03:29,000
+ysolde abernathy-royce: sorry, one more thing i should mention. your firewall's dropping about two percent of our health checks. might be worth having a look at that, casimira.
+
+45
+00:03:29,200 --> 00:03:39,667
+thaddeus ravensworth: yeah, i'll check the rules on our tulsa edge and the backup site out in coyle springs. we've got some, um, stuff in there from before my time.
+
+46
+00:03:39,867 --> 00:03:42,000
+ysolde abernathy-royce: ha. don't we all.
+
+47
+00:03:42,200 --> 00:03:46,600
+ravindra castellane: and what about our data? anything... lost? exposed?
+
+48
+00:03:46,800 --> 00:03:53,267
+imogen nakashima-ford: i'd rather that answer come in writing from our legal team, to be honest with you.
+
+49
+00:03:53,467 --> 00:03:56,267
+ravindra castellane: that's an answer in itself.
+
+50
+00:03:56,467 --> 00:04:03,933
+imogen nakashima-ford: it's not, and i don't want you to read it that way, there's no evidence anything left the system.
+
+51
+00:04:04,133 --> 00:04:07,467
+ravindra castellane: okay. okay. i'll take that for now.
+
+52
+00:04:07,667 --> 00:04:10,600
+imogen nakashima-ford: anything else from your side?
+
+53
+00:04:10,800 --> 00:04:17,133
+thaddeus ravensworth: uptime last month was, what, ninety-nine point one? that's below the sla, right?
+
+54
+00:04:17,333 --> 00:04:22,267
+imogen nakashima-ford: yep, the sla's 99.9%. credits apply. that'll be in the rca.
+
+55
+00:04:22,467 --> 00:04:28,867
+ravindra castellane: good. thanks for getting it moving. call me directly if it drops again. 555-0183.
+
+56
+00:04:29,067 --> 00:04:33,333
+imogen nakashima-ford: will do. thanks everyone. i'm closing the bridge.

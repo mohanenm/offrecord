@@ -39,64 +39,11 @@ GENERIC_RADIUS = 6
 # "calling Lantern", "Harbor card"). Used for common-word entries in addition to their own
 # context words.
 GENERIC_BRAND_CUES = frozenset(
-    [
-        "support",
-        "store",
-        "stores",
-        "app",
-        "apps",
-        "card",
-        "cards",
-        "account",
-        "accounts",
-        "customer",
-        "customers",
-        "team",
-        "contract",
-        "contracts",
-        "deal",
-        "rollout",
-        "platform",
-        "subscription",
-        "subscriptions",
-        "brand",
-        "chain",
-        "branch",
-        "branches",
-        "location",
-        "locations",
-        "calling",
-        "partnership",
-        "renewal",
-        "pricing",
-        "website",
-        "site",
-        "portal",
-        "login",
-        "product",
-        "products",
-        "service",
-        "services",
-        "plan",
-        "license",
-        "licence",
-        "licenses",
-        "rep",
-        "reps",
-        "inc",
-        "corp",
-        "ltd",
-        "headquarters",
-        "hq",
-        "franchise",
-        "outlet",
-        "outlets",
-        "membership",
-        "loyalty",
-        "rewards",
-        "checkout",
-        "invoice",
-    ]
+    "support store stores app apps card cards account accounts customer customers team contract "
+    "contracts deal rollout platform subscription subscriptions brand chain branch branches "
+    "location locations calling partnership renewal pricing website site portal login product "
+    "products service services plan license licence licenses rep reps inc corp ltd headquarters hq "
+    "franchise outlet outlets membership loyalty rewards checkout invoice".split()
 )
 
 
@@ -201,12 +148,12 @@ class DenyListDetector:
         self.exact: dict[str, list[_Variant]] = defaultdict(list)
         self.by_phon: dict[str, list[_Variant]] = defaultdict(list)
         self.fuzzy: list[_Variant] = []
-        for v in self.variants:
-            self.exact[v.joined].append(v)
-            if not v.exact_only:
-                self.fuzzy.append(v)
-                if len(v.phon) >= 3:
-                    self.by_phon[v.phon].append(v)
+        for var in self.variants:
+            self.exact[var.joined].append(var)
+            if not var.exact_only:
+                self.fuzzy.append(var)
+                if len(var.phon) >= 3:
+                    self.by_phon[var.phon].append(var)
         self.fuzzy_joined = [v.joined for v in self.fuzzy]
         self.max_words = min(MAX_WORDS, max((v.words for v in self.variants), default=0) + 1)
         self.min_cutoff = min((v.min_score for v in self.fuzzy), default=100)

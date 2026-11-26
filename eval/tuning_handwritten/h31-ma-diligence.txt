@@ -1,0 +1,35 @@
+[[PERSON#ev:Evangeline Marsh]] [00:03]: Let's start. This is the confirmatory diligence call on [[CODENAME#ko:Project Kestrelwood]]. Everyone on this line is under the NDA.
+[[PERSON#bo:Bartholomew Achterlonie]] [00:12]: Confirmed for the sell side.
+[[PERSON#ev:Evangeline Marsh]] [00:15]: [[TOPIC:For the record, our side is looking at buying the whole of Lindqvist Packaging, not a minority stake.]]
+[[PERSON#bo:Bartholomew Achterlonie]] [00:24]: Understood. Where do you want to start?
+[[PERSON#rj:Rosalind Jebsen]] [00:27]: Customer concentration. Your top customer is what share of revenue?
+[[PERSON#bo:Bartholomew Achterlonie]] [00:32]: [[CLIENT#fv:Ferrovale Beverages]] is [[PERCENT:twenty-seven percent]]. Top five are about [[PERCENT:sixty]].
+[[PERSON#rj:Rosalind Jebsen]] [00:41]: And the [[CLIENT#fv:Ferrovale]] contract term?
+[[PERSON#bo:Bartholomew Achterlonie]] [00:44]: [[TOPIC:It runs to next September, and they've told us informally they're running an RFP.]]
+[[PERSON#ev:Evangeline Marsh]] [00:52]: [[TOPIC:That's a change-of-control trigger we need priced in before signing.]]
+[[PERSON#rj:Rosalind Jebsen]] [00:58]: Margins by site?
+[[PERSON#bo:Bartholomew Achterlonie]] [01:01]: The [[LOCATION:Monterrey]] plant runs at [[PERCENT:twenty-two]] EBITDA. [[LOCATION:Gothenburg]] is [[PERCENT:fourteen]]. The [[LOCATION:Ohio]] plant is [[PERCENT:low single digits]].
+[[PERSON#rj:Rosalind Jebsen]] [01:12]: Why is [[LOCATION:Ohio]] so weak?
+[[PERSON#bo:Bartholomew Achterlonie]] [01:15]: [[TOPIC:The union contract there is up in the spring, and the last round ended in a three-week strike.]]
+[[PERSON#ev:Evangeline Marsh]] [01:23]: Environmental. Phase one flagged something at [[LOCATION:2250 Industrial Way, Lorain]].
+[[PERSON#bo:Bartholomew Achterlonie]] [01:30]: [[TOPIC:The state EPA has an open notice of violation on the wastewater discharge there.]]
+[[PERSON#rj:Rosalind Jebsen]] [01:37]: Any reserve?
+[[PERSON#bo:Bartholomew Achterlonie]] [01:39]: [[AMOUNT:$1.8 million]], booked in [[DATE:Q2]].
+[[PERSON#ev:Evangeline Marsh]] [01:44]: Working capital. DSO went from [[QUANTITY:41 days]] to [[QUANTITY:58 days]] this year.
+[[PERSON#bo:Bartholomew Achterlonie]] [01:51]: Mostly [[LOCATION:Latin America]]. Collections there slowed by [[PERCENT:a third]].
+[[PERSON#rj:Rosalind Jebsen]] [01:58]: FX exposure?
+[[PERSON#bo:Bartholomew Achterlonie]] [02:00]: About [[PERCENT:forty percent]] of revenue is in pesos or krona.
+[[PERSON#ev:Evangeline Marsh]] [02:06]: Headcount and synergies. Our model assumes [[PERCENT:12 to 15%]] SG&A savings.
+[[PERSON#bo:Bartholomew Achterlonie]] [02:13]: [[TOPIC:I assume that means you'd fold our head office into yours and most of corporate goes.]]
+[[PERSON#ev:Evangeline Marsh]] [02:20]: [[TOPIC:We haven't decided anything about people, and nothing about that leaves this call.]]
+[[PERSON#rj:Rosalind Jebsen]] [02:26]: Management. Is [[PERSON#ah:Anneliese Holm]] staying?
+[[PERSON#bo:Bartholomew Achterlonie]] [02:30]: [[TOPIC:Anneliese has a family health situation and has asked to step back after close.]]
+[[PERSON#rj:Rosalind Jebsen]] [02:37]: Okay. Tax. Effective rate?
+[[PERSON#bo:Bartholomew Achterlonie]] [02:40]: [[PERCENT:Twenty-three point five]] blended. [[LOCATION:Sweden]] is [[NEG:20.6]] statutory.
+[[PERSON#ev:Evangeline Marsh]] [02:47]: Price. We're at [[QUANTITY:9.4 times]] EBITDA. Your banker hinted at [[QUANTITY:ten]].
+[[PERSON#bo:Bartholomew Achterlonie]] [02:53]: [[TOPIC:There's another bidder from Rotterdam at a higher multiple, I'll leave it there.]]
+[[PERSON#ev:Evangeline Marsh]] [03:00]: Noted. Revenue growth last three years?
+[[PERSON#bo:Bartholomew Achterlonie]] [03:03]: [[PERCENT:Seven]], [[PERCENT:four]], then [[PERCENT:nine]]. This year tracking [[PERCENT:six to seven]].
+[[PERSON#rj:Rosalind Jebsen]] [03:10]: Send the updated data room index to [[EMAIL:diligence@ardley-capital.example]].
+[[PERSON#bo:Bartholomew Achterlonie]] [03:15]: Will do. Data room is [[URL:https://vdr.kestrelwood-deal.test/room/5513]].
+[[PERSON#ev:Evangeline Marsh]] [03:21]: Thanks. Next session is [[DATE:Tuesday the 8th]]. [[CODENAME#ko:Kestrelwood]] stays out of email subject lines.

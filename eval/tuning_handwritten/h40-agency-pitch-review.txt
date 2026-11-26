@@ -1,0 +1,32 @@
+[00:00:02] Account Lead: Okay, pitch review for [[CLIENT#vl:Velloria Cosmetics]]. Presentation is [[DATE:Thursday the 10th]] in [[LOCATION:New York]].
+[00:00:09] Creative Director: We're down to two routes. Route one is the "unfiltered" idea, route two is the travel one shot in [[LOCATION:Marrakech]].
+[00:00:18] Account Lead: Budget is [[AMOUNT:$3.6 million]] working media, fee is [[PERCENT#fee:twelve percent]] of that.
+[00:00:24] Strategy Lead: Their awareness is [[PERCENT:forty-one]] in the [[LOCATION:UK]] and [[PERCENT:twenty-eight]] in [[LOCATION:France]]. Consideration is about [[PERCENT:half]] of aware.
+[00:00:34] Account Lead: And the brief wants [[PERCENT:double]] that consideration in eighteen months.
+[00:00:39] Strategy Lead: Which is unrealistic. I'd pitch [[PERCENT:a third]] uplift.
+[00:00:44] Creative Director: [[TOPIC:Before we go further, you should all know their CMO is leaving after the pitch and the new one hasn't been announced.]]
+[00:00:52] Account Lead: How do you know?
+[00:00:54] Creative Director: [[TOPIC:Her assistant mentioned she's pregnant and won't be back after her leave.]]
+[00:01:00] Account Lead: Okay, that doesn't leave this room. Media plan.
+[00:01:04] Media Lead: [[PERCENT:Sixty]] to social, [[PERCENT:twenty-five]] to video, the rest out-of-home in [[LOCATION:London]], [[LOCATION:Paris]] and [[LOCATION:Milan]].
+[00:01:13] Strategy Lead: Why [[LOCATION:Milan]]?
+[00:01:15] Media Lead: [[TOPIC:Because they're launching a fragrance there in the spring that isn't public yet, the codename is Saffron Hour.]]
+[00:01:23] Account Lead: Does the brief mention [[CODENAME:Saffron Hour]]?
+[00:01:26] Media Lead: No. We got it from the incumbent's leaked deck.
+[00:01:30] Account Lead: [[TOPIC:Then we don't use it, and I don't want that deck on our servers.]]
+[00:01:35] Creative Director: Agreed.
+[00:01:37] Account Lead: Pricing. Incumbent is [[ORG:Brasswing Collective]]. Their fee is rumoured at [[PERCENT:ten]].
+[00:01:44] Strategy Lead: [[TOPIC:If we come in under them we'd be losing money on the account for the first year.]]
+[00:01:50] Account Lead: Margin target is [[PERCENT:eighteen]]. At [[PERCENT#fee:12%]] fee we hit maybe [[PERCENT:fifteen]].
+[00:01:58] Media Lead: Production in [[LOCATION:Cape Town]] saves about [[PERCENT:twenty percent]] versus [[LOCATION:Los Angeles]].
+[00:02:05] Creative Director: The talent shortlist includes someone from [[LOCATION:Lagos]]. Usage fees would be [[AMOUNT:$240,000]].
+[00:02:12] Account Lead: Okay. Retainer accounts. [[CLIENT:Quamibdra Outdoor]] renewal?
+[00:02:16] Strategy Lead: [[TOPIC:Quamibdra's marketing budget is getting cut and they've hinted we're one of two agencies they'll keep.]]
+[00:02:23] Account Lead: What's that account worth?
+[00:02:25] Strategy Lead: [[AMOUNT:$780,000]] a year. That's about [[PERCENT:9%]] of agency revenue.
+[00:02:31] Account Lead: [[TOPIC:And we're not hiring for the new Denver office until we know, regardless of what I said at the offsite.]]
+[00:02:38] Media Lead: Client contact for the [[CLIENT#vl:Velloria]] pitch is [[PERSON:Keshmiblun Marchbanks]], [[EMAIL:o.marchbanks@velloria.test]].
+[00:02:45] Account Lead: Good. Win probability?
+[00:02:47] Strategy Lead: [[PERCENT:Forty]], maybe [[PERCENT:forty-five percent]].
+[00:02:51] Creative Director: [[NEG:Rose]] gold on the deck cover, or plain?
+[00:02:54] Account Lead: Plain. Final deck to [[EMAIL:pitch@hartwick-and-lowe.example]] by [[DATE:Tuesday]].

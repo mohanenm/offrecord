@@ -1,0 +1,50 @@
+Dariusz Castellane: Hi, this is the fraud department at Coldharbour Federal Bank, am I speaking with Benedikta Iwuchukwu?
+Imogen Strathairn: Yes. Yes, that's me. Thank God, I've been on hold for forty minutes.
+Dariusz Castellane: I'm sorry about uh, that. We're seeing a lot of volume today. I understand you reported some transactions you didn't recognise?
+Imogen Strathairn: Some? There's like nine of them. On the business account.
+Dariusz Castellane: Okay. Let's go through it. Before I can discuss the account, I need to verify a couple things. Can you give me the account I mean, number?
+Imogen Strathairn: It's ACCT-7337263.
+Dariusz Castellane: Thank you. And the debit card on the account?
+Imogen Strathairn: The card is three seven eight two eight two two
+Dariusz Castellane: okay, keep going
+Imogen Strathairn: four six three one zero zero oh five expires next year sometime.
+Dariusz Castellane: Perfect. Thank you. Okay, so I see a login yesterday evening from a device we haven't seen before. The IP address is 10.20.201.218, and it geolocates to Lagos.
+Imogen Strathairn: I've never sort of, been to Nigeria. um, I've barely been out of Ohio. I live in Severance Ridge, for God's uh, sake.
+Dariusz Castellane: Okay. And then there are wire transfers, the first one for $53M, then a bunch of smaller I mean, ones to an account sort of, at another bank.
+Imogen Strathairn: That's... that's payroll. like, That's my payroll money.
+Dariusz Castellane: I know. Okay. So, the good news is, two of the wires are still pending, so I can stop those right now.
+Imogen Strathairn: Please. Please do.
+Dariusz Castellane: Done. Those um, are stopped.
+Imogen Strathairn: And the others?
+Dariusz Castellane: We'll try a recall. Recall success rates are, honestly, basically, it depends, but for domestic wires caught within a day it's maybe sixty to seventy percent.
+Imogen Strathairn: And if it's not domestic?
+Dariusz Castellane: Much lower. Single digits, sometimes.
+Imogen Strathairn: Oh God. If I can't make payroll on Friday I'm going to have to let people go, and these are people I've known for twenty years.
+Dariusz Castellane: I hear you. Let me bring in my supervisor, one moment.
+Corentin Abernathy-Royce: Hi, this is Fergus, I supervise the team. I've been listening in. So, a couple of things. Did you get any phone calls or emails recently asking basically, you to confirm details?
+Imogen Strathairn: Um. Actually, yes. Someone called last week from what looked like your number. They said it was a security check and they sent me a code.
+Corentin Abernathy-Royce: And you read them the code?
+Imogen Strathairn: Yes. I thought it was you.
+Corentin Abernathy-Royce: Okay. That's what we suspected. We've had a cluster of these in the Upper Sallowfield area this month, and we think someone's got hold of a customer list from somewhere.
+Imogen Strathairn: From you?
+Corentin Abernathy-Royce: I can't say that, and to be clear there is no evidence of a breach on our side, but it's being investigated.
+Imogen Strathairn: That sounds basically, like a yes.
+Corentin Abernathy-Royce: It's genuinely not. Okay. Benedikta will take you through the next steps.
+Dariusz Castellane: Thanks. So, first, I'm going to cancel that card and issue a new one. It'll um, go to the business address, is that still 3150 Kinross Avenue, Suite 4?
+Imogen Strathairn: Yes.
+Dariusz Castellane: Second, I'm opening a fraud claim, the reference like, is 16208540. You'll need to fill out an affidavit, I'll email it.
+Imogen Strathairn: Okay. Email's clementine@inboxly.invalid.
+Dariusz Castellane: Got it. Third, I'd strongly recommend changing your online banking password, and the phone number we have on file is six two seven seven... no wait, six two seven five five five zero one six nine, is that right?
+Imogen Strathairn: No, the second one, that's right.
+Dariusz Castellane: Good. And lastly, have you got any other accounts? Personal?
+Imogen Strathairn: My personal one's basically empty, my wife and I are separating and the lawyers froze the joint account.
+Dariusz Castellane: Okay. I'm sorry to hear that. I'll just flag the business one then.
+Imogen Strathairn: Thanks. Sorry. It's been a year.
+Dariusz Castellane: Understandable. And for what it's worth, you've got overdraft protection on the business account at a rate of 54%, which might help bridge payroll if the recall's slow.
+Imogen Strathairn: That's a basically, terrible rate.
+Dariusz Castellane: It's not great. But it's better than missing basically, payroll.
+Imogen Strathairn: Yeah. Okay. When will I know about the recall?
+Dariusz Castellane: Usually within ten business days. I'll call you either way.
+Imogen Strathairn: Okay. Thank you. Really. You've been great.
+Dariusz Castellane: Take care. And remember, we'll never ask you for a code over the phone, or over Zoom, or anywhere.
+Imogen Strathairn: Yeah. Lesson learned.

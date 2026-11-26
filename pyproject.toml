@@ -1,19 +1,31 @@
 [build-system]
-requires = ["setuptools>=69", "wheel"]
+requires = ["setuptools==84.2.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "offrecord"
 version = "0.0.1"
-description = "Offline redaction and compression of meeting and call transcripts."
+description = "Redact meeting and call transcripts offline before they reach an LLM, and restore the answer."
 readme = "README.md"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
+license-files = ["LICENSE", "src/offrecord/data/LICENSE-SCOWL.txt"]
 requires-python = ">=3.10"
+keywords = ["redaction", "pii", "transcripts", "privacy", "llm", "offline", "anonymization"]
 classifiers = [
-    "License :: OSI Approved :: Apache Software License",
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
     "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Security",
     "Topic :: Text Processing",
 ]
 # Tier 0 runtime dependencies are added only when code uses them, pinned.
@@ -23,6 +35,13 @@ dependencies = [
     "jellyfish==1.2.1",
     "cryptography==50.0.2",
 ]
+
+[project.urls]
+Homepage = "https://mohanenm.github.io/offrecord/"
+Source = "https://github.com/mohanenm/offrecord"
+Issues = "https://github.com/mohanenm/offrecord/issues"
+Changelog = "https://github.com/mohanenm/offrecord/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md"
 
 [project.optional-dependencies]
 # Tier 1: NER ensemble (GLiNER + BERT-NER) and sentence embeddings via ONNX Runtime (no PyTorch).
@@ -40,6 +59,9 @@ dev = [
     "hypothesis==6.168.5",
     "ruff==0.17.6",
     "pip-audit==2.10.1",
+    "mypy==2.4.1",
+    "types-PyYAML==6.0.12.20261122",
+    "build==1.6.1",
 ]
 
 [project.scripts]
@@ -81,3 +103,16 @@ ignore = ["SIM905"]
 "src/offrecord/models/__init__.py" = ["E501"]  # pinned SHA-256 strings
 # Seeded PRNG is the point of a deterministic synthetic-data generator.
 "src/offrecord/evaluation/generator.py" = ["S311"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src"]
+warn_unused_ignores = true
+
+# Optional modules (tiktoken if the user installs it, the [ner] and [llm] extras): tiktoken and
+# onnxruntime ship no types, and none are present on a base install. Typed ones are still
+# checked when installed.
+[[tool.mypy.overrides]]
+module = ["tiktoken", "tiktoken.*", "onnxruntime", "onnxruntime.*", "llama_cpp", "llama_cpp.*",
+          "tokenizers", "tokenizers.*", "numpy", "numpy.*"]
+ignore_missing_imports = true

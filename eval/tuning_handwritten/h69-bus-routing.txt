@@ -1,0 +1,46 @@
+07:02 [[PERSON#lm:Lorraine Mbatha]]: Morning all. Transportation sync. We've got a lot of route changes for the second semester so let's move fast.
+07:02 [[PERSON#ct:Cyrus Tamburello]]: Morning.
+07:02 [[PERSON#ep:Esme Pruitt-Galloway]]: Hi.
+07:03 [[PERSON#lm:Lorraine Mbatha]]: First, the boundary change. Starting [[DATE:January 8th]], the kids north of [[LOCATION:Truman Road]] move from the [[LOCATION:Fairmount]] attendance zone to [[LOCATION:Englewood]]. [[PERSON#ct:Cyrus]], what does that do to routes?
+07:03 [[PERSON#ct:Cyrus Tamburello]]: It kills route [[NEG:fourteen]] basically. [[NEG:Fourteen]] ran up [[LOCATION:Sterling Avenue]] and looped back down [[LOCATION:Winner Road]]. We'd fold those stops into route nine.
+07:04 [[PERSON#lm:Lorraine Mbatha]]: Can nine absorb it?
+07:04 [[PERSON#ct:Cyrus Tamburello]]: Nine's at [[QUANTITY:fifty-one riders]] on a seventy-two seat bus. Adds about [[QUANTITY:eighteen]]. So yes, but the ride time goes up.
+07:05 [[PERSON#ep:Esme Pruitt-Galloway]]: How long is the longest ride then?
+07:05 [[PERSON#ct:Cyrus Tamburello]]: Kid at the corner of [[LOCATION:Noland and 23rd]] would be on for forty-six minutes.
+07:05 [[PERSON#lm:Lorraine Mbatha]]: That's over our forty-five. Okay. Can we start nine somewhere else?
+07:06 [[PERSON#ct:Cyrus Tamburello]]: We could start it from the [[LOCATION:Little Blue]] lot instead of the main yard on [[LOCATION:Lee's Summit Road]].
+07:06 [[PERSON#lm:Lorraine Mbatha]]: Do it. Next, the special ed contract. [[PERSON#ep:Esme]]?
+07:07 [[PERSON#ep:Esme Pruitt-Galloway]]: So we have [[QUANTITY:nine students]] going out of district now. Three to the program in [[LOCATION:Lee's Summit]], two to [[LOCATION:Blue Springs]], one to [[LOCATION:Raytown]], and three across the state line to [[LOCATION:Olathe]].
+07:07 [[PERSON#lm:Lorraine Mbatha]]: Across the state line meaning [[LOCATION:Kansas]].
+07:08 [[PERSON#ep:Esme Pruitt-Galloway]]: Yeah, [[LOCATION:Johnson County]]. [[LOCATION:Olathe]] is a haul. They go [[LOCATION:I-435]] around the south loop, it's like fifty minutes in the morning.
+07:08 [[PERSON#ct:Cyrus Tamburello]]: Can we not take [[LOCATION:I-70]] through downtown [[LOCATION:KC]] and then down [[LOCATION:I-35]]?
+07:08 [[PERSON#ep:Esme Pruitt-Galloway]]: The downtown loop at seven a.m.? No. [[LOCATION:435]]'s better.
+07:09 [[PERSON#lm:Lorraine Mbatha]]: Okay. Who's the vendor on those?
+07:09 [[PERSON#ep:Esme Pruitt-Galloway]]: [[ORG:Prairieline Student Transit]]. They're based in [[LOCATION:Grandview]]. Contract is [[AMOUNT:$318 a day]] per vehicle for the [[LOCATION:Olathe]] runs.
+07:10 [[PERSON#lm:Lorraine Mbatha]]: [[AMOUNT:Three eighteen]]? That's up from last year.
+07:10 [[PERSON#ep:Esme Pruitt-Galloway]]: Up [[PERCENT:eleven percent]]. Fuel and the driver shortage.
+07:10 [[PERSON#lm:Lorraine Mbatha]]: Okay. One of those three students, is that the family that moved from [[LOCATION:Independence]]?
+07:11 [[PERSON#ep:Esme Pruitt-Galloway]]: No, the family that moved is the [[LOCATION:Blue Springs]] one. They were in [[LOCATION:Independence]], off [[LOCATION:Twenty-Fourth Street]], and moved out near [[LOCATION:Lake Tapawingo]].
+07:11 [[PERSON#ct:Cyrus Tamburello]]: Oh, that's way out.
+07:11 [[PERSON#ep:Esme Pruitt-Galloway]]: Yeah. But the IEP says the program's about building [[NEG:independence]] for him, so the parents really want to keep him there.
+07:12 [[PERSON#lm:Lorraine Mbatha]]: Understood. Keep him in. Next item, the [[LOCATION:Liberty]] field trip.
+07:12 [[PERSON#ct:Cyrus Tamburello]]: The jail museum?
+07:12 [[PERSON#lm:Lorraine Mbatha]]: [[LOCATION:Liberty Jail]], yes, the history club. Fourth graders. They also want to stop at the [[LOCATION:Truman Library]] on the way back.
+07:13 [[PERSON#ct:Cyrus Tamburello]]: That's on [[LOCATION:Highway 24]], easy. How many buses?
+07:13 [[PERSON#lm:Lorraine Mbatha]]: Two. [[DATE:February 20th]].
+07:13 [[PERSON#ep:Esme Pruitt-Galloway]]: Fun fact, the club's motto is like, "[[NEG:liberty]] and learning" or something.
+07:14 [[PERSON#lm:Lorraine Mbatha]]: Cute. Moving on. The athletics trips. Basketball's going to [[LOCATION#stj:St. Joe]] on the [[DATE:fourteenth]] and wrestling's going to [[LOCATION:Sedalia]].
+07:14 [[PERSON#ct:Cyrus Tamburello]]: [[LOCATION#stj:St. Joseph]] is an hour. [[LOCATION:Sedalia]]'s more like an hour twenty. Coach buses?
+07:15 [[PERSON#lm:Lorraine Mbatha]]: Activity buses. Okay. Weather plan. If we close, we announce by five fifteen. [[PERSON#ct:Cyrus]], the hills on [[LOCATION:Crysler]] and [[LOCATION:Spring Street]] are always the problem.
+07:15 [[PERSON#ct:Cyrus Tamburello]]: And the bridge on [[LOCATION:Little Blue Parkway]]. We'll have the snow route maps out.
+07:16 [[PERSON#ep:Esme Pruitt-Galloway]]: Can I raise a parent complaint?
+07:16 [[PERSON#lm:Lorraine Mbatha]]: Sure.
+07:16 [[PERSON#ep:Esme Pruitt-Galloway]]: A parent, [[PERSON#to:Truman Okafor-Lindqvist]], says the stop at [[LOCATION:Swope Drive and Sheley Road]] has no sidewalk and his daughter waits in the ditch.
+07:17 [[PERSON#lm:Lorraine Mbatha]]: [[PERSON#to:Truman]], like the road?
+07:17 [[PERSON#ep:Esme Pruitt-Galloway]]: Like the president, I assume. He's [[NEG:nice]]. He just wants the stop moved a block.
+07:17 [[PERSON#ct:Cyrus Tamburello]]: We could move it to the church lot at [[LOCATION:Sheley and 31st]].
+07:18 [[PERSON#lm:Lorraine Mbatha]]: Do that. Email him, [[EMAIL:t.okaforlindqvist@prairiemail.test]] is on file I think.
+07:18 [[PERSON#ep:Esme Pruitt-Galloway]]: It is.
+07:18 [[PERSON#lm:Lorraine Mbatha]]: Okay. Last thing, budget. We're at [[PERCENT:sixty-two percent]] of the transportation budget at the halfway point.
+07:19 [[PERSON#ct:Cyrus Tamburello]]: That's good, right?
+07:19 [[PERSON#lm:Lorraine Mbatha]]: It's fine until the [[LOCATION:Olathe]] contract increase hits. Okay, thanks everyone. [[NEG:Hope]] nobody gets stuck in the snow.

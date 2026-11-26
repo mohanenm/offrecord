@@ -1,0 +1,42 @@
+Speaker A: Okay, thanks for making time. This is the mobility check-in for [[PERSON#ko:Kasia]]'s move. I've got the file open. So right now she's in [[LOCATION#krk:Kraków]], the [[LOCATION:Kazimierz]] office, and the plan was [[LOCATION#zrh:Zürich]] starting [[DATE:February]]. Is that still the plan?
+Speaker B: Mostly. There's a wrinkle. So [[PERSON#ko:Katarzyna Olszewska-Brandt]], [[PERSON#ko:Kasia]], she accepted [[LOCATION#zrh:Zürich]], but her partner just got an offer in [[LOCATION:Düsseldorf]], and now they're asking whether we could do [[LOCATION:Düsseldorf]] or even [[LOCATION:Cologne]] instead. Which, honestly, from a team point of view, the [[LOCATION:Rhine-Ruhr]] office is fine, it's just smaller.
+Speaker A: Hm. Okay. And the role is the same either way?
+Speaker B: Same role, regional controller. The difference is cost. [[LOCATION#zrh:Zurich]] housing is brutal. We'd budgeted [[AMOUNT:CHF 4,800]] a month for housing allowance, and the broker said for anything decent in [[LOCATION:Kreis 6]] or [[LOCATION:Wiedikon]] that's tight. In [[LOCATION:Düsseldorf]] we'd be looking at maybe [[AMOUNT:€2,600]].
+Speaker A: That's a big swing. Did the broker suggest anything outside the city?
+Speaker B: Yeah, [[LOCATION:Winterthur]], [[LOCATION:Baden]], or across the lake in [[LOCATION:Thalwil]]. Commutes are fine on the S-Bahn. [[LOCATION:Zug]] came up too but that's even pricier, it's basically a tax haven with lakes.
+Speaker A: Ha. Okay. Let me play devil's advocate. What about [[LOCATION:São Paulo]]? Because I know [[PERSON:Rafael]] has been begging for a controller in the [[LOCATION:LatAm]] hub.
+Speaker B: I raised [[LOCATION:São Paulo]] with her, very gently. She laughed. Her Portuguese is zero and her partner's job is in [[LOCATION:Germany]]. So no.
+Speaker A: Fair enough. What about [[LOCATION:Montréal]]? We had that open role in [[LOCATION:Old Montreal]].
+Speaker B: Also no. Same issue. Partner's in [[LOCATION:Düsseldorf]], so it's really [[LOCATION:Germany]] or [[LOCATION:Switzerland]].
+Speaker A: Okay. So realistically it's [[LOCATION#zrh:Zürich]] versus [[LOCATION:Düsseldorf]]. What does she prefer?
+Speaker B: Honestly she prefers [[LOCATION#zrh:Zürich]] for the career, but she said, quote, she doesn't want to be a [[NEG:Swiss Army knife]] who does five jobs and sees her partner on weekends. Which, fair.
+Speaker A: Ha. That's a good line. Okay. And the weekend commute, how long is [[LOCATION:Düsseldorf]] to [[LOCATION#zrh:Zürich]]?
+Speaker B: By train, five and a half, six hours via [[LOCATION:Basel]] and [[LOCATION:Mannheim]]. Flight's an hour and change out of [[LOCATION:DUS]].
+Speaker A: That's doable short-term, not long-term. Okay. Immigration side. [[LOCATION:Poland]] to [[LOCATION:Switzerland]], she's EU, so it's the B permit, fairly simple. [[LOCATION:Germany]] is even simpler, no permit at all.
+Speaker B: Right. That's a point for [[LOCATION:Düsseldorf]], honestly. [[LOCATION:Switzerland]] still requires the canton registration and the whole thing with the Gemeinde.
+Speaker A: What about her flat in [[LOCATION#krk:Krakow]]? Is she keeping it?
+Speaker B: She owns it, in [[LOCATION:Podgórze]], near the river. She wants to rent it out. Her mum lives in [[LOCATION:Tarnów]] and can keep an eye on it.
+Speaker A: Okay, not our problem then. Shipping. The movers quoted for [[LOCATION#zrh:Zürich]], I assume we'd need to re-quote for [[LOCATION:Düsseldorf]]?
+Speaker B: Yes. [[ORG:Lidos Relocation]] quoted [[AMOUNT:€6,900]] door to door [[LOCATION#krk:Kraków]] to [[LOCATION#zrh:Zürich]], with customs. [[LOCATION:Düsseldorf]] would be cheaper, no customs, I'd guess around [[AMOUNT:five]].
+Speaker A: Get them to re-quote. Who's your contact there?
+Speaker B: [[PERSON:Ingrid Vestergaard-Moe]], she's in their [[LOCATION:Gdańsk]] office. [[EMAIL:ingrid.vm@lidos-reloc.example]].
+Speaker A: Great. Okay, one other thing. Tax equalization. If she goes to [[LOCATION#zrh:Zürich]] she'd be taxed in the canton, and if she lives in [[LOCATION:Aargau]] it's different again.
+Speaker B: Right, we'd want her to talk to the tax advisor. We use [[ORG:Brandvik & Sauter]] for that, they have an office in [[LOCATION:Bern]].
+Speaker A: Okay. I'll make a note. Can you also [[NEG:polish]] the cost comparison before it goes to [[PERSON:Leopold]]? He'll want the [[NEG:polish]] on it. Sorry, bad pun.
+Speaker B: Terrible pun. Yes, I'll clean it up.
+Speaker A: Also, does she have kids? Schools would change the whole picture.
+Speaker B: No kids. Just a cat, which is going to be its own adventure through customs at [[LOCATION:ZRH]].
+Speaker A: Ha. Pet relocation is covered up to [[AMOUNT:€1,500]], I think.
+Speaker B: I'll check. If it's [[LOCATION:Düsseldorf]] it's just a long car ride via [[LOCATION:Wrocław]] and [[LOCATION:Dresden]], no paperwork.
+Speaker A: Right. And language classes?
+Speaker B: German classes either way, but she already speaks some. Her grandmother was from [[LOCATION:Silesia]].
+Speaker A: Good, that helps.
+Speaker A: Okay. Timeline. If she picks [[LOCATION:Düsseldorf]], can we still do [[DATE:February]]?
+Speaker B: Probably [[DATE:March 1st]]. The [[LOCATION:Düsseldorf]] office manager is out until [[DATE:mid-January]], she's back home in [[LOCATION:Reykjavík]] for the holidays.
+Speaker A: Oh, she's Icelandic?
+Speaker B: Half. Anyway, [[DATE:March 1st]] is realistic.
+Speaker A: Fine. One last thing, and this is more of a heads up. [[TOPIC:Kasia mentioned during the call that she's been dealing with a health issue and wants to be near her partner partly for that reason.]]
+Speaker B: Understood. I won't put that in the file.
+Speaker A: Thanks. Okay, so next steps. You re-quote, I talk to [[PERSON:Leopold]], we get her decision by [[DATE:the 12th]].
+Speaker B: Sounds good. I'll grab a [[NEG:French press]] coffee and a [[NEG:Danish]] and get on it.
+Speaker A: Ha, enjoy. Thanks.

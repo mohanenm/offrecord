@@ -1,0 +1,37 @@
+SPEAKER_00: Good afternoon, [[ORG:the Wrenmoor Hotel]] reservations, [[PERSON#r1:Carol]] speaking.
+SPEAKER_01: Hi, I'm calling about a booking for next month. The reference is [[ACCOUNT#bk1:alpha tango four, seven seven nine, hotel]].
+SPEAKER_00: [[ACCOUNT#bk1:A T four seven seven nine H]]. Lovely. And the lead guest's name?
+SPEAKER_01: [[PERSON#g1:Summer Fairbairn]].
+SPEAKER_00: Thank you, [[PERSON#g1:Ms Fairbairn]]. I have two nights from [[DATE:the eleventh of December]]. How can I help?
+SPEAKER_01: I'd like to add a second room for my sister, [[PERSON#g2:Dawn]]. [[PERSON#g2:Dawn Fairbairn-Hale]]. Her flight lands at [[NEG:dawn]] so she'll want an early check-in if possible.
+SPEAKER_00: I'll request that. Can I take a home address for the second room?
+SPEAKER_01: Hers is [[LOCATION#l1:Flat 2, 18 Pipit Lane, Harwick, H X four, nine Q T]].
+SPEAKER_00: So that's [[LOCATION#l1:Flat two, eighteen Pipit Lane, Harwick, HX4 9QT]].
+SPEAKER_01: That's it. Mine's still [[LOCATION#l2:The Old Bakehouse, 3 Church Row, Little Ashby, Wiltshire, S N eight, two R W]].
+SPEAKER_00: I have [[LOCATION#l2:SN8 2RW]] for you, good. And a contact number for [[PERSON#g2:Dawn]]?
+SPEAKER_01: [[PHONE#ph1:Oh seven seven double oh, five five five, oh one eight eight]].
+SPEAKER_00: [[PHONE#ph1:Zero seven seven zero zero, five five five, zero one eight eight]]. And her email?
+SPEAKER_01: [[EMAIL#e1:dawn dot f dot hale at brackenpost dot example]]. That's [[EMAIL#e1:dawn, dot, f, dot, h-a-l-e]].
+SPEAKER_00: [[EMAIL#e1:dawn.f.hale@brackenpost.example]]. Lovely. To guarantee the room I'll need a card.
+SPEAKER_01: Same as mine. It's an Amex, [[CARD#cd1:three seven five nine]]...
+SPEAKER_00: Mm-hm.
+SPEAKER_01: [[CARD#cd1:nine five two eight nine oh]], [[CARD#cd1:seven eight six six seven]].
+SPEAKER_00: Let me read that back. [[CARD#cd1:Three seven five nine, nine five two eight nine zero, seven eight six six seven]].
+SPEAKER_01: Yes. The four-digit code on the front is [[ACCOUNT#cv1:six oh, double one]].
+SPEAKER_00: [[ACCOUNT#cv1:Six zero one one]], thank you. Do you have a loyalty number? You'd earn points on both rooms.
+SPEAKER_01: It's [[ACCOUNT#ly1:W M, dash, oh oh four four, dash, eight one two seven]].
+SPEAKER_00: [[ACCOUNT#ly1:W M zero zero four four eight one two seven]]. Added. Now, the first room is on a different card, a Visa ending [[CARD#cd3:oh nine three four]].
+SPEAKER_01: That's my husband's. That's fine, leave it.
+SPEAKER_00: [[NEG:Will]] your husband be joining? I only have one name on that room.
+SPEAKER_01: Yes, [[PERSON#g3:Grant]]. [[PERSON#g3:Grant Fairbairn]].
+SPEAKER_00: Added. And there's a small business meeting room hold on the account as well, under [[CLIENT:Tamsworth Joinery]]?
+SPEAKER_01: That's his firm. Leave that as it is.
+SPEAKER_00: Of course. For parking, use [[LOCATION:the gravel car park behind the old coach house, off Mill Wynd, not the main forecourt]]. The barrier code is [[ACCOUNT#gt1:star, two, five, eight, hash]].
+SPEAKER_01: [[ACCOUNT#gt1:Star two five eight hash]].
+SPEAKER_00: Yes. And for the guest Wi-Fi, if you need a fixed address for a laptop, the desk will assign you [[IP#ip1:one nine eight dot five one dot one hundred dot forty]].
+SPEAKER_01: I doubt we'll need it. Can you email the confirmation?
+SPEAKER_00: To [[EMAIL#e2:summer underscore f at brackenpost dot example]]?
+SPEAKER_01: That's the one.
+SPEAKER_00: Sent. You can manage it online at [[URL#u1:wrenmoor dot test slash my dash stay]]. The new reference for [[PERSON#g2:Dawn's]] room is [[ACCOUNT#bk2:alpha tango four, seven eight, oh, hotel]].
+SPEAKER_01: Thanks, [[PERSON#r1:Carol]]. Oh, and is the [[NEG:rose garden]] open in December?
+SPEAKER_00: Only the winter walk, I'm afraid. We'll see you on [[DATE:the eleventh]].

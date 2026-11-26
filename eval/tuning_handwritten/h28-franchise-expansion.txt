@@ -1,0 +1,56 @@
+[[PERSON#ps:Priya Satterlee]]  0:02
+So the board wants a recommendation on the next two markets by [[DATE:mid-January]]. [[PERSON#gh:Grayson]], you've got the scorecards.
+
+[[PERSON#gh:Grayson Holloway-Pratt]]  0:14
+Yeah. Top three are [[LOCATION:Raleigh]], [[LOCATION:San Antonio]] and the [[LOCATION:Inland Empire]]. [[LOCATION:Raleigh]] wins on income, household growth is [[PERCENT:two point four]] a year.
+
+[[PERSON#ps:Priya Satterlee]]  0:31
+And unit economics?
+
+[[PERSON#gh:Grayson Holloway-Pratt]]  0:34
+Model says four-wall EBITDA of [[PERCENT#18:eighteen]] by year two, royalty at [[PERCENT:six percent]], ad fund [[PERCENT:two]].
+
+[[PERSON#ln:Lionel Ngata]]  0:48
+[[PERCENT#18:Eighteen]] feels high. Our [[LOCATION:Charlotte]] units are running at [[PERCENT:fourteen and a half]].
+
+[[PERSON#gh:Grayson Holloway-Pratt]]  0:56
+[[LOCATION:Charlotte]] has the labour problem though. Turnover there is like [[PERCENT:a hundred and ten percent]].
+
+[[PERSON#ps:Priya Satterlee]]  1:05
+[[TOPIC:Okay, and the reason Charlotte is struggling is the operator, not the market, which we'll deal with separately.]]
+
+[[PERSON#ln:Lionel Ngata]]  1:13
+[[TOPIC:His default notice goes out next week, by the way, legal signed off.]]
+
+[[PERSON#ps:Priya Satterlee]]  1:19
+Understood. Who's the candidate for [[LOCATION:Raleigh]]?
+
+[[PERSON#gh:Grayson Holloway-Pratt]]  1:23
+[[CLIENT:Thimthim Hospitality Group]]. They run [[QUANTITY:thirty-one units]] of other brands across [[LOCATION:the Carolinas]] and [[LOCATION:Virginia]].
+
+[[PERSON#ln:Lionel Ngata]]  1:34
+[[TOPIC:And they'd want an exclusive on the whole Triangle, which means we'd be telling the Durham prospect no.]]
+
+[[PERSON#ps:Priya Satterlee]]  1:43
+What did they ask for on fees?
+
+[[PERSON#gh:Grayson Holloway-Pratt]]  1:46
+Royalty down [[PERCENT:fifty basis points]] for the first five years and the development fee cut by [[PERCENT:a third]].
+
+[[PERSON#ps:Priya Satterlee]]  1:56
+[[TOPIC:We can't do that without offering the same to the existing franchisees, and the association will find out.]]
+
+[[PERSON#ln:Lionel Ngata]]  2:04
+Unless we position it as a market-entry incentive. [[NEG:Rocky]] road, but doable.
+
+[[PERSON#gh:Grayson Holloway-Pratt]]  2:11
+International. [[LOCATION:Ontario]] is still open. And [[CLIENT:Tamworth Yu Holdings]] has asked about [[LOCATION:Manila]].
+
+[[PERSON#ps:Priya Satterlee]]  2:20
+[[TOPIC:Not this year. We're not going overseas until the system-wide same-store number turns positive.]]
+
+[[PERSON#ln:Lionel Ngata]]  2:28
+Which right now is negative [[PERCENT:1.7]].
+
+[[PERSON#ps:Priya Satterlee]]  2:32
+Right. Send me the deck, [[EMAIL:priya.satterlee@crumbley-brands.example]], and loop in [[PERSON:Ottavio Brennan]].

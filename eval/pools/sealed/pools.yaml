@@ -1,0 +1,68 @@
+# Sealed evaluation pools. Every name, company, product, brand, codename and place here is
+# invented. Domains use reserved TLDs only.
+first_names: [Ilsabet, Odhran, Corentin, Leopold, Ngozi, Callum, Ysolde, Wendeline, Thorvald, Rufus,
+  Ysabeau, Lazarus, Henrike, Bartholomew, Imogen, Kwabena, Peregrina, Thaddeus, Mireille, Eamon,
+  Rosalind, Dariusz, Wilhelmina, Tobiah, Aurelian, Cormac, Lucinda, Ravindra, Petronella, Ambrose,
+  Delphine, Benedikta, Clementine, Casimira, Evander, Fergus, Honora, Matthias, Ottilie, Jem]
+last_names: [Vandersloot-Kerr, Pennyworth-Hale, Okonjo, Strathairn, Vasquez-Lindqvist, Merriweather,
+  Dunleavy, Haverstock, Iwuchukwu, Brackenridge, Szymanski, Tolliver, Abernathy-Royce, Quennell,
+  Fairbrother, Castellane, Muldowney, Ravensworth, Adebanjo-Whitlow, Kittridge, Hollinghurst, Delacroix-Bey,
+  Wainscott, Ferreira-Hume, Lindgaard, Padmanathan, Gilchrist-Mohr, Treadwell, Ashdown, Nakashima-Ford]
+clients:
+  - { name: Thistlewick Freight, aliases: [Thistlewick, TWF], asr: [thistle wick freight] }
+  - { name: Gildersleeve Orthodontics, aliases: [Gildersleeve, GSO], asr: [gilder sleeve orthodontics] }
+  - { name: Quenby Outfitters, aliases: [Quenby], asr: [queen bee outfitters] }
+  - { name: Palisor Health Partners, aliases: [Palisor, PHP], asr: [pal is or health] }
+  - { name: Corrimond Logistics, aliases: [Corrimond], asr: [core a mond logistics] }
+  - { name: Fenwhistle Bakeries, aliases: [Fenwhistle], asr: [fen whistle bakeries] }
+  - { name: Ostrander-Vale Foods, aliases: [Ostrander-Vale, OVF], asr: [ostrander veil foods] }
+  - { name: Wrennick Hospitality, aliases: [Wrennick], asr: [wren nick hospitality] }
+  - { name: Glasshollow Media, aliases: [Glasshollow], asr: [glass hollow media] }
+  - { name: Tarrowby Engineering, aliases: [Tarrowby], asr: [tarrow bee engineering] }
+  - { name: Brannoch Systems, aliases: [Brannoch], asr: [bran ock systems] }
+  - { name: Wrayburn Academies Trust, aliases: [Wrayburn, WAT], asr: [ray burn academies] }
+  - { name: Duvessa Clinics, aliases: [Duvessa], asr: [do vessa clinics] }
+  - { name: Hobbleford Cycles, aliases: [Hobbleford], asr: [hobble ford cycles] }
+brands:
+  - { name: Velmora, aliases: [], asr: [vel mora] }
+  - { name: Quoxa, aliases: [], asr: [quoxa, kwoksa] }
+  - { name: Nimbrel, aliases: [], asr: [nim brel] }
+  - { name: Saffrowe, aliases: [], asr: [saff row] }
+  - { name: Torvique, aliases: [], asr: [tor veek] }
+  - { name: Plinthy, aliases: [], asr: [plin thee] }
+  - { name: Drovane, aliases: [], asr: [dro vane] }
+  - { name: Kesterly Home, aliases: [Kesterly], asr: [kester lee home] }
+brand_common:
+  - { name: Ladle, word: ladle, common_word: true, context: [app, account, subscription, checkout] }
+  - { name: Marigold, word: marigold, common_word: true, context: [card, rewards, app, statement] }
+  - { name: Teaspoon, word: teaspoon, common_word: true, context: [app, plan, dashboard, login] }
+  - { name: Hayloft, word: hayloft, common_word: true, context: [store, order, delivery, membership] }
+  - { name: Wicker, word: wicker, common_word: true, context: [portal, platform, workspace, license] }
+products:
+  - { name: Tallyforge Suite, aliases: [Tallyforge], asr: [tally forge] }
+  - { name: Harbormind Analytics, aliases: [Harbormind], asr: [harbor mind] }
+  - { name: Pivotwren, aliases: [Wren], asr: [pivot wren] }
+  - { name: Embervane Backup, aliases: [Embervane], asr: [ember vane] }
+  - { name: Routelark Dispatch, aliases: [Routelark], asr: [route lark] }
+  - { name: Mossgrid Scheduler, aliases: [Mossgrid], asr: [moss grid] }
+  - { name: Clerisy Desk, aliases: [Clerisy], asr: [clarity desk, cleric see] }
+  - { name: Fathomly Insights, aliases: [Fathomly], asr: [fathom lee] }
+  - { name: Tidewhistle Concierge, aliases: [Tidewhistle], asr: [tide whistle] }
+  - { name: Quarrytone Ledger, aliases: [Quarrytone], asr: [quarry tone] }
+codenames:
+  - { name: Project Brinewort, aliases: [Brinewort], asr: [brine wort] }
+  - { name: Operation Stoatbridge, aliases: [Stoatbridge], asr: [stoat bridge] }
+  - { name: Project Ironbark, aliases: [Ironbark], asr: [iron bark] }
+  - { name: Project Quernstone, aliases: [Quernstone], asr: [quern stone] }
+  - { name: Project Hollyhock, aliases: [Hollyhock], asr: [holly hock] }
+  - { name: Project Gannetfall, aliases: [Gannetfall], asr: [gannet fall] }
+  - { name: Project Wintermere, aliases: [Wintermere], asr: [winter mere] }
+  - { name: Operation Sable Fern, aliases: [Sable Fern], asr: [sable fern] }
+locations: [Ashcombe Vale, Little Hatherby, Corran Falls, Westmere Junction, Dunmallow, Kessick Bay,
+  Upper Sallowfield, Brindlecombe, Marston Rue, Fenmoor Crossing, Cobble Hythe, Lake Orrin,
+  Pellham Ridge, Saint Avery, Grisbeck, Oakvane, Tullerton, Harlow Brook, Wexcombe Parva,
+  North Quarrel, Embleside Heath, Caddon Mills]
+email_domains: [thistlewick.example, gildersleeve.test, mailhub.invalid, quenby.example, postbox.test,
+  palisor.example, corrimond.test, inboxly.invalid, wrennick.example, wrayburn.test]
+url_hosts: [thistlewick.example, quenby.test, palisor.example, tallyforge.test, harbormind.example,
+  wrennick.invalid, duvessa.example, routelark.test]

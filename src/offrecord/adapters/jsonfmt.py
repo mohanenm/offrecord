@@ -1,7 +1,7 @@
 """Generic JSON transcripts: Whisper/WhisperX-style ``segments``, and simple arrays of
 ``{speaker, text, start, end}`` objects (also nested under keys like ``utterances``).
 
-Privacy rules (D-023):
+Privacy rules:
 - Every string and number in the file is either turn text/speaker or a metadata field, so it
   is scanned. Object keys outside a small known schema are scanned too.
 - Metadata field names are opaque counters (``json:7``), never JSON paths, because paths
@@ -43,35 +43,14 @@ DROP_KEYS = frozenset(
         "token_logprobs",
     }
 )  # compared case-insensitively, see _dropped()
-KNOWN_KEYS = frozenset(
-    {
-        *TEXT_KEYS,
-        *SPEAKER_KEYS,
-        *START_KEYS,
-        *END_KEYS,
-        *DROP_KEYS,
-        "id",
-        "seek",
-        "segments",
-        "utterances",
-        "turns",
-        "results",
-        "entries",
-        "messages",
-        "monologues",
-        "language",
-        "temperature",
-        "avg_logprob",
-        "compression_ratio",
-        "no_speech_prob",
-        "confidence",
-        "duration",
-        "title",
-        "metadata",
-        "speakers",
-        "channel",
-        "index",
-    }
+KNOWN_KEYS = DROP_KEYS.union(
+    TEXT_KEYS,
+    SPEAKER_KEYS,
+    START_KEYS,
+    END_KEYS,
+    "id seek segments utterances turns results entries messages monologues language temperature "
+    "avg_logprob compression_ratio no_speech_prob confidence duration title metadata speakers "
+    "channel index".split(),
 )
 LONG_INT_ARRAY = 8
 

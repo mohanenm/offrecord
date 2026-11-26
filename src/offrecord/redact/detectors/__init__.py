@@ -1,4 +1,4 @@
-"""Detector plug-ins (approved interface, proposal 0001 / D-020).
+"""Detector plug-ins.
 
 A detector factory takes the Config and returns a Detector instance for one document. The
 detector receives turn Windows and yields Spans against any view of a field; the pipeline

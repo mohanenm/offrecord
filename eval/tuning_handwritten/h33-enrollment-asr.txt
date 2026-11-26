@@ -1,0 +1,35 @@
+speaker 1 ok lets get started enrollment for the fall count is in district wide were down [[PERCENT:two point three percent]]
+speaker 2 thats about [[QUANTITY:three hundred forty students]]
+speaker 1 yeah and the drop is mostly kindergarten which is down [[PERCENT:seven]]
+speaker 3 [[PERCENT:seven]] at kinder thats the birth rate catching up with us
+speaker 1 partly also families moving out to [[LOCATION:mesa county]] and over the line into [[LOCATION:utah]]
+speaker 2 the [[LOCATION:fruitvale]] elementary attendance zone is down almost [[PERCENT:a fifth]]
+speaker 3 [[TOPIC:so is fruitvale on the closure list]]
+speaker 1 [[TOPIC:theres no closure list and we are not closing fruitvale this year]]
+speaker 3 [[TOPIC:so maybe next year then]]
+speaker 1 lets keep going
+speaker 2 capacity utilization at [[LOCATION:pinon ridge middle]] is [[PERCENT:sixty one]] and [[LOCATION:west orchard]] is at [[PERCENT:a hundred and twelve]]
+speaker 3 so one is [[PERCENT:half]] empty and the other is in portables
+speaker 1 right so the boundary committee will look at shifting about [[PERCENT:a quarter]] of the [[LOCATION:west orchard]] zone
+speaker 2 [[TOPIC:parents in the river bend neighborhood already got wind of it and theyre organizing]]
+speaker 1 noted special education is up [[PERCENT:two points]] as a share of total enrollment were at [[PERCENT:fourteen and a half]]
+speaker 3 state average is [[NEG:thirteen]]
+speaker 1 english learners are [[PERCENT:nine percent]] mostly at [[LOCATION:clifton]] and [[LOCATION:orchard mesa]]
+speaker 2 charter enrollment grew [[PERCENT:double digits]] again
+speaker 3 [[TOPIC:and the charter on north avenue is quietly recruiting our teachers with a signing bonus]]
+speaker 1 budget impact per pupil funding is [[AMOUNT:eighty nine hundred]] so were losing about [[AMOUNT:three million]]
+speaker 2 [[TOPIC:which means positions and the cabinet already has a number in mind]]
+speaker 1 i cant share that yet
+speaker 3 can we at least say whether its more or less than last year
+speaker 1 no
+speaker 2 chronic absenteeism is [[PERCENT:twenty three]] down from [[PERCENT:twenty seven]]
+speaker 1 good thats a real improvement graduation rate is [[PERCENT:eighty eight point four]]
+speaker 3 up [[PERCENT:point nine]]
+speaker 1 yes
+speaker 2 one more [[TOPIC:a student at grand junction high was hospitalized last week and the family has asked us not to say anything]]
+speaker 1 thank you lets keep that out of the minutes
+speaker 3 projections for next year
+speaker 1 another [[PERCENT:one to two percent]] decline unless the [[LOCATION:redlands]] housing development fills
+speaker 2 the developer says [[QUANTITY:four hundred units]] by [[DATE:fall twenty twenty eight]]
+speaker 3 they said that last year too
+speaker 1 send comments to [[EMAIL:enrollment@valleyview-sd.test]] by [[DATE:the twelfth]] and well reconvene

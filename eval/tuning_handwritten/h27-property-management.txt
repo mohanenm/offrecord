@@ -1,0 +1,35 @@
+Rep: Thanks for calling [[ORG:Quillmoor Residential]], this is [[PERSON#ke:Keanu]]. How can I help?
+Customer: Hi, it's [[PERSON#ow:Oriana Yulwixzel]]. I own the fourplex at [[LOCATION#addr:1187 Tamarind Court]] in [[LOCATION:Sacramento]].
+Rep: Thanks, Ms. [[PERSON#ow:Yulwixzel]]. Can I get the owner account number?
+Customer: [[ACCOUNT#acc:OW-552019]].
+Rep: That's [[ACCOUNT#acc:O W 5 5 2 0 1 9]]?
+Customer: Correct.
+Rep: Great, I have [[LOCATION#addr:eleven eighty-seven Tamarind]]. What's going on?
+Customer: I got the year-end statement. Vacancy came in at [[PERCENT:eighteen percent]]. Last year it was [[PERCENT:four]].
+Rep: Yes, unit [[NEG:C]] sat empty for a while.
+Customer: [[TOPIC:The tenant in C told me she left because of the mold, and she said she's talking to a lawyer.]]
+Rep: [[TOPIC:I can see a habitability complaint was logged, and our legal team has it.]]
+Customer: Great. And the rent increase? I asked for [[PERCENT:seven]].
+Rep: [[LOCATION:California]] caps it, so we can do [[PERCENT:five]] plus CPI, and in your county that works out to [[PERCENT:8.2]] maximum, but we recommend [[PERCENT:six]].
+Customer: Why [[PERCENT:six]]?
+Rep: Turnover. If [[PERCENT:a quarter]] of tenants leave, you lose more than the increase.
+Customer: Fine. What's your fee on the new lease?
+Rep: [[PERCENT:Half]] of one month's rent, so [[AMOUNT:$1,075]].
+Customer: And management fee stays at [[PERCENT#8:eight]]?
+Rep: [[PERCENT#8:Eight percent]], yes.
+Customer: [[TOPIC:I should tell you I'm thinking of selling the building next year, my husband's diagnosis changed our plans.]]
+Rep: I'm sorry to hear that. We can refer you to our brokerage in [[LOCATION:Roseville]].
+Customer: Maybe. My brother lives in [[LOCATION:Portland]] and wants to look at it first.
+Rep: Of course. Repairs. The roof bid from [[ORG:Delgado and Finch Roofing]] was [[AMOUNT:$22,400]].
+Customer: That's up [[PERCENT:double digits]] from the estimate in [[DATE:spring]].
+Rep: About [[PERCENT:fifteen percent]] higher, yes. Materials.
+Customer: Can you get a second bid from someone in [[LOCATION:Elk Grove]]?
+Rep: I'll ask. [[NEG:Chase]] me if you haven't heard by [[DATE:Friday]].
+Customer: Will do. Can you send everything to my new email? [[EMAIL:oriana.w@postbox.invalid]].
+Rep: Got it, [[EMAIL:oriana.w@postbox.invalid]]. And a phone?
+Customer: [[PHONE:916-555-0173]].
+Rep: [[TOPIC:One more thing, the HOA next door has asked about buying your lot line strip, and they haven't made it public.]]
+Customer: Interesting. Ballpark?
+Rep: They mentioned [[AMOUNT:forty thousand]].
+Customer: Let's talk after the holidays. Thanks, [[PERSON#ke:Keanu]].
+Rep: Thank you, have a good one.

@@ -1,0 +1,44 @@
+00:04 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Okay, let's call the board meeting to order. Quorum's here. First item is the harvest report. [[PERSON#ay:Anaya]]?
+00:11 [[PERSON#ay:Anaya Sorrell]]: Thanks. Overall tonnage is up [[PERCENT:seven percent]]. Almonds were strong, walnuts so-so, citrus down.
+00:19 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Down where?
+00:21 [[PERSON#ay:Anaya Sorrell]]: [[LOCATION:Tulare County]] mostly. The freeze in [[DATE:January]] hit the [[NEG:Valencia]] oranges and the [[NEG:mandarins]] around [[LOCATION:Lindsay]] and [[LOCATION:Exeter]].
+00:30 [[PERSON#mk:Mateo Kiriakou]]: The [[LOCATION:Exeter]] growers took it worst. Some of them lost [[PERCENT:half]] the crop.
+00:35 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Ugh. Okay. Almonds?
+00:37 [[PERSON#ay:Anaya Sorrell]]: [[LOCATION#fres:Fresno]]'s numbers carried us. The [[LOCATION#fres:Fresno]] team delivered [[QUANTITY:41 million pounds]], [[LOCATION:Madera]] about [[QUANTITY:twenty]], and [[LOCATION:Kern]] another [[QUANTITY:thirty]].
+00:47 [[PERSON#mk:Mateo Kiriakou]]: [[LOCATION:Kern]] could've been more if the [[LOCATION:Wasco]] orchards hadn't had the water cut.
+00:52 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Which district cut them?
+00:54 [[PERSON#mk:Mateo Kiriakou]]: The one out of [[LOCATION:Shafter]]. They went to [[PERCENT:forty percent]] allocation in [[DATE:July]].
+01:00 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Okay. Walnuts, [[PERSON#ay:Anaya]]?
+01:02 [[PERSON#ay:Anaya Sorrell]]: [[NEG:English walnuts]] from the north end, [[LOCATION:Modesto]], [[LOCATION:Turlock]], [[LOCATION:Linden]], up to [[LOCATION:Lodi]]. Flat year. Prices are soft because of the oversupply.
+01:11 [[PERSON#mk:Mateo Kiriakou]]: Can I jump in on exports? That's where the walnut story is.
+01:14 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Go ahead.
+01:15 [[PERSON#mk:Mateo Kiriakou]]: So we ship almost everything out of the [[LOCATION:Port of Oakland]]. Trucks run up [[LOCATION:99]] to [[LOCATION:Stockton]], then over the [[LOCATION:Altamont]] on [[LOCATION:580]].
+01:24 [[PERSON#ay:Anaya Sorrell]]: Or [[LOCATION:I-5]] if they're coming from the west side.
+01:26 [[PERSON#mk:Mateo Kiriakou]]: Or [[LOCATION:5]], right. And the problem is the [[LOCATION:Oakland]] terminal congestion. We had containers sit [[QUANTITY:eleven days]] in [[DATE:September]].
+01:33 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Where are they going?
+01:35 [[PERSON#mk:Mateo Kiriakou]]: [[LOCATION:India]] is the biggest buyer now for almonds. Then [[LOCATION:Spain]], [[LOCATION:UAE]], [[LOCATION:South Korea]]. Walnuts go to [[LOCATION:Turkey]] and [[LOCATION:Germany]] mostly.
+01:44 [[PERSON#ay:Anaya Sorrell]]: [[LOCATION:Turkey]] the country, everyone. Not [[NEG:Thanksgiving]].
+01:47 [[PERSON#mk:Mateo Kiriakou]]: Yes, [[LOCATION:Turkey]] the country. Though honestly we probably sell some walnuts for [[NEG:turkey]] stuffing too.
+01:52 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Ha. And [[LOCATION:China]]?
+01:54 [[PERSON#mk:Mateo Kiriakou]]: [[LOCATION:China]]'s down because of tariffs. We're routing some through [[LOCATION:Ho Chi Minh City]] and [[LOCATION:Busan]] instead.
+02:00 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Okay. Next item. The new processing plant.
+02:03 [[PERSON#ay:Anaya Sorrell]]: Right. So we've narrowed to two sites. One near [[LOCATION:Kettleman City]], right off [[LOCATION:I-5]] and [[LOCATION:Highway 41]]. The other one's outside [[LOCATION:Merced]], on [[LOCATION:Childs Avenue]].
+02:13 [[PERSON#mk:Mateo Kiriakou]]: [[LOCATION:Kettleman]] is cheaper land, but it's [[LOCATION:Kings County]], and permitting is slower there.
+02:18 [[PERSON#hg:Hollis Gutierrez-Brandt]]: How much cheaper?
+02:20 [[PERSON#ay:Anaya Sorrell]]: [[AMOUNT:$14,000]] an acre versus [[AMOUNT:$23,000]] in [[LOCATION:Merced]]. We need about [[QUANTITY:sixty acres]].
+02:27 [[PERSON#mk:Mateo Kiriakou]]: But [[LOCATION:Merced]] has the rail spur. [[LOCATION:Kettleman]] doesn't.
+02:31 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Okay, let's get a full comparison before we vote. [[PERSON#ay:Anaya]], can you and [[PERSON:Rustam]] put it together?
+02:36 [[PERSON#ay:Anaya Sorrell]]: Yes.
+02:37 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Next. Membership. We had three new members join.
+02:40 [[PERSON#ay:Anaya Sorrell]]: [[CLIENT:Delgado Family Orchards]] from [[LOCATION:Reedley]], [[CLIENT:Sweetwater Ranch]] in [[LOCATION:Coalinga]], and a pistachio grower out of [[LOCATION:Firebaugh]].
+02:48 [[PERSON#mk:Mateo Kiriakou]]: [[LOCATION:Firebaugh]], on the west side. Water's tough out there.
+02:51 [[PERSON#hg:Hollis Gutierrez-Brandt]]: It's tough everywhere. And one member leaving?
+02:54 [[PERSON#ay:Anaya Sorrell]]: [[TOPIC:Yes, the Okonjo farm in Selma is leaving because they're in bankruptcy and the bank is taking the orchard.]]
+03:00 [[PERSON#hg:Hollis Gutierrez-Brandt]]: That's sad. Let's keep that out of the newsletter.
+03:03 [[PERSON#mk:Mateo Kiriakou]]: Of course.
+03:04 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Okay. Last thing, the annual dinner. Where are we doing it?
+03:07 [[PERSON#ay:Anaya Sorrell]]: [[LOCATION:Visalia]] again. The convention center. [[DATE:February 22nd]].
+03:11 [[PERSON#mk:Mateo Kiriakou]]: Can we do something other than the tri-tip? Last year the caterer put [[NEG:Fresno]] chilies on everything.
+03:16 [[PERSON#ay:Anaya Sorrell]]: People liked the [[NEG:Fresno]] chilies!
+03:18 [[PERSON#mk:Mateo Kiriakou]]: Some people.
+03:19 [[PERSON#hg:Hollis Gutierrez-Brandt]]: Okay. Send menu ideas to [[EMAIL:board@valleyharvestcoop.example]]. Meeting adjourned.

@@ -1,0 +1,284 @@
+[
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 0.0,
+    "end": 5.2,
+    "text": "Hello, you're through to Velmora customer care, how can I help?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 5.4,
+    "end": 11.133,
+    "text": "Hi! Okay so this is going to sound so stupid but my sofa is in Belgium."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 11.333,
+    "end": 13.8,
+    "text": "Oh dear. Your... sofa?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 14.0,
+    "end": 23.333,
+    "text": "My sofa. I ordered it, it was supposed to come to Bristol, and the tracking says it's in Antwerp. Has been for, like, a week."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 23.533,
+    "end": 28.2,
+    "text": "Okay, let's have a look. Have you got the order number?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 28.4,
+    "end": 30.8,
+    "text": "Yep, it's ORD-724761."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 31.0,
+    "end": 35.133,
+    "text": "Lovely, so that's seven two four seven six one?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 35.333,
+    "end": 37.2,
+    "text": "Yes. Exactly."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 37.4,
+    "end": 43.8,
+    "text": "Okay, I've got it. A you know, three-seater, in, ooh, the sage velvet. Very nice."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 44.0,
+    "end": 48.133,
+    "text": "Thank you! I was very excited. Until, you know."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 48.333,
+    "end": 61.6,
+    "text": "Ha, yes. Okay so it looks like it was routed through our Cobble Hythe hub and then, um, I'm not sure what happened after that. Can I pop you on hold and get someone from the warehouse?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 61.8,
+    "end": 63.533,
+    "text": "Sure, sure."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 63.733,
+    "end": 66.6,
+    "text": "Thanks. Won't like, be long."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 66.8,
+    "end": 70.667,
+    "text": "Hiya, it's the warehouse. Is this the sofa?"
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 70.867,
+    "end": 72.8,
+    "text": "It's the sofa."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 73.0,
+    "end": 86.067,
+    "text": "Right. like, So. Bit embarrassing. We changed couriers about a month ago because the old one went bust, and the new lot have been sending a fair chunk of stuff to the wrong country."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 86.267,
+    "end": 87.667,
+    "text": "Oh no!"
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 87.867,
+    "end": 94.333,
+    "text": "Yeah. It's, um, it's not just you. It's maybe one in twenty parcels at the moment."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 94.533,
+    "end": 100.133,
+    "text": "Which, I should say, isn't something we're telling people officially."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 100.333,
+    "end": 104.133,
+    "text": "No, please don't post like, that anywhere."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 104.333,
+    "end": 108.733,
+    "text": "I won't! I won't. I mean, I'm tempted. But I won't."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 108.933,
+    "end": 116.933,
+    "text": "Ha. Appreciated. So it'll be back across by the eighteenth, and then delivered within three days of that."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 117.133,
+    "end": 122.2,
+    "text": "Okay. That's fine. Can I double check the address you've got?"
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 122.4,
+    "end": 126.867,
+    "text": "Sure, I've got 7 Halberd Close, Whitmore Saint Anne."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 127.067,
+    "end": 133.667,
+    "text": "Yes. Oh, wait. No, it's seventeen Halberd Close, not seven. Sorry, I always do that."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 133.867,
+    "end": 136.733,
+    "text": "No worries, updating it now."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 136.933,
+    "end": 138.6,
+    "text": "Thank you."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 138.8,
+    "end": 146.133,
+    "text": "And for the trouble, I can give you fifteen percent back on the order, or a voucher for twenty."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 146.333,
+    "end": 158.0,
+    "text": "Oh, the refund please. I'll be honest, things are a bit tight. My partner's visa got refused and we're waiting on an appeal, so I'm carrying the rent on my own."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 158.2,
+    "end": 167.0,
+    "text": "Oh, I'm sorry. Of course, refund it is. It'll go back to the card you know, on file, 3530111333300000, is that right?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 167.2,
+    "end": 168.733,
+    "text": "Perfect."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 168.933,
+    "end": 174.933,
+    "text": "Can I ask, while I'm here, uh, did you get the delivery text from 555-0190?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 175.133,
+    "end": 178.733,
+    "text": "Uh, I did, yeah, I thought it was spam."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 178.933,
+    "end": 184.2,
+    "text": "Ha, everyone like, does. That's the new courier. I'll tell them."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 184.4,
+    "end": 192.2,
+    "text": "So, random question, but is the Ladle membership worth I mean, it? I um, keep getting emails about it."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 192.4,
+    "end": 199.8,
+    "text": "Oh, the Ladle club? Honestly, if you order more than a couple times a year, yeah. Free delivery."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 200.0,
+    "end": 212.867,
+    "text": "Okay. I'll think about it. Funny, the sofa has a little ladle pattern stitched on the arms, like the cushions my mum had back in Vermont, and I sort of, thought it was your logo."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 213.067,
+    "end": 214.667,
+    "text": "Ha! Fair."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 214.867,
+    "end": 228.0,
+    "text": "Right, I'll get off. I've got a meeting with the directors about the courier contract and, between us, a few people in my team are worried about their jobs if this doesn't get fixed."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 228.2,
+    "end": 229.867,
+    "text": "Good luck."
+  },
+  {
+    "speaker": "Henrike Okonjo",
+    "start": 230.067,
+    "end": 231.6,
+    "text": "Ta. Bye."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 231.8,
+    "end": 239.4,
+    "text": "Okay, so that's the sort of, refund done. You'll get an email to imogen.szymanski@wrennick.example."
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 239.6,
+    "end": 241.6,
+    "text": "That's the one."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 241.8,
+    "end": 244.267,
+    "text": "Lovely. Anything else?"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 244.467,
+    "end": 248.867,
+    "text": "No, that's it. Thanks so much. Sorry for the essay."
+  },
+  {
+    "speaker": "Dariusz Delacroix-Bey",
+    "start": 249.067,
+    "end": 252.667,
+    "text": "Not at all. Enjoy the sofa, eventually!"
+  },
+  {
+    "speaker": "Aurelian Gilchrist-Mohr",
+    "start": 252.867,
+    "end": 254.933,
+    "text": "Ha. Thanks. Bye!"
+  }
+]

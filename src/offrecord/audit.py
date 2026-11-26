@@ -1,4 +1,4 @@
-"""Audit log entries (opt-in, always encrypted; see DECISIONS D-014).
+"""Audit log entries (opt-in, always encrypted).
 
 Each entry records what was removed or replaced: input number, field, original offsets and
 source lines, category, detector, confidence, reason, action, the placeholder, and the original

@@ -1,0 +1,314 @@
+[
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 0.0,
+    "end": 3.2,
+    "text": "morning. let's go fast. ravindra?"
+  },
+  {
+    "speaker": "ilsabet szymanski",
+    "start": 3.4,
+    "end": 8.467,
+    "text": "yeah. you know, finished the migration script. testing today."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 8.667,
+    "end": 10.267,
+    "text": "blockers?"
+  },
+  {
+    "speaker": "ilsabet szymanski",
+    "start": 10.467,
+    "end": 11.8,
+    "text": "nope."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 12.0,
+    "end": 13.733,
+    "text": "cool. next."
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 13.933,
+    "end": 20.6,
+    "text": "still on the checkout redesign for project ironbark. about, uh, seventy percent done."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 20.8,
+    "end": 22.333,
+    "text": "seventy?"
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 22.533,
+    "end": 26.667,
+    "text": "ish. sixty-five. sixty-five percent. be honest."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 26.867,
+    "end": 28.467,
+    "text": "ha. okay."
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 28.667,
+    "end": 35.133,
+    "text": "me. so. overnight we had a spike. error rate went to 60% for about twenty minutes."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 35.333,
+    "end": 36.733,
+    "text": "cause?"
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 36.933,
+    "end": 41.8,
+    "text": "traffic from 2001:db8::9ca9. hammering the login endpoint."
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 42.0,
+    "end": 44.067,
+    "text": "like, an attack?"
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 44.267,
+    "end": 51.467,
+    "text": "looks like credential stuffing, and a handful of accounts may have actually been logged into."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 51.667,
+    "end": 53.267,
+    "text": "how many?"
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 53.467,
+    "end": 56.0,
+    "text": "not sure yet. under 72."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 56.2,
+    "end": 59.0,
+    "text": "okay. security's looped in?"
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 59.2,
+    "end": 65.0,
+    "text": "yeah. and you know, i blocked the range. also 203.0.113.4, same pattern."
+  },
+  {
+    "speaker": "fergus pennyworth-hale",
+    "start": 65.2,
+    "end": 68.333,
+    "text": "do basically, we tell customers?"
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 68.533,
+    "end": 76.0,
+    "text": "not yet, and nobody mention it in the public channel until legal decides whether it's reportable."
+  },
+  {
+    "speaker": "fergus pennyworth-hale",
+    "start": 76.2,
+    "end": 77.667,
+    "text": "got it."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 77.867,
+    "end": 80.467,
+    "text": "anything else, thaddeus?"
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 80.667,
+    "end": 87.0,
+    "text": "just, the oregon region's flapping um, again. i've opened a ticket. acct-805376."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 87.2,
+    "end": 88.933,
+    "text": "thanks. qa?"
+  },
+  {
+    "speaker": "fergus pennyworth-hale",
+    "start": 89.133,
+    "end": 95.2,
+    "text": "regression suite's green except two flaky ones. coverage's up to eighty-one."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 95.4,
+    "end": 96.733,
+    "text": "nice."
+  },
+  {
+    "speaker": "fergus pennyworth-hale",
+    "start": 96.933,
+    "end": 106.4,
+    "text": "also the quarrytone ledger release notes link is broken. it points at https://routelark.test/pricing, which is the old staging."
+  },
+  {
+    "speaker": "ilsabet szymanski",
+    "start": 106.6,
+    "end": 110.0,
+    "text": "oh, that's mine. sorry. i'll fix it."
+  },
+  {
+    "speaker": "fergus pennyworth-hale",
+    "start": 110.2,
+    "end": 111.4,
+    "text": "ta."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 111.6,
+    "end": 113.133,
+    "text": "product?"
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 113.333,
+    "end": 128.467,
+    "text": "aye. so, couple of things. one, launch date for ironbark is the third of march. please, please do not tell anyone at wrennick hospitality even though they keep asking, we haven't told the board the scope got cut."
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 128.667,
+    "end": 130.867,
+    "text": "the scope got cut?"
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 131.067,
+    "end": 134.333,
+    "text": "a wee bit. the offline mode's out."
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 134.533,
+    "end": 136.133,
+    "text": "oh. okay."
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 136.333,
+    "end": 146.067,
+    "text": "two. beta signups. we've got about four hundred from scotland and the north of england, and a big chunk from the bay area, weirdly."
+  },
+  {
+    "speaker": "ilsabet szymanski",
+    "start": 146.267,
+    "end": 150.4,
+    "text": "not weird. that's sort of, where the nerds are."
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 150.6,
+    "end": 159.4,
+    "text": "ha. fair. and three, conversion on the new onboarding is up, sort of, like, doubled. doubled like, from where it was."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 159.6,
+    "end": 161.133,
+    "text": "doubled?"
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 161.333,
+    "end": 165.333,
+    "text": "from three to six percent. small base. still."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 165.533,
+    "end": 169.267,
+    "text": "still. nice. okay. anything i mean, else?"
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 169.467,
+    "end": 175.733,
+    "text": "uh, yeah, quick one. is the team offsite still happening? in upper sallowfield?"
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 175.933,
+    "end": 177.133,
+    "text": "um."
+  },
+  {
+    "speaker": "lazarus vasquez-lindqvist",
+    "start": 177.333,
+    "end": 178.6,
+    "text": "hmm."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 178.8,
+    "end": 185.867,
+    "text": "it's, it's on hold, there's a spending review going on and travel's frozen until it's done."
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 186.067,
+    "end": 187.267,
+    "text": "oh."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 187.467,
+    "end": 192.533,
+    "text": "not because anything bad is happening, so don't read into it."
+  },
+  {
+    "speaker": "ilsabet ashdown",
+    "start": 192.733,
+    "end": 194.067,
+    "text": "sure."
+  },
+  {
+    "speaker": "ilsabet szymanski",
+    "start": 194.267,
+    "end": 204.8,
+    "text": "that's literally what they said last time. did anyone watch that show where the whole company gets fired in the first episode? brilliant telly."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 205.0,
+    "end": 210.867,
+    "text": "okay! moving on. kwabena fairbrother, you're back on monday, like, right?"
+  },
+  {
+    "speaker": "fergus pennyworth-hale",
+    "start": 211.067,
+    "end": 219.6,
+    "text": "yeah, she's um, back monday. she's doing a phased return after the surgery, so mornings only for the first month."
+  },
+  {
+    "speaker": "rosalind ravensworth",
+    "start": 219.8,
+    "end": 226.733,
+    "text": "got it. oh, and the iron bark demo is still on for thursday. okay, that's it. thanks all."
+  },
+  {
+    "speaker": "leopold quennell",
+    "start": 226.933,
+    "end": 228.4,
+    "text": "cheers."
+  }
+]

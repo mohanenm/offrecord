@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:08,733
+Thorvald Tolliver: Okay, recording's off. Sorry, I mean, it's on for my notes, but it doesn't leave this room. Everyone okay with that?
+
+2
+00:00:08,933 --> 00:00:12,067
+Delphine Nakashima-Ford: Notes yes, recording no. Please.
+
+3
+00:00:12,267 --> 00:00:15,333
+Thorvald Tolliver: Right, fine, stopping it. Done.
+
+4
+00:00:15,533 --> 00:01:00,267
+Matthias Szymanski: Great. Thanks I mean, everybody. So, um, I want to just, I want to set the scene a bit before we get into the numbers, because I know there's been a lot I mean, of, uh, like, corridor chatter. I've been in Singapore and then Sydney for most I mean, of the last two weeks, talking to the teams out there, and honestly the mood is fine, people are working hard, um, but they can tell something's coming. And, sort of, look, something is coming. We're going to consolidate the three regional hubs into two, which means the Embleside Heath office closes and those roles either move or go. um, I want us to be really thoughtful about how we you know, land that.
+
+5
+00:01:00,467 --> 00:01:03,667
+Bartholomew Ravensworth: Can I just jump in on the timing?
+
+6
+00:01:03,867 --> 00:01:05,333
+Matthias Szymanski: Please.
+
+7
+00:01:05,533 --> 00:01:18,467
+Bartholomew Ravensworth: So we can't announce anything like, before the fourteenth, because we have to start the consultation process in the UK properly, and that's a minimum period, we can't shortcut it.
+
+8
+00:01:18,667 --> 00:01:20,667
+Leopold Ashdown: How many roles?
+
+9
+00:01:20,867 --> 00:01:28,400
+Bartholomew Ravensworth: In total, across everything, it's four hundred thirteen. That's about eleven percent of headcount.
+
+10
+00:01:28,600 --> 00:01:30,867
+Leopold Ashdown: I had it at twelve.
+
+11
+00:01:31,067 --> 00:01:35,400
+Bartholomew Ravensworth: Twelve before the voluntary leavers. Eleven after.
+
+12
+00:01:35,600 --> 00:01:36,933
+Leopold Ashdown: Okay.
+
+13
+00:01:37,133 --> 00:01:50,333
+Benedikta Quennell: And how many of those are mine? Because I am uh, going to be honest, if you take more than a handful from platform we will not ship Operation Stoatbridge this year. It is that simple.
+
+14
+00:01:50,533 --> 00:01:55,933
+Matthias Szymanski: Stoatbridge is protected. I said that you know, in the board pack.
+
+15
+00:01:56,133 --> 00:01:59,267
+Benedikta Quennell: Protected how? With what people?
+
+16
+00:01:59,467 --> 00:02:02,400
+Matthias Szymanski: With the people you have now.
+
+17
+00:02:02,600 --> 00:02:11,733
+Benedikta Quennell: Two of my leads are already interviewing elsewhere because of the rumours, so the people I have now is not a fixed number.
+
+18
+00:02:11,933 --> 00:02:24,133
+Bartholomew Ravensworth: We know. We're putting retention bonuses basically, in for, um, a small list. Benedikta Vandersloot-Kerr is on it. So is Lucinda. And jem gilkhrist-mohr, like, I think.
+
+19
+00:02:24,333 --> 00:02:27,200
+Benedikta Quennell: Good. Thank you. That helps.
+
+20
+00:02:27,400 --> 00:02:33,933
+Leopold Ashdown: Can we talk about why we're doing this, for the record? Because the board will ask.
+
+21
+00:02:34,133 --> 00:02:36,133
+Matthias Szymanski: Sure, go ahead.
+
+22
+00:02:36,333 --> 00:02:50,267
+Leopold Ashdown: Revenue came in at $5.8M. Plan was higher. Margin's down to 20 percent. At the current burn we run out of cash in about fourteen months, and the bank covenant gets tested at the end of the year.
+
+23
+00:02:50,467 --> 00:02:56,333
+Delphine Nakashima-Ford: And I'd like that last bit not written down in quite those words, please.
+
+24
+00:02:56,533 --> 00:03:00,800
+Thorvald Tolliver: Noted. I'll put 'liquidity basically, discussed'.
+
+25
+00:03:01,000 --> 00:03:02,667
+Delphine Nakashima-Ford: Thank you.
+
+26
+00:03:02,867 --> 00:03:18,733
+Matthias Szymanski: And it's also, it's not just cost, right, it's focus. We've been trying to be everything to everyone. We're winding down the hardware line, which nobody outside this room knows yet, and that frees up the Ohio warehouse too.
+
+27
+00:03:18,933 --> 00:03:22,733
+Delphine Nakashima-Ford: Can I raise basically, something adjacent?
+
+28
+00:03:22,933 --> 00:03:24,133
+Matthias Szymanski: Go.
+
+29
+00:03:24,333 --> 00:03:38,400
+Delphine Nakashima-Ford: The Hobbleford Cycles dispute is getting worse and their lawyers sent a letter on Friday threatening to sue over the delayed rollout. I'd really like, rather we didn't announce cuts the same week.
+
+30
+00:03:38,600 --> 00:03:42,133
+Matthias Szymanski: Ugh. Okay. How much are they claiming?
+
+31
+00:03:42,333 --> 00:03:51,533
+Delphine Nakashima-Ford: They haven't put a number on it. Outside counsel at Pemberton Raike LLP think sort of, it's a negotiating sort of, posture.
+
+32
+00:03:51,733 --> 00:03:53,733
+Leopold Ashdown: Is it material?
+
+33
+00:03:53,933 --> 00:04:00,400
+Delphine Nakashima-Ford: Could be. Two to three percent of revenue if it went badly. I don't think it will.
+
+34
+00:04:00,600 --> 00:04:16,467
+Bartholomew Ravensworth: Can I go back to the people side? Sorry. The Saint Avery team. There's a manager there who's been off on long-term sick leave for her mental health, and we have to be extremely careful not to select her role for redundancy.
+
+35
+00:04:16,667 --> 00:04:20,800
+Delphine Nakashima-Ford: Very careful. That's a claim waiting to happen.
+
+36
+00:04:21,000 --> 00:04:22,533
+Bartholomew Ravensworth: Exactly.
+
+37
+00:04:22,733 --> 00:04:26,867
+Matthias Szymanski: Of course. Yeah. Who else knows about all this?
+
+38
+00:04:27,067 --> 00:04:32,267
+Thorvald Tolliver: Just this group and the board. And the comms agency, under NDA.
+
+39
+00:04:32,467 --> 00:04:34,333
+Matthias Szymanski: Which agency?
+
+40
+00:04:34,533 --> 00:04:38,067
+Thorvald Tolliver: Haverleigh & Stone. Same as last time.
+
+41
+00:04:38,267 --> 00:04:41,800
+Matthias Szymanski: Fine. So, okay, what's the comms plan?
+
+42
+00:04:42,000 --> 00:04:57,733
+Bartholomew Ravensworth: All-hands on the fourteenth, managers briefed the night before, letters same day. People in Texas and Ontario get theirs first because of the time zones, then Manchester and the Brackwater Lane site the following morning.
+
+43
+00:04:57,933 --> 00:05:04,733
+Benedikta Quennell: Please do not do it on a Friday. Fridays in general are fine, but not I mean, for this.
+
+44
+00:05:04,933 --> 00:05:06,933
+Bartholomew Ravensworth: It's a Tuesday.
+
+45
+00:05:07,133 --> 00:05:08,467
+Benedikta Quennell: Good.
+
+46
+00:05:08,667 --> 00:05:12,067
+Leopold Ashdown: And severance is budgeted at $1,300.
+
+47
+00:05:12,267 --> 00:05:14,600
+Matthias Szymanski: Okay. Anything else?
+
+48
+00:05:14,800 --> 00:05:23,200
+Delphine Nakashima-Ford: Just, everybody, nothing about the restructure in Slack or email, phone or in person only until it's announced.
+
+49
+00:05:23,400 --> 00:05:28,467
+Matthias Szymanski: Got it. Okay. Thanks all, this is hard stuff. Let's take ten.

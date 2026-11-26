@@ -73,6 +73,21 @@ def test_generated_values_are_synthetic(tuning):
                 assert e.data["domain"].rsplit(".", 1)[1] in {"example", "test", "invalid"}
 
 
+def test_inline_labels_in_templates(tuning):
+    _, pools = tuning
+    tpl = {"id": "x", "speakers": {"A": "a"}, "turns": [
+        {"A": "Margin is [[PERCENT: up a third]] near [[LOCATION#c: the Tri-Cities]], "
+              "but the [[NEG: lantern]] works. [[TOPIC: we may close the {location} site]]."},
+    ]}  # fmt: skip
+    lt = Generator([tpl], pools, "t", 1).generate_one(0)[0]
+    got = {(lb.category, lt.texts[lb.turn][lb.start : lb.end].lower()) for lb in lt.labels}
+    assert ("PERCENT", "up a third") in got and ("LOCATION", "the tri-cities") in got
+    assert sum(lb.category == "LOCATION" for lb in lt.labels) == 2  # literal + slot in topic
+    assert lt.texts[0][lt.negatives[0].start : lt.negatives[0].end].lower() == "lantern"
+    with pytest.raises(ValueError):
+        Generator([{**tpl, "turns": [{"A": "[[BOGUS: x]]"}]}], pools, "t", 1).generate_one(0)
+
+
 def test_casing_variants_present(tuning):
     t, p = tuning
     casings = {lt.meta["casing"] for lt, _ in Generator(t, p, "tuning", 1).generate(40)}
@@ -132,6 +147,28 @@ def test_scoring_requires_full_coverage():
     assert flagged.overall.caught == 0  # a review flag is not a redaction
 
 
+def test_clean_transcript_rate_and_severity():
+    from offrecord.evaluation.labels import Label
+    from offrecord.evaluation.runner import EvalItem
+    from offrecord.model import Document, Turn
+
+    fid = turn_field_id(0, "text")
+    doc = Document("txt", (Turn(0, None, "call 555-0142 on 3 May"),))
+    labels = [Label(0, "text", 5, 13, "PHONE", "p"), Label(0, "text", 17, 22, "DATE", "d")]
+    items = [EvalItem(str(i), doc, labels, []) for i in range(3)]
+    spans = {"0": [(5, 13), (17, 22)], "1": [(5, 13)], "2": [(17, 22)]}  # date / phone leak
+
+    def system(d):
+        return [Span(fid, a, b, "X", "t", 1.0) for a, b in spans[next(it)]]
+
+    it = iter("012")
+    r = score(items, system, "s")
+    assert r.clean_rate == 1 / 3  # only the first transcript leaks nothing
+    assert r.clean_high_rate == 2 / 3  # a leaked date is not high severity, a phone is
+    assert r.clean_rate_for("PHONE") == 2 / 3 and r.leaks_per_transcript == [0, 1, 1]
+    assert r.to_json()["leaks_per_transcript_max"] == 1
+
+
 MARKUP = """[[PERSON:Orla Venkatesh]]: Morning. Is [[PERSON#bram:Bram]] joining?
 [[PERSON#bram:Bram Okafor]]: Yes. The [[CLIENT:Quillfeather]] deal closed at [[AMOUNT:$42,000]].
 and the [[NEG:lantern]] works, call [[PHONE:555-0142]].
@@ -168,11 +205,36 @@ def test_manifest(tmp_path):
     assert not verify_manifest(tmp_path)
 
 
-def test_committed_heldout_set_is_frozen():
-    from offrecord.evaluation.sets import HELDOUT_MANIFEST_SHA256
+def test_committed_frozen_sets_are_unchanged():
+    from offrecord.evaluation.sets import FROZEN
 
-    d = ROOT / "eval" / "generated" / "heldout"
-    assert verify_manifest(d, HELDOUT_MANIFEST_SHA256), "held-out set changed (frozen, D-030)"
+    for name, pin in FROZEN.items():
+        assert verify_manifest(ROOT / "eval" / "generated" / name, pin), f"{name} set changed"
+
+
+def test_sealed_set_needs_final_check(tmp_path):
+    import shutil
+
+    from offrecord.errors import UsageError
+
+    sealed = ROOT / "eval" / "generated" / "sealed"
+    with pytest.raises(UsageError):
+        load_generated(sealed)
+    copy = tmp_path / "copy"  # a copy elsewhere is still recognised
+    shutil.copytree(sealed, copy)
+    with pytest.raises(UsageError):
+        load_generated(copy)
+    # Structure only, with no detector run and no text in any message: every label points
+    # at a non-empty, stripped stretch of its field.
+    items, _ = load_generated(sealed, final_check=True)
+    bad = 0
+    for it in items:
+        for lb in it.labels:
+            t = it.doc.turns[lb.turn]
+            src = (t.text if lb.field == "text" else t.speaker) or ""
+            piece = src[lb.start : lb.end]
+            bad += not piece or piece != piece.strip()
+    assert len(items) == 80 and bad == 0
 
 
 def test_rewritten_manifest_is_still_detected(tmp_path):
@@ -263,7 +325,7 @@ def test_committed_sets_have_valid_labels():
         assert meta["set"] == name
 
 
-def test_tuning_and_heldout_pools_are_disjoint():
+def test_eval_set_pools_are_disjoint():
     import yaml
 
     def load(name):
@@ -279,10 +341,12 @@ def test_tuning_and_heldout_pools_are_disjoint():
                     out.add(e["word"].lower())
         return out
 
-    t, h = load("tuning"), load("heldout")
-    assert not strings(t) & strings(h)
-    assert not set(t["first_names"]) & set(h["first_names"])
-    assert not set(t["last_names"]) & set(h["last_names"])
+    for a, b in (("tuning", "heldout"), ("tuning", "sealed"), ("heldout", "sealed")):
+        t, h = load(a), load(b)
+        # Counts only: a failure must not print sealed pool entries into a CI log.
+        assert len(strings(t) & strings(h)) == 0, (a, b)
+        assert len(set(t["first_names"]) & set(h["first_names"])) == 0, (a, b)
+        assert len(set(t["last_names"]) & set(h["last_names"])) == 0, (a, b)
 
 
 def test_coverage_ignores_spaces_between_redacted_words():
@@ -308,7 +372,21 @@ def test_cli_set_choices_match_sets_module():
     from offrecord import cli
     from offrecord.evaluation import sets
 
-    assert tuple(cli.SET_CHOICES) == sets.SET_NAMES
+    assert tuple(cli.SET_CHOICES) == (*sets.SET_NAMES, sets.SEALED, *sets.ALIASES)
     assert set(sets.TUNING_SETS) <= set(sets.SET_NAMES)
-    assert "heldout" not in sets.TUNING_SETS and "user" not in sets.TUNING_SETS
+    assert "validation" not in sets.TUNING_SETS and "user" not in sets.TUNING_SETS
+    assert sets.set_dir("heldout", Path("/r")) == sets.set_dir("validation", Path("/r"))
     assert sets.set_dir("tuning-hw", Path("/r")) == Path("/r/eval/tuning_handwritten")
+
+
+def test_pii_intervals_resample_transcripts_and_are_repeatable():
+    from offrecord.evaluation.runner import Report
+
+    rep = Report("x", pii_by_transcript=[(10, 10)] * 8 + [(10, 5)] * 2)
+    iv = rep.pii_intervals()
+    assert iv == rep.pii_intervals()  # fixed seed
+    lo, hi = iv["pii_recall"]
+    assert lo <= 0.9 <= hi < 1.0001
+    lo, hi = iv["clean_pii"]
+    assert lo <= 0.8 <= hi
+    assert Report("y", pii_by_transcript=[(3, 3)]).pii_intervals()["pii_recall"] is None

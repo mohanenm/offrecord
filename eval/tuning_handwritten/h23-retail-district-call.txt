@@ -1,0 +1,38 @@
+[[PERSON#bev:bev]]: ok roll call, who's on
+[[PERSON#ian:ian]]: [[LOCATION:tulsa]] here
+[[PERSON#mo:mo]]: [[LOCATION#bv:broken arrow]]
+[[PERSON#sun:sunita]]: our [[LOCATION:owasso]] store, and i'm covering [[LOCATION#nr:norman]] too
+[[PERSON#bev:bev]]: great. comps first. ian
+[[PERSON#ian:ian]]: [[LOCATION:tulsa]] was up [[PERCENT:four point two]], traffic down [[PERCENT:two]]
+[[PERSON#bev:bev]]: so basket did the work
+[[PERSON#ian:ian]]: basket was up like [[PERCENT:six and change]]
+[[PERSON#mo:mo]]: [[LOCATION#bv:broken arrow]] was flat. shrink is killing us, [[PERCENT#29:2.9%]] of sales
+[[PERSON#bev:bev]]: [[PERCENT#29:two nine]]? that's double the district
+[[PERSON#mo:mo]]: [[TOPIC:loss prevention thinks it's someone on the closing crew]]
+[[PERSON#bev:bev]]: ok take that offline with me. do not name anyone on this call
+[[PERSON#mo:mo]]: got it
+[[PERSON#sun:sunita]]: [[LOCATION:owasso]] up [[PERCENT:nine percent]]. [[LOCATION#nr:norman]] down [[PERCENT:single digits]]
+[[PERSON#bev:bev]]: low or high [[PERCENT:single digits]]
+[[PERSON#sun:sunita]]: [[PERCENT:three]], ish
+[[PERSON#bev:bev]]: fine. labor. corporate wants us at [[PERCENT:eleven]] of sales by [[DATE:january]]
+[[PERSON#ian:ian]]: we're at [[PERCENT:12.8]]
+[[PERSON#bev:bev]]: [[TOPIC:so hours are getting cut and some part timers won't be on the spring schedule at all]]
+[[PERSON#sun:sunita]]: [[TOPIC:are we closing norman? people are asking]]
+[[PERSON#bev:bev]]: [[TOPIC:we are not closing norman, but the lease is up and the landlord at sooner plaza wants a big bump]]
+[[PERSON#sun:sunita]]: how big
+[[PERSON#bev:bev]]: [[PERCENT:twenty-two percent]] on base rent. we're countering at [[PERCENT:half]] that
+[[PERSON#mo:mo]]: wow
+[[PERSON#bev:bev]]: promo calendar. the [[PRODUCT:aurelle diffuser]] goes [[PERCENT:30%]] off on the [[DATE:twelfth]]
+[[PERSON#ian:ian]]: [[NEG:summit]] display or endcap
+[[PERSON#bev:bev]]: endcap. [[NEG:summit]] fixtures are going back to the warehouse in [[LOCATION:joplin]]
+[[PERSON#mo:mo]]: also [[TOPIC:my assistant manager told me she's pregnant and wants to go part time after february]]
+[[PERSON#bev:bev]]: congrats to her. send me an email, not here
+[[PERSON#mo:mo]]: yep
+[[PERSON#sun:sunita]]: one more. [[TOPIC:a customer at owasso is threatening to sue over the fall by the register]]
+[[PERSON#bev:bev]]: did you file the incident
+[[PERSON#sun:sunita]]: yes, number [[ACCOUNT:IR-20931]]
+[[PERSON#bev:bev]]: send it to risk at [[EMAIL:risk@hollins-mercantile.example]] and copy me
+[[PERSON#ian:ian]]: what's the district goal for [[DATE:december]]
+[[PERSON#bev:bev]]: plus [[PERCENT:five]] comp, and [[PERCENT:a quarter]] of transactions on the loyalty card
+[[PERSON#ian:ian]]: ok
+[[PERSON#bev:bev]]: thanks everyone. [[NEG:hope]] the weekend's quiet

@@ -9,166 +9,15 @@ from importlib import resources
 # Business shorthand and speech tokens that are not names even though they are not in the
 # dictionary list.
 EXTRA_COMMON = frozenset(
-    [
-        "arr",
-        "mrr",
-        "qbr",
-        "crm",
-        "erp",
-        "api",
-        "apis",
-        "saas",
-        "paas",
-        "kpi",
-        "kpis",
-        "roi",
-        "okr",
-        "okrs",
-        "eta",
-        "faq",
-        "sla",
-        "slas",
-        "sso",
-        "hr",
-        "cfo",
-        "ceo",
-        "cto",
-        "coo",
-        "cmo",
-        "cro",
-        "vp",
-        "vps",
-        "svp",
-        "evp",
-        "pm",
-        "pms",
-        "eod",
-        "eow",
-        "fyi",
-        "asap",
-        "usd",
-        "gbp",
-        "eur",
-        "ok",
-        "okay",
-        "um",
-        "uh",
-        "umm",
-        "uhh",
-        "mm",
-        "mmm",
-        "hmm",
-        "hm",
-        "yeah",
-        "yep",
-        "yup",
-        "nope",
-        "nah",
-        "gonna",
-        "wanna",
-        "gotta",
-        "kinda",
-        "sorta",
-        "dunno",
-        "lemme",
-        "gimme",
-        "ya",
-        "yah",
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "h1",
-        "h2",
-        "yoy",
-        "qoq",
-        "mom",
-        "ytd",
-        "fy",
-        "capex",
-        "opex",
-        "ebitda",
-        "cogs",
-        "gtm",
-        "sdr",
-        "sdrs",
-        "bdr",
-        "ae",
-        "aes",
-        "csm",
-        "pov",
-        "poc",
-        "mvp",
-        "ux",
-        "ui",
-        "qa",
-        "devops",
-        "sre",
-        "url",
-        "urls",
-        "email",
-        "emails",
-        "pdf",
-        "csv",
-        "ppt",
-        "xls",
-        "pos",
-        "sku",
-        "skus",
-        "b2b",
-        "b2c",
-        "smb",
-        "msp",
-        "isv",
-        "rfp",
-        "rfi",
-        "rfq",
-        "nda",
-        "ndas",
-        "sow",
-        "msa",
-        "po",
-        "ar",
-        "ap",
-        "gl",
-        "ip",
-        "ips",
-        "vpn",
-        "wifi",
-        "ok'd",
-        "cc",
-        "bcc",
-        "dm",
-        "dms",
-        "pto",
-        "ooo",
-        "wfh",
-        "zoom",
-        "slack",
-        "teams",
-        "webex",
-        "onboarding",
-        "offboarding",
-        "upsell",
-        "upsells",
-        "cross-sell",
-        "headcount",
-        "backfill",
-        "backfills",
-        "roadmap",
-        "roadmaps",
-        "pipeline",
-        "signup",
-        "signups",
-        "login",
-        "logins",
-        "admin",
-        "admins",
-        "dashboard",
-        "dashboards",
-        "workflow",
-        "workflows",
-    ]
+    "arr mrr qbr crm erp api apis saas paas kpi kpis roi okr okrs eta faq sla slas sso hr cfo ceo "
+    "cto coo cmo cro vp vps svp evp pm pms eod eow fyi asap usd gbp eur ok okay um uh umm uhh mm "
+    "mmm hmm hm yeah yep yup nope nah gonna wanna gotta kinda sorta dunno lemme gimme ya yah q1 q2 "
+    "q3 q4 h1 h2 yoy qoq mom ytd fy capex opex ebitda cogs gtm sdr sdrs bdr ae aes csm pov poc mvp "
+    "ux ui qa devops sre url urls email emails pdf csv ppt xls pos sku skus b2b b2c smb msp isv "
+    "rfp rfi rfq nda ndas sow msa po ar ap gl ip ips vpn wifi ok'd cc bcc dm dms pto ooo wfh zoom "
+    "slack teams webex onboarding offboarding upsell upsells cross-sell headcount backfill "
+    "backfills roadmap roadmaps pipeline signup signups login logins admin admins dashboard "
+    "dashboards workflow workflows".split()
 )
 
 
@@ -193,14 +42,41 @@ FUNCTION_WORDS = frozenset(
 
 @lru_cache(maxsize=1)
 def common_words() -> frozenset[str]:
+    from offrecord.redact.config import (
+        DEFAULT_TOPICS_FLAG,
+        DEFAULT_TOPICS_PERSONAL,
+        DEFAULT_TOPICS_REDACT,
+    )
+
     data = resources.files("offrecord.data").joinpath("common_words.txt.gz").read_bytes()
-    return frozenset(gzip.decompress(data).decode("ascii").split()) | EXTRA_COMMON | PRONOUNS
+    # The topic terms are everyday vocabulary too ("layoffs", "valuation"): never name guesses.
+    topic_words = {
+        w.strip("'").lower()
+        for t in (*DEFAULT_TOPICS_FLAG, *DEFAULT_TOPICS_PERSONAL, *DEFAULT_TOPICS_REDACT)
+        for w in t.split()
+        if w.isalpha()
+    }
+    words = frozenset(gzip.decompress(data).decode("ascii").split())
+    return words | EXTRA_COMMON | PRONOUNS | CALENDAR | BUSINESS_WORDS | topic_words
 
 
 @lru_cache(maxsize=1)
 def proper_names() -> frozenset[str]:
     data = resources.files("offrecord.data").joinpath("proper_names.txt.gz").read_bytes()
     return frozenset(gzip.decompress(data).decode("ascii").split())
+
+
+# Months and weekdays are not names (they are dates, handled by the date rules).
+CALENDAR = frozenset(
+    "january february march april may june july august september october november december "
+    "monday tuesday wednesday thursday friday saturday sunday".split()
+)
+# Everyday business vocabulary missing from the bundled list (found as false name guesses).
+BUSINESS_WORDS = frozenset(
+    "pct euro euros analytics lender lenders valuation regulator regulators deposition "
+    "depositions prep pre onboarding offboarding upsell upsells kpi kpis roi saas b2b b2c "
+    "ebitda capex opex headcount payroll invoicing reconciliation outage outages".split()
+)
 
 
 def is_common(token: str) -> bool:
@@ -211,5 +87,5 @@ def is_common(token: str) -> bool:
         return True
     if "'" in t:
         base = t.split("'", 1)[0]
-        return base in words or t.removesuffix("'s") in words
+        return base in words or t.removesuffix("'s") in words or t.removesuffix("n't") in words
     return False

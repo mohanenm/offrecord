@@ -1,4 +1,4 @@
-"""Encryption for the mapping file and audit log (approved design: proposal 0002 / D-021).
+"""Encryption for the mapping file and audit log.
 
 File format (version 1):
 

@@ -1,0 +1,32 @@
+[[PERSON#op:Jonah Brightwater]]: [[ORG:Sentrimark Monitoring]], this is [[PERSON#op:Jonah]]. Are you calling about an active alarm?
+[[PERSON#sb:Mabel Quintero-Roth]]: No, no alarm. I need to update my emergency contacts and a couple of codes.
+[[PERSON#op:Jonah Brightwater]]: Sure. What's the monitoring account number?
+[[PERSON#sb:Mabel Quintero-Roth]]: [[ACCOUNT#ac1:S M, four oh four, dash, seven seven, dash, one oh eight]].
+[[PERSON#op:Jonah Brightwater]]: [[ACCOUNT#ac1:S M four zero four, seventy-seven, one zero eight]]. And your verbal passcode?
+[[PERSON#sb:Mabel Quintero-Roth]]: [[ACCOUNT#vp1:Copper kettle]].
+[[PERSON#op:Jonah Brightwater]]: Thank you. I have the premises as [[LOCATION#a1:twenty-six fifty Stonecrop Way, Boulder, Colorado, eight oh three oh four]]. Correct?
+[[PERSON#sb:Mabel Quintero-Roth]]: Yes. Plus we added the detached studio. That's [[LOCATION#a2:twenty-six fifty-two Stonecrop Way, the cottage at the back, past the garden shed]], it has its own mailbox.
+[[PERSON#op:Jonah Brightwater]]: Got it, I'll add [[LOCATION#a2:twenty-six fifty-two]] as a second zone. Who are the contacts now?
+[[PERSON#sb:Mabel Quintero-Roth]]: First is my neighbor [[PERSON#c1:Frank]]. [[PERSON#c1:Frank Delacorte-Ames]]. His number is [[PHONE#ph1:three oh three, five five five, oh one five eight]].
+[[PERSON#op:Jonah Brightwater]]: [[PHONE#ph1:Three zero three, five five five, zero one five eight]].
+[[PERSON#sb:Mabel Quintero-Roth]]: Second is my son, [[PERSON#c2:Chase]]. [[PERSON#c2:Chase Quintero]], [[PHONE#ph2:seven two oh, five five five, oh one]], sorry, [[PHONE#ph2:oh one two one]].
+[[PERSON#op:Jonah Brightwater]]: So [[PHONE#ph2:seven two zero, five five five, zero one two one]]?
+[[PERSON#sb:Mabel Quintero-Roth]]: Yes. And take [[PERSON#c3:Victor]] off. [[PERSON#c3:Victor]] moved away.
+[[PERSON#op:Jonah Brightwater]]: Removing [[PERSON#c3:Victor Saddler]]. Does [[PERSON#c1:Frank]] have a key?
+[[PERSON#sb:Mabel Quintero-Roth]]: He does, and he knows the disarm code. That's the other thing. I want a new master code. [[ACCOUNT#mc1:Seven, no, wait, eight, one, one, eight]].
+[[PERSON#op:Jonah Brightwater]]: [[ACCOUNT#mc1:Eight one one eight]]. You'll need to change it at the keypad too. And a duress code?
+[[PERSON#sb:Mabel Quintero-Roth]]: [[ACCOUNT#dr1:Eight one one nine]].
+[[PERSON#op:Jonah Brightwater]]: [[ACCOUNT#dr1:Eight one one nine]]. Okay. Gate code for responders?
+[[PERSON#sb:Mabel Quintero-Roth]]: [[ACCOUNT#gc1:Pound, three, three, oh, two]].
+[[PERSON#op:Jonah Brightwater]]: [[ACCOUNT#gc1:Hash three three zero two]]. Now, you have cameras on our video plan. Our system shows the recorder at [[IP#ip1:one ninety-two dot zero dot two dot seventy-seven]] on your network, and it's been offline since [[DATE:Sunday]].
+[[PERSON#sb:Mabel Quintero-Roth]]: My grandson [[PERSON#gs:Hunter]] changed the router. Maybe that's why.
+[[PERSON#op:Jonah Brightwater]]: Probably. The recorder needs to reach our server at [[IP#ip2:two oh three dot oh dot one one three dot two one]]. Can [[PERSON#gs:Hunter]] check it?
+[[PERSON#sb:Mabel Quintero-Roth]]: I'll have him call. Can you email the instructions to him? [[EMAIL#e1:hunter dot q at summitpeak mail dot example]].
+[[PERSON#op:Jonah Brightwater]]: [[EMAIL#e1:hunter.q@summitpeakmail.example]]. And copy you at?
+[[PERSON#sb:Mabel Quintero-Roth]]: [[EMAIL#e2:mabel q r at frontrange net dot example]]. [[EMAIL#e2:M-A-B-E-L, Q, R]]. No spaces.
+[[PERSON#op:Jonah Brightwater]]: [[EMAIL#e2:mabelqr@frontrangenet.example]]. The app login is at [[URL#u1:sentrimark dot test slash video]]. Last thing, billing. The card on file ends in [[CARD#cd1:oh one three five]], and it expired.
+[[PERSON#sb:Mabel Quintero-Roth]]: Here's the new one. [[CARD#cd2:Four seven eight six, five seven nine seven, five four three two, three one nine nine]].
+[[PERSON#op:Jonah Brightwater]]: [[CARD#cd2:Four seven eight six, five seven nine seven, five four three two, three one double nine]]. Updated. Your next charge is [[AMOUNT:forty-four ninety-nine]] on [[DATE:the first]].
+[[PERSON#sb:Mabel Quintero-Roth]]: Thanks. Oh, and the dispatcher should know the side gate is the only way in for an ambulance. [[LOCATION:The driveway off Linden, not Stonecrop, the one between the two big rose bushes]].
+[[PERSON#op:Jonah Brightwater]]: Noted on the premises file. I'll [[NEG:mark]] it as a responder note. Anything else?
+[[PERSON#sb:Mabel Quintero-Roth]]: No, I [[NEG:hope]] that's all. Thank you, [[PERSON#op:Jonah]].

@@ -22,7 +22,8 @@ CFG = {
         },
         {"name": "Lantern", "category": "BRAND", "common_word": True, "context": ["app", "store"]},
         {"name": "Project Bluefin", "category": "CODENAME", "aliases": ["Bluefin"]},
-    ]
+    ],
+    "protect": "confidential",  # these tests cover detection; the pii policy is tested below
 }
 
 
@@ -105,15 +106,19 @@ def test_split_phone_across_interruption():
     assert "oh one four two" not in red.turns[2].text
 
 
-def test_strong_topic_redacted_weak_flagged():
+@pytest.mark.parametrize(
+    ("mode", "weak"), [(None, "flag"), ("mixed", "flag"), ("default", "flag"), ("redact", "redact")]
+)
+def test_topic_terms_strong_always_redact_weak_by_mode(mode, weak):
     doc = adapters.get("txt").parse(
         "Orla: We are planning layoffs in March.\nOrla: Pricing is next.\n", Limits()
     )
-    spans = detect_document(doc, from_mapping({}))
+    cfg = {"protect": "confidential", **({"topics": {"mode": mode}} if mode else {})}
+    spans = detect_document(doc, from_mapping(cfg))
     t0 = [s for s in spans if s.field == turn_field_id(0, "text") and s.category == "TOPIC"]
     t1 = [s for s in spans if s.field == turn_field_id(1, "text") and s.category == "TOPIC"]
     assert t0 and t0[0].action == "redact"
-    assert t1 and t1[0].action == "flag"
+    assert t1 and t1[0].action == weak
 
 
 def test_unknown_words_redacted_as_names():
@@ -198,7 +203,8 @@ def test_topic_sentence_not_split_at_decimal():
     doc = adapters.get("txt").parse(
         "Orla: we are raising prices by 13.5 percent in May.\n", Limits()
     )
-    spans = [s for s in detect_document(doc, from_mapping({})) if s.category == "TOPIC"]
+    cfg = from_mapping({"protect": "confidential"})
+    spans = [s for s in detect_document(doc, cfg) if s.category == "TOPIC"]
     assert spans and spans[0].start == 0
 
 
@@ -254,16 +260,241 @@ def test_org_names_expand_over_generic_words(line, name):
 
 
 @pytest.mark.parametrize(
-    "sentence",
+    ("sentence", "personal"),
     [
-        "I was diagnosed with something serious last spring.",
-        "We're going through a divorce and there's a custody hearing.",
-        "Asset protection thinks it's internal theft.",
-        "It isn't public yet, so keep it off the minutes.",
-        "Their COO said they may not renew next year.",
+        ("I was diagnosed with something serious last spring.", True),
+        ("We're going through a divorce and there's a custody hearing.", True),
+        ("Asset protection thinks the night cashier is stealing.", True),
+        ("He's on a performance improvement plan.", True),
+        ("Performance improvement plan starts Monday.", True),  # only ever about a person
+        ("Asset protection thinks it's internal theft.", False),  # about no one in particular
+        ("Our cancer franchise grew in the quarter.", False),
+        ("It isn't public yet, so keep it off the minutes.", False),
+        ("Their COO said they may not renew next year.", False),
     ],
 )
-def test_personal_and_risk_topics_redacted(sentence):
-    red, _ = redact(f"A: Okay. {sentence} Anyway.\nA: ok\n", cfg={})
-    assert sentence not in body(red)
-    assert "Anyway." in body(red)
+def test_personal_topics_always_redacted_business_topics_by_protection(sentence, personal):
+    text = f"A: Okay. {sentence} Anyway.\nA: ok\n"
+    assert sentence not in body(redact(text, cfg={"protect": "confidential"})[0])
+    pii = body(redact(text, cfg={})[0])
+    assert (sentence not in pii) == personal  # business topics are only flagged by default
+    assert "Anyway." in pii
+
+
+@pytest.mark.parametrize(
+    ("line", "place"),
+    [
+        ("We met on High Street by the bank.", "High Street"),
+        ("I'm stuck in Fort Worth, traffic is bad.", "Fort Worth"),
+        ("Traffic on I-30 is backed up past Route 9.", "I-30"),
+        ("Wicker Park is our best store.", "Wicker Park"),
+        ("THE YARD ON QUARRY ROAD IS OURS.", "QUARRY ROAD"),
+    ],
+)
+def test_places_without_a_place_list(line, place):
+    assert place not in body(redact(line)[0])
+
+
+def test_months_after_place_cues_are_not_places():
+    doc = adapters.get("txt").parse("Can we meet in March about it?", Limits())
+    assert not any(s.category == "LOCATION" for s in detect_document(doc, from_mapping(CFG)))
+
+
+def test_readability_counts_redacted_text_and_sentences():
+    from offrecord.redact.pipeline import readability
+
+    doc = adapters.get("txt").parse("A: Call Orla. It is fine.\n", Limits())
+    fid = turn_field_id(0, "text")
+    spans = [Span(fid, 0, 9, "PERSON", "t", 1.0), Span(fid, 10, 12, "X", "t", 1.0, action="flag")]
+    assert readability(doc, spans) == (len("Call Orla. It is fine."), 9, 2, 1)
+
+
+@pytest.mark.parametrize(
+    ("line", "place", "is_place"),
+    [
+        ("traffic on i-30 is bad", "i-30", True),
+        ("We will hear from Bo Kestrel Tuesday.", "Tuesday", False),
+        ("Good point, let's move on.", "Good point", False),
+        ("Our CEO joined late.", "CEO", False),
+        ("Sales at our Leeds store doubled.", "Leeds", True),
+        ("The deck is in English now.", "English", False),
+        ("i live on tolliver street now", "tolliver street", True),
+    ],
+)
+def test_place_rules_edges(line, place, is_place):
+    doc = adapters.get("txt").parse(line, Limits())
+    t = doc.turns[0].text
+    i = t.index(place)
+    spans = [s for s in detect_document(doc, from_mapping(CFG)) if s.action == "redact"]
+    if is_place:  # redacted (a merged span may carry another name category)
+        assert any(s.start <= i and i + len(place) <= s.end for s in spans)
+    else:
+        assert not any(s.category == "LOCATION" and s.start < i + len(place) and i < s.end
+                       for s in spans)  # fmt: skip
+
+
+def test_readability_ignores_spans_past_the_turn():
+    from offrecord.redact.pipeline import readability
+
+    doc = adapters.get("txt").parse("A: short\n", Limits())
+    fid = turn_field_id(0, "text")
+    chars, red, _, _ = readability(doc, [Span(fid, 0, 50, "X", "t", 1.0)])
+    assert red == chars == len("short")
+
+
+def test_topic_rules_work_on_lines_without_final_punctuation():
+    doc = adapters.get("txt").parse(
+        "Orla: we are planning the acquisition of the shop\nanyway moving on.\n", Limits()
+    )
+    spans = detect_document(doc, from_mapping(CFG))
+    assert any(s.category == "TOPIC" and s.action == "redact" for s in spans)
+
+
+def test_pii_protection_flags_business_context_but_keeps_names_inside_it():
+    text = (
+        "A: Dana Whitfield says the renewal is $42,000, margin up 12%, layoffs in Q3.\n"
+        "A: Call 415-555-0142 on March 3rd.\n"
+    )
+    doc = adapters.get("txt").parse(text, Limits())
+    spans = detect_document(doc, from_mapping({}))
+    t0, t1 = doc.turns[0].text, doc.turns[1].text
+    red0 = [t0[s.start : s.end] for s in spans if s.field[1] == "0" and s.action == "redact"]
+    flagged = {s.category for s in spans if s.action == "flag"}
+    assert any("Dana Whitfield" in r for r in red0)  # a name inside a flagged sentence
+    assert not any(x in r for r in red0 for x in ("42,000", "12%", "Q3", "layoffs"))
+    assert {"AMOUNT", "PERCENT", "DATE", "TOPIC"} <= flagged
+    red1 = {t1[s.start : s.end] for s in spans if s.field[1] == "1" and s.action == "redact"}
+    assert {"415-555-0142", "March 3rd"} <= red1  # contact details and day-level dates
+
+
+def test_deny_list_entries_always_redact():
+    red, _ = redact("A: The Quillfeather renewal moved.\nA: ok\n", cfg={**CFG, "protect": "pii"})
+    assert "Quillfeather" not in body(red)
+
+
+@pytest.mark.parametrize(
+    ("text", "name", "redacted"),
+    [
+        ("A: Yesterday Grace took the Friday shift.\nB: ok\n", "Grace", True),  # mid-sentence
+        ("A: Grace is a nice word.\nB: ok\n", "Grace", False),  # sentence start: unknown
+        ("A: I hope so, will do.\nB: ok\n", "hope", False),  # ordinary words stay
+        (
+            "Mark: I can drive.\nOrla: thanks, mark can take the van.\n",
+            "mark",
+            True,
+        ),  # lower-case repeat of a speaker
+    ],
+)
+def test_names_that_are_ordinary_words(text, name, redacted):
+    red, _ = redact(text, cfg={})
+    turn_texts = " ".join(t.text for t in red.turns)
+    assert (name not in turn_texts) == redacted
+
+
+def test_address_includes_unit_city_and_postcode():
+    red, _ = redact("A: Ship it to 1460 West Fulton Street, Suite 300, Chicago, IL 60607 please.\n")
+    out = body(red)
+    assert not any(x in out for x in ("1460", "Suite 300", "Chicago", "60607"))
+    assert "please." in out
+
+
+def test_titles_are_redacted_with_the_name():
+    red, _ = redact("A: Yeah, Dr. Haldane signed it.\nA: My name is Orla.\n", cfg={})
+    out = body(red)
+    assert "Dr." not in out and "Haldane" not in out
+    assert "My name is" in out
+
+
+@pytest.mark.parametrize(
+    ("text", "name", "redacted"),
+    [
+        ("A: ok so tell mark the van is ready\nB: ok\n", "mark", True),
+        ("A: Hope said the Friday shift is fine.\nB: ok\n", "Hope", True),
+        ("A: thanks grace, see you then\nB: ok\n", "grace", True),
+        ("A: I hope the van is ready.\nB: ok\n", "hope", False),
+    ],
+)
+def test_ordinary_word_names_next_to_person_words(text, name, redacted):
+    red, _ = redact(text, cfg={})
+    words = " ".join(t.text for t in red.turns).replace(",", " ").split()
+    assert (name not in words) == redacted
+
+
+@pytest.mark.parametrize(
+    ("text", "kept"),
+    [
+        ("the general manager approved the budget\nin general the manager is happy", "in general"),
+        ("i was talking to miss okafor\nwe cannot miss the deadline", "cannot miss the deadline"),
+        ("Dr. Haldane approved it.\nApproved items go out today.", "Approved items"),
+        ("A: The code is ready.\n", "The code is ready."),
+        ("A: The area code is a mess.\n", "The area code is a mess."),
+        ("A: The dress code is business casual.\n", "business casual"),
+        ("A: The password is required.\n", "The password is required."),
+        ("A: Our office is 12 Harbor Road and we cover it.\n", "and we cover it"),
+        ("A: The quarter ending 2026 was good.\n", "ending 2026"),
+        ("A: Customers arrive at the front desk dash in and out all day.\n", "front desk dash in"),
+        ("A: The version is two dot four dot one dot seven.\n", "two dot four"),
+        ("A: The Pound took a hit.\n", "The Pound"),
+        ("A: Crystal Reports is slow.\n", "Crystal Reports"),
+        ("A: Revenue hit 4500, up from 3900.\n", "4500"),
+        ("A: Targets for Q4 FY25 are set.\n", "Q4 FY25"),
+    ],
+)
+def test_everyday_speech_is_not_taken_for_pii(text, kept):
+    red, _ = redact(text, cfg={})
+    assert kept in " ".join(t.text for t in red.turns)
+
+
+@pytest.mark.parametrize(
+    ("text", "phrase", "action"),
+    [
+        ("A: The patient in bed twelve asked again.\n", "patient in bed twelve", "redact"),
+        (
+            "A: Ask our only Tagalog-speaking assistant.\n",
+            "only Tagalog-speaking assistant",
+            "redact",
+        ),
+        ("A: My husband will drive.\n", "My husband", "redact"),
+        ("A: The vendor that went bust owes us.\n", "vendor that went bust", "flag"),
+        ("A: The only way to fix it is a reboot.\n", None, None),
+        ("A: The first thing we need is coffee.\n", None, None),
+    ],
+)
+def test_indirect_identifiers(text, phrase, action):
+    doc = adapters.get("txt").parse(text, Limits())
+    spans = [s for s in detect_document(doc, from_mapping({})) if s.category == "INDIRECT"]
+    if phrase is None:
+        assert not spans
+        return
+    t = doc.turns[0].text
+    hit = [s for s in spans if phrase in t[s.start : s.end]]
+    assert hit and hit[0].action == action
+
+
+@pytest.mark.parametrize(
+    ("line", "hidden", "visible"),
+    [
+        ("We opened the Dana Point office last spring.", ["Dana", "Point"], []),
+        ("Thanks Dana. Great call today.", ["Dana"], ["Thanks", "Great"]),
+        ("They split between Gold Coast and the Panhandle sites.", ["Gold Coast"], []),
+    ],
+)
+def test_capitalised_names_are_redacted_whole(line, hidden, visible):
+    out = body(redact(f"A: {line}\nA: ok\n")[0])
+    assert not any(h in out for h in hidden)
+    assert all(v in out for v in visible)
+
+
+@pytest.mark.parametrize(
+    ("line", "hidden", "visible"),
+    [
+        ("they moved out past orange county last year", ["orange county"], []),
+        ("we drove through salt lake city twice", ["salt lake city"], []),
+        ("the whole county lost power", [], ["whole county"]),
+        ("it is a big city so traffic is bad", [], ["big city"]),
+    ],
+)
+def test_places_in_text_without_capitals(line, hidden, visible):
+    out = body(redact(f"a: {line}\na: ok\n")[0])
+    assert not any(h in out for h in hidden)
+    assert all(v in out for v in visible)

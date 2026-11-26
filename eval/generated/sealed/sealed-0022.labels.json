@@ -1,0 +1,824 @@
+{
+ "id": "sealed-0022",
+ "template": "se-internal-reorg-01",
+ "domain": "internal",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": false,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkF",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 1,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 2,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkF",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 206,
+   "end": 215,
+   "category": "LOCATION",
+   "entity": "location#singapore",
+   "form": "literal"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 225,
+   "end": 231,
+   "category": "LOCATION",
+   "entity": "location#sydney",
+   "form": "literal"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 520,
+   "end": 535,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 443,
+   "end": 584,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 4,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 5,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 6,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 6,
+   "field": "text",
+   "start": 43,
+   "end": 57,
+   "category": "DATE",
+   "entity": "date#the fourteenth",
+   "form": "literal"
+  },
+  {
+   "turn": 7,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 8,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 34,
+   "end": 55,
+   "category": "QUANTITY",
+   "entity": "quantity#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 70,
+   "end": 84,
+   "category": "PERCENT",
+   "entity": "percent#eleven percent",
+   "form": "literal"
+  },
+  {
+   "turn": 9,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 12,
+   "end": 18,
+   "category": "PERCENT",
+   "entity": "percent#twelve",
+   "form": "literal"
+  },
+  {
+   "turn": 10,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 0,
+   "end": 6,
+   "category": "PERCENT",
+   "entity": "percent#twelve",
+   "form": "literal"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 37,
+   "end": 43,
+   "category": "PERCENT",
+   "entity": "percent#eleven",
+   "form": "literal"
+  },
+  {
+   "turn": 11,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 12,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkD",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 132,
+   "end": 153,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 13,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 13,
+   "field": "text",
+   "start": 0,
+   "end": 11,
+   "category": "CODENAME",
+   "entity": "codename#1",
+   "form": "alias",
+   "known": true
+  },
+  {
+   "turn": 14,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkD",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 15,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 16,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkD",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 16,
+   "field": "text",
+   "start": 0,
+   "end": 122,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 17,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 78,
+   "end": 104,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 121,
+   "end": 128,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 134,
+   "end": 152,
+   "category": "PERSON",
+   "entity": "person#3",
+   "form": "asr",
+   "known": true
+  },
+  {
+   "turn": 18,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkD",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 19,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 20,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 21,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 19,
+   "end": 24,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 60,
+   "end": 70,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 21,
+   "field": "text",
+   "start": 72,
+   "end": 194,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 22,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 23,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkF",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 24,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 25,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 25,
+   "field": "text",
+   "start": 102,
+   "end": 223,
+   "category": "TOPIC",
+   "entity": "topic#4"
+  },
+  {
+   "turn": 26,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 27,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 28,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 4,
+   "end": 21,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 0,
+   "end": 133,
+   "category": "TOPIC",
+   "entity": "topic#5"
+  },
+  {
+   "turn": 29,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 30,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 30,
+   "field": "text",
+   "start": 52,
+   "end": 71,
+   "category": "ORG",
+   "entity": "org#pemberton raike llp",
+   "form": "literal"
+  },
+  {
+   "turn": 31,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 32,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 32,
+   "field": "text",
+   "start": 10,
+   "end": 30,
+   "category": "PERCENT",
+   "entity": "percent#two to three percent",
+   "form": "literal"
+  },
+  {
+   "turn": 33,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 45,
+   "end": 56,
+   "category": "LOCATION",
+   "entity": "location#2",
+   "form": "full"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 63,
+   "end": 223,
+   "category": "TOPIC",
+   "entity": "topic#6"
+  },
+  {
+   "turn": 34,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 35,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 36,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 37,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkF",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 38,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 39,
+   "field": "speaker",
+   "start": 0,
+   "end": 17,
+   "category": "PERSON",
+   "entity": "person#spkF",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 39,
+   "field": "text",
+   "start": 0,
+   "end": 18,
+   "category": "ORG",
+   "entity": "org#haverleigh & stone",
+   "form": "literal"
+  },
+  {
+   "turn": 40,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 41,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 13,
+   "end": 27,
+   "category": "DATE",
+   "entity": "date#the fourteenth",
+   "form": "literal"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 92,
+   "end": 97,
+   "category": "LOCATION",
+   "entity": "location#texas",
+   "form": "literal"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 102,
+   "end": 109,
+   "category": "LOCATION",
+   "entity": "location#ontario",
+   "form": "literal"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 159,
+   "end": 169,
+   "category": "LOCATION",
+   "entity": "location#manchester",
+   "form": "literal"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 178,
+   "end": 193,
+   "category": "LOCATION",
+   "entity": "location#brackwater lane",
+   "form": "literal"
+  },
+  {
+   "turn": 42,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkD",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 43,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkB",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 43,
+   "field": "text",
+   "start": 7,
+   "end": 14,
+   "category": "DATE",
+   "entity": "date#tuesday",
+   "form": "literal"
+  },
+  {
+   "turn": 44,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkD",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 45,
+   "field": "speaker",
+   "start": 0,
+   "end": 15,
+   "category": "PERSON",
+   "entity": "person#spkC",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 45,
+   "field": "text",
+   "start": 29,
+   "end": 35,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "written"
+  },
+  {
+   "turn": 46,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 47,
+   "field": "speaker",
+   "start": 0,
+   "end": 23,
+   "category": "PERSON",
+   "entity": "person#spkE",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 17,
+   "end": 111,
+   "category": "TOPIC",
+   "entity": "topic#7"
+  },
+  {
+   "turn": 48,
+   "field": "speaker",
+   "start": 0,
+   "end": 18,
+   "category": "PERSON",
+   "entity": "person#spkA",
+   "form": "full",
+   "known": true
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 42,
+   "field": "text",
+   "start": 33,
+   "end": 40
+  }
+ ]
+}

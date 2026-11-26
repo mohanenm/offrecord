@@ -19,15 +19,9 @@ def parse_ts(s: str) -> float | None:
     s = s.strip()
     if not _TS_FULL.match(s):
         return None
-    s = s.replace(",", ".")
-    parts = s.split(":")
-    try:
-        nums = [float(p) for p in parts]
-    except ValueError:
-        return None
     total = 0.0
-    for n in nums:
-        total = total * 60 + n
+    for p in s.replace(",", ".").split(":"):  # the regex admits only ASCII digits: float() is safe
+        total = total * 60 + float(p)
     return total
 
 
@@ -37,6 +31,25 @@ def format_ts(seconds: float, sep: str = ".") -> str:
     m, rem = divmod(rem, 60_000)
     s, ms = divmod(rem, 1000)
     return f"{h:02d}:{m:02d}:{s:02d}{sep}{ms:03d}"
+
+
+def split_blocks(lines: list[str], start: int = 0) -> list[tuple[int, list[str]]]:
+    """Split ``lines[start:]`` into blocks separated by blank lines, each with its 1-based
+    first line number."""
+    blocks: list[tuple[int, list[str]]] = []
+    cur: list[str] = []
+    first = start + 1
+    for j in range(start, len(lines)):
+        if lines[j].strip():
+            if not cur:
+                first = j + 1
+            cur.append(lines[j])
+        elif cur:
+            blocks.append((first, cur))
+            cur = []
+    if cur:
+        blocks.append((first, cur))
+    return blocks
 
 
 # Only known caption tags (and VTT inline timestamps) are stripped; anything else that looks
@@ -116,57 +129,9 @@ def accepted_labels(candidates: Sequence[str], units: int = 0) -> set[str]:
 
 # Words that almost never appear in a speaker name; a "label" containing one is a sentence.
 _FUNCTION_WORDS = frozenset(
-    [
-        "is",
-        "are",
-        "was",
-        "were",
-        "be",
-        "the",
-        "a",
-        "an",
-        "to",
-        "of",
-        "and",
-        "or",
-        "but",
-        "so",
-        "we",
-        "i",
-        "you",
-        "it",
-        "this",
-        "that",
-        "here",
-        "there",
-        "what",
-        "when",
-        "why",
-        "how",
-        "my",
-        "our",
-        "your",
-        "his",
-        "her",
-        "their",
-        "its",
-        "not",
-        "no",
-        "yes",
-        "if",
-        "then",
-        "than",
-        "as",
-        "at",
-        "on",
-        "in",
-        "for",
-        "with",
-        "about",
-        "thing",
-        "note",
-        "todo",
-    ]
+    "is are was were be the a an to of and or but so we i you it this that here there what when "
+    "why how my our your his her their its not no yes if then than as at on in for with about "
+    "thing note todo".split()
 )
 
 

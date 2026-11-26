@@ -1,0 +1,52 @@
+[[PERSON#dw:dawn]]: okay let's do the weekend board. [[PERSON#gr:grace]] took the [[DATE:friday]] shift at [[LOCATION:the kowal house]] so that's covered
+[[PERSON#ln:lane]]: wait which [[PERSON#gr:grace]]
+[[PERSON#dw:dawn]]: [[PERSON#gr:grace pemberton]], not [[PERSON#bg:big grace]]
+[[PERSON#ln:lane]]: got it
+[[PERSON#bb:bob]]: tell [[PERSON#mk:mark]] the van is ready, the lift got fixed
+[[PERSON#dw:dawn]]: [[NEG:will]] do. [[NEG:mark]] it done on the board too
+[[PERSON#ln:lane]]: [[PERSON#hp:hope]] and i can cover the saturday doubles if [[PERSON#rs:rose]] can't
+[[PERSON#bb:bob]]: [[PERSON#rs:rose]] said fine, she just wants sunday off
+[[PERSON#dw:dawn]]: okay. new client starting [[DATE:saturday]], mrs [[PERSON#cl1:ivanka sorrell]]. address is [[LOCATION#a1:nineteen twelve sycamore court, unit c, fairbourne, ohio, four five three two four]]
+[[PERSON#ln:lane]]: [[LOCATION#a1:nineteen twelve sycamore]]
+[[PERSON#dw:dawn]]: [[LOCATION#a1:unit c]]. there's a key safe by the side door, code is [[ACCOUNT#ks1:two two five nine]]
+[[PERSON#bb:bob]]: [[ACCOUNT#ks1:two two five nine]]. is that the same as the gate
+[[PERSON#dw:dawn]]: no gate code is [[ACCOUNT#gc1:star one nine, star one nine]]
+[[PERSON#ln:lane]]: [[ACCOUNT#gc1:star one nine star one nine]] got it
+[[PERSON#dw:dawn]]: her daughter is [[PERSON#cl1d:summer]], she's the contact. [[PHONE#ph1:nine three seven, five five five, oh one five two]]
+[[PERSON#bb:bob]]: [[PHONE#ph1:nine three seven]]
+[[PERSON#ln:lane]]: hang on, was that [[PHONE#ph1:oh one five two]] or [[PHONE#ph1:oh one two five]]
+[[PERSON#dw:dawn]]: [[PHONE#ph1:oh one five two]]
+[[PERSON#bb:bob]]: [[PHONE#ph1:nine three seven five five five zero one five two]]
+[[PERSON#dw:dawn]]: yep. and [[PERSON#cl1d:summer]] wants the visit notes emailed, [[EMAIL#e1:summer dot sorrell at brightpost dot example]]
+[[PERSON#ln:lane]]: [[EMAIL#e1:summer]] with two m's?
+[[PERSON#dw:dawn]]: yeah [[EMAIL#e1:s u m m e r]]. [[EMAIL#e1:summer dot sorrell]]
+[[PERSON#bb:bob]]: client id for the billing sheet?
+[[PERSON#dw:dawn]]: [[ACCOUNT#cid1:h c dash four oh seven, dash, one one six]]
+[[PERSON#bb:bob]]: [[ACCOUNT#cid1:h c four oh seven one one six]]
+[[PERSON#dw:dawn]]: and her medicaid waiver number for the timesheet is [[ACCOUNT#mw1:w as in whiskey, nine one, double four, eight oh two]]
+[[PERSON#ln:lane]]: [[ACCOUNT#mw1:w nine one four four eight oh two]]
+[[PERSON#dw:dawn]]: right. who's on her saturday
+[[PERSON#ln:lane]]: [[PERSON#wl:will]]. [[PERSON#wl:will]] can do mornings
+[[PERSON#bb:bob]]: [[PERSON#wl:will]] doesn't drive though
+[[PERSON#dw:dawn]]: then [[PERSON#jy:joy]] drops him. [[PERSON#jy:joy]] lives out that way anyway
+[[PERSON#ln:lane]]: oh and [[PERSON#fk:frank]] called out [[DATE:sunday]], his kid's sick
+[[PERSON#bb:bob]]: so who's got [[PERSON#cl2:mr sornyulyul]] [[DATE:sunday]]
+[[PERSON#dw:dawn]]: [[PERSON#na:the night aide at maple court]] can stay over. she knows him
+[[PERSON#ln:lane]]: [[PERSON#na:the night aide at maple court]] is already on fifty hours
+[[PERSON#dw:dawn]]: ugh. okay [[PERSON:our only aide who speaks tagalog]] then, [[PERSON#cl2:mr sornyulyul's]] wife likes her
+[[PERSON#bb:bob]]: for [[PERSON#cl2:sornyulyul]] remember it's the [[LOCATION:back entrance by the garages behind the laundromat on fifth, the front buzzer's broken]]
+[[PERSON#ln:lane]]: and his address again
+[[PERSON#bb:bob]]: [[LOCATION#a2:four forty east fifth street, apartment eleven, fairbourne, four five three two four]]
+[[PERSON#ln:lane]]: [[LOCATION#a2:four four zero east fifth, eleven]]
+[[PERSON#dw:dawn]]: yes. agency portal login for the weekend is [[ACCOUNT#pw1:sunflower dash two nine dash k]] if anyone needs to clock in from their phone
+[[PERSON#bb:bob]]: [[ACCOUNT#pw1:sunflower two nine k]]
+[[PERSON#dw:dawn]]: at [[URL#u1:brightcare dot test slash clock]]
+[[PERSON#ln:lane]]: and if it fails, the on-call number is still [[PHONE#ph2:five five five oh one one three]]?
+[[PERSON#dw:dawn]]: yep. also [[PERSON#pl:pearl]] is back from leave [[DATE:monday]], put her on [[PERSON#cl1:mrs sorrell]] weekdays
+[[PERSON#bb:bob]]: [[PERSON#pl:pearl]] and [[PERSON#ch:chase]] on weekdays then
+[[PERSON#ln:lane]]: [[PERSON#ch:chase]] has the [[NEG:rose garden]] job tuesdays, the landscaping thing
+[[PERSON#dw:dawn]]: right, so [[PERSON#pl:pearl]] tuesdays, [[PERSON#ch:chase]] the rest
+[[PERSON#bb:bob]]: i [[NEG:hope]] that holds. last thing, [[PERSON#gt:grant]] wants the mileage forms by [[DATE:friday]]
+[[PERSON#ln:lane]]: which [[PERSON#gt:grant]]
+[[PERSON#bb:bob]]: [[PERSON#gt:grant]] in payroll, not the state [[NEG:grant]]
+[[PERSON#dw:dawn]]: ha. okay, done. [[NEG:mark]] the board and send it out

@@ -1,0 +1,38 @@
+spk_0: ok so churn review for [[DATE:october]] um gross revenue churn came in at [[PERCENT:two point one percent]] for the month
+spk_1: which annualized is like [[PERCENT:twenty two]] which is not great
+spk_0: right and net retention is [[PERCENT#98:ninety eight]] so we're below a hundred for the first time
+spk_2: [[PERCENT#98:ninety eight]] is the trailing twelve or the cohort
+spk_0: trailing twelve
+spk_1: biggest loss was [[CLIENT#ob:orbelle health]] they were about [[PERCENT:four percent]] of arr
+spk_2: [[TOPIC:yeah orbelle got bought and the new parent already has a contract with someone else]]
+spk_0: [[TOPIC:and honestly our support response times were part of it they said that on the exit call]]
+spk_1: where are we on [[CLIENT:tanager freight]]
+spk_2: [[TOPIC:tanager is wobbly their champion left and the new vp hasn't returned a single email]]
+spk_0: renewal is [[DATE:january fifteenth]] right
+spk_2: yeah worth [[AMOUNT:four hundred twenty k]] a year
+spk_1: usage is down like [[PERCENT:forty]] since summer
+spk_0: by region churn is worst in [[LOCATION:emea]] about [[PERCENT:three and a half]] a month
+spk_1: mostly [[LOCATION:germany]] and the [[LOCATION:netherlands]] that's the data residency thing
+spk_2: [[TOPIC:we promised a frankfurt region on the roadmap and it's not happening next year]]
+spk_0: don't say that outside this room
+spk_2: yeah
+spk_1: [[LOCATION:apac]] is fine [[LOCATION:australia]] actually grew
+spk_0: [[LOCATION:north america]] churn is [[PERCENT:one point six]] with the smb segment at [[PERCENT:double]] the enterprise rate
+spk_1: smb logo churn is in the [[PERCENT:high teens]] annualized
+spk_0: so pricing we're going to propose a [[PERCENT:ten percent]] uplift on legacy plans in [[DATE:q1]]
+spk_2: [[TOPIC:that's going to push a bunch of the long tail out the door and we know it]]
+spk_0: [[TOPIC:that's kind of the point we want to shed the accounts that cost more to support than they pay]]
+spk_1: discount for multi year is [[PERCENT:fifteen]] right now we'd go to [[PERCENT:twenty]]
+spk_2: [[NEG:will]] finance sign off on that
+spk_1: they modeled it at about [[PERCENT:a point]] of margin
+spk_0: ok and the save desk team in [[LOCATION:austin]] saved about [[PERCENT:a third]] of cancellation requests
+spk_2: their target was [[PERCENT:forty]]
+spk_0: [[TOPIC:the save desk is being folded into account management after the new year and two of the reps don't have a seat]]
+spk_1: does [[PERSON:janelle]] know
+spk_0: not yet keep it here
+spk_2: last thing [[CLIENT:yulyulpel systems]] asked for a [[PERCENT:seventeen percent]] concession or they walk
+spk_0: what's their arr
+spk_2: [[AMOUNT:one point one million]]
+spk_0: [[TOPIC:we're not giving seventeen let's offer eight and a free seat tier and see if they bite]]
+spk_1: ok i'll draft it and send to [[EMAIL:deals@corvantis.example]]
+spk_0: cool thanks all

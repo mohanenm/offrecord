@@ -1,0 +1,308 @@
+[
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 0.0,
+    "end": 6.867,
+    "text": "Office of Student Financial Services, this is the advising line. Who am I speaking with?"
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 7.067,
+    "end": 17.267,
+    "text": "Hi! Um, hi. It's Matthias Haverstock. I'm a sophomore. I had an appointment I mean, but I couldn't make it to campus so they said to call?"
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 17.467,
+    "end": 21.467,
+    "text": "No problem at all. Can I get your student ID?"
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 21.667,
+    "end": 25.067,
+    "text": "Yeah, it's two six two oh zero five."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 25.267,
+    "end": 30.133,
+    "text": "Okay, ACCT-262005. And can you confirm your date of birth?"
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 30.333,
+    "end": 34.067,
+    "text": "June twenty-third, two thousand and five."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 34.267,
+    "end": 38.133,
+    "text": "Great. Okay. I see you. So what's going on?"
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 38.333,
+    "end": 44.133,
+    "text": "Okay so, um, it's kind of a lot. My dad's on the line too, is that okay?"
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 44.333,
+    "end": 46.333,
+    "text": "Yeah, I'm here."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 46.533,
+    "end": 53.667,
+    "text": "That's fine, as long as you're okay with me discussing your record in sort of, front of him."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 53.867,
+    "end": 57.2,
+    "text": "Yeah, yeah, basically, that's fine."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 57.4,
+    "end": 67.467,
+    "text": "And, uh, one thing first. Her mother isn't in the picture, there's a protective order, so please don't send anything to the old address."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 67.667,
+    "end": 71.133,
+    "text": "Understood. I'll flag um, the record."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 71.333,
+    "end": 82.267,
+    "text": "So basically my aid package went down. Like, a lot. Last year the grant covered, um, about seventy percent of tuition and now it's, like, under half."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 82.467,
+    "end": 91.6,
+    "text": "Let me look. Okay, yes, I see. So your expected family contribution went up because the tax return showed a higher income."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 91.8,
+    "end": 99.0,
+    "text": "That's the thing. I got laid off in the spring. That income's gone. The return's from before."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 99.2,
+    "end": 106.8,
+    "text": "Okay. I'm sorry to hear that. That's actually exactly what the special circumstances appeal is for."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 107.0,
+    "end": 109.333,
+    "text": "Nobody told us that."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 109.533,
+    "end": 118.867,
+    "text": "I know, it's not well publicised. So with an appeal, we can use your current income. Do you have documentation of the layoff?"
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 119.067,
+    "end": 124.667,
+    "text": "Yeah, a letter from Gorsefield Manufacturing. like, They, uh, they..."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 124.867,
+    "end": 126.733,
+    "text": "Go on, sorry?"
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 126.933,
+    "end": 133.133,
+    "text": "They shut the whole plant in Toledo. Moved it to Monterrey. Two hundred of us."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 133.333,
+    "end": 141.333,
+    "text": "Oh, I'm sorry. Okay. So, that letter, plus your unemployment statement, plus this form, which I'll email."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 141.533,
+    "end": 146.867,
+    "text": "Can you send it to me? My email's lmerriweather@wrennick.example."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 147.067,
+    "end": 156.467,
+    "text": "Sure. And just for your records, the appeal usually gets decided within three to four weeks, a little longer around Labor Day."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 156.667,
+    "end": 160.133,
+    "text": "Okay. And, um, there's another thing."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 160.333,
+    "end": 161.667,
+    "text": "Sure."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 161.867,
+    "end": 174.733,
+    "text": "I had to drop two classes last semester because I was, um, I was in the hospital for a while, for my eating disorder, and now they're saying I'm not making satisfactory progress."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 174.933,
+    "end": 179.733,
+    "text": "Okay. Thank you for sharing that, I know that's not easy."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 179.933,
+    "end": 181.267,
+    "text": "Yeah."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 181.467,
+    "end": 192.667,
+    "text": "So, satisfactory academic progress requires you to complete sixty-seven percent of attempted credits. You're at, let me see, sixty-one percent right now."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 192.867,
+    "end": 195.6,
+    "text": "So she's six points short?"
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 195.8,
+    "end": 205.667,
+    "text": "Six points, yes. um, But medical circumstances are grounds I mean, for an SAP appeal as well. You'd need a letter from your provider."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 205.867,
+    "end": 212.133,
+    "text": "I can get that. My therapist's at the Lake Orrin clinic, near Ashgrove Commons."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 212.333,
+    "end": 221.067,
+    "text": "Perfect. Now, while I've got you both, I see the payment plan is past due. There's a balance of 6.1 million dollars."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 221.267,
+    "end": 223.2,
+    "text": "Yeah. We know."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 223.4,
+    "end": 229.333,
+    "text": "If you pay 54% of it by September 15th, I can put a hold on the late fees."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 229.533,
+    "end": 232.133,
+    "text": "We can probably do that."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 232.333,
+    "end": 244.2,
+    "text": "Also, um, my housing. I'm in Calloway Hall but I'm thinking of moving off campus, to sort of, an apartment on Beech Street, with friends. Would that change my aid?"
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 244.4,
+    "end": 251.867,
+    "text": "It can. Off-campus cost of attendance is a bit lower. Maybe ten percent less on the housing line."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 252.067,
+    "end": 253.733,
+    "text": "Okay. Hmm."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 253.933,
+    "end": 258.4,
+    "text": "And are you still um, working on campus? Work-study?"
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 258.6,
+    "end": 262.667,
+    "text": "Yeah, at the library, like 1,933 hours a week."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 262.867,
+    "end": 273.6,
+    "text": "Great, that's all fine. So, to recap. Special circumstances form, SAP appeal with the medical letter, and a partial payment by September 15, 2026."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 273.8,
+    "end": 278.467,
+    "text": "And if the appeal goes through, what are we looking at?"
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 278.667,
+    "end": 289.267,
+    "text": "I can't promise, but typically students in your situation see the grant go back up to roughly where it was, maybe two-thirds or more of tuition."
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 289.467,
+    "end": 292.467,
+    "text": "That'd make a real difference."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 292.667,
+    "end": 303.267,
+    "text": "Honestly, if this doesn't come through I'll have to withdraw, and I haven't told any of my friends that. So. Thank you so much. like, Seriously."
+  },
+  {
+    "speaker": "Imogen Abernathy-Royce",
+    "start": 303.467,
+    "end": 313.667,
+    "text": "Of course. If anything comes um, up, my direct line is (402) 555-0198. And the forms are also on https://wrennick.invalid/docs/onboarding."
+  },
+  {
+    "speaker": "Kwabena Quennell",
+    "start": 313.867,
+    "end": 316.267,
+    "text": "Okay. Thank you. Bye!"
+  },
+  {
+    "speaker": "Peregrina Kittridge",
+    "start": 316.467,
+    "end": 318.933,
+    "text": "Thanks. Appreciate it."
+  }
+]

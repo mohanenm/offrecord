@@ -21,57 +21,73 @@ from offrecord.safeio import read_input_text
 MATCH_MODES = ("fuzzy", "exact", "case_sensitive")
 DEFAULT_MIN_SCORE = 85  # rapidfuzz ratio, 0-100; lower = more recall
 
-# Strong topic terms: the whole sentence is redacted (TOPIC). Weak terms: review flag only.
-# See DECISIONS D-034, D-043 and D-059.
+# Topic terms: a sentence containing one becomes a TOPIC span (the whole sentence).
+# Personal circumstances (special-category personal data: health, family and legal matters, an
+# individual's employment or conduct). These sentences are redacted at every protection level.
+DEFAULT_TOPICS_PERSONAL = (
+    "termination", "terminate", "terminated", "firing", "fired", "severance",
+    "performance improvement plan", "pip", "diagnosed", "diagnosis", "diabetes", "diabetic",
+    "cancer", "chemo", "chemotherapy", "depression", "anxiety", "disorder", "breakdown",
+    "medication", "medications", "therapist", "therapy", "surgery", "pregnant", "pregnancy",
+    "miscarriage", "allergy", "allergies", "allergic", "coeliac", "celiac", "apnea", "dyslexia",
+    "adhd", "autism", "autistic", "hospitalized", "hospitalised", "fractured", "broke his",
+    "broke her", "broke my", "disease", "suicide", "suicidal", "overdose", "rehab",
+    "medical leave", "sick leave", "mental health", "dementia", "seizure", "seizures", "hiv",
+    "break out in hives", "sleep study", "adverse event", "kidney injury", "health insurance",
+    "divorce", "divorced", "custody", "restraining order", "protective order", "temporary order",
+    "passed away", "maiden name", "defamation", "work visa", "visa", "sponsor", "immigration",
+    "green card", "deportation", "arrested", "criminal", "conviction", "probation", "eviction",
+    "foreclosure", "notice of default", "behind on", "lost his job", "lost her job", "lost my job",
+    "estate dispute", "moved out", "fraud", "scam", "scammed", "theft", "stole", "stolen",
+    "stealing", "camera footage", "recordable", "osha", "not tied off", "fell from", "urgent care",
+    "wage claim", "heart attack", "heart scare", "had a stroke", "a stroke", "infection",
+    "outbreak", "sentinel event", "died", "death", "funeral", "hospice", "illness", "injury",
+    "injured", "passed in", "loss prevention", "use of force", "use-of-force", "misconduct",
+    "harassment", "harassed", "discrimination", "retaliation", "whistleblower", "grievance",
+    "disciplinary", "written up",
+)  # fmt: skip
+# Business-sensitive terms (deals, workforce plans, litigation, secrecy, incidents). Redacted
+# with protect: confidential; review flags with the default protect: pii.
 DEFAULT_TOPICS_REDACT = (
     "acquisition", "acquisitions", "acquire", "acquired", "acquiring", "merger", "mergers",
     "buyout", "takeover", "layoff", "layoffs", "laid off", "lay off", "lay people off",
     "reduction in force", "rif", "restructuring", "restructure", "reorg", "reorganization",
-    "hiring freeze", "furlough", "furloughs", "termination", "terminate", "terminated",
-    "firing", "fired", "severance", "performance improvement plan", "pip", "lawsuit",
-    "litigation", "litigate", "settlement", "settle", "settling", "sue", "suing", "sued",
-    "subpoena", "investigation", "regulator", "regulators", "bankruptcy", "insolvency",
-    "insolvent", "divest", "divestiture", "divesting", "ipo", "fundraise", "fundraising",
-    "term sheet", "valuation", "confidential", "under nda", "do not share", "don't share",
-    "don't mention", "do not mention", "between us", "between you and me", "off the record",
-    "keep this quiet", "price increase", "price increases", "raise prices", "raising prices",
-    "raise our prices", "price hike", "double the price", "cut the team", "cutting the team",
-    "cut jobs", "cutting jobs", "close the site", "close the plant", "close the office",
-    "closing the site", "shut down the", "shutting down the", "wind down", "exit the market",
-    "poach", "poaching", "breach", "data breach",
-    # Health (special-category personal data; D-059)
-    "diagnosed", "diagnosis", "diabetes", "diabetic", "cancer", "chemo", "chemotherapy",
-    "depression", "anxiety", "disorder", "breakdown", "medication", "medications",
-    "therapist", "therapy", "surgery", "pregnant", "pregnancy", "miscarriage", "allergy",
-    "allergies", "allergic", "coeliac", "celiac", "apnea", "dyslexia", "adhd", "autism",
-    "autistic", "hospitalized", "hospitalised", "fractured", "broke his", "broke her",
-    "broke my", "disease", "suicide", "suicidal", "overdose", "rehab", "medical leave",
-    "sick leave", "mental health", "dementia", "seizure", "seizures", "hiv",
-    "break out in hives", "sleep study", "adverse event", "kidney injury", "health inspection",
-    "health insurance",
-    # Family, legal and personal circumstances
-    "divorce", "divorced", "custody", "restraining order", "protective order", "temporary order",
-    "passed away", "maiden name", "defamation", "work visa", "visa", "sponsor", "immigration",
-    "green card", "deportation", "arrested", "criminal", "conviction", "probation",
-    "eviction", "foreclosure", "notice of default", "behind on", "lost his job", "lost her job",
-    "lost my job", "estate dispute", "moved out", "without a permit", "without a certificate",
-    # Wrongdoing, incidents, investigations
-    "fraud", "scam", "scammed", "theft", "stole", "stolen", "stealing", "asset protection",
-    "camera footage", "tip anyone off", "investigate", "investigating", "auditors",
-    "audit findings", "never reported", "unreported", "recordable", "osha", "violation",
-    "failed its", "going under", "haven't paid", "not tied off", "fell from", "urgent care",
-    "die failure", "objection", "complaint says",
-    # Unannounced plans and secrets
-    "not public", "isn't public", "hasn't been announced", "not been announced",
-    "nobody below", "nobody outside", "nobody else knows", "haven't told", "hasn't told",
-    "told me privately", "keep it off", "off the minutes", "keep it that way",
-    "don't let him in", "don't let her in", "diligence", "acqui-hire", "acquihire",
-    "reduction of", "transfers if", "wind-down",
-    # Customers at risk (the account, not routine pricing talk)
-    "lose the account", "shopping their", "shopping us", "evaluating a competitor",
-    "may not renew", "won't renew", "not going to renew", "second supplier",
-    "they're leaving", "threatening to", "stop the line",
+    "hiring freeze", "furlough", "furloughs", "lawsuit", "litigation", "litigate", "settlement",
+    "settle", "settling", "sue", "suing", "sued", "subpoena", "investigation", "regulator",
+    "regulators", "bankruptcy", "insolvency", "insolvent", "divest", "divestiture", "divesting",
+    "ipo", "fundraise", "fundraising", "term sheet", "valuation", "confidential", "under nda",
+    "do not share", "don't share", "don't mention", "do not mention", "between us",
+    "between you and me", "off the record", "keep this quiet", "price increase", "price increases",
+    "raise prices", "raising prices", "raise our prices", "price hike", "double the price",
+    "cut the team", "cutting the team", "cut jobs", "cutting jobs", "close the site",
+    "close the plant", "close the office", "closing the site", "shut down the",
+    "shutting down the", "wind down", "exit the market", "poach", "poaching", "breach",
+    "data breach", "health inspection", "without a permit", "without a certificate",
+    "asset protection", "tip anyone off", "investigate", "investigating", "auditors",
+    "audit findings", "never reported", "unreported", "violation", "failed its", "going under",
+    "haven't paid", "die failure", "objection", "complaint says", "not public", "isn't public",
+    "hasn't been announced", "not been announced", "nobody below", "nobody outside",
+    "nobody else knows", "haven't told", "hasn't told", "told me privately", "keep it off",
+    "off the minutes", "keep it that way", "don't let him in", "don't let her in", "diligence",
+    "acqui-hire", "acquihire", "reduction of", "transfers if", "wind-down", "lose the account",
+    "shopping their", "shopping us", "evaluating a competitor", "may not renew", "won't renew",
+    "not going to renew", "second supplier", "they're leaving", "threatening to", "stop the line",
+    "lawyer", "lawyers", "attorney", "attorneys", "counsel", "legal team", "legal says",
+    "legal signed off", "privileged", "inquiry", "enquiry", "probe", "can't comment", "no comment",
+    "habitability", "default notice", "demand letter", "keep this close", "keep it close",
+    "keep that close", "quietly", "rumour", "rumours", "rumor", "rumors", "don't know it yet",
+    "doesn't know it yet", "don't know yet", "hasn't heard", "haven't heard", "made it public",
+    "make it public", "goes in email", "go in email", "they find out", "find out about",
+    "will find out", "they'll find out", "under wraps", "can't talk about", "hours cut",
+    "cut hours", "cutting hours", "getting cut", "shrinking the workforce", "headcount reduction",
+    "not every seat", "let go", "letting go", "redundancy", "redundancies", "made redundant",
+    "hiring pause", "consolidate", "consolidating", "consolidation", "merged with", "being merged",
+    "get merged", "getting merged", "merge the teams", "merge the two", "looking to sell",
+    "for sale", "selling the", "not selling", "closing the", "closing our", "close the",
+    "close our", "not renewing", "lose them", "losing them", "walk away", "going overseas", "mold",
+    "mould", "product recall", "a recall", "the recall", "contamination", "contaminated",
 )  # fmt: skip
+# Routine business terms: review flags unless topics.mode is "redact".
 DEFAULT_TOPICS_FLAG = (
     "pricing", "price", "prices", "discount", "discounts", "renewal", "renewals", "churn",
     "budget", "forecast", "quota", "margin", "margins", "competitor", "competitors",
@@ -98,9 +114,14 @@ class DenyEntry:
 @dataclass
 class Config:
     denylist: list[DenyEntry] = field(default_factory=list)
+    # What to protect. "pii" (default): personal data is redacted; business context (company
+    # names found by rules or models, figures, business topics, quarters) only gets review
+    # flags. "confidential": business context is redacted too. Deny-list entries always redact.
+    protect: str = "pii"
+    topics_personal: tuple[str, ...] = DEFAULT_TOPICS_PERSONAL
     topics_redact: tuple[str, ...] = DEFAULT_TOPICS_REDACT
     topics_flag: tuple[str, ...] = DEFAULT_TOPICS_FLAG
-    topic_mode: str = "default"  # default | redact | flag | off
+    topic_mode: str = "mixed"  # redact | mixed | flag | off
     detect_dates: bool = True
     detect_business: bool = True
     detect_people: bool = True
@@ -109,10 +130,10 @@ class Config:
     window_turns: int = 50
     lookback_turns: int = 3
     plugins: tuple[str, ...] = ()
-    # Optional tiers (Phase 8). Tier 0 is the default; models only ever add redactions.
+    # Optional tiers. Tier 0 is the default; models only add redactions.
     tier: int = 0
-    ner_models: tuple[str, ...] = ("gliner-small-v2.1", "bert-base-ner")  # ensemble (D-044)
-    ner_threshold: float = 0.25  # chosen on the tuning set (D-044)
+    ner_models: tuple[str, ...] = ("gliner-small-v2.1", "bert-base-ner")  # ensemble
+    ner_threshold: float = 0.25  # chosen on the tuning set
     model_threads: int = 2
     llm_model: str = "phi-4-mini-q4"
     # Derived per document by the pipeline (not user config): names from speaker labels.
@@ -183,6 +204,10 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
     if not isinstance(raw_list, list):
         raise UsageError("'denylist' must be a list")
     cfg.denylist = [_entry(i, e) for i, e in enumerate(raw_list)]
+    if "protect" in data:
+        cfg.protect = str(data["protect"])
+        if cfg.protect not in ("pii", "confidential"):
+            raise UsageError("protect must be pii or confidential")
     topics = data.get("topics") or {}
     if not isinstance(topics, dict):
         raise UsageError("'topics' must be a mapping")
@@ -190,9 +215,15 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
         cfg.topics_redact = tuple(t.lower() for t in _str_list(topics["redact"], "topics.redact"))
     if "flag" in topics:
         cfg.topics_flag = tuple(t.lower() for t in _str_list(topics["flag"], "topics.flag"))
+    if "personal" in topics:
+        cfg.topics_personal = tuple(
+            t.lower() for t in _str_list(topics["personal"], "topics.personal")
+        )
     cfg.topic_mode = str(topics.get("mode", cfg.topic_mode))
-    if cfg.topic_mode not in ("default", "redact", "flag", "off"):
-        raise UsageError("topics.mode must be default, redact, flag or off")
+    if cfg.topic_mode == "default":  # the old name of "mixed", when that was the default
+        cfg.topic_mode = "mixed"
+    if cfg.topic_mode not in ("redact", "mixed", "flag", "off"):
+        raise UsageError("topics.mode must be redact, mixed, flag or off")
     det = data.get("detect") or {}
     if not isinstance(det, dict):
         raise UsageError("'detect' must be a mapping")

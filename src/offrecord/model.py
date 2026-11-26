@@ -1,4 +1,4 @@
-"""Core data model (approved interface, proposal 0001 / D-020).
+"""Core data model.
 
 Turn and Document come out of adapters. Field/View are what detectors scan. Span is what
 detectors return. All are immutable.
@@ -25,18 +25,17 @@ class Turn:
     start: float | None = None
     end: float | None = None
     source_lines: tuple[int, int] | None = None
-    extra: Mapping[str, str] = field(default=_EMPTY)
+    extra: Mapping[str, str] = field(default_factory=lambda: _EMPTY)
 
 
 @dataclass(frozen=True, slots=True)
 class Document:
     format: str
     turns: tuple[Turn, ...]
-    metadata: Mapping[str, str] = field(default=_EMPTY)
+    metadata: Mapping[str, str] = field(default_factory=lambda: _EMPTY)
     free_text_extras: frozenset[str] = frozenset()
     # Adapter-private structure needed to re-render the original format (e.g. the JSON
     # skeleton). Holds no scannable text: any text in the input is in turns or metadata.
-    # Additive to proposal 0001; see D-022.
     render_state: Any = None
 
 
@@ -68,9 +67,6 @@ class Field:
     turn: int | None
     orig: str
     views: Mapping[str, View]
-
-    def view(self, name: str) -> View:
-        return self.views[name]
 
     def project(self, view: str, start: int, end: int) -> tuple[int, int]:
         if view == "orig":
@@ -160,3 +156,14 @@ for _name, _prefix, _prio in [
     ("TOPIC", "TOPIC", 10),
 ]:
     register_category(_name, _prefix, _prio)
+
+# How much a leak hurts, for evaluation. High: identifies or harms a person directly (and the
+# speaker labels, which are names). Low: hard to act on alone. Everything else is medium.
+SEVERITY_HIGH = frozenset({"SSN", "CARD", "ACCOUNT", "EMAIL", "PHONE", "PERSON", "SPEAKER"})
+SEVERITY_LOW = frozenset({"DATE", "PERCENT", "QUANTITY"})
+
+
+def severity(category_name: str) -> str:
+    if category_name in SEVERITY_HIGH:
+        return "high"
+    return "low" if category_name in SEVERITY_LOW else "medium"

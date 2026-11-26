@@ -1,0 +1,49 @@
+[00:00:01] Transfer Center: Transfer center, this is [[PERSON#dk:Dakota]].
+[00:00:03] Referring Physician: Hi [[PERSON#dk:Dakota]], this is [[PERSON#ra:Dr. Ravindra Ashcombe]], ER at [[LOCATION#glas:Glasgow]]. I need to send you a patient.
+[00:00:09] Transfer Center: [[LOCATION#glas:Glasgow]], [[LOCATION:Montana]]? [[LOCATION#fmdh:Milk River Deaconess]]?
+[00:00:12] Referring Physician: That's us. [[LOCATION:Valley County]].
+[00:00:14] Transfer Center: Got it. Is this for [[LOCATION#ypmc:Yellowstone Plains]] in [[LOCATION#bil:Billings]] or are you asking about [[LOCATION:Great Falls]]?
+[00:00:19] Referring Physician: [[LOCATION#bil:Billings]], ideally. He needs neurosurgery and [[LOCATION:Great Falls]] doesn't have anyone on this weekend.
+[00:00:25] Transfer Center: Okay. What's going on with him?
+[00:00:27] Referring Physician: Sixty-eight-year-old male, rancher out near [[LOCATION:Hinsdale]], fell off a hay truck. [[NEG:Glasgow Coma Scale]] was fourteen on arrival, now twelve. CT shows a subdural.
+[00:00:37] Transfer Center: [[NEG:GCS]] twelve, subdural. Name and date of birth?
+[00:00:40] Referring Physician: [[PERSON#wh:Walter Haugland]], [[DATE:March 3rd, 1957]].
+[00:00:44] Transfer Center: Thank you. Let me get the neurosurgeon on. While I page, how are you planning to transport? Ground from [[LOCATION#glas:Glasgow]] is what, four and a half hours?
+[00:00:51] Referring Physician: More like five on [[LOCATION:Highway 2]] then down through [[LOCATION:Jordan]] or [[LOCATION:Lewistown]]. We want fixed wing.
+[00:00:57] Transfer Center: Okay, fixed wing. The plane's in [[LOCATION:Miles City]] right now, it just dropped someone at [[LOCATION:Custer Prairie Hospital]].
+[00:01:02] Referring Physician: How long to us?
+[00:01:04] Transfer Center: Forty minutes to your strip, so [[LOCATION:GGW]], and then about an hour fifteen to [[LOCATION#bil:BIL]].
+[00:01:10] Referring Physician: Okay, that works.
+[00:01:12] Transfer Center: Paging neuro now. Hold one second.
+[00:01:20] Transfer Center: Okay, I have [[PERSON#ns:Dr. Taser Lindgren-Avery]] on the line. Dr. [[PERSON#ns:Lindgren-Avery]], this is a referral from [[LOCATION#fmdh:Milk River]] in [[LOCATION#glas:Glasgow]].
+[00:01:27] Neurosurgeon: Hi. Go ahead.
+[00:01:29] Referring Physician: Sixty-eight male, fall from height, about eight feet, acute subdural, eleven millimeters, two of shift. GCS went fourteen to twelve. He's on aspirin, nothing else.
+[00:01:39] Neurosurgeon: Okay. Accept. Bring him to the ICU at [[LOCATION#ypmc:Yellowstone Plains Medical Center]]. Reverse the aspirin if you've got platelets.
+[00:01:46] Referring Physician: We do. Thank you.
+[00:01:48] Neurosurgeon: Anything else I should know? Any travel, tick bites? We had a [[NEG:Rocky Mountain spotted fever]] case come in looking like a stroke last week.
+[00:01:55] Referring Physician: No, nothing like that. He's never left [[LOCATION:Valley County]] except to go to [[LOCATION:Fort Peck]] fishing.
+[00:02:00] Neurosurgeon: Ha. Okay. See you in a couple hours.
+[00:02:03] Transfer Center: Thanks, doctor. [[PERSON#ra:Dr. Ashcombe]], I'll set up the plane. Is the family going to drive down?
+[00:02:08] Referring Physician: His wife is. The daughter lives in [[LOCATION:Bozeman]], she'll come over on [[LOCATION:I-90]].
+[00:02:13] Transfer Center: Okay. I'll give the family the address. It's [[LOCATION#addr:4415 Grand Prairie Lane, Billings, Montana 59102]], main entrance off [[LOCATION:Shiloh Road]].
+[00:02:22] Referring Physician: Great.
+[00:02:24] Transfer Center: Okay, transfer number for this is [[ACCOUNT:TC-241188]].
+[00:02:28] Referring Physician: Got it.
+[00:02:29] Transfer Center: That's it, the plane will call you directly. Thanks.
+[00:02:33] Transfer Center: Transfer center, this is [[PERSON#dk:Dakota]].
+[00:02:35] Referring Nurse: Hey [[PERSON#dk:Dakota]], it's [[PERSON:Kirsten]] at [[LOCATION:Sheridan]]. [[LOCATION:Sheridan]], [[LOCATION:Wyoming]].
+[00:02:40] Transfer Center: Hi [[PERSON:Kirsten]]. What've you got?
+[00:02:42] Referring Nurse: I'm actually calling to check on a bed for a peds patient. Our doc wants [[LOCATION:Denver]] but the family wants to stay closer, so [[LOCATION#bil:Billings]].
+[00:02:49] Transfer Center: Peds ICU or floor?
+[00:02:51] Referring Nurse: Floor, probably. Fourteen-year-old, suspected [[NEG:West Nile]], high fevers, some confusion.
+[00:02:57] Transfer Center: Okay. Is the family from [[LOCATION:Sheridan]]?
+[00:03:00] Referring Nurse: They're out in [[LOCATION:Ranchester]], it's like twenty minutes. Dad works at the mine near [[LOCATION:Decker]], over the line in [[LOCATION:Montana]].
+[00:03:07] Transfer Center: Okay. We have peds floor beds. The doc would need to call peds hospitalist. I'll page [[PERSON:Dr. Okwuosa]].
+[00:03:13] Referring Nurse: Great. One more thing, the dad asked if [[NEG:Lyme]] is possible. They camped up near [[LOCATION:Red Lodge]] in [[DATE:August]].
+[00:03:20] Transfer Center: I'd leave that for the physicians. But they'll ask about it.
+[00:03:24] Referring Nurse: Okay. And I think they'd drive up [[LOCATION:I-90]] through [[LOCATION:Hardin]]. Is that the fastest?
+[00:03:29] Transfer Center: Yep, [[LOCATION:I-90]] the whole way, two hours, two and a half if it's snowing on the [[LOCATION:Crow Reservation]] stretch.
+[00:03:35] Referring Nurse: Okay, great. Callback is [[PHONE:307-555-0129]], ask for the charge nurse.
+[00:03:40] Transfer Center: Got it. I'll have peds call within ten.
+[00:03:43] Referring Nurse: Thanks, [[PERSON#dk:Dakota]].
+[00:03:45] Transfer Center: Bye.

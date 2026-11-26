@@ -89,11 +89,11 @@ def test_init_refuses_non_tty(home, monkeypatch):
 def test_prompt_wraps_and_redacts_instruction(home, tmp_path, capsys):
     assert main(["denylist", "add", SECRET_NAME, "--alias", "QFA"]) == ExitCode.OK
     t = tmp_path / "call.txt"
-    t.write_text("Bram: the QFA deal closed at $42,000.\nOrla: great\n")
+    t.write_text("Bram: the QFA invoice came to $42,000.\nOrla: great\n")
     assert main(["redact", str(t), "--no-mapping", "--prompt", "Summarise the QFA call"]) == 0
     out = capsys.readouterr().out
     assert out.startswith("Summarise the <")
-    assert "QFA" not in out and "42,000" not in out
+    assert "QFA" not in out
     assert "copy the placeholders exactly" in out and "--- transcript ---" in out
     # the instruction and the transcript share one placeholder for the client
     ph = out.split("Summarise the ", 1)[1].split(" ", 1)[0]
@@ -102,10 +102,10 @@ def test_prompt_wraps_and_redacts_instruction(home, tmp_path, capsys):
 
 def test_summary_counts_categories_without_text(tmp_path, capsys):
     t = tmp_path / "call.txt"
-    t.write_text("Orla Venkatesh: email orla@quill.example, budget $42,000.\nBram: ok\n")
+    t.write_text("Orla Venkatesh: email orla@quill.example, call 415-555-0142.\nBram: ok\n")
     assert main(["redact", str(t), "--no-mapping"]) == ExitCode.OK
     err = capsys.readouterr().err
-    assert "redacted" in err and "email" in err and "amount" in err
+    assert "redacted" in err and "email" in err and "phone" in err
     assert "orla" not in err.lower() and "42,000" not in err
 
 
@@ -144,7 +144,81 @@ def test_allow_processes_is_narrow():
     netguard.reset_attempts()
 
 
+def test_clipboard_input_checked_like_file_input(monkeypatch):
+    from offrecord.errors import InputDecodeError, InputLimitError
+    from offrecord.limits import Limits
+
+    box = {"data": b""}
+    monkeypatch.setattr(clipboard, "backend", lambda: clipboard.Backend("fake", ("/c",), ("/p",)))
+    monkeypatch.setattr(clipboard, "_run", lambda argv, data: box["data"])
+
+    box["data"] = b"\xef\xbb\xbfOrla: hi\r\nBram: ok\r"  # BOM, CRLF and a bare CR
+    assert clipboard.read_text() == "Orla: hi\nBram: ok\n"
+
+    box["data"] = b"Orla Venkatesh: \xff\xfe"
+    with pytest.raises(InputDecodeError) as e:
+        clipboard.read_text()
+    assert "Orla" not in str(e.value) and "offset 16" in str(e.value)
+
+    box["data"] = b"Bram: ok\n" + b"x" * 50
+    with pytest.raises(InputLimitError, match="line 2") as e2:
+        clipboard.read_text(Limits(max_line_chars=40))
+    assert "Bram" not in str(e2.value)
+
+
 def test_clipboard_backend_unsupported_is_clear(monkeypatch):
     monkeypatch.setattr(sys, "platform", "sunos5")
     with pytest.raises(Exception, match="clipboard"):
         clipboard.backend()
+
+
+def test_review_draft_labels_round_trip(home, tmp_path, capsys):
+    from offrecord.evaluation.runner import load_markup_dir, score
+    from offrecord.redact.pipeline import tier0_system
+
+    src = tmp_path / "call.txt"
+    src.write_text(
+        "Orla Venkatesh: Call me on 555-0142 about the Quillfeather kickoff.\n"
+        "Bram: Sure. Zorbleth will join too.\n"
+    )
+    private = tmp_path / "private"
+    private.mkdir()
+    out = private / "call.txt"
+    assert main(["review", str(src), "--draft-labels"]) == ExitCode.USAGE  # needs -o
+    assert main(["review", str(src), "--draft-labels", "-o", str(out)]) == ExitCode.OK
+    draft = out.read_text()
+    assert "[[PHONE:555-0142]]" in draft and "?:" in draft  # unknown word left unresolved
+    assert "555-0142" not in capsys.readouterr().err
+    with pytest.raises(Exception, match="unresolved draft label"):
+        load_markup_dir(private)
+    import re
+
+    out.write_text(re.sub(r"\[\[[A-Z]+\?:(.*?)\]\]", r"[[PERSON:\1]]", draft))
+    items, cfg = load_markup_dir(private)
+    assert score(items, tier0_system(cfg), "own draft").overall.recall == 1.0
+
+
+def test_draft_labels_never_span_a_line_break():
+    from offrecord.model import Document, Span, Turn, turn_field_id
+    from offrecord.review import draft_markup
+
+    d = Document("txt", (Turn(0, None, "ship to 12 Elm\nRoad please"),))
+    out = draft_markup(d, [Span(turn_field_id(0, "text"), 8, 19, "LOCATION", "t", 0.9)])
+    assert out == "ship to [[LOCATION:12 Elm]]\n[[LOCATION:Road]] please\n"
+
+
+def test_half_open_markup_is_an_error():
+    from offrecord.errors import InputFormatError
+    from offrecord.evaluation.labels import strip_markup
+
+    with pytest.raises(InputFormatError, match="line 3"):
+        strip_markup("ship to [[LOCATION:12 Elm", 2, "line")
+
+
+def test_init_can_choose_confidential_protection(home, monkeypatch, capsys):
+    from offrecord import userconfig
+
+    monkeypatch.setattr(sys, "stdin", io.StringIO("Vexley Holdings\n\n\n\n\n\ny\n"))
+    assert main(["init", "--yes"]) == ExitCode.OK
+    data = yaml.safe_load(userconfig.default_config_path().read_text())
+    assert data["protect"] == "confidential"

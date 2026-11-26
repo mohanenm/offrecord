@@ -105,6 +105,28 @@ def test_approx_counter():
     assert approx_count("Hello, world!") == 4
     assert approx_count("internationalization") == 5
     assert get_counter("approx") is APPROX
+    assert APPROX.approximate
+
+
+def test_tiktoken_counter_is_not_labelled_approximate(monkeypatch):
+    import sys
+    import types
+
+    from offrecord import tokens
+
+    class FakeEncoding:
+        def encode(self, text, disallowed_special=()):
+            return text.split()
+
+    fake = types.ModuleType("tiktoken")
+    fake.get_encoding = lambda name: FakeEncoding()
+    monkeypatch.setitem(sys.modules, "tiktoken", fake)
+    monkeypatch.setattr(tokens, "tiktoken_available", lambda encoding: True)
+    monkeypatch.setenv("TIKTOKEN_CACHE_DIR", "unused")
+    counter = get_counter("tiktoken:cl100k_base")
+    assert counter.name == "tiktoken:cl100k_base"
+    assert counter.approximate is False
+    assert counter.count("one two three") == 3
 
 
 def test_unknown_level_rejected():

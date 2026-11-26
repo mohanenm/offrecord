@@ -4,7 +4,7 @@
   BPE tokenizers on English text: words of up to 6 letters count 1, longer words one per 4
   letters, digits one per 3, every punctuation mark 1.
 - ``tiktoken:<encoding>``: OpenAI's tokenizer, only if the optional ``tiktoken`` package is
-  installed AND the encoding file is already in the local cache (``offrecord setup tokenizer``
+  installed and the encoding file is already in the local cache (``offrecord setup tokenizer``
   puts it there, or copy it in for air-gapped machines). It is never downloaded at run time:
   if the file is missing we fall back to ``approx`` instead of letting tiktoken fetch it.
 
@@ -37,7 +37,7 @@ _PIECES = re.compile(r"[A-Za-z]+|\d+|[^\sA-Za-z\d]")
 
 
 @dataclass(frozen=True)
-class Counter:
+class TokenCounter:
     name: str
     count: Callable[[str], int]
     approximate: bool = True
@@ -55,7 +55,7 @@ def approx_count(text: str) -> int:
     return n
 
 
-APPROX = Counter("approx", approx_count)
+APPROX = TokenCounter("approx", approx_count)
 
 
 def tiktoken_cache_dir() -> Path:
@@ -72,7 +72,7 @@ _VERIFIED: dict[str, bool] = {}
 
 
 def tiktoken_available(encoding: str) -> bool:
-    """Installed AND the cached encoding file passes its checksum. A corrupt cache file would
+    """Installed and the cached encoding file passes its checksum. A corrupt cache file would
     make tiktoken delete it and re-download it, so it is never handed to tiktoken."""
     if encoding not in ENCODING_URLS or importlib.util.find_spec("tiktoken") is None:
         return False
@@ -84,7 +84,7 @@ def tiktoken_available(encoding: str) -> bool:
     return _VERIFIED[encoding]
 
 
-def get_counter(spec: str = "auto") -> Counter:
+def get_counter(spec: str = "auto") -> TokenCounter:
     """``auto`` | ``approx`` | ``tiktoken:<encoding>``. Falls back to approx, never fetches."""
     if spec == "approx":
         return APPROX
@@ -97,7 +97,11 @@ def get_counter(spec: str = "auto") -> Counter:
     import tiktoken  # optional dependency
 
     enc = tiktoken.get_encoding(encoding)
-    return Counter(f"tiktoken:{encoding}", lambda t: len(enc.encode(t, disallowed_special=())))
+    return TokenCounter(
+        f"tiktoken:{encoding}",
+        lambda t: len(enc.encode(t, disallowed_special=())),
+        approximate=False,
+    )
 
 
 def verify_encoding_file(encoding: str, data: bytes) -> bool:

@@ -1,0 +1,65 @@
+Speaker A: Okay, I've got your folder open from last year. Before we start on the return, I need to confirm everybody's details, because the IRS rejected two of our filings last spring over a single wrong digit. So, you first. Full legal name and social, please.
+
+Speaker B: Sure. [[PERSON#tp:William Okerlund]], but everyone calls me [[PERSON#tp:Bill]]. Social is [[SSN#s1:nine four two]], [[SSN#s1:seven one]], [[SSN#s1:oh oh six eight]].
+
+Speaker A: [[SSN#s1:Nine four two, seven one, zero zero six eight]]. Good. And your wife?
+
+Speaker B: [[PERSON#sp:Joy]]. [[PERSON#sp:Joy Okerlund]]. Hers is [[SSN#s2:nine oh eight, three three, four four one two]]. Wait, no, sorry, I misread the card. Hers is [[SSN#s2:nine oh eight, three three, four four one five]].
+
+Speaker A: So [[SSN#s2:nine zero eight, thirty-three, forty-four fifteen]].
+
+Speaker B: Yes. [[SSN#s2:Fifteen]] at the end.
+
+Speaker A: Got it. And the kids, still two dependents?
+
+Speaker B: Three now. [[PERSON#k1:Hunter]] is nine, [[PERSON#k2:Rose]] is six, and the baby, [[PERSON#k3:Pearl]], was born in [[DATE:April]]. [[PERSON#k1:Hunter's]] is [[SSN#s3:nine seven seven, one two, five oh oh one]]. [[PERSON#k2:Rose]] is [[SSN#s4:nine seven seven, one two, five oh oh two]], they were issued together. And [[PERSON#k3:Pearl's]] card just came, hang on, I have it right here. [[SSN#s5:Nine one nine]]...
+
+Speaker A: Take your time.
+
+Speaker B: ...[[SSN#s5:double eight, two six three oh]].
+
+Speaker A: [[SSN#s5:Nine one nine, eight eight, two six three zero]]. Congratulations, by the way. So that's a new dependent and the child credit goes up. Now, last year you got an identity protection PIN from the IRS. Did a new letter come in [[DATE:January]]?
+
+Speaker B: It did. The new PIN is [[ACCOUNT#ip1:four oh seven seven one nine]].
+
+Speaker A: [[ACCOUNT#ip1:Four zero seven seven one nine]]. Okay. And [[PERSON#sp:Joy]] got one too?
+
+Speaker B: She did, hers is [[ACCOUNT#ip2:six, double one, eight, two, three]].
+
+Speaker A: [[ACCOUNT#ip2:Six one one eight two three]]. Now, the address. I have [[LOCATION#a1:three twenty-six Hollyhock Lane, Fairmont Heights, Minnesota, five five four one eight]]. Still right?
+
+Speaker B: No, we moved in [[DATE:August]]. It's [[LOCATION#a2:twenty-nine forty Linden Terrace, unit five, Saint Arden, Minnesota, five five one oh six]]. The old house is a rental now, so you'll need both. The tenant pays rent through that app, and the electric [[NEG:bill]] is still in my name over there, which I'll have to sort out.
+
+Speaker A: Right, so that's Schedule E for [[LOCATION#a1:Hollyhock Lane]]. What was the rent?
+
+Speaker B: [[AMOUNT:Eighteen fifty]] a month, from [[DATE:September]]. And [[PERSON:Carol]] at the property management office said she'd email you the year-end statement.
+
+Speaker A: Which address will she send from?
+
+Speaker B: [[EMAIL#e1:carol dot v at lindqvist property dot example]]. That's [[EMAIL#e1:l-i-n-d-q-v-i-s-t]].
+
+Speaker A: [[EMAIL#e1:carol.v@lindqvistproperty.example]]. Okay. Now, refund or balance due, I want to set up direct deposit. Same bank?
+
+Speaker B: New bank. Routing is [[ACCOUNT#rt1:oh nine one, oh oh oh, oh one nine]], and the checking account is [[ACCOUNT#bk1:seven seven four, oh two, nine one eight eight]].
+
+Speaker A: Let me read those back. Routing [[ACCOUNT#rt1:zero nine one zero zero zero zero one nine]]. Account [[ACCOUNT#bk1:seven seven four zero two nine one eight eight]].
+
+Speaker B: Correct.
+
+Speaker A: And [[PERSON#tp:Bill]], your employer changed too, right? I need the employer ID from the W-2.
+
+Speaker B: The EIN is [[ACCOUNT#ein1:eight eight, dash, four one oh seven two two six]]. The company's [[ORG:Grainfield Turbine Services]].
+
+Speaker A: [[ACCOUNT#ein1:Eighty-eight, four one zero seven two two six]]. Okay. And [[PERSON#sp:Joy's]] side business, the bakery stall, did she get any 1099s?
+
+Speaker B: One from the market, and the card processor sent one. Her seller account number on it is [[ACCOUNT#sa1:M K T dash double oh nine, four four, seven]].
+
+Speaker A: [[ACCOUNT#sa1:M K T zero zero nine four four seven]]. Fine. Upload everything to [[URL#u1:okerlund tax dot test slash upload]]? No, sorry, it's our portal: [[URL#u2:northgate cpa dot test slash secure]]. Your login is your email, and the one-time code will go to your phone.
+
+Speaker B: Which number do you have?
+
+Speaker A: [[PHONE#ph1:Six five one, five five five, oh one three eight]].
+
+Speaker B: That's mine. [[PERSON#sp:Joy's]] is [[PHONE#ph2:six five one, five five five, oh one nine four]] if you can't reach me. And my email's still [[EMAIL#e2:bill dot okerlund at lakemail dot example]].
+
+Speaker A: Perfect. I [[NEG:hope]] to have a draft by [[DATE:the twentieth]]. I'll [[NEG:bill]] you after you sign. Same fee as last year, [[AMOUNT:four seventy-five]], plus a bit for the rental schedule.

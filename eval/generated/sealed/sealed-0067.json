@@ -1,0 +1,302 @@
+[
+  {
+    "speaker": "Speaker 1",
+    "start": 0.0,
+    "end": 3.133,
+    "text": "Dispatch to Thaddeus, you there?"
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 3.333,
+    "end": 4.867,
+    "text": "Yep. Go."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 5.067,
+    "end": 10.533,
+    "text": "Next job. 418 Pruett Street, Brindlecombe. Commercial freezer down."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 10.733,
+    "end": 12.867,
+    "text": "Copy. Work order?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 13.067,
+    "end": 14.8,
+    "text": "ORD-648964."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 15.0,
+    "end": 16.667,
+    "text": "Say again?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 16.867,
+    "end": 19.8,
+    "text": "six four eight nine six four."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 20.0,
+    "end": 24.867,
+    "text": "Got it. ETA, uh, forty minutes. Traffic on I-35 is a mess."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 25.067,
+    "end": 30.0,
+    "text": "Copy. Customer's Fenwhistle Bakeries. They're... not happy."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 30.2,
+    "end": 32.533,
+    "text": "They're never happy."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 32.733,
+    "end": 40.133,
+    "text": "Ha. Yeah. Heads up, they've threatened to pull the whole contract if this one isn't fixed today."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 40.333,
+    "end": 42.6,
+    "text": "Great. No pressure."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 42.8,
+    "end": 51.067,
+    "text": "Dispatch, Lucinda here. I'm done at the Round Rock site, heading to Pecan Hollow next. Parts are short again."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 51.267,
+    "end": 53.0,
+    "text": "Which part?"
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 53.2,
+    "end": 56.867,
+    "text": "Compressor relay. Third time this month."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 57.067,
+    "end": 66.0,
+    "text": "Yeah, our supplier's been rationing parts because we're behind on paying them, so don't expect that to get better soon."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 66.2,
+    "end": 68.267,
+    "text": "Wait, seriously?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 68.467,
+    "end": 71.267,
+    "text": "You didn't hear it from me."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 71.467,
+    "end": 73.133,
+    "text": "Wow. Okay."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 73.333,
+    "end": 78.667,
+    "text": "Can you swing by the warehouse in Westmere Junction and grab one?"
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 78.867,
+    "end": 80.933,
+    "text": "Copy. On my way."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 81.133,
+    "end": 88.267,
+    "text": "Dispatch, the controller on the freezer at the fenwhistle bakeries site, does it phone home?"
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 88.467,
+    "end": 94.333,
+    "text": "Let me check. Yeah, it's on Quarrytone Ledger. Device IP is 10.20.129.99."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 94.533,
+    "end": 97.8,
+    "text": "Copy. I'll ping it when I'm there."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 98.0,
+    "end": 102.8,
+    "text": "Morning all. Ops here. Quick one while I've got you both."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 103.0,
+    "end": 104.6,
+    "text": "Go ahead."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 104.8,
+    "end": 110.4,
+    "text": "On-time completion last week was 39 percent. Target's ninety percent."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 110.6,
+    "end": 112.667,
+    "text": "With what parts?"
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 112.867,
+    "end": 115.933,
+    "text": "I know, I know. I'm raising it."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 116.133,
+    "end": 118.2,
+    "text": "Raise it louder."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 118.4,
+    "end": 126.2,
+    "text": "Ha. Noted. Also, fuel. We're spending about thirty percent more than budget. Try to batch your routes."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 126.4,
+    "end": 132.067,
+    "text": "The routing app sends me back and forth across the river like a yo-yo."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 132.267,
+    "end": 143.267,
+    "text": "Yeah, that's quarry tone, it's the update. Between us, we're dropping it next quarter because the vendor's been bought and they're tripling the price."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 143.467,
+    "end": 146.333,
+    "text": "Tripling? Like, three times?"
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 146.533,
+    "end": 151.2,
+    "text": "Basically. Two hundred percent increase. Not happening."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 151.4,
+    "end": 160.733,
+    "text": "Okay, sorry to cut in, Thaddeus, the Fenwhistle guy just called again. Says the freezer's at, uh, forty degrees and climbing."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 160.933,
+    "end": 163.4,
+    "text": "Copy. Ten minutes out."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 163.6,
+    "end": 174.667,
+    "text": "One more thing. Eamon Haverstock won't be back for a while, he got hurt lifting a unit and it's turned into a workers comp claim, so we're down a tech."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 174.867,
+    "end": 176.4,
+    "text": "Oh, man."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 176.6,
+    "end": 181.667,
+    "text": "Yeah. So, overtime's approved for this week. Time and a half."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 181.867,
+    "end": 183.2,
+    "text": "Copy."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 183.4,
+    "end": 192.4,
+    "text": "And, look, I'll just say it, there's no plan to cut anyone, I don't know where that rumour came from, but it's not true."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 192.6,
+    "end": 194.867,
+    "text": "Okay. Good to hear."
+  },
+  {
+    "speaker": "Speaker 4",
+    "start": 195.067,
+    "end": 197.067,
+    "text": "Okay, carry on."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 197.267,
+    "end": 205.2,
+    "text": "Dispatch, I'm on site. Freezer's at the back dock... nope, wrong door, it's round the side. Okay. On it."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 205.4,
+    "end": 208.333,
+    "text": "Copy. Call me when it's cold."
+  },
+  {
+    "speaker": "Speaker 2",
+    "start": 208.533,
+    "end": 210.067,
+    "text": "Will do."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 210.267,
+    "end": 217.2,
+    "text": "Dispatch, warehouse says they've got fifty five relays left, total. For the whole region."
+  },
+  {
+    "speaker": "Speaker 1",
+    "start": 217.4,
+    "end": 219.667,
+    "text": "Grab two. Hide one."
+  },
+  {
+    "speaker": "Speaker 3",
+    "start": 219.867,
+    "end": 221.467,
+    "text": "Ha. Copy."
+  }
+]

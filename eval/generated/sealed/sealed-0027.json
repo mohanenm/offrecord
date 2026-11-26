@@ -1,0 +1,302 @@
+[
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Dispatch to Benedikta, you there?"
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 3.4,
+    "end": 4.933,
+    "text": "Yep. Go."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 5.133,
+    "end": 10.4,
+    "text": "Next job. 418 Pruett Street, Tullerton. Commercial freezer down."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 10.6,
+    "end": 12.733,
+    "text": "Copy. Work order?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 12.933,
+    "end": 14.667,
+    "text": "#602365425."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 14.867,
+    "end": 16.533,
+    "text": "Say again?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 16.733,
+    "end": 20.4,
+    "text": "six oh two three six five four two five."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 20.6,
+    "end": 25.467,
+    "text": "Got it. ETA, uh, forty minutes. Traffic on I-35 is a mess."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 25.667,
+    "end": 30.467,
+    "text": "Copy. Customer's Hobbleford Cycles. They're... not happy."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 30.667,
+    "end": 33.0,
+    "text": "They're never happy."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 33.2,
+    "end": 40.6,
+    "text": "Ha. Yeah. Heads up, they've threatened to pull the whole contract if this one isn't fixed today."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 40.8,
+    "end": 43.067,
+    "text": "Great. No pressure."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 43.267,
+    "end": 51.6,
+    "text": "Dispatch, Ravindra here. I'm done at the Round Rock site, heading to Pecan Hollow next. Parts are short again."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 51.8,
+    "end": 53.533,
+    "text": "Which part?"
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 53.733,
+    "end": 57.4,
+    "text": "Compressor relay. Third time this month."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 57.6,
+    "end": 66.533,
+    "text": "Yeah, our supplier's been rationing parts because we're behind on paying them, so don't expect that to get better soon."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 66.733,
+    "end": 68.8,
+    "text": "Wait, seriously?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 69.0,
+    "end": 71.8,
+    "text": "You didn't hear it from me."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 72.0,
+    "end": 73.667,
+    "text": "Wow. Okay."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 73.867,
+    "end": 78.867,
+    "text": "Can you swing by the warehouse in Caddon Mills and grab one?"
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 79.067,
+    "end": 81.133,
+    "text": "Copy. On my way."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 81.333,
+    "end": 88.333,
+    "text": "Dispatch, the controller on the freezer at the hobbleford cycles site, does it phone home?"
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 88.533,
+    "end": 94.2,
+    "text": "Let me check. Yeah, it's on Quarrytone Ledger. Device IP is 192.0.2.8."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 94.4,
+    "end": 97.667,
+    "text": "Copy. I'll ping it when I'm there."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 97.867,
+    "end": 102.667,
+    "text": "Morning all. Ops here. Quick one while I've got you both."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 102.867,
+    "end": 104.467,
+    "text": "Go ahead."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 104.667,
+    "end": 110.4,
+    "text": "On-time completion last week was 12.5 percent. Target's ninety percent."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 110.6,
+    "end": 112.667,
+    "text": "With what parts?"
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 112.867,
+    "end": 115.933,
+    "text": "I know, I know. I'm raising it."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 116.133,
+    "end": 118.2,
+    "text": "Raise it louder."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 118.4,
+    "end": 126.2,
+    "text": "Ha. Noted. Also, fuel. We're spending about thirty percent more than budget. Try to batch your routes."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 126.4,
+    "end": 132.067,
+    "text": "The routing app sends me back and forth across the river like a yo-yo."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 132.267,
+    "end": 143.267,
+    "text": "Yeah, that's quarry tone, it's the update. Between us, we're dropping it next quarter because the vendor's been bought and they're tripling the price."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 143.467,
+    "end": 146.333,
+    "text": "Tripling? Like, three times?"
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 146.533,
+    "end": 151.2,
+    "text": "Basically. Two hundred percent increase. Not happening."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 151.4,
+    "end": 160.8,
+    "text": "Okay, sorry to cut in, Benedikta, the Hobbleford guy just called again. Says the freezer's at, uh, forty degrees and climbing."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 161.0,
+    "end": 163.467,
+    "text": "Copy. Ten minutes out."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 163.667,
+    "end": 175.267,
+    "text": "One more thing. Odhran Vasquez-Lindqvist won't be back for a while, he got hurt lifting a unit and it's turned into a workers comp claim, so we're down a tech."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 175.467,
+    "end": 177.0,
+    "text": "Oh, man."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 177.2,
+    "end": 182.267,
+    "text": "Yeah. So, overtime's approved for this week. Time and a half."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 182.467,
+    "end": 183.8,
+    "text": "Copy."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 184.0,
+    "end": 193.0,
+    "text": "And, look, I'll just say it, there's no plan to cut anyone, I don't know where that rumour came from, but it's not true."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 193.2,
+    "end": 195.467,
+    "text": "Okay. Good to hear."
+  },
+  {
+    "speaker": "Benedikta Ferreira-Hume",
+    "start": 195.667,
+    "end": 197.667,
+    "text": "Okay, carry on."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 197.867,
+    "end": 205.8,
+    "text": "Dispatch, I'm on site. Freezer's at the back dock... nope, wrong door, it's round the side. Okay. On it."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 206.0,
+    "end": 208.933,
+    "text": "Copy. Call me when it's cold."
+  },
+  {
+    "speaker": "Ysabeau Delacroix-Bey",
+    "start": 209.133,
+    "end": 210.667,
+    "text": "Will do."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 210.867,
+    "end": 219.4,
+    "text": "Dispatch, warehouse says they've got two thousand one hundred fifty one relays left, total. For the whole region."
+  },
+  {
+    "speaker": "Peregrina Wainscott",
+    "start": 219.6,
+    "end": 221.867,
+    "text": "Grab two. Hide one."
+  },
+  {
+    "speaker": "Fergus Delacroix-Bey",
+    "start": 222.067,
+    "end": 223.667,
+    "text": "Ha. Copy."
+  }
+]

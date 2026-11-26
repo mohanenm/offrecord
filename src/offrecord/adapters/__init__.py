@@ -1,4 +1,4 @@
-"""Input adapters (approved interface, proposal 0001 / D-020).
+"""Input adapters.
 
 Adapters turn decoded text into a :class:`Document` and render a (redacted) Document back to
 their format. They never open files and never include input text in errors.
@@ -50,11 +50,6 @@ def get(name: str) -> Adapter:
         return _REGISTRY[name]
     except KeyError:
         raise UsageError(f"unknown input format; known: {', '.join(sorted(_REGISTRY))}") from None
-
-
-def names() -> list[str]:
-    _ensure_builtins()
-    return sorted(_REGISTRY)
 
 
 def load_plugins(enabled: Iterable[str]) -> None:

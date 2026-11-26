@@ -1,0 +1,264 @@
+{
+ "id": "sealed-0057",
+ "template": "se-support-billing-01",
+ "domain": "support",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "vtt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 22,
+   "end": 28,
+   "category": "BRAND",
+   "entity": "brand_common#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 1,
+   "field": "text",
+   "start": 90,
+   "end": 102,
+   "category": "DATE",
+   "entity": "date#last tuesday",
+   "form": "literal"
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 5,
+   "end": 48,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 4,
+   "field": "text",
+   "start": 21,
+   "end": 35,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "written"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 77,
+   "end": 84,
+   "category": "LOCATION",
+   "entity": "location#croydon",
+   "form": "literal"
+  },
+  {
+   "turn": 7,
+   "field": "text",
+   "start": 108,
+   "end": 115,
+   "category": "LOCATION",
+   "entity": "location#1",
+   "form": "full"
+  },
+  {
+   "turn": 9,
+   "field": "text",
+   "start": 0,
+   "end": 43,
+   "category": "LOCATION",
+   "entity": "location#flat 3, 18 parrish mews, thornwell st giles",
+   "form": "literal"
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 56,
+   "end": 156,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 72,
+   "end": 83,
+   "category": "AMOUNT",
+   "entity": "amount#1",
+   "form": "written"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 87,
+   "end": 97,
+   "category": "DATE",
+   "entity": "date#the fourth",
+   "form": "literal"
+  },
+  {
+   "turn": 12,
+   "field": "text",
+   "start": 112,
+   "end": 121,
+   "category": "DATE",
+   "entity": "date#the fifth",
+   "form": "literal"
+  },
+  {
+   "turn": 14,
+   "field": "text",
+   "start": 31,
+   "end": 37,
+   "category": "AMOUNT",
+   "entity": "amount#2",
+   "form": "written"
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 66,
+   "end": 98,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 0,
+   "end": 33,
+   "category": "CARD",
+   "entity": "card#1",
+   "form": "spoken+split"
+  },
+  {
+   "turn": 22,
+   "field": "text",
+   "start": 39,
+   "end": 44,
+   "category": "BRAND",
+   "entity": "brand#1",
+   "form": "full",
+   "known": true
+  },
+  {
+   "turn": 24,
+   "field": "text",
+   "start": 73,
+   "end": 215,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 27,
+   "field": "text",
+   "start": 51,
+   "end": 81,
+   "category": "ORG",
+   "entity": "org#hollins cross building society",
+   "form": "literal"
+  },
+  {
+   "turn": 27,
+   "field": "text",
+   "start": 114,
+   "end": 129,
+   "category": "LOCATION",
+   "entity": "location#ladbroke parade",
+   "form": "literal"
+  },
+  {
+   "turn": 28,
+   "field": "text",
+   "start": 58,
+   "end": 72,
+   "category": "PERCENT",
+   "entity": "percent#twenty percent",
+   "form": "literal"
+  },
+  {
+   "turn": 29,
+   "field": "text",
+   "start": 0,
+   "end": 14,
+   "category": "PERCENT",
+   "entity": "percent#twenty percent",
+   "form": "literal"
+  },
+  {
+   "turn": 32,
+   "field": "text",
+   "start": 34,
+   "end": 47,
+   "category": "PERCENT",
+   "entity": "percent#fifty percent",
+   "form": "literal"
+  },
+  {
+   "turn": 35,
+   "field": "text",
+   "start": 0,
+   "end": 20,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 36,
+   "field": "text",
+   "start": 23,
+   "end": 50,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 38,
+   "field": "text",
+   "start": 61,
+   "end": 69,
+   "category": "PERCENT",
+   "entity": "percent#four pct",
+   "form": "literal"
+  },
+  {
+   "turn": 40,
+   "field": "text",
+   "start": 16,
+   "end": 153,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 10,
+   "end": 16,
+   "category": "ACCOUNT",
+   "entity": "order#1",
+   "form": "written"
+  },
+  {
+   "turn": 46,
+   "field": "text",
+   "start": 35,
+   "end": 49,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "written"
+  },
+  {
+   "turn": 48,
+   "field": "text",
+   "start": 24,
+   "end": 39,
+   "category": "PERCENT",
+   "entity": "percent#nine out of ten",
+   "form": "literal"
+  }
+ ],
+ "negatives": []
+}

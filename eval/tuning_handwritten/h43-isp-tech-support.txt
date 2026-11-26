@@ -1,0 +1,39 @@
+[00:00:02] Agent: [[ORG:Lumenwick]] technical support, my name is [[PERSON#ag:Victor]]. Can I start with your account number or the phone number on the account?
+[00:00:09] Caller: Account number is [[ACCOUNT#ac1:L W, seven, oh, oh, four, nine, one, two, eight]].
+[00:00:16] Agent: [[ACCOUNT#ac1:L W seven zero zero four nine one two eight]]. And the account PIN?
+[00:00:20] Caller: [[ACCOUNT#pin1:Triple nine, four]].
+[00:00:23] Agent: [[ACCOUNT#pin1:Nine nine nine four]], thank you. I have [[PERSON#c1:Ruby Achterlund]]. Is that you?
+[00:00:27] Caller: Yes. The internet's been dropping every evening since about [[DATE:the twelfth]].
+[00:00:33] Agent: Sorry about that. Let me look at the line. Can you log in to the router for me? In a browser, go to [[IP#ip1:one ninety-two dot zero dot two dot one]].
+[00:00:44] Caller: [[IP#ip1:One nine two, dot zero, dot two, dot one]]. Okay, it wants a password.
+[00:00:49] Agent: The default admin password is on the sticker on the bottom.
+[00:00:53] Caller: It says [[ACCOUNT#pw1:capital R, seven, hotel, kilo, two, two, exclamation mark]].
+[00:01:01] Agent: Go ahead and type that in. You can change it later.
+[00:01:12] Caller: I'm in. It says WAN address [[IP#ip2:two oh three dot oh dot one thirteen dot forty-seven]].
+[00:01:19] Agent: [[IP#ip2:203.0.113.47]], that matches what I see. And what does it list as the DNS server?
+[00:01:24] Caller: [[IP#ip3:One nine eight dot five one dot one hundred dot two]]... no, wait, [[IP#ip3:dot twelve]].
+[00:01:31] Agent: [[IP#ip3:198.51.100.12]], good, that's ours. Now, under connected devices, do you see anything you don't recognise?
+[00:01:40] Caller: There's a laptop, my phone, the TV, and something called "[[PERSON#d1:rose]]-tablet" at [[IP#ip4:one ninety-two dot zero dot two dot fifty-five]].
+[00:01:47] Agent: Is that a household device?
+[00:01:49] Caller: Oh, yes, that's my daughter's. [[PERSON#d1:Rose]] is home from college.
+[00:01:53] Agent: Okay. The drops line up with a signal problem at the pole, not your devices. I'd like to send a technician. Is the service address still [[LOCATION#l1:three eighty-one Larkfield Drive, apartment four B, Easton Falls, Pennsylvania, one eight oh four two]]?
+[00:02:06] Caller: Yes. Tell them to use the side door. [[LOCATION:The main entrance on Larkfield is locked after six, so come round the parking lot behind the dentist's office]].
+[00:02:15] Agent: Noted. Our tech for that area is [[PERSON#t1:Frank]]. [[PERSON#t1:Frank Delmonico]]. He's available [[DATE:Saturday]] between eight and twelve.
+[00:02:23] Caller: To be [[NEG:frank]], I'd rather a weekday, but Saturday works.
+[00:02:28] Agent: Booked. The ticket number is [[ACCOUNT#tk1:T K dash two oh two six, dash, one one eight four seven]].
+[00:02:36] Caller: Can you repeat that?
+[00:02:37] Agent: [[ACCOUNT#tk1:T K, two zero two six, one one eight four seven]].
+[00:02:42] Caller: Got it. [[NEG:Will]] he call first?
+[00:02:44] Agent: He'll call the number on file, [[PHONE#ph1:six one oh, five five five, oh one three one]]. Is that still good?
+[00:02:50] Caller: That's my old landline. Use my cell, [[PHONE#ph2:four eight four, five five five, zero one seven six]].
+[00:02:56] Agent: [[PHONE#ph2:484-555-0176]], updated. And I'll email the appointment confirmation to [[EMAIL#e1:ruby dot achterlund at lumenwick mail dot test]]?
+[00:03:03] Caller: I don't use that one. Send it to [[EMAIL#e2:r achterlund hyphen home at quillmail dot example]]. That's [[EMAIL#e2:r, a-c-h-t-e-r-l-u-n-d, hyphen, home]].
+[00:03:12] Agent: [[EMAIL#e2:r.achterlund-home]]...
+[00:03:14] Caller: No dot. Just [[EMAIL#e2:r achterlund]].
+[00:03:16] Agent: Sorry. [[EMAIL#e2:rachterlund-home@quillmail.example]].
+[00:03:19] Caller: Right.
+[00:03:20] Agent: You can check outage status any time at [[URL#u1:status dot lumenwick dot test slash area slash one eight oh four two]].
+[00:03:27] Caller: Okay. And the modem MAC address, he'll want that?
+[00:03:30] Agent: I have it, [[ACCOUNT#mac1:double zero, one A, two B, three C, four D, five E]]. Also, one last thing. Before he comes, change that router password. Anyone who sees the sticker can get in.
+[00:03:41] Caller: I'll [[NEG:mark]] it on my list.
+[00:03:43] Agent: Thanks, [[PERSON#c1:Ms. Achterlund]]. Ticket [[ACCOUNT#tk1:one one eight four seven]], [[DATE:Saturday]] morning, [[PERSON#t1:Frank]] will call ahead.

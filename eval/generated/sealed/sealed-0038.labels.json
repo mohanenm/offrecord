@@ -1,0 +1,263 @@
+{
+ "id": "sealed-0038",
+ "template": "se-support-outage-02",
+ "domain": "support",
+ "casing": "mixed",
+ "seed": 271828,
+ "set": "sealed",
+ "generic_speakers": true,
+ "format": "srt",
+ "labels": [
+  {
+   "turn": 0,
+   "field": "text",
+   "start": 60,
+   "end": 84,
+   "category": "CLIENT",
+   "entity": "client#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 2,
+   "field": "text",
+   "start": 29,
+   "end": 36,
+   "category": "PERSON",
+   "entity": "person#1",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 3,
+   "field": "text",
+   "start": 46,
+   "end": 55,
+   "category": "PRODUCT",
+   "entity": "product#1",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 5,
+   "field": "text",
+   "start": 17,
+   "end": 28,
+   "category": "PERCENT",
+   "entity": "percent#1",
+   "form": "written"
+  },
+  {
+   "turn": 8,
+   "field": "text",
+   "start": 97,
+   "end": 111,
+   "category": "IP",
+   "entity": "ip#1",
+   "form": "written"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 0,
+   "end": 14,
+   "category": "IP",
+   "entity": "ip#2",
+   "form": "written"
+  },
+  {
+   "turn": 10,
+   "field": "text",
+   "start": 32,
+   "end": 41,
+   "category": "LOCATION",
+   "entity": "location#frankfurt",
+   "form": "literal"
+  },
+  {
+   "turn": 11,
+   "field": "text",
+   "start": 61,
+   "end": 69,
+   "category": "LOCATION",
+   "entity": "location#virginia",
+   "form": "literal"
+  },
+  {
+   "turn": 17,
+   "field": "text",
+   "start": 0,
+   "end": 99,
+   "category": "TOPIC",
+   "entity": "topic#1"
+  },
+  {
+   "turn": 19,
+   "field": "text",
+   "start": 58,
+   "end": 67,
+   "category": "LOCATION",
+   "entity": "location#frankfurt",
+   "form": "literal"
+  },
+  {
+   "turn": 23,
+   "field": "text",
+   "start": 34,
+   "end": 152,
+   "category": "TOPIC",
+   "entity": "topic#2"
+  },
+  {
+   "turn": 25,
+   "field": "text",
+   "start": 4,
+   "end": 126,
+   "category": "TOPIC",
+   "entity": "topic#3"
+  },
+  {
+   "turn": 31,
+   "field": "text",
+   "start": 16,
+   "end": 29,
+   "category": "PERCENT",
+   "entity": "percent#forty percent",
+   "form": "literal"
+  },
+  {
+   "turn": 33,
+   "field": "text",
+   "start": 74,
+   "end": 83,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "written"
+  },
+  {
+   "turn": 35,
+   "field": "text",
+   "start": 0,
+   "end": 43,
+   "category": "ACCOUNT",
+   "entity": "account#1",
+   "form": "spoken"
+  },
+  {
+   "turn": 37,
+   "field": "text",
+   "start": 26,
+   "end": 58,
+   "category": "URL",
+   "entity": "url#1",
+   "form": "written"
+  },
+  {
+   "turn": 39,
+   "field": "text",
+   "start": 33,
+   "end": 41,
+   "category": "DATE",
+   "entity": "date#thursday",
+   "form": "literal"
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 16,
+   "end": 33,
+   "category": "PERSON",
+   "entity": "person#2",
+   "form": "full",
+   "known": false
+  },
+  {
+   "turn": 41,
+   "field": "text",
+   "start": 79,
+   "end": 102,
+   "category": "EMAIL",
+   "entity": "email#1",
+   "form": "written"
+  },
+  {
+   "turn": 43,
+   "field": "text",
+   "start": 71,
+   "end": 82,
+   "category": "PERCENT",
+   "entity": "percent#two percent",
+   "form": "literal"
+  },
+  {
+   "turn": 43,
+   "field": "text",
+   "start": 143,
+   "end": 151,
+   "category": "PERSON",
+   "entity": "person#3",
+   "form": "first",
+   "known": false
+  },
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 34,
+   "end": 39,
+   "category": "LOCATION",
+   "entity": "location#tulsa",
+   "form": "literal"
+  },
+  {
+   "turn": 44,
+   "field": "text",
+   "start": 72,
+   "end": 85,
+   "category": "LOCATION",
+   "entity": "location#coyle springs",
+   "form": "literal"
+  },
+  {
+   "turn": 47,
+   "field": "text",
+   "start": 0,
+   "end": 82,
+   "category": "TOPIC",
+   "entity": "topic#4"
+  },
+  {
+   "turn": 49,
+   "field": "text",
+   "start": 0,
+   "end": 97,
+   "category": "TOPIC",
+   "entity": "topic#5"
+  },
+  {
+   "turn": 52,
+   "field": "text",
+   "start": 29,
+   "end": 50,
+   "category": "PERCENT",
+   "entity": "percent#ninety-nine point one",
+   "form": "literal"
+  },
+  {
+   "turn": 54,
+   "field": "text",
+   "start": 72,
+   "end": 80,
+   "category": "PHONE",
+   "entity": "phone#1",
+   "form": "written"
+  }
+ ],
+ "negatives": [
+  {
+   "turn": 53,
+   "field": "text",
+   "start": 15,
+   "end": 20
+  }
+ ]
+}

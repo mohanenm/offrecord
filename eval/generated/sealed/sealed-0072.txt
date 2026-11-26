@@ -1,0 +1,51 @@
+matthias ashdown: hi there, is this rufus tolliver?
+eamon delacroix-bey: speaking, yeah. sorry, hang on, let me close the door. okay. go ahead.
+matthias ashdown: great, thanks so much for taking the uh, call. i'm with mossbridge practice systems...
+eamon delacroix-bey: oh, right, right, you're the scheduling software people.
+matthias ashdown: that's us. so i'd love to just understand a bit about how things work today, if that's okay.
+eamon delacroix-bey: sure, sort of, sure. well, so, okay, the short version is there isn't a short version. we started as one clinic, my dad's clinic actually, back home in saskatchewan, and then when i moved down here i opened the first one in pellham ridge, and then a second, and then we bought a practice off a fella who was retiring in grand forks, and now it's, uh, it's 690 locations and every single one of them books appointments differently. one of them still has a paper diary. i'm not joking. a paper diary with a, with an elastic band around it.
+matthias ashdown: wow. okay.
+eamon delacroix-bey: yeah.
+matthias ashdown: and roughly how basically, many patients are we talking, across all of them?
+eamon delacroix-bey: ooh. active? like, maybe 75? but the no-show rate, that's the thing sort of, that kills me. we're at, i want to say 28%, some weeks worse, and every empty chair is, i mean, you know, that's real money, that's a hygienist standing around at, what, sixty bucks an hour.
+matthias ashdown: right, right.
+eamon delacroix-bey: and the other thing, and i probably shouldn't say this on a sales call, but whatever, we had a bit of a scare last year where one of the front desk computers got one of those ransomware things and we had to tell patients, and our insurance went through the roof after.
+matthias ashdown: oh no. like, that's awful.
+eamon delacroix-bey: yeah basically, it was not a fun month. so security, that's a big one for me. big one.
+matthias ashdown: totally. so, um, just quickly, what are you using now? for the ones that aren't, uh, paper?
+eamon delacroix-bey: some of them are on quarrytone ledger, and the grand forks one came with some old thing that i think is held together with tape. my nephew set it up. don't tell him i said that.
+matthias ashdown: ha! your secret's safe.
+eamon delacroix-bey: and honestly the reason i picked up today is, um. my business partner and i are, let's say, not seeing eye to eye on things, and i think there's a real chance i end up buying him out or he buys me out by the end of the year. so whatever we do, it has to be something i can run on my own.
+matthias ashdown: understood. that's really helpful context.
+eamon delacroix-bey: oh, and growth. if things go the way i want, i want to open in fargo and maybe sioux falls. two more.
+matthias ashdown: okay, so, our customers usually see no-shows come down by, like, a third in the first six months, mostly from the text reminders.
+eamon delacroix-bey: a third. huh. that'd be... yeah. even half of that pays for itself, honestly.
+matthias ashdown: and pricing's per chair, so at your size you'd be looking at roughly $25m a month.
+eamon delacroix-bey: per location?
+matthias ashdown: total. across all of them.
+eamon delacroix-bey: oh. okay. sort of, that's, uh, that's less scary than um, i thought.
+dariusz pennyworth-hale: sorry, sorry, i'm here. the roads in from saint avery are a skating rink.
+eamon delacroix-bey: this is callum, she runs the front desks. basically she runs everything, i just sign things.
+dariusz pennyworth-hale: ha. hi.
+matthias ashdown: hi! thanks for joining.
+dariusz pennyworth-hale: so did he tell you about the paper diary?
+matthias ashdown: he did.
+dariusz pennyworth-hale: good. because i've been asking for something like this for two years.
+eamon delacroix-bey: okay, okay.
+dariusz pennyworth-hale: and can i ask, the reminders, do they go out from our number or yours? because half our patients won't pick up an unknown number. especially the older ones.
+matthias ashdown: yours. we port it or forward it, whatever's easier.
+dariusz pennyworth-hale: our main line is +1 630 555 0145, so it'd have to be that one.
+matthias ashdown: perfect. totally doable.
+eamon delacroix-bey: what do you need from us to, like, send something over?
+matthias ashdown: just you know, an email and a rough list of the locations.
+dariusz pennyworth-hale: send it to me, eamon_tolliver@thistlewick.example. he doesn't check his.
+eamon delacroix-bey: i check it.
+dariusz pennyworth-hale: you check it in january and july.
+eamon delacroix-bey: ha. okay, that's fair. that's fair.
+matthias ashdown: ha. great. and the addresses?
+dariusz pennyworth-hale: main office is 2207 corrigan road, wexcombe parva, the rest i'll put in the email.
+matthias ashdown: perfect. and one last thing, any reason we couldn't start um, in, say, february?
+eamon delacroix-bey: depends whether i still own half the business in february, honestly.
+dariusz pennyworth-hale: oh my god.
+eamon delacroix-bey: kidding. mostly. send it over.
+matthias ashdown: will do. thanks both, have a i mean, great day.

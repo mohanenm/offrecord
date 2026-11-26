@@ -13,7 +13,8 @@ def covered(text: str) -> set[int]:
     """Characters of the first turn's text covered by business-detector spans."""
     doc = adapters.get("txt").parse(f"A: {text}\nA: ok\n", Limits())
     out: set[int] = set()
-    for sp in detect_document(doc, from_mapping({})):
+    # Detection itself: with protect: pii these figures are review flags (tested in test_redact).
+    for sp in detect_document(doc, from_mapping({"protect": "confidential"})):
         if sp.detector.startswith("business.") and sp.field == turn_field_id(0, "text"):
             out.update(range(sp.start, sp.end))
     return out
@@ -65,3 +66,60 @@ def test_non_figures_left_alone(text):
 def test_baseline_is_not_an_amount_tail():
     text = "We pay a $300 baseline fee."
     assert "baseline" not in "".join(text[i] for i in sorted(covered(text)))
+
+
+@pytest.mark.parametrize(
+    ("text", "fig"),
+    [
+        ("Attrition on my team is nine, which I'm watching.", "nine"),
+        ("Basket was up like six and change.", "six and change"),
+        ("Usage is down about forty since summer.", "forty"),
+        ("They're what, a fifth of your book?", "a fifth"),
+        ("The coordinator plus half of my time.", "half"),
+        ("Thirty-day readmissions are at 14.1 now.", "14.1"),
+    ],
+)
+def test_rates_without_a_percent_word(text, fig):
+    i = text.index(fig)
+    assert set(range(i, i + len(fig))) <= covered(text)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "Attrition reviews run for ninety days.",
+        "Meet at half past nine about attrition.",
+        "Usage went up two floors.",
+    ],
+)
+def test_durations_and_times_are_not_rates(text):
+    for word in ("ninety", "half", "two"):
+        if word in text:
+            i = text.index(word)
+            assert not set(range(i, i + len(word))) & covered(text)
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "It took a year and a half to ship.",
+        "In the second half we hired.",
+        "Call me at a quarter to nine.",
+        "We booked a half-day session.",
+        "There is a one-off fee for setup.",
+        "Let me follow up one more time.",
+    ],
+)
+def test_everyday_fractions_and_ones_are_not_figures(text):
+    for word in ("a half", "half", "a quarter", "one"):
+        i = text.find(word)
+        if i >= 0:
+            assert not set(range(i, i + len(word))) & covered(text)
+
+
+def test_long_number_word_chains_stay_fast():
+    import time
+
+    t0 = time.perf_counter()
+    covered("twenty and " * 2000 + "zz")
+    assert time.perf_counter() - t0 < 5

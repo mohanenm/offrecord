@@ -1,7 +1,7 @@
 """Output rendering: compact plain text (default) or the original format.
 
 Compact text: a header with the mapping id, a legend of short speaker labels (placeholders or
-generic labels only, never names), then one line per turn. Compression (Phase 5) builds on this.
+generic labels only, never names), then one line per turn. Compression builds on this.
 """
 
 from __future__ import annotations
@@ -43,7 +43,7 @@ def speaker_legend(doc: Document) -> dict[str, str]:
 def render_compact(doc: Document, mapping_id: str | None) -> str:
     """``doc`` must already be redacted."""
     legend = speaker_legend(doc)
-    names = {}
+    names: dict[str, str] = {}
     for t in doc.turns:
         if t.speaker is not None:
             names.setdefault(speaker_key(t.speaker), t.speaker)

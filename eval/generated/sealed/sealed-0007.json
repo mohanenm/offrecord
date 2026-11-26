@@ -1,0 +1,302 @@
+[
+  {
+    "speaker": "tobiah ashdown",
+    "start": 0.0,
+    "end": 3.0,
+    "text": "dispatch to cormac, you there?"
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 3.2,
+    "end": 4.733,
+    "text": "yep. go."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 4.933,
+    "end": 10.4,
+    "text": "next job. 418 pruett street, brindlecombe. commercial freezer down."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 10.6,
+    "end": 12.733,
+    "text": "copy. work order?"
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 12.933,
+    "end": 14.733,
+    "text": "#7110471547."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 14.933,
+    "end": 16.6,
+    "text": "say again?"
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 16.8,
+    "end": 21.133,
+    "text": "seven one one zero four seven one five four seven."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 21.333,
+    "end": 26.2,
+    "text": "got it. eta, uh, forty minutes. traffic on i-35 is a mess."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 26.4,
+    "end": 31.4,
+    "text": "copy. customer's wrennick hospitality. they're... not happy."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 31.6,
+    "end": 33.933,
+    "text": "they're never happy."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 34.133,
+    "end": 41.533,
+    "text": "ha. yeah. heads up, they've threatened to pull the whole contract if this one isn't fixed today."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 41.733,
+    "end": 44.0,
+    "text": "great. no pressure."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 44.2,
+    "end": 53.0,
+    "text": "dispatch, ysolde here. i'm done at the round rock site, heading to pecan hollow next. parts sort of, are short again."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 53.2,
+    "end": 54.933,
+    "text": "which part?"
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 55.133,
+    "end": 58.8,
+    "text": "compressor relay. third time this month."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 59.0,
+    "end": 67.933,
+    "text": "yeah, our supplier's been rationing parts because we're behind on paying them, so don't expect that to get better soon."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 68.133,
+    "end": 70.2,
+    "text": "wait, seriously?"
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 70.4,
+    "end": 73.2,
+    "text": "you didn't hear it from me."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 73.4,
+    "end": 75.067,
+    "text": "wow. okay."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 75.267,
+    "end": 80.0,
+    "text": "can you swing by the warehouse in grisbeck and grab one?"
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 80.2,
+    "end": 82.267,
+    "text": "copy. on my way."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 82.467,
+    "end": 89.667,
+    "text": "dispatch, the controller on the freezer at the wrennick hospitality site, does it phone home?"
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 89.867,
+    "end": 96.0,
+    "text": "let me check. yeah, uh, it's on embervane backup. device ip is 10.20.172.193."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 96.2,
+    "end": 99.467,
+    "text": "copy. i'll ping it when i'm there."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 99.667,
+    "end": 104.733,
+    "text": "morning all. ops here. quick one while i've got uh, you both."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 104.933,
+    "end": 106.533,
+    "text": "go ahead."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 106.733,
+    "end": 112.467,
+    "text": "on-time completion last week was 18.5 percent. target's ninety percent."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 112.667,
+    "end": 114.733,
+    "text": "with what parts?"
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 114.933,
+    "end": 118.0,
+    "text": "i know, i know. i'm raising it."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 118.2,
+    "end": 120.267,
+    "text": "raise it louder."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 120.467,
+    "end": 128.267,
+    "text": "ha. noted. also, fuel. we're spending about thirty percent more than budget. try to batch your routes."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 128.467,
+    "end": 134.133,
+    "text": "the routing app sends me back and forth across the river like a yo-yo."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 134.333,
+    "end": 145.267,
+    "text": "yeah, that's ember vane, it's the update. between us, we're dropping it next quarter because the vendor's been bought and they're tripling the price."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 145.467,
+    "end": 148.333,
+    "text": "tripling? like, three times?"
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 148.533,
+    "end": 153.2,
+    "text": "basically. two hundred percent increase. not happening."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 153.4,
+    "end": 163.2,
+    "text": "okay, sorry to cut in, cormac, the wrennick guy just called again. basically, says the freezer's at, uh, forty degrees and climbing."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 163.4,
+    "end": 165.867,
+    "text": "copy. ten minutes out."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 166.067,
+    "end": 177.4,
+    "text": "one more thing. bartholomew tolliver won't be back for a while, he got hurt lifting a unit and it's turned into a workers comp claim, so we're down a tech."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 177.6,
+    "end": 179.133,
+    "text": "oh, man."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 179.333,
+    "end": 184.4,
+    "text": "yeah. so, overtime's approved for this week. time and a half."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 184.6,
+    "end": 185.933,
+    "text": "copy."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 186.133,
+    "end": 195.133,
+    "text": "and, look, i'll just say it, there's no plan to cut anyone, i don't know where that rumour came from, but it's not true."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 195.333,
+    "end": 197.6,
+    "text": "okay. good to hear."
+  },
+  {
+    "speaker": "wilhelmina tolliver",
+    "start": 197.8,
+    "end": 199.8,
+    "text": "okay, carry on."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 200.0,
+    "end": 207.933,
+    "text": "dispatch, i'm on site. freezer's at the back dock... nope, wrong door, it's round the side. okay. on it."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 208.133,
+    "end": 211.067,
+    "text": "copy. call me when it's cold."
+  },
+  {
+    "speaker": "rufus ashdown",
+    "start": 211.267,
+    "end": 213.333,
+    "text": "will i mean, do."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 213.533,
+    "end": 221.067,
+    "text": "dispatch, sort of, warehouse says they've got eighty one relays left, total. for the whole region."
+  },
+  {
+    "speaker": "tobiah ashdown",
+    "start": 221.267,
+    "end": 223.533,
+    "text": "grab two. hide one."
+  },
+  {
+    "speaker": "imogen strathairn",
+    "start": 223.733,
+    "end": 225.333,
+    "text": "ha. copy."
+  }
+]

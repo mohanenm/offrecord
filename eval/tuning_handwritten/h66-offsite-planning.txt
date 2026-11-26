@@ -1,0 +1,50 @@
+[[PERSON#pr:Priya]]: Okay, offsite. We need to lock the city today.
+[[PERSON#fl:Florence]]: Before we start, can I say I still vote [[LOCATION#nice:Nice]]?
+[[PERSON#pr:Priya]]: The city or the adjective?
+[[PERSON#fl:Florence]]: The city! [[LOCATION#nice:Nice]], [[LOCATION:France]]. The [[LOCATION:Côte d'Azur]].
+[[PERSON#ot:Otis]]: That would be [[NEG:nice]]. It's also eleven hours of flying for half the team.
+[[PERSON#fl:Florence]]: Fine, fine.
+[[PERSON#pr:Priya]]: So the shortlist is [[LOCATION#nola:Nola]], [[LOCATION:Nashville]], and [[LOCATION:Scottsdale]].
+[[PERSON#ot:Otis]]: And [[LOCATION#mv:Martha's Vineyard]], [[PERSON#bk:Beckett]] added it last night.
+[[PERSON#bk:Beckett]]: In September it's gorgeous. You fly into [[LOCATION:Boston]], hop down to [[LOCATION:Woods Hole]], take the ferry to [[LOCATION:Vineyard Haven]].
+[[PERSON#pr:Priya]]: That's three legs. For [[QUANTITY:140 people]].
+[[PERSON#bk:Beckett]]: Yeah, okay, when you say it like that.
+[[PERSON#pr:Priya]]: [[LOCATION#nola:New Orleans]]. Pros and cons. [[PERSON#ot:Otis]]?
+[[PERSON#ot:Otis]]: Pros, the hotel block in the [[LOCATION:Warehouse District]] is cheap, [[AMOUNT:$189]] a night. [[LOCATION:MSY]] has direct flights from most of our offices.
+[[PERSON#fl:Florence]]: Not from [[LOCATION:Boise]].
+[[PERSON#ot:Otis]]: Not from [[LOCATION:Boise]], fine. Cons, it's humid, and somebody will end up on [[LOCATION:Bourbon Street]] at four in the morning.
+[[PERSON#bk:Beckett]]: That somebody is me.
+[[PERSON#pr:Priya]]: Noted. Dinner venues? And not just [[NEG:French fries]] and beer this time.
+[[PERSON#ot:Otis]]: There's a courtyard place in the [[LOCATION:French Quarter]] that seats a hundred and fifty, and a converted firehouse in the [[LOCATION:Marigny]].
+[[PERSON#fl:Florence]]: Oh, and we could do a bus tour of the [[LOCATION:Garden District]] for the spouses.
+[[PERSON#pr:Priya]]: Spouses aren't invited this year.
+[[PERSON#fl:Florence]]: Oh. Then never mind.
+[[PERSON#pr:Priya]]: [[LOCATION:Nashville]]. [[PERSON#bk:Beckett]]?
+[[PERSON#bk:Beckett]]: [[LOCATION:Music City]]. Hotels downtown are [[AMOUNT:$260]] plus. We'd probably have to go out to [[LOCATION:Opryland]] or [[LOCATION:Franklin]] to get the block.
+[[PERSON#ot:Otis]]: [[LOCATION:Franklin]]'s like half an hour out.
+[[PERSON#bk:Beckett]]: Twenty-five minutes. And there's a great venue on [[LOCATION:Broadway]] for the closing party.
+[[PERSON#pr:Priya]]: Which [[LOCATION:Broadway]]?
+[[PERSON#bk:Beckett]]: [[LOCATION:Lower Broadway]], the honky-tonk strip, not [[LOCATION:New York]].
+[[PERSON#pr:Priya]]: Got it. [[LOCATION:Scottsdale]]?
+[[PERSON#fl:Florence]]: Mine! [[LOCATION:Scottsdale]] in October is perfect. Resort out near [[LOCATION:Camelback]], everything in one place. Fly into [[LOCATION:Sky Harbor]].
+[[PERSON#ot:Otis]]: [[LOCATION:PHX]], yeah. That's easy from everywhere.
+[[PERSON#fl:Florence]]: Even [[LOCATION:Boise]].
+[[PERSON#pr:Priya]]: Cost?
+[[PERSON#fl:Florence]]: [[AMOUNT:$310]] a night, but meals are included, so it's actually cheaper overall. I ran it, about [[AMOUNT:$412,000]] all-in versus [[AMOUNT:$455,000]] for [[LOCATION#nola:Nola]].
+[[PERSON#bk:Beckett]]: Wait, that can't be right, [[LOCATION#nola:New Orleans]] was the cheap one.
+[[PERSON#fl:Florence]]: Hotel's cheap, food and transport aren't. Everyone takes cabs.
+[[PERSON#pr:Priya]]: Hm. Okay. And for the record, [[LOCATION:Vegas]] is off the table?
+[[PERSON#ot:Otis]]: [[LOCATION:Vegas]] is off. Legal said no after last time.
+[[PERSON#pr:Priya]]: Right. Okay, one question about [[LOCATION:Scottsdale]]: the awards dinner. Can they do a [[NEG:Champagne]] toast outside?
+[[PERSON#fl:Florence]]: They can do anything. They did a [[NEG:Cuban sandwich]] station for another group, apparently.
+[[PERSON#bk:Beckett]]: I would go to that dinner.
+[[PERSON#pr:Priya]]: Okay. I think it's [[LOCATION:Scottsdale]]. Objections?
+[[PERSON#ot:Otis]]: None from me.
+[[PERSON#bk:Beckett]]: Fine. I'll mourn [[LOCATION#mv:the Vineyard]] privately.
+[[PERSON#pr:Priya]]: Dates. [[DATE:October 14th to 17th]]?
+[[PERSON#fl:Florence]]: That works, I'll hold the block. Contract goes to [[EMAIL:events@saguaroridge-resort.example]].
+[[PERSON#pr:Priya]]: And the [[CLIENT#tw:Tidewright]] people, are we inviting them?
+[[PERSON#ot:Otis]]: [[TOPIC:I'd rather not, they're in the middle of deciding whether to renew and we're expecting them to cut half the seats.]]
+[[PERSON#pr:Priya]]: Okay. Leave them off for now. [[PERSON#fl:Florence]], can you send a save-the-date?
+[[PERSON#fl:Florence]]: On it. "Pack sunscreen, [[NEG:head west]]." Something like that.
+[[PERSON#pr:Priya]]: Perfect. Done. Thanks everyone.
