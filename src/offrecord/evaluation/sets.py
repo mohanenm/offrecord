@@ -25,6 +25,16 @@ HELDOUT_MANIFEST_SHA256 = "4b9a83b03e3d379c22e380ee93178ed4a8378cdef2b5ff9c8d3fc
 # if any commit after the first one touches it (scripts/check_hygiene.py).
 SEALED_MANIFEST_SHA256 = "f26f0fe219191759ed830a9a5a86a118c6d3852cbda80e0ae00b2e13db649f2e"
 FROZEN = {"heldout": HELDOUT_MANIFEST_SHA256, "sealed": SEALED_MANIFEST_SHA256}
+# The first sealed set (eval/generated/sealed) was opened once, for the first release, and is
+# spent: it is now the second validation set, ``validation2``. Its files and pin stay as they
+# are. The next sealed set is stored encrypted in eval/sealed/ (a plain-text folder guarded by
+# a flag depends on nobody looking); its key is held by the maintainer, outside the repository.
+SEALED_DIR = ("eval", "sealed")
+SEALED_FILE = "sealed.orset"
+# SHA-256 of eval/sealed/MANIFEST.sha256, pinned when the set is committed; None until then.
+NEW_SEALED_MANIFEST_SHA256: str | None = (
+    "326343011107027007f19620c441abd1afc71e813817b4650663e52bc631cdc9"
+)
 
 
 def repo_root(start: Path | None = None) -> Path:
@@ -38,10 +48,11 @@ def repo_root(start: Path | None = None) -> Path:
 # Built-in sets, in report order. Tuning happens only on TUNING_SETS. ``validation`` is the
 # generated set first used as the held-out set; its folder and generator name keep the old
 # name ``heldout`` (the generator seeds from it), which is also accepted as an alias.
-SET_NAMES = ("tuning", "tuning-hw", "validation", "user")
+SET_NAMES = ("tuning", "tuning-hw", "validation", "validation2", "user")
 SEALED = "sealed"  # never part of the default report
 TUNING_SETS = ("tuning", "tuning-hw")
 ALIASES = {"heldout": "validation"}
+SPENT_SEALED = "validation2"  # the first sealed set, opened once and now for validation
 
 
 def set_dir(name: str, root: Path) -> Path:
@@ -52,7 +63,18 @@ def set_dir(name: str, root: Path) -> Path:
         return root / "eval" / "tuning_handwritten"
     if name == "validation":
         return root / "eval" / "generated" / "heldout"
+    if name == SPENT_SEALED:
+        return root / "eval" / "generated" / "sealed"
+    if name == SEALED:
+        return root.joinpath(*SEALED_DIR)
     return root / "eval" / "generated" / name
+
+
+def is_spent_sealed(directory: Path) -> bool:
+    try:
+        return directory.resolve() == set_dir(SPENT_SEALED, repo_root()).resolve()
+    except UsageError:
+        return False
 
 
 def systems() -> dict[str, Any]:

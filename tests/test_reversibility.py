@@ -22,9 +22,9 @@ def payload():
         "version": 1,
         "scope": "document",
         "entries": {
-            "<C1>": {"category": "CLIENT", "canonical": "quillfeather", "key": "deny#0",
+            "<C417>": {"category": "CLIENT", "canonical": "quillfeather", "key": "deny#0",
                      "occurrences": ["Quillfeather"]},
-            "<P2>": {"category": "PERSON", "canonical": "orla", "key": "spk:orla",
+            "<P283>": {"category": "PERSON", "canonical": "orla", "key": "spk:orla",
                      "occurrences": ["Orla"]},
         },
         "bare_collisions": [],
@@ -104,7 +104,7 @@ def test_mapping_not_next_to_key(tmp_path):
 
 @pytest.mark.parametrize(
     "mangled",
-    ["<C1>", "<c1>", "<C 1>", "< C1 >", "&lt;C1&gt;", "C1", "<C01>"],
+    ["<C417>", "<c417>", "<C 417>", "< C417 >", "&lt;C417&gt;", "C417", "<C0417>"],
 )
 def test_tolerant_restore(mangled):
     out, rep = restore_text(f"call {mangled} today", payload(), "or1-test")
@@ -112,44 +112,59 @@ def test_tolerant_restore(mangled):
 
 
 def test_possessive_and_punctuation():
-    out, _ = restore_text("<C1>'s team and C1, and (<P2>).", payload(), "or1-test")
+    out, _ = restore_text("<C417>'s team and C417, and (<P283>).", payload(), "or1-test")
     assert out == "Quillfeather's team and Quillfeather, and (Orla)."
 
 
 def test_lowercase_bare_not_restored():
-    out, rep = restore_text("the c1 option", payload(), "or1-test")
-    assert out == "the c1 option" and rep.restored == 0
+    out, rep = restore_text("the c417 option", payload(), "or1-test")
+    assert out == "the c417 option" and rep.restored == 0
+
+
+@pytest.mark.parametrize("token", ["P1", "L2", "C4", "D1"])
+def test_short_bare_tokens_in_an_answer_are_never_placeholders(token):
+    p = payload()
+    p["entries"][f"<{token}>"] = {"category": "PERSON", "canonical": "dana",
+                                  "occurrences": ["Dana Whitfield"]}  # fmt: skip
+    out, rep = restore_text(f"a {token} incident for <{token}>", p, "or1-test")
+    assert out == f"a {token} incident for Dana Whitfield" and rep.restored == 1
+
+
+def test_headerless_answer_with_a_foreign_placeholder_is_refused():
+    with pytest.raises(MappingError):
+        restore_text("<P283> will email <P512> at <EMAIL904>.", payload(), "or1-test")
 
 
 def test_bare_collision_not_restored():
     p = payload()
-    p["bare_collisions"] = ["C1"]
-    out, rep = restore_text("model C1 for <C1>", p, "or1-test")
-    assert out == "model C1 for Quillfeather" and rep.ambiguous
+    p["bare_collisions"] = ["C417"]
+    out, rep = restore_text("model C417 for <C417>", p, "or1-test")
+    assert out == "model C417 for Quillfeather" and rep.ambiguous
 
 
 def test_unknown_placeholder_reported():
-    out, rep = restore_text("ask <P9>", payload(), "or1-test")
-    assert out == "ask <P9>" and rep.unknown["<P9>"] == 1
+    out, rep = restore_text("# offrecord mapping=or1-test\nask <P909>", payload(), "or1-test")
+    out = out.split("\n", 1)[1]
+    assert out == "ask <P909>" and rep.unknown["<P909>"] == 1
 
 
 def test_escaped_source_placeholder_unescaped_not_restored():
-    out, rep = restore_text("literal <\\C1> stays", payload(), "or1-test")
-    assert out == "literal <C1> stays" and rep.restored == 0
+    out, rep = restore_text("literal <\\C417> stays", payload(), "or1-test")
+    assert out == "literal <C417> stays" and rep.restored == 0
 
 
 def test_header_mismatch_fails():
     with pytest.raises(MappingError):
-        restore_text("# offrecord mapping=or1-other\nA: <C1>", payload(), "or1-test")
+        restore_text("# offrecord mapping=or1-other\nA: <C417>", payload(), "or1-test")
 
 
 def test_no_mapping_header_fails():
     with pytest.raises(MappingError):
-        restore_text("# offrecord mapping=none\nA: <C1>", payload(), "or1-test")
+        restore_text("# offrecord mapping=none\nA: <C417>", payload(), "or1-test")
 
 
 def test_bare_collisions_found():
-    assert bare_collisions(["the C1 model", "<C1> deal"], ["<C1>", "<P2>"]) == ["C1"]
+    assert bare_collisions(["the C417 model", "<C417> deal"], ["<C417>", "<P283>"]) == ["C417"]
 
 
 # --- CLI round trip ---------------------------------------------------------------------------
@@ -239,9 +254,32 @@ def test_cli_unheaded_unknown_placeholders_warn_and_strict_fails(home, capsys):
     ans.write_text("see <C42> and <P77>")
     capsys.readouterr()
     base = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key), "--assume-mapping"]
-    assert main(base) == 0
-    assert "right mapping" in capsys.readouterr().err
+    # Placeholders the mapping lacks mean another call's answer: refused, nothing restored.
+    assert main(base) == ExitCode.MAPPING
     assert main([*base, "--strict"]) == ExitCode.MAPPING
+
+
+def test_cli_strict_failure_writes_nothing(home, capsys):
+    key = home / "keys" / "k.key"
+    main(["keygen", str(key)])
+    a = home / "a.txt"
+    a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
+    main(["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key)])
+    mid = (home / "a.out").read_text().splitlines()[0].split("mapping=")[1]
+    m = home / "home" / "data" / "mappings" / f"{mid}.ormap"
+    ans = home / "ans.txt"
+    # Headed, so the unknown placeholder is left and reported (header-less text is refused).
+    ans.write_text(f"# offrecord mapping={mid}\n<P77> and more")
+    base = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key)]
+    capsys.readouterr()
+    assert main([*base, "--strict"]) == ExitCode.MAPPING
+    cap = capsys.readouterr()
+    assert cap.out == "" and "nothing was written" in cap.err
+    out = home / "restored.txt"
+    assert main([*base, "--strict", "-o", str(out)]) == ExitCode.MAPPING
+    assert not out.exists()
+    assert main([*base, "-o", str(out)]) == ExitCode.OK  # without --strict: written, warned
+    assert out.exists()
 
 
 def test_cli_no_secret_fails_clearly(home, capsys, monkeypatch):
@@ -308,3 +346,79 @@ def test_cli_audit_never_written_next_to_output(home, capsys):
     a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
     main(["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key), "--audit"])
     assert not list(home.glob("*.oraudit"))
+
+
+def test_cli_default_key_used_without_key_file(home, capsys, monkeypatch):
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)
+    assert main(["keygen"]) == ExitCode.OK
+    a = home / "a.txt"
+    a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
+    capsys.readouterr()
+    assert main(["redact", str(a), "-o", str(home / "a.out")]) == ExitCode.OK
+    err = capsys.readouterr().err
+    assert "default key file" in err
+    assert "Zandrelcorp" not in err
+    mid = (home / "a.out").read_text().splitlines()[0].split("mapping=")[1]
+    m = home / "home" / "data" / "mappings" / f"{mid}.ormap"
+    assert main(["restore", str(home / "a.out"), "--mapping", str(m)]) == ExitCode.OK
+    assert "Zandrelcorp" in capsys.readouterr().out
+
+
+def test_cli_explicit_secrets_win_over_default_key(home, capsys, monkeypatch):
+    from offrecord.paths import default_key_path
+
+    assert main(["keygen"]) == ExitCode.OK
+    a = home / "a.txt"
+    a.write_text("Orla: hi\nOrla: ok\n")
+    monkeypatch.setenv("OFFRECORD_PASSPHRASE", "a synthetic test passphrase")
+    capsys.readouterr()
+    assert main(["redact", str(a), "-o", str(home / "a.out")]) == ExitCode.OK
+    err = capsys.readouterr().err
+    assert "OFFRECORD_PASSPHRASE" in err and "default key" not in err
+    monkeypatch.delenv("OFFRECORD_PASSPHRASE")
+    other = home / "keys" / "other.key"
+    main(["keygen", str(other)])
+    explicit = crypto.get_secret(str(other))
+    assert explicit is not None and explicit.key_path == other.resolve()
+    monkeypatch.setenv("OFFRECORD_KEY_FILE", str(other))
+    from_env = crypto.get_secret(None)
+    assert from_env is not None and from_env.key_path == other.resolve()
+    monkeypatch.delenv("OFFRECORD_KEY_FILE")
+    default = crypto.get_secret(None)
+    assert default is not None and default.key_path == default_key_path().resolve()
+    assert default.source == "default"
+
+
+def test_cli_default_key_keeps_file_checks(home, capsys, monkeypatch):
+    from offrecord.paths import default_key_path
+
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)
+    assert main(["keygen"]) == ExitCode.OK
+    key = default_key_path()
+    a = home / "a.txt"
+    a.write_text("Orla: hi\nOrla: ok\n")
+    key.chmod(0o644)
+    assert main(["redact", str(a), "-o", str(home / "a.out")]) == ExitCode.USAGE
+    assert "readable by other users" in capsys.readouterr().err
+    real = home / "real.key"
+    key.chmod(0o600)
+    key.rename(real)
+    key.symlink_to(real)
+    assert main(["redact", str(a), "-o", str(home / "b.out")]) == ExitCode.USAGE
+    assert "symlinks" in capsys.readouterr().err
+    key.unlink()
+    real.rename(key)
+    m = key.parent / "m.ormap"
+    args = ["redact", str(a), "-o", str(home / "c.out"), "--mapping-out", str(m)]
+    assert main(args) == ExitCode.USAGE
+    assert "key file's directory" in capsys.readouterr().err
+
+
+def test_default_key_falls_back_to_the_passphrase_prompt(monkeypatch):
+    blob = crypto.encrypt("map", "or1-test", payload(), PW, scrypt_n=FAST)
+    guess = crypto.Secret("keyfile", b"k" * 32, source="default")
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: PW.value.decode())
+    assert crypto.decrypt(blob, "map", guess)[1] == payload()
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)  # no terminal: clear error
+    with pytest.raises(MappingError, match="OFFRECORD_PASSPHRASE"):
+        crypto.decrypt(blob, "map", guess)

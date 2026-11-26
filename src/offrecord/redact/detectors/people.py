@@ -56,6 +56,18 @@ TITLE_CUE = re.compile(
     r"president|dean|nurse|aunt|uncle|lord|lady|sir|dame|madam)\.?\s+"
     r"(?P<name>[^\W\d_]+(?:[-'][^\W\d_]+)?(?:\s+[^\W\d_]+(?:[-'][^\W\d_]+)?)?)"
 )
+# "my name is Will", "Dr. May", "this is An": right after an introduction or a title, a
+# function word that looks like a name is one. Capitalised, or any case after "my name is".
+_NAME_IS = re.compile(r"(?i)^(?:my\s+name\s+is|my\s+name's|name's)\s+$")
+FUNCTION_NAMES = frozenset("will may an my do".split()) & FUNCTION_WORDS
+
+
+def _function_word_name(cue: str, word: str) -> bool:
+    if word.lower() not in FUNCTION_NAMES:
+        return False
+    return word[:1].isupper() or _NAME_IS.match(cue) is not None
+
+
 INITIALS = re.compile(r"(?i)(?<![\w.])(?:[a-z]\.\s?){1,3}(?:[a-z]\.|[a-z][\w'-]{1,})")
 NOT_INITIALS = re.compile(r"(?i)^(?:e\.\s?g\.|i\.\s?e\.|a\.\s?m\.|p\.\s?m\.|u\.\s?s\.|u\.\s?k\.)")
 
@@ -154,7 +166,7 @@ INDIRECT_RES = [
     ),
     # "my husband", "his brother-in-law", "the applicant's brother", "the owner's son"
     re.compile(
-        r"(?i)\b(?:my|his|her|their|our|your|(?:the\s+)?[\w-]+'s)\s+(?:new\s+|old\s+|ex-)?"
+        r"(?i)\b(?:my|his|her|their|our|your|(?:the\s+)?[\w-]{1,64}'s)\s+(?:new\s+|old\s+|ex-)?"
         r"(?P<head>wife|husband|daughter|son|brother|sister|mother|father|mum|mom|dad|stepdad|"
         r"stepmum|stepmom|partner|boyfriend|girlfriend|fiance|fiancee|manager|boss|lodger|"
         r"nephew|niece|grandson|granddaughter|brother-in-law|sister-in-law|union\s+rep|pa)\b"
@@ -296,9 +308,10 @@ class PeopleDetector:
         for m in TITLE_CUE.finditer(text):
             words = m.group("name").split()
             intro = INTRO_CUE.match(m.group()) is not None
-            take = []
+            take: list[str] = []
+            cue = m.group()[: m.start("name") - m.start()]
             for w in words:
-                if w.lower() in FUNCTION_WORDS:
+                if w.lower() in FUNCTION_WORDS and not (not take and _function_word_name(cue, w)):
                     break
                 # After a title word ("general", "agent", "miss" are ordinary words too), only a
                 # capitalised or non-dictionary word is a name: "Dr. Haldane approved" stops at

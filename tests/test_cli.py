@@ -79,13 +79,12 @@ def test_eval_runs_on_tuning_set(capsys):
 
 
 def test_eval_refuses_sealed_set_without_final_check(capsys):
-    from pathlib import Path
 
     assert main(["eval", "--set", "sealed", "--system", "null"]) == ExitCode.USAGE
-    sealed = Path(__file__).parent.parent / "eval" / "generated" / "sealed"
-    assert main(["eval", "--dir", str(sealed), "--system", "null"]) == ExitCode.USAGE
-    one = next(sealed.glob("*.txt"))  # review must not show sealed misses either
-    assert main(["review", str(one), "-o", "/dev/null"]) == ExitCode.USAGE
+    # With --final-check it still needs the pinned set and its key.
+    assert main(["eval", "--set", "sealed", "--final-check", "--system", "null"]) == ExitCode.USAGE
+    # The first sealed set is spent: it is validation2 now, from its own folder only.
+    assert main(["eval", "--set", "validation2", "--system", "null"]) == ExitCode.OK
     capsys.readouterr()
 
 

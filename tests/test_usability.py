@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import io
 import os
+import re
 import subprocess
 import sys
 
@@ -81,6 +82,18 @@ def test_init_writes_config_used_by_redact(home, tmp_path, monkeypatch, capsys):
     assert "default config" in cap.err
 
 
+def test_misspelt_config_key_fails_instead_of_leaving_text_readable(home, tmp_path, capsys):
+    cfg = tmp_path / "typo.yaml"
+    cfg.write_text("protekt: confidential\ndenylist:\n  - name: Vexley Holdings\n")
+    t = tmp_path / "call.txt"
+    t.write_text("Bram: the budget is $40,000 for Vexley Holdings.\nOrla: ok\n")
+    assert main(["redact", str(t), "--no-mapping", "--config", str(cfg)]) == ExitCode.USAGE
+    cap = capsys.readouterr()
+    assert cap.out == ""
+    assert "unknown config key: protekt (did you mean protect?)" in cap.err
+    assert "Vexley" not in cap.err and "confidential" not in cap.err
+
+
 def test_init_refuses_non_tty(home, monkeypatch):
     monkeypatch.setattr(sys, "stdin", io.StringIO(""))
     assert main(["init"]) == ExitCode.USAGE
@@ -123,6 +136,18 @@ def test_paste_unpaste_round_trip(home, fake_clipboard, capsys):
     assert ph not in restored and "Summary: follow up with" in restored
     cap = capsys.readouterr()
     assert "415" not in cap.err and "Orla" not in cap.err
+
+
+def test_unpaste_strict_failure_leaves_clipboard(home, fake_clipboard, capsys):
+    fake_clipboard["text"] = "Orla Venkatesh: call me about Corvanta.\nBram: ok\n"
+    assert main(["paste"]) == ExitCode.OK
+    answer = "Summary: ask <P1> and <P99>."
+    fake_clipboard["text"] = answer
+    assert main(["unpaste", "--strict"]) == ExitCode.MAPPING
+    assert fake_clipboard["text"] == answer
+    capsys.readouterr()
+    assert main(["unpaste", "--strict", "--stdout"]) == ExitCode.MAPPING
+    assert capsys.readouterr().out == ""
 
 
 def test_unpaste_without_mapping_is_usage_error(home, fake_clipboard):
@@ -222,3 +247,19 @@ def test_init_can_choose_confidential_protection(home, monkeypatch, capsys):
     assert main(["init", "--yes"]) == ExitCode.OK
     data = yaml.safe_load(userconfig.default_config_path().read_text())
     assert data["protect"] == "confidential"
+
+
+def test_prompt_uses_the_transcripts_placeholders(tmp_path, capsys):
+    from offrecord.cli import main
+
+    src = tmp_path / "p.txt"
+    src.write_text("Ann Quenby: Hello Riku Peltonen, the Peltonen file is open.\n"
+                   "Riku Peltonen: Yes, Quenby.\n")  # fmt: skip
+    prompt = "Summarise the Peltonen escalation and list Quenby's action items"
+    assert main(["redact", str(src), "--no-mapping", "--compress", "none", "--prompt", prompt]) == 0
+    out = capsys.readouterr().out
+    assert "Peltonen" not in out and "Quenby" not in out
+    first = out.splitlines()[0]
+    speakers = next(line for line in out.splitlines() if line.startswith("# speakers:"))
+    for ph in re.findall(r"<P\d+>", first):
+        assert ph in speakers

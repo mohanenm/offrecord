@@ -518,3 +518,62 @@ def test_spoken_urls_with_paths_and_split_names(line, hidden, visible):
     out = body(redact(f"A: {line}\nA: ok\n")[0])
     assert not any(h in out for h in hidden)
     assert all(v in out for v in visible)
+
+
+def test_fuzzy_deny_list_match_keeps_neighbouring_words():
+    cfg = {"denylist": [{"name": "Glimmerforge", "category": "CLIENT"}]}
+    red, _ = redact("Ann: We think that Glimmerforge pays late. Call the Glimmerforge team.\n"
+                    "Bo: ok\n", cfg)  # fmt: skip
+    text = red.turns[0].text
+    assert "Glimmerforge" not in text
+    assert "that <C" in text and "> pays late" in text and "the <C" in text and "> team" in text
+
+
+def test_titled_surname_never_takes_a_speakers_identity():
+    red, mapping = redact("Dana Whitfield: Mr. Whitfield could not make it, he is my husband.\n"
+                          "Tomas Brandl: Understood, Dana.\n")  # fmt: skip
+    first, second = red.turns[0].text, red.turns[1].text
+    assert "Whitfield" not in first
+    speaker = second.rsplit("<", 1)[1].split(">")[0]  # the placeholder for "Dana"
+    assert f"<{speaker}>" not in first
+    titled = [e for e in mapping.entries.values() if e.occurrences == ["Mr. Whitfield"]]
+    assert len(titled) == 1
+
+
+def _marked(s: str, mark: str) -> str:
+    return "".join(c + mark if c.isalnum() else c for c in s)
+
+
+@pytest.mark.parametrize(
+    ("line", "secrets"),
+    [
+        (f"my name is {_marked('Dana Whitfield', chr(0x336))} hi", ["D", "W"]),
+        (f"my social is {_marked('912-34-5678', chr(0x332))}", ["912", "5678"]),
+        ("social 987/65/4321 on file", ["987", "4321"]),
+        ("card 4111_1111_1111_1111 please", ["4111"]),
+        ("call 212/555/0142 later", ["212", "555", "0142"]),
+        ("my name is Will and I run ops", ["Will"]),
+        ("this is May from billing", ["May"]),
+    ],
+)
+def test_marks_separators_and_function_word_names_do_not_leak(line, secrets):
+    red, _ = redact(f"Ann: {line}\nBo: ok\n", {})
+    assert not [s for s in secrets if s in red.turns[0].text]
+
+
+def test_slashed_dates_are_not_identifiers():
+    red, _ = redact("Ann: on 3/5/2024 we met\nBo: ok\n", {"protect": "pii"})
+    assert "3/5/2024" in red.turns[0].text or "<D" in red.turns[0].text
+
+
+def test_function_word_speaker_names_hide_mid_sentence_mentions_only():
+    red, _ = redact("Will: hi there, I will send it\nBo: thanks Will. Will you join? we may\n", {})
+    assert (
+        red.turns[1].text.startswith("thanks <P") and "Will you join? we may" in red.turns[1].text
+    )
+    assert "I will send it" in red.turns[0].text
+
+
+def test_fuzzy_speaker_match_leaves_a_following_pronoun():
+    red, _ = redact("Ann Quenby: Hello Riku Peltonen, I see it.\nRiku Peltonen: Yes.\n", {})
+    assert ", I see it." in red.turns[0].text

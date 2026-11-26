@@ -30,9 +30,10 @@ from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 
 from offrecord.errors import MappingError, UsageError
+from offrecord.paths import default_key_path
 
 FORMAT_VERSION = 1
-MAGIC = {"map": "OFFRECORD-MAP", "audit": "OFFRECORD-AUDIT"}
+MAGIC = {"map": "OFFRECORD-MAP", "audit": "OFFRECORD-AUDIT", "set": "OFFRECORD-SET"}
 SCRYPT_N = 2**17
 SCRYPT_R = 8
 SCRYPT_P = 1
@@ -51,7 +52,7 @@ class Secret:
     kind: str  # "passphrase" | "keyfile"
     value: bytes
     key_path: Path | None = None
-    source: str = ""  # "env" | "prompt" | "file": the CLI tells the user where it came from
+    source: str = ""  # "env" | "prompt" | "file" | "default": the CLI says where it came from
 
     def __repr__(self) -> str:
         return f"Secret(kind={self.kind!r})"
@@ -69,13 +70,27 @@ def _unb64(s: str) -> bytes:
 
 
 def derive_key(secret: Secret, kdf: dict[str, Any]) -> bytes:
+    if not isinstance(kdf, dict):
+        raise MappingError("mapping header is malformed")
     salt = _unb64(str(kdf.get("salt", "")))
     if len(salt) != SALT_BYTES:
         raise MappingError("mapping header is malformed")
     if kdf.get("name") == "scrypt":
+        if secret.kind != "passphrase" and secret.source == "default":
+            # The default key was only a guess: a passphrase mapping asks for the passphrase.
+            pw = _prompt(False)
+            if pw is None:
+                raise MappingError(
+                    "this mapping was encrypted with a passphrase, not the default key file; "
+                    f"set {PASSPHRASE_ENV}"
+                )
+            secret = Secret("passphrase", pw.encode("utf-8"), source="prompt")
         if secret.kind != "passphrase":
             raise MappingError("this mapping was encrypted with a passphrase, not a key file")
-        n, r, p = int(kdf["n"]), int(kdf["r"]), int(kdf["p"])
+        try:
+            n, r, p = int(kdf["n"]), int(kdf["r"]), int(kdf["p"])
+        except (KeyError, TypeError, ValueError, OverflowError):
+            raise MappingError("mapping header is malformed") from None
         # Only parameters this version writes: a crafted header must not be able to demand
         # gigabytes of memory or minutes of CPU before decryption fails.
         if not (2**14 <= n <= 2**18 and n & (n - 1) == 0 and r == SCRYPT_R and p == SCRYPT_P):
@@ -114,13 +129,19 @@ def read_header(data: bytes, kind: str) -> dict[str, Any]:
         first, header, _token = data.split(b"\n", 2)
         magic, version = first.decode("ascii").split(" ")
         hdr = json.loads(header.decode("ascii"))
-    except (ValueError, UnicodeError):
+    except (ValueError, UnicodeError, RecursionError):
         raise MappingError("not an offrecord mapping file, or it is corrupted") from None
     if magic != MAGIC[kind]:
         raise MappingError(f"not an offrecord {kind} file")
-    if int(version) != FORMAT_VERSION:
+    if not version.isascii() or not version.isdigit():
+        raise MappingError("not an offrecord mapping file, or it is corrupted")
+    if version != str(FORMAT_VERSION):
         raise MappingError("unsupported mapping file version")
-    if not isinstance(hdr, dict) or "id" not in hdr or "kdf" not in hdr:
+    if not (
+        isinstance(hdr, dict)
+        and isinstance(hdr.get("id"), str)
+        and isinstance(hdr.get("kdf"), dict)
+    ):
         raise MappingError("mapping header is malformed")
     return hdr
 
@@ -135,8 +156,10 @@ def decrypt(data: bytes, kind: str, secret: Secret) -> tuple[str, dict[str, Any]
         raise MappingError(
             "cannot decrypt: wrong passphrase/key, or the file was modified"
         ) from None
-    except (ValueError, UnicodeError):
+    except (ValueError, UnicodeError, RecursionError):
         raise MappingError("decrypted mapping is malformed") from None
+    if not isinstance(body, dict) or not isinstance(body.get("payload"), dict):
+        raise MappingError("decrypted mapping is malformed")
     if (
         body.get("id") != hdr["id"]
         or body.get("version") != FORMAT_VERSION
@@ -149,7 +172,7 @@ def decrypt(data: bytes, kind: str, secret: Secret) -> tuple[str, dict[str, Any]
 # --- secrets ---------------------------------------------------------------------------------
 
 
-def load_key_file(path: str | os.PathLike[str]) -> Secret:
+def load_key_file(path: str | os.PathLike[str], source: str = "file") -> Secret:
     """Open first (no symlinks, non-blocking), then check the open descriptor: regular file,
     owned by the current user, not accessible to others."""
     p = Path(path)
@@ -177,7 +200,7 @@ def load_key_file(path: str | os.PathLike[str]) -> Secret:
         raise UsageError("key file is not a valid offrecord key") from None
     if len(raw) != KEY_BYTES:
         raise UsageError("key file is not a valid offrecord key")
-    return Secret("keyfile", raw, p.resolve(), source="file")
+    return Secret("keyfile", raw, p.resolve(), source=source)
 
 
 def generate_key() -> str:
@@ -185,7 +208,8 @@ def generate_key() -> str:
 
 
 def get_secret(key_file: str | None, confirm: bool = False) -> Secret | None:
-    """Key file (argument or env), else passphrase (env or interactive prompt). Never argv."""
+    """Key file (argument or env), else the passphrase env var, else the default key from
+    ``offrecord keygen`` if it exists, else an interactive prompt. Never argv."""
     kf = key_file or os.environ.get(KEY_FILE_ENV)
     env_pw = os.environ.get(PASSPHRASE_ENV)
     if kf and env_pw is not None:
@@ -195,6 +219,9 @@ def get_secret(key_file: str | None, confirm: bool = False) -> Secret | None:
     pw = env_pw
     source = "env"
     if pw is None:
+        default = default_key_path()
+        if default.exists() or default.is_symlink():  # a symlink is refused by load_key_file
+            return load_key_file(default, source="default")
         pw = _prompt(confirm)
         source = "prompt"
     if pw is None:

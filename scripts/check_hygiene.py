@@ -36,6 +36,7 @@ SEALED_TREES = {
     "eval/templates/sealed": "1182c192ede624f8997332f309e6f855a968d029",
     "eval/pools/sealed": "1609f818c06e7a40785edf8685e01bb9d3960185",
     "eval/generated/sealed": "084da9e52c821aefdbe682738f004c6e7ad8164a",
+    "eval/sealed": "17b4bf23e93cb2992968d47ce7f772fa684e20ed",  # the encrypted next sealed set
 }
 WHEEL_OK = re.compile(r"^(offrecord/|offrecord-[^/]+\.dist-info/)")
 NEVER_SHIP = re.compile(r"\.(onnx|gguf|key|pem|mapping|ormap|oraudit|env)$|(^|/)eval/")

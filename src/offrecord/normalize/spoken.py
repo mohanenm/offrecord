@@ -48,6 +48,9 @@ def _fold_cluster(cluster: str) -> str:
     if len(cluster) == 1 and cluster in _FOLD:
         return _FOLD[cluster]
     out = unicodedata.normalize("NFKC", cluster)
+    # Marks that did not compose (strike-through or underline on each letter, Devanagari or
+    # Tamil vowel signs, Arabic vowels) split words for every detector: dropped in this view.
+    out = "".join(c for c in out if unicodedata.category(c) not in ("Mn", "Me"))
     # Any remaining non-ASCII decimal digit (e.g. Arabic-Indic, Devanagari) -> ASCII digit.
     return "".join(
         str(unicodedata.decimal(c)) if not c.isascii() and unicodedata.decimal(c, None) is not None
@@ -57,8 +60,8 @@ def _fold_cluster(cluster: str) -> str:
 
 
 def fold_chars(text: str) -> list[Edit]:
-    """Delete invisible characters; NFKC per grapheme cluster (so combining accents compose);
-    fold quotes, dashes, odd spaces and non-ASCII digits."""
+    """Delete invisible characters; NFKC per grapheme cluster (so combining accents compose),
+    then drop marks left over; fold quotes, dashes, odd spaces and non-ASCII digits."""
     if text.isascii():
         return []
     edits: list[Edit] = []
@@ -574,9 +577,26 @@ def spoken_email_url(text: str) -> list[Edit]:
     return edits
 
 
+# --- slash and underscore separators ------------------------------------------------------
+
+_SEP_RUN = re.compile(r"(?<![\d/_])\d{2,}(?:[/_]\d{2,}){2,}(?![\d/_])")
+
+
+def digit_separators(text: str) -> list[Edit]:
+    """``987/65/4321`` and ``4111_1111_1111_1111`` read as dashed numbers: identifiers written
+    with slashes or underscores (9+ digits in 3+ groups, so dates and fractions are left)."""
+    edits: list[Edit] = []
+    for m in _SEP_RUN.finditer(text):
+        run = m.group()
+        if sum(c.isdigit() for c in run) >= 9:
+            edits.append((m.start(), m.end(), run.replace("/", "-").replace("_", "-")))
+    return edits
+
+
 # --- pipeline --------------------------------------------------------------------------------
 
-PASSES = (fold_chars, fold_confusables, spelled_letters, cardinals, digit_runs, spoken_email_url)
+PASSES = (fold_chars, fold_confusables, digit_separators, spelled_letters, cardinals, digit_runs,
+          spoken_email_url)  # fmt: skip
 
 
 def _non_overlapping(edits: Iterable[Edit]) -> list[Edit]:

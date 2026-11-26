@@ -1,7 +1,7 @@
 # How offrecord works
 
 offrecord reads a transcript, finds the sensitive parts, replaces each one with a placeholder
-such as `<P1>` or `<AMT2>`, and writes the redacted transcript plus an encrypted mapping. You
+such as `<P417>` or `<AMT283>`, and writes the redacted transcript plus an encrypted mapping. You
 paste the redacted text into an LLM, and `offrecord restore` puts the original values back
 into the answer. Everything runs locally.
 
@@ -71,14 +71,18 @@ dropped. It joins adjacent name words into one placeholder and joins number frag
 self-corrections ("five five five, sorry, five five six").
 
 Placeholders are assigned per entity, not per mention. "Quillfeather Analytics", "QFA" and
-"quill feather" become the same `<C1>` when the deny-list lists them as aliases. If the input
+"quill feather" become the same `<C417>` when the deny-list lists them as aliases. If the input
 already contains text that looks like a placeholder, it is escaped first, so the mapping stays
 one-to-one.
 
 Compression is optional and conservative. The default level only removes fillers, stutters
-and backchannels and merges consecutive turns from the same speaker, which cannot change what
-was redacted. Higher levels drop small talk and near-duplicate turns. No level ever drops the
-last occurrence of a placeholder.
+and backchannel turns and merges consecutive turns from the same speaker, which cannot change
+what was redacted. A short reply to a turn ending in "?" is an answer, not backchannel, and is
+kept at every level while its question is. Fillers match only in lower or sentence case ("ER"
+stays), and only plain stutters such as "I I" or "the the" collapse; "that that" and "had had"
+stay. Higher levels drop small talk and near-duplicate turns. A placeholder is never altered,
+and a turn holding the last remaining occurrence of a placeholder is never dropped; repeated
+mentions can go with their turns.
 
 ## Restore and the mapping file
 
@@ -87,11 +91,18 @@ a key file (via HKDF) or a passphrase (via scrypt with a per-file salt); there i
 without one except `--no-mapping`. Each redacted output carries a short header with the mapping
 id, so restore can tell when it is given the wrong mapping.
 
-Restore is tolerant. LLMs rewrite placeholders (`<P1>`, `P1`, `&lt;P1&gt;`, `<p1>`), so restore
-accepts the common variants. A bare `P1` is restored only when it is upper-case and never
-appeared naturally in the redacted text. Unknown placeholders are left in place and reported.
-Restore never guesses. Each placeholder restores to the first form seen for that entity, because
-per-mention restore becomes unreliable once compression has merged or dropped turns.
+Placeholder numbers are drawn at random for each mapping (100-999, wider if a category runs
+out) rather than counted from 1. A bare `P417` almost never occurs in ordinary writing, where
+`P1` and `L2` do, and the placeholders in an LLM answer identify its mapping: header-less text
+holding a placeholder the mapping lacks is refused, with nothing restored.
+
+Restore is tolerant. LLMs rewrite placeholders (`<P417>`, `P417`, `&lt;P417&gt;`, `<p417>`), so
+restore accepts the common variants. A bare token is restored only when it is upper-case, has at
+least three digits and never appeared naturally in the redacted text. In headed text, unknown
+placeholders are left in place and reported. Each placeholder restores to the first form seen
+for that entity, because per-mention restore becomes unreliable once compression has merged or
+dropped turns. So a name only links to an earlier entity when the link is safe: a titled name
+("Mr. Whitfield") never takes a speaker's identity, because it may be someone else.
 
 ## Optional tiers
 

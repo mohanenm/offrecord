@@ -46,17 +46,22 @@ class EvalItem:
 def load_generated(
     directory: Path, final_check: bool = False
 ) -> tuple[list[EvalItem], dict[str, Any]]:
-    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``. The sealed set
-    (recognised by its labels, so a copy is refused too) loads only for the final check."""
+    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``. The first sealed
+    set (recognised by its labels) is spent and loads as ``validation2`` from its own folder; a
+    copy anywhere else is still refused without the final check."""
     from offrecord.errors import UsageError
 
     items = []
     for lp in sorted(directory.glob("*.labels.json")):
         meta = json.loads(lp.read_text(encoding="utf-8"))
         if meta.get("set") == "sealed":
-            from offrecord.evaluation.sets import SEALED_MANIFEST_SHA256, verify_manifest
+            from offrecord.evaluation.sets import (
+                SEALED_MANIFEST_SHA256,
+                is_spent_sealed,
+                verify_manifest,
+            )
 
-            if not final_check:
+            if not final_check and not is_spent_sealed(directory):
                 raise UsageError("the sealed set is scored only with --final-check")
             if not verify_manifest(directory, SEALED_MANIFEST_SHA256):
                 raise UsageError("the sealed set does not match its pinned manifest")
@@ -75,6 +80,47 @@ def _load_config(directory: Path) -> dict[str, Any]:
     if p.exists():
         return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
     return {}
+
+
+def write_sealed(src: Path, out: Path, secret: Any) -> str:
+    """Encrypt a folder of inline-markup transcripts (``*.txt`` and ``denylist.yaml``) into
+    ``out/sealed.orset`` with a manifest. Returns the manifest's SHA-256, to pin in sets.py."""
+    from offrecord import crypto
+    from offrecord.evaluation.sets import MANIFEST, SEALED_FILE, manifest_lines
+    from offrecord.redact.replace import new_mapping_id
+
+    files = {p.name: p.read_text(encoding="utf-8") for p in sorted(src.glob("*.txt"))}
+    deny = src / "denylist.yaml"
+    payload = {
+        "files": files,
+        "denylist": deny.read_text(encoding="utf-8") if deny.exists() else "",
+    }
+    out.mkdir(parents=True, exist_ok=True)
+    (out / SEALED_FILE).write_bytes(crypto.encrypt("set", new_mapping_id(), payload, secret))
+    text = "\n".join(manifest_lines(out)) + "\n"
+    (out / MANIFEST).write_text(text, encoding="utf-8")
+    import hashlib
+
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def load_sealed(directory: Path, secret: Any) -> tuple[list[EvalItem], dict[str, Any]]:
+    """Decrypt the sealed set in memory (never to disk) and parse its inline markup. The caller
+    checks ``--final-check``; this checks the pinned manifest and the key."""
+    from offrecord import crypto
+    from offrecord.errors import UsageError
+    from offrecord.evaluation.sets import NEW_SEALED_MANIFEST_SHA256, SEALED_FILE, verify_manifest
+
+    if NEW_SEALED_MANIFEST_SHA256 is None or not verify_manifest(
+        directory, NEW_SEALED_MANIFEST_SHA256
+    ):
+        raise UsageError("the sealed set is missing or does not match its pinned manifest")
+    _fid, payload = crypto.decrypt((directory / SEALED_FILE).read_bytes(), "set", secret)
+    items = []
+    for name, text in sorted(payload["files"].items()):
+        lt, doc = parse_markup_transcript(name.removesuffix(".txt"), text)
+        items.append(EvalItem(lt.id, doc, lt.labels, lt.negatives, {"set": "sealed"}))
+    return items, yaml.safe_load(payload.get("denylist") or "") or {}
 
 
 def load_markup_dir(directory: Path) -> tuple[list[EvalItem], dict[str, Any]]:
@@ -184,6 +230,8 @@ class Report:
     per_casing: dict[str, Counts] = field(default_factory=lambda: defaultdict(Counts))
     known_split: dict[str, Counts] = field(default_factory=lambda: defaultdict(Counts))
     chars: CharCounts = field(default_factory=CharCounts)
+    # Text fields only: a speaker label redacted on every turn is easy and would dominate.
+    chars_text: CharCounts = field(default_factory=CharCounts)
     chars_by_category: dict[str, CharCounts] = field(
         default_factory=lambda: defaultdict(CharCounts)
     )
@@ -200,6 +248,7 @@ class Report:
     clean_pii: int = 0
     other_total: int = 0
     other_redacted_or_flagged: int = 0
+    other_redacted: int = 0  # ... of which redacted (the rest are flags left readable)
     text_chars: int = 0  # readability: how much of the text the redactions cover
     text_redacted: int = 0
     sentences: int = 0
@@ -220,6 +269,18 @@ class Report:
     @property
     def other_redacted_or_flagged_rate(self) -> float | None:
         return self.other_redacted_or_flagged / self.other_total if self.other_total else None
+
+    @property
+    def other_redacted_rate(self) -> float | None:
+        return self.other_redacted / self.other_total if self.other_total else None
+
+    @property
+    def precision_text(self) -> float | None:
+        return self.chars_text.precision
+
+    @property
+    def negatives_hit_rate(self) -> float | None:
+        return self.negatives_hit / self.negatives_total if self.negatives_total else None
 
     def pii_intervals(self, rounds: int = 2000) -> dict[str, tuple[float, float] | None]:
         """95% bootstrap intervals for PII recall and the PII-clean rate, resampling whole
@@ -282,6 +343,8 @@ class Report:
             "name": self.name, "transcripts": self.transcripts, "words": self.words,
             "recall": o.recall, "labels": o.total, "caught": o.caught, "partial": o.partial,
             "precision_chars": self.precision, "redacted_chars": self.chars.redacted,
+            "precision_text": self.precision_text, "negatives_hit_rate": self.negatives_hit_rate,
+            "other_redacted": self.other_redacted_rate,
             "negatives_hit": self.negatives_hit, "negatives": self.negatives_total,
             "leaks_per_1k_words": self.leaks_per_1k_words,
             "text_redacted_share": (
@@ -392,6 +455,7 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
                 rep.other_total += 1
                 seen = full or _covered(flagged.get(fid, []), lb.start, lb.end, src)[0]
                 rep.other_redacted_or_flagged += int(seen)
+                rep.other_redacted += int(full)
             keys = [
                 (rep.per_category, lb.category),
                 (rep.per_form, f"{lb.category}:{lb.form or 'n/a'}"),
@@ -431,8 +495,12 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
         gold_union = {fid: _union(ivs) for fid, ivs in gold_by_field.items()}
         for fid, ivs in spans.items():
             for a, b in ivs:
+                on_gold = _overlap_len(gold_union.get(fid, []), a, b)
                 rep.chars.redacted += b - a
-                rep.chars.on_gold += _overlap_len(gold_union.get(fid, []), a, b)
+                rep.chars.on_gold += on_gold
+                if fid[0] == "turn" and fid[2] == "text":
+                    rep.chars_text.redacted += b - a
+                    rep.chars_text.on_gold += on_gold
         by_cat: dict[str, dict[FieldId, list[tuple[int, int]]]] = defaultdict(
             lambda: defaultdict(list)
         )
@@ -482,13 +550,18 @@ def format_report(reports: Sequence[Report]) -> str:
             "other r/f",
             lambda r: f"{pct(r.other_redacted_or_flagged_rate)}% of {r.other_total:>5}",
         ),
+        ("  redacted", lambda r: f"{pct(r.other_redacted_rate)}%"),
         ("RECALL", lambda r: f"{pct(r.overall.recall)}% of {r.overall.total:>5}"),
         ("prec(char)", lambda r: f"{pct(r.precision)}%"),
+        ("prec(text)", lambda r: f"{pct(r.precision_text)}%"),
         (
             "leaks/1kw",
             lambda r: "  n/a" if r.leaks_per_1k_words is None else f"{r.leaks_per_1k_words:6.2f}",
         ),
-        ("NEG hit", lambda r: f"{r.negatives_hit} of {r.negatives_total}"),
+        (
+            "NEG hit",
+            lambda r: f"{r.negatives_hit} of {r.negatives_total} ({pct(r.negatives_hit_rate)}%)",
+        ),
         (
             "redacted",
             lambda r: f"{pct(r.text_redacted / r.text_chars if r.text_chars else None)}% of text",
@@ -508,7 +581,9 @@ def format_report(reports: Sequence[Report]) -> str:
     lines += [
         "95% CI: bootstrap over transcripts. other r/f: labels that are not personal data "
         "(figures, organisations, business topics) redacted or flagged; a flag only asks you "
-        "to look.",
+        "to look; '  redacted' is the part actually redacted. prec(text): character precision "
+        "on turn text only (prec(char) also counts speaker labels). NEG hit: must-not-redact "
+        "items that were redacted.",
     ]
     lines += ["", "Clean transcripts by category (share of transcripts with that category)"]
     for c in sorted({c for r in reports for c in r.with_category}):

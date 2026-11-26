@@ -184,6 +184,8 @@ class DenyListDetector:
                     continue
                 s, e = toks[i][0], toks[i + k - 1][1]
                 for v in self._match(words, joined, text[s:e]):
+                    if k > 1 and joined != v.joined and _trim_scores_higher(words, v.joined):
+                        continue  # "that Glimmerforge": the narrower window matches on its own
                     needs_ctx = v.entry.common_word or v.entry.context
                     if needs_ctx and not self._context_ok(v.entry, toks, i, k, nearby):
                         continue
@@ -250,3 +252,23 @@ class DenyListDetector:
         if any(t[2] in ctx for t in toks[lo:i] + toks[i + k : hi]):
             return True
         return any(ctx & set(_tokens(f.orig)) for f in nearby)
+
+
+# Edge words that are usually part of a spoken handle or address ("okafor net", "stormy one").
+_HANDLE_WORDS = frozenset(
+    "com org net io co edu gov zero oh one two three four five six seven eight nine ten".split()
+)
+
+
+def _trim_scores_higher(words: list[str], target: str) -> bool:
+    """A fuzzy window that scores no better than itself minus a first or last ordinary word is
+    too wide: the word ("that", "pays", "the") would be swallowed into the placeholder. Initials
+    and name-like words stay: they are often part of the same name or email ("j okafor at")."""
+    full = fuzz.ratio("".join(words), target)
+    for edge, rest in ((words[0], words[1:]), (words[-1], words[:-1])):
+        if edge in _HANDLE_WORDS:
+            continue
+        ordinary = (len(edge) >= 2 and is_common(edge)) or edge in ("i", "a")
+        if ordinary and fuzz.ratio("".join(rest), target) >= full:
+            return True
+    return False

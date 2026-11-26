@@ -37,6 +37,12 @@ Every other command installs a network guard (see below) before doing any work.
   readable by other users. Passphrases are never command-line arguments; they come from a
   prompt or `OFFRECORD_PASSPHRASE`. (Setting that variable in a shared shell profile exposes it
   to anything running as you: prefer a key file or the prompt.)
+- Key lookup order: `--key-file`, `OFFRECORD_KEY_FILE`, `OFFRECORD_PASSPHRASE`, the default key
+  written by `offrecord keygen` (`~/.config/offrecord/keys/default.key`, used only if it exists,
+  with a notice on stderr), then the prompt. A passphrase mapping met with the default key
+  falls back to the prompt (or names `OFFRECORD_PASSPHRASE` when there is no terminal). The
+  default key gets the same checks as any key file: no symlinks, owned by you, not readable by
+  others, and no mapping in its directory.
 - Encrypted mappings and audit logs go to a private per-user store
   (`~/.local/share/offrecord/mappings`, 0700) rather than next to the output.
 - `redact` refuses to run without a passphrase/key unless `--no-mapping` is given.
@@ -59,7 +65,8 @@ Every other command installs a network guard (see below) before doing any work.
   and every error path.
 
 ### R3. A leaky dependency
-- Tier 0 has four runtime dependencies, all pinned; dev tools are pinned in lock files.
+- Tier 0 has four runtime dependencies, all pinned; dev tools and the optional extras, with all
+  their transitive dependencies, are pinned in lock files.
   `pip-audit`, dependency review and CodeQL run in CI, and Dependabot proposes updates weekly.
 - Runtime network guard: every command except `setup` installs it before work starts.
   A `sys.addaudithook` hook (fires from C, so direct `_socket` use is covered too) blocks
@@ -78,9 +85,10 @@ Every other command installs a network guard (see below) before doing any work.
   networking disabled.
 
 ### R4. Mangled restore (LLM output with distorted placeholders)
-- Restore is tolerant of common mangling (`<c1>`, `<C 1>`, `<C1>'s`, `&lt;C1&gt;`, upper-case
-  bare `C1`) but never restores anything ambiguous: bare tokens that also occur naturally in the
-  redacted output, and unknown placeholders, are left as they are and reported.
+- Restore is tolerant of common mangling (`<c417>`, `<C 417>`, `<C417>'s`, `&lt;C417&gt;`,
+  upper-case bare `C417`). Bare tokens need three digits and must not occur naturally in the
+  redacted output, so an answer's own `P1` or `L2` is never restored. Placeholder numbers are
+  random per mapping.
 - Source text that already looks like a placeholder is escaped one-to-one (`<C1>` -> `<\C1>`,
   `<\C1>` -> `<\\C1>`), and restore removes exactly one backslash.
 
@@ -88,8 +96,9 @@ Every other command installs a network guard (see below) before doing any work.
 - Each mapping has a random ID (128 bits, no content-derived bits) and a format version.
   Redacted output carries the ID (compact/txt header line, VTT NOTE, zero-length first SRT cue,
   `_offrecord_mapping` JSON key). Restore fails on an ID mismatch or on a `mapping=none` header.
-  Header-less text (an LLM answer) needs `--assume-mapping`; then every placeholder must exist
-  in the mapping or a warning is printed (`--strict` turns warnings into failure).
+  Header-less text (an LLM answer) needs `--assume-mapping` for `restore`; for `restore` and
+  `unpaste` every bracketed placeholder must exist in the mapping, or nothing is restored. In
+  headed text unknown placeholders are left and reported (`--strict` turns that into failure).
 - Crafted mapping headers cannot demand expensive key derivation: only the parameters this
   version writes are accepted.
 - The ID, format version and file kind are repeated inside the encrypted payload, so a tampered
@@ -99,6 +108,10 @@ Every other command installs a network guard (see below) before doing any work.
 - Documented as sensitive. Never echoed in output, logs or errors (config errors name the entry
   index and field only; tested with canary values). Reason codes refer to deny-list entries by
   index (`deny:fuzzy:#12`).
+- Unknown config keys are an error, so a misspelt `protect` cannot silently leave business
+  context readable. The error names the key only when it is a near miss of a known key
+  (`protekt`); otherwise it gives the key's position, since a mis-indented deny-list name
+  would be a key too.
 - `.gitignore` excludes `*.local.yaml`; the repo ships only a synthetic example config.
 
 ### R6b. Adapters must not drop or hide text

@@ -183,7 +183,7 @@ footer p { margin: 0; }
     <p class="pitch">Remove personal data from meeting transcripts before they reach an LLM. Fully offline.</p>
     <ul class="points">
       <li><strong>Offline</strong><span>No telemetry, no update checks, no downloads at run time. Every command except <code>setup</code> blocks network access.</span></li>
-      <li><strong>Reversible</strong><span>Placeholders like <code>&lt;P1&gt;</code> map back to the originals through an encrypted mapping, so you can restore an LLM&rsquo;s answer on your machine.</span></li>
+      <li><strong>Reversible</strong><span>Placeholders like <code>&lt;P417&gt;</code> map back to the originals through an encrypted mapping, so you can restore an LLM&rsquo;s answer on your machine.</span></li>
       <li><strong>Modest hardware</strong><span>The rules-only tier needs Python 3.10+ and 2&nbsp;GB of RAM: Raspberry Pi 4 class. No GPU, no models required.</span></li>
     </ul>
     <div class="cta">
@@ -219,20 +219,20 @@ footer p { margin: 0; }
         <figure>
           <figcaption>Redacted output (same excerpt)</figcaption>
 <pre aria-label="Redacted output excerpt"># offrecord mapping=none
-# speakers: A=<span class="ph">&lt;P1&gt;</span>, B=<span class="ph">&lt;P3&gt;</span>
+# speakers: A=<span class="ph">&lt;P431&gt;</span>, B=<span class="ph">&lt;P254&gt;</span>
 <span class="gap">[...]</span>
-A: Nice. Okay, let's jump in. So the <span class="ph">&lt;O1&gt;</span> renewal is coming up on <span class="ph">&lt;D1&gt;</span>.
-B: Right, and honestly <span class="ph">&lt;N1&gt;</span> is looking at the numbers pretty hard this year.
-A: Understood. Last year you were at <span class="flag">$100,000 ARR</span>, and usage is up about <span class="flag">16.5%</span>. We'd like to move you onto <span class="ph">&lt;N2&gt;</span> for the same seats.
+A: Nice. Okay, let's jump in. So the <span class="ph">&lt;O504&gt;</span> renewal is coming up on <span class="ph">&lt;D766&gt;</span>.
+B: Right, and honestly <span class="ph">&lt;N149&gt;</span> is looking at the numbers pretty hard this year.
+A: Understood. Last year you were at <span class="flag">$100,000 ARR</span>, and usage is up about <span class="flag">16.5%</span>. We'd like to move you onto <span class="ph">&lt;N174&gt;</span> for the same seats.
 <span class="gap">[...]</span>
 B: Okay. <span class="flag">Between us, we might be acquired by another group before the renewal closes.</span>
-A: Oh, wow. Okay. That changes the <span class="ph">&lt;N3&gt;</span>.
-B: Yeah. Send the quote to <span class="ph">&lt;EMAIL1&gt;</span>, or call me on <span class="ph">&lt;PH1&gt;</span>.
-A: Got it. And should I copy <span class="ph">&lt;P4&gt;</span>?
-B: Yes, <span class="ph">&lt;N4&gt;</span> runs finance now.</pre>
+A: Oh, wow. Okay. That changes the <span class="ph">&lt;N940&gt;</span>.
+B: Yeah. Send the quote to <span class="ph">&lt;EMAIL648&gt;</span>, or call me on <span class="ph">&lt;PH196&gt;</span>.
+A: Got it. And should I copy <span class="ph">&lt;P474&gt;</span>?
+B: Yes, <span class="ph">&lt;N696&gt;</span> runs finance now.</pre>
         </figure>
       </div>
-      <p class="note">On the full 20-turn sample: 32 items of personal data redacted and 12 items of business context left readable but flagged for review (underlined above: figures and the acquisition remark; <code>protect: confidential</code> redacts those too). The default <code>light</code> compression took an estimated 381 &rarr; 326 tokens (14% fewer) by dropping the &ldquo;Mm-hmm&rdquo; backchannel and merging same-speaker turns (20 &rarr; 16). &ldquo;timeline&rdquo; was redacted as a possible name: for personal data, over-redaction is the preferred failure mode.</p>
+      <p class="note">Output from an earlier version, with placeholder numbers redrawn (they are random on every run); current output differs in small ways. On the full 20-turn sample: 32 items of personal data redacted and 12 items of business context left readable but flagged for review (underlined above: figures and the acquisition remark; <code>protect: confidential</code> redacts those too). The default <code>light</code> compression took an estimated 381 &rarr; 326 tokens (14% fewer) by dropping the &ldquo;Mm-hmm&rdquo; backchannel and merging same-speaker turns (20 &rarr; 16). &ldquo;timeline&rdquo; was redacted as a possible name: for personal data, over-redaction is the preferred failure mode.</p>
     </div>
   </section>
 
@@ -243,8 +243,8 @@ B: Yes, <span class="ph">&lt;N4&gt;</span> runs finance now.</pre>
       <ol class="steps">
         <li><h3>normalize</h3><p>Plain text, WebVTT, SRT and Whisper-style JSON become one turn model. Spoken forms become canonical: &ldquo;john at example dot com&rdquo; &rarr; an email, &ldquo;five five five&hellip;&rdquo; &rarr; digits.</p></li>
         <li><h3>redact</h3><p>Regex + validators (email, phone, card with Luhn, IP, URL, dates&hellip;), your deny-list with fuzzy and phonetic matching, name and place heuristics, and personal topics (health, family, legal). Business context (amounts, percentages, organisations, business topics) is flagged for review, or redacted too with <code>protect: confidential</code>. Optional NER and LLM tiers add redactions and never undo another detector&rsquo;s.</p></li>
-        <li><h3>compress</h3><p><code>light</code> (default) removes fillers, stutters and backchannel turns; <code>medium</code> also drops small talk and near-duplicates. Negations, decisions and numbers are never dropped, nor any placeholder.</p></li>
-        <li><h3>output</h3><p>Compact text with a speaker legend, or the original format. Short, consistent placeholders (<code>&lt;C1&gt;</code>, <code>&lt;P2&gt;</code>, <code>&lt;AMT1&gt;</code>) and a header carrying a random mapping id.</p></li>
+        <li><h3>compress</h3><p><code>light</code> (default) removes fillers, stutters and backchannel turns, but keeps the answer to a question; <code>medium</code> also drops small talk and near-duplicates. Negations, decisions and numbers are never dropped except as part of a near-duplicate turn, and every placeholder keeps at least its last occurrence.</p></li>
+        <li><h3>output</h3><p>Compact text with a speaker legend, or the original format. Short, consistent placeholders with random numbers (<code>&lt;C417&gt;</code>, <code>&lt;P283&gt;</code>, <code>&lt;AMT605&gt;</code>) and a header carrying a random mapping id.</p></li>
       </ol>
     </div>
   </section>
@@ -313,21 +313,23 @@ offrecord restore answer.txt --assume-mapping \
   <section id="accuracy" aria-labelledby="accuracy-h">
     <div class="wrap">
       <h2 id="accuracy-h">Accuracy</h2>
-      <p class="lead">PII recall is the share of names, contact details, account and card numbers, IPs, URLs and places that are fully redacted (every letter and digit). A transcript is PII-clean when none of those leaked. Business context (figures, organisations, business topics) is flagged by default; the third column counts what was redacted or flagged, and a flag only asks you to look. The validation set was written blind but has been looked at during development; the user set is harder phrasing that was never tuned on.</p>
+      <p class="lead">PII recall is the share of names, contact details, account and card numbers, IPs, URLs and places that are fully redacted (every letter and digit). A transcript is PII-clean when none of those leaked. The first sealed set was written blind and scored once; the user set was never tuned on directly but guided later tuning; validation is the easiest set, since most of its invented names are not dictionary words.</p>
       <div class="table-wrap">
         <table>
-          <caption class="sr-only">PII recall, PII-clean transcripts, business context redacted or flagged, and share of text redacted by tier on the validation and user sets</caption>
-          <thead><tr><th scope="col">Validation (56) / user set (8)</th><th scope="col" class="num">PII recall</th><th scope="col" class="num">PII-clean transcripts</th><th scope="col" class="num">Business context redacted or flagged</th><th scope="col" class="num">Text redacted</th></tr></thead>
+          <caption class="sr-only">PII recall and PII-clean transcripts at Tier 0 and Tier 1, by evaluation set</caption>
+          <thead><tr><th scope="col">Set (transcripts)</th><th scope="col" class="num">Tier 0 PII recall</th><th scope="col" class="num">Tier 0 PII-clean</th><th scope="col" class="num">Tier 1 PII recall</th><th scope="col" class="num">Tier 1 PII-clean</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Tier 0 (rules)</th><td class="num">99.3% / 88.9%</td><td class="num">93% / 25%</td><td class="num">91% / 79%</td><td class="num">15% / 21%</td></tr>
-            <tr><th scope="row">Tier 1 (+ NER ensemble)</th><td class="num">99.8% / 90.2%</td><td class="num">98% / 25%</td><td class="num">97% / 82%</td><td class="num">17% / 24%</td></tr>
-            <tr><th scope="row">Tier 2 (+ Phi-4-mini)</th><td class="num">99.8% / 90.2%</td><td class="num">98% / 25%</td><td class="num">97% / 83%</td><td class="num">18% / 25%</td></tr>
-            <tr class="dim"><th scope="row">Baseline: plain regexes</th><td class="num">14.2% / 7.2%</td><td class="num">0% / 0%</td><td class="num"></td><td class="num"></td></tr>
+            <tr><th scope="row">First sealed set, now <code>validation2</code> (80)</th><td class="num">94.6%</td><td class="num">54%</td><td class="num">96.3%</td><td class="num">64%</td></tr>
+            <tr><th scope="row">User set (8)</th><td class="num">88.9%</td><td class="num">25%</td><td class="num">90.2%</td><td class="num">25%</td></tr>
+            <tr><th scope="row">Validation (56)</th><td class="num">99.3%</td><td class="num">93%</td><td class="num">99.8%</td><td class="num">98%</td></tr>
+            <tr><th scope="row">Earnings-21, real earnings calls (44)</th><td class="num">87.0%</td><td class="num"></td><td class="num">90.1%</td><td class="num"></td></tr>
+            <tr class="dim"><th scope="row">Baseline: Presidio defaults, validation</th><td class="num">62.7%</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+            <tr class="dim"><th scope="row">Baseline: plain regexes, validation</th><td class="num">14.2%</td><td class="num">0%</td><td class="num"></td><td class="num"></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note"><strong>Sealed set:</strong> 80 transcripts written blind and opened once, against targets fixed beforehand. Tier 0 missed two of them: PII recall 93.4% (target 95%) and PII-clean transcripts 46% (target 65%), almost entirely because of place names (84% caught). Names, account and card numbers, SSNs, IPs and URLs were all caught. Tier 1 reached 96.4% and 65%. Place handling has since been improved on new tuning data; the next release will be scored on a fresh sealed set.</p>
-      <p class="note">Read the PII-clean column first: in some transcripts a name or number still gets through, so you still read the output before sharing it. The user set has only 8 transcripts, so its numbers are loose (95% interval for Tier 0 PII recall: 81.4&ndash;95.2%). Tier 2 adds indirect identifiers rather than PII recall: on 15 held-back transcripts, descriptions of a person were redacted 63% of the time at Tier 0, 68% at Tier 1 and 78% at Tier 2. On Earnings-21 (44 real earnings calls, never tuned on) PII recall is 85.7% at Tier 0 and 89.8% at Tier 1.</p>
+      <p class="note"><strong>Sealed set at opening:</strong> Tier 0 missed two targets fixed beforehand: PII recall 93.4% (target 95%) and PII-clean transcripts 46% (target 65%), almost entirely because of place names (84% caught). Tier 1 reached 96.4% and 65%. The next release will be scored once on a new sealed set, stored encrypted, against targets already published.</p>
+      <p class="note">The cost, on validation (Tier 0 / Tier 1): precision on turn text 80% / 73%; 15% / 16% of the text redacted; business context 45% / 47% redacted and most of the rest flagged for review. Read the PII-clean column first: in some transcripts a name or number still gets through, so you still read the output before sharing it. Tier 2 does not change PII recall; it adds a check for indirect identifiers (&ldquo;our only night-shift pharmacist&rdquo;), measured on transcripts not yet in the repository.</p>
       <div class="callout" role="note">
         <p><strong>All evaluation data is synthetic</strong>: generated conversations with invented names. It cannot capture real speech-recognition errors, real names and their spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list. Expect real-world recall to be lower than these numbers, and review the flagged spans.</p>
       </div>
@@ -352,7 +354,7 @@ offrecord restore answer.txt --assume-mapping \
           <ul class="ticks">
             <li>The mapping (placeholder &rarr; original) is written <strong>only encrypted</strong> (Fernet; key from a passphrase via scrypt or from a key file via HKDF), to a private per-user store, never next to the output or the key.</li>
             <li>Passphrases come from <code>OFFRECORD_PASSPHRASE</code> or a prompt, never the command line.</li>
-            <li>Output carries the mapping id; <code>restore</code> fails on a mismatch. For header-less LLM answers you confirm with <code>--assume-mapping</code>, and every placeholder is checked.</li>
+            <li>Output carries the mapping id; <code>restore</code> fails on a mismatch. For header-less LLM answers you confirm with <code>--assume-mapping</code>; an answer holding a placeholder the mapping lacks is refused, so another call&rsquo;s names never go in.</li>
             <li>Ambiguous tokens are never restored. <code>--no-mapping</code> runs are one-way.</li>
           </ul>
         </div>
@@ -371,10 +373,10 @@ offrecord restore answer.txt --assume-mapping \
         <li>Tier 0 misses names that are ordinary dictionary words (&ldquo;Amber&rdquo;, &ldquo;Art&rdquo;) unless they are in your deny-list, a speaker label, or follow a cue like &ldquo;my name is&rdquo;. Tier 1 catches most of them.</li>
         <li>Place names are Tier 0&rsquo;s weakest category (84% caught on the sealed set): places that are ordinary words (&ldquo;Mobile&rdquo;, &ldquo;Reading&rdquo;) or appear without capitals and without a cue like &ldquo;in&rdquo; are the usual misses. Tier 1 catches about half of those.</li>
         <li>Unknown organisations or products named with ordinary words are missed at Tier 0 and partly at Tier 1.</li>
-        <li>Higher tiers trade precision for recall and are slower (Tier 2 adds roughly 10&nbsp;s per call transcript on a laptop CPU).</li>
+        <li>Higher tiers trade precision for recall and are slower: Tier 1 took about a minute on a 10,000-word call; Tier 2 adds about 10&nbsp;s per short transcript and several minutes or more on a long call.</li>
         <li>Sentences about someone&rsquo;s health, family or legal situation are found by keyword (and by meaning at Tier 1); a personal sentence with none of those words can be missed, and a keyword sentence about no one in particular (&ldquo;our cancer franchise grew&rdquo;) is flagged rather than redacted. Business context (figures, organisations, layoffs, pricing) is flagged, not redacted, unless you set <code>protect: confidential</code>.</li>
         <li>Relative dates (&ldquo;yesterday&rdquo;, &ldquo;next Friday&rdquo;) are not redacted.</li>
-        <li><code>aggressive</code> compression is lossy by design (it never drops turns with placeholders, numbers, decisions or questions).</li>
+        <li><code>aggressive</code> compression is lossy by design. Its selection step never drops turns with placeholders, numbers, decisions or questions, but it also removes near-duplicate turns, so a repeated mention can go; the last occurrence of each placeholder always stays.</li>
         <li>Python cannot wipe memory: decrypted mappings and transcript text stay in process memory until garbage collected.</li>
       </ul>
     </div>

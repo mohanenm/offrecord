@@ -166,10 +166,51 @@ def test_bad_config_types_rejected(bad):
         from_mapping(bad)
 
 
+@pytest.mark.parametrize(
+    ("bad", "path", "hint"),
+    [
+        ({"protekt": "confidential"}, "protekt", "protect"),
+        ({"topics": {"mod": "redact"}}, "topics.mod", "mode"),
+        ({"detect": {"date": False}}, "detect.date", "dates"),
+        ({"models": {"thread": 2}}, "models.thread", "threads"),
+        ({"denylist": [{"name": "Zandrelcorp", "aliass": "ZC"}]}, "denylist[0].aliass", "aliases"),
+    ],
+)
+def test_misspelt_config_keys_named_with_suggestion(bad, path, hint):
+    with pytest.raises(UsageError) as ei:
+        from_mapping(bad)
+    assert f"unknown config key: {path} (did you mean {hint}?)" in str(ei.value)
+    assert "Zandrelcorp" not in str(ei.value) and "ZC" not in str(ei.value)
+
+
+@pytest.mark.parametrize(
+    "bad",
+    [
+        {"Zandrelcorp Holdings": "CLIENT"},  # a deny-list name typed at the top level
+        {"denylist": [{"Zandrelcorp Holdings": "CLIENT"}]},  # entry without "name:"
+        {"models": {"zandrelcorp": 1}},
+        {"detect": {7: True}},
+    ],
+)
+def test_unknown_config_keys_rejected_without_echo(bad):
+    with pytest.raises(UsageError) as ei:
+        from_mapping(bad)
+    msg = str(ei.value)
+    assert "unknown config key (key 1 " in msg
+    assert "zandrelcorp" not in msg.lower()
+
+
 # Performance cliffs.
 @pytest.mark.parametrize(
     "text",
-    ["A: " + "1 " * 20_000 + "\nA: ok\n", "A: " + "sales 7, " * 8_000 + "\nA: ok\n"],
+    [
+        "A: " + "1 " * 20_000 + "\nA: ok\n",
+        "A: " + "sales 7, " * 8_000 + "\nA: ok\n",
+        # Long runs without spaces, as in kebab-case identifiers and URL-safe base64.
+        *("A: " + unit * 15_000 + "\nA: ok\n" for unit in ("a-", "a.", "a+", "a'")),
+        "A: " + "number is " * 5_000 + "\nA: ok\n",
+        "A: " + "dot " * 15_000 + "\nA: ok\n",
+    ],
 )
 def test_no_quadratic_cliffs(text):
     t0 = time.perf_counter()

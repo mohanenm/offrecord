@@ -5,8 +5,9 @@ from VTT output), markdown-escaped ``\\<C1>``, JSON-escaped angle brackets (back
 and bare ``C1``. Never restores anything ambiguous:
 
 - One substitution pass over the input only: restored values are never scanned again.
-- ASCII digits only. Bare forms (no brackets) must be the exact canonical token (upper case,
-  no leading zero, e.g. ``P1`` not ``P01``) and must not occur naturally in the redacted output
+- ASCII digits only. Bare forms (no brackets) must be the exact canonical token with at least
+  three digits (upper case, no leading zero, e.g. ``P417``), so an answer's own ``P1`` or
+  ``L2`` is never taken for a placeholder, and must not occur naturally in the redacted output
   (``bare_collisions``, computed on the final rendered output, metadata included).
 - Placeholder-like tokens not in the mapping are left as they are and reported, including
   near misses (very long numbers).
@@ -16,8 +17,10 @@ and bare ``C1``. Never restores anything ambiguous:
   a value with quotes or angle brackets cannot break the document.
 
 Wrong-mapping detection: if the input carries an offrecord header, its mapping id must match
-(else MappingError). Header-less input (an LLM answer) cannot be verified: the caller decides
-whether to accept that (the CLI requires ``--assume-mapping``).
+(else MappingError). Header-less input (an LLM answer) is checked by its placeholders: if any
+bracketed placeholder with a known prefix is missing from the mapping, nothing is restored
+(MappingError). Placeholder numbers are random per mapping, so another call's answer almost
+never fits.
 """
 
 from __future__ import annotations
@@ -30,6 +33,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from offrecord.errors import MappingError
+from offrecord.model import categories
 
 BS = re.escape(chr(92))  # a literal backslash in a regex
 HEADER_RE = re.compile(
@@ -46,7 +50,7 @@ TOKEN_RE = re.compile(
     # 2. bracketed (tolerant)
     f"|(?P<br>{_OPEN}\\s*(?P<bp>[A-Za-z]{{1,6}})\\s*(?P<bn>{_D}+)\\s*{_CLOSE})"
     # 3. bare canonical upper-case token
-    f"|(?P<bare>(?<![\\w<&]|{BS})(?P<rp>[A-Z]{{1,6}})(?P<rn>[1-9]{_D}{{0,5}})(?![\\w>]))"
+    f"|(?P<bare>(?<![\\w<&]|{BS})(?P<rp>[A-Z]{{1,6}})(?P<rn>[1-9]{_D}{{2,5}})(?![\\w>]))"
 )
 
 
@@ -98,6 +102,23 @@ def restore_text(
     entries: dict[str, dict[str, Any]] = payload["entries"]
     lookup = {ph.upper(): e for ph, e in entries.items()}
     bare_blocked = {b.upper() for b in payload.get("bare_collisions", [])}
+
+    if rep.header_id is None:
+        prefixes = {c.prefix for c in categories().values()}
+        prefixes |= {m.group("bp").upper() for ph in lookup if (m := TOKEN_RE.fullmatch(ph))}
+        missing = sum(
+            1
+            for m in TOKEN_RE.finditer(text)
+            if m.group("br")
+            and m.group("bp").upper() in prefixes
+            and len(m.group("bn")) <= 6
+            and f"<{m.group('bp').upper()}{int(m.group('bn'))}>" not in lookup
+        )
+        if missing:
+            raise MappingError(
+                f"{missing} placeholder(s) in this text are not in this mapping, so it was "
+                "probably redacted with a different one; nothing was restored"
+            )
 
     def value(e: dict[str, Any]) -> str:
         occ = e.get("occurrences") or []

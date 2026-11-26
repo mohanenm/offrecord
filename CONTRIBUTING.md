@@ -10,8 +10,9 @@ python3 -m venv .venv
 .venv/bin/pip install -e '.[dev]' -c requirements/dev.lock    # Python 3.10: requirements/dev-py310.lock
 ```
 
-The optional model tiers need `pip install -e '.[ner,llm]'` and `offrecord setup models`
-(and `--tier 2` for the LLM). Tests that need real models skip when the models are absent.
+The optional model tiers need `pip install -e '.[dev,ner,llm]' -c requirements/dev.lock -c
+requirements/ner.lock -c requirements/llm.lock` and `offrecord setup models` (and `--tier 2` for
+the LLM). Tests that need real models skip when the models are absent.
 
 ## Before every commit
 
@@ -20,7 +21,13 @@ The optional model tiers need `pip install -e '.[ner,llm]'` and `offrecord setup
 ```
 
 CI runs the same checks on every supported Python version, plus a Tier 0 job with no extras
-installed and a check that no local-only file is tracked (`scripts/check_hygiene.py`).
+installed and a check that no local-only file is tracked (`scripts/check_hygiene.py`). A Tier 1
+job installs the `[ner]` extra and the pinned models on Python 3.12 and runs the whole suite, so
+the model tests run there instead of skipping. Tier 2 is not run in CI.
+
+`tests/test_recall_floor.py` fails if Tier 0 recall or precision on `tuning` and `validation`
+falls below fixed floors (`docs/eval-format.md` lists them). Raise a floor when the scores rise
+for good; lowering one needs a reason in the pull request.
 
 Keep commits small, one logical change each, with a short imperative message ("Handle spoken
 percent ranges", not "Updated business.py"). Stage files by path, not with `git add -A`.

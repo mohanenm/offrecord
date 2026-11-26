@@ -218,9 +218,8 @@ def test_sealed_set_needs_final_check(tmp_path):
     from offrecord.errors import UsageError
 
     sealed = ROOT / "eval" / "generated" / "sealed"
-    with pytest.raises(UsageError):
-        load_generated(sealed)
-    copy = tmp_path / "copy"  # a copy elsewhere is still recognised
+    load_generated(sealed)  # spent: loads as validation2 from its own folder
+    copy = tmp_path / "copy"  # a copy elsewhere is still refused
     shutil.copytree(sealed, copy)
     with pytest.raises(UsageError):
         load_generated(copy)
@@ -295,6 +294,23 @@ def test_precision_is_character_based():
     rep = score([item], lambda d: spans, "p")
     assert rep.overall.caught == 1
     assert rep.precision == pytest.approx(8 / 28)
+
+
+def test_text_precision_leaves_out_speaker_labels():
+    from offrecord.evaluation.labels import Label
+    from offrecord.evaluation.runner import EvalItem
+    from offrecord.model import Document, Turn
+
+    doc = Document("txt", (Turn(0, "Orla V", "aaaa 555-0142"),))
+    labels = [
+        Label(0, "speaker", 0, 6, "PERSON", "person#spk"),
+        Label(0, "text", 5, 13, "PHONE", "p"),
+    ]
+    spans = [Span(turn_field_id(0, "speaker"), 0, 6, "PERSON", "t", 1.0),
+             Span(turn_field_id(0, "text"), 0, 13, "PHONE", "t", 1.0)]  # fmt: skip
+    rep = score([EvalItem("x", doc, labels, [])], lambda d: spans, "p")
+    assert rep.precision == pytest.approx(14 / 19)
+    assert rep.precision_text == pytest.approx(8 / 13)
 
 
 def test_unprojected_spans_rejected():
@@ -390,3 +406,27 @@ def test_pii_intervals_resample_transcripts_and_are_repeatable():
     lo, hi = iv["clean_pii"]
     assert lo <= 0.8 <= hi
     assert Report("y", pii_by_transcript=[(3, 3)]).pii_intervals()["pii_recall"] is None
+
+
+def test_sealed_set_round_trips_encrypted(tmp_path, monkeypatch):
+    from offrecord import crypto
+    from offrecord.errors import MappingError, UsageError
+    from offrecord.evaluation import sets
+    from offrecord.evaluation.runner import load_sealed, write_sealed
+
+    src = tmp_path / "src"
+    src.mkdir()
+    (src / "s01.txt").write_text("[[PERSON:Orla V]]: call [[PHONE:555-0142]] today\nBo: ok\n")
+    (src / "denylist.yaml").write_text(
+        "denylist:\n  - {name: Zandrel, category: CLIENT, aliases: []}\n"
+    )
+    key = crypto.Secret("keyfile", b"k" * 32)
+    pin = write_sealed(src, tmp_path / "sealed", key)
+    assert b"Orla" not in (tmp_path / "sealed" / sets.SEALED_FILE).read_bytes()
+    with pytest.raises(UsageError):  # not pinned: refused
+        load_sealed(tmp_path / "sealed", key)
+    monkeypatch.setattr(sets, "NEW_SEALED_MANIFEST_SHA256", pin)
+    items, cfg = load_sealed(tmp_path / "sealed", key)
+    assert len(items) == 1 and len(items[0].labels) == 2 and cfg["denylist"]
+    with pytest.raises(MappingError):  # wrong key
+        load_sealed(tmp_path / "sealed", crypto.Secret("keyfile", b"x" * 32))

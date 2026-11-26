@@ -31,3 +31,8 @@ def _fresh_attempt_counter():
 def _no_user_config(tmp_path_factory, monkeypatch):
     # Never pick up the developer's real deny-list (~/.config/offrecord/config.yaml).
     monkeypatch.setenv("OFFRECORD_CONFIG", str(tmp_path_factory.mktemp("cfg") / "absent.yaml"))
+    # Nor their default key (~/.config/offrecord/keys/default.key) or key/passphrase variables.
+    # Only the config dir moves: the data dir holds the installed models some tests use.
+    monkeypatch.setenv("XDG_CONFIG_HOME", str(tmp_path_factory.mktemp("xdg-config")))
+    monkeypatch.delenv("OFFRECORD_KEY_FILE", raising=False)
+    monkeypatch.delenv("OFFRECORD_PASSPHRASE", raising=False)
