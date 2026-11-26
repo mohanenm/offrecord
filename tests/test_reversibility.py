@@ -268,8 +268,9 @@ def test_cli_strict_failure_writes_nothing(home, capsys):
     mid = (home / "a.out").read_text().splitlines()[0].split("mapping=")[1]
     m = home / "home" / "data" / "mappings" / f"{mid}.ormap"
     ans = home / "ans.txt"
-    ans.write_text("<C1> and <P77>")
-    base = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key), "--assume-mapping"]
+    # Headed, so the unknown placeholder is left and reported (header-less text is refused).
+    ans.write_text(f"# offrecord mapping={mid}\n<P77> and more")
+    base = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key)]
     capsys.readouterr()
     assert main([*base, "--strict"]) == ExitCode.MAPPING
     cap = capsys.readouterr()
