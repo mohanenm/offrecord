@@ -242,13 +242,13 @@ def _cmd_redact(args: argparse.Namespace) -> int:
 
     from offrecord import adapters, audit, crypto, output
     from offrecord.compress import compress
-    from offrecord.errors import OutputExistsError, UsageError
+    from offrecord.errors import OutputError, OutputExistsError, UsageError
     from offrecord.limits import DEFAULT_LIMITS
     from offrecord.paths import mapping_store
     from offrecord.redact.pipeline import is_personal, readability, redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
-    from offrecord.safeio import ensure_private_dir, read_input_text, write_atomic
+    from offrecord.safeio import check_writable, ensure_private_dir, read_input_text, write_atomic
     from offrecord.tokens import get_counter
 
     clip = getattr(args, "clipboard", False)
@@ -291,8 +291,13 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             return Path(args.mapping_out), args.force
         return ensure_private_dir(mapping_store()) / f"{mapping_id}.ormap", False
 
-    # Check where the mapping will go *before* writing any output, so a refused mapping can never
-    # leave an output whose header names a mapping that was not saved.
+    # Check where the outputs and the mapping will go *before* any work or writing, so a refused
+    # mapping can never leave an output whose header names a mapping that was not saved, and a
+    # refused output never leaves a mapping behind.
+    if args.output:
+        check_writable(args.output, force=args.force)
+    if args.out_dir and not Path(args.out_dir).is_dir():
+        raise OutputError("output directory does not exist")
     if secret is not None and not args.no_mapping:
         probe, force = mapping_dest("or1-probe")
         crypto.check_separation(probe, secret)
@@ -305,9 +310,9 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         shared = Mapping.from_payload(payload)
         shared.scope = "project"
 
-    def save_mapping(mapping: Mapping, rendered: list[str]) -> None:
+    def save_mapping(mapping: Mapping, rendered: list[str]) -> Path | None:
         if secret is None or args.no_mapping:
-            return
+            return None
         payload = mapping.to_payload()
         # Bare tokens that occur naturally in the final output (metadata included).
         payload["bare_collisions"] = bare_collisions(rendered, list(mapping.entries))
@@ -315,7 +320,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         crypto.check_separation(dest, secret)
         write_atomic(dest, crypto.encrypt("map", mapping.id, payload, secret), force=force)
         print(f"offrecord: mapping {mapping.id} written to {dest}", file=sys.stderr)
-        userconfig.remember_mapping(dest)
+        return dest
 
     project_rendered: list[str] = []
     pending: list[tuple[Path | None, str]] = []
@@ -369,12 +374,16 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         elif args.output:
             dest = Path(args.output)
         if shared is None:
-            save_mapping(mapping, [rendered])  # mapping first, then the output
+            if dest is not None:
+                check_writable(dest, force=args.force)
+            saved = save_mapping(mapping, [rendered])  # mapping first, then the output
             if clip:
                 clipboard.write_text(rendered)
                 print("offrecord: redacted text copied to the clipboard", file=sys.stderr)
             else:
                 _emit(dest, rendered, args.force, write_atomic, n_input)
+            if saved is not None:  # only once its output exists (`unpaste` uses it)
+                userconfig.remember_mapping(saved)
         else:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
@@ -390,9 +399,14 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             print(f"offrecord: tier 2 check: {kept} guessed name(s) judged ordinary words; left "
                   "visible and flagged for review", file=sys.stderr)  # fmt: skip
     if shared is not None:
-        save_mapping(shared, project_rendered)
+        for dest, _rendered in pending:
+            if dest is not None:
+                check_writable(dest, force=args.force)
+        saved = save_mapping(shared, project_rendered)
         for i, (dest, rendered) in enumerate(pending):
             _emit(dest, rendered, args.force, write_atomic, i)
+        if saved is not None:
+            userconfig.remember_mapping(saved)
     if args.audit and secret is not None:
         audit_id = audit.new_id()
         dest_a = ensure_private_dir(mapping_store()) / f"{audit_id}.oraudit"

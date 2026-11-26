@@ -345,6 +345,36 @@ def test_no_orphaned_output_when_mapping_exists(home, capsys):
     assert rc == ExitCode.OUTPUT and not out.exists()
 
 
+def test_refused_output_leaves_no_mapping_and_keeps_last_mapping(home, capsys):
+    from offrecord import userconfig
+    from offrecord.paths import mapping_store
+
+    tmp, key = home
+    a = tmp / "a.txt"
+    a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
+    first = tmp / "first.txt"
+    assert main(["redact", str(a), "-o", str(first), "--key-file", str(key)]) == ExitCode.OK
+    last = userconfig.last_mapping()
+    assert last is not None and last.name == f"{_mid(first.read_text())}.ormap"
+    maps = set(mapping_store().iterdir())
+    exists = tmp / "exists.txt"
+    exists.write_text("keep me")
+    readonly = tmp / "ro"
+    readonly.mkdir(mode=0o500)
+    for out in (exists, tmp / "missing" / "o.txt", readonly / "o.txt", tmp):
+        rc = main(["redact", str(a), "-o", str(out), "--key-file", str(key)])
+        assert rc == ExitCode.OUTPUT
+        assert set(mapping_store().iterdir()) == maps  # no orphaned mapping
+        assert userconfig.last_mapping() == last
+    assert exists.read_text() == "keep me"
+    # Several inputs into a missing --out-dir: refused before any mapping is written.
+    args = ["redact", str(a), str(a), "--out-dir", str(tmp / "nowhere"), "--key-file", str(key)]
+    assert main(args) == ExitCode.OUTPUT
+    assert main([*args, "--mapping-scope", "project"]) == ExitCode.OUTPUT
+    assert set(mapping_store().iterdir()) == maps and userconfig.last_mapping() == last
+    readonly.chmod(0o700)
+
+
 def test_both_secret_sources_is_an_error(home, capsys, monkeypatch):
     tmp, key = home
     monkeypatch.setenv("OFFRECORD_PASSPHRASE", "a synthetic test passphrase")

@@ -120,3 +120,7 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   internal error.
 - Source text that looks like a placeholder but uses non-ASCII digits (Arabic-Indic, for
   example) is no longer escaped, so it comes back unchanged after restore.
+- `redact` checks its output destination (an existing file without `--force`, a missing or
+  read-only directory) before it writes the mapping, and points `last-mapping` at a new
+  mapping only after the output is written. A refused output used to leave an orphaned
+  mapping that `unpaste` would then pick.
