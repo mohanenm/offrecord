@@ -42,14 +42,41 @@ FUNCTION_WORDS = frozenset(
 
 @lru_cache(maxsize=1)
 def common_words() -> frozenset[str]:
+    from offrecord.redact.config import (
+        DEFAULT_TOPICS_FLAG,
+        DEFAULT_TOPICS_PERSONAL,
+        DEFAULT_TOPICS_REDACT,
+    )
+
     data = resources.files("offrecord.data").joinpath("common_words.txt.gz").read_bytes()
-    return frozenset(gzip.decompress(data).decode("ascii").split()) | EXTRA_COMMON | PRONOUNS
+    # The topic terms are everyday vocabulary too ("layoffs", "valuation"): never name guesses.
+    topic_words = {
+        w.strip("'").lower()
+        for t in (*DEFAULT_TOPICS_FLAG, *DEFAULT_TOPICS_PERSONAL, *DEFAULT_TOPICS_REDACT)
+        for w in t.split()
+        if w.isalpha()
+    }
+    words = frozenset(gzip.decompress(data).decode("ascii").split())
+    return words | EXTRA_COMMON | PRONOUNS | CALENDAR | BUSINESS_WORDS | topic_words
 
 
 @lru_cache(maxsize=1)
 def proper_names() -> frozenset[str]:
     data = resources.files("offrecord.data").joinpath("proper_names.txt.gz").read_bytes()
     return frozenset(gzip.decompress(data).decode("ascii").split())
+
+
+# Months and weekdays are not names (they are dates, handled by the date rules).
+CALENDAR = frozenset(
+    "january february march april may june july august september october november december "
+    "monday tuesday wednesday thursday friday saturday sunday".split()
+)
+# Everyday business vocabulary missing from the bundled list (found as false name guesses).
+BUSINESS_WORDS = frozenset(
+    "pct euro euros analytics lender lenders valuation regulator regulators deposition "
+    "depositions prep pre onboarding offboarding upsell upsells kpi kpis roi saas b2b b2c "
+    "ebitda capex opex headcount payroll invoicing reconciliation".split()
+)
 
 
 def is_common(token: str) -> bool:
@@ -60,5 +87,5 @@ def is_common(token: str) -> bool:
         return True
     if "'" in t:
         base = t.split("'", 1)[0]
-        return base in words or t.removesuffix("'s") in words
+        return base in words or t.removesuffix("'s") in words or t.removesuffix("n't") in words
     return False

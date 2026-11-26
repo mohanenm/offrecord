@@ -15,7 +15,7 @@ from __future__ import annotations
 import bisect
 import re
 from collections.abc import Iterator
-from typing import ClassVar
+from typing import ClassVar, Literal
 
 from offrecord.model import Field, Span
 from offrecord.normalize.fields import Window
@@ -223,6 +223,9 @@ class BusinessDetector:
             strong, weak = (), ()
         self.strong = _term_regex(strong)
         self.weak = _term_regex(weak)
+        # Personal circumstances: redacted (flagged in "flag" mode, skipped in "off" mode).
+        self.personal = None if mode == "off" else _term_regex(config.topics_personal)
+        self.personal_action: Literal["redact", "flag"] = "flag" if mode == "flag" else "redact"
 
     def detect(self, window: Window) -> Iterator[Span]:
         if not self.enabled:
@@ -276,7 +279,7 @@ class BusinessDetector:
                                "quantity:trigger", view=view)  # fmt: skip
 
     def _topics(self, f: Field) -> Iterator[Span]:
-        if self.strong is None and self.weak is None:
+        if self.strong is None and self.weak is None and self.personal is None:
             return
         text = f.orig
         for m in SENTENCE_RE.finditer(text):
@@ -285,7 +288,10 @@ class BusinessDetector:
             e = m.end()
             if e <= s:
                 continue
-            if self.strong is not None and self.strong.search(sent):
+            if self.personal is not None and self.personal.search(sent):
+                yield Span(f.id, s, e, "TOPIC", "business.topic", 0.7, None, "topic:personal",
+                           action=self.personal_action)  # fmt: skip
+            elif self.strong is not None and self.strong.search(sent):
                 yield Span(f.id, s, e, "TOPIC", "business.topic", 0.7, None, "topic:strong")
             elif self.weak is not None and self.weak.search(sent):
                 yield Span(f.id, s, e, "TOPIC", "business.topic", 0.5, None, "topic:weak",

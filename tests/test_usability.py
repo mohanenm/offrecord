@@ -93,7 +93,7 @@ def test_prompt_wraps_and_redacts_instruction(home, tmp_path, capsys):
     assert main(["redact", str(t), "--no-mapping", "--prompt", "Summarise the QFA call"]) == 0
     out = capsys.readouterr().out
     assert out.startswith("Summarise the <")
-    assert "QFA" not in out and "42,000" not in out
+    assert "QFA" not in out
     assert "copy the placeholders exactly" in out and "--- transcript ---" in out
     # the instruction and the transcript share one placeholder for the client
     ph = out.split("Summarise the ", 1)[1].split(" ", 1)[0]
@@ -102,10 +102,10 @@ def test_prompt_wraps_and_redacts_instruction(home, tmp_path, capsys):
 
 def test_summary_counts_categories_without_text(tmp_path, capsys):
     t = tmp_path / "call.txt"
-    t.write_text("Orla Venkatesh: email orla@quill.example, fee $42,000.\nBram: ok\n")
+    t.write_text("Orla Venkatesh: email orla@quill.example, call 415-555-0142.\nBram: ok\n")
     assert main(["redact", str(t), "--no-mapping"]) == ExitCode.OK
     err = capsys.readouterr().err
-    assert "redacted" in err and "email" in err and "amount" in err
+    assert "redacted" in err and "email" in err and "phone" in err
     assert "orla" not in err.lower() and "42,000" not in err
 
 
@@ -213,3 +213,12 @@ def test_half_open_markup_is_an_error():
 
     with pytest.raises(InputFormatError, match="line 3"):
         strip_markup("ship to [[LOCATION:12 Elm", 2, "line")
+
+
+def test_init_can_choose_confidential_protection(home, monkeypatch, capsys):
+    from offrecord import userconfig
+
+    monkeypatch.setattr(sys, "stdin", io.StringIO("Vexley Holdings\n\n\n\n\n\ny\n"))
+    assert main(["init", "--yes"]) == ExitCode.OK
+    data = yaml.safe_load(userconfig.default_config_path().read_text())
+    assert data["protect"] == "confidential"

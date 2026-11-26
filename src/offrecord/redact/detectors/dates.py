@@ -41,6 +41,9 @@ WEEKDAY = (
     r"(?:\s+(?:night|morning|afternoon|evening))?,?"
 )
 
+# Coarse dates (a month, quarter, fiscal year, season or period rather than a day) are not
+# personal data on their own; with protect: pii they become review flags.
+COARSE = {3, 8, 9, 10, 11, 12}  # indices into DATES
 DATES: list[tuple[re.Pattern[str], float]] = [
     # Month first: "March 3rd, 2027", "February, the eleventh", "april nineteenth 2015",
     # "Feb 24 and 25", optionally after a weekday ("tuesday january twentieth").
@@ -147,18 +150,18 @@ def _bare_ordinal_ok(text: str, end: int) -> bool:
     return word in _FOLLOW_OK
 
 
-def find_dates(text: str) -> Iterator[tuple[int, int, float]]:
-    """(start, end, confidence) for every date-like span in ``text``."""
-    for rx, conf in DATES:
+def find_dates(text: str) -> Iterator[tuple[int, int, float, bool]]:
+    """(start, end, confidence, coarse) for every date-like span in ``text``."""
+    for k, (rx, conf) in enumerate(DATES):
         for m in rx.finditer(text):
-            yield m.start(), m.end(), conf
+            yield m.start(), m.end(), conf, k in COARSE
     for m in CUE_MONTH.finditer(text):
         word = m.group("d").lower()
         if word in ("may", "march") and _MAY_VERB.match(text, m.end()):
             continue
-        yield m.start("d"), m.end("d"), 0.6
+        yield m.start("d"), m.end("d"), 0.6, True
     for m in CUE_YEAR.finditer(text):
-        yield m.start("d"), m.end("d"), 0.6
+        yield m.start("d"), m.end("d"), 0.6, True
     for m in _THE_ORD.finditer(text):
         if _bare_ordinal_ok(text, m.end()):
-            yield m.start(), m.end(), 0.6
+            yield m.start(), m.end(), 0.6, False

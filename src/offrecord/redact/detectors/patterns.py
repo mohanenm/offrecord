@@ -113,10 +113,27 @@ ID_SEQ = re.compile(rf"(?<![\w'])(?:{_ID_TOK})(?:(?:\s*,\s*|\s+|\s*-\s*)(?:{_ID_
 _DIGIT_WORD = re.compile(rf"(?i)^(?:{_DIGW})$")
 _LETTER_TOK = re.compile(rf"(?i)^(?:[a-z]|{_NATOW}|[a-z]\s+as\s+in\s+[a-z]+)$")
 _ID_PIECES = re.compile(r"(?i)[a-z]\s+as\s+in\s+[a-z]+|[\w']+")
+FIGURE_RE = re.compile(r"\d{1,3}(?:,\d{3})+(?:\.\d+)?\b")
+CURRENCY = {"$", "\u20ac", "\u00a3", "\u00a5"}
 ID_TRIGGER = re.compile(
     r"(?i)\b(?:matter|docket|parcel|mls|bol|pro|ncr|lot|kit|receipt|loyalty|permit|subject|po|so|"
     r"trk|mrn|sku|serial|site|unit)\b(?:\s+(?:number|no\.?|#|is|was))*[\s#:.-]*"
     r"(?P<num>[A-Za-z]{0,3}\d[\d\s-]{1,}\d|0\d{2})"
+)
+
+
+# The last digits of a card or account: "the card ending 8605", "last four are 3317".
+LAST_DIGITS = re.compile(
+    r"(?i)\b(?:ending(?:\s+in)?|last\s+(?:four|4|five|5)(?:\s+(?:digits|numbers))?"
+    r"(?:\s+(?:are|is|of))?)\s*[:#]?\s*(?P<num>\d{3,5})\b"
+)
+CARD_WORD = re.compile(r"(?i)\b(?:card|visa|mastercard|amex|debit|credit)\b")
+# A bare number of four or more digits is an identifier or code more often than not
+# (verification codes, ticket, store and member numbers). Years, figures with separators,
+# amounts with a currency sign and decimals are excluded.
+LONG_NUMBER = re.compile(
+    r"(?<![\w$\u20ac\u00a3.,/:-])(?!(?:19|20)\d\d(?!\d))\d{4,}(?![\w.,/:-]|\.\d)"
+    r"(?!\s*(?:%|k\b|m\b|bn\b|thousand|million|billion|percent|dollars?|bucks|euros?|pounds))"
 )
 
 
@@ -293,8 +310,9 @@ class PatternDetector:
                     f, view, m.start(), m.end(), "ACCOUNT", 0.7, m.group().lower(), "account:id"
                 )
         if self.dates:
-            for s0, e0, conf in find_dates(text):
-                yield sp(f, view, s0, e0, "DATE", conf, text[s0:e0].lower(), "date")
+            for s0, e0, conf, coarse in find_dates(text):
+                reason = "date:coarse" if coarse else "date"
+                yield sp(f, view, s0, e0, "DATE", conf, text[s0:e0].lower(), reason)
 
     def _corrections(self, f: Field, view: str, text: str) -> Iterator[Span]:
         """ "555... sorry, 556-0142" / "4471, sorry, 4472": digit groups right before and right
@@ -320,6 +338,11 @@ class PatternDetector:
         sp = self._span
         if view == "orig":
             for m in ID_SEQ.finditer(text):
+                if (
+                    FIGURE_RE.match(m.group())
+                    or text[max(0, m.start() - 1) : m.start()] in CURRENCY
+                ):
+                    continue  # "1,650" or "$42,000" is a figure, not a dictated ID
                 d, letters, toks = _id_digit_units(m.group())
                 if d >= 4 or (d >= 2 and letters >= 3 and toks >= 6):
                     yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.6, m.group().lower(),
@@ -327,6 +350,13 @@ class PatternDetector:
         for m in ID_TRIGGER.finditer(text):
             yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.6, m.group("num").lower(),
                      "id:context")  # fmt: skip
+        for m in LAST_DIGITS.finditer(text):
+            cat = "CARD" if CARD_WORD.search(text, max(0, m.start() - 40), m.start()) else "ACCOUNT"
+            yield sp(f, view, m.start("num"), m.end("num"), cat, 0.6, m.group("num"),
+                     "id:last-digits")  # fmt: skip
+        if view == "orig":  # the norm view turns "three point two million" into digits
+            for m in LONG_NUMBER.finditer(text):
+                yield sp(f, view, m.start(), m.end(), "ACCOUNT", 0.5, m.group(), "id:long-number")
         for m in ADDRESS.finditer(text):
             yield sp(f, view, m.start(), m.end(), "LOCATION", 0.7, m.group().lower(), "address")
         for m in UNIT.finditer(text):

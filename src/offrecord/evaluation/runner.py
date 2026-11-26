@@ -11,7 +11,7 @@ import json
 import statistics
 from collections import defaultdict
 from collections.abc import Callable, Iterable, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
@@ -25,6 +25,9 @@ from offrecord.redact.pipeline import readability
 from offrecord.safeio import read_input_text
 
 System = Callable[[Document], Sequence[Span]]
+# Label categories that are personal data in every set. TOPIC and DATE labels mix personal and
+# business items, so they are reported separately rather than in the PII headline.
+PII_LABELS = frozenset("PERSON SPEAKER EMAIL PHONE SSN CARD ACCOUNT IP URL LOCATION".split())
 
 
 @dataclass
@@ -188,6 +191,12 @@ class Report:
     words: int = 0
     transcripts: int = 0
     leaks_per_transcript: list[int] = field(default_factory=list)
+    # Personal data only (PII_LABELS), the headline for the default protect: pii. The other
+    # labels (business context) count as "seen" when redacted or flagged for review.
+    pii: Counts = field(default_factory=Counts)
+    clean_pii: int = 0
+    other_total: int = 0
+    other_seen: int = 0
     text_chars: int = 0  # readability: how much of the text the redactions cover
     text_redacted: int = 0
     sentences: int = 0
@@ -200,6 +209,14 @@ class Report:
     def clean_rate(self) -> float | None:
         n = len(self.leaks_per_transcript)
         return sum(x == 0 for x in self.leaks_per_transcript) / n if n else None
+
+    @property
+    def clean_pii_rate(self) -> float | None:
+        return self.clean_pii / self.transcripts if self.transcripts else None
+
+    @property
+    def other_seen_rate(self) -> float | None:
+        return self.other_seen / self.other_total if self.other_total else None
 
     @property
     def clean_high_rate(self) -> float | None:
@@ -249,6 +266,8 @@ class Report:
             "sentences_mostly_redacted_share": (
                 self.sentences_mostly_redacted / self.sentences if self.sentences else None
             ),
+            "pii_recall": self.pii.recall, "pii_labels": self.pii.total,
+            "clean_pii": self.clean_pii_rate, "other_seen": self.other_seen_rate,
             "clean_transcripts": self.clean_rate, "clean_high_severity": self.clean_high_rate,
             "leaks_per_transcript_median": self.leaks_median,
             "leaks_per_transcript_max": max(self.leaks_per_transcript, default=None),
@@ -315,6 +334,7 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
         rep.words += sum(len(t.text.split()) + len((t.speaker or "").split()) for t in it.doc.turns)
         raw = _orig_only(system(it.doc))
         spans = _intervals(raw)
+        flagged = _intervals(replace(s, action="redact") for s in raw if s.action == "flag")
         for total, n in zip(
             ("text_chars", "text_redacted", "sentences", "sentences_mostly_redacted"),
             readability(it.doc, raw),
@@ -338,6 +358,13 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
             present.add(lb.category)
             if not full:
                 leaked.append(lb.category)
+            if lb.category in PII_LABELS:
+                rep.pii.total += 1
+                rep.pii.caught += int(full)
+            else:
+                rep.other_total += 1
+                seen = full or _covered(flagged.get(fid, []), lb.start, lb.end, src)[0]
+                rep.other_seen += int(seen)
             keys = [
                 (rep.per_category, lb.category),
                 (rep.per_form, f"{lb.category}:{lb.form or 'n/a'}"),
@@ -355,6 +382,8 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
         for occ in speakers.values():
             full = all(f for f, _ in occ)
             present.add("SPEAKER")
+            rep.pii.total += 1
+            rep.pii.caught += int(full)
             if not full:
                 leaked.append("SPEAKER")
             part = any(p for _, p in occ) or (any(f for f, _ in occ) and not full)
@@ -365,6 +394,7 @@ def score(items: Sequence[EvalItem], system: System, name: str) -> Report:
                 c.partial += int(part and not full)
         rep.leaks_per_transcript.append(len(leaked))
         rep.clean_high += not any(severity(cat) == "high" for cat in leaked)
+        rep.clean_pii += not any(cat in PII_LABELS for cat in leaked)
         for cat in present:
             rep.with_category[cat] += 1
             rep.clean_by_category[cat] += cat not in leaked
@@ -410,6 +440,9 @@ def format_report(reports: Sequence[Report]) -> str:
         lines.append(row)
     lines.append("-" * len(head))
     for label, fn in (
+        ("PII RECALL", lambda r: f"{pct(r.pii.recall)}% of {r.pii.total:>5}"),
+        ("PII clean", lambda r: f"{pct(r.clean_pii_rate)}%"),
+        ("other seen", lambda r: f"{pct(r.other_seen_rate)}% of {r.other_total:>5}"),
         ("RECALL", lambda r: f"{pct(r.overall.recall)}% of {r.overall.total:>5}"),
         ("prec(char)", lambda r: f"{pct(r.precision)}%"),
         (

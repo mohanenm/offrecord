@@ -22,7 +22,8 @@ CFG = {
         },
         {"name": "Lantern", "category": "BRAND", "common_word": True, "context": ["app", "store"]},
         {"name": "Project Bluefin", "category": "CODENAME", "aliases": ["Bluefin"]},
-    ]
+    ],
+    "protect": "confidential",  # these tests cover detection; the pii policy is tested below
 }
 
 
@@ -106,13 +107,13 @@ def test_split_phone_across_interruption():
 
 
 @pytest.mark.parametrize(
-    ("mode", "weak"), [(None, "redact"), ("mixed", "flag"), ("default", "flag")]
+    ("mode", "weak"), [(None, "flag"), ("mixed", "flag"), ("default", "flag"), ("redact", "redact")]
 )
 def test_topic_terms_strong_always_redact_weak_by_mode(mode, weak):
     doc = adapters.get("txt").parse(
         "Orla: We are planning layoffs in March.\nOrla: Pricing is next.\n", Limits()
     )
-    cfg = {"topics": {"mode": mode}} if mode else {}
+    cfg = {"protect": "confidential", **({"topics": {"mode": mode}} if mode else {})}
     spans = detect_document(doc, from_mapping(cfg))
     t0 = [s for s in spans if s.field == turn_field_id(0, "text") and s.category == "TOPIC"]
     t1 = [s for s in spans if s.field == turn_field_id(1, "text") and s.category == "TOPIC"]
@@ -202,7 +203,8 @@ def test_topic_sentence_not_split_at_decimal():
     doc = adapters.get("txt").parse(
         "Orla: we are raising prices by 13.5 percent in May.\n", Limits()
     )
-    spans = [s for s in detect_document(doc, from_mapping({})) if s.category == "TOPIC"]
+    cfg = from_mapping({"protect": "confidential"})
+    spans = [s for s in detect_document(doc, cfg) if s.category == "TOPIC"]
     assert spans and spans[0].start == 0
 
 
@@ -258,19 +260,21 @@ def test_org_names_expand_over_generic_words(line, name):
 
 
 @pytest.mark.parametrize(
-    "sentence",
+    ("sentence", "personal"),
     [
-        "I was diagnosed with something serious last spring.",
-        "We're going through a divorce and there's a custody hearing.",
-        "Asset protection thinks it's internal theft.",
-        "It isn't public yet, so keep it off the minutes.",
-        "Their COO said they may not renew next year.",
+        ("I was diagnosed with something serious last spring.", True),
+        ("We're going through a divorce and there's a custody hearing.", True),
+        ("Asset protection thinks it's internal theft.", True),
+        ("It isn't public yet, so keep it off the minutes.", False),
+        ("Their COO said they may not renew next year.", False),
     ],
 )
-def test_personal_and_risk_topics_redacted(sentence):
-    red, _ = redact(f"A: Okay. {sentence} Anyway.\nA: ok\n", cfg={})
-    assert sentence not in body(red)
-    assert "Anyway." in body(red)
+def test_personal_topics_always_redacted_business_topics_by_protection(sentence, personal):
+    text = f"A: Okay. {sentence} Anyway.\nA: ok\n"
+    assert sentence not in body(redact(text, cfg={"protect": "confidential"})[0])
+    pii = body(redact(text, cfg={})[0])
+    assert (sentence not in pii) == personal  # business topics are only flagged by default
+    assert "Anyway." in pii
 
 
 @pytest.mark.parametrize(
@@ -340,3 +344,25 @@ def test_topic_rules_work_on_lines_without_final_punctuation():
     )
     spans = detect_document(doc, from_mapping(CFG))
     assert any(s.category == "TOPIC" and s.action == "redact" for s in spans)
+
+
+def test_pii_protection_flags_business_context_but_keeps_names_inside_it():
+    text = (
+        "A: Dana Whitfield says the renewal is $42,000, margin up 12%, layoffs in Q3.\n"
+        "A: Call 415-555-0142 on March 3rd.\n"
+    )
+    doc = adapters.get("txt").parse(text, Limits())
+    spans = detect_document(doc, from_mapping({}))
+    t0, t1 = doc.turns[0].text, doc.turns[1].text
+    red0 = [t0[s.start : s.end] for s in spans if s.field[1] == "0" and s.action == "redact"]
+    flagged = {s.category for s in spans if s.action == "flag"}
+    assert any("Dana Whitfield" in r for r in red0)  # a name inside a flagged sentence
+    assert not any(x in r for r in red0 for x in ("42,000", "12%", "Q3", "layoffs"))
+    assert {"AMOUNT", "PERCENT", "DATE", "TOPIC"} <= flagged
+    red1 = {t1[s.start : s.end] for s in spans if s.field[1] == "1" and s.action == "redact"}
+    assert {"415-555-0142", "March 3rd"} <= red1  # contact details and day-level dates
+
+
+def test_deny_list_entries_always_redact():
+    red, _ = redact("A: The Quillfeather renewal moved.\nA: ok\n", cfg={**CFG, "protect": "pii"})
+    assert "Quillfeather" not in body(red)

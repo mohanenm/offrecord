@@ -238,7 +238,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
     from offrecord.errors import OutputExistsError, UsageError
     from offrecord.limits import DEFAULT_LIMITS
     from offrecord.paths import mapping_store
-    from offrecord.redact.pipeline import readability, redact_document, review_flags
+    from offrecord.redact.pipeline import is_personal, readability, redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
     from offrecord.safeio import ensure_private_dir, read_input_text, write_atomic
@@ -374,6 +374,12 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
         print(_summary(stats, len(flags), readability(doc, spans)), file=sys.stderr)
+        if cfg.protect == "pii":
+            visible = sum(s.action == "flag" and not is_personal(s) for s in spans)
+            if visible:
+                print(f"offrecord: {visible} business-context item(s) (figures, organisations, "
+                      "business topics) left readable and flagged; protect: confidential in the "
+                      "config redacts them too", file=sys.stderr)  # fmt: skip
         kept = sum(s.reason == "unknown-word:llm-no" for s in spans)
         if kept:
             print(f"offrecord: tier 2 check: {kept} guessed name(s) judged ordinary words; left "
@@ -598,6 +604,16 @@ def _cmd_init(args: argparse.Namespace) -> int:
             break
         entries.extend(_parse_names(answer, category))
     added, merged, total = userconfig.add_entries(path, entries)
+    try:
+        wider = input(
+            "Personal data is always redacted. Also hide business context (figures, company "
+            "names found automatically, topics such as layoffs or pricing) instead of flagging "
+            "it for review? [y/N]: "
+        )
+    except EOFError:
+        wider = ""
+    if wider.strip().lower() in ("y", "yes"):
+        userconfig.set_protect(path, "confidential")
     print(f"offrecord: {added} new deny-list entr{'y' if added == 1 else 'ies'}, {merged} merged; "
           f"{total} in total, saved to {path} (owner-only; keep it private)",
           file=sys.stderr)  # fmt: skip

@@ -41,18 +41,27 @@ EMBED_MODEL = "minilm-l6-v2"
 # Topic sentences said without any keyword are matched by meaning: a sentence close enough to
 # one of these (cosine similarity of MiniLM embeddings) is redacted as TOPIC. Generic, invented
 # examples, one or more per kind of sensitive topic; the threshold was chosen on the tuning sets.
-TOPIC_SEEDS = (
+PERSONAL_SEEDS = (
+    "She has been off work since her diagnosis.",
+    "He is in the hospital after a heart problem.",
+    "I'm pregnant and haven't told anyone at work yet.",
+    "My father passed away last month.",
+    "I'm going through a divorce and need some time off.",
+    "He was arrested over the weekend.",
+    "She is behind on her mortgage and might lose the house.",
+    "He has been having panic attacks and is seeing someone about it.",
+    "Her son was badly hurt in a car accident.",
+    "He got a final written warning and could be fired.",
+    "Someone on staff has been stealing from the store.",
+    "There was a harassment complaint against the manager.",
+)
+BUSINESS_SEEDS = (
     "We are going to cut jobs next quarter.",
     "Some people on the team will be let go after the reorganisation.",
     "Hours are being reduced and not everyone will keep their position.",
     "Our lawyers told us not to discuss the case.",
     "They are threatening to sue us over the contract.",
     "There is an investigation going on that we can't talk about.",
-    "She has been off work since her diagnosis.",
-    "He is in the hospital after a heart problem.",
-    "I'm pregnant and haven't told anyone at work yet.",
-    "My father passed away last month.",
-    "I'm going through a divorce and need some time off.",
     "We are in talks to be acquired by a bigger company.",
     "The owner is quietly trying to sell the business.",
     "The company might not make payroll next month.",
@@ -63,8 +72,6 @@ TOPIC_SEEDS = (
     "They are talking to a competitor and might not renew.",
     "If we raise the price again we will lose the account.",
     "Our biggest customer is planning to leave us.",
-    "Someone on staff has been stealing from the store.",
-    "There was a harassment complaint against the manager.",
     "We had a data breach and customers haven't been told.",
     "The regulator is looking into our safety reports.",
     "We plan to close the site at the end of the year.",
@@ -72,6 +79,7 @@ TOPIC_SEEDS = (
     "We plan to raise prices across the board in January.",
     "Our real floor on the discount is much lower than what we quoted.",
 )
+TOPIC_SEEDS = PERSONAL_SEEDS + BUSINESS_SEEDS
 TOPIC_WINDOW = 30  # words
 TOPIC_SIMILARITY = 0.40  # tuning-hw TOPIC 60 -> 71%, precision -3.6 points
 
@@ -212,12 +220,15 @@ class NerDetector:
                 owner.append(len(sents) - 1)
         if not sents:
             return
-        sims = (self.embedder.embed(pieces) @ self.embedder.seeds.T).max(axis=1)
-        best = [0.0] * len(sents)
-        for k, sim in zip(owner, sims, strict=True):
-            best[k] = max(best[k], float(sim))
-        for m, sim in zip(sents, best, strict=True):
-            if sim >= TOPIC_SIMILARITY:
+        sims = self.embedder.embed(pieces) @ self.embedder.seeds.T
+        n = len(PERSONAL_SEEDS)
+        personal, business = [0.0] * len(sents), [0.0] * len(sents)
+        for k, row in zip(owner, sims, strict=True):
+            personal[k] = max(personal[k], float(row[:n].max()))
+            business[k] = max(business[k], float(row[n:].max()))
+        for m, p, b in zip(sents, personal, business, strict=True):
+            if max(p, b) >= TOPIC_SIMILARITY:
                 s = m.start() + len(m.group()) - len(m.group().lstrip())
-                yield Span(f.id, s, m.end(), "TOPIC", "ner.topic", 0.5, None, "topic:similar",
+                reason = "topic:similar-personal" if p >= TOPIC_SIMILARITY else "topic:similar"
+                yield Span(f.id, s, m.end(), "TOPIC", "ner.topic", 0.5, None, reason,
                            action=self.topic_action)  # fmt: skip

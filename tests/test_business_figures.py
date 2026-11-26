@@ -13,7 +13,8 @@ def covered(text: str) -> set[int]:
     """Characters of the first turn's text covered by business-detector spans."""
     doc = adapters.get("txt").parse(f"A: {text}\nA: ok\n", Limits())
     out: set[int] = set()
-    for sp in detect_document(doc, from_mapping({})):
+    # Detection itself: with protect: pii these figures are review flags (tested in test_redact).
+    for sp in detect_document(doc, from_mapping({"protect": "confidential"})):
         if sp.detector.startswith("business.") and sp.field == turn_field_id(0, "text"):
             out.update(range(sp.start, sp.end))
     return out

@@ -91,6 +91,7 @@ PLACE_CUE = re.compile(
     r"relocating|relocated|headed|heading|flying|flew|drove|driving)\s+to|back\s+home\s+in)"
     r"\s+(?:the\s+)?$"
 )
+LIST_SEP = re.compile(r"\s*(?:,|,?\s*(?:and|or|&))\s*")
 # "our Leeds store", "our Tulsa office": "our" counts as a cue only before a site noun.
 OUR_SITE = re.compile(
     r"(?i)\s+(?:store|office|site|branch|plant|warehouse|location|depot|clinic|campus|"
@@ -274,6 +275,7 @@ class PeopleDetector:
         if not any(c.islower() for c in text):
             return  # all capitals: a capitalised run means nothing
         i = 0
+        last_place = -1  # end of the previous place: "in London, Paris and Milan"
         while i < n:
             j = i
             while (
@@ -287,6 +289,9 @@ class PeopleDetector:
                 j += 1
             if j == i:
                 i += 1
+                continue
+            if text[toks[j - 1].end() : toks[j - 1].end() + 1].isdigit():
+                i = j  # "Q3", "H2", "B12": a code, not a place
                 continue
             k = j  # place words after the capitalised run
             while (
@@ -304,10 +309,12 @@ class PeopleDetector:
                 re.search(r"(?i)\bour\s+$", before) is not None
                 and OUR_SITE.match(text, toks[k - 1].end()) is not None
             )
-            if suffix or cued:
+            listed = last_place >= 0 and LIST_SEP.fullmatch(text, last_place, toks[i].start())
+            if suffix or cued or listed:
                 yield Span(f.id, toks[i].start(), toks[k - 1].end(), "LOCATION", "people.place",
                            0.5, None, "place:suffix" if suffix else "place:cue",
                            view="norm")  # fmt: skip
+                last_place = toks[k - 1].end()
             i = j
 
     def _tokens(self, f: Field, text: str) -> Iterator[Span]:

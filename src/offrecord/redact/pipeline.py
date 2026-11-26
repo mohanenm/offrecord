@@ -125,6 +125,7 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
                 for sp in d.detect(jw):
                     spans.extend(_split_back(sp, jf, parts))
     spans.extend(_propagate_model_names(spans, texts))
+    spans = apply_protection(spans, cfg)
     if cfg.tier >= 2 and cfg.verify_guesses:
         from offrecord.redact.detectors.llm import verify_guesses
 
@@ -192,6 +193,37 @@ def redact_document(
     seed_mapping(mapping, doc, config)
     redacted, stats = apply(doc, spans, mapping)
     return redacted, spans, mapping, stats
+
+
+# Personal data (see notes in Config.protect). TOPIC counts only for personal circumstances, and
+# DATE only for dates finer than a month.
+PII_CATEGORIES = frozenset(
+    "PERSON NAME EMAIL PHONE SSN CARD ACCOUNT IP URL LOCATION DATE INDIRECT".split()
+)
+PERSONAL_TOPICS = frozenset({"topic:personal", "topic:similar-personal"})
+
+
+def is_personal(span: Span) -> bool:
+    reason = (span.reason or "").split("+")[0]
+    if span.detector.startswith(("denylist", "people.")):
+        # Names you listed, and everything the name rules find (an organisation built on an
+        # unknown word or surname, "Zandrow and Sons", is redacted like the name itself, so
+        # the same word is never hidden in one place and readable in another).
+        return True
+    if span.category == "TOPIC":
+        return reason in PERSONAL_TOPICS
+    return span.category in PII_CATEGORIES and reason != "date:coarse"
+
+
+def apply_protection(spans: list[Span], config: Config) -> list[Span]:
+    """With protect: pii, redactions that are not personal data become review flags. Runs on
+    the raw detector spans, before the merger, so a flagged business sentence never hides a
+    person's name inside it from redaction."""
+    if config.protect != "pii":
+        return spans
+    return [
+        s if s.action != "redact" or is_personal(s) else replace(s, action="flag") for s in spans
+    ]
 
 
 def readability(doc: Document, spans: Sequence[Span]) -> tuple[int, int, int, int]:

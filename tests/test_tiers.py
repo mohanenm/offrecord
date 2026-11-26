@@ -255,7 +255,8 @@ def test_topic_similarity_follows_topic_settings(monkeypatch, mode, expect):
     monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
     monkeypatch.setattr(ner_mod, "load_embedder", lambda threads=1: SaleEmbedder())
     d = doc("Orla: The owner wants to sell the whole business soon.\nOrla: ok\n")
-    cfg = {"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}, "topics": {"mode": mode}}
+    cfg = {"models": {"tier": 1, "ner": ["gliner-small-v2.1"]}, "topics": {"mode": mode},
+           "protect": "confidential"}  # fmt: skip
     spans = detect_document(d, from_mapping(cfg))
     assert {s.action for s in spans if s.reason == "topic:similar"} == expect
 

@@ -104,6 +104,13 @@ def add_entries(path: Path, entries: list[dict[str, Any]]) -> tuple[int, int, in
     return added, merged, len(deny)
 
 
+def set_protect(path: Path, level: str) -> None:
+    """Set the protection level ("pii" or "confidential") in the config file."""
+    data = _load_raw(path)
+    data["protect"] = level
+    _save_raw(path, data)
+
+
 def read_csv_entries(path: str) -> list[dict[str, Any]]:
     """CSV with a header: name,category[,aliases][,common_word][,context]. Aliases and context
     are separated by ';' or '|'."""
