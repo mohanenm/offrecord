@@ -160,13 +160,13 @@ The numbers below are for the default protection (personal data):
 
 | Validation (56) / user set (8) | PII recall | PII-clean transcripts | Business context redacted or flagged | Text redacted |
 | --- | --- | --- | --- | --- |
-| Tier 0 (rules) | 98.0% / 88.2% | 80% / 25% | 90% / 80% | 15% / 21% |
-| Tier 1 (+ NER ensemble) | 98.6% / 89.5% | 86% / 25% | 97% / 82% | 17% / 23% |
-| Tier 2 (+ Phi-4-mini) | 98.6% / 89.5% | 86% / 25% | 97% / 83% | 18% / 25% |
+| Tier 0 (rules) | 99.3% / 88.9% | 93% / 25% | 91% / 79% | 15% / 21% |
+| Tier 1 (+ NER ensemble) | 99.8% / 90.2% | 98% / 25% | 97% / 82% | 17% / 24% |
+| Tier 2 (+ Phi-4-mini) | 99.8% / 90.2% | 98% / 25% | 97% / 83% | 18% / 25% |
 | Baseline: plain regexes | 14.2% / 7.2% | 0% / 0% | | |
 
 The user set has only 8 transcripts, so its numbers are loose: the 95% interval for Tier 0
-PII recall is 80.8-94.7% there (96.9-99.0% on validation), and its PII-clean rate could be
+PII recall is 81.4-95.2% there (98.5-99.8% on validation), and its PII-clean rate could be
 anywhere from 0% to 62%. `offrecord eval` prints these intervals.
 
 Tier 2 does not change PII recall on these sets. What it adds is indirect identifiers: on 15
