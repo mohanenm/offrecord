@@ -2,7 +2,8 @@
 
 Levels:
 - light: deterministic cleanup only: fillers, stutters and false starts removed; standalone
-  backchannel turns dropped; consecutive turns by the same speaker merged.
+  backchannel turns dropped unless they answer a question; consecutive turns by the same speaker
+  merged.
 - medium: light + near-duplicate removal (in-house MinHash) + heuristic triage (opening/closing
   small talk, short turns with no entities or numbers).
 - aggressive: medium + extractive selection with Tier 1 sentence embeddings: within windows of
@@ -14,7 +15,9 @@ Invariants (checked, not assumed):
 - Compression only deletes text; it never adds or rewrites words, so removed (redacted) text can
   never come back.
 - A placeholder is never altered, and no turn is dropped if that would remove the last
-  occurrence of a placeholder.
+  occurrence of a placeholder. Earlier or repeated occurrences can go with their turn.
+- The reply to a turn ending in "?" is never dropped while that question is kept, so "Is the
+  budget approved?" / "Right." keeps its answer at every level.
 """
 
 from __future__ import annotations
@@ -34,10 +37,11 @@ AGGRESSIVE_KEEP = 0.5  # keep the most central half of droppable turns
 AGGRESSIVE_WINDOW = 200
 PLACEHOLDER = re.compile(r"<[A-Z]{1,6}\d+>")
 
-# Fillers removed anywhere (case-insensitive, whole words). Multi-word fillers only when set off
-# by commas or at a turn start, so "I mean it" and "you know the answer" survive.
-_FILLER_WORDS = r"(?:um+|uh+|er+m?|ah+|hmm+|mm+|mhm)"
-FILLER_RE = re.compile(rf"(?i)(?<![\w<-])(?:{_FILLER_WORDS})(?![\w>-])[,.]?\s*")
+# Fillers removed anywhere (whole words, lower or sentence case only: "ER" and "MM" are words).
+# Not after a number, where "mm" is a unit. Multi-word fillers only when set off by commas or at
+# a turn start, so "I mean it" and "you know the answer" survive.
+_FILLER_WORDS = r"(?:[Uu]m+|[Uu]h+|[Ee]r+m?|[Aa]h+|[Hh]mm+|[Mm]m+|[Mm]hm)"
+FILLER_RE = re.compile(rf"(?<![\w<-])(?<![\d\x00]\s)(?:{_FILLER_WORDS})(?![\w>-])[,.]?\s*")
 SOFT_FILLER_RE = re.compile(
     r"(?i)(?:(?<=^)|(?<=[,.;!?]\s))(?:you know|i mean|like|sort of|kind of|basically|literally|"
     r"so yeah|okay so|well)\s*,\s*"
@@ -60,6 +64,14 @@ MEANING_WORDS = frozenset(
     "disagree confirm confirmed deny denied refuse refused veto go-ahead ahead proceed let's "
     "lets we'll decided decide decision".split()
 )
+# Words whose doubling is a stutter ("I I think", "the the"). Anything else is kept doubled,
+# because many doubles are grammatical ("that that", "had had", "what it is is"). Across a
+# comma only the exact same token from the smaller set collapses ("I, I"), since "that's it,
+# it works" and "thank you, you" are two clauses.
+STUTTER_WORDS = frozenset(
+    "i we you they she it the a an and but or to of our your their this".split()
+)
+COMMA_STUTTER_WORDS = frozenset("I the a an we they".split())
 _WORD = re.compile(r"[\w'-]+")
 SMALL_TALK = re.compile(
     r"(?i)\b(?:weekend|weather|rain(?:ing)?|sunny|hear me|can you hear|you're on mute|on mute|"
@@ -107,23 +119,33 @@ def _unprotect(text: str, found: list[str]) -> str:
     return re.sub(r"\x00(\d+)\x00", lambda m: found[int(m.group(1))], text)
 
 
+def _false_start(tok: str, prev: str, nxt: str) -> bool:
+    """ "the bud- budget" and "I was- I am" are false starts; "pre- and post-merger" is not."""
+    if not tok.endswith("-") or len(tok) < 2 or not nxt[:1].isalpha():
+        return False
+    stem, nxt_l = tok[:-1].lower(), nxt.lower()
+    return nxt_l.startswith(stem) or (bool(prev) and prev.lower() == nxt_l)
+
+
+def _stutter(prev: str, tok: str) -> bool:
+    a, b = prev.rstrip(","), tok.rstrip(",")
+    if prev.endswith(","):
+        return a == b and a in COMMA_STUTTER_WORDS
+    return a.lower() == b.lower() and a.lower() in STUTTER_WORDS
+
+
 def _collapse_tokens(text: str) -> str:
-    """False starts ("I was- I am") and stutters ("the the"), in one linear pass over
-    whitespace-separated tokens. Numbers, yes/no and negations are never collapsed."""
+    """False starts and stutters, in one linear pass over whitespace-separated tokens."""
     toks = text.split(" ")
     out: list[str] = []
     for i, tok in enumerate(toks):
         nxt = toks[i + 1] if i + 1 < len(toks) else ""
-        if tok.endswith("-") and len(tok) > 1 and nxt[:1].isalpha():
-            continue  # false start
-        if out:
-            a = out[-1].rstrip(",").lower()
-            b = tok.rstrip(",").lower()
-            same = a and a == b and _WORD.fullmatch(b) is not None
-            if same and not any(c.isdigit() for c in b) and b not in MEANING_WORDS:
-                if out[-1].endswith(",") and not tok.endswith(","):
-                    out[-1] = out[-1][:-1]
-                continue
+        if _false_start(tok, out[-1] if out else "", nxt):
+            continue
+        if out and _stutter(out[-1], tok):
+            if out[-1].endswith(",") and not tok.endswith(","):
+                out[-1] = out[-1][:-1]
+            continue
         out.append(tok)
     return " ".join(out)
 
@@ -152,7 +174,13 @@ def clean_text(text: str) -> str:
     return out
 
 
+def _is_question(text: str) -> bool:
+    return text.rstrip().rstrip("\"')\u201d\u2019").endswith("?")
+
+
 def _is_backchannel(text: str) -> bool:
+    if _is_question(text):  # "Right?" asks for an answer
+        return False
     words = re.sub(r"[^\w\s'-]", " ", text.lower()).split()
     if not words or len(words) > 4 or _placeholders(text):
         return False
@@ -215,22 +243,37 @@ def compress(doc: Document, level: str, embedder=None) -> tuple[Document, Compre
         return doc, stats
     total = Counter(p for t in doc.turns for p in _placeholders(t.text))
     remaining = Counter(total)
+    turns_in = doc.turns
+    question_of = {
+        turns_in[i].index: turns_in[i - 1].index
+        for i in range(1, len(turns_in))
+        if _is_question(turns_in[i - 1].text)
+    }
+    dropped: set[int] = set()
 
-    def can_drop(text: str) -> bool:
-        return all(remaining[p] > n for p, n in Counter(_placeholders(text)).items())
+    def can_drop(t: Turn) -> bool:
+        q = question_of.get(t.index)
+        if q is not None and q not in dropped:
+            return False
+        return all(remaining[p] > n for p, n in Counter(_placeholders(t.text)).items())
 
     def drop(t: Turn) -> None:
         stats.dropped_turns.append(t.index)
+        dropped.add(t.index)
         remaining.subtract(_placeholders(t.text))
 
     turns: list[Turn] = []
     for t in doc.turns:
         text = clean_text(t.text)
-        if not text or (_is_backchannel(text) and can_drop(t.text)):
-            if text:
-                stats.dropped_backchannel += 1
-            drop(t)
-            continue
+        if not any(c.isalnum() for c in text) and any(c.isalnum() for c in t.text):
+            text = ""  # only fillers and punctuation were left ("Mhm!" -> "!")
+        if not text or _is_backchannel(text):
+            if can_drop(t):
+                if text:
+                    stats.dropped_backchannel += 1
+                drop(t)
+                continue
+            text = text or t.text  # an answer that is only "Mhm." stays as written
         turns.append(replace(t, text=text))
 
     if level in ("medium", "aggressive"):
@@ -275,12 +318,13 @@ def _triage(turns: Sequence[Turn], stats: CompressionStats, can_drop, drop) -> l
             and SMALL_TALK.search(t.text)
             and not _has_content(t.text)
             and words <= 20
-            and can_drop(t.text)
+            and can_drop(t)
         ):
             stats.dropped_small_talk += 1
             drop(t)
             continue
-        if words <= SHORT_TURN_WORDS and not _has_content(t.text) and can_drop(t.text):
+        short = words <= SHORT_TURN_WORDS and not _has_content(t.text)
+        if short and not _is_question(t.text) and can_drop(t):
             stats.dropped_short += 1
             drop(t)
             continue
@@ -308,7 +352,7 @@ def _dedupe(turns: Sequence[Turn], stats: CompressionStats, can_drop, drop) -> l
             # A near-duplicate only if negations and numbers are identical ("should take" vs
             # "should never take" is not a duplicate).
             dup = any(_similar(sig, sigs[i]) >= DUP_THRESHOLD and meaning[i] == mk for i in cands)
-            if dup and can_drop(t.text):
+            if dup and can_drop(t):
                 stats.dropped_duplicates += 1
                 drop(t)
                 continue
@@ -336,7 +380,7 @@ def _semantic_dedupe(turns: Sequence[Turn], stats: CompressionStats, can_drop, d
                 and _same_content_words(t.text, chunk[j].text)
                 for j in kept
             )
-            if dup and len(t.text.split()) >= 4 and can_drop(t.text):
+            if dup and len(t.text.split()) >= 4 and can_drop(t):
                 stats.dropped_duplicates += 1
                 drop(t)
                 continue
@@ -383,7 +427,7 @@ def _extract(
         n_drop = int(len(droppable) * (1 - AGGRESSIVE_KEEP))
         drop_set = set(sorted(droppable, key=lambda i: float(centrality[i]))[:n_drop])
         for i, t in enumerate(chunk):
-            if i in drop_set and can_drop(t.text):
+            if i in drop_set and can_drop(t):
                 stats.dropped_short += 1
                 drop(t)
                 continue
