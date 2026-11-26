@@ -32,7 +32,9 @@ FROZEN = {"heldout": HELDOUT_MANIFEST_SHA256, "sealed": SEALED_MANIFEST_SHA256}
 SEALED_DIR = ("eval", "sealed")
 SEALED_FILE = "sealed.orset"
 # SHA-256 of eval/sealed/MANIFEST.sha256, pinned when the set is committed; None until then.
-NEW_SEALED_MANIFEST_SHA256: str | None = None
+NEW_SEALED_MANIFEST_SHA256: str | None = (
+    "326343011107027007f19620c441abd1afc71e813817b4650663e52bc631cdc9"
+)
 
 
 def repo_root(start: Path | None = None) -> Path:
