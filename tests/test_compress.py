@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 from collections import Counter
 
 import pytest
@@ -153,3 +154,112 @@ def test_lowmem_script_runs_small(tmp_path):
     out = subprocess.run([sys.executable, str(script), "300"], capture_output=True, text=True,
                          check=True, timeout=120)  # fmt: skip
     assert "peak_rss_mb=" in out.stdout
+
+
+# A short reply to a question is its answer, not backchannel.
+@pytest.mark.parametrize("level", ["light", "medium"])
+@pytest.mark.parametrize(
+    ("question", "answer"),
+    [
+        ("Can we ship the release on Friday?", "Absolutely."),
+        ("legal signed off on the indemnity clause?", "Sure."),
+        ("Is the budget approved?", "Right."),
+        ("Do you object to the settlement?", "Okay."),
+        ("Ready?", "Mhm."),
+    ],
+)
+def test_answer_to_a_question_survives(question, answer, level):
+    out, s = compress(doc(("Speaker 1", question), ("Speaker 2", answer)), level)
+    assert [t.text for t in out.turns] == [question, answer]
+    assert s.dropped_backchannel == 0
+
+
+def test_backchannel_after_a_statement_still_dropped():
+    out, _ = compress(doc(("A", "The budget is approved."), ("B", "Right.")), "light")
+    assert [t.text for t in out.turns] == ["The budget is approved."]
+
+
+def test_reply_to_a_dropped_question_is_not_protected():
+    d = doc(("A", "How was your weekend?"), ("B", "Great."), ("A", "We need the <C1> forecast."))
+    out, _ = compress(d, "medium")
+    assert [t.text for t in out.turns] == ["We need the <C1> forecast."]
+
+
+def test_tag_question_is_not_backchannel():
+    out, _ = compress(doc(("A", "We ship on Friday."), ("B", "Right?"), ("A", "Yes.")), "light")
+    assert [t.text for t in out.turns] == ["We ship on Friday.", "Right?", "Yes."]
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "She went to the ER after the fall",
+        "worth about 5 MM",
+        "a 5 mm gap",
+        "pre- and post-merger numbers",
+        "I know that that is wrong, he had had enough",
+        "what it is is a pricing problem",
+        "that's it, it works",
+        "thank you, you were great",
+    ],
+)
+def test_words_that_look_like_fillers_or_stutters_kept(text):
+    assert clean_text(text) == text
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("the bud- budget is fine", "the budget is fine"),
+        ("Erm, we we agreed", "we agreed"),
+        ("I, I think so", "I think so"),
+    ],
+)
+def test_real_false_starts_and_stutters_removed(text, expected):
+    assert clean_text(text) == expected
+
+
+class _HashEmbedder:
+    """Deterministic bag-of-words vectors, enough to drive the aggressive selection step."""
+
+    def embed(self, texts):
+        import numpy as np
+
+        vecs = np.zeros((len(texts), 8))
+        for i, t in enumerate(texts):
+            for w in t.lower().split():
+                vecs[i, sum(map(ord, w)) % 8] += 1
+        return vecs / np.maximum(np.linalg.norm(vecs, axis=1, keepdims=True), 1)
+
+
+QUESTION_WORDS = ("can we ship the release budget invoice clause legal team sign off approve "
+                  "is are do you object to settlement contract on friday plan").split()  # fmt: skip
+ONE_WORD_ANSWERS = ("Absolutely Sure Right Okay Yeah Yep Exactly Definitely Totally Perfect "
+                    "Great Cool Mhm Mm Hmm Gotcha Fair True Alright").split()  # fmt: skip
+needs_numpy = pytest.mark.skipif(
+    importlib.util.find_spec("numpy") is None, reason="aggressive compression needs numpy"
+)
+
+
+@pytest.mark.parametrize(
+    "level", ["light", "medium", pytest.param("aggressive", marks=needs_numpy)]
+)
+@settings(max_examples=100, deadline=None)
+@given(
+    st.lists(st.sampled_from(QUESTION_WORDS), min_size=1, max_size=10),
+    st.sampled_from(ONE_WORD_ANSWERS),
+    st.sampled_from(["", ".", "!", "..."]),
+)
+def test_one_word_answer_survives_every_level(level, qwords, answer, punct):
+    d = doc(
+        ("A", "Thanks everyone, the agenda has three items today."),
+        ("B", "The vendor sent the revised numbers this morning."),
+        ("A", " ".join(qwords) + "?"),
+        ("B", answer + punct),
+        ("A", "Then I will update the tracker and send it round."),
+        ("B", "I can review the draft before the next call."),
+    )
+    out, _ = compress(d, level, _HashEmbedder() if level == "aggressive" else None)
+    texts = [t.text for t in out.turns]
+    q = next(i for i, t in enumerate(texts) if t.endswith("?"))
+    assert texts[q + 1].startswith(answer)

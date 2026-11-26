@@ -46,7 +46,8 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   `--mapping-scope project` / `--mapping-in` to share placeholders across transcripts.
 - Encrypted mapping (Fernet; scrypt N=2^17 or key file) in a private per-user store; `restore`
   tolerant of LLM-mangled placeholders, with wrong-mapping detection; `keygen`.
-- Compression: `light` (default) and `medium`; never drops or alters a placeholder.
+- Compression: `light` (default) and `medium`; never alters a placeholder or drops its last
+  occurrence.
 - Opt-in encrypted audit log (`--audit`) and `audit` command; `review` side-by-side view with
   missed-label highlighting and deny-list suggestions.
 - Evaluation: seeded synthetic generator, tuning set, frozen independently written held-out set,
@@ -109,3 +110,7 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 - The embedding model used by `--compress aggressive` is now checksum-verified before loading,
   like the other models.
 - A long chain of spoken numbers can no longer make the quantity rules take minutes.
+- Compression no longer drops a one-word answer to a question ("Is the budget approved?" /
+  "Right.") at any level, and no longer deletes words that only look like fillers or
+  stutters: "ER" and "MM" in capitals, "mm" after a number, a hyphenated prefix such as
+  "pre-" in "pre- and post-merger", and grammatical doubles such as "that that" and "had had".
