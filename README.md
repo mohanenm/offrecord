@@ -76,12 +76,14 @@ Reversible run (the mapping is encrypted with a key file; keep the key away from
 
 ```sh
 offrecord keygen                       # ~/.config/offrecord/keys/default.key
-offrecord redact samples/support-call.vtt -o out.txt \
-    --key-file ~/.config/offrecord/keys/default.key
+offrecord redact samples/support-call.vtt -o out.txt
 # ... send out.txt to an LLM, save its answer as answer.txt ...
-offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord/mappings/<id>.ormap \
-    --key-file ~/.config/offrecord/keys/default.key
+offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord/mappings/<id>.ormap
 ```
+
+The key comes from `--key-file`, else `OFFRECORD_KEY_FILE`, else a passphrase in
+`OFFRECORD_PASSPHRASE`, else the default key that `keygen` wrote (offrecord says when it uses
+it), else a passphrase prompt.
 
 `samples/` holds one synthetic transcript per supported format (txt, VTT, SRT, JSON).
 

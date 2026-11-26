@@ -30,6 +30,7 @@ from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 
 from offrecord.errors import MappingError, UsageError
+from offrecord.paths import default_key_path
 
 FORMAT_VERSION = 1
 MAGIC = {"map": "OFFRECORD-MAP", "audit": "OFFRECORD-AUDIT"}
@@ -51,7 +52,7 @@ class Secret:
     kind: str  # "passphrase" | "keyfile"
     value: bytes
     key_path: Path | None = None
-    source: str = ""  # "env" | "prompt" | "file": the CLI tells the user where it came from
+    source: str = ""  # "env" | "prompt" | "file" | "default": the CLI says where it came from
 
     def __repr__(self) -> str:
         return f"Secret(kind={self.kind!r})"
@@ -74,6 +75,11 @@ def derive_key(secret: Secret, kdf: dict[str, Any]) -> bytes:
         raise MappingError("mapping header is malformed")
     if kdf.get("name") == "scrypt":
         if secret.kind != "passphrase":
+            if secret.source == "default":
+                raise MappingError(
+                    "this mapping was encrypted with a passphrase, not the default key file; "
+                    f"set {PASSPHRASE_ENV}"
+                )
             raise MappingError("this mapping was encrypted with a passphrase, not a key file")
         n, r, p = int(kdf["n"]), int(kdf["r"]), int(kdf["p"])
         # Only parameters this version writes: a crafted header must not be able to demand
@@ -149,7 +155,7 @@ def decrypt(data: bytes, kind: str, secret: Secret) -> tuple[str, dict[str, Any]
 # --- secrets ---------------------------------------------------------------------------------
 
 
-def load_key_file(path: str | os.PathLike[str]) -> Secret:
+def load_key_file(path: str | os.PathLike[str], source: str = "file") -> Secret:
     """Open first (no symlinks, non-blocking), then check the open descriptor: regular file,
     owned by the current user, not accessible to others."""
     p = Path(path)
@@ -177,7 +183,7 @@ def load_key_file(path: str | os.PathLike[str]) -> Secret:
         raise UsageError("key file is not a valid offrecord key") from None
     if len(raw) != KEY_BYTES:
         raise UsageError("key file is not a valid offrecord key")
-    return Secret("keyfile", raw, p.resolve(), source="file")
+    return Secret("keyfile", raw, p.resolve(), source=source)
 
 
 def generate_key() -> str:
@@ -185,7 +191,8 @@ def generate_key() -> str:
 
 
 def get_secret(key_file: str | None, confirm: bool = False) -> Secret | None:
-    """Key file (argument or env), else passphrase (env or interactive prompt). Never argv."""
+    """Key file (argument or env), else the passphrase env var, else the default key from
+    ``offrecord keygen`` if it exists, else an interactive prompt. Never argv."""
     kf = key_file or os.environ.get(KEY_FILE_ENV)
     env_pw = os.environ.get(PASSPHRASE_ENV)
     if kf and env_pw is not None:
@@ -195,6 +202,9 @@ def get_secret(key_file: str | None, confirm: bool = False) -> Secret | None:
     pw = env_pw
     source = "env"
     if pw is None:
+        default = default_key_path()
+        if default.exists() or default.is_symlink():  # a symlink is refused by load_key_file
+            return load_key_file(default, source="default")
         pw = _prompt(confirm)
         source = "prompt"
     if pw is None:

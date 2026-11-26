@@ -109,3 +109,6 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 - The embedding model used by `--compress aggressive` is now checksum-verified before loading,
   like the other models.
 - A long chain of spoken numbers can no longer make the quantity rules take minutes.
+- The key written by `offrecord keygen` is now used when no `--key-file`, `OFFRECORD_KEY_FILE`
+  or `OFFRECORD_PASSPHRASE` is given, as the README's round trip assumed; before, it was
+  written but never read. offrecord says on stderr when it uses it.

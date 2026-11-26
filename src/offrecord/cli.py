@@ -150,6 +150,10 @@ def _warn_if_trackable(dirs: Sequence[str]) -> None:
 # without importing the evaluation package; a test checks they match).
 SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "sealed", "heldout")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
+KEY_FILE_HELP = (
+    "key file (else OFFRECORD_KEY_FILE, OFFRECORD_PASSPHRASE, the default key from `keygen` "
+    "if it exists, or a prompt)"
+)
 
 
 def resolve_tier(requested: str | None, cfg: object) -> int:
@@ -203,8 +207,11 @@ def resolve_tier(requested: str | None, cfg: object) -> int:
 
 
 def _secret_notice(secret: object) -> None:
-    if getattr(secret, "source", "") == "env":
+    source = getattr(secret, "source", "")
+    if source == "env":
         print("offrecord: using the passphrase from OFFRECORD_PASSPHRASE", file=sys.stderr)
+    elif source == "default":
+        print("offrecord: using the default key file from `offrecord keygen`", file=sys.stderr)
 
 
 def _need_secret(key_file: str | None) -> Secret:
@@ -806,8 +813,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="0: rules only (default); 1: + NER models; 2: + LLM labels; auto: by RAM and models",
     )
     sp.add_argument("--no-mapping", action="store_true", help="one-way run: discard the mapping")
-    sp.add_argument("--key-file", help="key file for the mapping (else OFFRECORD_KEY_FILE, "
-                    "OFFRECORD_PASSPHRASE, or a prompt)")  # fmt: skip
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument("--mapping-out", help="where to write the encrypted mapping "
                     "(default: private per-user store)")  # fmt: skip
     sp.add_argument("--mapping-in", help="extend an existing (project) mapping file in place")
@@ -829,13 +835,13 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--tokenizer", default="auto")
     sp.add_argument("--tier", choices=["0", "1", "2", "auto"], default=None)
     sp.add_argument("--no-mapping", action="store_true", help="one-way: cannot be restored")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument("--prompt", help="wrap the result in an LLM prompt with this instruction")
     sp.set_defaults(func=_cmd_paste)
 
     sp = sub.add_parser("unpaste", help="restore placeholders in the clipboard (an LLM answer)")
     sp.add_argument("--mapping", help="mapping file (default: the most recent one)")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument("--stdout", action="store_true", help="print instead of copying back")
     sp.add_argument("--strict", action="store_true", help="fail on unknown placeholders")
     sp.set_defaults(func=_cmd_unpaste)
@@ -866,7 +872,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp = sub.add_parser("restore", help="restore placeholders using a mapping file")
     sp.add_argument("input", help="redacted text or an LLM answer about it (- for stdin)")
     sp.add_argument("--mapping", required=True, help="encrypted mapping file (.ormap)")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument(
         "-o", "--output", help="output file (default: stdout); restored text is sensitive"
     )
@@ -881,7 +887,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     sp = sub.add_parser("audit", help="decrypt and print an audit log (local use only)")
     sp.add_argument("file", help="encrypted audit log (.oraudit)")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.set_defaults(func=_cmd_audit)
 
     sp = sub.add_parser("keygen", help="create a random key file for mappings and audit logs")
