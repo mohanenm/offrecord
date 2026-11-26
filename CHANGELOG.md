@@ -5,6 +5,18 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 ## [Unreleased]
 
 ### Added
+- `offrecord eval` reports character precision on turn text alone (`prec(text)`; speaker
+  labels inflated the old figure), the share of business context actually redacted rather
+  than only flagged, the must-not-redact hit rate, and a `--no-denylist` run, which is what a
+  new user gets before `init`.
+- `scripts/earnings21_eval.py` and `scripts/ai4privacy_eval.py` score the two outside datasets
+  quoted in the README; `scripts/build_wordlists.py` rebuilds the bundled word lists from SCOWL.
+- The next sealed set is stored encrypted (`eval/sealed/`, offrecord's own format) with its key
+  held outside the repository; `eval --set sealed --final-check --key-file KEY` scores it. The
+  first sealed set is spent and is now scored as `validation2`. The targets for the next
+  release check are fixed in `docs/eval-format.md` before that set is written.
+- A test fails if Tier 0 PII recall or precision falls below fixed floors, and a CI job runs
+  the Tier 1 models; lock files now cover the `[ner]` and `[llm]` extras.
 - `offrecord review --draft-labels -o FILE` writes a transcript as inline markup pre-filled
   with offrecord's redactions, for labelling your own transcripts privately
   (`docs/private-eval.md`).
@@ -106,6 +118,8 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   sensitive.
 
 ### Fixed
+- The bundled SCOWL licence was cut off partway; the full notice now ships.
+- A mapping made with a passphrase asks for the passphrase even when the default key exists.
 - Restore no longer writes wrong names into an LLM's answer. Placeholder numbers are drawn at
   random per mapping (`<P417>`, not `<P1>`), a bare token needs three digits (an answer's own
   "P1 incident" or "L2 support" stays), and header-less text holding a placeholder the mapping

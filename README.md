@@ -4,10 +4,12 @@ Remove personal data from meeting and call transcripts before they reach an LLM,
 the originals in the LLM's answer. Fully offline, on modest hardware.
 
 > offrecord reduces what you need to check before pasting a transcript into an LLM. It does
-> not remove the need to check. On the synthetic validation set, Tier 0 redacts 97% of the
-> personal data (names, contact details, account and card numbers, addresses) and three in
-> four transcripts come out with no personal data left. On harder phrasing the numbers drop:
-> see [Status](#status-what-the-numbers-measure). Apache-2.0; not yet on PyPI.
+> not remove the need to check. On the first sealed set (80 synthetic transcripts written
+> blind, scored once and now used for validation), the rules alone (Tier 0) fully redact 94.6%
+> of the personal data, and 54% of transcripts come out with none left; with the optional
+> local models (Tier 1) that is 96.3% and 64%. On real earnings calls Tier 0 redacts 87.0%.
+> On the easiest set it reaches 99%: see [Status](#status-what-the-numbers-measure).
+> Apache-2.0; not yet on PyPI.
 
 ## Who it is for
 
@@ -126,62 +128,83 @@ and checksums.
 All evaluation data is synthetic: generated conversations with invented names, companies and
 numbers. Apart from the tuning templates, the sets were written by coding agents that saw only
 the format description, never the detector code, so their phrasing is independent of the
-rules, but none of it is real speech. [docs/eval-format.md](https://github.com/mohanenm/offrecord/blob/main/docs/eval-format.md) describes how
-each set was made. Validation was written blind but has been looked at during development; the
-user set is harder phrasing that was never tuned on. To measure offrecord on your own
+rules, but none of it is real speech, and the agents that wrote it are the same kind of model
+that wrote the rules. [docs/eval-format.md](https://github.com/mohanenm/offrecord/blob/main/docs/eval-format.md) describes how
+each set was made. Validation was written blind but has been looked at during development, and
+most of its invented names are not dictionary words, which the name rules catch almost by
+construction: it is the easiest set, not the most telling one. The user set was never tuned on
+directly, but its miss counts were checked after changes and steered what later tuning data
+covered, so treat it as a second validation set; its numbers are optimistic too. The sealed
+set below and the two outside datasets are the better guide. To measure offrecord on your own
 transcripts, see
 [docs/private-eval.md](https://github.com/mohanenm/offrecord/blob/main/docs/private-eval.md).
 
 ### Sealed set: Tier 0 did not meet its targets
 
 A sealed set of 80 transcripts, written blind and never opened during development, was scored
-once at the end of this release cycle, against targets fixed before it was opened.
+once at the end of the first release cycle, against targets fixed before it was opened.
 
-| Sealed set (80) | Target | Tier 0 | Tier 1 | Tier 2 |
+| Sealed set (80), at opening | Target | Tier 0 | Tier 1 | Tier 2 |
 | --- | --- | --- | --- | --- |
 | PII recall | 95% | **93.4%** (91.7-94.9) | 96.4% (95.1-97.6) | 96.4% |
 | PII-clean transcripts | 65% | **46%** (36-56) | 65% (55-75) | 65% |
 | No name, contact, account, card or SSN leaked | 90% | 97.5% | 97.5% | 97.5% |
-| Precision | 80% | 91.8% | 86.0% | 85.8% |
+| Precision (speaker labels included) | 80% | 91.8% | 86.0% | 85.8% |
 
-Tier 0 misses two targets, almost entirely because of places: 76 of its 78 misses are
-locations, which it catches 84% of the time here against 96% on validation. Names, account
-and card numbers, SSNs, IPs and URLs were all caught; one email and one phone number were
-missed. Tier 1 halves the place misses. Brackets are 95% intervals. Place handling has since
-been improved on new tuning data written for that purpose (Tier 0 place recall there went
-from 85.9% to 89.1%), but that cannot be checked against this set: it now serves as a second
-validation set, and the next release will be scored on a new sealed set.
+Tier 0 missed two targets, almost entirely because of places: 76 of its 78 misses were
+locations, caught 84% of the time against 96% on validation. Tier 1 halved the place misses.
+Brackets are 95% intervals. The set is now spent and is scored as `validation2`; place handling
+improved afterwards on new tuning data (not on this set), and it now scores 94.6% at Tier 0.
+The next release will be scored once on a new sealed set of 60 transcripts, stored encrypted,
+against targets already fixed in [docs/eval-format.md](https://github.com/mohanenm/offrecord/blob/main/docs/eval-format.md).
 
-The numbers below are for the default protection (personal data):
+### Current numbers
+
+For the default protection (personal data):
 
 - PII recall: the share of names, contact details, account and card numbers, IPs, URLs and
   places that are fully redacted (every letter and digit);
-- PII-clean transcripts: the share of transcripts with none of those left;
-- business context redacted or flagged: the share of other labelled items (figures,
-  organisations, business topics, dates) that are redacted or flagged for review (a flag only
-  asks you to look);
-- text redacted: how much of the transcript the LLM can no longer read.
+- PII-clean transcripts: the share of transcripts with none of those left.
 
-| Validation (56) / user set (8) | PII recall | PII-clean transcripts | Business context redacted or flagged | Text redacted |
+| Set (transcripts) | Tier 0 PII recall | Tier 0 PII-clean | Tier 1 PII recall | Tier 1 PII-clean |
 | --- | --- | --- | --- | --- |
-| Tier 0 (rules) | 99.3% / 88.9% | 93% / 25% | 91% / 79% | 15% / 21% |
-| Tier 1 (+ NER ensemble) | 99.8% / 90.2% | 98% / 25% | 97% / 82% | 17% / 24% |
-| Tier 2 (+ Phi-4-mini) | 99.8% / 90.2% | 98% / 25% | 97% / 83% | 18% / 25% |
-| Baseline: plain regexes | 14.2% / 7.2% | 0% / 0% | | |
+| `validation2`, the first sealed set (80) | 94.6% | 54% | 96.3% | 64% |
+| User set (8) | 88.9% | 25% | 90.2% | 25% |
+| `validation` (56) | 99.3% | 93% | 99.8% | 98% |
+| `validation`, no deny-list | 98.2% | 82% | | |
+| Earnings-21, real earnings calls (44) | 87.0% | | 90.1% | |
+| ai4privacy, short synthetic texts (43,501) | 88.2% | 78% | | |
+| Baseline: plain regexes, `validation` | 14.2% | 0% | | |
+| Baseline: Presidio defaults, `validation` | 62.7% | | | |
 
-The user set has only 8 transcripts, so its numbers are loose: the 95% interval for Tier 0
-PII recall is 81.4-95.2% there (98.5-99.8% on validation), and its PII-clean rate could be
-anywhere from 0% to 62%. `offrecord eval` prints these intervals.
+Without a deny-list (what a new user gets before `offrecord init`), `validation2` and the user
+set barely move (94.5% and 88.9%); `validation` drops to 98.2% because its sets name clients and
+people in their deny-lists. Earnings-21 and ai4privacy were never tuned on and are scored as
+aggregates only (`scripts/earnings21_eval.py`, `scripts/ai4privacy_eval.py`); a whole earnings
+call is about 8,000 words, so a PII-clean rate per call means little there. The Presidio row
+comes from `eval/baselines/presidio.json` (default recognisers, no deny-list; its email and URL
+recognisers reject the reserved test domains the sets use, so it is a rough comparison).
 
-Tier 2 does not change PII recall on these sets. What it adds is indirect identifiers: on 15
-held-back transcripts written for that purpose, descriptions of a person ("our only
-night-shift pharmacist") were redacted 63% of the time at Tier 0, 68% at Tier 1 and 78% at
-Tier 2.
+The cost of that recall, on `validation` (Tier 0 / Tier 1 / Tier 2):
 
-Two outside datasets, never tuned on and scored as aggregates only, give a feel for data
-nobody here wrote. On Earnings-21 (44 real earnings calls, speech-recognition text) PII recall
-is 85.7% at Tier 0 and 89.8% at Tier 1. On ai4privacy pii-masking-200k (43,501 short synthetic
-English texts, not speech) it is 87.3% at Tier 0.
+- precision on turn text, the share of redacted characters that are labelled: 80% / 73% / 69%
+  (on Earnings-21, whose labels cover fewer kinds of thing, 40% / 32%);
+- text redacted: 15% / 16% / 17%;
+- business context (figures, organisations, business topics): 45% / 47% / 47% redacted and a
+  further 46% / 50% / 50% flagged for review, which leaves it readable;
+- must-not-redact words redacted (ordinary uses of a word that is a name elsewhere): 32% on
+  `tuning-hw` at Tier 0.
+
+The intervals `offrecord eval` prints resample transcripts. `validation`'s 56 transcripts come
+from 14 templates that share phrasing, so its intervals are narrower than they should be. The
+user set has only 8 transcripts: its Tier 0 PII recall interval is 82-95% and its PII-clean
+rate could be anywhere from 0% to 62%.
+
+Tier 2 does not change PII recall on any of these sets and costs precision. What it is for is
+indirect identifiers: on 15 held-back transcripts written for that purpose, descriptions of a
+person ("our only night-shift pharmacist") were redacted 63% of the time at Tier 0, 68% at
+Tier 1 and 78% at Tier 2. Those transcripts are not in the repository yet, so that figure
+cannot be reproduced from it; it is opt-in for that reason.
 
 Read the PII-clean column first: in some transcripts a name or number still gets through, so
 you still read the output before sharing it. What offrecord changes is how much you have to
@@ -205,8 +228,9 @@ real-world recall to be lower.
 - Organisations and products are business context: unless they are in your deny-list or
   look like names to the rules, they are flagged rather than redacted. Put clients and
   codenames you need hidden in the deny-list.
-- Higher tiers trade precision for recall (see the table above), and are
-  slower (Tier 2 adds roughly 10 s per call transcript on a laptop CPU).
+- Higher tiers trade precision for recall (see above) and are slower: Tier 1 took about a
+  minute on a 10,000-word call on a laptop CPU; Tier 2 adds about 10 s per short transcript and
+  several minutes or more on a long call.
 - `aggressive` compression is lossy by design (it drops low-information turns). Its selection
   step never drops turns with placeholders, numbers, decisions or questions, or the answer to a
   question, but like `medium` it removes near-duplicate turns, so a repeated mention can go.
