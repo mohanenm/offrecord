@@ -518,3 +518,23 @@ def test_spoken_urls_with_paths_and_split_names(line, hidden, visible):
     out = body(redact(f"A: {line}\nA: ok\n")[0])
     assert not any(h in out for h in hidden)
     assert all(v in out for v in visible)
+
+
+def test_fuzzy_deny_list_match_keeps_neighbouring_words():
+    cfg = {"denylist": [{"name": "Glimmerforge", "category": "CLIENT"}]}
+    red, _ = redact("Ann: We think that Glimmerforge pays late. Call the Glimmerforge team.\n"
+                    "Bo: ok\n", cfg)  # fmt: skip
+    text = red.turns[0].text
+    assert "Glimmerforge" not in text
+    assert "that <C" in text and "> pays late" in text and "the <C" in text and "> team" in text
+
+
+def test_titled_surname_never_takes_a_speakers_identity():
+    red, mapping = redact("Dana Whitfield: Mr. Whitfield could not make it, he is my husband.\n"
+                          "Tomas Brandl: Understood, Dana.\n")  # fmt: skip
+    first, second = red.turns[0].text, red.turns[1].text
+    assert "Whitfield" not in first
+    speaker = second.rsplit("<", 1)[1].split(">")[0]  # the placeholder for "Dana"
+    assert f"<{speaker}>" not in first
+    titled = [e for e in mapping.entries.values() if e.occurrences == ["Mr. Whitfield"]]
+    assert len(titled) == 1
