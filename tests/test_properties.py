@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import itertools
 
+import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
 
+from offrecord.errors import MappingError
 from offrecord.model import Span, turn_field_id
 from offrecord.redact.merge import merge
 from offrecord.restore import restore_text
@@ -56,9 +58,12 @@ def payload(n: int) -> dict:
                           st.sampled_from(["hello", " ", "world", ",", "q3", "x"])),
                 max_size=20))  # fmt: skip
 def test_restore_replaces_exactly_the_known_placeholders(parts):
+    # With the mapping header, unknown placeholders are left and reported.
     p = payload(10)
-    text = "".join(parts)
+    head = "# offrecord mapping=or1-x\n"
+    text = head + "".join(parts)
     out, rep = restore_text(text, p, "or1-x")
+    out = out.removeprefix(head)
     known = sum(1 for x in parts if x.startswith("<C") and int(x[2:-1]) <= 10)
     unknown = sum(1 for x in parts if x.startswith("<C") and int(x[2:-1]) > 10)
     assert rep.restored >= known
@@ -69,8 +74,24 @@ def test_restore_replaces_exactly_the_known_placeholders(parts):
     assert out == expected
 
 
+@settings(max_examples=200)
+@given(st.lists(st.one_of(st.integers(1, 12).map(lambda i: f"<C{i}>"),
+                          st.sampled_from(["hello", " ", "P1", "L2", "q3"])),
+                max_size=20))  # fmt: skip
+def test_headerless_text_with_a_foreign_placeholder_restores_nothing(parts):
+    # An LLM answer has no header: one placeholder the mapping lacks means a wrong mapping.
+    p = payload(10)
+    text = "".join(parts)
+    if any(x.startswith("<C") and int(x[2:-1]) > 10 for x in parts):
+        with pytest.raises(MappingError):
+            restore_text(text, p, "or1-x")
+    else:
+        out, _rep = restore_text(text, p, "or1-x")
+        assert "P1" not in out or "P1" in text  # short bare tokens are never placeholders
+
+
 @given(st.integers(1, 99))
 def test_c1_never_restored_as_c10(n):
     p = payload(1)
-    out, _rep = restore_text(f"<C{n}>", p, "or1-x")
-    assert (out == "Org Number 1") == (n == 1)
+    out, _rep = restore_text(f"# offrecord mapping=or1-x\n<C{n}>", p, "or1-x")
+    assert out.endswith("Org Number 1") == (n == 1)

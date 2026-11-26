@@ -43,7 +43,7 @@ def test_noncanonical_bare_tokens_never_restored(text):
 
 
 def test_bare_collisions_use_restore_grammar():
-    assert bare_collisions(["room P1 and P01"], ["<P1>"]) == ["P1"]
+    assert bare_collisions(["room P417 and P0417"], ["<P417>"]) == ["P417"]
 
 
 # No double substitution.
