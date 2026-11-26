@@ -124,9 +124,27 @@ numbers. Apart from the tuning templates, the sets were written by coding agents
 the format description, never the detector code, so their phrasing is independent of the
 rules, but none of it is real speech. [docs/eval-format.md](https://github.com/mohanenm/offrecord/blob/main/docs/eval-format.md) describes how
 each set was made. Validation was written blind but has been looked at during development; the
-user set is harder phrasing that was never tuned on. A sealed set is scored once per release
-cycle (not yet opened). To measure offrecord on your own transcripts, see
+user set is harder phrasing that was never tuned on. To measure offrecord on your own
+transcripts, see
 [docs/private-eval.md](https://github.com/mohanenm/offrecord/blob/main/docs/private-eval.md).
+
+### Sealed set: Tier 0 did not meet its targets
+
+A sealed set of 80 transcripts, written blind and never opened during development, was scored
+once at the end of this release cycle, against targets fixed before it was opened.
+
+| Sealed set (80) | Target | Tier 0 | Tier 1 | Tier 2 |
+| --- | --- | --- | --- | --- |
+| PII recall | 95% | **93.4%** (91.7-94.9) | 96.4% (95.1-97.6) | 96.4% |
+| PII-clean transcripts | 65% | **46%** (36-56) | 65% (55-75) | 65% |
+| No name, contact, account, card or SSN leaked | 90% | 97.5% | 97.5% | 97.5% |
+| Precision | 80% | 91.8% | 86.0% | 85.8% |
+
+Tier 0 misses two targets, almost entirely because of places: 76 of its 78 misses are
+locations, which it catches 84% of the time here against 96% on validation. Names, account
+and card numbers, SSNs, IPs and URLs were all caught; one email and one phone number were
+missed. Tier 1 halves the place misses. Brackets are 95% intervals. The next release will be
+scored on a new sealed set; this one now serves as a second validation set.
 
 The numbers below are for the default protection (personal data):
 
