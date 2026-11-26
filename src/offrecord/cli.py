@@ -87,7 +87,14 @@ def _cmd_eval(args: argparse.Namespace) -> int:
         if not d.is_dir():
             print(f"offrecord: note: set {name} not found; skipped", file=sys.stderr)
             continue
-        if any(d.glob("*.labels.json")):
+        if name == sets.SEALED:
+            from offrecord import crypto
+
+            kf = args.key_file or os.environ.get("OFFRECORD_SEALED_KEY")
+            if not kf:
+                raise UsageError("the sealed set needs its key: --key-file or OFFRECORD_SEALED_KEY")
+            items, cfg = runner.load_sealed(d, crypto.load_key_file(kf))
+        elif any(d.glob("*.labels.json")):
             items, cfg = runner.load_generated(d, final_check=args.final_check)
         else:
             items, cfg = runner.load_markup_dir(d)
@@ -152,7 +159,7 @@ def _warn_if_trackable(dirs: Sequence[str]) -> None:
 
 # Mirrors offrecord.evaluation.sets.SET_NAMES plus its aliases (kept literal so the CLI starts
 # without importing the evaluation package; a test checks they match).
-SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "sealed", "heldout")
+SET_CHOICES = ("tuning", "tuning-hw", "validation", "validation2", "user", "sealed", "heldout")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
 KEY_FILE_HELP = (
     "key file (else OFFRECORD_KEY_FILE, OFFRECORD_PASSPHRASE, the default key from `keygen` "
@@ -730,7 +737,10 @@ def _cmd_review(args: argparse.Namespace) -> int:
         lp = Path(args.labels) if args.labels else Path(args.input).with_suffix(".labels.json")
         if lp.exists():
             meta = _json.loads(read_input_text(lp, DEFAULT_LIMITS))
-            if meta.get("set") == "sealed" and not args.final_check:
+            from offrecord.evaluation.sets import is_spent_sealed
+
+            spent = is_spent_sealed(lp.parent)
+            if meta.get("set") == "sealed" and not args.final_check and not spent:
                 raise UsageError("sealed-set labels are used only with --final-check")
             labels = [Label.from_json(d) for d in meta["labels"]]
     red, spans, _mapping, _stats = redact_document(doc, cfg)
@@ -967,6 +977,7 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="allow scoring the sealed set (once per release cycle, after all tuning)",
     )
+    sp.add_argument("--key-file", help="the sealed set's key (or OFFRECORD_SEALED_KEY)")
     sp.add_argument(
         "--extras",
         action="store_true",

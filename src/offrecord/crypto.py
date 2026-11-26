@@ -33,7 +33,7 @@ from offrecord.errors import MappingError, UsageError
 from offrecord.paths import default_key_path
 
 FORMAT_VERSION = 1
-MAGIC = {"map": "OFFRECORD-MAP", "audit": "OFFRECORD-AUDIT"}
+MAGIC = {"map": "OFFRECORD-MAP", "audit": "OFFRECORD-AUDIT", "set": "OFFRECORD-SET"}
 SCRYPT_N = 2**17
 SCRYPT_R = 8
 SCRYPT_P = 1

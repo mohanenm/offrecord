@@ -46,17 +46,22 @@ class EvalItem:
 def load_generated(
     directory: Path, final_check: bool = False
 ) -> tuple[list[EvalItem], dict[str, Any]]:
-    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``. The sealed set
-    (recognised by its labels, so a copy is refused too) loads only for the final check."""
+    """Load ``*.labels.json`` + transcript pairs and the set's ``denylist.yaml``. The first sealed
+    set (recognised by its labels) is spent and loads as ``validation2`` from its own folder; a
+    copy anywhere else is still refused without the final check."""
     from offrecord.errors import UsageError
 
     items = []
     for lp in sorted(directory.glob("*.labels.json")):
         meta = json.loads(lp.read_text(encoding="utf-8"))
         if meta.get("set") == "sealed":
-            from offrecord.evaluation.sets import SEALED_MANIFEST_SHA256, verify_manifest
+            from offrecord.evaluation.sets import (
+                SEALED_MANIFEST_SHA256,
+                is_spent_sealed,
+                verify_manifest,
+            )
 
-            if not final_check:
+            if not final_check and not is_spent_sealed(directory):
                 raise UsageError("the sealed set is scored only with --final-check")
             if not verify_manifest(directory, SEALED_MANIFEST_SHA256):
                 raise UsageError("the sealed set does not match its pinned manifest")
@@ -75,6 +80,47 @@ def _load_config(directory: Path) -> dict[str, Any]:
     if p.exists():
         return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
     return {}
+
+
+def write_sealed(src: Path, out: Path, secret: Any) -> str:
+    """Encrypt a folder of inline-markup transcripts (``*.txt`` and ``denylist.yaml``) into
+    ``out/sealed.orset`` with a manifest. Returns the manifest's SHA-256, to pin in sets.py."""
+    from offrecord import crypto
+    from offrecord.evaluation.sets import MANIFEST, SEALED_FILE, manifest_lines
+    from offrecord.redact.replace import new_mapping_id
+
+    files = {p.name: p.read_text(encoding="utf-8") for p in sorted(src.glob("*.txt"))}
+    deny = src / "denylist.yaml"
+    payload = {
+        "files": files,
+        "denylist": deny.read_text(encoding="utf-8") if deny.exists() else "",
+    }
+    out.mkdir(parents=True, exist_ok=True)
+    (out / SEALED_FILE).write_bytes(crypto.encrypt("set", new_mapping_id(), payload, secret))
+    text = "\n".join(manifest_lines(out)) + "\n"
+    (out / MANIFEST).write_text(text, encoding="utf-8")
+    import hashlib
+
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def load_sealed(directory: Path, secret: Any) -> tuple[list[EvalItem], dict[str, Any]]:
+    """Decrypt the sealed set in memory (never to disk) and parse its inline markup. The caller
+    checks ``--final-check``; this checks the pinned manifest and the key."""
+    from offrecord import crypto
+    from offrecord.errors import UsageError
+    from offrecord.evaluation.sets import NEW_SEALED_MANIFEST_SHA256, SEALED_FILE, verify_manifest
+
+    if NEW_SEALED_MANIFEST_SHA256 is None or not verify_manifest(
+        directory, NEW_SEALED_MANIFEST_SHA256
+    ):
+        raise UsageError("the sealed set is missing or does not match its pinned manifest")
+    _fid, payload = crypto.decrypt((directory / SEALED_FILE).read_bytes(), "set", secret)
+    items = []
+    for name, text in sorted(payload["files"].items()):
+        lt, doc = parse_markup_transcript(name.removesuffix(".txt"), text)
+        items.append(EvalItem(lt.id, doc, lt.labels, lt.negatives, {"set": "sealed"}))
+    return items, yaml.safe_load(payload.get("denylist") or "") or {}
 
 
 def load_markup_dir(directory: Path) -> tuple[list[EvalItem], dict[str, Any]]:
