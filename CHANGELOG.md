@@ -23,7 +23,7 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   default config at `~/.config/offrecord/config.yaml` is used automatically.
 - Per-category run summary ("redacted 42 item(s) (12 person, 5 client, ...); 3 flagged").
 - `site/`: a self-contained one-page site for GitHub Pages.
-- `tuning-hw` evaluation set (60 agent-written synthetic transcripts in inline markup) and
+- `tuning-hw` evaluation set (80 agent-written synthetic transcripts in inline markup) and
   `scripts/misses.py --hw/--neg`.
 - Optional Tier 1: GLiNER + BERT-NER ensemble (ONNX Runtime, no PyTorch) on gated sentences,
   document-wide propagation of model-found names, MiniLM embeddings, `--compress aggressive`.
@@ -67,6 +67,9 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   or more digits, places listed after a place, spoken IP addresses and emails, multi-word
   passwords and read-back codes, URL paths, unit numbers and city/state tails of addresses,
   and given names that are ordinary words when they sit next to person words.
+- Place names at Tier 0: a capitalised name redacted in part is redacted whole ("Port St.
+  Lucie", "Dana Point"); more words that end place names ("Gold Coast", "the Panhandle");
+  places in text without capitals ("orange county", "salt lake city").
 - Indirect identifiers at Tier 0: descriptions that single out one person ("the patient in bed
   twelve", "my husband") are redacted; ones that single out an organisation are flagged.
 - A health, legal or family sentence is redacted only when it is about someone (a pronoun, a

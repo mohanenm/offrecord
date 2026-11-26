@@ -469,3 +469,32 @@ def test_indirect_identifiers(text, phrase, action):
     t = doc.turns[0].text
     hit = [s for s in spans if phrase in t[s.start : s.end]]
     assert hit and hit[0].action == action
+
+
+@pytest.mark.parametrize(
+    ("line", "hidden", "visible"),
+    [
+        ("We opened the Dana Point office last spring.", ["Dana", "Point"], []),
+        ("Thanks Dana. Great call today.", ["Dana"], ["Thanks", "Great"]),
+        ("They split between Gold Coast and the Panhandle sites.", ["Gold Coast"], []),
+    ],
+)
+def test_capitalised_names_are_redacted_whole(line, hidden, visible):
+    out = body(redact(f"A: {line}\nA: ok\n")[0])
+    assert not any(h in out for h in hidden)
+    assert all(v in out for v in visible)
+
+
+@pytest.mark.parametrize(
+    ("line", "hidden", "visible"),
+    [
+        ("they moved out past orange county last year", ["orange county"], []),
+        ("we drove through salt lake city twice", ["salt lake city"], []),
+        ("the whole county lost power", [], ["whole county"]),
+        ("it is a big city so traffic is bad", [], ["big city"]),
+    ],
+)
+def test_places_in_text_without_capitals(line, hidden, visible):
+    out = body(redact(f"a: {line}\na: ok\n")[0])
+    assert not any(h in out for h in hidden)
+    assert all(v in out for v in visible)

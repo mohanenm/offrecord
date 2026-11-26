@@ -126,9 +126,64 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
                     spans.extend(_split_back(sp, jf, parts))
     spans.extend(_propagate_model_names(spans, texts))
     spans.extend(_propagate_rule_names(spans, texts))
+    spans.extend(complete_runs(spans, texts))
     spans = anchor_personal_topics(spans, texts)
     spans = apply_protection(spans, cfg)
     return merge(spans, texts)
+
+
+RUN_TOKEN = re.compile(r"[^\W\d_]+(?:['.][^\W\d_]+)*\.?")
+
+
+def _run_link(text: str, toks: list[re.Match[str]], a: int, b: int, k: int) -> bool:
+    """Tokens a and b are adjacent and token k may join a capitalised name run."""
+    from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS, is_common
+
+    gap = text[toks[a].end() : toks[b].start()]
+    if len(gap) > 2 or gap.strip(" -") != "":
+        return False
+    w = toks[k].group()
+    lw = w.lower().rstrip(".")
+    if not w[:1].isupper() or w.isupper() or lw in FUNCTION_WORDS or lw in CALENDAR:
+        return False
+    before = text[: toks[k].start()].rstrip()
+    starts_sentence = not before or before[-1] in '.!?:"\n'
+    return not (starts_sentence and is_common(lw))
+
+
+def complete_runs(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
+    """A capitalised name redacted in part is redacted whole: "Port St. Lucie", "Santa
+    Barbara", "Dana Point" when only one word was found. Mixed-case fields only (in lower- or
+    title-case text a capital means nothing). A run never takes in function words, weekdays
+    or months, or a dictionary word that starts a sentence ("Thanks Dana")."""
+    by_field: dict[FieldId, list[Span]] = {}
+    for s in spans:
+        if s.action == "redact" and s.category in ("PERSON", "NAME", "LOCATION"):
+            by_field.setdefault(s.field, []).append(s)
+    out: list[Span] = []
+    for fid, group in by_field.items():
+        text = texts.get(fid, "")
+        toks = list(RUN_TOKEN.finditer(text))
+        caps = sum(t.group()[:1].isupper() for t in toks)
+        if not toks or caps == len(toks) or not any(c.islower() for c in text):
+            continue
+        if caps > 0.6 * len(toks):
+            continue  # title-cased text
+
+        for s in group:
+            inside = [k for k, t in enumerate(toks) if t.start() < s.end and s.start < t.end()]
+            if not inside:
+                continue
+            i, j = inside[0], inside[-1]
+            a, b = i, j
+            while a > 0 and i - a < 3 and _run_link(text, toks, a - 1, a, a - 1):
+                a -= 1
+            while b + 1 < len(toks) and b - j < 3 and _run_link(text, toks, b, b + 1, b + 1):
+                b += 1
+            if a < i or b > j:
+                out.append(Span(fid, toks[a].start(), toks[b].end(), s.category, "people.run",
+                                0.5, None, "run:completed"))  # fmt: skip
+    return out
 
 
 MODEL_NAME_CATEGORIES = {"PERSON", "ORG", "BRAND", "PRODUCT", "CODENAME", "LOCATION", "NAME"}

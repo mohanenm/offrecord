@@ -71,7 +71,8 @@ PLACE_AFTER = frozenset(
     "harbour creek ridge point village town township district station square street avenue ave "
     "road rd lane drive way bridge cove crossing junction grove landing meadows mills shores sound "
     "summit terrace vale view woods field fields commons wharf yards centre center library hall "
-    "court mall plaza manor quay docks estate".split()
+    "court mall plaza manor quay docks estate vineyard coast panhandle plains bluffs parish river "
+    "lake mountain mountains peninsula canyon".split()
 )
 ORG_AFTER = frozenset(
     "inc incorporated ltd limited llc llp plc corp corporation co company group holdings partners "
@@ -179,6 +180,17 @@ NOT_PLACE = frozenset(
 )
 # Place words that are also everyday nouns: after a single common word they make a phrase
 # ("Good point", "Either way", "Next drive"), not a place.
+# Words that only end place names, for text without capitals ("orange county", "palm springs").
+UNCASED_PLACE_END = frozenset(
+    "county heights springs falls beach valley bay island harbor harbour vineyard coast "
+    "panhandle parish city hills".split()
+)
+NOT_PLACE_ADJ = frozenset(
+    "big small inner whole entire same other home next local nearby rural busy quiet little "
+    "major nearest neighbouring neighboring every each any another different new old main "
+    "capital host sister smart theme private public tourist coastal sunny rocky sandy windy "
+    "this that these those which what our your their his her its my".split()
+)
 AMBIGUOUS_PLACE_WORDS = frozenset("point way drive spring springs falls crossing".split())
 
 
@@ -366,6 +378,8 @@ class PeopleDetector:
             ):
                 yield Span(f.id, a.start(), b.end(), "LOCATION", "people.place", 0.5, None,
                            "place:street", view="norm")  # fmt: skip
+        if not (any(c.islower() for c in text) and any(c.isupper() for c in text)):
+            yield from self._uncased_places(f, text, toks)
         if not any(c.islower() for c in text):
             return  # all capitals: a capitalised run means nothing
         i = 0
@@ -410,6 +424,23 @@ class PeopleDetector:
                            view="norm")  # fmt: skip
                 last_place = toks[k - 1].end()
             i = j
+
+    def _uncased_places(self, f: Field, text: str, toks: list[re.Match[str]]) -> Iterator[Span]:
+        """Speech-to-text output without capitals: "orange county", "salt lake city", "palm
+        springs". One or two words before a word that only ends place names, never a function
+        word, number or generic adjective ("the county", "a big city", "the whole county")."""
+        for k, t in enumerate(toks):
+            if t.group().lower() not in UNCASED_PLACE_END or k == 0:
+                continue
+            a = k
+            while a > 0 and k - a < 2 and _adjacent(text, toks[a - 1], toks[a]):
+                w = toks[a - 1].group().lower()
+                if w in FUNCTION_WORDS or w in NOT_PLACE_ADJ or w in DETERMINERS or w.isdigit():
+                    break
+                a -= 1
+            if a < k:
+                yield Span(f.id, toks[a].start(), t.end(), "LOCATION", "people.place", 0.5, None,
+                           "place:uncased", view="norm")  # fmt: skip
 
     def _ordinary_word_name(self, text: str, m: re.Match[str], lw: str, mixed: bool) -> str:
         """For a known given name that is also a common word ("Grace", "Hope", "mark"): the
