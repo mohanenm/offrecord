@@ -169,7 +169,14 @@ def test_bad_config_types_rejected(bad):
 # Performance cliffs.
 @pytest.mark.parametrize(
     "text",
-    ["A: " + "1 " * 20_000 + "\nA: ok\n", "A: " + "sales 7, " * 8_000 + "\nA: ok\n"],
+    [
+        "A: " + "1 " * 20_000 + "\nA: ok\n",
+        "A: " + "sales 7, " * 8_000 + "\nA: ok\n",
+        # Long runs without spaces, as in kebab-case identifiers and URL-safe base64.
+        *("A: " + unit * 15_000 + "\nA: ok\n" for unit in ("a-", "a.", "a+", "a'")),
+        "A: " + "number is " * 5_000 + "\nA: ok\n",
+        "A: " + "dot " * 15_000 + "\nA: ok\n",
+    ],
 )
 def test_no_quadratic_cliffs(text):
     t0 = time.perf_counter()

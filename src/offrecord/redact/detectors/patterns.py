@@ -43,11 +43,13 @@ DOMAIN = re.compile(rf"(?i)(?<![\w@.-])(?:[a-z0-9-]+\.)+(?:{TLDS})\b(?:/[^\s<>\"
 ACCOUNT_CODE = re.compile(r"(?i)(?<![\w-])(?:acct|ac|ord|po|inv|ref|tkt|id)[-#:]?\d{4,}[\w-]*")
 HASH_ID = re.compile(r"(?<![\w#])#\s?[A-Za-z]{0,3}\d{3,}[\w-]*")
 ALNUM_ID = re.compile(r"(?<![\w-])[A-Za-z]{1,4}-?\d{5,}[A-Za-z0-9-]*(?![\w-])")
+# Repeats are bounded here and in SPOKEN_EMAIL: an unbounded run ("number is number is ...",
+# "a-a-a-...") is rescanned from every start position, which is quadratic on long lines.
 NUMBER_TRIGGER = re.compile(
     r"(?i)\b(?:account|acct|order|ticket|reference|ref|invoice|case|claim|policy|member|"
     r"confirmation|tracking|store|routing|customer|id|serial|number|no\.?|licen[cs]e|passport|"
     r"vin|iban|swift|bic|national\s+insurance|ni|tax|nhs|medicare|employee|badge)\b"
-    r"(?:\s+(?:number|no\.?|id|is|was|#))*[\s#:.-]*(?P<num>[A-Za-z]{0,3}[\d][\d\s-]{2,}\d)"
+    r"(?:\s+(?:number|no\.?|id|is|was|#)){0,8}[\s#:.-]*(?P<num>[A-Za-z]{0,3}[\d][\d\s-]{2,}\d)"
 )
 PHONE_TRIGGER = re.compile(
     r"(?i)\b(?:phone|cell|mobile|line|extension|ext|direct|number|call(?:\s+me)?(?:\s+(?:at|on))?|"
@@ -177,7 +179,8 @@ _EMAIL_STOP = (
     r"that's|thats|its|it's|and|or|on|in|from|for|copy|cc|have|has|had|are|were|we|they|"
     r"one|two|three|four|five|six|seven|eight|nine|ten|some|many|all|our|few)"
 )
-_LOCAL_TOK = rf"(?!{_EMAIL_STOP}\b)[\w.'+-]+"
+# At most 64 characters, the longest local part or domain label an address may have.
+_LOCAL_TOK = rf"(?!{_EMAIL_STOP}\b)[\w.'+-]{{1,64}}"
 # Plain words join a local part only through a separator ("zeb dot quux"); single letters and
 # numbers may join without one ("j albrecht", "w underscore tarrant forty-one").
 _LOCAL_SHORT = (
