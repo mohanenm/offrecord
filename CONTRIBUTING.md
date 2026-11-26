@@ -32,8 +32,10 @@ percent ranges", not "Updated business.py"). Stage files by path, not with `git 
    555-01xx phone numbers, public test card numbers and SSNs in the 9xx range.
 2. No network access at run time. Only `offrecord setup` may download, and only pinned,
    checksum-verified files. A test fails if any other command opens a connection.
-3. Recall first. When a change trades recall for precision, recall wins unless there is a
-   measured reason. Report the effect on the evaluation sets in the pull request.
+3. Personal data first, and recall first for it. offrecord's job is to keep personal data out
+   of what users paste; business context is flagged by default and redacted only with
+   `protect: confidential`. When a change trades PII recall for precision, recall wins unless
+   there is a measured reason. Report PII recall and the PII-clean rate in the pull request.
 4. Treat every transcript as sensitive. Never print, log or echo its content. Errors name
    positions, sizes and categories only. The deny-list, mapping file and audit log are
    sensitive too.

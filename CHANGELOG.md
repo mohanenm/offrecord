@@ -23,12 +23,15 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   default config at `~/.config/offrecord/config.yaml` is used automatically.
 - Per-category run summary ("redacted 42 item(s) (12 person, 5 client, ...); 3 flagged").
 - `site/`: a self-contained one-page site for GitHub Pages.
-- `tuning-hw` evaluation set (20 agent-written synthetic transcripts in inline markup) and `scripts/misses.py
-  --hw/--neg`.
+- `tuning-hw` evaluation set (60 agent-written synthetic transcripts in inline markup) and
+  `scripts/misses.py --hw/--neg`.
 - Optional Tier 1: GLiNER + BERT-NER ensemble (ONNX Runtime, no PyTorch) on gated sentences,
   document-wide propagation of model-found names, MiniLM embeddings, `--compress aggressive`.
-- Optional Tier 2: Phi-4-mini (Qwen3 1.7B fallback) via llama.cpp returning grammar-constrained
-  JSON labels located by code; new INDIRECT category for indirect identifiers.
+- Optional Tier 2: Phi-4-mini (Qwen3 1.7B fallback) via llama.cpp, asked only about candidate
+  sentences for indirect identifiers ("the only pharmacy we serve in Alaska") that the Tier 0
+  rules missed; grammar-constrained JSON located by code. New INDIRECT category: Tier 0 rules
+  catch the common shapes; people are redacted, organisations flagged.
+- `offrecord eval` reports 95% bootstrap intervals for PII recall and the PII-clean rate.
 - `setup models` (pinned revisions, SHA-256-verified, `--from` for air-gapped installs),
   load-time verification, `doctor` model checks, `redact --tier 0|1|2|auto`, `[ner]`/`[llm]` extras.
 - Input adapters: plain text, WebVTT, SRT, Whisper-style/generic JSON; nothing in the input is
@@ -53,12 +56,24 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   guard, content-free error reporting, owner-only atomic outputs, input limits.
 
 ### Changed
-- Sentences with pricing, renewal and other deal terms (price, discount, renewal, churn,
-  budget, forecast, margin, contract, deal, strategy, ...) are now redacted by default instead
-  of only flagged. On the validation set this raises Tier 0 recall from 92.3% to 93.9% and the
-  share of transcripts with nothing leaked from 23% to 30%, and blanks about a fifth more text.
-  `topics: {mode: mixed}` restores the old behaviour (`mode: default` still works as its old
-  name).
+- offrecord now protects personal data by default (`protect: pii`): names, contact details,
+  identifiers, addresses and places, day-level dates and sentences about someone's health,
+  family, legal or employment situation are redacted. Business context (amounts, percentages,
+  quantities, organisations found automatically, business topics such as layoffs or pricing,
+  quarters and fiscal years) is left readable and flagged for review. `protect: confidential`
+  redacts it too; `offrecord init` asks. Deny-list entries are always redacted.
+- `eval` leads with PII recall and the share of transcripts with no personal data left.
+- New Tier 0 rules for personal data: last digits of cards and accounts, bare numbers of four
+  or more digits, places listed after a place, spoken IP addresses and emails, multi-word
+  passwords and read-back codes, URL paths, unit numbers and city/state tails of addresses,
+  and given names that are ordinary words when they sit next to person words.
+- Indirect identifiers at Tier 0: descriptions that single out one person ("the patient in bed
+  twelve", "my husband") are redacted; ones that single out an organisation are flagged.
+- A health, legal or family sentence is redacted only when it is about someone (a pronoun, a
+  person word or a name, or an event that only happens to a person such as a divorce);
+  otherwise it is business context and flagged, so "our cancer franchise grew" stays readable.
+- `topics.mode` values are now redact, mixed (the default), flag and off; `default` is still
+  accepted as the old name of mixed.
 - Tier 0 finds more business context: rates said without "percent" ("attrition is nine", "up
   about four", "a fifth of your book"), places by shape and cue ("Route 9", "High Street", "in
   Fort Worth", "our Leeds store"), and sensitive topics said in plain words (lawyers, rumours,
@@ -76,9 +91,10 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 - Token counts from tiktoken are labelled as such instead of "approx".
 - Windows is not supported (the package metadata now says macOS and Linux).
 - Tier 0 catches far more unseen phrasing (tuned on a new tuning set written in inline
-  markup): spoken and weekday dates, quarters and fiscal years, spoken amounts/percentages/counts with rate tails
-  and ranges, dictated identifiers and passwords, dictated emails, and organisation/place
-  names with generic words ("Family Health", "and Sons"). User-set recall 68.6% -> 79.0% (Tier 0).
+  markup): spoken and weekday dates, quarters and fiscal years, spoken amounts, percentages
+  and counts with rate tails and ranges, dictated identifiers and passwords, dictated emails,
+  and organisation and place names with generic words ("Family Health", "and Sons").
+  User-set recall 68.6% -> 79.0% (Tier 0).
 - Fiscal quarters, bare years after a cue, codes/passwords and last-four digits now count as
   sensitive.
 

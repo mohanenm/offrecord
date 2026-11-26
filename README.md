@@ -1,20 +1,31 @@
 # offrecord
 
-Redact sensitive information from meeting and call transcripts before they reach an LLM, then
-restore the originals in the LLM's answer. Fully offline, on modest hardware.
+Remove personal data from meeting and call transcripts before they reach an LLM, then restore
+the originals in the LLM's answer. Fully offline, on modest hardware.
 
 > offrecord reduces what you need to check before pasting a transcript into an LLM. It does
-> not remove the need to check. On the synthetic validation set, Tier 0 catches 91% of
-> sensitive items and leaves no high-severity leak (names, contact details, account and card
-> numbers) in 96% of transcripts, but only 21% of transcripts come out with nothing leaked at
-> all. On harder phrasing the numbers drop: see [Status](#status-what-the-numbers-measure).
-> Apache-2.0; not yet on PyPI.
+> not remove the need to check. On the synthetic validation set, Tier 0 redacts 97% of the
+> personal data (names, contact details, account and card numbers, addresses) and three in
+> four transcripts come out with no personal data left. On harder phrasing the numbers drop:
+> see [Status](#status-what-the-numbers-measure). Apache-2.0; not yet on PyPI.
 
 ## Who it is for
 
 People who need to send call or meeting transcripts to an LLM (or a colleague) without
-exposing names, clients, contact details or business figures, and who cannot send the raw
-transcript to a cloud service to clean it first.
+exposing the people in them, and who cannot send the raw transcript to a cloud service to
+clean it first.
+
+## What gets redacted
+
+Personal data is redacted: names, email addresses, phone numbers, SSNs, card and account
+numbers, codes, IP addresses, URLs, addresses and places, day-level dates (a birth date or an
+appointment), and sentences about someone's health, family, legal or employment situation.
+So is every name in your deny-list, whatever kind of name it is.
+
+Business context is left readable and flagged for review by default: amounts, percentages,
+quantities, quarters and fiscal years, organisations found automatically, and business topics
+such as layoffs, acquisitions or pricing. To redact those as well, add `protect: confidential`
+to your config (`offrecord init` asks).
 
 ## Install
 
@@ -78,11 +89,12 @@ offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord
 
 Adapters read plain text, WebVTT, SRT and Whisper-style JSON into one turn model, and a
 normaliser adds a second view of each turn in which spoken forms ("five five five oh one two
-three", "jane at example dot com") become written ones. Rule-based detectors find identifiers,
-deny-list names, business figures, sensitive-topic sentences and name-like words in both views;
-optional model tiers add to what the rules find. Every finding becomes a consistent
-placeholder (`<P1>`, `<C2>`, `<AMT1>`), compression removes fillers and backchannels, and the
-mapping from placeholders back to the originals is written encrypted.
+three", "jane at example dot com") become written ones. Rule-based detectors find names, identifiers, places,
+dates, deny-list entries, business figures and sensitive-topic sentences in both views;
+optional model tiers add to what the rules find. Personal data becomes a consistent
+placeholder (`<P1>`, `<EMAIL1>`, `<ACCT2>`) and business context becomes a review flag;
+compression removes fillers and backchannels, and the mapping from placeholders back to the
+originals is written encrypted.
 [docs/architecture.md](https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md) explains each step and why it works that way.
 
 ## Tiers and hardware floors
@@ -91,7 +103,7 @@ mapping from placeholders back to the originals is written encrypted.
 | --- | --- | --- | --- |
 | 0 | Rules only, no models, no downloads | Python 3.10+, 2 GB RAM (Raspberry Pi 4 class) | included |
 | 1 | NER ensemble (GLiNER small + BERT-NER, ONNX int8) + MiniLM embeddings | 4 GB RAM, CPU | `[ner]` extra, then `offrecord setup models` |
-| 2 | Phi-4-mini 3.8B (GGUF, llama.cpp) for JSON labels only; Qwen3 1.7B fallback | 8 GB RAM, 4+ cores (fallback: 4 GB) | `[llm]` extra, then `offrecord setup models --tier 2` |
+| 2 | Phi-4-mini 3.8B (GGUF, llama.cpp) for indirect identifiers; Qwen3 1.7B fallback | 8 GB RAM, 4+ cores (fallback: 4 GB) | `[llm]` extra, then `offrecord setup models --tier 2` |
 
 The `[ner]` extra currently needs Python 3.10 to 3.13 (its pinned ONNX Runtime and NumPy have
 no 3.14 wheels yet).
@@ -99,12 +111,11 @@ no 3.14 wheels yet).
 Select with `offrecord redact --tier 0|1|2|auto` (default 0; `auto` picks the highest tier your
 RAM and installed models allow). `--compress aggressive` needs Tier 1.
 
-Optional tiers add redactions; they never undo another detector's. Tier 2 also checks the
-words Tier 0 redacted only because they were not in its dictionary (ones the LLM calls
-ordinary words stay visible and are flagged for review; `models: {verify_guesses: false}`
-turns this off), and reports output turns that no longer make sense. Models arrive only
-through an explicit `setup`
-command, with pinned versions and checksums.
+Optional tiers add redactions; they never undo another detector's. Tier 1 catches names the
+rules miss, especially ordinary-word names; Tier 2 adds a narrow check for indirect
+identifiers ("the only pharmacy we serve in Alaska") on the few sentences the rules did not
+already cover. Models arrive only through an explicit `setup` command, with pinned versions
+and checksums.
 
 ## Status: what the numbers measure
 
@@ -117,31 +128,45 @@ user set is harder phrasing that was never tuned on. A sealed set is scored once
 cycle (not yet opened). To measure offrecord on your own transcripts, see
 [docs/private-eval.md](https://github.com/mohanenm/offrecord/blob/main/docs/private-eval.md).
 
-Four numbers per run:
+The numbers below are for the default protection (personal data):
 
-- recall: the share of sensitive items fully redacted (every letter and digit);
-- clean transcripts: the share of transcripts in which nothing at all leaked;
-- no high-severity leak: the share with no leaked name, contact detail, account, card or SSN;
-- precision: the share of redacted characters that were actually sensitive.
+- PII recall: the share of names, contact details, account and card numbers, IPs, URLs and
+  places that are fully redacted (every letter and digit);
+- PII-clean transcripts: the share of transcripts with none of those left;
+- business context redacted or flagged: the share of other labelled items (figures,
+  organisations, business topics, dates) that are redacted or flagged for review (a flag only
+  asks you to look);
+- text redacted: how much of the transcript the LLM can no longer read.
 
-| Validation (56) / user set (8) | Recall | Clean | No high-severity leak | Leaks per transcript, median (worst) | Precision |
-| --- | --- | --- | --- | --- | --- |
-| Tier 0 (rules) | 91.4% / 79.0% | 21% / 0% | 96% / 13% | 2 (5) / 8.5 (11) | 87.6% / 88.3% |
-| Tier 1 (+ NER ensemble) | 94.2% / 82.8% | 34% / 0% | 98% / 25% | 1 (4) / 6.5 (10) | 82.7% / 83.3% |
-| Tier 2 (+ Phi-4-mini) | 94.7% / 82.5% | 38% / 0% | 98% / 25% | 1 (4) / 6 (10) | 79.3% / 82.1% |
-| Plain regexes | 6.4% / 3.6% | | | | |
+| Validation (56) / user set (8) | PII recall | PII-clean transcripts | Business context redacted or flagged | Text redacted |
+| --- | --- | --- | --- | --- |
+| Tier 0 (rules) | 98.0% / 88.2% | 80% / 25% | 90% / 80% | 15% / 21% |
+| Tier 1 (+ NER ensemble) | 98.6% / 89.5% | 86% / 25% | 97% / 82% | 17% / 23% |
+| Tier 2 (+ Phi-4-mini) | 98.6% / 89.5% | 86% / 25% | 97% / 83% | 18% / 25% |
+| Baseline: plain regexes | 14.2% / 7.2% | 0% / 0% | | |
 
-Read the clean-transcript column first. Even on validation most transcripts still contain at
-least one leaked item, usually a sensitive-topic sentence phrased without keywords or a
-low-severity figure, so you still need to read the output before sharing it. What offrecord
-changes is how much you have to find yourself. On the user set the weakest categories at
-Tier 0 are topic sentences (47%), locations (44%) and percentages (59%).
+The user set has only 8 transcripts, so its numbers are loose: the 95% interval for Tier 0
+PII recall is 80.8-94.7% there (96.9-99.0% on validation), and its PII-clean rate could be
+anywhere from 0% to 62%. `offrecord eval` prints these intervals.
 
-Microsoft Presidio with its defaults reaches 37.2% recall on validation (its email and URL
-recognisers reject the reserved test domains used here, so those two categories understate
-it). Synthetic data cannot capture real speech-recognition errors, real names and their
-spelling variety, domain jargon, cross-talk, or the clients and codenames in your deny-list.
-Expect real-world recall to be lower.
+Tier 2 does not change PII recall on these sets. What it adds is indirect identifiers: on 15
+held-back transcripts written for that purpose, descriptions of a person ("our only
+night-shift pharmacist") were redacted 63% of the time at Tier 0, 68% at Tier 1 and 78% at
+Tier 2.
+
+Two outside datasets, never tuned on and scored as aggregates only, give a feel for data
+nobody here wrote. On Earnings-21 (44 real earnings calls, speech-recognition text) PII recall
+is 85.7% at Tier 0 and 89.8% at Tier 1. On ai4privacy pii-masking-200k (43,501 short synthetic
+English texts, not speech) it is 87.3% at Tier 0.
+
+Read the PII-clean column first: in some transcripts a name or number still gets through, so
+you still read the output before sharing it. What offrecord changes is how much you have to
+find yourself. The misses that remain are mostly names that are ordinary words, people
+referred to by role, and spoken or lower-case place names.
+
+Synthetic data cannot capture real speech-recognition errors, real names and their spelling
+variety, domain jargon, cross-talk, or the clients and codenames in your deny-list. Expect
+real-world recall to be lower.
 
 ## Known limitations
 
@@ -149,19 +174,20 @@ Expect real-world recall to be lower.
 - Tier 0 cannot recognise names that are ordinary dictionary words ("Amber", "Art") unless
   they are in the deny-list, a speaker label, or follow a cue ("my name is ..."); Tier 1 models
   catch most of them.
-- Unknown organisations or products whose names are ordinary words are missed at Tier 0 and
-  partly at Tier 1 (validation PRODUCT: 64% / 84% / 89% at Tiers 0 / 1 / 2).
+- Organisations and products are business context: unless they are in your deny-list or
+  look like names to the rules, they are flagged rather than redacted. Put clients and
+  codenames you need hidden in the deny-list.
 - Higher tiers trade precision for recall (see the table above), and are
-  slower (Tier 2 is roughly 15-20 s per call transcript on a laptop CPU).
+  slower (Tier 2 adds roughly 10 s per call transcript on a laptop CPU).
 - `aggressive` compression is lossy by design (it drops low-information turns), though it never
   drops turns with placeholders, numbers, decisions or questions.
-- Sensitive-topic sentences are found by keyword (layoffs, lawsuits, health conditions,
-  divorce, fraud, "not public", ...): a sensitive sentence with none of those words is missed.
-  Sentences about pricing, renewals, deals, budgets and strategy are redacted too, which blanks
-  out a good part of a sales call. If you need those sentences analysed, set `topics: {mode:
-  mixed}` in your config: they are then only flagged for review.
-- Fiscal quarters ("Q3"), years after a cue ("in 2019"), codes and last-four digits are
-  redacted; relative dates ("yesterday", "next Friday") are not.
+- Sentences about someone's health, family or legal situation are found by keyword at Tier 0
+  ("diagnosed", "divorce", "arrested", ...) and also by meaning at Tier 1; a personal sentence
+  that uses none of the keywords can still be missed.
+- An individual's salary or debt is personal, but amounts are business figures by default:
+  they are flagged, not redacted. Use `protect: confidential` if that matters to you.
+- Day-level dates, codes and last-four digits are redacted. Quarters, fiscal years and a month
+  or year on its own are flagged; relative dates ("yesterday", "next Friday") are left alone.
 - Python cannot wipe memory: decrypted mappings and transcript text live in process memory
   until garbage collected (docs/security.md R10).
 

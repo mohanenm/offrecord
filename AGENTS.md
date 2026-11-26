@@ -20,7 +20,8 @@ All four checks pass before every commit. Python 3.10 is the floor.
 ## Rules
 
 CONTRIBUTING.md lists the project rules (synthetic data only, no run-time network access,
-recall first, never echo transcript content, Tier 0 without extras). In addition:
+personal data first and recall first for it, never echo transcript content, Tier 0 without
+extras). In addition:
 
 - Don't print transcript text, deny-list entries or mapping contents in tool output or logs
   while you work, even from synthetic files you did not write. Counts and categories are fine.

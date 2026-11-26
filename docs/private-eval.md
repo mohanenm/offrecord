@@ -57,15 +57,21 @@ offrecord eval --dir ~/offrecord-private
 offrecord eval --dir ~/offrecord-private --system tier1-ensemble   # if Tier 1 is installed
 ```
 
-The output contains numbers only, never transcript text: recall per category, character
-precision, the clean-transcript rate overall and per category, the share of transcripts with
-no high-severity leak, and the median and worst number of leaks per transcript. Nothing is
-written to disk unless you redirect it, so keep any copy in the private folder.
+The output contains numbers only, never transcript text: PII recall and the share of
+transcripts with no personal data left (each with a 95% interval), recall per category,
+character precision, how much of the other labelled items (figures, organisations, business
+topics) was redacted or flagged, the clean-transcript rate overall and per category, and leaks
+per transcript. Nothing is written to disk unless you redirect it, so keep any copy in the
+private folder.
 
 ## Reading the results
 
-- Recall per category tells you what offrecord tends to miss on your material. A category
-  well below the synthetic numbers is worth a deny-list entry or a closer review habit.
+- PII recall and the PII-clean rate are the numbers that matter most: they say how much
+  personal data got through. Recall per category tells you which kinds; a category well below
+  the synthetic numbers is worth a deny-list entry or a closer review habit.
+- Label business context too (amounts, organisations, business topics) if you care about it.
+  With the default protection it is flagged rather than redacted, and "other r/f" tells you
+  how much of it was redacted or flagged. A flag only asks you to look; it protects nothing.
 - The clean-transcript rate is the share of transcripts where nothing at all leaked. It is
   the honest answer to "could I paste this without checking it?", and on real data it will
   usually be low. Use it to decide how carefully to review, not whether to.

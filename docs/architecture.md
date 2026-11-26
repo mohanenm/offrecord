@@ -7,13 +7,21 @@ into the answer. Everything runs locally.
 
 ## Design priorities
 
-Two rules shape most of the code. The first is that a missed name is worse than a redacted
-ordinary word, so when a trade-off comes up, the tool redacts. The unknown-word rule (any word
+Three rules shape most of the code. The first is the goal: offrecord removes personal data.
+Names, contact details, identifiers, addresses, day-level dates and sentences about someone's
+health, family or legal situation are redacted. Business context (figures, organisations
+found automatically, business topics, quarters) is flagged for review instead, unless the user
+asks for `protect: confidential`. Names in the user's deny-list are always redacted. The policy
+is applied to each detector's findings before they are merged, so a flagged business sentence
+never stops a name inside it from being redacted.
+
+The second is that a missed name is worse than a redacted ordinary word, so when a trade-off
+comes up, the tool redacts. The unknown-word rule (any word
 that is not in the dictionary is treated as a possible name) is the clearest example: it costs
 precision, but in speech-recognition output most out-of-dictionary tokens really are names,
 brands or places.
 
-The second is that transcripts are sensitive, and so is everything derived from them. The tool
+The third is that transcripts are sensitive, and so is everything derived from them. The tool
 never opens a network connection after `offrecord setup`, never prints transcript text in
 errors or logs, and writes every file it creates as owner-only.
 
@@ -79,16 +87,16 @@ per-mention restore becomes unreliable once compression has merged or dropped tu
 Tier 1 adds two small named-entity models (GLiNER small and BERT-base-NER, int8 ONNX, no
 PyTorch) and a sentence-embedding model (MiniLM). Tier 2 adds a small local LLM (Phi-4-mini, or
 Qwen3 1.7B on machines with less memory) run through llama.cpp. Both tiers add spans to Tier
-0's output and never remove another detector's redaction. The one exception is deliberate and
-narrow: Tier 2 asks the LLM about the words Tier 0 redacted only because they were not in its
-dictionary, and a word the model calls ordinary is left visible as a review flag. Characters
-any other detector redacted stay redacted. Only sentences that might contain something the
-rules missed are sent to a model: sentences with an unknown word, a known given name, a digit,
-a currency sign or a business cue.
+0's output and never remove another detector's redaction. Tier 1 sees only sentences that
+might contain something the rules missed: sentences with an unknown word, a known given name,
+a digit, a currency sign or a business cue.
 
-Tier 2 also reads the finished output and reports turns that no longer make sense, for
-example because they are almost all placeholders. It reports turn numbers only and changes
-nothing.
+Tier 2 has one job: indirect identifiers, descriptions that point to one person or
+organisation without naming it ("the only pharmacy chain we serve in Alaska"). Tier 0 rules
+catch the common shapes (a person or organisation noun followed by "who", "in", "that" and so
+on, "our only ...", "my husband", "bed twelve"). Tier 2 sees only the sentences with a person
+or organisation cue that the rules did not match, a few per transcript. Like the rules, it
+redacts descriptions of people and flags descriptions of organisations.
 
 Tier 2 never writes text into the output. The model answers under a JSON grammar with the line
 and the exact text it wants redacted, and code then looks for that text in that line. Anything

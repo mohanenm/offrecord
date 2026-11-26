@@ -139,11 +139,8 @@ Every other command installs a network guard (see below) before doing any work.
   files and ONNX models are re-hashed every time, and large GGUF files are re-hashed whenever
   their size, modification time or inode changed since the last full check.
 - Model output adds redactions through the same union merger and cannot remove another
-  detector's. The Tier 2 guess check is the one place a model can leave text visible: it sees
-  only words redacted by Tier 0's unknown-word rule, runs before the merger (so characters any
-  other detector found stay redacted), and turns rejected guesses into review flags. A prompt
-  injection can at most make it reject guesses, which the user still sees as flags. Tier 2
-  output is JSON labels whose text must be found verbatim in the sentence, or it is discarded.
+  detector's. Tier 2 output is JSON labels whose text must be found verbatim in the sentence,
+  or it is discarded.
 - Known advisory: `diskcache` (a dependency of the [llm] extra) unpickles its cache files; offrecord
   never enables llama-cpp-python's disk cache, so it is not reached.
 - No model package is imported at Tier 0; the network guard and child-process block stay on
