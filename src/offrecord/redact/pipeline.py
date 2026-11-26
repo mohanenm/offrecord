@@ -10,6 +10,7 @@ original fields.
 from __future__ import annotations
 
 import re
+from bisect import bisect_left, bisect_right
 from collections.abc import Iterator, Sequence
 from dataclasses import replace
 from typing import Any
@@ -146,8 +147,10 @@ def _run_link(text: str, toks: list[re.Match[str]], a: int, b: int, k: int) -> b
     lw = w.lower().rstrip(".")
     if not w[:1].isupper() or w.isupper() or lw in FUNCTION_WORDS or lw in CALENDAR:
         return False
-    before = text[: toks[k].start()].rstrip()
-    starts_sentence = not before or before[-1] in '.!?:"\n'
+    i = toks[k].start()  # last non-space character before the token, without copying text
+    while i > 0 and text[i - 1].isspace():
+        i -= 1
+    starts_sentence = i == 0 or text[i - 1] in '.!?:"\n'
     return not (starts_sentence and is_common(lw))
 
 
@@ -170,11 +173,13 @@ def complete_runs(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
         if caps > 0.6 * len(toks):
             continue  # title-cased text
 
+        starts = [t.start() for t in toks]
+        ends = [t.end() for t in toks]
         for s in group:
-            inside = [k for k, t in enumerate(toks) if t.start() < s.end and s.start < t.end()]
-            if not inside:
+            # Tokens overlapping the span; tokens never overlap, so both lists are sorted.
+            i, j = bisect_right(ends, s.start), bisect_left(starts, s.end) - 1
+            if i > j:
                 continue
-            i, j = inside[0], inside[-1]
             a, b = i, j
             while a > 0 and i - a < 3 and _run_link(text, toks, a - 1, a, a - 1):
                 a -= 1

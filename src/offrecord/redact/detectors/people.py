@@ -154,7 +154,7 @@ INDIRECT_RES = [
     ),
     # "my husband", "his brother-in-law", "the applicant's brother", "the owner's son"
     re.compile(
-        r"(?i)\b(?:my|his|her|their|our|your|(?:the\s+)?[\w-]+'s)\s+(?:new\s+|old\s+|ex-)?"
+        r"(?i)\b(?:my|his|her|their|our|your|(?:the\s+)?[\w-]{1,64}'s)\s+(?:new\s+|old\s+|ex-)?"
         r"(?P<head>wife|husband|daughter|son|brother|sister|mother|father|mum|mom|dad|stepdad|"
         r"stepmum|stepmom|partner|boyfriend|girlfriend|fiance|fiancee|manager|boss|lodger|"
         r"nephew|niece|grandson|granddaughter|brother-in-law|sister-in-law|union\s+rep|pa)\b"
