@@ -264,7 +264,11 @@ def test_org_names_expand_over_generic_words(line, name):
     [
         ("I was diagnosed with something serious last spring.", True),
         ("We're going through a divorce and there's a custody hearing.", True),
-        ("Asset protection thinks it's internal theft.", True),
+        ("Asset protection thinks the night cashier is stealing.", True),
+        ("He's on a performance improvement plan.", True),
+        ("Performance improvement plan starts Monday.", True),  # only ever about a person
+        ("Asset protection thinks it's internal theft.", False),  # about no one in particular
+        ("Our cancer franchise grew in the quarter.", False),
         ("It isn't public yet, so keep it off the minutes.", False),
         ("Their COO said they may not renew next year.", False),
     ],

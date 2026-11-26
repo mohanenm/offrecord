@@ -19,7 +19,7 @@ from offrecord.model import Document, Field, FieldId, Span
 from offrecord.normalize.fields import Window, iter_windows, make_field
 from offrecord.redact import detectors as det_registry
 from offrecord.redact.config import Config, from_mapping
-from offrecord.redact.detectors import business
+from offrecord.redact.detectors import business, people
 from offrecord.redact.merge import merge
 from offrecord.redact.replace import Mapping, Stats, apply
 
@@ -126,6 +126,7 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
                     spans.extend(_split_back(sp, jf, parts))
     spans.extend(_propagate_model_names(spans, texts))
     spans.extend(_propagate_rule_names(spans, texts))
+    spans = anchor_personal_topics(spans, texts)
     spans = apply_protection(spans, cfg)
     if cfg.tier >= 2 and cfg.verify_guesses:
         from offrecord.redact.detectors.llm import verify_guesses
@@ -270,6 +271,53 @@ def is_personal(span: Span) -> bool:
     if span.category == "TOPIC":
         return reason in PERSONAL_TOPICS
     return span.category in PII_CATEGORIES and reason != "date:coarse"
+
+
+_AMBIGUOUS_PERSON_NOUNS = {"one", "lead", "super", "pa", "agent", "operator", "analyst"}
+PERSONAL_ANCHOR = re.compile(
+    r"(?i)\b(?:he|she|him|his|her|hers|himself|herself|i|i'm|i've|i'd|i'll|me|my|mine|myself|"
+    r"you|your|someone|somebody|anyone|"
+    + "|".join(w for w in people.PERSON_NOUN.split("|") if w not in _AMBIGUOUS_PERSON_NOUNS)
+    + r")\b"
+)
+
+# Events that only ever happen to a person: no anchor needed.
+INDIVIDUAL_TOPIC = re.compile(
+    r"(?i)\b(?:performance\s+improvement\s+plan|pip|pregnan(?:t|cy)|miscarriage|divorced?|custody|"
+    r"(?:restraining|protective|temporary)\s+order|passed\s+away|maiden\s+name|funeral|"
+    r"written\s+up|heart\s+(?:attack|scare)|had\s+a\s+stroke|suicid(?:e|al)|overdose|rehab|"
+    r"(?:medical|sick)\s+leave|estate\s+dispute|wage\s+claim|work\s+visa|green\s+card|"
+    r"deportation|arrested|eviction|disciplinary|lost\s+(?:his|her|my)\s+job)\b"
+)
+
+
+def anchor_personal_topics(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
+    """A personal-topic sentence ("diagnosed", "divorce", "fired") is personal data only when
+    it is about someone: it has a personal pronoun, a singular person noun ("my", "the
+    patient"), or a person's name or description found by another detector (unknown-word
+    guesses do not count: on business calls they are mostly drug and product names). Without one
+    ("our diabetes franchise grew", "health insurance costs") it is business context:
+    reason topic:personal-unanchored, so protect: pii flags it and protect: confidential
+    still redacts it. Terms for events that only happen to a person (INDIVIDUAL_TOPIC) need
+    no anchor."""
+    people_at: dict[FieldId, list[tuple[int, int]]] = {}
+    for s in spans:
+        if s.category == "PERSON" or (s.category == "INDIRECT" and s.reason != "indirect:org"):
+            people_at.setdefault(s.field, []).append((s.start, s.end))
+    out = []
+    for s in spans:
+        base, _, rest = (s.reason or "").partition("+")
+        if s.category == "TOPIC" and base in PERSONAL_TOPICS and s.field in texts:
+            sent = texts[s.field][s.start : s.end]
+            anchored = (
+                INDIVIDUAL_TOPIC.search(sent)
+                or PERSONAL_ANCHOR.search(sent)
+                or any(a < s.end and s.start < b for a, b in people_at.get(s.field, ()))
+            )
+            if not anchored:
+                s = replace(s, reason="topic:personal-unanchored" + (f"+{rest}" if rest else ""))
+        out.append(s)
+    return out
 
 
 def apply_protection(spans: list[Span], config: Config) -> list[Span]:

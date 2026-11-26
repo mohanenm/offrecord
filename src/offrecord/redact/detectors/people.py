@@ -114,7 +114,7 @@ PERSON_AFTER = re.compile(
 # naming it ("the patient in bed twelve", "our only Tagalog-speaking assistant", "the vendor that
 # went bust", "my husband"). Keyed on the head noun, so "the only way" or "the first thing" never
 # match. People are personal data; organisations are business context (flagged).
-_PERSON_NOUN = (
+PERSON_NOUN = (
     r"patient|man|men|woman|women|gentleman|lady|guy|girl|boy|kid|lad|lass|child|baby|daughter|"
     r"son|wife|husband|brother|sister|mother|father|mum|mom|dad|stepdad|stepmum|stepmom|parent|"
     r"partner|neighbou?r|tenant|guest|resident|driver|manager|assistant|nurse|doctor|registrar|"
@@ -126,7 +126,7 @@ _PERSON_NOUN = (
     r"courier|porter|cleaner|janitor|secretary|grandson|granddaughter|ex-wife|ex-husband|"
     r"boyfriend|girlfriend|fiance|fiancee|twins?|one"
 )
-_ORG_NOUN = (
+ORG_NOUN = (
     r"store|shop|account|customer|client|vendor|supplier|hospital|system|credit\s+union|bank|"
     r"firm|company|insurer|reseller|office|branch|site|plant|warehouse|academy|school|clinic|"
     r"practice|restaurant|truck|station|hotel|agency|chain|distributor|party|contractor"
@@ -136,7 +136,7 @@ _QUALIFIER = (
     r"next\s+to|near|of\s+the|directly|two\s+doors|we|they|you"
 )
 _TAIL = r"(?:\s+(?!and\b|but\b|so\b)[\w'-]+){1,10}"
-_UNIQUE = (
+UNIQUE = (
     r"only|sole|one|very\s+first|first|last|longest[- ]serving|longest[- ]staying|newest|oldest|"
     r"youngest|biggest|largest|main|new"
 )
@@ -144,12 +144,12 @@ INDIRECT_RES = [
     # "the patient in bed twelve", "the vendor that went bust", "the wife of the man in bay C"
     re.compile(
         rf"(?i)\b(?:the|our|their|his|her|my|your)\s+(?:[\w'-]+\s+){{0,3}}?"
-        rf"(?P<head>{_PERSON_NOUN}|{_ORG_NOUN})s?\s+(?:{_QUALIFIER})\b{_TAIL}"
+        rf"(?P<head>{PERSON_NOUN}|{ORG_NOUN})s?\s+(?:{_QUALIFIER})\b{_TAIL}"
     ),
     # "our only male teaching assistant", "our longest-serving driver", "our very first customer"
     re.compile(
-        rf"(?i)\b(?:the|our|their|his|her|my)\s+(?:{_UNIQUE})\s+(?:[\w'-]+\s+){{0,3}}?"
-        rf"(?P<head>{_PERSON_NOUN}|{_ORG_NOUN})s?\b(?:\s+(?:{_QUALIFIER})\b{_TAIL})?"
+        rf"(?i)\b(?:the|our|their|his|her|my)\s+(?:{UNIQUE})\s+(?:[\w'-]+\s+){{0,3}}?"
+        rf"(?P<head>{PERSON_NOUN}|{ORG_NOUN})s?\b(?:\s+(?:{_QUALIFIER})\b{_TAIL})?"
     ),
     # "my husband", "his brother-in-law", "the applicant's brother", "the owner's son"
     re.compile(
@@ -164,7 +164,7 @@ INDIRECT_RES = [
         r"seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|twenty)\b)"
     ),
 ]
-_ORG_HEADS = re.compile(rf"(?i)^(?:{_ORG_NOUN})$")
+_ORG_HEADS = re.compile(rf"(?i)^(?:{ORG_NOUN})$")
 LIST_SEP = re.compile(r"\s*(?:,|,?\s*(?:and|or|&))\s*")
 # "our Leeds store", "our Tulsa office": "our" counts as a cue only before a site noun.
 OUR_SITE = re.compile(
