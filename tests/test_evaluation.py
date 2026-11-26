@@ -377,3 +377,16 @@ def test_cli_set_choices_match_sets_module():
     assert "validation" not in sets.TUNING_SETS and "user" not in sets.TUNING_SETS
     assert sets.set_dir("heldout", Path("/r")) == sets.set_dir("validation", Path("/r"))
     assert sets.set_dir("tuning-hw", Path("/r")) == Path("/r/eval/tuning_handwritten")
+
+
+def test_pii_intervals_resample_transcripts_and_are_repeatable():
+    from offrecord.evaluation.runner import Report
+
+    rep = Report("x", pii_by_transcript=[(10, 10)] * 8 + [(10, 5)] * 2)
+    iv = rep.pii_intervals()
+    assert iv == rep.pii_intervals()  # fixed seed
+    lo, hi = iv["pii_recall"]
+    assert lo <= 0.9 <= hi < 1.0001
+    lo, hi = iv["clean_pii"]
+    assert lo <= 0.8 <= hi
+    assert Report("y", pii_by_transcript=[(3, 3)]).pii_intervals()["pii_recall"] is None
