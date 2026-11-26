@@ -1,0 +1,50 @@
+SPEAKER_00: Okay, it's two fifteen, let's do a roll call on the storm bridge. Distribution ops?
+SPEAKER_01: Here, [[PERSON#hn:Halvard Nunez]].
+SPEAKER_00: Thanks [[PERSON#hn:Halvard]]. Customer comms?
+SPEAKER_02: [[PERSON#ry:Renata Yoshimura-Platt]] here.
+SPEAKER_00: And I've got [[PERSON#dc:Dov]] from vegetation management.
+SPEAKER_03: Yep, [[PERSON#dc:Dov Kivas]].
+SPEAKER_00: Great. [[PERSON#hn:Halvard]], where are we?
+SPEAKER_01: Total out is [[QUANTITY:61,400 customers]]. Worst is [[LOCATION:east county]]. [[LOCATION:Gresham]] alone is about [[QUANTITY:nineteen thousand]].
+SPEAKER_00: [[LOCATION:Gresham]]'s the ice?
+SPEAKER_01: Ice and wind out of the [[LOCATION:Gorge]]. [[LOCATION:Troutdale]] substation tripped at eleven forty. We've got [[LOCATION:Fairview]], [[LOCATION:Wood Village]] and most of [[LOCATION:Corbett]] on that one.
+SPEAKER_03: [[LOCATION:Corbett]]'s going to be a while. We've got trees down across the [[LOCATION:Historic Columbia River Highway]] near [[LOCATION:Crown Point]].
+SPEAKER_00: Is the road closed?
+SPEAKER_03: The state closed it from [[LOCATION:Corbett]] up past [[LOCATION:Multnomah Falls]]. Our crews can't get past the [[LOCATION:Larch Mountain Road]] turnoff.
+SPEAKER_00: Okay. What about the south side of the system?
+SPEAKER_01: [[LOCATION:Clackamas]] is better. [[LOCATION#sandy:Sandy]] and [[LOCATION#boring:Boring]] are out, about [[QUANTITY:six thousand]] combined.
+SPEAKER_02: Sorry, did you say [[LOCATION#boring:Boring]] the town?
+SPEAKER_01: [[LOCATION#boring:Boring]], [[LOCATION:Oregon]], yes. The outage itself is anything but [[NEG:boring]].
+SPEAKER_02: Ha. Okay, I need that for the press release. I'll spell it out so nobody thinks it's a typo.
+SPEAKER_00: [[LOCATION:Damascus]] too?
+SPEAKER_01: [[LOCATION:Damascus]] is back. Restored at one ten.
+SPEAKER_00: Good. West side?
+SPEAKER_01: Mostly fine. [[LOCATION:Beaverton]] had a blip. Some scattered stuff in [[LOCATION:Hillsboro]] near [[LOCATION:Orenco]]. Under two thousand total in [[LOCATION:Washington County]].
+SPEAKER_03: There's a big fir on a line on [[LOCATION:Cornell Road]] by the [[LOCATION:Sunset Highway]] overpass, we'll have it cleared by four.
+SPEAKER_00: Okay. [[PERSON#ry:Renata]], what are customers seeing?
+SPEAKER_02: The outage map's lagging, so we're getting calls from [[LOCATION:Lake Oswego]] people who think they're out, but they're not, it's the map.
+SPEAKER_01: Yeah, that's a display issue. The [[LOCATION:Lake Oswego]] feeders are fine.
+SPEAKER_02: And we have one hospital escalation. [[LOCATION:Mount Hood Medical Center]] in [[LOCATION:Gresham]] is on generator.
+SPEAKER_00: How long can they hold?
+SPEAKER_02: They said seventy-two hours of fuel, but they want an ETR.
+SPEAKER_01: That's on the [[LOCATION:Stark Street]] circuit, we can backfeed it from [[LOCATION:Rockwood]] once the switch crew gets there. Maybe six o'clock.
+SPEAKER_00: Okay, prioritize that. Medical baseline customers?
+SPEAKER_02: [[QUANTITY:Two hundred and twelve]] in the affected area. We've called [[QUANTITY:a hundred and forty]]. Most of the rest are up in [[LOCATION:Corbett]] and [[LOCATION:Springdale]], a lot of landlines down there.
+SPEAKER_00: Can we get a warming center open?
+SPEAKER_02: [[ORG:Cedarline Relief]] is opening one at the [[LOCATION#sandy:Sandy]] community center and the county is opening one at [[LOCATION:Mt. Hood Community College]].
+SPEAKER_03: Just flagging, the soil up there is really [[NEG:sandy]], we've had two poles lean over in the last hour.
+SPEAKER_00: Noted. Mutual assistance?
+SPEAKER_01: We've got [[QUANTITY:eighteen crews]] coming down from [[LOCATION:Tacoma]] and [[LOCATION:Olympia]], and another [[QUANTITY:ten]] from [[LOCATION:Boise]] arriving tonight at [[LOCATION:PDX]].
+SPEAKER_00: Where are we staging them?
+SPEAKER_01: The [[LOCATION:Airport Way]] yard. Hotel block at the [[LOCATION:Cascade Station]] hotels.
+SPEAKER_02: And food for the yard is ordered. [[NEG:Hawaiian]] pizza and [[NEG:buffalo wings]], sorry, it's what was open.
+SPEAKER_00: Nobody will complain.
+SPEAKER_00: Okay. And this is a [[NEG:Pineapple Express]] system, right? More rain behind it?
+SPEAKER_03: More rain and then cold again on [[DATE:Thursday]]. Could refreeze.
+SPEAKER_00: Great. Okay, comms, what do we say?
+SPEAKER_02: Draft says east [[LOCATION:Multnomah County]] and the [[LOCATION:Gorge]] are the hardest hit, restoration for most customers by [[DATE:Wednesday]] evening, some rural areas longer. I won't name individual streets.
+SPEAKER_00: Good. Anything else?
+SPEAKER_01: One thing. [[TOPIC:The Troutdale breaker that failed was on the deferred maintenance list from last year and it was never replaced.]]
+SPEAKER_00: Okay. Keep that off the bridge notes. Send it to me directly.
+SPEAKER_01: Will do.
+SPEAKER_00: Next bridge at four. If anyone needs me, [[PHONE:503-555-0164]]. Thanks all.

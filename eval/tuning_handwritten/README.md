@@ -13,7 +13,12 @@ sensitive-topic sentences, after the first twenty no longer showed many misses i
 categories. A few invented names in them that happened to match names in the validation or
 sealed pools were replaced with new invented names. `h41` to `h60` were added the same way,
 weighted towards personal data that is hard to catch: identifiers read out in words, spelled
-emails and names, names that are ordinary words, and full postal addresses.
+emails and names, names that are ordinary words, and full postal addresses. `h61` to `h80`
+were added the same way, dense with place names phrased in many ways (no preposition before
+them, abbreviations, multi-word and punctuated names, places that are ordinary words or given
+names, neighbourhoods and regions, lower-case speech-to-text, non-English names) and with
+near misses that must stay visible. Invented words that matched the validation pools were
+replaced.
 
 Markup follows `docs/eval-format.md` section 2. `denylist.yaml` is a deliberately partial
 deny-list for this folder.
@@ -82,6 +87,26 @@ deny-list for this folder.
 | `h58-payroll-onboarding.txt` | Payroll onboarding | `[hh:mm:ss] Name:` |
 | `h59-alarm-monitoring.txt` | Alarm monitoring call | full names |
 | `h60-network-cutover-caps.txt` | Network cutover | ALL CAPS, initials as speakers |
+| `h61-freight-lane-review.txt` | Freight lane review | full names |
+| `h62-territory-review.txt` | Field sales territory review | full names |
+| `h63-home-search-call.txt` | Relocation home search | full names |
+| `h64-storm-claim.txt` | Storm damage insurance claim | two speakers |
+| `h65-global-mobility.txt` | HR global mobility | two speakers |
+| `h66-offsite-planning.txt` | Company offsite planning | full names |
+| `h67-dispatch-asr.txt` | Emergency dispatch | roles, lowercase ASR |
+| `h68-outage-bridge.txt` | Utility outage bridge | roles |
+| `h69-bus-routing.txt` | School district bus routing | full names |
+| `h70-tourism-board.txt` | Regional tourism board | full names |
+| `h71-district-huddle.txt` | Retail district huddle | names, lowercase ASR |
+| `h72-transfer-center.txt` | Hospital transfer centre | full names |
+| `h73-wedding-planner.txt` | Wedding planning | full names |
+| `h74-coop-board.txt` | Agriculture co-op board | full names |
+| `h75-podcast-roots.txt` | Podcast interview | roles |
+| `h76-movers-quote-asr.txt` | Moving company quote | roles, lowercase ASR |
+| `h77-grants-review.txt` | Government grants review | full names |
+| `h78-club-travel-caps.txt` | Sports club travel | ALL CAPS, names |
+| `h79-delivery-address-support.txt` | Delivery address support call | roles |
+| `h80-family-move-asr.txt` | Family call about a relative moving | roles, lowercase ASR |
 | `denylist.yaml` | Partial deny-list | name / category / aliases |
 
 ## Labelling conventions

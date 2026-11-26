@@ -1,0 +1,46 @@
+Host: Welcome back to the show. My guest today is [[PERSON#sb:Solange Batiste-Whitlock]], founder of [[ORG:Groundswell Maps]]. [[PERSON#sb:Solange]], welcome.
+Guest: Thanks for having me. Big fan.
+Host: So I always start with the same question. Where'd you grow up?
+Guest: [[LOCATION#nola:Nola]].
+Host: Just one word, I love it.
+Guest: That's all you need to say. [[LOCATION#nola:New Orleans]]. Specifically the [[LOCATION:Seventh Ward]], on [[LOCATION:North Galvez]], until the storm. After that we were in [[LOCATION:Baton Rouge]] for a year, then [[LOCATION:Houston]] for two, and then back.
+Host: That's a lot of moving for a kid.
+Guest: It was. Everybody I knew was scattered. My best friend ended up in [[LOCATION:Atlanta]], my cousins went to [[LOCATION:Dallas]], my grandmother refused to leave [[LOCATION:Louisiana]] so she went to [[LOCATION:Lafayette]] with her sister. And I think that's honestly where the company comes from, because I spent my whole childhood looking at maps trying to figure out where everybody was.
+Host: Wow. Okay, so that's the seed. When did you come back to [[LOCATION#nola:New Orleans]]?
+Guest: [[DATE:2008]]. We moved into a shotgun house in [[LOCATION:Tremé]], right off [[LOCATION:Esplanade]]. My mom still lives there.
+Host: And then college.
+Guest: [[LOCATION:Philly]]. I went to school in [[LOCATION:West Philadelphia]], which, coming from the [[LOCATION:Gulf Coast]], the first winter nearly killed me.
+Host: Ha. I bet.
+Guest: I didn't own a coat. I showed up in, like, a hoodie. My roommate was from [[LOCATION:Buffalo]] and she just looked at me and took me to a thrift store on [[LOCATION:South Street]].
+Host: That's a good roommate.
+Guest: The best. Her name's [[PERSON:Brooklyn]], funnily enough, which confused everyone when we later moved to [[LOCATION#bk:Brooklyn]].
+Host: Wait, so you moved to [[LOCATION#bk:Brooklyn]] with [[PERSON:Brooklyn]]?
+Guest: With [[PERSON:Brooklyn]]. To [[LOCATION:Bed-Stuy]]. People would ask "where do you live" and "who do you live with" and the answer was the same word.
+Host: That's fantastic. Okay, so you're in [[LOCATION#nyc:New York]]. What are you doing?
+Guest: Working at a logistics startup in [[LOCATION:DUMBO]]. Routing software for delivery vans. And that's where I learned how bad address data is. Like, you would not believe how many ways people write "[[NEG:Saint]]" versus "[[NEG:St.]]", or how many apartments in [[LOCATION:Queens]] have addresses with hyphens in them.
+Host: Explain the hyphens.
+Guest: So in [[LOCATION:Queens]], a lot of house numbers are like "[[LOCATION:41-12 Ditmars Boulevard]]". The first part is the cross street. And every routing system in the world thinks it's a range. So drivers in [[LOCATION:Astoria]] and [[LOCATION:Jackson Heights]] were just driving in circles.
+Host: Ha. And that's what you fixed.
+Guest: That's what we started fixing. We had an internal project called [[CODENAME:Atlas]], which, I know, every mapping project is called [[CODENAME:Atlas]].
+Host: Is it still called that?
+Guest: No, we renamed it, lawyers. [[TOPIC:Honestly we got a cease-and-desist from a much bigger company over the name and settled quietly.]]
+Host: Oh wow. Okay. So when did you leave [[LOCATION#nyc:NYC]]?
+Guest: [[DATE:2017]]. I moved to [[LOCATION#atx:Austin]], because everyone was moving to [[LOCATION#atx:Austin]].
+Host: Of course.
+Guest: I lived in [[LOCATION:East Austin]], near [[LOCATION:Cesar Chavez]] and [[LOCATION:Pleasant Valley]], and I hated the heat but loved the tacos. And I met my co-founder there, [[PERSON#dm:Declan Moorhouse-Eze]], at a meetup on [[LOCATION:Rainey Street]].
+Host: What's [[PERSON#dm:Declan]]'s story?
+Guest: He's from the [[LOCATION:Twin Cities]]. [[LOCATION:Saint Paul]], not [[LOCATION:Minneapolis]], he will correct you every time. And he'd spent years at a mapping company in [[LOCATION:Zürich]], so he knew the European side.
+Host: So where's the company based now?
+Guest: We're split. Engineering's in [[LOCATION#atx:ATX]], and we have a small team in [[LOCATION:Lisbon]] and one person in [[LOCATION:Nairobi]]. And I moved back home last year.
+Host: Back to [[LOCATION#nola:New Orleans]]?
+Guest: Back to [[LOCATION#nola:New Orleans]]. [[LOCATION:Mid-City]], close to [[LOCATION:Bayou St. John]]. I can walk to my mom's.
+Host: That's a nice full circle.
+Guest: It is. And honestly, [[NEG:Mardi Gras]] season is great for testing, because half the streets close and every routing app falls over.
+Host: Ha. Okay, one more. If you had to give a founder one piece of advice about place, what would it be?
+Guest: Don't assume everyone writes places the way you do. Somebody in [[LOCATION:Coeur d'Alene]] and somebody in [[LOCATION:São Paulo]] are going to type it in ways you can't imagine. Things change in a [[NEG:New York minute]], and so does the data.
+Host: Great answer. Where can people find you?
+Guest: [[URL:groundswellmaps.example]], or email me, [[EMAIL:solange@groundswellmaps.example]]. I read everything.
+Host: Perfect. And before we go, I have to ask. Best po'boy in town?
+Guest: Oh, that's dangerous. I'll get in trouble. There's a place on [[LOCATION:Magazine Street]], that's all I'll say. Get the shrimp. Skip the [[NEG:Cajun]] fries, they're fine, but the shrimp.
+Host: Ha. Noted. [[PERSON#sb:Solange]], thank you so much.
+Guest: Thank you. This was fun.

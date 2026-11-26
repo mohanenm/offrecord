@@ -1,0 +1,50 @@
+[[PERSON#ren:renee]]: ok let's go, district huddle, keep it quick. everybody on?
+[[PERSON#aus:austin]]: here
+[[PERSON#mar:marisol]]: here
+[[PERSON#dek:dekker]]: yep
+[[PERSON#ren:renee]]: comps first. [[PERSON#aus:austin]], central.
+[[PERSON#aus:austin]]: [[LOCATION:austin]], [[LOCATION:waco]], [[LOCATION:temple]] and [[LOCATION:killeen]] all positive. [[LOCATION:waco]] best at [[PERCENT:plus six]].
+[[PERSON#ren:renee]]: and the [[LOCATION:austin]] stores specifically?
+[[PERSON#aus:austin]]: [[LOCATION:lakeline]] up, [[LOCATION:south congress]] flat, [[LOCATION:mueller]] down [[PERCENT:two]].
+[[PERSON#dek:dekker]]: wait, [[LOCATION:austin]] the city or [[PERSON#aus:austin]] you
+[[PERSON#aus:austin]]: ha. the city. i'm always up.
+[[PERSON#ren:renee]]: ok. [[LOCATION:round rock]]?
+[[PERSON#aus:austin]]: [[LOCATION:round rock]] is the problem child. down [[PERCENT:four]]. new competitor opened across [[LOCATION:i-35]].
+[[PERSON#ren:renee]]: ugh. [[PERSON#mar:marisol]], south.
+[[PERSON#mar:marisol]]: [[LOCATION:san antonio]] is strong, all [[QUANTITY:seven stores]] positive. [[LOCATION:new braunfels]] and [[LOCATION:san marcos]] carried the corridor.
+[[PERSON#ren:renee]]: [[LOCATION#valley:the valley]]?
+[[PERSON#mar:marisol]]: [[LOCATION:mcallen]] good, [[LOCATION:harlingen]] good, [[LOCATION:brownsville]] still recovering from the remodel.
+[[PERSON#ren:renee]]: when does [[LOCATION:brownsville]] reopen the deli?
+[[PERSON#mar:marisol]]: [[DATE:the 19th]]. we're pushing [[NEG:texas toast]] and [[NEG:new york strip]] for the reopening ad.
+[[PERSON#dek:dekker]]: [[LOCATION:corpus]]?
+[[PERSON#mar:marisol]]: [[LOCATION:corpus]] is mine now too, since [[DATE:october]]. [[LOCATION:corpus christi]] is fine, [[LOCATION:portland]] store is weak.
+[[PERSON#ren:renee]]: [[LOCATION:portland]] [[LOCATION:texas]], not [[LOCATION:oregon]], for anyone new
+[[PERSON#mar:marisol]]: yes, [[LOCATION:portland]], across the bay from [[LOCATION:corpus]].
+[[PERSON#ren:renee]]: ok. [[PERSON#dek:dekker]], [[LOCATION:houston]].
+[[PERSON#dek:dekker]]: [[LOCATION:houston]]'s mixed. [[LOCATION:katy]] and [[LOCATION:sugar land]] up. [[LOCATION:the woodlands]] flat. [[LOCATION:pasadena]] down.
+[[PERSON#mar:marisol]]: [[LOCATION#pca:pasadena]] like the rose parade?
+[[PERSON#dek:dekker]]: [[LOCATION:pasadena]] like the refineries. by the ship channel.
+[[PERSON#ren:renee]]: why's it down?
+[[PERSON#dek:dekker]]: shrink. we had [[AMOUNT:$41k]] in shrink last period. mostly at the [[LOCATION:spencer highway]] store.
+[[PERSON#ren:renee]]: [[AMOUNT:forty-one]]? jesus.
+[[PERSON#dek:dekker]]: yeah. [[TOPIC:loss prevention thinks it's an internal ring, two people on the overnight crew, and they haven't told the store manager.]]
+[[PERSON#ren:renee]]: ok, take that offline with me.
+[[PERSON#dek:dekker]]: will do.
+[[PERSON#ren:renee]]: [[LOCATION:beaumont]]?
+[[PERSON#dek:dekker]]: fine. [[LOCATION:beaumont]], [[LOCATION:port arthur]], both fine. [[LOCATION:galveston]] dipped after the cruise season.
+[[PERSON#ren:renee]]: ok. holiday. [[NEG:thanksgiving]] ordering.
+[[PERSON#mar:marisol]]: we're short on [[NEG:turkey]] in the south. supplier out of [[LOCATION:san angelo]] cut our allocation.
+[[PERSON#aus:austin]]: we have extra in central, [[LOCATION:temple]] dc has like [[QUANTITY:two trailers]] over.
+[[PERSON#ren:renee]]: move one to [[LOCATION:san antonio]]. [[PERSON#mar:marisol]], you'll split it?
+[[PERSON#mar:marisol]]: yep. [[LOCATION:sa]] gets half, [[LOCATION#valley:the valley]] gets half.
+[[PERSON#ren:renee]]: good. staffing.
+[[PERSON#aus:austin]]: [[LOCATION:killeen]] lost their assistant manager, she transferred to [[LOCATION:el paso]].
+[[PERSON#ren:renee]]: who's covering?
+[[PERSON#aus:austin]]: [[PERSON:jordan]] from [[LOCATION:temple]], two days a week.
+[[PERSON#ren:renee]]: ok. [[PERSON#dek:dekker]], you had the [[LOCATION:dfw]] question?
+[[PERSON#dek:dekker]]: yeah, are we still opening in [[LOCATION:frisco]] or did that move to [[LOCATION:mckinney]]
+[[PERSON#ren:renee]]: [[TOPIC:it moved to mckinney, the frisco landlord wanted too much, but don't say that to anyone yet, the lease isn't signed.]]
+[[PERSON#dek:dekker]]: got it.
+[[PERSON#ren:renee]]: ok that's it. reports to me by [[DATE:friday]]. and someone tell the [[LOCATION:mueller]] team the [[NEG:french fries]] machine is getting fixed [[DATE:monday]].
+[[PERSON#aus:austin]]: will do
+[[PERSON#mar:marisol]]: bye

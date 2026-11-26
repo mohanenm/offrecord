@@ -1,0 +1,50 @@
+[00:00:03] [[PERSON#rm:Rosalind Merriweather]]: Okay, recording's on. Weekly lane review. [[PERSON#tk:Zinith]], you want to start us off?
+[00:00:08] [[PERSON#tk:Zinith Ilunga-Barr]]: Sure. Headline is [[LOCATION#tul:Tulsa]]'s numbers are down again. Outbound tender acceptance dropped to [[PERCENT:71%]].
+[00:00:15] [[PERSON#rm:Rosalind Merriweather]]: [[LOCATION#tul:Tulsa]] again. Is that the carriers or the shipper?
+[00:00:19] [[PERSON#tk:Zinith Ilunga-Barr]]: Bit of both. The [[LOCATION#okc:OKC]] carriers are chasing spot loads into [[LOCATION:DFW]] because rates are hot down there.
+[00:00:27] [[PERSON#jc:Jalen Cordova-Sheppard]]: Can I jump in? Spot's up [[PERCENT:nine percent]] week over week, so anybody with a truck sitting in [[LOCATION#okc:Oklahoma City]] is [[NEG:heading south]].
+[00:00:36] [[PERSON#rm:Rosalind Merriweather]]: Okay. What about [[LOCATION:Joplin]]?
+[00:00:39] [[PERSON#tk:Zinith Ilunga-Barr]]: [[LOCATION:Joplin]]'s fine. It's really just the [[LOCATION#tul:Tulsa]] to [[LOCATION:Memphis]] lane.
+[00:00:45] [[PERSON#jc:Jalen Cordova-Sheppard]]: And [[LOCATION:Little Rock]]. Don't forget [[LOCATION:Little Rock]].
+[00:00:48] [[PERSON#tk:Zinith Ilunga-Barr]]: Right, sorry, that one too.
+[00:00:51] [[PERSON#rm:Rosalind Merriweather]]: Fine. West?
+[00:00:53] [[PERSON#ah:Neper Haverkamp]]: West is mixed. We're [[LOCATION:Phoenix]]-heavy this quarter, that's about [[PERCENT:forty percent]] of the region, and it's holding up. [[LOCATION:Tucson]] and [[LOCATION:El Paso]] both missed.
+[00:01:04] [[PERSON#rm:Rosalind Merriweather]]: Missed by how much?
+[00:01:06] [[PERSON#ah:Neper Haverkamp]]: [[LOCATION:Tucson]] by [[QUANTITY:thirty loads]], the other by about [[QUANTITY:fifty]]. The [[LOCATION:El Paso]] team blames the crossing.
+[00:01:14] [[PERSON#jc:Jalen Cordova-Sheppard]]: Which one, the bridge or [[LOCATION:Santa Teresa]]?
+[00:01:17] [[PERSON#ah:Neper Haverkamp]]: [[LOCATION:Santa Teresa]]. Wait times were three, four hours on [[DATE:Tuesday the 17th]].
+[00:01:23] [[PERSON#rm:Rosalind Merriweather]]: And this is separate from [[CODENAME:Project Phoenix]]? Because I keep mixing those up.
+[00:01:28] [[PERSON#ah:Neper Haverkamp]]: Totally separate. [[CODENAME:Phoenix]] is the yard software rollout. Nothing to do with the city.
+[00:01:33] [[PERSON#rm:Rosalind Merriweather]]: Good. Keep the codename out of the lane deck, then.
+[00:01:36] [[PERSON#tk:Zinith Ilunga-Barr]]: Noted.
+[00:01:38] [[PERSON#jc:Jalen Cordova-Sheppard]]: Can I do the Southeast?
+[00:01:40] [[PERSON#rm:Rosalind Merriweather]]: Go.
+[00:01:41] [[PERSON#jc:Jalen Cordova-Sheppard]]: Port volume is strong. We moved [[QUANTITY:1,240 containers]] out of [[LOCATION:Garden City]] terminal, mostly drayed up [[LOCATION:I-16]] to [[LOCATION:Macon]] and then up [[LOCATION:I-75]] to [[LOCATION#atl:Atlanta]].
+[00:01:55] [[PERSON#rm:Rosalind Merriweather]]: How's dwell in [[LOCATION#atl:Atlanta]]?
+[00:01:58] [[PERSON#jc:Jalen Cordova-Sheppard]]: [[LOCATION#atl:Hotlanta]], sorry, bad joke. Dwell's [[QUANTITY:two point one days]]. Better than [[LOCATION:Charlotte]].
+[00:02:05] [[PERSON#ah:Neper Haverkamp]]: What's going on there?
+[00:02:07] [[PERSON#jc:Jalen Cordova-Sheppard]]: The [[LOCATION:Concord]] cross-dock had a roof leak. Over doors [[NEG:twelve]] through [[NEG:eighteen]].
+[00:02:13] [[PERSON#rm:Rosalind Merriweather]]: Oh no. Did we lose product?
+[00:02:15] [[PERSON#jc:Jalen Cordova-Sheppard]]: A couple pallets of [[NEG:china]], actually. The [[CLIENT#bd:Bellhaven Dinnerware]] order. Plates, not the country.
+[00:02:22] [[PERSON#rm:Rosalind Merriweather]]: Of course it was the [[NEG:china]].
+[00:02:24] [[PERSON#tk:Zinith Ilunga-Barr]]: Claim number?
+[00:02:26] [[PERSON#jc:Jalen Cordova-Sheppard]]: [[ACCOUNT:CLM-77403-K]]. I sent it to [[EMAIL:claims@ridgeport-freight.test]].
+[00:02:31] [[PERSON#rm:Rosalind Merriweather]]: Thanks. Northeast. [[PERSON#ah:Neper]], you've got that too?
+[00:02:34] [[PERSON#ah:Neper Haverkamp]]: Yeah. [[LOCATION:Philly]] is soft. [[LOCATION:Allentown]] is soft. The [[LOCATION:Lehigh Valley]] in general, honestly.
+[00:02:41] [[PERSON#rm:Rosalind Merriweather]]: Soft meaning?
+[00:02:42] [[PERSON#ah:Neper Haverkamp]]: [[PERCENT:Eighty-two percent]] of plan. [[LOCATION:Harrisburg]] is the only one in the green.
+[00:02:48] [[PERSON#tk:Zinith Ilunga-Barr]]: Is that [[LOCATION:Carlisle]] or the other building?
+[00:02:50] [[PERSON#ah:Neper Haverkamp]]: [[LOCATION:Carlisle]]. [[LOCATION:Mechanicsburg]] closed in [[DATE:August]].
+[00:02:54] [[PERSON#rm:Rosalind Merriweather]]: And [[LOCATION:Reading]]?
+[00:02:56] [[PERSON#ah:Neper Haverkamp]]: Flat. And before you ask, I'm still [[NEG:reading]] the carrier scorecards. You'll have them [[DATE:Friday]].
+[00:03:02] [[PERSON#jc:Jalen Cordova-Sheppard]]: One more. Holiday volume. [[CLIENT#gf:Greyfield Provisions]] wants [[QUANTITY:eighty extra loads]] of frozen [[NEG:turkey]] before [[NEG:Thanksgiving]].
+[00:03:10] [[PERSON#rm:Rosalind Merriweather]]: Shipping from where?
+[00:03:11] [[PERSON#jc:Jalen Cordova-Sheppard]]: [[LOCATION:Willmar]] and [[LOCATION:Marshall]], delivering into [[LOCATION:Joliet]] and [[LOCATION:Romeoville]].
+[00:03:17] [[PERSON#tk:Zinith Ilunga-Barr]]: That's reefer. We're short reefer in the [[LOCATION:Twin Cities]].
+[00:03:20] [[PERSON#rm:Rosalind Merriweather]]: Then borrow from [[LOCATION:Des Moines]].
+[00:03:23] [[PERSON#tk:Zinith Ilunga-Barr]]: They've got maybe [[QUANTITY:six]] spare.
+[00:03:25] [[PERSON#rm:Rosalind Merriweather]]: Take them. Rates. [[PERSON#jc:Jalen]]?
+[00:03:28] [[PERSON#jc:Jalen Cordova-Sheppard]]: [[ORG:Coldspur Carriers]] wants [[PERCENT:six and a half]] on the [[LOCATION:Laredo]] lanes. We offered [[PERCENT:four]].
+[00:03:35] [[PERSON#rm:Rosalind Merriweather]]: Hold at [[PERCENT:four and a half]]. Anything else?
+[00:03:38] [[PERSON#tk:Zinith Ilunga-Barr]]: Nope.
+[00:03:39] [[PERSON#rm:Rosalind Merriweather]]: Great. Same time next week.

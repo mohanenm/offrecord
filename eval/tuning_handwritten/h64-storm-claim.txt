@@ -1,0 +1,52 @@
+Rep: Thank you for calling [[ORG:Saltmeadow Mutual]] property claims, this is [[PERSON#dv:Delphine]]. Can I get your policy number?
+Customer: Hi, yes. It's [[ACCOUNT#pol:HO-5520-8817-3]].
+Rep: Thank you. And is this [[PERSON#bh:Mr. Hargitay-Lund]]?
+Customer: Yes, [[PERSON#bh:Bertram Hargitay-Lund]]. I'm calling about the storm damage.
+Rep: I'm so sorry. Let me pull up the policy. I have a property address at [[LOCATION#addr:1847 Southwest Becker Road, Port St. Lucie, Florida 34953]]. Is that the damaged home?
+Customer: That's it. Well, technically we're in [[LOCATION#psl:Port St. Lucie]] but the mail sometimes says [[LOCATION:Stuart]].
+Rep: That's fine. Are you at the property now?
+Customer: No, we evacuated. We're at my sister's in [[LOCATION#mob:Mobile]].
+Rep: [[LOCATION#mob:Mobile]], [[LOCATION:Alabama]]?
+Customer: Yeah. We drove up [[LOCATION:I-95]] to [[LOCATION:Jacksonville]] and then over on [[LOCATION:I-10]] through the [[LOCATION:Panhandle]]. Took eleven hours.
+Rep: That's a long drive. Okay, is the best number to reach you the one you're calling from?
+Customer: Use my [[NEG:mobile]], it's [[PHONE:772-555-0193]].
+Rep: Got it. Can you describe the damage?
+Customer: Roof's partly gone on the back side. Water came into the [[NEG:Florida room]] and the master bedroom.
+Rep: And the [[NEG:Florida room]] is the enclosed porch?
+Customer: Right, the screened porch we glassed in. The neighbor across the street, he sent me photos. He stayed. He's from [[LOCATION:Buffalo]], he says nothing scares him.
+Rep: Ha. Okay. Was there flooding as well, or just wind and rain?
+Customer: Some street flooding. The canal behind us came up. We're right off the [[LOCATION:C-24 canal]].
+Rep: Okay, I need to note that flood is a separate policy. Do you have flood coverage?
+Customer: Through the federal program, yes. Separate claim.
+Rep: Okay. For contents, can you give me a rough list of what was damaged?
+Customer: The bed, a dresser, a [[NEG:Persian rug]] that was my mother's, honestly that's the one that hurts. Some clothes. My [[NEG:Panama hat]] collection, which my wife will tell you is not a loss.
+Rep: I'll note the rug. Do you have any receipts or appraisals?
+Customer: The rug was appraised in [[LOCATION:Fort Lauderdale]], at a shop on [[LOCATION:Las Olas]]. I think the paperwork's in a box in [[LOCATION#mob:Mobile]] actually, we brought it.
+Rep: Great, keep that safe. Now, I'm assigning a field adjuster. Your adjuster will be [[PERSON#gs:Georgia Sundqvist]].
+Customer: [[PERSON#gs:Georgia]], okay.
+Rep: She's based out of our [[LOCATION:Treasure Coast]] office in [[LOCATION:Vero Beach]]. Right now she's covering [[LOCATION:St. Lucie County]], [[LOCATION:Martin County]] and parts of [[LOCATION:Okeechobee]].
+Customer: When can she get there?
+Rep: Realistically, [[DATE:Thursday the 9th]] at the earliest. The bridges on [[LOCATION:US-1]] are still being inspected.
+Customer: Is it worse than [[LOCATION:Fort Myers]] was a couple years ago?
+Rep: Not as bad as [[LOCATION:Fort Myers]] or [[LOCATION:Cape Coral]], no. [[LOCATION:Lee County]] was a whole different thing.
+Customer: Okay. Thank God.
+Rep: Can I confirm the street name spelling? I have [[LOCATION#becker:B-E-C-K-E-R]].
+Customer: That's right. [[LOCATION#becker:B, E, C, K, E, R]]. [[LOCATION#becker:Becker Road]].
+Rep: And zip [[LOCATION#zip:three four nine five three]].
+Customer: Yes.
+Rep: Okay. Do you need additional living expenses? Hotel, meals?
+Customer: Not while we're in [[LOCATION#mob:Mobile]]. But if we go back and can't live in it, yeah.
+Rep: Understood. Your deductible for hurricane is [[PERCENT:two percent]] of the dwelling coverage, which on your policy comes to [[AMOUNT:$7,400]].
+Customer: [[AMOUNT:Seven thousand four hundred]]. Ugh. Okay.
+Rep: I know. I'm sorry. I'll email you the claim summary. What email should I use?
+Customer: [[EMAIL:bert.hl@pelicanmail.test]].
+Rep: Got it. Your claim number is [[ACCOUNT:FL-24-0099173]].
+Customer: Can you read that again?
+Rep: [[ACCOUNT:F, L, two four, zero zero nine nine one seven three]].
+Customer: Got it. Oh, one more thing. My neighbor said the guys going door to door are from out of state. From [[LOCATION:Georgia]], he said. Should I trust them?
+Rep: Please don't sign anything with a roofer until [[PERSON#gs:Georgia]] has been out. Our adjuster, I mean, not the state.
+Customer: Ha, right. Okay.
+Rep: Anything else I can help with today?
+Customer: No, that's it. Thank you, [[PERSON#dv:Delphine]].
+Rep: Stay safe, and enjoy [[LOCATION#mob:Mobile]]. Get some gumbo.
+Customer: Ha, will do. Bye.

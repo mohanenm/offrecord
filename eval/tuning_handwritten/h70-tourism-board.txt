@@ -1,0 +1,43 @@
+[[PERSON#vh:Victoria Hensley-Amadi]] [00:01]: Right, shall we start? This is the North American campaign review. [[PERSON#ws:Wilf]], you've got the numbers.
+[[PERSON#ws:Wilf Bovel]] [00:07]: I have. So visitor arrivals from the [[LOCATION:US]] are up [[PERCENT:nine percent]] on last year. [[LOCATION:Canada]] is flat.
+[[PERSON#vh:Victoria Hensley-Amadi]] [00:14]: Where are they coming from in the [[LOCATION:States]]?
+[[PERSON#ws:Wilf Bovel]] [00:17]: [[LOCATION#nyc:NYC]] is the biggest by far. Then [[LOCATION:Boston]], [[LOCATION#la:LA]], [[LOCATION:Chicago]]. [[LOCATION:Texas]] is the surprise, [[LOCATION:Dallas]] and [[LOCATION:Houston]] both up double digits.
+[[PERSON#mo:Mairead O'Callaghan]] [00:28]: That'll be the new direct flight into [[LOCATION:Heathrow]].
+[[PERSON#ws:Wilf Bovel]] [00:31]: Partly. [[LOCATION:IAH]] to [[LOCATION:LHR]] went daily in [[DATE:April]].
+[[PERSON#vh:Victoria Hensley-Amadi]] [00:36]: And where do they go once they land? Please don't say [[LOCATION:London]] and nothing else.
+[[PERSON#ws:Wilf Bovel]] [00:40]: Mostly [[LOCATION:London]] and nothing else. But the ones who leave, [[LOCATION#bath:Bath]] is top, then [[LOCATION:Oxford]], [[LOCATION:York]], [[LOCATION:Edinburgh]], and [[LOCATION:Stratford-upon-Avon]].
+[[PERSON#mo:Mairead O'Callaghan]] [00:49]: [[LOCATION#bath:Bath]]'s doing well because of the period drama thing.
+[[PERSON#ws:Wilf Bovel]] [00:52]: It is. Our research says a lot of Americans think the [[LOCATION:Roman Baths]] are, quote, a spa where you can have a [[NEG:bath]].
+[[PERSON#vh:Victoria Hensley-Amadi]] [00:59]: Well, technically you can, at the [[LOCATION:Thermae]].
+[[PERSON#ws:Wilf Bovel]] [01:02]: Fair. Anyway. The [[LOCATION:Cotswolds]] are huge. [[LOCATION:Bourton-on-the-Water]], [[LOCATION:Bibury]], [[LOCATION:Chipping Campden]]. All on [[NEG:Instagram]].
+[[PERSON#mo:Mairead O'Callaghan]] [01:10]: The residents of [[LOCATION:Bibury]] are not thrilled, for the record. I had a call with the parish council.
+[[PERSON#vh:Victoria Hensley-Amadi]] [01:15]: Which is why we want to push people further out. [[PERSON#mo:Mairead]], the regional plan?
+[[PERSON#mo:Mairead O'Callaghan]] [01:19]: So the idea is three spokes. North, [[LOCATION:Chester]] and the [[LOCATION:Peak District]]. South-west, [[LOCATION:Somerset]], [[LOCATION:Cheddar Gorge]], [[LOCATION:Wells]], then down to [[LOCATION:Cornwall]]. And the third is the [[LOCATION:Lake District]].
+[[PERSON#ws:Wilf Bovel]] [01:31]: Do Americans know [[LOCATION:Chester]]?
+[[PERSON#mo:Mairead O'Callaghan]] [01:33]: Most think it's a person. Like [[PERSON:Chester]] from accounts.
+[[PERSON#ws:Wilf Bovel]] [01:36]: Ha. Poor [[PERSON:Chester]].
+[[PERSON#mo:Mairead O'Callaghan]] [01:38]: But it's a two-hour train from [[LOCATION:Euston]], walls, Roman stuff, and you can do [[LOCATION:Liverpool]] or [[LOCATION:North Wales]] from there.
+[[PERSON#vh:Victoria Hensley-Amadi]] [01:45]: And the [[LOCATION:Cheddar]] piece, how are we selling that?
+[[PERSON#mo:Mairead O'Callaghan]] [01:48]: Cave tours, gorge walk, and yes, the [[NEG:cheddar]]. We tested a tagline, "where the cheese is from". It tested well in [[LOCATION:Wisconsin]], weirdly.
+[[PERSON#ws:Wilf Bovel]] [01:56]: Not weird at all. That's their whole thing.
+[[PERSON#vh:Victoria Hensley-Amadi]] [01:58]: Okay. Media buy. [[PERSON#ws:Wilf]]?
+[[PERSON#ws:Wilf Bovel]] [02:00]: We've got [[AMOUNT:£1.2 million]] for the year. Proposal is [[PERCENT:forty percent]] in the [[LOCATION:Northeast Corridor]], [[LOCATION#nyc:New York]] to [[LOCATION:DC]], [[PERCENT:twenty]] in [[LOCATION:California]], mostly [[LOCATION:SoCal]], [[PERCENT:twenty]] in [[LOCATION:Texas]], and the rest split between [[LOCATION:Chicagoland]] and [[LOCATION:Toronto]].
+[[PERSON#mo:Mairead O'Callaghan]] [02:14]: Why not [[LOCATION:Florida]]? [[LOCATION:Miami]] has the new flight to [[LOCATION:Gatwick]].
+[[PERSON#ws:Wilf Bovel]] [02:18]: [[LOCATION:Florida]] skews older and they mostly go to [[LOCATION:Scotland]] for golf. [[LOCATION:St Andrews]] eats that whole segment.
+[[PERSON#vh:Victoria Hensley-Amadi]] [02:24]: Fine. Let's also not forget [[LOCATION:Reading]], we promised the council a mention.
+[[PERSON#ws:Wilf Bovel]] [02:28]: [[LOCATION:Reading]] the place or [[NEG:reading]] the report?
+[[PERSON#vh:Victoria Hensley-Amadi]] [02:30]: The place. [[LOCATION:Reading]]. Near [[LOCATION:Windsor]]. They want the [[LOCATION:Windsor]] overflow.
+[[PERSON#mo:Mairead O'Callaghan]] [02:34]: We can bundle it with [[LOCATION:Henley]] and the [[LOCATION:Thames Valley]].
+[[PERSON#vh:Victoria Hensley-Amadi]] [02:38]: Good. Influencer trip. Who's going?
+[[PERSON#mo:Mairead O'Callaghan]] [02:41]: Six creators. Two from [[LOCATION#la:Los Angeles]], one from [[LOCATION:Atlanta]], one from [[LOCATION:Nashville]], one from [[LOCATION:Montréal]], and one from [[LOCATION:Paris]], [[LOCATION:Texas]].
+[[PERSON#ws:Wilf Bovel]] [02:49]: [[LOCATION:Paris]], [[LOCATION:Texas]]? Is that real?
+[[PERSON#mo:Mairead O'Callaghan]] [02:51]: Very real. There's a little [[LOCATION:Eiffel Tower]] with a cowboy hat on it. It's her whole brand, the "other [[LOCATION:Paris]]".
+[[PERSON#vh:Victoria Hensley-Amadi]] [02:57]: I love that. Itinerary?
+[[PERSON#mo:Mairead O'Callaghan]] [02:59]: Land at [[LOCATION:Manchester]] on [[DATE:the 3rd of May]], two nights in the [[LOCATION:Lakes]], down to [[LOCATION:Chester]], train to [[LOCATION#bath:Bath]], finish in [[LOCATION:London]] with a [[NEG:Yorkshire pudding]] cooking class, because why not.
+[[PERSON#ws:Wilf Bovel]] [03:10]: And a [[NEG:Cornish pasty]] somewhere, surely.
+[[PERSON#mo:Mairead O'Callaghan]] [03:12]: Obviously.
+[[PERSON#vh:Victoria Hensley-Amadi]] [03:13]: Budget for that?
+[[PERSON#mo:Mairead O'Callaghan]] [03:15]: [[AMOUNT:Forty-two thousand]] all-in. I'll send the breakdown, [[EMAIL:mairead.oc@visitmeridian.example]] is where replies go.
+[[PERSON#vh:Victoria Hensley-Amadi]] [03:21]: Lovely. Anything else?
+[[PERSON#ws:Wilf Bovel]] [03:23]: Just that [[TOPIC:the chief exec is stepping down after the spring board meeting and nobody outside this room knows yet.]]
+[[PERSON#vh:Victoria Hensley-Amadi]] [03:30]: Yes. Please keep that to yourselves. Thanks both.

@@ -1,0 +1,61 @@
+speaker 1: nine one one what's the address of your emergency
+speaker 2: yes hi um it's my neighbor's house there's smoke coming out the kitchen
+speaker 1: okay what's the address
+speaker 2: it's [[LOCATION#addr:four four one two old orchard drive]] in [[LOCATION#ball:ball win]]
+speaker 1: is that [[LOCATION#ball:ballwin]] [[LOCATION#mo:missouri]]
+speaker 2: yes [[LOCATION#ball:ballwin]] sorry [[LOCATION#addr2:old orchard drive]] off of [[LOCATION:manchester road]]
+speaker 1: okay [[LOCATION#addr:four four one two old orchard]] can you see flames
+speaker 2: i can see like [[NEG:orange]] light in the window i think they were frying a [[NEG:turkey]] it's [[NEG:thanksgiving]]
+speaker 1: okay is anyone inside the house
+speaker 2: i don't know the husband is [[PERSON#ch:chester]] [[PERSON#ch:chester weatherby]] he's older i don't see his car
+speaker 1: okay i'm sending fire now stay on the line what's your name
+speaker 2: [[PERSON#mk:marisa kowalczyk-dunn]]
+speaker 1: and your callback number
+speaker 2: [[PHONE:three one four five five five zero one three eight]]
+speaker 1: okay [[PERSON#mk:marisa]] are you at a safe distance
+speaker 2: i'm across the street in my driveway
+speaker 1: good stay there do not go in
+speaker 2: oh god their dog is barking it's a [[NEG:german shepherd]] i can hear it
+speaker 1: okay don't go in the firefighters will look for the dog
+speaker 1: units are coming from the [[LOCATION:west county]] station on [[LOCATION:clayton road]] should be about six minutes
+speaker 2: okay okay
+speaker 1: is the house one story or two
+speaker 2: two story it's brick there's a big [[NEG:china]] cabinet right by the kitchen i remember from the party
+speaker 1: okay that's fine is the smoke getting worse
+speaker 2: yeah it's black now
+speaker 1: okay copy
+speaker 3: dispatch engine twenty two we're on [[LOCATION:highway forty]] westbound at [[LOCATION:lindbergh]] eta four
+speaker 1: engine twenty two copy structure fire [[LOCATION#addr:four four one two old orchard drive]] [[LOCATION#ball:ballwin]] cross street [[LOCATION:holloway road]] caller reports possible occupant and a dog
+speaker 3: copy is that off [[LOCATION:manchester]] or off [[LOCATION:new ballwin road]]
+speaker 1: off [[LOCATION:manchester]] west of [[LOCATION:kehrs mill]]
+speaker 3: copy
+speaker 2: wait wait i see [[PERSON#ch:chester]] he's coming around the side of the house he's okay
+speaker 1: okay is he injured
+speaker 2: he's coughing his hand looks burned
+speaker 1: okay tell him to stay with you an ambulance is coming too
+speaker 3: medic nine responding from [[LOCATION:chesterfield]]
+speaker 1: medic nine copy patient elderly male possible burns to hand smoke inhalation
+speaker 3: copy which hospital are we looking at
+speaker 1: closest burn unit is [[LOCATION:mercy riverbend]] downtown or you can go to [[LOCATION#slu:saint louis university hospital]]
+speaker 3: copy we'll advise on scene
+speaker 2: he says his daughter lives in [[LOCATION:kirkwood]] can someone call her
+speaker 1: we can help with that once he's checked out what's her name
+speaker 2: [[PERSON#gw:georgia]] [[PERSON#gw:georgia weatherby]] i don't have her number
+speaker 1: that's okay the medics will get it from him
+speaker 2: okay the truck's here i can see it coming down from [[LOCATION:clayton]]
+speaker 1: okay good i'm going to stay on until they're with you
+speaker 2: he keeps saying he wants to go to [[LOCATION:saint lukes]] in [[LOCATION:chesterfield]] instead
+speaker 1: the medics will decide that with him
+speaker 3: engine twenty two on scene smoke showing from the rear we're going in
+speaker 1: copy twenty two on scene
+speaker 2: they're here thank you so much
+speaker 1: you're welcome stay across the street okay
+speaker 2: okay should i move my car i'm parked kind of in front
+speaker 1: if you can pull it into your driveway that would help
+speaker 2: okay i'll [[NEG:head north]] up the block and come back around
+speaker 1: that's fine
+speaker 3: dispatch twenty two fire is contained to the kitchen dog is out and safe
+speaker 1: copy contained to kitchen
+speaker 2: oh thank god
+speaker 1: okay [[PERSON#mk:marisa]] i'm going to disconnect now the crew has it
+speaker 2: thank you bye

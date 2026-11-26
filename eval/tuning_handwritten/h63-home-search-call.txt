@@ -1,0 +1,42 @@
+[[PERSON#ab:Austin Brightwater]] (00:00:02): Hi, is this [[PERSON#nq:Nadia]]?
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:00:04): Yes, hi! Sorry, I'm in a cab coming back from [[LOCATION:O'Hare]].
+[[PERSON#ab:Austin Brightwater]] (00:00:08): No worries. Welcome to [[LOCATION#chi:Chicago]]. Or welcome back, I guess. Where are you flying in from?
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:00:13): [[LOCATION#sf:SF]]. Well, [[LOCATION:Oakland]] technically, we live in [[LOCATION:Rockridge]]. But everyone just says the [[LOCATION:Bay Area]].
+[[PERSON#ab:Austin Brightwater]] (00:00:21): Got it. So you and your husband are both moving here in the spring?
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:00:25): [[DATE:March]], hopefully. His job is in the [[LOCATION:Loop]] and mine is mostly remote but I'll go into the office in [[LOCATION:Evanston]] twice a week.
+[[PERSON#ab:Austin Brightwater]] (00:00:34): Okay, that's helpful. That's kind of a north-south split. Have you thought about neighborhoods?
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:00:39): A little. A friend said [[LOCATION:Hyde Park]], but I think that's too far south for me.
+[[PERSON#ab:Austin Brightwater]] (00:00:44): For [[LOCATION:Evanston]], yeah, [[LOCATION:Hyde Park]] would be a long haul. I'd look at [[LOCATION:Andersonville]], [[LOCATION:Edgewater]], [[LOCATION:Rogers Park]]. Maybe [[LOCATION:Lincoln Square]].
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:00:54): Is [[LOCATION:Rogers Park]] the one by the lake?
+[[PERSON#ab:Austin Brightwater]] (00:00:57): They're all kind of by the lake. [[LOCATION:Rogers Park]] is the last one before [[LOCATION:Evanston]] proper. You'd be on the [[LOCATION:Red Line]] for him.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:01:05): Okay. And budget is around [[AMOUNT:eight fifty]], up to [[AMOUNT:nine hundred]] if it's perfect.
+[[PERSON#ab:Austin Brightwater]] (00:01:11): [[AMOUNT:Eight fifty]] gets you a lot more here than in [[LOCATION#sf:San Francisco]], I promise.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:01:15): That's what everyone says. What about the suburbs? Like [[LOCATION:Oak Park]]?
+[[PERSON#ab:Austin Brightwater]] (00:01:20): [[LOCATION:Oak Park]]'s lovely, but it's west, so his commute is fine and yours to [[LOCATION:Evanston]] is a pain. Taxes are high in [[LOCATION:Cook County]] generally.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:01:30): Higher than [[LOCATION:DuPage]]?
+[[PERSON#ab:Austin Brightwater]] (00:01:32): Usually, yes. [[LOCATION:Naperville]], [[LOCATION:Wheaton]], [[LOCATION:Glen Ellyn]], those are all [[LOCATION:DuPage County]] and a bit cheaper on taxes. But you'd be on Metra for an hour.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:01:43): No, an hour's too much. Okay, so city or close north suburbs.
+[[PERSON#ab:Austin Brightwater]] (00:01:47): Right. I actually have one I want to show you. It's on [[LOCATION:Glenwood Avenue]], just north of [[LOCATION:Devon]].
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:01:54): What's it like?
+[[PERSON#ab:Austin Brightwater]] (00:01:56): Brick two-flat, built [[DATE:1911]]. Original [[NEG:French doors]] between the living and dining room. Kind of a [[NEG:Georgian]] facade, not [[NEG:Victorian]] at all.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:02:05): Oh, I love [[NEG:French doors]].
+[[PERSON#ab:Austin Brightwater]] (00:02:07): Everyone does. It's listed at [[AMOUNT:$879,000]]. The address is [[LOCATION:6412 North Glenwood]], unit is the whole building.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:02:15): Is that near the [[LOCATION:Loyola]] stop?
+[[PERSON#ab:Austin Brightwater]] (00:02:17): Two blocks. And there's a great bakery on the corner of [[LOCATION:Clark and Devon]], they do a cardamom [[NEG:Danish]] that's honestly worth the move.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:02:26): Ha, sold. Can we see it when I'm back in town?
+[[PERSON#ab:Austin Brightwater]] (00:02:29): When are you back?
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:02:30): [[DATE:The fourteenth]]. I'm staying at a hotel on [[LOCATION:Michigan Avenue]], near the [[LOCATION:Water Tower]].
+[[PERSON#ab:Austin Brightwater]] (00:02:37): Perfect. I'll pick you up and we can do [[LOCATION:Edgewater]] and [[LOCATION:Andersonville]] in one afternoon, then drive up [[LOCATION:Sheridan Road]] so you can see [[LOCATION:Evanston]] too.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:02:47): That sounds great. Oh, one more question. My husband keeps saying we should look at [[LOCATION:Wicker Park]].
+[[PERSON#ab:Austin Brightwater]] (00:02:53): [[LOCATION:Wicker Park]] is fun. It's on the [[LOCATION:Blue Line]], so straight to [[LOCATION:O'Hare]], which you'll like if you fly back to [[LOCATION:California]] a lot.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:03:02): We will, his parents are in [[LOCATION:Sacramento]].
+[[PERSON#ab:Austin Brightwater]] (00:03:05): Then [[LOCATION:Wicker Park]] or [[LOCATION:Logan Square]] might work. I'll pull a few from there too.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:03:10): Amazing. What's your email? I'll send you our pre-approval.
+[[PERSON#ab:Austin Brightwater]] (00:03:13): It's [[EMAIL:austin@lakefrontkeys.example]]. And my cell is [[PHONE:312-555-0182]].
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:03:19): Got it. The pre-approval's from [[ORG:Carrowmont Bank]], is that okay?
+[[PERSON#ab:Austin Brightwater]] (00:03:23): Totally fine. Are they the [[LOCATION:Walnut Creek]] branch you mentioned in your email?
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:03:27): Yeah, that's the one.
+[[PERSON#ab:Austin Brightwater]] (00:03:29): Great. One thing to know: winter showings are cold. Bring a real coat, not a [[LOCATION:Bay Area]] coat.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:03:35): Ha. Noted. I'll buy one on [[LOCATION:State Street]].
+[[PERSON#ab:Austin Brightwater]] (00:03:38): Good plan. Okay, see you on [[DATE:the fourteenth]]. Safe ride downtown.
+[[PERSON#nq:Nadia Quesnel-Obi]] (00:03:42): Thanks, bye!

@@ -1,0 +1,51 @@
+[[PERSON#ow:Lelath Levur]]: Good afternoon, everyone. This is the scoring calibration call for the rural broadband round. We have twelve finalists. I want to get through them in an hour.
+[[PERSON#bt:Bettina Thornquist]]: Afternoon.
+[[PERSON#lr:Lamar Ruffin-Acosta]]: Hi all.
+[[PERSON#ow:Lelath Levur]]: Let's start with the [[LOCATION:Louisiana]] applications. There are three. [[PERSON#bt:Bettina]]?
+[[PERSON#bt:Bettina Thornquist]]: Okay. First is [[LOCATION:Terrebonne Parish]], partnered with [[LOCATION:Lafourche]]. They want to run fiber down [[LOCATION:Highway 56]] to [[LOCATION:Chauvin]] and [[LOCATION:Cocodrie]], and down [[LOCATION:LA-1]] to [[LOCATION:Golden Meadow]] and [[LOCATION:Grand Isle]].
+[[PERSON#lr:Lamar Ruffin-Acosta]]: [[LOCATION:Grand Isle]] got wiped out in the last hurricane, didn't it?
+[[PERSON#bt:Bettina Thornquist]]: Mostly. Which is part of their case. They're asking for [[AMOUNT:$18.6 million]], with a [[PERCENT:twenty-five percent]] local match.
+[[PERSON#ow:Lelath Levur]]: And the score?
+[[PERSON#bt:Bettina Thornquist]]: I gave it [[PERCENT:eighty-four]]. Strong need, weaker on sustainability. Who maintains a line that floods every three years?
+[[PERSON#ow:Lelath Levur]]: Fair. Second?
+[[PERSON#bt:Bettina Thornquist]]: [[LOCATION:Tangipahoa]]. Smaller ask, [[AMOUNT:$4.2 million]], to connect the area between [[LOCATION:Amite]] and [[LOCATION:Kentwood]] up to the [[LOCATION:Mississippi]] line.
+[[PERSON#lr:Lamar Ruffin-Acosta]]: That one's well-written. I gave it [[PERCENT:eighty-eight]].
+[[PERSON#ow:Lelath Levur]]: And the third, [[LOCATION:St. Tammany]]?
+[[PERSON#bt:Bettina Thornquist]]: Withdrawn. They got funded by the state instead.
+[[PERSON#ow:Lelath Levur]]: Okay, good for them. Next block, [[LOCATION:Appalachia]]. [[PERSON#lr:Lamar]].
+[[PERSON#lr:Lamar Ruffin-Acosta]]: Right. I have [[LOCATION:Eastern Kentucky]] and [[LOCATION:West Virginia]]. In [[LOCATION:Kentucky]], the consortium is [[LOCATION:Harlan]], [[LOCATION:Letcher]] and [[LOCATION:Pike County]]. They're asking [[AMOUNT:$22 million]].
+[[PERSON#bt:Bettina Thornquist]]: That's the biggest ask in the round.
+[[PERSON#lr:Lamar Ruffin-Acosta]]: It is. But the terrain is brutal. Hollows, ridges. They need towers on the ridgelines above [[LOCATION:Whitesburg]] and [[LOCATION:Cumberland]]. And honestly, the need is real, the take rate in [[LOCATION:Letcher County]] right now is under [[PERCENT:forty percent]].
+[[PERSON#ow:Lelath Levur]]: Score?
+[[PERSON#lr:Lamar Ruffin-Acosta]]: [[PERCENT:Ninety-one]]. Highest I gave.
+[[PERSON#bt:Bettina Thornquist]]: I had it at [[PERCENT:eighty-six]], but I'll defer.
+[[PERSON#ow:Lelath Levur]]: And [[LOCATION:West Virginia]]?
+[[PERSON#lr:Lamar Ruffin-Acosta]]: [[LOCATION:McDowell County]]. [[LOCATION:Welch]] and the towns along [[LOCATION:Route 52]]. Decent application, a bit vague on the middle mile. [[PERCENT:Seventy-nine]].
+[[PERSON#ow:Lelath Levur]]: Okay. Moving on. The [[LOCATION:Black Belt]].
+[[PERSON#bt:Bettina Thornquist]]: Sorry, could we say "the [[LOCATION:Alabama Black Belt]] region" in the notes? Some reviewers last round didn't know it was a place.
+[[PERSON#ow:Lelath Levur]]: Good call. [[LOCATION:Alabama Black Belt]]. [[PERSON#bt:Bettina]]?
+[[PERSON#bt:Bettina Thornquist]]: Two applications. [[LOCATION:Hale County]], centered on [[LOCATION:Greensboro]] and [[LOCATION:Moundville]], and a joint one from [[LOCATION:Dallas County]] and [[LOCATION:Wilcox]], based out of [[LOCATION:Selma]].
+[[PERSON#lr:Lamar Ruffin-Acosta]]: [[LOCATION:Dallas County]], [[LOCATION:Alabama]], to be clear. Not [[LOCATION:Texas]].
+[[PERSON#bt:Bettina Thornquist]]: Right. Not [[LOCATION:Texas]]. And [[LOCATION:Greensboro]], [[LOCATION:Alabama]], not [[LOCATION:North Carolina]].
+[[PERSON#ow:Lelath Levur]]: This is why we have calibration calls.
+[[PERSON#bt:Bettina Thornquist]]: Ha. Both are solid. [[LOCATION:Selma]] one is stronger, [[PERCENT:eighty-nine]].
+[[PERSON#ow:Lelath Levur]]: Okay. [[LOCATION:Arkansas]]?
+[[PERSON#lr:Lamar Ruffin-Acosta]]: One, from [[LOCATION:Hope]].
+[[PERSON#ow:Lelath Levur]]: [[LOCATION:Hope]], [[LOCATION:Arkansas]]. And how is it?
+[[PERSON#lr:Lamar Ruffin-Acosta]]: It's, I [[NEG:hope]] they resubmit, honestly. Missing the engineering study. [[PERCENT:Sixty-two]].
+[[PERSON#ow:Lelath Levur]]: Okay. Tribal set-aside. [[PERSON#bt:Bettina]]?
+[[PERSON#bt:Bettina Thornquist]]: [[LOCATION:Navajo Nation]] chapter houses, three of them. [[LOCATION:Chinle]], [[LOCATION:Kayenta]] and [[LOCATION:Tuba City]]. Administered from [[LOCATION:Window Rock]]. [[AMOUNT:$9.8 million]].
+[[PERSON#lr:Lamar Ruffin-Acosta]]: I loved that one. The schools in [[LOCATION:Kayenta]] are doing homework in the parking lot of the gas station on [[LOCATION:Highway 160]].
+[[PERSON#ow:Lelath Levur]]: Score?
+[[PERSON#bt:Bettina Thornquist]]: [[PERCENT:Ninety-three]]. Top of the round.
+[[PERSON#ow:Lelath Levur]]: Okay. Now, a process issue. [[TOPIC:One of our reviewers, the one who scored the Pike County application, used to work for the consortium's engineering firm and didn't disclose it.]]
+[[PERSON#lr:Lamar Ruffin-Acosta]]: Oh. Okay. That's a problem.
+[[PERSON#ow:Lelath Levur]]: It is. We'll re-score that one with a fresh reviewer. Please keep it confidential until the ethics office weighs in.
+[[PERSON#bt:Bettina Thornquist]]: Understood.
+[[PERSON#ow:Lelath Levur]]: Last thing. The site visits. We'll do [[LOCATION:Harlan]] and [[LOCATION:Selma]] in person. [[LOCATION:Chinle]] by video unless someone wants to fly into [[LOCATION:Gallup]].
+[[PERSON#lr:Lamar Ruffin-Acosta]]: I'll go. I've never been.
+[[PERSON#ow:Lelath Levur]]: Great. Travel desk is [[EMAIL:travel.desk@ruralconnect.example]]. And the [[NEG:summit]] in [[DATE:March]] is where we announce. Not the [[LOCATION:Bourbon County]] one, the one in [[LOCATION:Lexington]].
+[[PERSON#lr:Lamar Ruffin-Acosta]]: Shame. I was looking forward to the [[NEG:bourbon]].
+[[PERSON#ow:Lelath Levur]]: You can have a [[NEG:Moscow Mule]] in [[LOCATION:Lexington]] like everyone else.
+[[PERSON#lr:Lamar Ruffin-Acosta]]: Fine.
+[[PERSON#ow:Lelath Levur]]: Ha. Every [[NEG:grant]] cycle, [[PERSON#lr:Lamar]]. Every cycle. Thanks, everyone.

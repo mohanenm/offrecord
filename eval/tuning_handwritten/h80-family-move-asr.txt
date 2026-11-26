@@ -1,0 +1,66 @@
+speaker 1: okay i think everyone's on can you hear me
+speaker 2: yeah we can hear you
+speaker 3: hi hi sorry i'm in the car
+speaker 1: okay so i wanted to talk about dad because the doctor called again
+speaker 2: what did she say
+speaker 1: basically he can't keep living alone up at the lake house in [[LOCATION#cda:core da lane]]
+speaker 3: [[LOCATION#cda:coeur d'alene]] he's going to hate that
+speaker 1: i know he loves that place he's been on [[LOCATION:hayden lake]] for thirty years
+speaker 2: he's going to say he values his [[NEG:independence]]
+speaker 1: he already did he said it like four times
+speaker 3: okay so what are the options
+speaker 1: so option one he moves in with [[PERSON#ruth:ruthie]] in [[LOCATION#spv:spoke can valley]]
+speaker 2: [[LOCATION#spv:spokane valley]] is only like forty minutes from his house right
+speaker 1: yeah straight down [[LOCATION:i ninety]] past [[LOCATION:post falls]] and [[LOCATION:liberty lake]]
+speaker 3: but [[PERSON#ruth:ruthie]] has three kids and a tiny house
+speaker 1: right that's the problem
+speaker 2: option two
+speaker 1: option two he comes to us in [[LOCATION#stp:saint paul]]
+speaker 3: [[LOCATION#mn:minnesota]] in the winter at eighty four years old no
+speaker 1: we're in [[LOCATION:mac groveland]] it's near the hospital there's a [[LOCATION:grand avenue]] bus right outside
+speaker 2: he'd be closer to [[PERSON#jor:jordan]] though
+speaker 1: yeah [[PERSON#jor:jordan]] would love it he'd have his grandpa to watch the [[NEG:twins]] games with
+speaker 3: that's a real plus honestly
+speaker 2: what about [[LOCATION:boise]] there's that place in [[LOCATION:meridian]] aunt [[PERSON#vic:victoria]] looked at
+speaker 1: the assisted living one off [[LOCATION:eagle road]]
+speaker 2: yeah
+speaker 1: it's [[NEG:nice]] but it's like [[AMOUNT:six thousand]] a month
+speaker 3: [[AMOUNT:six thousand]] wow
+speaker 1: and he doesn't know anyone in [[LOCATION:boise]] except aunt [[PERSON#vic:victoria]] and she's moving to [[LOCATION#vbc:victoria]] in the spring
+speaker 2: wait [[PERSON#vic:victoria]] is moving to [[LOCATION#vbc:victoria]]
+speaker 1: [[LOCATION#vbc:victoria]] [[LOCATION:british columbia]] yes her husband's from there i swear i'm not making it up
+speaker 3: that's amazing
+speaker 2: okay so what about the condo
+speaker 1: the [[LOCATION#ftl:fort lauder dale]] condo
+speaker 3: is he still going down there in the winters
+speaker 1: he went last year but the doctor doesn't want him flying alone anymore
+speaker 2: we should sell it honestly it's just sitting there in [[LOCATION:las olas]] costing money
+speaker 1: it's not on [[LOCATION:las olas]] it's off [[LOCATION:sunrise boulevard]] by the [[LOCATION:galleria]]
+speaker 2: whatever it's in [[LOCATION#ftl:fort lauderdale]]
+speaker 3: and the summer place
+speaker 1: the [[LOCATION#mv:marthas vineyard]] place is mom's family's it's not even his to sell
+speaker 3: right right the [[LOCATION:edgartown]] house
+speaker 1: [[LOCATION:oak bluffs]] actually but yes
+speaker 2: okay so realistically it's [[LOCATION#spv:spokane valley]] or [[LOCATION#stp:saint paul]]
+speaker 1: or we find something in [[LOCATION#cda:coeur d'alene]] itself like home care so he can stay
+speaker 3: is that possible
+speaker 1: there's an agency in [[LOCATION:sand point]] and one in [[LOCATION#cda:coeur d'alene]] i called both
+speaker 2: what did they say
+speaker 1: the [[LOCATION#cda:core da lane]] one can do eight hours a day for about [[AMOUNT:thirty two dollars an hour]]
+speaker 3: that's like what [[AMOUNT:seven thousand]] a month
+speaker 1: about that yeah
+speaker 2: okay that's more than [[LOCATION:meridian]]
+speaker 1: but he stays home
+speaker 3: [[NEG:hope]] he'd go for that honestly i think that's the one he'd pick
+speaker 2: i'll call him tonight
+speaker 1: okay and can somebody check his mail is still forwarding his address is [[LOCATION#addr:eleven eighty two east hayden lake road hayden idaho eight three eight three five]]
+speaker 3: i'll do it
+speaker 2: also he asked me to bring him a bag of [[NEG:idaho potatoes]] when i visit which is ridiculous because he lives in [[LOCATION:idaho]]
+speaker 3: that's so dad
+speaker 1: and [[NEG:swiss chard]] from the farmers market he's obsessed
+speaker 2: okay i'm flying into [[LOCATION:geg]] on [[DATE:the eighteenth]]
+speaker 1: [[LOCATION:spokane]] airport okay i'll pick you up
+speaker 3: i can come the week after from [[LOCATION:portland]]
+speaker 1: perfect okay love you guys talk soon
+speaker 2: bye
+speaker 3: bye drive safe [[PERSON#ruth:ruthie]] said she'd make dinner

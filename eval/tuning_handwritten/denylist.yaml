@@ -395,3 +395,59 @@ denylist:
     category: PERSON
     aliases:
     - Albescu-Moore
+  # --- h61-h80 (place-heavy batch) ---
+  # --- Clients ---
+  - name: Bellhaven Dinnerware
+    category: CLIENT
+    aliases: [Bellhaven]
+  - name: Greyfield Provisions
+    category: CLIENT
+    aliases: [Greyfield]
+  - name: Holloway Valve
+    category: CLIENT
+    aliases: [Holloway]
+  - name: Tidewright
+    category: CLIENT
+    aliases: []
+  - name: Delgado Family Orchards
+    category: CLIENT
+    aliases: []
+
+  # --- Codenames ---
+  - name: Project Phoenix
+    category: CODENAME
+    aliases: []
+
+  # --- Organisations ---
+  - name: Saltmeadow Mutual
+    category: ORG
+    aliases: [Saltmeadow]
+  - name: Lidos Relocation
+    category: ORG
+    aliases: [Lidos]
+  - name: Coldspur Carriers
+    category: ORG
+    aliases: [Coldspur]
+  - name: Prairieline Student Transit
+    category: ORG
+    aliases: [Prairieline]
+  - name: Hearthline Furniture
+    category: ORG
+    aliases: [Hearthline]
+
+  # --- People ---
+  - name: Rosalind Merriweather
+    category: PERSON
+    aliases: [Merriweather]
+  - name: Greer Wollaston
+    category: PERSON
+    aliases: [Wollaston]
+  - name: Solange Batiste-Whitlock
+    category: PERSON
+    aliases: [Solange]
+  - name: Bertram Hargitay-Lund
+    category: PERSON
+    aliases: [Hargitay-Lund]
+  - name: Leontyne Navarro-Pike
+    category: PERSON
+    aliases: [Leontyne]

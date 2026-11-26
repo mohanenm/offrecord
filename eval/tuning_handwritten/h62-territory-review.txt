@@ -1,0 +1,50 @@
+[[PERSON#gw:Greer Wollaston]]: Can everyone hear me? [[PERSON#jd:Jordan]], you're on mute I think.
+[[PERSON#jd:Jordan Pashkevich]]: Sorry, sorry. I'm here. I'm in the car outside a customer, eating a [[NEG:Philly cheesesteak]].
+[[PERSON#gw:Greer Wollaston]]: No problem. So, territory review, [[LOCATION:Mountain West]] and [[LOCATION:Northwest]]. Let's go through it rep by rep. [[PERSON#jd:Jordan]], you first.
+[[PERSON#jd:Jordan Pashkevich]]: Okay. [[LOCATION:Boise]] and [[LOCATION:Spokane]] both missed. I'll say it up front.
+[[PERSON#gw:Greer Wollaston]]: By how much?
+[[PERSON#jd:Jordan Pashkevich]]: [[LOCATION:Boise]] came in at [[AMOUNT:$212,000]] against [[AMOUNT:$260,000]]. [[LOCATION:Spokane]] was closer, maybe [[PERCENT:ninety-three percent]].
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Was that the [[CLIENT#hv:Holloway Valve]] slip?
+[[PERSON#jd:Jordan Pashkevich]]: Partly. [[CLIENT#hv:Holloway]] pushed their order to [[DATE:Q1]]. And the [[LOCATION:Coeur d'Alene]] account went dark on me.
+[[PERSON#gw:Greer Wollaston]]: Went dark how?
+[[PERSON#jd:Jordan Pashkevich]]: Their buyer moved to a [[LOCATION:Denver]]-based role and nobody replaced him.
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Ugh. Who's the new contact?
+[[PERSON#jd:Jordan Pashkevich]]: Supposedly [[PERSON:Austin Rebelo]]. I have his cell, [[PHONE:208-555-0147]], but he hasn't called back.
+[[PERSON#gw:Greer Wollaston]]: Keep trying. What about [[LOCATION#slc:Salt Lake City]]?
+[[PERSON#jd:Jordan Pashkevich]]: [[LOCATION#slc:Salt Lake]] is great. [[LOCATION#slc:SLC]] was [[PERCENT:118%]] of plan. [[LOCATION:Ogden]], [[LOCATION:Provo]], [[LOCATION:Orem]], all up.
+[[PERSON#gw:Greer Wollaston]]: Nice.
+[[PERSON#jd:Jordan Pashkevich]]: And [[LOCATION:Sandy]], which, funny story, the buyer there is also named [[PERSON:Sandy]].
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Of course she is.
+[[PERSON#gw:Greer Wollaston]]: Okay, [[PERSON#mf:Marguerite]], you're next. [[LOCATION:Front Range]].
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: So from [[LOCATION:Fort Collins]] down to [[LOCATION:Pueblo]], we're at [[PERCENT:104%]]. [[LOCATION#cs:Colorado Springs]] carried it.
+[[PERSON#gw:Greer Wollaston]]: What drove [[LOCATION#cs:the Springs]]?
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Two new distributors. One's out by the airport, [[LOCATION:COS]], and the other is a [[LOCATION:Castle Rock]] outfit that used to buy from [[NEG:Amazon]] Business.
+[[PERSON#jd:Jordan Pashkevich]]: Wait, they were buying industrial valves off [[NEG:Amazon]]?
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Fittings, mostly. Anyway they're ours now.
+[[PERSON#gw:Greer Wollaston]]: Love it. Any risk?
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: [[LOCATION:Grand Junction]]. The [[LOCATION:Western Slope]] in general is slow. I drive out once a month and it's four hours each way on [[LOCATION:I-70]].
+[[PERSON#gw:Greer Wollaston]]: Could we cover it from [[LOCATION:Moab]] or [[LOCATION:Montrose]]?
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: [[LOCATION:Montrose]] maybe. There's nothing in [[LOCATION:Moab]] but tourists and arches.
+[[PERSON#gw:Greer Wollaston]]: Ha. Okay. Now the bigger topic. We're thinking about splitting the territory.
+[[PERSON#jd:Jordan Pashkevich]]: Splitting how?
+[[PERSON#gw:Greer Wollaston]]: The [[LOCATION:Inland Northwest]] goes to a new hire. [[LOCATION:Spokane]], [[LOCATION:Coeur d'Alene]], [[LOCATION:Lewiston]], [[LOCATION#mos:Moscow]], [[LOCATION:Pullman]]. You'd keep [[LOCATION:Idaho]] south of the river plus [[LOCATION:Utah]].
+[[PERSON#jd:Jordan Pashkevich]]: [[LOCATION#mos:Moscow]], [[LOCATION:Idaho]], not the other one, right?
+[[PERSON#gw:Greer Wollaston]]: Ha, yes. We are not opening [[LOCATION:Russia]].
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Who's the new hire?
+[[PERSON#gw:Greer Wollaston]]: [[PERSON:Florence Achterhof]]. She's coming over from a [[LOCATION:Toledo]] distributor. Starts [[DATE:January 6th]].
+[[PERSON#jd:Jordan Pashkevich]]: Is she moving out here?
+[[PERSON#gw:Greer Wollaston]]: She's relocating to [[LOCATION:Liberty Lake]], yeah. With her dog. She has a [[NEG:Boston terrier]] named Pierogi, she told me that in the interview.
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: That's the most important detail.
+[[PERSON#gw:Greer Wollaston]]: Clearly. Okay, quotas. [[PERSON#jd:Jordan]], your new number would be [[AMOUNT:$2.4 million]] for the year.
+[[PERSON#jd:Jordan Pashkevich]]: Down from what, three point one?
+[[PERSON#gw:Greer Wollaston]]: [[AMOUNT:Three point one]], yeah. Proportional.
+[[PERSON#jd:Jordan Pashkevich]]: I'm okay with that if I get [[LOCATION:Twin Falls]] back. It was moved to the [[LOCATION:Reno]] rep last year.
+[[PERSON#gw:Greer Wollaston]]: I'll ask. [[PERSON:Dashiell]] in [[LOCATION:Reno]] might fight it.
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: He'll fight anything that touches the [[LOCATION:Magic Valley]].
+[[PERSON#gw:Greer Wollaston]]: Probably. Okay, last thing. [[NEG:Head west]] on [[DATE:Monday]] if you can, we're doing a ride-along in [[LOCATION:Bend]].
+[[PERSON#jd:Jordan Pashkevich]]: [[LOCATION:Bend]], [[LOCATION:Oregon]]? That's not even our territory.
+[[PERSON#gw:Greer Wollaston]]: It might be soon. That's all I can say.
+[[PERSON#mf:Marguerite Fenwick-Oyelaja]]: Mysterious.
+[[PERSON#gw:Greer Wollaston]]: Send me your forecasts by [[DATE:Wednesday]], please. [[EMAIL:greer.w@talusvalve.example]].
+[[PERSON#jd:Jordan Pashkevich]]: Will do. Okay, my customer's waving at me, I have to go.
+[[PERSON#gw:Greer Wollaston]]: Go. Thanks both.
