@@ -150,6 +150,10 @@ def _warn_if_trackable(dirs: Sequence[str]) -> None:
 # without importing the evaluation package; a test checks they match).
 SET_CHOICES = ("tuning", "tuning-hw", "validation", "user", "sealed", "heldout")
 EXTENSIONS = {"txt": ".txt", "vtt": ".vtt", "srt": ".srt", "json": ".json"}
+KEY_FILE_HELP = (
+    "key file (else OFFRECORD_KEY_FILE, OFFRECORD_PASSPHRASE, the default key from `keygen` "
+    "if it exists, or a prompt)"
+)
 
 
 def resolve_tier(requested: str | None, cfg: object) -> int:
@@ -203,8 +207,11 @@ def resolve_tier(requested: str | None, cfg: object) -> int:
 
 
 def _secret_notice(secret: object) -> None:
-    if getattr(secret, "source", "") == "env":
+    source = getattr(secret, "source", "")
+    if source == "env":
         print("offrecord: using the passphrase from OFFRECORD_PASSPHRASE", file=sys.stderr)
+    elif source == "default":
+        print("offrecord: using the default key file from `offrecord keygen`", file=sys.stderr)
 
 
 def _need_secret(key_file: str | None) -> Secret:
@@ -235,13 +242,13 @@ def _cmd_redact(args: argparse.Namespace) -> int:
 
     from offrecord import adapters, audit, crypto, output
     from offrecord.compress import compress
-    from offrecord.errors import OutputExistsError, UsageError
+    from offrecord.errors import OutputError, OutputExistsError, UsageError
     from offrecord.limits import DEFAULT_LIMITS
     from offrecord.paths import mapping_store
     from offrecord.redact.pipeline import is_personal, readability, redact_document, review_flags
     from offrecord.redact.replace import Mapping
     from offrecord.restore import bare_collisions
-    from offrecord.safeio import ensure_private_dir, read_input_text, write_atomic
+    from offrecord.safeio import check_writable, ensure_private_dir, read_input_text, write_atomic
     from offrecord.tokens import get_counter
 
     clip = getattr(args, "clipboard", False)
@@ -284,8 +291,13 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             return Path(args.mapping_out), args.force
         return ensure_private_dir(mapping_store()) / f"{mapping_id}.ormap", False
 
-    # Check where the mapping will go *before* writing any output, so a refused mapping can never
-    # leave an output whose header names a mapping that was not saved.
+    # Check where the outputs and the mapping will go *before* any work or writing, so a refused
+    # mapping can never leave an output whose header names a mapping that was not saved, and a
+    # refused output never leaves a mapping behind.
+    if args.output:
+        check_writable(args.output, force=args.force)
+    if args.out_dir and not Path(args.out_dir).is_dir():
+        raise OutputError("output directory does not exist")
     if secret is not None and not args.no_mapping:
         probe, force = mapping_dest("or1-probe")
         crypto.check_separation(probe, secret)
@@ -298,9 +310,9 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         shared = Mapping.from_payload(payload)
         shared.scope = "project"
 
-    def save_mapping(mapping: Mapping, rendered: list[str]) -> None:
+    def save_mapping(mapping: Mapping, rendered: list[str]) -> Path | None:
         if secret is None or args.no_mapping:
-            return
+            return None
         payload = mapping.to_payload()
         # Bare tokens that occur naturally in the final output (metadata included).
         payload["bare_collisions"] = bare_collisions(rendered, list(mapping.entries))
@@ -308,7 +320,7 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         crypto.check_separation(dest, secret)
         write_atomic(dest, crypto.encrypt("map", mapping.id, payload, secret), force=force)
         print(f"offrecord: mapping {mapping.id} written to {dest}", file=sys.stderr)
-        userconfig.remember_mapping(dest)
+        return dest
 
     project_rendered: list[str] = []
     pending: list[tuple[Path | None, str]] = []
@@ -362,12 +374,16 @@ def _cmd_redact(args: argparse.Namespace) -> int:
         elif args.output:
             dest = Path(args.output)
         if shared is None:
-            save_mapping(mapping, [rendered])  # mapping first, then the output
+            if dest is not None:
+                check_writable(dest, force=args.force)
+            saved = save_mapping(mapping, [rendered])  # mapping first, then the output
             if clip:
                 clipboard.write_text(rendered)
                 print("offrecord: redacted text copied to the clipboard", file=sys.stderr)
             else:
                 _emit(dest, rendered, args.force, write_atomic, n_input)
+            if saved is not None:  # only once its output exists (`unpaste` uses it)
+                userconfig.remember_mapping(saved)
         else:
             project_rendered.append(rendered)
             pending.append((dest, rendered))
@@ -383,9 +399,14 @@ def _cmd_redact(args: argparse.Namespace) -> int:
             print(f"offrecord: tier 2 check: {kept} guessed name(s) judged ordinary words; left "
                   "visible and flagged for review", file=sys.stderr)  # fmt: skip
     if shared is not None:
-        save_mapping(shared, project_rendered)
+        for dest, _rendered in pending:
+            if dest is not None:
+                check_writable(dest, force=args.force)
+        saved = save_mapping(shared, project_rendered)
         for i, (dest, rendered) in enumerate(pending):
             _emit(dest, rendered, args.force, write_atomic, i)
+        if saved is not None:
+            userconfig.remember_mapping(saved)
     if args.audit and secret is not None:
         audit_id = audit.new_id()
         dest_a = ensure_private_dir(mapping_store()) / f"{audit_id}.oraudit"
@@ -503,11 +524,11 @@ def _cmd_restore(args: argparse.Namespace) -> int:
         )
     mapping_id, payload = _decrypt_file(args.mapping, "map", _need_secret(args.key_file))
     out, rep = restore_text(text, payload, mapping_id)
+    _report_restore(rep, args.strict)  # before writing: --strict writes nothing on failure
     if args.output:
         write_atomic(args.output, out.encode("utf-8"), force=args.force)
     else:
         sys.stdout.write(out)
-    _report_restore(rep, args.strict)
     return ExitCode.OK
 
 
@@ -529,7 +550,7 @@ def _report_restore(rep, strict: bool) -> None:
               "left as is because they also occur naturally in the redacted text",
               file=sys.stderr)  # fmt: skip
     if strict and (rep.unknown or rep.ambiguous):
-        raise MappingError("restore incomplete (--strict)")
+        raise MappingError("restore incomplete (--strict); nothing was written")
 
 
 _PASTE_DEFAULTS = {
@@ -560,12 +581,12 @@ def _cmd_unpaste(args: argparse.Namespace) -> int:
     if not args.mapping:
         print(f"offrecord: using the most recent mapping ({mapping_id})", file=sys.stderr)
     out, rep = restore_text(text, payload, mapping_id)
+    _report_restore(rep, args.strict)  # before writing: --strict writes nothing on failure
     if args.stdout:
         sys.stdout.write(out)
     else:
         clipboard.write_text(out)
         print("offrecord: restored text copied to the clipboard", file=sys.stderr)
-    _report_restore(rep, args.strict)
     return ExitCode.OK
 
 
@@ -847,8 +868,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="0: rules only (default); 1: + NER models; 2: + LLM labels; auto: by RAM and models",
     )
     sp.add_argument("--no-mapping", action="store_true", help="one-way run: discard the mapping")
-    sp.add_argument("--key-file", help="key file for the mapping (else OFFRECORD_KEY_FILE, "
-                    "OFFRECORD_PASSPHRASE, or a prompt)")  # fmt: skip
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument("--mapping-out", help="where to write the encrypted mapping "
                     "(default: private per-user store)")  # fmt: skip
     sp.add_argument("--mapping-in", help="extend an existing (project) mapping file in place")
@@ -870,13 +890,13 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--tokenizer", default="auto")
     sp.add_argument("--tier", choices=["0", "1", "2", "auto"], default=None)
     sp.add_argument("--no-mapping", action="store_true", help="one-way: cannot be restored")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument("--prompt", help="wrap the result in an LLM prompt with this instruction")
     sp.set_defaults(func=_cmd_paste)
 
     sp = sub.add_parser("unpaste", help="restore placeholders in the clipboard (an LLM answer)")
     sp.add_argument("--mapping", help="mapping file (default: the most recent one)")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument("--stdout", action="store_true", help="print instead of copying back")
     sp.add_argument("--strict", action="store_true", help="fail on unknown placeholders")
     sp.set_defaults(func=_cmd_unpaste)
@@ -907,7 +927,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp = sub.add_parser("restore", help="restore placeholders using a mapping file")
     sp.add_argument("input", help="redacted text or an LLM answer about it (- for stdin)")
     sp.add_argument("--mapping", required=True, help="encrypted mapping file (.ormap)")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.add_argument(
         "-o", "--output", help="output file (default: stdout); restored text is sensitive"
     )
@@ -922,7 +942,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     sp = sub.add_parser("audit", help="decrypt and print an audit log (local use only)")
     sp.add_argument("file", help="encrypted audit log (.oraudit)")
-    sp.add_argument("--key-file", help="key file (else OFFRECORD_KEY_FILE / OFFRECORD_PASSPHRASE)")
+    sp.add_argument("--key-file", help=KEY_FILE_HELP)
     sp.set_defaults(func=_cmd_audit)
 
     sp = sub.add_parser("keygen", help="create a random key file for mappings and audit logs")

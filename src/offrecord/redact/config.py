@@ -7,7 +7,9 @@ field names only, never values, and the config is never echoed.
 from __future__ import annotations
 
 import csv
+import difflib
 import io
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -19,6 +21,14 @@ from offrecord.model import categories
 from offrecord.safeio import read_input_text
 
 MATCH_MODES = ("fuzzy", "exact", "case_sensitive")
+# Every key the config may use, per section. Anything else is an error: a misspelt key would
+# otherwise be ignored and leave text readable that the user meant to hide.
+TOP_KEYS = ("denylist", "protect", "topics", "detect", "plugins", "models")
+TOPIC_KEYS = ("redact", "flag", "personal", "mode")
+DETECT_KEYS = ("dates", "business", "people", "unknown_words")
+MODEL_KEYS = ("tier", "ner", "ner_threshold", "threads", "llm")
+ENTRY_KEYS = ("name", "category", "aliases", "match", "min_score", "context", "common_word")
+_KEY_SHAPE = re.compile(r"[a-z][a-z0-9_]{0,31}\Z")
 DEFAULT_MIN_SCORE = 85  # rapidfuzz ratio, 0-100; lower = more recall
 
 # Topic terms: a sentence containing one becomes a TOPIC span (the whole sentence).
@@ -162,9 +172,23 @@ def _str_list(value: Any, where: str, split: bool = False) -> list[str]:
     return value
 
 
+def _check_keys(data: dict[Any, Any], known: tuple[str, ...], prefix: str, where: str) -> None:
+    """Reject unknown keys. A key is named only when it is a near miss of a known key: a
+    mis-indented deny-list name would otherwise end up in the error message."""
+    for n, key in enumerate(data, 1):
+        if key in known:
+            continue
+        close = difflib.get_close_matches(key, known, n=1) if isinstance(key, str) else []
+        if close and _KEY_SHAPE.match(key):
+            raise UsageError(f"unknown config key: {prefix}{key} (did you mean {close[0]}?)")
+        raise UsageError(f"unknown config key (key {n} {where}, not shown in case it is a "
+                         f"name); known keys: {', '.join(known)}")  # fmt: skip
+
+
 def _entry(i: int, raw: Any) -> DenyEntry:
     if not isinstance(raw, dict):
         raise UsageError(f"deny-list entry {i}: must be a mapping")
+    _check_keys(raw, ENTRY_KEYS, f"denylist[{i}].", f"in deny-list entry {i}")
     name = raw.get("name")
     if not isinstance(name, str) or not name.strip():
         raise UsageError(f"deny-list entry {i}: 'name' is required")
@@ -200,6 +224,7 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
     if not isinstance(data, dict):
         raise UsageError("config must be a mapping at the top level")
     cfg = Config()
+    _check_keys(data, TOP_KEYS, "", "at the top level")
     raw_list = data.get("denylist") or []
     if not isinstance(raw_list, list):
         raise UsageError("'denylist' must be a list")
@@ -211,6 +236,7 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
     topics = data.get("topics") or {}
     if not isinstance(topics, dict):
         raise UsageError("'topics' must be a mapping")
+    _check_keys(topics, TOPIC_KEYS, "topics.", "in topics")
     if "redact" in topics:
         cfg.topics_redact = tuple(t.lower() for t in _str_list(topics["redact"], "topics.redact"))
     if "flag" in topics:
@@ -227,6 +253,7 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
     det = data.get("detect") or {}
     if not isinstance(det, dict):
         raise UsageError("'detect' must be a mapping")
+    _check_keys(det, DETECT_KEYS, "detect.", "in detect")
     cfg.detect_dates = _bool(det.get("dates", cfg.detect_dates), "detect.dates")
     cfg.detect_business = _bool(det.get("business", cfg.detect_business), "detect.business")
     cfg.detect_people = _bool(det.get("people", cfg.detect_people), "detect.people")
@@ -237,6 +264,7 @@ def from_mapping(data: dict[str, Any] | None) -> Config:
     models = data.get("models") or {}
     if not isinstance(models, dict):
         raise UsageError("'models' must be a mapping")
+    _check_keys(models, MODEL_KEYS, "models.", "in models")
     if "tier" in models:
         if models["tier"] not in (0, 1, 2):
             raise UsageError("models.tier must be 0, 1 or 2")

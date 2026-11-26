@@ -114,3 +114,21 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   "Right.") at any level, and no longer deletes words that only look like fillers or
   stutters: "ER" and "MM" in capitals, "mm" after a number, a hyphenated prefix such as
   "pre-" in "pre- and post-merger", and grammatical doubles such as "that that" and "had had".
+- The key written by `offrecord keygen` is now used when no `--key-file`, `OFFRECORD_KEY_FILE`
+  or `OFFRECORD_PASSPHRASE` is given, as the README's round trip assumed; before, it was
+  written but never read. offrecord says on stderr when it uses it.
+- Unknown config keys, at the top level, in `topics`, `detect` and `models` and in deny-list
+  entries, are now an error instead of being ignored: `protekt: confidential` used to run
+  with business context left readable. A near miss of a known key gets a suggestion.
+- A mapping or audit file with a malformed header (a non-numeric version, key-derivation
+  settings that are not a mapping or lack a parameter) now fails with E_MAPPING instead of an
+  internal error.
+- Source text that looks like a placeholder but uses non-ASCII digits (Arabic-Indic, for
+  example) is no longer escaped, so it comes back unchanged after restore.
+- `redact` checks its output destination (an existing file without `--force`, a missing or
+  read-only directory) before it writes the mapping, and points `last-mapping` at a new
+  mapping only after the output is written. A refused output used to leave an orphaned
+  mapping that `unpaste` would then pick.
+- `restore --strict` and `unpaste --strict` write nothing (no file, stdout or clipboard) when
+  they fail; they used to write the partly restored text and then exit 5.
+- The README no longer says `restore --assume-mapping` asks for confirmation; it never did.

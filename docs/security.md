@@ -37,6 +37,10 @@ Every other command installs a network guard (see below) before doing any work.
   readable by other users. Passphrases are never command-line arguments; they come from a
   prompt or `OFFRECORD_PASSPHRASE`. (Setting that variable in a shared shell profile exposes it
   to anything running as you: prefer a key file or the prompt.)
+- Key lookup order: `--key-file`, `OFFRECORD_KEY_FILE`, `OFFRECORD_PASSPHRASE`, the default key
+  written by `offrecord keygen` (`~/.config/offrecord/keys/default.key`, used only if it exists,
+  with a notice on stderr), then the prompt. The default key gets the same checks as any key
+  file: no symlinks, owned by you, not readable by others, and no mapping in its directory.
 - Encrypted mappings and audit logs go to a private per-user store
   (`~/.local/share/offrecord/mappings`, 0700) rather than next to the output.
 - `redact` refuses to run without a passphrase/key unless `--no-mapping` is given.
@@ -99,6 +103,10 @@ Every other command installs a network guard (see below) before doing any work.
 - Documented as sensitive. Never echoed in output, logs or errors (config errors name the entry
   index and field only; tested with canary values). Reason codes refer to deny-list entries by
   index (`deny:fuzzy:#12`).
+- Unknown config keys are an error, so a misspelt `protect` cannot silently leave business
+  context readable. The error names the key only when it is a near miss of a known key
+  (`protekt`); otherwise it gives the key's position, since a mis-indented deny-list name
+  would be a key too.
 - `.gitignore` excludes `*.local.yaml`; the repo ships only a synthetic example config.
 
 ### R6b. Adapters must not drop or hide text

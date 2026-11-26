@@ -259,6 +259,28 @@ def test_cli_unheaded_unknown_placeholders_warn_and_strict_fails(home, capsys):
     assert main([*base, "--strict"]) == ExitCode.MAPPING
 
 
+def test_cli_strict_failure_writes_nothing(home, capsys):
+    key = home / "keys" / "k.key"
+    main(["keygen", str(key)])
+    a = home / "a.txt"
+    a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
+    main(["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key)])
+    mid = (home / "a.out").read_text().splitlines()[0].split("mapping=")[1]
+    m = home / "home" / "data" / "mappings" / f"{mid}.ormap"
+    ans = home / "ans.txt"
+    ans.write_text("<C1> and <P77>")
+    base = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key), "--assume-mapping"]
+    capsys.readouterr()
+    assert main([*base, "--strict"]) == ExitCode.MAPPING
+    cap = capsys.readouterr()
+    assert cap.out == "" and "nothing was written" in cap.err
+    out = home / "restored.txt"
+    assert main([*base, "--strict", "-o", str(out)]) == ExitCode.MAPPING
+    assert not out.exists()
+    assert main([*base, "-o", str(out)]) == ExitCode.OK  # without --strict: written, warned
+    assert out.exists()
+
+
 def test_cli_no_secret_fails_clearly(home, capsys, monkeypatch):
     monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)
     a = home / "a.txt"
@@ -323,3 +345,69 @@ def test_cli_audit_never_written_next_to_output(home, capsys):
     a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
     main(["redact", str(a), "-o", str(home / "a.out"), "--key-file", str(key), "--audit"])
     assert not list(home.glob("*.oraudit"))
+
+
+def test_cli_default_key_used_without_key_file(home, capsys, monkeypatch):
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)
+    assert main(["keygen"]) == ExitCode.OK
+    a = home / "a.txt"
+    a.write_text("Orla: Zandrelcorp\nOrla: ok\n")
+    capsys.readouterr()
+    assert main(["redact", str(a), "-o", str(home / "a.out")]) == ExitCode.OK
+    err = capsys.readouterr().err
+    assert "default key file" in err
+    assert "Zandrelcorp" not in err
+    mid = (home / "a.out").read_text().splitlines()[0].split("mapping=")[1]
+    m = home / "home" / "data" / "mappings" / f"{mid}.ormap"
+    assert main(["restore", str(home / "a.out"), "--mapping", str(m)]) == ExitCode.OK
+    assert "Zandrelcorp" in capsys.readouterr().out
+
+
+def test_cli_explicit_secrets_win_over_default_key(home, capsys, monkeypatch):
+    from offrecord.paths import default_key_path
+
+    assert main(["keygen"]) == ExitCode.OK
+    a = home / "a.txt"
+    a.write_text("Orla: hi\nOrla: ok\n")
+    monkeypatch.setenv("OFFRECORD_PASSPHRASE", "a synthetic test passphrase")
+    capsys.readouterr()
+    assert main(["redact", str(a), "-o", str(home / "a.out")]) == ExitCode.OK
+    err = capsys.readouterr().err
+    assert "OFFRECORD_PASSPHRASE" in err and "default key" not in err
+    monkeypatch.delenv("OFFRECORD_PASSPHRASE")
+    other = home / "keys" / "other.key"
+    main(["keygen", str(other)])
+    explicit = crypto.get_secret(str(other))
+    assert explicit is not None and explicit.key_path == other.resolve()
+    monkeypatch.setenv("OFFRECORD_KEY_FILE", str(other))
+    from_env = crypto.get_secret(None)
+    assert from_env is not None and from_env.key_path == other.resolve()
+    monkeypatch.delenv("OFFRECORD_KEY_FILE")
+    default = crypto.get_secret(None)
+    assert default is not None and default.key_path == default_key_path().resolve()
+    assert default.source == "default"
+
+
+def test_cli_default_key_keeps_file_checks(home, capsys, monkeypatch):
+    from offrecord.paths import default_key_path
+
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)
+    assert main(["keygen"]) == ExitCode.OK
+    key = default_key_path()
+    a = home / "a.txt"
+    a.write_text("Orla: hi\nOrla: ok\n")
+    key.chmod(0o644)
+    assert main(["redact", str(a), "-o", str(home / "a.out")]) == ExitCode.USAGE
+    assert "readable by other users" in capsys.readouterr().err
+    real = home / "real.key"
+    key.chmod(0o600)
+    key.rename(real)
+    key.symlink_to(real)
+    assert main(["redact", str(a), "-o", str(home / "b.out")]) == ExitCode.USAGE
+    assert "symlinks" in capsys.readouterr().err
+    key.unlink()
+    real.rename(key)
+    m = key.parent / "m.ormap"
+    args = ["redact", str(a), "-o", str(home / "c.out"), "--mapping-out", str(m)]
+    assert main(args) == ExitCode.USAGE
+    assert "key file's directory" in capsys.readouterr().err

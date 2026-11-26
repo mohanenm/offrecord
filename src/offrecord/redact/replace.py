@@ -30,12 +30,13 @@ from typing import Any
 from offrecord.model import Document, FieldId, Span, category
 
 FORMAT_VERSION = 1
-PLACEHOLDER_LIKE = re.compile(r"<\s*([A-Za-z]{1,6})\s*(\d+)\s*>")
+PLACEHOLDER_LIKE = re.compile(r"<\s*([A-Za-z]{1,6})\s*([0-9]+)\s*>")
 _BS = re.escape(chr(92))
 # Escaping is one-to-one: any "<", optional backslashes, then a placeholder body gets one more
-# backslash; restore removes exactly one.
+# backslash; restore removes exactly one. Digits are ASCII only, as in restore's grammar: a
+# Unicode digit class would escape text with Arabic-Indic digits that restore never unescapes.
 ESCAPABLE = re.compile(
-    f"(<|&lt;|{_BS}u003c)((?:{_BS})*\\s*[A-Za-z]{{1,6}}\\s*\\d+\\s*(?:>|&gt;|{_BS}u003e))"
+    f"(<|&lt;|{_BS}u003c)((?:{_BS})*\\s*[A-Za-z]{{1,6}}\\s*[0-9]+\\s*(?:>|&gt;|{_BS}u003e))"
 )
 _CANON_STRIP = re.compile(r"[\W_]+", re.UNICODE)
 _TOKEN = re.compile(r"[^\W_]+", re.UNICODE)

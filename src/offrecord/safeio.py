@@ -89,6 +89,22 @@ def read_input_text(path: str | os.PathLike[str], limits: Limits = DEFAULT_LIMIT
     return text
 
 
+def check_writable(path: str | os.PathLike[str], *, force: bool = False) -> Path:
+    """Check that ``write_atomic(path, force=force)`` can be expected to succeed, so callers can
+    refuse before writing anything else. Returns the directory the file goes in."""
+    dest = Path(path)
+    parent = dest.parent if str(dest.parent) else Path(".")
+    if not parent.is_dir():
+        raise OutputError("output directory does not exist")
+    if not force and (dest.exists() or dest.is_symlink()):
+        raise OutputExistsError("output file exists; pass --force to overwrite")
+    if dest.is_dir():
+        raise OutputError("output path is a directory")
+    if not os.access(parent, os.W_OK | os.X_OK):
+        raise OutputError("cannot create file in output directory (no write permission)")
+    return parent
+
+
 def write_atomic(
     path: str | os.PathLike[str],
     data: bytes,
@@ -102,11 +118,7 @@ def write_atomic(
     file appearing between the check and the create is still not overwritten.
     """
     dest = Path(path)
-    parent = dest.parent if str(dest.parent) else Path(".")
-    if not parent.is_dir():
-        raise OutputError("output directory does not exist")
-    if not force and (dest.exists() or dest.is_symlink()):
-        raise OutputExistsError("output file exists; pass --force to overwrite")
+    parent = check_writable(dest, force=force)
     try:
         fd, tmp_name = tempfile.mkstemp(dir=parent, prefix=_TMP_PREFIX, suffix=".tmp")
     except OSError as e:

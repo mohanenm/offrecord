@@ -76,12 +76,14 @@ Reversible run (the mapping is encrypted with a key file; keep the key away from
 
 ```sh
 offrecord keygen                       # ~/.config/offrecord/keys/default.key
-offrecord redact samples/support-call.vtt -o out.txt \
-    --key-file ~/.config/offrecord/keys/default.key
+offrecord redact samples/support-call.vtt -o out.txt
 # ... send out.txt to an LLM, save its answer as answer.txt ...
-offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord/mappings/<id>.ormap \
-    --key-file ~/.config/offrecord/keys/default.key
+offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord/mappings/<id>.ormap
 ```
+
+The key comes from `--key-file`, else `OFFRECORD_KEY_FILE`, else a passphrase in
+`OFFRECORD_PASSPHRASE`, else the default key that `keygen` wrote (offrecord says when it uses
+it), else a passphrase prompt.
 
 `samples/` holds one synthetic transcript per supported format (txt, VTT, SRT, JSON).
 
@@ -230,9 +232,10 @@ real-world recall to be lower.
   encrypted, with a key file or a passphrase (never a command-line argument), to a private
   per-user store away from the output and the key.
 - The redacted output carries the mapping's random id, and `restore` refuses a mismatched
-  mapping. An LLM's answer has no header, so `restore --assume-mapping` asks you to confirm and
-  checks every placeholder. Restore accepts common LLM mangling (`<c1>`, `&lt;C1&gt;`, bare
-  `C1`) but never restores anything ambiguous.
+  mapping. An LLM's answer has no header, so `restore` refuses it unless you pass
+  `--assume-mapping` to say the mapping is the right one; it then warns about any placeholder
+  the mapping does not contain (`--strict` makes that a failure). Restore accepts common LLM
+  mangling (`<c1>`, `&lt;C1&gt;`, bare `C1`) but never restores anything ambiguous.
 - `--no-mapping` runs are one-way. `--mapping-scope project` shares one mapping across
   transcripts so the same client gets the same placeholder everywhere.
 
