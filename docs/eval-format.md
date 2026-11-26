@@ -22,14 +22,20 @@ There are three kinds of evaluation input:
 | `tuning-hw` | 80 agent-written transcripts in inline markup | Tuning |
 | `validation` | 14 templates, 56 transcripts (formerly called `heldout`) | Checking that a change generalises |
 | `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle (opened for the first release; now a second validation set) |
-| `user` | 8 agent-written transcripts in inline markup | Reported separately, never tuned on |
+| `user` | 8 agent-written transcripts in inline markup | Reported separately; not tuned on directly (see below) |
 
 Everything except the `tuning` templates was written by coding agents that were given only
 this format description and the category list. They did not see the detector code, the other
 sets or each other's work. This keeps the phrasing independent of the rules being measured,
 but it does not make the text real: all of it is generated, plausible conversation, and the
 numbers should be read that way. The `user` set stands in for a set written in your own
-phrasing until you add one (see `eval/user_set/README.md`).
+phrasing until you add one (see `eval/user_set/README.md`). Its transcripts were never tuned
+on, but its miss counts were checked after changes and decided what later tuning data
+stressed, so treat it as a second validation set: its numbers are optimistic.
+
+Most invented names in `validation` are not dictionary words, so the rule that treats an
+unknown capitalised word as a name catches them almost by construction. Real names are often
+ordinary words ("Grace Hill"), so expect lower recall on names than these sets show.
 
 `validation` was the original held-out set. It has been looked at many times while the
 detectors were developed, so it is no longer blind; it now serves to catch changes that help
@@ -42,6 +48,23 @@ whose own hash is pinned in `src/offrecord/evaluation/sets.py`, and the `eval` c
 to run on a folder that does not match. A CI job also fails if any commit after the first one
 touches the sealed set. `offrecord eval --set sealed` refuses to run without `--final-check`,
 which is meant to be used once per release cycle, after all tuning is done.
+
+### Release check (fixed before the next sealed set is written)
+
+The next release is scored once on a new sealed set, at every tier, with no changes in
+between, and the result is published whether it passes or not. Tier 0 carries the claim:
+
+1. PII recall at least 97%.
+2. Every PII category with at least 20 labels at least 90% (one weak category, such as places
+   on the first sealed set, cannot hide behind the total).
+3. Names, contact details, accounts, cards and SSNs pooled at least 99%, and at least 95% of
+   transcripts with none of them leaked.
+4. At least 80% of transcripts PII-clean.
+5. Character precision on turn text (`prec(text)`, speaker labels left out) at least 75%, so
+   recall work cannot blank everything.
+6. Tier 1 at least Tier 0 on PII recall and PII-clean transcripts.
+7. Earnings-21 Tier 0 PII recall at least 85% (`scripts/earnings21_eval.py`): real speech,
+   never tuned on, as a guard against fitting the synthetic phrasing.
 
 ---
 
