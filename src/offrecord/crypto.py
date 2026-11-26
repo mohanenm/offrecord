@@ -76,12 +76,16 @@ def derive_key(secret: Secret, kdf: dict[str, Any]) -> bytes:
     if len(salt) != SALT_BYTES:
         raise MappingError("mapping header is malformed")
     if kdf.get("name") == "scrypt":
-        if secret.kind != "passphrase":
-            if secret.source == "default":
+        if secret.kind != "passphrase" and secret.source == "default":
+            # The default key was only a guess: a passphrase mapping asks for the passphrase.
+            pw = _prompt(False)
+            if pw is None:
                 raise MappingError(
                     "this mapping was encrypted with a passphrase, not the default key file; "
                     f"set {PASSPHRASE_ENV}"
                 )
+            secret = Secret("passphrase", pw.encode("utf-8"), source="prompt")
+        if secret.kind != "passphrase":
             raise MappingError("this mapping was encrypted with a passphrase, not a key file")
         try:
             n, r, p = int(kdf["n"]), int(kdf["r"]), int(kdf["p"])

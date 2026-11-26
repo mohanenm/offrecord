@@ -39,8 +39,10 @@ Every other command installs a network guard (see below) before doing any work.
   to anything running as you: prefer a key file or the prompt.)
 - Key lookup order: `--key-file`, `OFFRECORD_KEY_FILE`, `OFFRECORD_PASSPHRASE`, the default key
   written by `offrecord keygen` (`~/.config/offrecord/keys/default.key`, used only if it exists,
-  with a notice on stderr), then the prompt. The default key gets the same checks as any key
-  file: no symlinks, owned by you, not readable by others, and no mapping in its directory.
+  with a notice on stderr), then the prompt. A passphrase mapping met with the default key
+  falls back to the prompt (or names `OFFRECORD_PASSPHRASE` when there is no terminal). The
+  default key gets the same checks as any key file: no symlinks, owned by you, not readable by
+  others, and no mapping in its directory.
 - Encrypted mappings and audit logs go to a private per-user store
   (`~/.local/share/offrecord/mappings`, 0700) rather than next to the output.
 - `redact` refuses to run without a passphrase/key unless `--no-mapping` is given.

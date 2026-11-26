@@ -412,3 +412,13 @@ def test_cli_default_key_keeps_file_checks(home, capsys, monkeypatch):
     args = ["redact", str(a), "-o", str(home / "c.out"), "--mapping-out", str(m)]
     assert main(args) == ExitCode.USAGE
     assert "key file's directory" in capsys.readouterr().err
+
+
+def test_default_key_falls_back_to_the_passphrase_prompt(monkeypatch):
+    blob = crypto.encrypt("map", "or1-test", payload(), PW, scrypt_n=FAST)
+    guess = crypto.Secret("keyfile", b"k" * 32, source="default")
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: PW.value.decode())
+    assert crypto.decrypt(blob, "map", guess)[1] == payload()
+    monkeypatch.setattr(crypto, "_prompt", lambda confirm: None)  # no terminal: clear error
+    with pytest.raises(MappingError, match="OFFRECORD_PASSPHRASE"):
+        crypto.decrypt(blob, "map", guess)

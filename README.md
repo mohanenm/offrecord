@@ -84,7 +84,8 @@ offrecord restore answer.txt --assume-mapping --mapping ~/.local/share/offrecord
 
 The key comes from `--key-file`, else `OFFRECORD_KEY_FILE`, else a passphrase in
 `OFFRECORD_PASSPHRASE`, else the default key that `keygen` wrote (offrecord says when it uses
-it), else a passphrase prompt.
+it), else a passphrase prompt. A mapping made with a passphrase asks for it even when the
+default key exists.
 
 `samples/` holds one synthetic transcript per supported format (txt, VTT, SRT, JSON).
 
