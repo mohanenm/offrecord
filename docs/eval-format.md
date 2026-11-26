@@ -21,7 +21,8 @@ There are three kinds of evaluation input:
 | `tuning` | 12 templates written alongside the detectors, 72 transcripts | Tuning |
 | `tuning-hw` | 80 agent-written transcripts in inline markup | Tuning |
 | `validation` | 14 templates, 56 transcripts (formerly called `heldout`) | Checking that a change generalises |
-| `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle (opened for the first release; now a second validation set) |
+| `validation2` | 20 templates, 80 transcripts: the first sealed set | Opened once for the first release; now a second validation set |
+| `sealed` | 60 agent-written transcripts in inline markup, encrypted | Scored once, at the next release check |
 | `user` | 8 agent-written transcripts in inline markup | Reported separately; not tuned on directly (see below) |
 
 Everything except the `tuning` templates was written by coding agents that were given only
@@ -41,13 +42,24 @@ ordinary words ("Grace Hill"), so expect lower recall on names than these sets s
 detectors were developed, so it is no longer blind; it now serves to catch changes that help
 the tuning sets but do not generalise. `sealed` replaced it as the blind set and was opened
 once, at the end of the first release cycle; its result is in the README. It is no longer
-blind either, so the next release will be scored on a new sealed set written the same way.
+blind either, so it is scored as `validation2` and the next release is scored on a new sealed
+set.
+
+The new `sealed` set was written by three separately briefed agents (ordinary business calls;
+speech-to-text style, mostly lower case with recogniser errors; calls heavy in personal data),
+20 transcripts each, 3,313 personal-data labels. They were told to use realistic names,
+including names that are ordinary words, and real places, because invented names flattered
+the earlier sets. About a third of its name words also occur in the tuning data, as common
+names do. Only its parser and format checks were run, counting labels; nobody has read or
+scored it. It is stored encrypted in `eval/sealed/` in offrecord's own format, with its key
+held by the maintainer outside the repository, so looking at it takes a deliberate step.
 
 The generated `validation` and `sealed` sets are frozen. Each folder has a `MANIFEST.sha256`
 whose own hash is pinned in `src/offrecord/evaluation/sets.py`, and the `eval` command refuses
 to run on a folder that does not match. A CI job also fails if any commit after the first one
-touches the sealed set. `offrecord eval --set sealed` refuses to run without `--final-check`,
-which is meant to be used once per release cycle, after all tuning is done.
+touches either sealed set. `offrecord eval --set sealed` refuses to run without
+`--final-check` and the key (`--key-file` or `OFFRECORD_SEALED_KEY`); it is meant to be used
+once per release cycle, after all tuning is done.
 
 A test, `tests/test_recall_floor.py`, scores Tier 0 on `tuning` and `validation` on every
 test run. It fails if PII recall drops below 0.99 on tuning or 0.98 on validation, if any PII
