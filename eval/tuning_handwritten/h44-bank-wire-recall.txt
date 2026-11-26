@@ -1,0 +1,39 @@
+00:03 Banker: [[ORG:Corvanne Savings]] fraud desk, this is [[PERSON#b1:Faith]]. I understand you need to recall a wire?
+00:08 Customer: Yes. I think I sent our closing money to a scammer. My name is [[PERSON#c1:Earnest Pellow]].
+00:14 Banker: I'm sorry, [[PERSON#c1:Mr. Pellow]]. Let's move fast. Your checking account number, please.
+00:18 Customer: [[ACCOUNT#ac1:Oh oh three, seven two, nine one, four four, oh]].
+00:24 Banker: [[ACCOUNT#ac1:Zero zero three seven two nine one four four zero]]. And I need to verify with your full social.
+00:29 Customer: [[SSN#s1:Nine three one]]...
+00:31 Banker: Go on.
+00:32 Customer: ...[[SSN#s1:oh six, five five two seven]].
+00:35 Banker: [[SSN#s1:Nine three one, zero six, five five two seven]]. Thank you. I've just sent a one-time passcode to the phone on file.
+00:41 Customer: It's [[ACCOUNT#otp1:four seven, four seven, one one]].
+00:44 Banker: [[ACCOUNT#otp1:Four seven four seven one one]], verified. Now, the wire. I see one this morning for [[AMOUNT:$48,500]]. Reference [[ACCOUNT#w1:F W dash two six one one, dash, oh oh eight eight three]]?
+00:53 Customer: That's it. That was the [[NEG:earnest]] money and the down payment for the house.
+00:58 Banker: Where did the instructions come from?
+01:00 Customer: An email from what I thought was the title company, [[EMAIL#e1:closings at bexley title group dot invalid]]. But our real closer is [[PERSON#t1:Victor Haldane]], and his address is [[EMAIL#e2:v dot haldane at bexleytitle dot example]]. The fake one had "group" in it.
+01:12 Banker: That's a common trick. What receiving account did you send to?
+01:16 Customer: Routing [[ACCOUNT#rt1:one two two, oh oh oh, six, six, one]], account [[ACCOUNT#rc1:eight eight oh four, seven, no, sorry, eight eight oh four, one, three three nine]].
+01:26 Banker: So the account is [[ACCOUNT#rc1:eight eight zero four one three three nine]]?
+01:29 Customer: Yes.
+01:30 Banker: And routing [[ACCOUNT#rt1:one two two zero zero zero six six one]]. I'm filing the recall now. Your case number is [[ACCOUNT#cs1:C as in Charlie, R, forty-two seventeen, dash, nine]].
+01:40 Customer: [[ACCOUNT#cs1:C R four two one seven dash nine]].
+01:42 Banker: That's right. Next question. Our logs show an online banking login at four a.m. from [[IP#ip1:one ninety-eight dot fifty-one dot one hundred dot seventy-seven]]. Was that you?
+01:51 Customer: Four a.m.? No. We were asleep. Was it [[PERSON:Dawn]]? No, she doesn't have the password.
+01:56 Banker: Who is [[PERSON:Dawn]]?
+01:57 Customer: My wife, [[PERSON:Dawn Pellow]]. She's on the joint account.
+02:01 Banker: The usual logins come from [[IP#ip2:203.0.113.9]]. That's your home connection, I assume. The four a.m. one is not. I'm locking online access and resetting your password. Your temporary password is [[ACCOUNT#pw1:golf, seven, seven, x-ray, quebec, dash, three]].
+02:15 Customer: [[ACCOUNT#pw1:Golf seven seven X Q dash three]].
+02:18 Banker: Correct. Now, the property. What's the address of the house you're buying?
+02:21 Customer: [[LOCATION#l1:Eleven forty Sorrel Ridge Court, Brookhaven, Georgia, three oh three one nine]].
+02:27 Banker: And your current address?
+02:28 Customer: [[LOCATION#l2:Two two six Hartwell Avenue, apartment nine, Decatur, Georgia, three zero zero three zero]].
+02:34 Banker: Thanks. Has the fake title company called you?
+02:37 Customer: Someone called from [[PHONE#ph1:four oh four, five five five, oh one nine one]] saying the wire needed to go today.
+02:43 Banker: [[PHONE#ph1:404-555-0191]]. I'll put that in the report. Best number to reach you?
+02:47 Customer: [[PHONE#ph2:Six seven eight, five five five, double oh three eight]].
+02:51 Banker: [[PHONE#ph2:678-555-0038]]. Also file a report at [[URL#u1:report fraud dot test]], and forward the fake email to [[EMAIL#e3:phish at corvanne dot example]].
+02:59 Customer: Okay. And the debit card, should I cancel it?
+03:02 Banker: The one ending [[CARD#cd1:two five two oh]]? Yes, I'll reissue it. The new card goes to the [[LOCATION#l2:Hartwell Avenue]] address.
+03:08 Customer: Thank you. I [[NEG:hope]] we get it back.
+03:10 Banker: The receiving bank has to freeze it first. I'll call you by noon [[DATE:tomorrow]] with an update. Reference [[ACCOUNT#cs1:C R four two one seven nine]].

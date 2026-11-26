@@ -1,0 +1,41 @@
+[[PERSON#ft:faith]]: okay everyone let's get going so deliveries [[DATE:this saturday]] we have six homebound households
+[[PERSON#gt:grant]]: i can take the north side
+[[PERSON#ft:faith]]: great [[PERSON#gt:grant]] you've got [[PERSON#hf:the hollis family]] and [[PERSON#ab:mister abel]] first one is [[LOCATION#a1:three seventeen orchard lane apartment two b millbrook new york one two five four five]]
+[[PERSON#gt:grant]]: [[LOCATION#a1:three one seven orchard apartment two b]]
+[[PERSON#ft:faith]]: yep and the buzzer doesn't work so call [[PERSON#h1:carol hollis]] when you're outside her number is [[PHONE#ph1:eight four five five five five oh one one seven]]
+[[PERSON#gt:grant]]: [[PHONE#ph1:eight four five five five five zero one one seven]] okay
+[[PERSON#jy:joy]]: [[PERSON#h1:carol's]] daughter said [[PERSON#hp:hope]] is moving in with her next month so it'll be two people
+[[PERSON#ft:faith]]: [[PERSON#hp:hope]] as in [[PERSON#h1:carol's]] granddaughter
+[[PERSON#jy:joy]]: yeah [[PERSON#hp:hope hollis]]
+[[PERSON#ft:faith]]: okay [[NEG:mark]] it as two on the list
+[[PERSON#gt:grant]]: and [[PERSON#ab:mister abel]]
+[[PERSON#ft:faith]]: [[PERSON#ab:mister abel]] is [[LOCATION#a2:the yellow house at the end of the gravel road past the old feed store on route nine the one with the blue mailbox]] there's no number on it
+[[PERSON#gt:grant]]: oh i know that place
+[[PERSON#ft:faith]]: he leaves the side door open but if it's locked the lockbox code is [[ACCOUNT#lb1:one nine, four seven]]
+[[PERSON#gt:grant]]: [[ACCOUNT#lb1:one nine four seven]] like the year
+[[PERSON#ft:faith]]: right [[PERSON#jy:joy]] you have the south route
+[[PERSON#jy:joy]]: yep [[PERSON:sue]] and i are doing it together
+[[PERSON#ft:faith]]: perfect you've got [[PERSON:the delgado twins]] at [[LOCATION#a3:fifty-five river street unit nine millbrook one two five four six]] and [[PERSON#pl:miss pearl]] at the senior apartments
+[[PERSON#jy:joy]]: which building is [[PERSON#pl:pearl]] in
+[[PERSON#ft:faith]]: [[LOCATION#a4:ashwhittle senior apartments building c apartment one fourteen two hundred meadow drive millbrook]] front desk code is [[ACCOUNT#fd1:star two two eight eight]]
+[[PERSON#jy:joy]]: [[ACCOUNT#fd1:star two two eight eight]] okay
+[[PERSON#ft:faith]]: and [[PERSON#pl:pearl]] likes you to call ahead [[PHONE#ph2:eight four five five five five oh one four four]]
+[[PERSON#jy:joy]]: [[PHONE#ph2:oh one four four]] got it
+[[PERSON#ft:faith]]: next the donor stuff [[PERSON#gt:grant]] the [[NEG:grant]] report is due [[DATE:december first]]
+[[PERSON#gt:grant]]: i know i'm on it
+[[PERSON#ft:faith]]: the foundation portal is [[URL#u1:hudson valley giving dot test slash grantees]] and our grantee number is [[ACCOUNT#gr1:h v g dash two oh two six dash four one]]
+[[PERSON#gt:grant]]: [[ACCOUNT#gr1:h v g two oh two six four one]] and the password is still the church one
+[[PERSON#ft:faith]]: no i changed it it's [[ACCOUNT#pw1:loaves and fishes seven]] all one word lower case
+[[PERSON#gt:grant]]: [[ACCOUNT#pw1:loaves and fishes seven]] okay
+[[PERSON#jy:joy]]: oh and someone asked about the bank info for the online donations
+[[PERSON#ft:faith]]: treasurer has that [[PERSON#bl:bill]] handles it email him at [[EMAIL#e1:bill dot treasurer at st ethelwin millbrook dot example]]
+[[PERSON#jy:joy]]: [[EMAIL#e1:bill dot treasurer]]
+[[PERSON#ft:faith]]: [[EMAIL#e1:b i l l dot t r e a s u r e r at st ethelwin millbrook dot example]] no spaces
+[[PERSON#gt:grant]]: and the pantry email is still [[EMAIL#e2:pantry at st ethelwin millbrook dot example]]
+[[PERSON#ft:faith]]: yes and sign up sheet is at [[URL#u2:st ethelwin millbrook dot example slash serve]]
+[[PERSON#jy:joy]]: who's on the sorting table sunday
+[[PERSON#ft:faith]]: [[PERSON:rose]] and [[PERSON:summer]] said yes [[PERSON#vc:victor]] maybe
+[[PERSON#jy:joy]]: [[PERSON#vc:victor]] said he'd come if his shift ends early
+[[PERSON#ft:faith]]: okay keep the [[NEG:faith]] everybody it's a lot of boxes this week
+[[PERSON#gt:grant]]: ha [[NEG:joy]] to the world
+[[PERSON#jy:joy]]: stop it

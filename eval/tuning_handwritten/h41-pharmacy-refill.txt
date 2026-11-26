@@ -1,0 +1,41 @@
+Rep: Thank you for calling the [[ORG:Brimvale Pharmacy]] refill line, this is [[PERSON#r1:Hope]]. Can I get the member number from the prescription card?
+Customer: Sure. It's [[ACCOUNT#m1:B as in bravo, seven seven, K, four oh oh nine]].
+Rep: [[ACCOUNT#m1:B seven seven K four zero zero nine]]. And the name on the account?
+Customer: [[PERSON#p1:Will Tarrant]]. Well, it's my mother's prescription, [[PERSON#p2:Pearl Tarrant]]. I'm on as her caregiver.
+Rep: Okay, I see [[PERSON#p1:Will]] listed as an authorised caregiver. Date of birth for [[PERSON#p2:Pearl]]?
+Customer: [[DATE:March ninth, 1941]].
+Rep: Thank you. And the last four of her social, just for verification?
+Customer: [[SSN#s1:two two oh one]].
+Rep: Perfect. Which prescription are we refilling today?
+Customer: The order number on the bottle is [[ACCOUNT#o1:R X dash six six four, slash, two oh one]].
+Rep: Sorry, you broke up there. Six six four and then...
+Customer: [[ACCOUNT#o1:Six six four]], slash, [[ACCOUNT#o1:two oh one]].
+Rep: Got it, [[ACCOUNT#o1:RX six six four slash two zero one]]. That one's ready to fill. Do you want it delivered to the address on file?
+Customer: What do you have on file?
+Rep: I have [[LOCATION#a1:fourteen sixty West Fulbright, apartment three oh two, Chicago, Illinois, six oh six oh seven]].
+Customer: No, she moved in with us. It's [[LOCATION#a2:twenty-two eighteen North Calloway Street, unit B, Chicago, Illinois, six oh six one four]].
+Rep: Let me read that back. [[LOCATION#a2:2218 North Calloway Street, Unit B, Chicago, IL 60614]]?
+Customer: Yes. And if the driver can't find it, it's [[LOCATION:the blue door behind the laundromat on Calloway, round the side by the bike rack]].
+Rep: I'll [[NEG:mark]] that on the delivery note. Best number for the driver to call?
+Customer: My cell, [[PHONE#ph1:three one two, five five five, oh one four seven]].
+Rep: [[PHONE#ph1:312-555-0147]].
+Customer: That's it. Or my wife at [[PHONE#ph2:five five five, zero one six two]], same area code. [[PERSON:Grace]] is usually home after three.
+Rep: [[NEG:Will]] [[PERSON:Grace]] be there on [[DATE:Thursday]] to sign for it?
+Customer: I [[NEG:hope]] so. If not, [[PERSON:June]] next door takes our parcels.
+Rep: Fine. There's a copay of [[AMOUNT:twelve forty]]. The card on file ends in [[CARD#c1:three oh one two]].
+Customer: That one was cancelled. Use the new one. [[CARD#c2:Four six six one]]...
+Rep: Go ahead.
+Customer: ...[[CARD#c2:three one eight six, oh nine one three, nine oh nine oh]].
+Rep: So [[CARD#c2:four six six one, three one eight six, zero nine one three, nine zero nine zero]]. And the three-digit code on the back?
+Customer: [[ACCOUNT#cv1:Seven one four]].
+Rep: Thanks. I'm texting a one-time code to [[PHONE#ph1:oh one four seven]] to confirm the payment. Can you read it to me?
+Customer: [[ACCOUNT#otp1:Eight two, nine, no, sorry, eight two six]], [[ACCOUNT#otp1:four four oh]].
+Rep: [[ACCOUNT#otp1:Eight two six four four zero]]. That's verified. Where should the receipt go?
+Customer: Email it to [[EMAIL#e1:w underscore tarrant forty-one at quarrymail dot example]]. That's [[EMAIL#e1:t-a-r-r-a-n-t]].
+Rep: [[EMAIL#e1:w_tarrant41@quarrymail.example]]. Got it. You can track the delivery at [[URL#u1:brimvale rx dot test slash track]] with the order number.
+Customer: [[URL#u1:Brimvale rx dot test slash track]]. Okay.
+Rep: One more thing. Her old insurer's member ID is still on the profile, [[ACCOUNT#m2:H M O, nine nine one, four eight, double seven]]. Should I remove it?
+Customer: Yes, please. That plan ended in [[DATE:June]].
+Rep: Done. If there's a problem, [[PERSON:our only pharmacist on the overnight shift at the Belmont store]] can take calls after ten.
+Customer: Great. Thanks, [[PERSON#r1:Hope]].
+Rep: [[NEG:Will]] do. Have a good afternoon.

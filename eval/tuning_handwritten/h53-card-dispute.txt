@@ -1,0 +1,36 @@
+Agent: Thank you for calling [[ORG:Halberd Card Services]], my name is [[PERSON#ag:Joy]]. Can I have the card number you're calling about?
+Cardholder: Yes. [[CARD#c1:Five two nine one]]...
+Agent: Mm-hm.
+Cardholder: [[CARD#c1:seven oh three four, two three six six]], and [[CARD#c1:seven one two six]].
+Agent: [[CARD#c1:Five two nine one, seven zero three four, two three six six, seven one two six]]. And your name?
+Cardholder: [[PERSON#ch:Frank Odegaard]].
+Agent: Thank you, [[PERSON#ch:Mr. Odegaard]]. To verify, the last four of your social?
+Cardholder: [[SSN#s1:Six oh, double four]].
+Agent: [[SSN#s1:Six zero four four]]. And the security word on the account?
+Cardholder: [[ACCOUNT#sw1:Marigold]]. [[ACCOUNT#sw1:M as in Mike, A, R, I, G, O, L, D]].
+Agent: Thank you. How can I help?
+Cardholder: There are three charges I didn't make. Two from something called [[ORG:Zentrovo Digital]], and one from [[ORG:Keshbek and Quaid Electronics]].
+Agent: I see them. [[AMOUNT:$212.40]] and [[AMOUNT:$212.40]] on [[DATE:the eighth]], and [[AMOUNT:$1,089.99]] on [[DATE:the ninth]]. The electronics order was shipped to [[LOCATION#x1:Nineteen oh five Commerce Parkway, suite one twelve, Reno, Nevada, eight nine five oh two]]. Is that you?
+Cardholder: No. I live at [[LOCATION#h1:Six twenty-seven Alder Bluff Road, apartment four, Corvallis, Oregon, nine seven three three oh]].
+Agent: Okay. The online orders were placed from [[IP#ip1:two oh three dot zero dot one one three dot one eight eight]]. Does that look like your network?
+Cardholder: I have no idea what my IP is.
+Agent: Your normal logins come from [[IP#ip2:one ninety-eight dot fifty-one dot one hundred dot six]]. The fraud ones don't match. I'm closing this card and opening a dispute. Your case number is [[ACCOUNT#cs1:D as in delta, P, twenty-six, oh four, seventy-seven]].
+Cardholder: [[ACCOUNT#cs1:D P two six oh four seven seven]].
+Agent: That's right. I'm also issuing a replacement card. Before I do, since this is a fraud claim, I need the full social.
+Cardholder: [[SSN#s1:Nine six five, two one, six oh four four]].
+Agent: [[SSN#s1:Nine six five, twenty-one, sixty forty-four]]. Thank you. The new card ends in [[CARD#c2:three two one nine]]. It'll go to the [[LOCATION#h1:Alder Bluff Road]] address in five to seven days.
+Cardholder: Can I get the full number now? I have [[NEG:bills]] on autopay.
+Agent: I can read it to you once you verify a code. I'm sending a one-time code to the phone ending [[PHONE#ph1:oh one five seven]].
+Cardholder: Got it. [[ACCOUNT#otp1:Three, three, nine, oh, one, eight]].
+Agent: [[ACCOUNT#otp1:Three three nine zero one eight]], verified. The new number is [[CARD#c2:five seven six eight, four two six eight, four six five six, three two one nine]].
+Cardholder: [[CARD#c2:Five seven six eight, four two six eight, four six five six, three two one nine]].
+Agent: Correct. Also, you have an authorised user on this account, [[PERSON#au:Bill Odegaard]]. His card ends [[CARD#c3:two six eight seven]]. Do you want his closed too?
+Cardholder: Yes, my son. [[PERSON#au:Bill]] had the card in his wallet when it went missing.
+Agent: Then I'll reissue his as well. His new card goes to the same address. And your phone, still [[PHONE#ph1:five four one, five five five, oh one five seven]]?
+Cardholder: Yes. And my wife's number, if I don't pick up, is [[PHONE#ph2:five four one, five five five, oh one two two]]. [[PERSON#wf:Grace]].
+Agent: Added. Shall I email the dispute forms?
+Cardholder: Please. [[EMAIL#e1:f odegaard at cascadia net dot example]]. That's [[EMAIL#e1:f, o, d, e, g, a, a, r, d]].
+Agent: [[EMAIL#e1:fodegaard@cascadianet.example]]. You can also track the case at [[URL#u1:halberd card dot test slash disputes]].
+Cardholder: And [[NEG:will]] I be charged while it's investigated?
+Agent: No, you'll get a provisional credit within two business days. I'll [[NEG:mark]] the account for monitoring.
+Cardholder: Thank you, [[PERSON#ag:Joy]].

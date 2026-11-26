@@ -1,0 +1,39 @@
+[[PERSON#rb:Ruby]]: Dispatch to unit six, you there?
+[[PERSON#pt:Pat]]: Six here, go.
+[[PERSON#rb:Ruby]]: Add-on pickup. Tracking [[ACCOUNT#t1:one Z, seven seven, alpha, four, four, oh, nine, two]].
+[[PERSON#pt:Pat]]: Say again after alpha.
+[[PERSON#rb:Ruby]]: [[ACCOUNT#t1:Four four zero nine two]].
+[[PERSON#pt:Pat]]: [[ACCOUNT#t1:One Z seven seven A four four zero nine two]]. Where from?
+[[PERSON#rb:Ruby]]: [[LOCATION#p1:The back entrance of the Northside clinic, loading bay two, off Ferris Alley]]. Ask for [[PERSON#mk:Mark]] at the desk.
+[[PERSON#pt:Pat]]: [[NEG:Roger]] that. [[PERSON#mk:Mark]] at the desk.
+[[PERSON#rb:Ruby]]: Drop is [[LOCATION#d1:twenty-three ten Kessler Avenue, suite four hundred, Dayton, Ohio, four five four oh two]].
+[[PERSON#pt:Pat]]: [[LOCATION#d1:Twenty-three ten Kessler]]...
+[[PERSON#bb:Bob]]: Unit nine, breaking in, sorry, is the bridge on Third still closed?
+[[PERSON#rb:Ruby]]: Still closed, [[PERSON#bb:Bob]]. Go round by Monument. [[PERSON#pt:Pat]], go ahead.
+[[PERSON#pt:Pat]]: [[LOCATION#d1:Suite four hundred, four five four oh two]]. Recipient?
+[[PERSON#rb:Ruby]]: [[PERSON#rc:Amber Lindqvist-Shaw]]. Signature required. Her number [[PHONE#ph1:nine three seven, five five five, oh one eight four]].
+[[PERSON#pt:Pat]]: [[PHONE#ph1:Nine three seven, five five five, zero one eight four]]. Copy.
+[[PERSON#bb:Bob]]: Dispatch, nine. I'm at my drop, gate's locked.
+[[PERSON#rb:Ruby]]: Which drop?
+[[PERSON#bb:Bob]]: [[LOCATION#d2:The old feed store lot on Quarry Road, the warehouse behind it]].
+[[PERSON#rb:Ruby]]: Gate code is [[ACCOUNT#g1:star, four, seven, seven, one]].
+[[PERSON#bb:Bob]]: [[ACCOUNT#g1:Four seven seven one]]. No, it's not taking it.
+[[PERSON#rb:Ruby]]: Try [[ACCOUNT#g1:star four seven seven one]], then pound.
+[[PERSON#bb:Bob]]: Got it, it's open.
+[[PERSON#rb:Ruby]]: That one's [[CLIENT:Harrowgate Seed Co]]. Their account is [[ACCOUNT#ca1:H S, dash, oh oh nine one, dash, two]]. Log the POD under that.
+[[PERSON#bb:Bob]]: [[ACCOUNT#ca1:H S zero zero nine one two]]. Copy.
+[[PERSON#pt:Pat]]: Dispatch, six. At the clinic. [[PERSON#mk:Mark]] isn't here, there's a woman named [[PERSON#gr:Grace]].
+[[PERSON#rb:Ruby]]: [[PERSON#gr:Grace]] is fine, she's the other one on the list.
+[[PERSON#pt:Pat]]: She wants the reference number.
+[[PERSON#rb:Ruby]]: [[ACCOUNT#rf1:Lab, slash, two six, slash, four four one eight]].
+[[PERSON#pt:Pat]]: [[ACCOUNT#rf1:L A B two six four four one eight]]. She says it matches.
+[[PERSON#rb:Ruby]]: Good. Oh, and [[PERSON#ch:Chase]] called in sick, so [[PERSON#hn:Hunter]] is picking up the airport run at four. [[PERSON#hn:Hunter]], you copy?
+[[PERSON#hn:Hunter]]: Copy. What's the flight?
+[[PERSON#rb:Ruby]]: Air cargo, airway bill [[ACCOUNT#aw1:eight eight one, dash, double four, two, seven, nine, nine, oh]]. Pick up at [[LOCATION#a3:the freight building past the long-term lot, door seventeen]].
+[[PERSON#hn:Hunter]]: [[ACCOUNT#aw1:Eight eight one, four four two seven nine nine zero]]. Copy.
+[[PERSON#rb:Ruby]]: Customer contact for that is [[EMAIL#e1:receiving underscore desk at harrowgate seed dot example]], or the phone [[PHONE#ph2:nine three seven, five five five, oh one two nine]].
+[[PERSON#hn:Hunter]]: [[EMAIL#e1:Receiving underscore desk]]. Got it.
+[[PERSON#pt:Pat]]: Dispatch, six. Delivered to [[LOCATION#d1:Kessler]], signed by [[PERSON#rc:Amber]]. You want the photo?
+[[PERSON#rb:Ruby]]: Upload it in the app. Link's [[URL#u1:dispatchwren dot test slash pod]] if the button doesn't work.
+[[PERSON#pt:Pat]]: [[NEG:Will]] do. Six clear.
+[[PERSON#rb:Ruby]]: Thanks, [[PERSON#pt:Pat]]. I [[NEG:hope]] the bridge opens before rush hour. Dispatch out.

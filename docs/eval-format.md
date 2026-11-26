@@ -19,7 +19,7 @@ There are three kinds of evaluation input:
 | Set | Source | Used for |
 | --- | --- | --- |
 | `tuning` | 12 templates written alongside the detectors, 72 transcripts | Tuning |
-| `tuning-hw` | 40 agent-written transcripts in inline markup | Tuning |
+| `tuning-hw` | 60 agent-written transcripts in inline markup | Tuning |
 | `validation` | 14 templates, 56 transcripts (formerly called `heldout`) | Checking that a change generalises |
 | `sealed` | 20 templates, 80 transcripts | Scored once at the end of a release cycle |
 | `user` | 8 agent-written transcripts in inline markup | Reported separately, never tuned on |

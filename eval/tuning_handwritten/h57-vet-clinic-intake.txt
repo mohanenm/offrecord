@@ -1,0 +1,38 @@
+[[PERSON#cv:Carol Vantongeren]] [00:02]: [[ORG:Thistlewhit Animal Hospital]], this is [[PERSON#cv:Carol]]. How can I help?
+[[PERSON#as:Amber Steadman]] [00:05]: Hi, I'd like to register as a new client. We just moved here and our dog needs his shots.
+[[PERSON#cv:Carol Vantongeren]] [00:10]: Welcome. Let's set you up. Your name?
+[[PERSON#as:Amber Steadman]] [00:12]: [[PERSON#as:Amber Steadman]]. [[PERSON#as:S-T-E-A-D-M-A-N]].
+[[PERSON#cv:Carol Vantongeren]] [00:16]: And your address?
+[[PERSON#as:Amber Steadman]] [00:18]: [[LOCATION#a1:Eighty-eight oh nine Wildrose Court, Bend, Oregon, nine seven seven oh two]].
+[[PERSON#cv:Carol Vantongeren]] [00:23]: [[LOCATION#a1:8809 Wildrose Court, 97702]]. Is that a house?
+[[PERSON#as:Amber Steadman]] [00:26]: Yes. Well, the [[NEG:wild rose]] bushes out front are a mess, but yes.
+[[PERSON#cv:Carol Vantongeren]] [00:30]: Ha. Phone number?
+[[PERSON#as:Amber Steadman]] [00:32]: [[PHONE#ph1:Five four one, five five five, oh one oh three]].
+[[PERSON#cv:Carol Vantongeren]] [00:36]: [[PHONE#ph1:Five four one, five five five, zero one zero three]]. Anyone else allowed to bring the dog in?
+[[PERSON#as:Amber Steadman]] [00:40]: My husband, [[PERSON#hb:Grant]], and our dog walker, [[PERSON#dw:Summer]]. [[PERSON#dw:Summer]] has a key to the house.
+[[PERSON#cv:Carol Vantongeren]] [00:45]: Last names?
+[[PERSON#as:Amber Steadman]] [00:46]: [[PERSON#hb:Grant Steadman]], and [[PERSON#dw:Summer Okafor-Bright]]. Her number is [[PHONE#ph2:five four one, five five five, oh one nine seven]].
+[[PERSON#cv:Carol Vantongeren]] [00:53]: Okay. And the dog's microchip number, if you have it?
+[[PERSON#as:Amber Steadman]] [00:56]: I have the tag here. [[ACCOUNT#mc1:Nine eight five, one one two, oh oh six, four four seven, two one nine]].
+[[PERSON#cv:Carol Vantongeren]] [01:05]: Let me read that back. [[ACCOUNT#mc1:Nine eight five, one one two, zero zero six, four four seven, two one nine]].
+[[PERSON#as:Amber Steadman]] [01:12]: Wait, the last bit is [[ACCOUNT#mc1:two one six]], not nine. Sorry, it's scratched.
+[[PERSON#cv:Carol Vantongeren]] [01:16]: [[ACCOUNT#mc1:Two one six]]. Got it. The chip registry will confirm. Your old vet, can they send records?
+[[PERSON#as:Amber Steadman]] [01:21]: Yes. [[ORG:Marrowdale Veterinary]] in [[LOCATION:Spokane]]. They have him under client number [[ACCOUNT#oc1:double seven, four, oh, eight, one]].
+[[PERSON#cv:Carol Vantongeren]] [01:28]: [[ACCOUNT#oc1:Seven seven four zero eight one]]. Their email?
+[[PERSON#as:Amber Steadman]] [01:31]: [[EMAIL#e1:records at marrowdale vet dot example]]. And mine is [[EMAIL#e2:amber dot steadman hyphen two at highdesert mail dot example]].
+[[PERSON#cv:Carol Vantongeren]] [01:39]: [[EMAIL#e2:Hyphen two]]?
+[[PERSON#as:Amber Steadman]] [01:40]: [[EMAIL#e2:amber dot steadman dash two]], yes.
+[[PERSON#cv:Carol Vantongeren]] [01:42]: [[EMAIL#e2:amber.steadman-2@highdesertmail.example]]. Okay. Your new client number here is [[ACCOUNT#nc1:T A H, forty-two oh nine]].
+[[PERSON#as:Amber Steadman]] [01:48]: [[ACCOUNT#nc1:T A H four two zero nine]].
+[[PERSON#cv:Carol Vantongeren]] [01:50]: Right. We take a card on file for new clients. You won't be charged until the visit.
+[[PERSON#as:Amber Steadman]] [01:55]: Sure. [[CARD#cd1:Three seven six six, one seven six, oh three one, three seven two one four]].
+[[PERSON#cv:Carol Vantongeren]] [02:04]: Sorry, the middle again?
+[[PERSON#as:Amber Steadman]] [02:06]: [[CARD#cd1:One seven six oh three one]].
+[[PERSON#cv:Carol Vantongeren]] [02:08]: [[CARD#cd1:Three seven six six, one seven six zero three one, three seven two one four]]. And the code?
+[[PERSON#as:Amber Steadman]] [02:13]: [[ACCOUNT#cv1:Nine, two, two, oh]].
+[[PERSON#cv:Carol Vantongeren]] [02:15]: Thank you. Our pet portal is [[URL#u1:thistlewhit vet dot test slash portal]]. Your login code is [[ACCOUNT#lc1:romeo, kilo, five, five, niner]].
+[[PERSON#as:Amber Steadman]] [02:22]: [[ACCOUNT#lc1:R K five five nine]].
+[[PERSON#cv:Carol Vantongeren]] [02:24]: Yes. Appointment is [[DATE:Tuesday the second]] at nine with [[PERSON#dr:Dr. Faith Mendel-Ruiz]]. Park in [[LOCATION:the gravel lot behind the feed store next door, the front spaces are for the pharmacy]].
+[[PERSON#as:Amber Steadman]] [02:33]: Great. And if [[PERSON#dw:Summer]] brings him, does she need anything?
+[[PERSON#cv:Carol Vantongeren]] [02:36]: Just her name on the file, which it is. I [[NEG:hope]] he's a good boy for [[PERSON#dr:Dr. Mendel-Ruiz]].
+[[PERSON#as:Amber Steadman]] [02:40]: He [[NEG:will]] be if there are treats. Thanks, [[PERSON#cv:Carol]].

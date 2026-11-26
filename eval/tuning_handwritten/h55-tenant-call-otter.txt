@@ -1,0 +1,92 @@
+[[PERSON#lw:Lane Keshmibyul]]  0:02
+Hi, this is [[PERSON#lw:Lane]] from [[ORG:Copperwick Residential]] returning your call. Is this [[PERSON#sn:Sky]]?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  0:06
+Yes, hi [[PERSON#lw:Lane]]. Thanks for calling back. I have a few things.
+
+[[PERSON#lw:Lane Keshmibyul]]  0:10
+Sure. Can I get your unit and the resident account number first?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  0:13
+Unit is [[LOCATION#u1:apartment four twelve at Copperwick Commons, eighteen hundred South Harmon Street, Tempe, Arizona, eight five two eight one]]. Account is [[ACCOUNT#ra1:R A, seven seven, oh four, one, one, nine]].
+
+[[PERSON#lw:Lane Keshmibyul]]  0:24
+[[ACCOUNT#ra1:R A seven seven zero four one one nine]]. Got you. What's up?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  0:28
+First, the dishwasher is leaking again. I put in a ticket last month, number [[ACCOUNT#tk1:M T dash forty-four eighteen]], and it's back.
+
+[[PERSON#lw:Lane Keshmibyul]]  0:35
+I see [[ACCOUNT#tk1:M T four four one eight]], closed on [[DATE:the third]]. I'll reopen it as [[ACCOUNT#tk2:M T four five oh two]]. Is it okay for maintenance to enter if you're not home?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  0:44
+Yes. The door code changed though, the new one is [[ACCOUNT#dc1:six, eight, six, eight, pound]].
+
+[[PERSON#lw:Lane Keshmibyul]]  0:49
+[[ACCOUNT#dc1:Six eight six eight hash]]. Who should they call when they arrive?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  0:52
+Me, [[PHONE#ph1:four eight oh, five five five, oh one nine nine]]. Or if I'm at work, my partner [[PERSON#pt:Hunter]]. [[PERSON#pt:Hunter's]] number is [[PHONE#ph2:four eight oh, five five five, oh one oh six]].
+
+[[PERSON#lw:Lane Keshmibyul]]  1:02
+[[PHONE#ph1:Four eight zero, five five five, zero one nine nine]] and [[PHONE#ph2:zero one zero six]]. Got it. Second thing?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:08
+[[PERSON#pt:Hunter]] wants to go on the lease officially. What do you need?
+
+[[PERSON#lw:Lane Keshmibyul]]  1:12
+An application, which runs a background check. I can start it on the phone if you have his details. Full name and social.
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:18
+He's right here. [[PERSON#pt:Hunter Abernethy-Cole]]. Social is [[SSN#s1:nine five three]]...
+
+[[PERSON#lw:Lane Keshmibyul]]  1:23
+[[SSN#s1:Nine five three]].
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:24
+...[[SSN#s1:eight one, two two seven oh]].
+
+[[PERSON#lw:Lane Keshmibyul]]  1:27
+[[SSN#s1:Nine five three, eight one, two two seven zero]]. Date of birth?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:31
+[[DATE:July fourth, 1994]].
+
+[[PERSON#lw:Lane Keshmibyul]]  1:33
+And his current address?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:35
+[[LOCATION#h2:Twenty-nine fifteen East Saguaro Vista Drive, number one oh one, Mesa, Arizona, eight five two oh four]]. He's moving out of there [[DATE:end of the month]].
+
+[[PERSON#lw:Lane Keshmibyul]]  1:44
+Okay. The application fee is [[AMOUNT:fifty-five]]. Do you want to pay it from the bank account on file?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:49
+Which one is on file?
+
+[[PERSON#lw:Lane Keshmibyul]]  1:51
+Account ending [[ACCOUNT#bk1:two nine nine one]].
+
+[[PERSON#sn:Sky Navarre-Oduya]]  1:54
+Closed. Use the new one. Routing [[ACCOUNT#rt1:one two two, one oh five, two seven eight]], account [[ACCOUNT#bk2:oh oh four four, seven, three six, eight one]].
+
+[[PERSON#lw:Lane Keshmibyul]]  2:04
+[[ACCOUNT#rt1:One two two one zero five two seven eight]]. Account [[ACCOUNT#bk2:zero zero four four seven three six eight one]]. Saved. And email for [[PERSON#pt:Hunter]] so he can sign?
+
+[[PERSON#sn:Sky Navarre-Oduya]]  2:13
+[[EMAIL#e1:hunter dot a c at sonoranpost dot example]]. That's [[EMAIL#e1:a, c]], for [[PERSON#pt:Abernethy-Cole]].
+
+[[PERSON#lw:Lane Keshmibyul]]  2:18
+[[EMAIL#e1:hunter.ac@sonoranpost.example]]. The link will come from [[EMAIL#e2:leasing at copperwick living dot test]]. You can also see it in the portal at [[URL#u1:copperwick living dot test slash residents]].
+
+[[PERSON#sn:Sky Navarre-Oduya]]  2:28
+Great. Last thing. The guy in four fourteen, the one who plays drums at midnight. You know who I mean.
+
+[[PERSON#lw:Lane Keshmibyul]]  2:34
+I do. I'll talk to [[PERSON:the tenant in four fourteen]]. I can't share anything about him, but I'll [[NEG:mark]] it as a noise complaint.
+
+[[PERSON#sn:Sky Navarre-Oduya]]  2:40
+Thanks. I [[NEG:hope]] it helps. Clear [[NEG:skies]] after this, right?
+
+[[PERSON#lw:Lane Keshmibyul]]  2:44
+Ha. [[NEG:Will]] do my best. Talk soon.

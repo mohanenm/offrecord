@@ -11,7 +11,9 @@ detector code or any other evaluation set, template or pool. `h21` to `h40` were
 a second agent under the same rules, with extra weight on percentages, locations and
 sensitive-topic sentences, after the first twenty no longer showed many misses in those
 categories. A few invented names in them that happened to match names in the validation or
-sealed pools were replaced with new invented names.
+sealed pools were replaced with new invented names. `h41` to `h60` were added the same way,
+weighted towards personal data that is hard to catch: identifiers read out in words, spelled
+emails and names, names that are ordinary words, and full postal addresses.
 
 Markup follows `docs/eval-format.md` section 2. `denylist.yaml` is a deliberately partial
 deny-list for this folder.
@@ -60,6 +62,26 @@ deny-list for this folder.
 | `h38-pharmacy-ops.txt` | Pharmacy chain operations | `Speaker A` / `Speaker B`, long turns |
 | `h39-law-partners.txt` | Law-firm partner meeting | full names, long turns |
 | `h40-agency-pitch-review.txt` | Marketing agency pitch review | `[hh:mm:ss] Role:` |
+| `h41-pharmacy-refill.txt` | Pharmacy refill call | `Rep` / `Customer` |
+| `h42-utility-move-asr.txt` | Utility move-out call | `spk_N`, lowercase ASR |
+| `h43-isp-tech-support.txt` | ISP technical support | `[hh:mm:ss] Role:` |
+| `h44-bank-wire-recall.txt` | Bank wire recall | `mm:ss Role:` |
+| `h45-hotel-reservation-uk.txt` | UK hotel reservation | `SPEAKER_0N` |
+| `h46-school-office-asr.txt` | School office call | `speaker N`, lowercase, no punctuation |
+| `h47-home-care-scheduling.txt` | Home care scheduling | lowercase first names, rapid turns |
+| `h48-auto-claim-caps.txt` | Auto insurance claim | ALL CAPS, full names |
+| `h49-tax-prep-call.txt` | Tax preparation call | `Speaker A` / `Speaker B`, long turns |
+| `h50-restaurant-shift-huddle.txt` | Restaurant shift huddle | first names |
+| `h51-nurse-handoff.txt` | Nurse shift handoff | `hh:mm Name:` |
+| `h52-moving-quote.txt` | Moving company quote | `Name (hh:mm:ss):` |
+| `h53-card-dispute.txt` | Card dispute call | `Agent` / `Cardholder` |
+| `h54-pantry-volunteers-asr.txt` | Food pantry volunteers | lowercase first names |
+| `h55-tenant-call-otter.txt` | Tenant call | Otter-style header lines |
+| `h56-courier-dispatch.txt` | Courier dispatch radio | first names |
+| `h57-vet-clinic-intake.txt` | Vet clinic intake | `Name [mm:ss]:` |
+| `h58-payroll-onboarding.txt` | Payroll onboarding | `[hh:mm:ss] Name:` |
+| `h59-alarm-monitoring.txt` | Alarm monitoring call | full names |
+| `h60-network-cutover-caps.txt` | Network cutover | ALL CAPS, initials as speakers |
 | `denylist.yaml` | Partial deny-list | name / category / aliases |
 
 ## Labelling conventions

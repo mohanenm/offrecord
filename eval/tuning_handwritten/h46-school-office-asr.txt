@@ -1,0 +1,41 @@
+speaker 1: good morning [[ORG:pinewhistle elementary]] front office this is [[PERSON#s1:pat]]
+speaker 2: hi [[PERSON#s1:pat]] it's [[PERSON#p1:faith lowry]] i'm [[PERSON#k1:hunter's]] mom [[PERSON#k1:hunter lowry]] in third grade
+speaker 1: hi [[PERSON#p1:faith]] what can i do for you
+speaker 2: a few things first [[PERSON#k1:hunter]] has a dentist appointment [[DATE:thursday]] so i'll pick him up at eleven
+speaker 1: okay can you give me his student id i'll put it in the system
+speaker 2: it's [[ACCOUNT#id1:s two oh one seven four four nine]]
+speaker 1: [[ACCOUNT#id1:s two zero one seven four four nine]] got him early dismissal [[DATE:thursday]] at eleven who's picking up
+speaker 2: either me or my mother [[PERSON#p2:ruby]] [[PERSON#p2:ruby castellan]] she's on the pickup list
+speaker 1: yep i see [[PERSON#p2:ruby]] she'll need id at the desk
+speaker 2: sure second thing we moved so i need to update the address
+speaker 1: go ahead
+speaker 2: [[LOCATION#l1:sixty-eight oh two juniper bend drive apartment two oh four cedar falls iowa five oh six one three]]
+speaker 1: [[LOCATION#l1:six eight zero two juniper bend]]
+speaker 2: [[LOCATION#l1:apartment two oh four]]
+speaker 1: [[LOCATION#l1:two oh four cedar falls five oh six one three]] got it does the bus route change
+speaker 2: i [[NEG:hope]] not he likes his driver
+speaker 1: the new stop would be [[LOCATION:the corner by the old grain elevator on quarry road across from the church lot]]
+speaker 2: oh that's fine that's right by us
+speaker 1: okay and phone numbers still the same
+speaker 2: mine changed it's [[PHONE#ph1:three one nine five five five oh one zero four]]
+speaker 1: [[PHONE#ph1:three one nine five five five zero one zero four]] and the email for the parent portal
+speaker 2: [[EMAIL#e1:f lowry dot home at prairienet dot example]] [[EMAIL#e1:f l o w r y dot home]]
+speaker 1: [[EMAIL#e1:f lowry dot home at prairienet dot example]] okay third thing
+speaker 2: his lunch account pin he forgot it again
+speaker 1: i can see it it's [[ACCOUNT#pin1:four oh oh four]]
+speaker 2: [[ACCOUNT#pin1:four zero zero four]] okay i'll write it in his folder and the balance
+speaker 1: it's at [[AMOUNT:three twenty]] you can add money at [[URL#u1:pinewhistle k twelve dot test slash lunch]]
+speaker 2: perfect and i can't log into the portal either
+speaker 1: i'll reset it your temporary password is [[ACCOUNT#pw1:hunter green seven seven]] all lower case no spaces
+speaker 2: [[ACCOUNT#pw1:hunter green seven seven]] like the [[NEG:hunter green]] uniform
+speaker 1: ha yes exactly that's what the system generates
+speaker 2: one more who's his teacher this year i forgot her last name it's miss [[PERSON#t1:june]] something
+speaker 1: [[PERSON#t1:june albrecht]] room twelve you can email her at [[EMAIL#e2:j albrecht at pinewhistle k twelve dot test]]
+speaker 2: great and is [[PERSON#t2:mark]] still doing the after school program
+speaker 1: [[PERSON#t2:mark]] left in [[DATE:october]] [[PERSON#t3:grace]] runs it now [[PERSON#t3:grace]] and [[PERSON#t4:will]] split the days
+speaker 2: okay [[NEG:will]] they need a new form
+speaker 1: yes the registration code for the program is [[ACCOUNT#rg1:a s p dash two seven dash nine nine]] put that on the form
+speaker 2: [[ACCOUNT#rg1:a s p two seven nine nine]]
+speaker 1: yep and [[NEG:mark]] the days he's staying on the form too
+speaker 2: [[NEG:will]] do thanks [[PERSON#s1:pat]]
+speaker 1: bye [[PERSON#p1:faith]]

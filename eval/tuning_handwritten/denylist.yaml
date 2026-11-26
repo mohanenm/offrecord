@@ -330,3 +330,68 @@ denylist:
     category: PERSON
     aliases:
     - Marchbanks
+  # h41-h60
+  - name: Harrowgate Seed Co
+    category: CLIENT
+    aliases:
+    - Harrowgate
+  - name: Tamsworth Joinery
+    category: CLIENT
+    aliases:
+    - Tamsworth
+  - name: Brimvale Pharmacy
+    category: ORG
+    aliases:
+    - Brimvale
+  - name: Corvanne Savings
+    category: ORG
+    aliases:
+    - Corvanne
+  - name: Hartgrove Mutual
+    category: ORG
+    aliases:
+    - Hartgrove
+  - name: Halberd Card Services
+    category: ORG
+    aliases:
+    - Halberd
+  - name: Sentrimark Monitoring
+    category: ORG
+    aliases:
+    - Sentrimark
+  - name: Zentrovo Digital
+    category: ORG
+    aliases:
+    - Zentrovo
+  - name: Earnest Pellow
+    category: PERSON
+    aliases:
+    - Pellow
+  - name: Sky Bellweather
+    category: PERSON
+    aliases:
+    - Bellweather
+  - name: Ruby Achterlund
+    category: PERSON
+    aliases:
+    - Achterlund
+  - name: William Okerlund
+    category: PERSON
+    aliases:
+    - Okerlund
+  - name: Frank Odegaard
+    category: PERSON
+    aliases:
+    - Odegaard
+  - name: Sky Navarre-Oduya
+    category: PERSON
+    aliases:
+    - Navarre-Oduya
+  - name: Mabel Quintero-Roth
+    category: PERSON
+    aliases:
+    - Quintero-Roth
+  - name: Victor Albescu-Moore
+    category: PERSON
+    aliases:
+    - Albescu-Moore

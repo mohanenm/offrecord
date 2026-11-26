@@ -1,0 +1,31 @@
+06:58 [[PERSON#rs:Rose]]: Morning. Four patients for you. Bed twelve first.
+06:58 [[PERSON#dv:Dawn]]: Go.
+06:59 [[PERSON#rs:Rose]]: Bed twelve is [[PERSON#p1:Mr. Lane]], [[PERSON#p1:Earnest Lane]], MRN [[ACCOUNT#mr1:seven seven oh, four one, nine two two]]. Eighty-one, came up from the ED [[DATE:Sunday]] night.
+06:59 [[PERSON#dv:Dawn]]: [[ACCOUNT#mr1:Seven seven zero four one nine two two]]?
+06:59 [[PERSON#rs:Rose]]: Yes. His daughter [[PERSON#p1d:Hope]] is the contact, [[PHONE#ph1:two one six, five five five, oh one four one]]. She'll call around ten. [[PERSON#p1:Earnest]] is going home [[DATE:today]] if PT signs off.
+07:00 [[PERSON#dv:Dawn]]: Going home where? He came from [[LOCATION:the Northside place]], right?
+07:00 [[PERSON#rs:Rose]]: Not home, to his daughter's. [[LOCATION#a1:Fifty-two eleven Ridgecrest Avenue, apartment six A, Lakeview Heights, Ohio, four four one oh seven]]. [[PERSON#p1d:Hope]] wants transport to use [[LOCATION:the back entrance of the Northside clinic building next door, the one with the ramp]], because her building has no ramp.
+07:01 [[PERSON#dv:Dawn]]: Got it. Who's the case manager?
+07:01 [[PERSON#rs:Rose]]: [[PERSON#cm:Victor]]. [[PERSON#cm:Victor Albescu-Moore]]. His email's [[EMAIL#e1:v albescu moore at saint brevin health dot example]], all one word before the at.
+07:01 [[PERSON#dv:Dawn]]: [[EMAIL#e1:valbescumoore@saintbrevinhealth.example]].
+07:02 [[PERSON#rs:Rose]]: That's it. The transport booking is [[ACCOUNT#tr1:T R, dash, oh four, four four, seven]].
+07:02 [[PERSON#dv:Dawn]]: [[ACCOUNT#tr1:T R zero four four four seven]]. Okay, bed fourteen.
+07:02 [[PERSON#rs:Rose]]: Fourteen is [[PERSON#p2:Mrs. Pearl Abernathy]], MRN [[ACCOUNT#mr2:eight one two]]...
+07:02 [[PERSON#dv:Dawn]]: Hang on, let me get a pen.
+07:03 [[PERSON#rs:Rose]]: ...[[ACCOUNT#mr2:six six, oh nine three]]. She only speaks Portuguese. [[PERSON:Our only Portuguese-speaking interpreter on days]] is booked till noon, so use the video line before that.
+07:03 [[PERSON#dv:Dawn]]: [[ACCOUNT#mr2:Eight one two six six zero nine three]]. Okay. Family?
+07:03 [[PERSON#rs:Rose]]: Her son [[PERSON#p2s:Mark]]. He was here till midnight. [[PERSON#p2s:Mark]] wants a call after rounds, [[PHONE#ph2:two one six, five five five, oh one seven nine]].
+07:04 [[PERSON#dv:Dawn]]: [[NEG:Mark]] that on the board for me.
+07:04 [[PERSON#rs:Rose]]: Done. Bed sixteen is empty, they'll fill it by nine. Bed eighteen, [[PERSON#p3:Sky Morrow-Tate]], MRN [[ACCOUNT#mr3:nine, nine, triple oh, four, one, two]].
+07:04 [[PERSON#dv:Dawn]]: [[ACCOUNT#mr3:Nine nine zero zero zero four one two]].
+07:04 [[PERSON#rs:Rose]]: Yeah. [[PERSON#p3:Sky]] has been here before. Watch the visitors list. There's a no-contact order on her ex-partner. [[PERSON#x1:Chase]]. If [[PERSON#x1:Chase]] shows up, call security.
+07:05 [[PERSON#dv:Dawn]]: Do we have a picture?
+07:05 [[PERSON#rs:Rose]]: Security does. The password for her visitors is [[ACCOUNT#vp1:blue lantern forty]]. Anyone who calls has to say it.
+07:05 [[PERSON#dv:Dawn]]: [[ACCOUNT#vp1:Blue lantern four oh]]. Got it.
+07:05 [[PERSON#rs:Rose]]: And the med cabinet override code got changed overnight. It's [[ACCOUNT#px1:double five, one, seven, two]].
+07:06 [[PERSON#dv:Dawn]]: [[ACCOUNT#px1:Five five one seven two]].
+07:06 [[PERSON#rs:Rose]]: [[PERSON#nn:The night nurse on Four West]] told me. Ask [[PERSON#nn:the night nurse on Four West]] if it doesn't work, she set it.
+07:06 [[PERSON#dv:Dawn]]: [[NEG:Will]] do. Anything else?
+07:06 [[PERSON#rs:Rose]]: [[PERSON#p1:Mr. Lane's]] old address is still in the chart, [[LOCATION#a2:three oh nine Tamarack Street, Bellbrook, Ohio, four five three oh five]]. Discharge papers have to go to the daughter's. And patient portal for [[PERSON#p1:Earnest]] is [[URL#u1:patients dot saint brevin dot test]], [[PERSON#p1d:Hope]] has proxy access.
+07:07 [[PERSON#dv:Dawn]]: I [[NEG:hope]] the papers print right this time.
+07:07 [[PERSON#rs:Rose]]: Ha. Me too. Have a good one.

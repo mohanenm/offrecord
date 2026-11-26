@@ -1,0 +1,35 @@
+[[PERSON#hv:Hunter Velasco]] (00:00:03): Hi, this is [[PERSON#hv:Hunter]] from [[ORG:Quillbrook Movers]], following up on the quote request. Is this [[PERSON#sb:Sue]]?
+[[PERSON#sb:Sue Brannock]] (00:00:08): Yes, hi. Thanks for calling back.
+[[PERSON#hv:Hunter Velasco]] (00:00:11): Sure. Your quote number is [[ACCOUNT#q1:Q as in quebec, two two oh, four seven, one]]. Let me confirm the addresses. Moving from?
+[[PERSON#sb:Sue Brannock]] (00:00:19): [[LOCATION#o1:Seven forty-one Birchwood Lane, apartment three C, Overland Park, Kansas, six six two oh four]].
+[[PERSON#hv:Hunter Velasco]] (00:00:27): [[LOCATION#o1:741 Birchwood Lane, 3C, Overland Park, 66204]]. And moving to?
+[[PERSON#sb:Sue Brannock]] (00:00:31): [[LOCATION#d1:Twenty-two oh six Prairie Wind Circle]]...
+[[PERSON#hv:Hunter Velasco]] (00:00:34): [[LOCATION#d1:Twenty-two oh six]]...
+[[PERSON#sb:Sue Brannock]] (00:00:35): ...[[LOCATION#d1:Prairie Wind Circle, Lenexa, Kansas, six six two one nine]]. It's a house, so no elevator at that end.
+[[PERSON#hv:Hunter Velasco]] (00:00:41): Great. And the old building, is there a freight elevator?
+[[PERSON#sb:Sue Brannock]] (00:00:44): Yes, but you have to reserve it with the building manager. [[PERSON#bm:Lane]] handles that. [[PERSON#bm:Lane]] is at [[PHONE#ph1:nine one three, five five five, oh one three three]].
+[[PERSON#hv:Hunter Velasco]] (00:00:51): [[PHONE#ph1:Nine one three, five five five, zero one three three]]. I'll call [[PERSON#bm:Lane]] to book it. And parking for the truck?
+[[PERSON#sb:Sue Brannock]] (00:00:56): [[LOCATION:The loading zone on the side street behind the dry cleaner]], not the front. The front [[NEG:lane]] is a fire lane.
+[[PERSON#hv:Hunter Velasco]] (00:01:03): Got it, side street. We also have your storage pickup. Which facility?
+[[PERSON#sb:Sue Brannock]] (00:01:06): [[LOCATION#st1:Brindlemoor Storage on Quivira Road, unit one forty-four]]. Gate code [[ACCOUNT#gc1:pound, seven seven, three oh, pound]].
+[[PERSON#hv:Hunter Velasco]] (00:01:13): [[ACCOUNT#gc1:Hash seven seven three zero hash]]. And the unit lock?
+[[PERSON#sb:Sue Brannock]] (00:01:16): Combination lock, [[ACCOUNT#lk1:twelve, thirty-four, oh six]]. My brother [[PERSON#br:Bob]] has a key too if you'd rather.
+[[PERSON#hv:Hunter Velasco]] (00:01:21): The combination's fine. I'll [[NEG:mark]] that on the work order. The work order number, by the way, is [[ACCOUNT#wo1:W O dash two six, dash, four four one eight]].
+[[PERSON#sb:Sue Brannock]] (00:01:29): [[ACCOUNT#wo1:W O two six four four one eight]].
+[[PERSON#hv:Hunter Velasco]] (00:01:32): Yes. Total estimate for the [[DATE:fourteenth]] is [[AMOUNT:$2,340]], with a [[AMOUNT:$300]] deposit to hold the date. Can I take a card for that?
+[[PERSON#sb:Sue Brannock]] (00:01:41): Sure. [[CARD#cd1:Five seven six oh, one eight nine five, five five nine seven, nine seven one five]].
+[[PERSON#hv:Hunter Velasco]] (00:01:50): [[CARD#cd1:Five seven six zero, one eight nine five, double five nine seven, nine seven one five]]. Expiry and code?
+[[PERSON#sb:Sue Brannock]] (00:01:56): Code is [[ACCOUNT#cv1:four, oh, two]].
+[[PERSON#hv:Hunter Velasco]] (00:01:58): Okay. It declined, I'm afraid. Do you have another?
+[[PERSON#sb:Sue Brannock]] (00:02:02): Ugh. Try my business card. [[CARD#cd2:Five one four seven, one oh four nine]]...
+[[PERSON#hv:Hunter Velasco]] (00:02:07): Go on.
+[[PERSON#sb:Sue Brannock]] (00:02:08): ...[[CARD#cd2:seven four six five, oh seven five nine]].
+[[PERSON#hv:Hunter Velasco]] (00:02:12): That went through. Ending [[CARD#cd2:oh seven five nine]]. Receipt to which email?
+[[PERSON#sb:Sue Brannock]] (00:02:16): [[EMAIL#e1:sue dot brannock at plainsmail dot example]]. [[EMAIL#e1:B-r-a-n-n-o-c-k]].
+[[PERSON#hv:Hunter Velasco]] (00:02:21): [[EMAIL#e1:sue.brannock@plainsmail.example]]. You'll get an inventory link from [[EMAIL#e2:crew underscore leads at quillbrook movers dot test]], and you can add items at [[URL#u1:quillbrook movers dot test slash inventory slash Q two two oh four seven one]].
+[[PERSON#sb:Sue Brannock]] (00:02:33): Okay. And who's the crew lead?
+[[PERSON#hv:Hunter Velasco]] (00:02:35): [[PERSON#cl:Ruby]]. [[PERSON#cl:Ruby]] and [[PERSON#c2:Will]] usually run the big trucks. [[PERSON#cl:Ruby's]] number on moving day is [[PHONE#ph2:nine one three, five five five, oh one six oh]].
+[[PERSON#sb:Sue Brannock]] (00:02:43): Perfect. Oh, I have a piano, an upright.
+[[PERSON#hv:Hunter Velasco]] (00:02:46): [[NEG:Will]] it go upstairs or stay on the ground floor?
+[[PERSON#sb:Sue Brannock]] (00:02:48): Ground floor.
+[[PERSON#hv:Hunter Velasco]] (00:02:50): Then it's [[AMOUNT:one fifty]] extra. I'll send the updated quote. Thanks, [[PERSON#sb:Sue]].

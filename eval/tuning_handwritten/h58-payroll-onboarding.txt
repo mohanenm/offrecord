@@ -1,0 +1,40 @@
+[00:00:04] [[PERSON#po:Pearl Okonedo]]: Hi [[PERSON#vi:Victor]], welcome aboard. This is the payroll and onboarding call, should take twenty minutes. Can you hear me okay?
+[00:00:09] [[PERSON#vi:Victor Ilsley]]: Yes, loud and clear.
+[00:00:11] [[PERSON#po:Pearl Okonedo]]: Great. First, your employee ID is [[ACCOUNT#em1:E as in echo, zero, four, four, seven, one, nine]]. You'll need it for everything.
+[00:00:19] [[PERSON#vi:Victor Ilsley]]: [[ACCOUNT#em1:E zero four four seven one nine]].
+[00:00:22] [[PERSON#po:Pearl Okonedo]]: Right. I need to confirm the social security number on your offer paperwork. I have [[SSN#s1:nine two six, five five, one eight oh three]].
+[00:00:31] [[PERSON#vi:Victor Ilsley]]: Hmm, it should end [[SSN#s1:one eight three oh]], not [[SSN#s1:one eight oh three]].
+[00:00:35] [[PERSON#po:Pearl Okonedo]]: Good catch. So [[SSN#s1:nine two six, double five, one eight three oh]]?
+[00:00:40] [[PERSON#vi:Victor Ilsley]]: Yes.
+[00:00:41] [[PERSON#po:Pearl Okonedo]]: Fixed. For the I-9 you sent a passport. The document number is [[ACCOUNT#pp1:five six seven, two two, oh nine, four]]?
+[00:00:48] [[PERSON#vi:Victor Ilsley]]: That's right, [[ACCOUNT#pp1:five six seven two two zero nine four]].
+[00:00:51] [[PERSON#po:Pearl Okonedo]]: Okay. Home address for tax forms?
+[00:00:54] [[PERSON#vi:Victor Ilsley]]: [[LOCATION#a1:Thirteen twenty-one Juniper Hollow Road, apartment eight D, Raleigh, North Carolina, two seven six oh five]].
+[00:01:02] [[PERSON#po:Pearl Okonedo]]: [[LOCATION#a1:1321 Juniper Hollow Road, Apt 8D, Raleigh, NC 27605]]. Direct deposit next. Routing number?
+[00:01:08] [[PERSON#vi:Victor Ilsley]]: [[ACCOUNT#rt1:Oh five three]]...
+[00:01:10] [[PERSON#po:Pearl Okonedo]]: Mm-hm.
+[00:01:11] [[PERSON#vi:Victor Ilsley]]: ...[[ACCOUNT#rt1:one oh one, one two one]].
+[00:01:14] [[PERSON#po:Pearl Okonedo]]: [[ACCOUNT#rt1:Zero five three one zero one one two one]]. And the account?
+[00:01:17] [[PERSON#vi:Victor Ilsley]]: [[ACCOUNT#bk1:Four four, triple eight, two, oh, six, one]].
+[00:01:21] [[PERSON#po:Pearl Okonedo]]: [[ACCOUNT#bk1:Four four eight eight eight two zero six one]]. Emergency contact?
+[00:01:25] [[PERSON#vi:Victor Ilsley]]: My sister, [[PERSON#ec:Rose Ilsley-Grant]]. [[PHONE#ph1:Nine one nine, five five five, oh one six six]].
+[00:01:31] [[PERSON#po:Pearl Okonedo]]: [[PHONE#ph1:Nine one nine, five five five, zero one six six]]. And your own cell?
+[00:01:34] [[PERSON#vi:Victor Ilsley]]: [[PHONE#ph2:Nine eight four, five five five, oh one one oh]].
+[00:01:38] [[PERSON#po:Pearl Okonedo]]: Okay. IT setup. [[PERSON#it:Hope]] in IT will [[NEG:grant]] you access tomorrow morning. Your temporary password is [[ACCOUNT#pw1:capital T, r, e, l, l, i, s, nine, nine, at sign]].
+[00:01:49] [[PERSON#vi:Victor Ilsley]]: [[ACCOUNT#pw1:T r e l l i s nine nine at]].
+[00:01:52] [[PERSON#po:Pearl Okonedo]]: Yes. For VPN, connect to [[IP#ip1:one nine eight dot five one dot one hundred dot two two oh]]. [[PERSON#it:Hope]] will send the client.
+[00:02:00] [[PERSON#vi:Victor Ilsley]]: Is that [[IP#ip1:one nine eight dot five one]]...
+[00:02:03] [[PERSON#po:Pearl Okonedo]]: [[IP#ip1:Dot one hundred dot two twenty]].
+[00:02:05] [[PERSON#vi:Victor Ilsley]]: Got it. And my work email?
+[00:02:07] [[PERSON#po:Pearl Okonedo]]: [[EMAIL#e1:v dot ilsley at fernwhistle analytics dot test]]. Personal email on file is [[EMAIL#e2:victor underscore ilsley eighty-eight at pinemail dot example]]. Still good?
+[00:02:16] [[PERSON#vi:Victor Ilsley]]: Yes.
+[00:02:17] [[PERSON#po:Pearl Okonedo]]: Benefits enrollment is at [[URL#u1:benefits dot fernwhistle analytics dot test]]. Your enrollment key is [[ACCOUNT#ek1:B N, dash, seven seven nine, dash, K Q]]. Deadline is [[DATE:December fifteenth]].
+[00:02:27] [[PERSON#vi:Victor Ilsley]]: [[ACCOUNT#ek1:B N seven seven nine K Q]].
+[00:02:30] [[PERSON#po:Pearl Okonedo]]: Right. Your manager is [[PERSON#mg:Grant]]. [[PERSON#mg:Grant's]] out [[DATE:Monday]], so [[PERSON#bd:Faith]] will be your buddy the first day. [[PERSON#bd:Faith]] sits by the window on three.
+[00:02:38] [[PERSON#vi:Victor Ilsley]]: Okay. Where do I park?
+[00:02:40] [[PERSON#po:Pearl Okonedo]]: [[LOCATION:The north garage off Hargett, level two, the spaces marked visitor near the stairwell]]. Badge pickup at the front desk, [[LOCATION#o1:four hundred Glenwood Avenue, suite twelve hundred, Raleigh, two seven six oh three]].
+[00:02:51] [[PERSON#vi:Victor Ilsley]]: Got it. Anything else?
+[00:02:53] [[PERSON#po:Pearl Okonedo]]: One thing. Your previous employer's 401k rollover. The plan account number on your form is [[ACCOUNT#rl1:R O, four, oh, oh, one, double nine, two]].
+[00:03:01] [[PERSON#vi:Victor Ilsley]]: Correct.
+[00:03:02] [[PERSON#po:Pearl Okonedo]]: Great. I [[NEG:hope]] the first week goes smoothly. Call me at [[PHONE#ph3:extension four one two]] or [[PHONE#ph4:nine one nine, five five five, oh one three five]] if anything comes up.
+[00:03:10] [[PERSON#vi:Victor Ilsley]]: [[NEG:Will]] do. Thanks, [[PERSON#po:Pearl]].

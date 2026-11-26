@@ -1,0 +1,49 @@
+spk_0: thanks for calling [[ORG:tolloway gas and electric]] my name is [[PERSON#a1:chase]] how can i help you today
+spk_1: hi yeah i'm moving and i need to stop service at the old place and start it at the new one
+spk_0: no problem can i get the account number
+spk_1: it's [[ACCOUNT#ac1:four four seven one double five two nine oh]]
+spk_0: [[ACCOUNT#ac1:four four seven one five five two nine zero]] and who am i speaking with
+spk_1: [[PERSON#c1:sky bellweather]]
+spk_0: thanks [[PERSON#c1:sky]] and for security can you give me the last four of the social on the account
+spk_1: [[SSN#s1:eight eight one three]]
+spk_0: great so the service address i have is [[LOCATION#l1:nine oh five maple hollow road apartment twelve c lindenfield ohio four three oh two six]]
+spk_1: that's the old one yeah stop it there on [[DATE:the thirtieth]]
+spk_0: okay stop on [[DATE:november thirtieth]] and the new address
+spk_1: [[LOCATION#l2:forty-two seventeen east brandt avenue unit three lindenfield ohio four three oh two nine]]
+spk_0: let me read that back [[LOCATION#l2:four two one seven east brandt avenue unit three lindenfield ohio four three zero two nine]]
+spk_1: yep
+spk_0: since the new address is a new service we need to run a soft credit check can i get the full social
+spk_1: sure it's [[SSN#s1:nine oh four]]
+spk_0: mm-hm
+spk_1: [[SSN#s1:six two eight eight one three]]
+spk_0: so [[SSN#s1:nine zero four six two eight eight one three]]
+spk_1: that's right
+spk_0: perfect you're approved no deposit is there anyone else who should be on the account
+spk_1: my roommate [[PERSON#c2:june]] she's staying on the lease through [[DATE:the end of june]] so add her too
+spk_0: what's [[PERSON#c2:june's]] last name
+spk_1: [[PERSON#c2:okafor-lind]] [[PERSON#c2:o k a f o r dash l i n d]]
+spk_0: got it and is there a meter access issue at the new place the reader needs to get to the side yard
+spk_1: there's a gate the code is [[ACCOUNT#g1:pound four four one nine]]
+spk_0: [[ACCOUNT#g1:hash four four one nine]] i'll add that to the meter notes the meter number there is [[ACCOUNT#mt1:m dash seven seven oh three one]] does that match what's on the box
+spk_1: hang on i'm looking it says [[ACCOUNT#mt1:m seven seven zero three one]] yeah
+spk_0: great and best phone number
+spk_1: [[PHONE#ph1:six one four five five five oh one two three]]
+spk_0: [[PHONE#ph1:six one four five five five zero one two three]] and an email for the paperless bill
+spk_1: [[EMAIL#e1:sky underscore bellweather at harrowmail dot example]] that's [[EMAIL#e1:b e l l w e a t h e r]]
+spk_0: [[EMAIL#e1:sky_bellweather@harrowmail.example]] okay you'll get a link to set up the portal at [[URL#u1:tolloway dash energy dot test slash move]]
+spk_1: do i need a new login
+spk_0: same login the temporary password we'll send is [[ACCOUNT#pw1:t g e seven seven two]] you'll change it on first sign in
+spk_1: and autopay can i keep autopay
+spk_0: sure same bank account is that the one ending [[ACCOUNT#bk1:three oh oh six]]
+spk_1: no new bank routing number is [[ACCOUNT#rt1:oh seven one nine two three one oh four]] and the account is [[ACCOUNT#bk2:two two eight four]] sorry [[ACCOUNT#bk2:two two eight five oh one nine three]]
+spk_0: routing [[ACCOUNT#rt1:zero seven one nine two three one zero four]] account [[ACCOUNT#bk2:two two eight five zero one nine three]]
+spk_1: yep
+spk_0: and the old balance is [[AMOUNT:sixty-one eighty]] do you want to pay that by card now
+spk_1: sure it's [[CARD#cd1:four nine six oh three oh eight two four six two eight one nine four oh]]
+spk_0: [[CARD#cd1:four nine six zero three zero eight two four six two eight one nine four zero]] that's posted
+spk_1: oh and my brother [[PERSON:grant]] is helping me move so if a tech calls and i don't pick up try him at [[PHONE#ph2:six one four five five five oh one nine eight]]
+spk_0: i'll add [[PERSON:grant]] as an alternate contact only not on the account is that okay
+spk_1: yeah perfect the [[NEG:sky's]] been falling all week with this move honestly
+spk_0: ha i [[NEG:hope]] it goes smooth [[NEG:will]] there be anything else
+spk_1: no that's it thanks [[PERSON#a1:chase]]
+spk_0: you're welcome [[PERSON#c1:sky]] have a good one
