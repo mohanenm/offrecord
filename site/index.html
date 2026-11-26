@@ -243,7 +243,7 @@ B: Yes, <span class="ph">&lt;N4&gt;</span> runs finance now.</pre>
       <ol class="steps">
         <li><h3>normalize</h3><p>Plain text, WebVTT, SRT and Whisper-style JSON become one turn model. Spoken forms become canonical: &ldquo;john at example dot com&rdquo; &rarr; an email, &ldquo;five five five&hellip;&rdquo; &rarr; digits.</p></li>
         <li><h3>redact</h3><p>Regex + validators (email, phone, card with Luhn, IP, URL, dates&hellip;), your deny-list with fuzzy and phonetic matching, name and place heuristics, and personal topics (health, family, legal). Business context (amounts, percentages, organisations, business topics) is flagged for review, or redacted too with <code>protect: confidential</code>. Optional NER and LLM tiers add redactions and never undo another detector&rsquo;s.</p></li>
-        <li><h3>compress</h3><p><code>light</code> (default) removes fillers, stutters and backchannel turns; <code>medium</code> also drops small talk and near-duplicates. Negations, decisions and numbers are never dropped, nor any placeholder.</p></li>
+        <li><h3>compress</h3><p><code>light</code> (default) removes fillers, stutters and backchannel turns, but keeps the answer to a question; <code>medium</code> also drops small talk and near-duplicates. Negations, decisions and numbers are never dropped except as part of a near-duplicate turn, and every placeholder keeps at least its last occurrence.</p></li>
         <li><h3>output</h3><p>Compact text with a speaker legend, or the original format. Short, consistent placeholders (<code>&lt;C1&gt;</code>, <code>&lt;P2&gt;</code>, <code>&lt;AMT1&gt;</code>) and a header carrying a random mapping id.</p></li>
       </ol>
     </div>
@@ -374,7 +374,7 @@ offrecord restore answer.txt --assume-mapping \
         <li>Higher tiers trade precision for recall and are slower (Tier 2 adds roughly 10&nbsp;s per call transcript on a laptop CPU).</li>
         <li>Sentences about someone&rsquo;s health, family or legal situation are found by keyword (and by meaning at Tier 1); a personal sentence with none of those words can be missed, and a keyword sentence about no one in particular (&ldquo;our cancer franchise grew&rdquo;) is flagged rather than redacted. Business context (figures, organisations, layoffs, pricing) is flagged, not redacted, unless you set <code>protect: confidential</code>.</li>
         <li>Relative dates (&ldquo;yesterday&rdquo;, &ldquo;next Friday&rdquo;) are not redacted.</li>
-        <li><code>aggressive</code> compression is lossy by design (it never drops turns with placeholders, numbers, decisions or questions).</li>
+        <li><code>aggressive</code> compression is lossy by design. Its selection step never drops turns with placeholders, numbers, decisions or questions, but it also removes near-duplicate turns, so a repeated mention can go; the last occurrence of each placeholder always stays.</li>
         <li>Python cannot wipe memory: decrypted mappings and transcript text stay in process memory until garbage collected.</li>
       </ul>
     </div>

@@ -93,8 +93,8 @@ three", "jane at example dot com") become written ones. Rule-based detectors fin
 dates, deny-list entries, business figures and sensitive-topic sentences in both views;
 optional model tiers add to what the rules find. Personal data becomes a consistent
 placeholder (`<P1>`, `<EMAIL1>`, `<ACCT2>`) and business context becomes a review flag;
-compression removes fillers and backchannels, and the mapping from placeholders back to the
-originals is written encrypted.
+compression removes fillers and backchannel turns that don't answer a question, and the
+mapping from placeholders back to the originals is written encrypted.
 [docs/architecture.md](https://github.com/mohanenm/offrecord/blob/main/docs/architecture.md) explains each step and why it works that way.
 
 ## Tiers and hardware floors
@@ -203,8 +203,10 @@ real-world recall to be lower.
   codenames you need hidden in the deny-list.
 - Higher tiers trade precision for recall (see the table above), and are
   slower (Tier 2 adds roughly 10 s per call transcript on a laptop CPU).
-- `aggressive` compression is lossy by design (it drops low-information turns), though it never
-  drops turns with placeholders, numbers, decisions or questions.
+- `aggressive` compression is lossy by design (it drops low-information turns). Its selection
+  step never drops turns with placeholders, numbers, decisions or questions, or the answer to a
+  question, but like `medium` it removes near-duplicate turns, so a repeated mention can go.
+  The last occurrence of each placeholder always stays.
 - Sentences about someone's health, family or legal situation are found by keyword at Tier 0
   ("diagnosed", "divorce", "arrested", ...) and also by meaning at Tier 1; a personal sentence
   that uses none of the keywords can still be missed. A keyword sentence that names no one and

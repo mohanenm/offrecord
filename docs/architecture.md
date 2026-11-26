@@ -76,9 +76,13 @@ already contains text that looks like a placeholder, it is escaped first, so the
 one-to-one.
 
 Compression is optional and conservative. The default level only removes fillers, stutters
-and backchannels and merges consecutive turns from the same speaker, which cannot change what
-was redacted. Higher levels drop small talk and near-duplicate turns. No level ever drops the
-last occurrence of a placeholder.
+and backchannel turns and merges consecutive turns from the same speaker, which cannot change
+what was redacted. A short reply to a turn ending in "?" is an answer, not backchannel, and is
+kept at every level while its question is. Fillers match only in lower or sentence case ("ER"
+stays), and only plain stutters such as "I I" or "the the" collapse; "that that" and "had had"
+stay. Higher levels drop small talk and near-duplicate turns. A placeholder is never altered,
+and a turn holding the last remaining occurrence of a placeholder is never dropped; repeated
+mentions can go with their turns.
 
 ## Restore and the mapping file
 
