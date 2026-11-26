@@ -44,9 +44,10 @@ Every other command installs a network guard (see below) before doing any work.
 ### R2. Careless logging and error output
 - No raw text in logs, exceptions, tracebacks or debug output. Errors carry a code, a position
   (field, turn, line, offset) and a category, never content.
-- The CLI catches every exception at the top level. For offrecord's own errors it prints the code and
-  position. For unexpected exceptions it prints only the exception *type* and the code location,
-  never the exception message (third-party messages, e.g. decode errors, can embed input bytes).
+- The CLI catches every exception at the top level. For offrecord's own errors it prints the
+  code and position. For unexpected exceptions it prints only the exception *type* and the code
+  location, never the exception message (third-party messages, e.g. decode errors, can embed
+  input bytes).
 - `--debug` prints stack frames (file, line, function) but never exception messages or locals.
 - `sys.excepthook`, `threading.excepthook`, `sys.unraisablehook` and `warnings.showwarning`
   are replaced with content-free versions; logging's last-resort handler is removed and the

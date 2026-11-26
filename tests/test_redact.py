@@ -498,3 +498,23 @@ def test_places_in_text_without_capitals(line, hidden, visible):
     out = body(redact(f"a: {line}\na: ok\n")[0])
     assert not any(h in out for h in hidden)
     assert all(v in out for v in visible)
+
+
+@pytest.mark.parametrize(
+    ("line", "hidden", "visible"),
+    [
+        ("find it online at acme dot test slash help dash desk today", ["acme", "help", "desk"],
+         ["today"]),
+        ("go to zentrix dot com slash pricing dash plans for details", ["pricing", "plans"],
+         ["details"]),
+        ("visit portal dot acme health dot org to log in", ["portal", "acme", "health"],
+         ["log in"]),
+        ("check acme dot health slash intake", ["acme", "intake"], []),
+        ("email dana at acme dot com please", ["dana", "acme"], ["please"]),
+        ("at this point today we are fine", [], ["point today"]),
+    ],
+)  # fmt: skip
+def test_spoken_urls_with_paths_and_split_names(line, hidden, visible):
+    out = body(redact(f"A: {line}\nA: ok\n")[0])
+    assert not any(h in out for h in hidden)
+    assert all(v in out for v in visible)

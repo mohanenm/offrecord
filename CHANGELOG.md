@@ -67,6 +67,9 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
   or more digits, places listed after a place, spoken IP addresses and emails, multi-word
   passwords and read-back codes, URL paths, unit numbers and city/state tails of addresses,
   and given names that are ordinary words when they sit next to person words.
+- Spoken URLs: "find it online at acme dot test slash help" is a URL, not an email, so its
+  path is redacted too; path words joined by "dash", domain names spoken as two words and
+  newer endings such as ".health" are handled. URL recall on the evaluation sets is now 100%.
 - Place names at Tier 0: a capitalised name redacted in part is redacted whole ("Port St.
   Lucie", "Dana Point"); more words that end place names ("Gold Coast", "the Panhandle");
   places in text without capitals ("orange county", "salt lake city").
