@@ -163,12 +163,14 @@ class FakeLlm:
     ("payload", "expect"),
     [
         (json.dumps({"spans": [{"line": 1, "text": "the only pharmacy chain we serve in Alaska",
-                                "category": "indirect_identifier"}]}), True),
+                                "kind": "organization"}]}), "flag"),
+        (json.dumps({"spans": [{"line": 1, "text": "the only pharmacy chain we serve in Alaska",
+                                "kind": "person"}]}), "redact"),
         # A paraphrase cannot be located in the line, so it is dropped.
         (json.dumps({"spans": [{"line": 1, "text": "a pharmacy we serve up north",
-                                "category": "indirect_identifier"}]}), False),
-        ("not json at all", False),  # malformed: nothing added, no crash
-        (json.dumps({"spans": [{"line": 9, "text": "Alaska", "category": "location"}]}), False),
+                                "kind": "organization"}]}), None),
+        ("not json at all", None),  # malformed: nothing added, no crash
+        (json.dumps({"spans": [{"line": 9, "text": "Alaska", "kind": "person"}]}), None),
     ],
 )  # fmt: skip
 def test_llm_detector_only_adds_located_spans(monkeypatch, payload, expect):
@@ -177,12 +179,12 @@ def test_llm_detector_only_adds_located_spans(monkeypatch, payload, expect):
 
     monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
     monkeypatch.setattr(people_mod, "INDIRECT_RES", [])  # only what the LLM adds
+    monkeypatch.setattr(llm_mod, "INDIRECT_RES", [])
     d = doc("Orla: We are the only pharmacy chain we serve in Alaska.\nOrla: ok\n")
     spans = detect_document(
         d, from_mapping({"models": {"tier": 2, "ner": [], "llm": "qwen3-1.7b-q4"}})
     )
-    found = any(s.category == "INDIRECT" for s in spans)
-    assert found is expect
+    assert {s.action for s in spans if s.category == "INDIRECT"} == ({expect} if expect else set())
 
 
 def test_tier_requires_installed_models(tmp_path, monkeypatch):
@@ -263,72 +265,16 @@ def test_topic_similarity_follows_topic_settings(monkeypatch, mode, expect):
     assert {s.action for s in spans if s.reason == "topic:similar"} == expect
 
 
-def _guess_spans():
-    from offrecord.model import Span, turn_field_id
-
-    fid = turn_field_id(0, "text")
-    text = "We met Zorbleth about the frobnicate plan."
-    spans = [
-        Span(fid, 7, 15, "NAME", "people.unknown", 0.4, None, "unknown-word"),
-        Span(fid, 26, 36, "NAME", "people.unknown", 0.4, None, "unknown-word"),
-        Span(fid, 0, 2, "PERSON", "ner.x", 0.9, None, "ner:x"),
-    ]
-    return spans, {fid: text}
-
-
 @pytest.mark.parametrize(
-    ("payload", "actions"),
+    ("sentence", "asked"),
     [
-        ('{"keep": [1]}', ["redact", "flag", "redact"]),  # "frobnicate" judged ordinary
-        ('{"keep": [1, 2]}', ["redact", "redact", "redact"]),
-        ("not json", ["redact", "redact", "redact"]),  # unusable answer: nothing changes
+        ("Talk to the night nurse about it.", True),
+        ("We're their sole stockist up north.", True),
+        ("That works for me, thanks.", False),
+        ("My husband picked it up.", False),  # the rules already cover it
     ],
 )
-def test_verify_guesses_only_demotes_rejected_guesses(monkeypatch, payload, actions):
-    from offrecord.redact.detectors import llm as llm_mod
+def test_llm_only_sees_candidate_sentences(sentence, asked):
+    from offrecord.redact.detectors.llm import candidate
 
-    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
-    spans, texts = _guess_spans()
-    out = llm_mod.verify_guesses(spans, texts, from_mapping({}))
-    assert [s.action for s in out] == actions
-    assert len(out) == len(spans)  # never dropped
-
-
-def test_coherence_report_returns_indices_only(monkeypatch):
-    from offrecord.redact.detectors import llm as llm_mod
-
-    payload = json.dumps({"unclear": [{"line": 2, "reason": "too_many_placeholders"},
-                                      {"line": 9, "reason": "meaning_lost"}]})  # fmt: skip
-    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
-    cfg = from_mapping({})
-    assert llm_mod.coherence_report(["Hi <P1>.", "<P2> <C1> <AMT1>.", "Ok."], cfg) == (
-        [(1, "too_many_placeholders")],
-        0,
-    )
-    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm("{bad"))
-    assert llm_mod.coherence_report(["Hi.", "Ok."], cfg) == ([], 2)  # counted as unchecked
-
-
-def test_tier2_switches_must_be_booleans():
-    with pytest.raises(UsageError):
-        from_mapping({"models": {"verify_guesses": "yes"}})
-    assert from_mapping({"models": {"coherence_check": False}}).coherence_check is False
-
-
-def test_verifier_cannot_unredact_other_detectors(monkeypatch):
-    """A rejecting (or prompt-injected) answer may only turn Tier 0 guesses into flags: a
-    deny-list name merged with a guess stays redacted."""
-    from offrecord.redact.detectors import llm as llm_mod
-
-    monkeypatch.setattr(ner_mod, "load_model", lambda name, threads=1: FakeGliner())
-    monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm('{"keep": []}'))
-    monkeypatch.setattr(llm_mod.LlmDetector, "detect", lambda self, w: iter(()))
-    d = doc("Orla: The Acme Quantrelix team called.\nOrla: Quantrelix again.\n")
-    cfg = {"denylist": [{"name": "Acme", "category": "CLIENT"}],
-           "models": {"tier": 2, "ner": ["gliner-small-v2.1"]}}  # fmt: skip
-    spans = detect_document(d, from_mapping(cfg))
-    t0 = d.turns[0].text
-    red0 = [t0[s.start : s.end] for s in spans if s.field[1] == "0" and s.action == "redact"]
-    assert any("Acme" in r for r in red0)
-    flagged = {s.field[1] for s in spans if s.reason == "unknown-word:llm-no"}
-    assert flagged == {"0", "1"}  # one decision for the word, applied everywhere
+    assert candidate(sentence) is asked

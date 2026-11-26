@@ -128,10 +128,6 @@ def detect_document(doc: Document, config: Config) -> list[Span]:
     spans.extend(_propagate_rule_names(spans, texts))
     spans = anchor_personal_topics(spans, texts)
     spans = apply_protection(spans, cfg)
-    if cfg.tier >= 2 and cfg.verify_guesses:
-        from offrecord.redact.detectors.llm import verify_guesses
-
-        spans = verify_guesses(spans, texts, cfg)  # before merging: see its docstring
     return merge(spans, texts)
 
 

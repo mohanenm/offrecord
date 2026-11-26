@@ -109,11 +109,11 @@ def run_llm(monkeypatch, text, outputs):
 
 def test_llm_offsets_survive_case_folding_and_repeats(monkeypatch):
     weird = chr(0x130) * 4  # a capital dotted I lower-cases to two characters
-    payload = json.dumps({"spans": [{"line": 1, "text": "Zandrel Quist", "category": "person"}]})
-    text = f"A: {weird} said Zandrel Quist would sign and Zandrel Quist agreed.\nA: ok\n"
+    payload = json.dumps({"spans": [{"line": 1, "text": "the night porter", "kind": "person"}]})
+    text = f"A: {weird} said the night porter would sign and The Night Porter agreed.\nA: ok\n"
     d, spans = run_llm(monkeypatch, text, [(payload, "stop")])
     t = d.turns[0].text
-    assert [t[s.start : s.end] for s in spans] == ["Zandrel Quist", "Zandrel Quist"]
+    assert [t[s.start : s.end] for s in spans] == ["the night porter", "The Night Porter"]
 
 
 @pytest.mark.parametrize("content", ['[{"line": 1}]', '{"spans": null}', '{"spans": [5, "x"]}'])
@@ -123,8 +123,8 @@ def test_llm_odd_json_never_crashes(monkeypatch, content):
 
 
 def test_llm_truncated_output_retried_in_halves(monkeypatch):
-    payload = json.dumps({"spans": [{"line": 1, "text": "Zorbatek", "category": "organization"}]})
-    text = "A: We met Zorbatek today. And Quaxmoor called back later.\nA: ok\n"
+    payload = json.dumps({"spans": [{"line": 1, "text": "the night porter", "kind": "person"}]})
+    text = "A: We met the night porter today. And their sole stockist called back later.\nA: ok\n"
     outputs = [("{", "length"), (payload, "stop"), ('{"spans": []}', "stop")]
     _d, spans = run_llm(monkeypatch, text, outputs)
     assert len(spans) == 1
