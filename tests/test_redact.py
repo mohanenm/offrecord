@@ -414,3 +414,28 @@ def test_ordinary_word_names_next_to_person_words(text, name, redacted):
     red, _ = redact(text, cfg={})
     words = " ".join(t.text for t in red.turns).replace(",", " ").split()
     assert (name not in words) == redacted
+
+
+@pytest.mark.parametrize(
+    ("text", "kept"),
+    [
+        ("the general manager approved the budget\nin general the manager is happy", "in general"),
+        ("i was talking to miss okafor\nwe cannot miss the deadline", "cannot miss the deadline"),
+        ("Dr. Haldane approved it.\nApproved items go out today.", "Approved items"),
+        ("A: The code is ready.\n", "The code is ready."),
+        ("A: The area code is a mess.\n", "The area code is a mess."),
+        ("A: The dress code is business casual.\n", "business casual"),
+        ("A: The password is required.\n", "The password is required."),
+        ("A: Our office is 12 Harbor Road and we cover it.\n", "and we cover it"),
+        ("A: The quarter ending 2026 was good.\n", "ending 2026"),
+        ("A: Customers arrive at the front desk dash in and out all day.\n", "front desk dash in"),
+        ("A: The version is two dot four dot one dot seven.\n", "two dot four"),
+        ("A: The Pound took a hit.\n", "The Pound"),
+        ("A: Crystal Reports is slow.\n", "Crystal Reports"),
+        ("A: Revenue hit 4500, up from 3900.\n", "4500"),
+        ("A: Targets for Q4 FY25 are set.\n", "Q4 FY25"),
+    ],
+)
+def test_everyday_speech_is_not_taken_for_pii(text, kept):
+    red, _ = redact(text, cfg={})
+    assert kept in " ".join(t.text for t in red.turns)

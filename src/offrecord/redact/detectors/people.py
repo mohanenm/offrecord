@@ -40,6 +40,14 @@ STRONG_CUES = re.compile(
 )
 # Titles and strong cues: the next one or two words are a name, whatever they are.
 INTRO_CUE = re.compile(r"(?i)(?:my\s+name|name's|this\s+is|i'm|named|called)\b")
+TITLE_WORDS = frozenset(
+    "mr mrs ms miss mx dr doctor prof professor sgt sergeant lt lieutenant capt captain col "
+    "colonel gen general officer detective det agent judge justice father fr sister brother rev "
+    "reverend pastor rabbi imam coach mayor senator sen rep governor gov president dean nurse "
+    "aunt uncle lord lady sir dame madam".split()
+)
+# A capitalised common word right after these is a thing, not a person ("The Pound", "our Chase").
+DETERMINERS = frozenset("the a an this that these those our my your his her their its".split())
 TITLE_CUE = re.compile(
     r"(?i)\b(?:my\s+name\s+is|my\s+name's|name's|this\s+is|i'm|named|called|"
     r"mr|mrs|ms|miss|mx|dr|doctor|prof|professor|sgt|sergeant|lt|lieutenant|capt|captain|"
@@ -219,17 +227,24 @@ class PeopleDetector:
     def _titles(self, f: Field, text: str) -> Iterator[Span]:
         for m in TITLE_CUE.finditer(text):
             words = m.group("name").split()
+            intro = INTRO_CUE.match(m.group()) is not None
             take = []
             for w in words:
                 if w.lower() in FUNCTION_WORDS:
+                    break
+                # After a title word ("general", "agent", "miss" are ordinary words too), only a
+                # capitalised or non-dictionary word is a name: "Dr. Haldane approved" stops at
+                # "approved", "the general manager" takes nothing. "my name is grace" is enough.
+                if not intro and not w[:1].isupper() and is_common(w):
                     break
                 take.append(w)
             if not take:
                 continue
             # An honorific is part of the name ("Dr. Haldane"); a phrase like "my name is" is not.
-            s = m.start("name") if INTRO_CUE.match(m.group()) else m.start()
+            s = m.start("name") if intro else m.start()
             e = m.start("name") + len(" ".join(take))
-            yield Span(f.id, s, e, "PERSON", "people.title", 0.6, None, "person:title", view="norm")
+            yield Span(f.id, s, e, "PERSON", "people.title", 0.6, None,
+                       "person:intro" if intro else "person:title", view="norm")  # fmt: skip
         for m in INITIALS.finditer(text):
             if NOT_INITIALS.match(m.group()):
                 continue
@@ -250,11 +265,13 @@ class PeopleDetector:
         for m in CUES.finditer(text):
             words = m.group("name").split()
             strong = bool(STRONG_CUES.match(m.group()))
-            take = []
+            take: list[str] = []
             for w in words:
                 lw = w.lower()
                 if lw in FUNCTION_WORDS:
                     break
+                if take and not w[:1].isupper() and is_common(lw):
+                    break  # a second name word must look like one: "Dr. Haldane approved"
                 if (not is_common(lw) or lw in self.proper or strong) and len(w) >= 2:
                     take.append(w)
                 else:
@@ -329,39 +346,46 @@ class PeopleDetector:
                 last_place = toks[k - 1].end()
             i = j
 
-    def _person_context(self, text: str, m: re.Match[str], lw: str) -> bool:
-        """A known given name that is also a common word, next to a word that is said of or
-        to a person, in any case: "tell mark", "thanks grace", "hope said", "Will took"."""
+    def _ordinary_word_name(self, text: str, m: re.Match[str], lw: str, mixed: bool) -> str:
+        """For a known given name that is also a common word ("Grace", "Hope", "mark"): the
+        reason it reads as a name here, or "" if it does not. Capitalised mid-sentence in
+        mixed-case text, or next to a word said of or to a person ("tell mark", "hope said"),
+        but never right after a determiner ("the Pound") or before another capitalised word
+        ("Crystal Reports")."""
         if lw not in self.proper or lw in FUNCTION_WORDS or lw in CALENDAR:
-            return False
-        before = text[max(0, m.start() - 16) : m.start()]
-        after = text[m.end() : m.end() + 24]
-        return bool(PERSON_BEFORE.search(before) or PERSON_AFTER.match(after))
-
-    def _capitalised_name(self, text: str, m: re.Match[str], lw: str) -> bool:
-        """A known given name that is also a common word ("Grace", "Will", "Hope") counts as a
-        name when it is capitalised in the middle of a sentence of mixed-case text."""
+            return ""
+        before = text[max(0, m.start() - 24) : m.start()]
+        prev = before.split()[-1].lower() if before.split() else ""
+        if prev in DETERMINERS:
+            return ""
+        nxt = text[m.end() : m.end() + 24].split()
         w = m.group()
-        if lw not in self.proper or lw in FUNCTION_WORDS or lw in CALENDAR or not w[:1].isupper():
-            return False
-        if w.isupper() and len(w) > 1:
-            return False  # all capitals: no information
-        before = text[: m.start()].rstrip()
-        # Not at a sentence start, and only in a field that has lower case at all.
-        return bool(before) and before[-1] not in ".!?:\"'\n" and any(c.islower() for c in text)
+        if (
+            mixed
+            and w[:1].isupper()
+            and not w.isupper()
+            and before.strip()
+            and before.rstrip()[-1] not in ".!?:\"'\n"
+            and not (nxt and nxt[0][:1].isupper())
+        ):
+            return "person:capitalised-name"
+        after = text[m.end() : m.end() + 24]
+        if PERSON_BEFORE.search(before) or PERSON_AFTER.match(after):
+            return "person:context"
+        return ""
 
     def _tokens(self, f: Field, text: str) -> Iterator[Span]:
         toks = list(TOKEN_RE.finditer(text))
+        mixed = any(c.islower() for c in text) and any(c.isupper() for c in text)
         for i, m in enumerate(toks):
             w = m.group()
             lw = w.lower().removesuffix("'s")
             if len(lw) < 3:
                 continue
-            if is_common(lw) and (
-                self._capitalised_name(text, m, lw) or self._person_context(text, m, lw)
-            ):
+            reason = self._ordinary_word_name(text, m, lw, mixed) if is_common(lw) else ""
+            if reason:
                 yield Span(f.id, m.start(), m.end(), "PERSON", "people.proper", 0.5, None,
-                           "person:capitalised-name", view="norm")  # fmt: skip
+                           reason, view="norm")  # fmt: skip
                 continue
             if is_common(lw):
                 # Given name + surname even when both are dictionary words ("Mark Brown",

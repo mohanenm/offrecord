@@ -162,29 +162,54 @@ def _propagate_model_names(spans: list[Span], texts: dict[FieldId, str]) -> list
 
 
 def _propagate_rule_names(spans: list[Span], texts: dict[FieldId, str]) -> list[Span]:
-    """A person's name found by a cue, a title, a speaker label or the deny-list is redacted in
-    its other mentions too: capitalised mentions anywhere, and every mention in a field with no
-    capital letters at all (speech-to-text output), where case gives nothing away."""
-    from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS
+    """A person's name found by the name rules is redacted in its other mentions too.
 
-    found: set[str] = set()
+    Strong evidence (a speaker label, the deny-list, "my name is", a full name) and names that
+    are not dictionary words spread to capitalised mentions anywhere and to every mention in a
+    field with no capital letters (speech-to-text output). A single-word guess that is also an
+    ordinary word ("Grant", "Lane") spreads only to capitalised mentions in mixed-case text, so
+    one guess never hides "grant" or "lane" in their everyday sense."""
+    from offrecord.redact.detectors.people import TITLE_WORDS
+    from offrecord.redact.wordlists import CALENDAR, FUNCTION_WORDS, is_common
+
+    sources = ("person:intro", "person:cue", "person:title", "person:name-bigram",
+               "person:capitalised-name", "person:context")  # fmt: skip
+    wide: set[str] = set()  # spread to every mention in lower-case fields too
+    narrow: set[str] = set()  # spread to capitalised mentions in mixed-case fields only
     for s in spans:
         if s.category != "PERSON" or s.action != "redact":
             continue
-        if not s.detector.startswith(("people.", "denylist")) or s.reason == "person:proper-name":
+        if not (s.detector in ("people.speaker", "denylist") or s.reason in sources):
             continue
-        for tok in re.findall(r"[^\W\d_]+", texts.get(s.field, "")[s.start : s.end]):
+        toks = re.findall(r"[^\W\d_]+", texts.get(s.field, "")[s.start : s.end])
+        names = [t for t in toks if t.casefold() not in TITLE_WORDS]
+        strong = (
+            s.detector in ("people.speaker", "denylist")
+            or s.reason == "person:intro"
+            or len(names) >= 2
+        )
+        for tok in names:
             t = tok.casefold()
-            if len(t) >= 3 and t not in FUNCTION_WORDS and t not in CALENDAR:
-                found.add(t)
-    if not found:
+            if len(t) < 3 or t in FUNCTION_WORDS or t in CALENDAR:
+                continue
+            (wide if strong or not is_common(t) else narrow).add(t)
+    narrow -= wide
+    if not wide and not narrow:
         return []
-    rx = re.compile(r"(?<!\w)(?:" + "|".join(sorted(map(re.escape, found))) + r")(?!\w)", re.I)
+    rx = re.compile(r"(?<!\w)(?:" + "|".join(sorted(map(re.escape, wide | narrow))) + r")(?!\w)",
+                    re.I)  # fmt: skip
     out = []
     for fid, text in texts.items():
         lower_field = not any(c.isupper() for c in text)
+        mixed = not lower_field and any(c.islower() for c in text)
         for m in rx.finditer(text):
-            if lower_field or m.group()[:1].isupper():
+            w = m.group()
+            capital = w[:1].isupper()
+            if w.casefold() in wide:
+                ok = lower_field or capital
+            else:
+                ok = mixed and capital and not w.isupper()
+            if ok:
                 out.append(Span(fid, m.start(), m.end(), "PERSON", "people.propagate", 0.5, None,
                                 "person:repeat"))  # fmt: skip
     return out
