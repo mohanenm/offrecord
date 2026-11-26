@@ -19,7 +19,10 @@ from offrecord.redact.detectors.dates import find_dates
 
 TLDS = (
     "com|org|net|io|co|edu|gov|mil|int|uk|us|de|fr|ca|au|in|biz|info|ai|app|dev|me|ly|nl|es|it|"
-    "jp|ch|se|no|eu|tv|xyz|cloud|tech|example|test|invalid|local|internal|corp|ie|nz|sg|za|br|mx"
+    "jp|ch|se|no|eu|tv|xyz|cloud|tech|example|test|invalid|local|internal|corp|ie|nz|sg|za|br|mx|"
+    "health|care|clinic|dental|law|legal|insurance|bank|finance|shop|store|online|site|agency|"
+    "studio|solutions|services|network|digital|media|systems|group|academy|school|events|"
+    "travel|energy|realty|properties"
 )
 EMAIL = re.compile(r"(?<![\w.+-])[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+")
 PHONE_SEP = re.compile(

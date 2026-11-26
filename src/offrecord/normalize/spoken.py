@@ -457,11 +457,25 @@ TLDS = {
     "eu", "tv", "xyz", "cloud", "tech", "example", "test", "invalid", "local", "internal",
     "ie", "nz", "sg", "za", "br", "mx", "pl", "be", "at", "dk", "fi", "pt", "gr", "kr", "cn",
 }  # fmt: skip
+# Newer endings that are also ordinary words: only after a literal "dot" ("acme dot health"),
+# never "point" or "period" ("at this point today").
+WORD_TLDS = {
+    "health", "care", "clinic", "dental", "law", "legal", "insurance", "bank", "finance",
+    "shop", "store", "online", "site", "agency", "studio", "solutions", "services", "network",
+    "digital", "media", "systems", "group", "academy", "school", "events", "travel", "energy",
+    "realty", "properties",
+}  # fmt: skip
 _DOT = {"dot", "period", ".", "point"}
 _AT = {"at", "@"}
 _LOCAL_JOIN = {"dot": ".", "period": ".", ".": ".", "underscore": "_", "_": "_",
                "dash": "-", "hyphen": "-", "-": "-"}  # fmt: skip
 _STOP_LOCAL = {"me", "us", "him", "her", "them", "is", "it's", "email", "mail", "address"}
+# Words that never join a domain label spoken as two words ("acme health dot org").
+_NOT_LABEL = {
+    "site", "website", "page", "link", "url", "visit", "go", "at", "to", "is", "on", "our",
+    "the", "their", "your", "my", "new", "web", "online", "check", "email",
+}  # fmt: skip
+_PATH_JOIN = {"dash": "-", "hyphen": "-", "underscore": "_", "-": "-", "_": "_"}
 
 
 _DOMAIN_TOKEN_RE = re.compile(r"[^\W_]+(?:-[^\W_]+)*(?:'s)?|[^\w\s]|_")
@@ -484,7 +498,9 @@ def spoken_email_url(text: str) -> list[Edit]:
     used_until = -1
     for k, t in enumerate(toks):
         tld = _strip_possessive(t.low)
-        if k <= used_until or tld not in TLDS or k < 2 or toks[k - 1].low not in _DOT:
+        if k <= used_until or k < 2 or toks[k - 1].low not in _DOT:
+            continue
+        if tld not in TLDS and not (tld in WORD_TLDS and toks[k - 1].low == "dot"):
             continue
         # Only rewrite if at least one separator is spoken (otherwise it is already literal).
         # Walk back over "label dot label dot tld".
@@ -492,15 +508,29 @@ def spoken_email_url(text: str) -> list[Edit]:
         domain = [_strip_possessive(t.text)]
         spoken = toks[k - 1].low != "."
         while j - 2 >= 0 and toks[j - 1].low in _DOT and _is_label(toks[j - 2]) and len(domain) < 6:
-            domain.insert(0, toks[j - 2].text)
+            label = toks[j - 2].text
             spoken = spoken or toks[j - 1].low != "."
             j -= 2
+            # Speech-to-text often splits a name: "acme health dot org" -> acmehealth.org.
+            if (
+                spoken
+                and j - 1 >= 0
+                and _is_label(toks[j - 1])
+                and toks[j - 1].low not in _NOT_LABEL
+                and toks[j - 1].low not in _STOP_LOCAL
+                and toks[j - 1].end + 1 == toks[j].start
+            ):
+                label = toks[j - 1].text + label
+                j -= 1
+            domain.insert(0, label)
         if len(domain) < 2:
             continue
         start_tok = j
         result = ".".join(d.lower() for d in domain)
-        # Email: "local at domain"
-        if j - 2 >= 0 and toks[j - 1].low in _AT:
+        # Email: "local at domain". A path after the domain makes it a URL ("find it online at
+        # acme dot com slash help").
+        path_next = k + 1 < len(toks) and toks[k + 1].low in ("slash", "/")
+        if j - 2 >= 0 and toks[j - 1].low in _AT and not path_next:
             spoken = spoken or toks[j - 1].low == "at"
             local: list[str] = []
             m = j - 2
@@ -529,6 +559,14 @@ def spoken_email_url(text: str) -> list[Edit]:
                 result += "/" + toks[end_tok + 2].low
                 spoken = True
                 end_tok += 2
+                # "slash pricing dash plans" -> /pricing-plans
+                while (
+                    end_tok + 2 < len(toks)
+                    and toks[end_tok + 1].low in _PATH_JOIN
+                    and toks[end_tok + 2].low.isalnum()
+                ):
+                    result += _PATH_JOIN[toks[end_tok + 1].low] + toks[end_tok + 2].low
+                    end_tok += 2
         if not spoken:
             continue
         edits.append((toks[start_tok].start, toks[end_tok].end, result))
