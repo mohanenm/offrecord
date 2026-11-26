@@ -118,3 +118,5 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 - A mapping or audit file with a malformed header (a non-numeric version, key-derivation
   settings that are not a mapping or lack a parameter) now fails with E_MAPPING instead of an
   internal error.
+- Source text that looks like a placeholder but uses non-ASCII digits (Arabic-Indic, for
+  example) is no longer escaped, so it comes back unchanged after restore.

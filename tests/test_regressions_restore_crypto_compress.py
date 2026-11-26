@@ -53,7 +53,18 @@ def test_restored_values_are_not_restored_again():
 
 
 # Escaping covers every form restore accepts; compression cannot create placeholders.
-@pytest.mark.parametrize("src", ["&lt;P1&gt; here", "<P1>", f"<{BS}P1>", f"{BS}u003cP1{BS}u003e"])
+@pytest.mark.parametrize(
+    "src",
+    [
+        "&lt;P1&gt; here",
+        "<P1>",
+        f"<{BS}P1>",
+        f"{BS}u003cP1{BS}u003e",
+        f"<C{ARABIC_ONE}>",  # non-ASCII digits are not placeholder-like: neither side touches them
+        f"<{BS}C{ARABIC_ONE}>",
+        f"&lt;P1{ARABIC_ONE}&gt;",
+    ],
+)
 def test_source_placeholder_forms_round_trip_literally(src):
     esc, _ = escape_placeholder_like(src)
     assert restore_text(esc, P, "id")[0] == src
