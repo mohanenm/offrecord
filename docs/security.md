@@ -65,7 +65,8 @@ Every other command installs a network guard (see below) before doing any work.
   and every error path.
 
 ### R3. A leaky dependency
-- Tier 0 has four runtime dependencies, all pinned; dev tools are pinned in lock files.
+- Tier 0 has four runtime dependencies, all pinned; dev tools and the optional extras, with all
+  their transitive dependencies, are pinned in lock files.
   `pip-audit`, dependency review and CodeQL run in CI, and Dependabot proposes updates weekly.
 - Runtime network guard: every command except `setup` installs it before work starts.
   A `sys.addaudithook` hook (fires from C, so direct `_socket` use is covered too) blocks

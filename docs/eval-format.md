@@ -49,6 +49,11 @@ to run on a folder that does not match. A CI job also fails if any commit after 
 touches the sealed set. `offrecord eval --set sealed` refuses to run without `--final-check`,
 which is meant to be used once per release cycle, after all tuning is done.
 
+A test, `tests/test_recall_floor.py`, scores Tier 0 on `tuning` and `validation` on every
+test run. It fails if PII recall drops below 0.99 on tuning or 0.98 on validation, if any PII
+category with at least 20 validation labels drops below 0.90, or if character precision on
+validation drops below 0.85.
+
 ### Release check (fixed before the next sealed set is written)
 
 The next release is scored once on a new sealed set, at every tier, with no changes in
