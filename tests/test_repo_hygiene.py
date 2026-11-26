@@ -41,6 +41,28 @@ def test_runtime_imports_are_declared_dependencies():
         assert f'"{pkg}==' in text, pkg
 
 
+def test_lock_files_match_pinned_extras():
+    """CI installs and audits the extras from the lock files, so a pin bumped in pyproject.toml
+    without refreshing its lock would test and audit the old version."""
+    import re
+
+    def norm(name: str) -> str:
+        return re.sub(r"[-_.]+", "-", name).lower()
+
+    text = ROOT.joinpath("pyproject.toml").read_text(encoding="utf-8")
+    for extra, lock in (("dev", "dev.lock"), ("ner", "ner.lock"), ("llm", "llm.lock")):
+        block = re.search(rf"^{extra} = \[\n(.*?)^\]", text, re.M | re.S)
+        assert block, extra
+        pins = {norm(n): v for n, v in re.findall(r'"([\w.-]+)==([^"]+)"', block.group(1))}
+        assert pins, extra
+        locked = {}
+        for line in ROOT.joinpath("requirements", lock).read_text().splitlines():
+            if "==" in line and not line.startswith("#"):
+                name, _, version = line.partition("==")
+                locked[norm(name)] = version.strip()
+        assert {n: locked.get(n) for n in pins} == pins, lock
+
+
 def _check_hygiene():
     import importlib.util
 
