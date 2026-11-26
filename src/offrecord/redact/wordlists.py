@@ -75,7 +75,7 @@ CALENDAR = frozenset(
 BUSINESS_WORDS = frozenset(
     "pct euro euros analytics lender lenders valuation regulator regulators deposition "
     "depositions prep pre onboarding offboarding upsell upsells kpi kpis roi saas b2b b2c "
-    "ebitda capex opex headcount payroll invoicing reconciliation".split()
+    "ebitda capex opex headcount payroll invoicing reconciliation outage outages".split()
 )
 
 
