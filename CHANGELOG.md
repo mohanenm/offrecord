@@ -115,3 +115,6 @@ All notable changes. Format based on Keep a Changelog. Versions are unreleased u
 - Unknown config keys, at the top level, in `topics`, `detect` and `models` and in deny-list
   entries, are now an error instead of being ignored: `protekt: confidential` used to run
   with business context left readable. A near miss of a known key gets a suggestion.
+- A mapping or audit file with a malformed header (a non-numeric version, key-derivation
+  settings that are not a mapping or lack a parameter) now fails with E_MAPPING instead of an
+  internal error.

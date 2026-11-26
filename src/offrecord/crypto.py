@@ -70,6 +70,8 @@ def _unb64(s: str) -> bytes:
 
 
 def derive_key(secret: Secret, kdf: dict[str, Any]) -> bytes:
+    if not isinstance(kdf, dict):
+        raise MappingError("mapping header is malformed")
     salt = _unb64(str(kdf.get("salt", "")))
     if len(salt) != SALT_BYTES:
         raise MappingError("mapping header is malformed")
@@ -81,7 +83,10 @@ def derive_key(secret: Secret, kdf: dict[str, Any]) -> bytes:
                     f"set {PASSPHRASE_ENV}"
                 )
             raise MappingError("this mapping was encrypted with a passphrase, not a key file")
-        n, r, p = int(kdf["n"]), int(kdf["r"]), int(kdf["p"])
+        try:
+            n, r, p = int(kdf["n"]), int(kdf["r"]), int(kdf["p"])
+        except (KeyError, TypeError, ValueError, OverflowError):
+            raise MappingError("mapping header is malformed") from None
         # Only parameters this version writes: a crafted header must not be able to demand
         # gigabytes of memory or minutes of CPU before decryption fails.
         if not (2**14 <= n <= 2**18 and n & (n - 1) == 0 and r == SCRYPT_R and p == SCRYPT_P):
@@ -120,13 +125,19 @@ def read_header(data: bytes, kind: str) -> dict[str, Any]:
         first, header, _token = data.split(b"\n", 2)
         magic, version = first.decode("ascii").split(" ")
         hdr = json.loads(header.decode("ascii"))
-    except (ValueError, UnicodeError):
+    except (ValueError, UnicodeError, RecursionError):
         raise MappingError("not an offrecord mapping file, or it is corrupted") from None
     if magic != MAGIC[kind]:
         raise MappingError(f"not an offrecord {kind} file")
-    if int(version) != FORMAT_VERSION:
+    if not version.isascii() or not version.isdigit():
+        raise MappingError("not an offrecord mapping file, or it is corrupted")
+    if version != str(FORMAT_VERSION):
         raise MappingError("unsupported mapping file version")
-    if not isinstance(hdr, dict) or "id" not in hdr or "kdf" not in hdr:
+    if not (
+        isinstance(hdr, dict)
+        and isinstance(hdr.get("id"), str)
+        and isinstance(hdr.get("kdf"), dict)
+    ):
         raise MappingError("mapping header is malformed")
     return hdr
 
@@ -141,8 +152,10 @@ def decrypt(data: bytes, kind: str, secret: Secret) -> tuple[str, dict[str, Any]
         raise MappingError(
             "cannot decrypt: wrong passphrase/key, or the file was modified"
         ) from None
-    except (ValueError, UnicodeError):
+    except (ValueError, UnicodeError, RecursionError):
         raise MappingError("decrypted mapping is malformed") from None
+    if not isinstance(body, dict) or not isinstance(body.get("payload"), dict):
+        raise MappingError("decrypted mapping is malformed")
     if (
         body.get("id") != hdr["id"]
         or body.get("version") != FORMAT_VERSION

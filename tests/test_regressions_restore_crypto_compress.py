@@ -84,6 +84,59 @@ def test_crafted_scrypt_parameters_refused():
     assert time.perf_counter() - t0 < 1.0
 
 
+def _with_header(blob: bytes, first: bytes | None = None, header: bytes | None = None) -> bytes:
+    old_first, old_header, rest = blob.split(b"\n", 2)
+    return (first or old_first) + b"\n" + (header or old_header) + b"\n" + rest
+
+
+def _scrypt_header(**params: object) -> bytes:
+    kdf = {"name": "scrypt", "salt": "AAAAAAAAAAAAAAAAAAAAAA==", **params}
+    return json.dumps({"id": "or1-x", "kdf": kdf}).encode()
+
+
+@pytest.mark.parametrize(
+    ("first", "header"),
+    [
+        (b"OFFRECORD-MAP x", None),  # version not a number
+        (b"OFFRECORD-MAP " + chr(0x661).encode(), None),  # non-ASCII digit
+        (b"OFFRECORD-MAP " + b"9" * 5000, None),  # too many digits for int()
+        (b"OFFRECORD-MAP 1 2", None),
+        (None, b'{"id": "or1-x", "kdf": "scrypt"}'),  # kdf not a mapping
+        (None, b'{"id": "or1-x", "kdf": ["scrypt"]}'),
+        (None, b'{"id": "or1-x", "kdf": null}'),
+        (None, b'{"id": 7, "kdf": {}}'),
+        (None, b'{"id": "or1-x"}'),
+        (None, b"[1, 2]"),
+        (None, b"[" * 100_000),
+        (None, b"\xff\xfe"),
+        (None, _scrypt_header()),  # parameters missing
+        (None, _scrypt_header(n="lots", r=8, p=1)),
+        (None, _scrypt_header(n=[1], r=8, p=1)),
+        (None, _scrypt_header(n=float("inf"), r=8, p=1)),
+    ],
+)
+def test_malformed_mapping_headers_are_mapping_errors(first, header):
+    pw = crypto.Secret("passphrase", b"correct horse battery staple")
+    blob = crypto.encrypt("map", "or1-x", {"entries": {}}, pw, scrypt_n=2**14)
+    with pytest.raises(MappingError) as ei:
+        crypto.decrypt(_with_header(blob, first, header), "map", pw)
+    assert "or1-x" not in str(ei.value) and "scrypt" not in str(ei.value)
+
+
+def test_malformed_mapping_header_exit_code(home, capsys):
+    tmp, key = home
+    blob = crypto.encrypt("map", "or1-x", {"entries": {}}, crypto.load_key_file(key))
+    m = tmp / "bad.ormap"
+    m.write_bytes(_with_header(blob, header=b'{"id": "or1-x", "kdf": "hkdf-sha256"}'))
+    ans = tmp / "ans.txt"
+    ans.write_text("see <C1>")
+    capsys.readouterr()
+    args = ["restore", str(ans), "--mapping", str(m), "--key-file", str(key), "--assume-mapping"]
+    assert main(args) == ExitCode.MAPPING
+    err = capsys.readouterr().err
+    assert "E_MAPPING" in err and "internal error" not in err
+
+
 # Compression must not reverse meaning.
 def test_negation_is_not_a_duplicate():
     d = doc(
