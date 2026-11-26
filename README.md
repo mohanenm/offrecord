@@ -255,5 +255,7 @@ Threat model and the defence for each risk: [docs/security.md](https://github.co
 
 Apache License 2.0: see [LICENSE](https://github.com/mohanenm/offrecord/blob/main/LICENSE). The bundled word lists come from SCOWL under their
 own permissive licence ([src/offrecord/data/LICENSE-SCOWL.txt](https://github.com/mohanenm/offrecord/blob/main/src/offrecord/data/LICENSE-SCOWL.txt)).
+They are SCOWL 2020.12.07 en_US entries (size 35 for common words; proper names and capitalised
+words up to size 70 and 50 for names), rebuilt exactly by `scripts/build_wordlists.py`.
 Optional models are downloaded by `offrecord setup` from their publishers under their own
 licences; none are redistributed here.
