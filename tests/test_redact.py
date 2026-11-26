@@ -439,3 +439,29 @@ def test_ordinary_word_names_next_to_person_words(text, name, redacted):
 def test_everyday_speech_is_not_taken_for_pii(text, kept):
     red, _ = redact(text, cfg={})
     assert kept in " ".join(t.text for t in red.turns)
+
+
+@pytest.mark.parametrize(
+    ("text", "phrase", "action"),
+    [
+        ("A: The patient in bed twelve asked again.\n", "patient in bed twelve", "redact"),
+        (
+            "A: Ask our only Tagalog-speaking assistant.\n",
+            "only Tagalog-speaking assistant",
+            "redact",
+        ),
+        ("A: My husband will drive.\n", "My husband", "redact"),
+        ("A: The vendor that went bust owes us.\n", "vendor that went bust", "flag"),
+        ("A: The only way to fix it is a reboot.\n", None, None),
+        ("A: The first thing we need is coffee.\n", None, None),
+    ],
+)
+def test_indirect_identifiers(text, phrase, action):
+    doc = adapters.get("txt").parse(text, Limits())
+    spans = [s for s in detect_document(doc, from_mapping({})) if s.category == "INDIRECT"]
+    if phrase is None:
+        assert not spans
+        return
+    t = doc.turns[0].text
+    hit = [s for s in spans if phrase in t[s.start : s.end]]
+    assert hit and hit[0].action == action

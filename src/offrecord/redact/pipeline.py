@@ -260,6 +260,8 @@ PERSONAL_TOPICS = frozenset({"topic:personal", "topic:similar-personal"})
 
 def is_personal(span: Span) -> bool:
     reason = (span.reason or "").split("+")[0]
+    if span.category == "INDIRECT":
+        return span.reason != "indirect:org"  # a description of a person, not of a company
     if span.detector.startswith(("denylist", "people.")):
         # Names you listed, and everything the name rules find (an organisation built on an
         # unknown word or surname, "Zandrow and Sons", is redacted like the name itself, so

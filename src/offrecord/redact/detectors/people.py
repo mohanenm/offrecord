@@ -110,6 +110,61 @@ PERSON_AFTER = re.compile(
     r"texted|emailed|is\s+out|was\s+out|is\s+off|will\s+cover|can\s+cover|covered|"
     r"agreed|signed|left|joined|and\s+i\b|and\s+me\b)"
 )
+# Indirect identifiers: a description that singles out one person or organisation without
+# naming it ("the patient in bed twelve", "our only Tagalog-speaking assistant", "the vendor that
+# went bust", "my husband"). Keyed on the head noun, so "the only way" or "the first thing" never
+# match. People are personal data; organisations are business context (flagged).
+_PERSON_NOUN = (
+    r"patient|man|men|woman|women|gentleman|lady|guy|girl|boy|kid|lad|lass|child|baby|daughter|"
+    r"son|wife|husband|brother|sister|mother|father|mum|mom|dad|stepdad|stepmum|stepmom|parent|"
+    r"partner|neighbou?r|tenant|guest|resident|driver|manager|assistant|nurse|doctor|registrar|"
+    r"surgeon|officer|teacher|intern|engineer|contractor|cashier|guard|keyholder|lead|supervisor|"
+    r"analyst|teller|chef|cook|attendant|owner|applicant|super|cio|cfo|ceo|coo|cto|counsel|pa|"
+    r"nephew|niece|couple|receptionist|clerk|technician|agent|rep|lodger|boss|colleague|worker|"
+    r"employee|volunteer|student|pupil|caller|landlord|landlady|person|fellow|chap|bloke|aide|"
+    r"carer|caregiver|coordinator|director|admin|operator|mechanic|electrician|plumber|builder|"
+    r"courier|porter|cleaner|janitor|secretary|grandson|granddaughter|ex-wife|ex-husband|"
+    r"boyfriend|girlfriend|fiance|fiancee|twins?|one"
+)
+_ORG_NOUN = (
+    r"store|shop|account|customer|client|vendor|supplier|hospital|system|credit\s+union|bank|"
+    r"firm|company|insurer|reseller|office|branch|site|plant|warehouse|academy|school|clinic|"
+    r"practice|restaurant|truck|station|hotel|agency|chain|distributor|party|contractor"
+)
+_QUALIFIER = (
+    r"who|whose|that|which|with\s+the|from\s+the|from|in|on|at|by|across|below|above|"
+    r"next\s+to|near|of\s+the|directly|two\s+doors|we|they|you"
+)
+_TAIL = r"(?:\s+(?!and\b|but\b|so\b)[\w'-]+){1,10}"
+_UNIQUE = (
+    r"only|sole|one|very\s+first|first|last|longest[- ]serving|longest[- ]staying|newest|oldest|"
+    r"youngest|biggest|largest|main|new"
+)
+INDIRECT_RES = [
+    # "the patient in bed twelve", "the vendor that went bust", "the wife of the man in bay C"
+    re.compile(
+        rf"(?i)\b(?:the|our|their|his|her|my|your)\s+(?:[\w'-]+\s+){{0,3}}?"
+        rf"(?P<head>{_PERSON_NOUN}|{_ORG_NOUN})s?\s+(?:{_QUALIFIER})\b{_TAIL}"
+    ),
+    # "our only male teaching assistant", "our longest-serving driver", "our very first customer"
+    re.compile(
+        rf"(?i)\b(?:the|our|their|his|her|my)\s+(?:{_UNIQUE})\s+(?:[\w'-]+\s+){{0,3}}?"
+        rf"(?P<head>{_PERSON_NOUN}|{_ORG_NOUN})s?\b(?:\s+(?:{_QUALIFIER})\b{_TAIL})?"
+    ),
+    # "my husband", "his brother-in-law", "the applicant's brother", "the owner's son"
+    re.compile(
+        r"(?i)\b(?:my|his|her|their|our|your|(?:the\s+)?[\w-]+'s)\s+(?:new\s+|old\s+|ex-)?"
+        r"(?P<head>wife|husband|daughter|son|brother|sister|mother|father|mum|mom|dad|stepdad|"
+        r"stepmum|stepmom|partner|boyfriend|girlfriend|fiance|fiancee|manager|boss|lodger|"
+        r"nephew|niece|grandson|granddaughter|brother-in-law|sister-in-law|union\s+rep|pa)\b"
+    ),
+    # "bed twelve", "bay C": a position standing for the person in it
+    re.compile(
+        r"(?i)\b(?P<head>bed|bay)\s+(?:[a-z]\b|\d{1,3}\b|(?:one|two|three|four|five|six|"
+        r"seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|twenty)\b)"
+    ),
+]
+_ORG_HEADS = re.compile(rf"(?i)^(?:{_ORG_NOUN})$")
 LIST_SEP = re.compile(r"\s*(?:,|,?\s*(?:and|or|&))\s*")
 # "our Leeds store", "our Tulsa office": "our" counts as a cue only before a site noun.
 OUR_SITE = re.compile(
@@ -213,6 +268,7 @@ class PeopleDetector:
             yield from self._titles(f, text)
             yield from self._tokens(f, text)
             yield from self._places(f, text)
+            yield from self._indirect(f, text)
             if f.kind in ("meta", "extra"):
                 yield from self._short_field(f, text)
 
@@ -283,6 +339,15 @@ class PeopleDetector:
             if len(take) == 2:
                 e = m.end("name")
             yield Span(f.id, s, e, "PERSON", "people.cue", 0.6, None, "person:cue", view="norm")
+
+    def _indirect(self, f: Field, text: str) -> Iterator[Span]:
+        for rx in INDIRECT_RES:
+            for m in rx.finditer(text):
+                org = bool(_ORG_HEADS.match(m.group("head")))
+                yield Span(f.id, m.start(), m.end(), "INDIRECT", "people.indirect", 0.4, None,
+                           "indirect:org" if org else "indirect:person",
+                           action="flag" if org else "redact",
+                           view="norm")  # fmt: skip
 
     def _places(self, f: Field, text: str) -> Iterator[Span]:
         for m in ROUTE_RE.finditer(text):

@@ -173,8 +173,10 @@ class FakeLlm:
 )  # fmt: skip
 def test_llm_detector_only_adds_located_spans(monkeypatch, payload, expect):
     from offrecord.redact.detectors import llm as llm_mod
+    from offrecord.redact.detectors import people as people_mod
 
     monkeypatch.setattr(llm_mod, "load_llm", lambda name, threads: FakeLlm(payload))
+    monkeypatch.setattr(people_mod, "INDIRECT_RES", [])  # only what the LLM adds
     d = doc("Orla: We are the only pharmacy chain we serve in Alaska.\nOrla: ok\n")
     spans = detect_document(
         d, from_mapping({"models": {"tier": 2, "ner": [], "llm": "qwen3-1.7b-q4"}})
